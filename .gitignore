@@ -106,10 +106,6 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/clion
 
-uplink/src/.linux-objs/
-uplink/src/dist/
-contrib/install/
-
 ### C/C++ ###
 # Prerequisites
 *.d
@@ -174,12 +170,18 @@ dkms.conf
 **/config.status
 **/Make.conf
 
+
+uplink/src/.linux-objs/
+uplink/src/dist/
 uplink/src/uplink-full-*.sh
 uplink/src/uplink-full-*.tar.gz
 uplink/src/uplink.full
 uplink/src/version.full
+uplink/src/symbols/uplink-*.txt
 
+contrib/install/
 contrib/FTGL-2.1.2/unix/libtool
 contrib/FTGL-2.1.2/unix/ftgl.pc
+contrib/FTGL-2.1.2/unix/docs/doc-stamp
 
-uplink/src/symbols/uplink-*.txt
+install/
