@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/SDL" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/SDL_mixer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/binreloc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/freetype" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/freetype/subprojects/dlg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/libtiff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/loki_setup" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/loki_setupdb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/mikmod" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/xz" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contrib/zlib" vcs="Git" />
+  </component>
+</project>
