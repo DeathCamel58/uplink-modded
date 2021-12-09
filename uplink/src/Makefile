@@ -403,8 +403,8 @@ dist-%:
 	#cp $(CONTRIB_DIR)/install/lib/libgltt.so.0 dist/$(DEST)/uplink/lib
 	cp $(CONTRIB_DIR)/install/lib/libfreetype.so.6 dist/$(DEST)/uplink/lib
 	cp $(CONTRIB_DIR)/install/lib/libftgl.so.0 dist/$(DEST)/uplink/lib
-	cp $(CONTRIB_DIR)/install/lib/libSDL-1.2.so.0 dist/$(DEST)/uplink/lib
-	cp $(CONTRIB_DIR)/install/lib/libSDL_mixer-1.2.so.0 dist/$(DEST)/uplink/lib
+	cp $(CONTRIB_DIR)/install/lib/libSDL2-2.0.so.0 dist/$(DEST)/uplink/lib
+	cp $(CONTRIB_DIR)/install/lib/libSDL2_mixer-2.0.so.0.2.2 dist/$(DEST)/uplink/lib
 	#cp $(CONTRIB_DIR)/install/lib/libmikmod.so.3 dist/$(DEST)/uplink/lib
 	#Removed cause problems on x86_64?
 	#cp /lib/libgcc_s.so.1  dist/$(DEST)/uplink/lib
