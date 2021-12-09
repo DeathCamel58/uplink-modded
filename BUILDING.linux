@@ -19,7 +19,11 @@ of commands easier:
 
 2. Contrib
 
+TODO: Remove autopackage dependency, as it's a dead project
 -Needs autopackage, http://www.autopackage.org/
+
+- Needs libftgl2 and libftgl-dev
+
 -Needs autoconf, automake, libtool, Debian: autoconf, automake1.9, libtool.
 -Needs x11 headers and extensions, Debian: libx11-dev, libxext-dev.
 -Needs OpenGL headers, Debian: libgl1-mesa-dev, libglu1-mesa-dev.
@@ -30,17 +34,7 @@ of commands easier:
 -For loki, libxml (Debian: libxml-dev), gtk 1 (Debian: libgtk1.2-dev), 
  libglade (Debian: libglade0-dev), ncurses (Debian: libncurses5-dev).
 
-%  cd $UPLINKROOT/contrib
-%  make
-
-3. Lib
-
-%  cd $UPLINKROOT/lib
-%  make
-
-4. Source
-
-%  cd $UPLINKROOT/uplink/src
+To build all :
 %  make
 
 Should produce uplink.full in $UPLINKROOT/uplink/src/ .

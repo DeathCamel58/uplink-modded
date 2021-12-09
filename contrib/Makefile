@@ -5,23 +5,24 @@ FREETYPE_DIR=freetype-current
 GLTT_DIR=gltt-2.5.2
 TCP4U_DIR=tcp4u.331
 IRCLIB_LINUX_DIR=irclib
-SDL_DIR=SDL-1.2.11_dev
-SDL_MIXER_DIR=SDL_mixer-1.2.7_patched
-TIFF_DIR=tiff-3.7.2
+SDL_DIR=SDL
+SDL_MIXER_DIR=SDL_mixer
+XZ_DIR=xz
+TIFF_DIR=libtiff
 JPEG_DIR=libjpeg6b-6b
-ZLIB_DIR=zlib-1.2.2
-MIKMOD_DIR=libmikmod
+ZLIB_DIR=zlib
+MIKMOD_DIR=mikmod
 LOKI_SETUPDB_DIR=loki_setupdb
 LOKI_SETUP_DIR=loki_setup
 UNRAR_DIR=unrar
-FREETYPE2_DIR=freetype-2.2.1
+FREETYPE2_DIR=freetype
 FTGL_DIR=FTGL-2.1.2/unix
 
 X11_INC_DIR=/usr/include/X11
 X11_LIB_DIR=/usr/lib/X11
 
-export CC=apgcc
-export CXX=apg++
+export CC=gcc
+export CXX=g++
 
 all: 
 	$(MAKE) config
@@ -35,9 +36,10 @@ config:
 	$(MAKE) sdl
 #	$(MAKE) libmikmod-config
 	$(MAKE) sdl-mixer-config
+	$(MAKE) xz-config
 	$(MAKE) tiff-config
 #	$(MAKE) jpeg-config
-#	$(MAKE) zlib-config
+	$(MAKE) zlib-config
 	$(MAKE) loki-setup-db
 	$(MAKE) loki-setup-config
 
@@ -49,9 +51,10 @@ build:
 	$(MAKE) unrar-build
 #	$(MAKE) libmikmod-build
 	$(MAKE) sdl-mixer-build
+	$(MAKE) xz-build
 	$(MAKE) tiff-build
 #	$(MAKE) jpeg-build
-#	$(MAKE) zlib-build
+	$(MAKE) zlib-build
 	$(MAKE) loki-setup-build
 
 clean:
@@ -62,9 +65,10 @@ clean:
 	$(MAKE) -C $(SDL_DIR) clean
 #	$(MAKE) -C $(MIKMOD_DIR) clean
 	$(MAKE) -C $(SDL_MIXER_DIR) clean
+	$(MAKE) -C $(XZ_DIR) clean
 	$(MAKE) -C $(TIFF_DIR) clean
 #	$(MAKE) -C $(JPEG_DIR) clean
-#	$(MAKE) -C $(ZLIB_DIR) clean
+	$(MAKE) -C $(ZLIB_DIR) clean
 	$(MAKE) -C $(LOKI_SETUP_DIR) clean
 	$(MAKE) -C $(LOKI_SETUPDB_DIR) clean
 	$(MAKE) -C $(IRCLIB_LINUX_DIR) clean
@@ -78,7 +82,7 @@ loki-setup-db:
 loki-setup-db-config:
 	cd $(LOKI_SETUPDB_DIR) ; \
 	./autogen.sh ; \
-	./configure
+	./configure --with-libxml2
 
 loki-setup-db-build:
 	$(MAKE) -C $(LOKI_SETUPDB_DIR)
@@ -86,15 +90,26 @@ loki-setup-db-build:
 loki-setup-config:
 	cd $(LOKI_SETUP_DIR) ; \
 	./autogen.sh ; \
-	./configure LDFLAGS=-Llibs
+	./configure LDFLAGS=-Llibs --enable-gtk2
 #	./configure LDFLAGS="-Llibs -L/usr/lib/gtk-2.0"
 
 loki-setup-build:
 	$(MAKE) -C $(LOKI_SETUP_DIR)
 
+xz-config:
+	cd $(XZ_DIR) ; \
+	rm -f config.cache ; \
+	./autogen.sh; \
+	./configure --prefix=$(prefix)
+
+xz-build:
+	$(MAKE) -C $(XZ_DIR)
+	$(MAKE) -C $(XZ_DIR) install
+
 tiff-config:
 	cd $(TIFF_DIR) ; \
 	rm -f config.cache ; \
+	./autogen.sh; \
 	./configure --prefix=$(prefix) --enable-static=yes --enable-shared=no --x-includes=$(X11_INC_DIR) --x-libraries=$(X11_LIB_DIR)
 
 tiff-build:
@@ -162,7 +177,7 @@ freetype2-config:
 	export PATH=$(prefix)/bin:$(PATH) ; \
 	export LD_LIBRARY_PATH=$(prefix)/lib:$(LD_LIBRARY_PATH) ; \
 	./autogen.sh ; \
-	./configure --prefix=$(prefix) --enable-static=no --enable-shared=yes --x-includes=$(X11_INC_DIR) --x-libraries=$(X11_LIB_DIR)
+	./configure --prefix=$(prefix) --enable-static=no --enable-shared=yes --enable-freetype-config --x-includes=$(X11_INC_DIR) --x-libraries=$(X11_LIB_DIR)
 #	./configure --prefix=$(prefix) --enable-static=yes --enable-shared=no --x-includes=$(X11_INC_DIR) --x-libraries=$(X11_LIB_DIR)
 
 freetype2-build:

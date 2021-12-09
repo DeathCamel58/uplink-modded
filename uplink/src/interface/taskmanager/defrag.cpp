@@ -163,7 +163,7 @@ void Defrag::StopDefrag ( )
 	
 	transitData.Empty ();
 
-	/********** Start code by François Gagné **********/
+	/********** Start code by FranÃ§ois GagnÃ© **********/
 	//
 	// If the player is looking at his memory banks right now
 	// Then we have to tell them to update
@@ -178,7 +178,7 @@ void Defrag::StopDefrag ( )
 		mi->ForceUpdateAll ();
 
 	}
-	/********** End code by François Gagné **********/
+	/********** End code by FranÃ§ois GagnÃ© **********/
 
 }
 

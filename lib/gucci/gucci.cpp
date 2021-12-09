@@ -21,8 +21,8 @@
 #include <FTGLBitmapFont.h>
 //#include <FTGLPixmapFont.h>
 #  else
-#include <ftgl/FTFace.h>
-#include <ftgl/FTGLBitmapFont.h>
+#include <FTFace.h>
+#include <FTGLBitmapFont.h>
 //#include <ftgl/FTGLPixmapFont.h>
 #  endif
 

@@ -18,7 +18,9 @@ INCLUDES = 	-I.					\
 		-I../../lib/redshirt/			\
 		-I../../lib/mmgr/			\
 		-I$(TCP4U_DIR)/Include			\
-		-I$(CONTRIB_DIR)/include		\
+		-I$(CONTRIB_DIR)/install/include \
+		-I$(CONTRIB_DIR)/SDL_mixer/include \
+		-I$(CONTRIB_DIR)/zlib		\
 		-I$(IRCLIB_DIR)				\
 		-I$(IRCLIB_DIR)/linux
 
@@ -33,7 +35,8 @@ LIBS_INCLUDES = \
 	-L $(TCP4U_DIR)/src \
 	-L $(IRCLIB_DIR) \
 	-L $(UNRAR_DIR) \
-	-L $(CONTRIB_DIR)/install/lib
+	-L $(CONTRIB_DIR)/install/lib \
+	-L $(CONTRIB_DIR)/zlib
 
 LIBS = \
 	-lsoundgarden \
@@ -47,17 +50,20 @@ LIBS = \
 	-lirclib \
 	-lunrar \
 	-lGL -lGLU \
-	-lSDL -lSDL_mixer \
+	-lSDL \
 	-lftgl \
 	-lfreetype \
 	-ltiff \
 	-ljpeg \
-	-lz 
+	-lSDL2_mixer \
+	-lz -llzma \
+	-ldeflate \
+	-ljbig
 #	-lgltt \
 #	-lttf \
 
-CXX = apg++
-CC = apgcc
+CXX = g++
+CC = gcc
 LINK = $(CXX)
 
 CXXFLAGS += -O2 -g
@@ -403,8 +409,8 @@ dist-%:
 	#cp $(CONTRIB_DIR)/install/lib/libgltt.so.0 dist/$(DEST)/uplink/lib
 	cp $(CONTRIB_DIR)/install/lib/libfreetype.so.6 dist/$(DEST)/uplink/lib
 	cp $(CONTRIB_DIR)/install/lib/libftgl.so.0 dist/$(DEST)/uplink/lib
-	cp $(CONTRIB_DIR)/install/lib/libSDL-1.2.so.0 dist/$(DEST)/uplink/lib
-	cp $(CONTRIB_DIR)/install/lib/libSDL_mixer-1.2.so.0 dist/$(DEST)/uplink/lib
+	cp $(CONTRIB_DIR)/install/lib/libSDL2-2.0.so.0 dist/$(DEST)/uplink/lib
+	cp $(CONTRIB_DIR)/install/lib/libSDL2_mixer-2.0.so.0.2.2 dist/$(DEST)/uplink/lib
 	#cp $(CONTRIB_DIR)/install/lib/libmikmod.so.3 dist/$(DEST)/uplink/lib
 	#Removed cause problems on x86_64?
 	#cp /lib/libgcc_s.so.1  dist/$(DEST)/uplink/lib

@@ -476,7 +476,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	if ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, target->ip ) != 0 )
 		target->databank.RandomizeDataPlacement ();
 
-	/********** Patch by François Gagné **********/
+	/********** Patch by FranÃ§ois GagnÃ© **********/
     //
     // Make sure there is enough space on the new computer to store the mission files
 

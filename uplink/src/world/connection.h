@@ -44,9 +44,9 @@ public:
 	void SetOwner ( char *newowner );
 
 	void AddVLocation ( char *ip );
-	/********** Start code by François Gagné **********/
+	/********** Start code by FranÃ§ois GagnÃ© **********/
 	void AddOrRemoveVLocation ( char *ip );   // If the ip is not currently in, add it else remove it 
-	/********** End code by François Gagné **********/
+	/********** End code by FranÃ§ois GagnÃ© **********/
 	void RemoveLastLocation ();				// Removes the most recently added
 	
 	bool LocationIncluded ( char *ip );

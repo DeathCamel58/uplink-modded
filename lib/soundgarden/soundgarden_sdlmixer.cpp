@@ -14,8 +14,8 @@
 #include <unistd.h>
 #endif // WIN32
 
-#include <SDL/SDL_mixer.h>
-#include <SDL/SDL.h>
+#include <SDL_mixer.h>
+#include <SDL.h>
 
 #include "tosser.h"
 #include "soundgarden.h"

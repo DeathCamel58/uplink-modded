@@ -107,10 +107,10 @@ void WorldGenerator::GenerateValidMapPos ( int &x, int &y )
 
 	UplinkAssert (worldmapmask);
 
-	/********** Start code by François Gagné **********/
+	/********** Start code by FranÃ§ois GagnÃ© **********/
 	int retryDiffLoc = 0;
 	DArray <VLocation *> *vls = game->GetWorld ()->locations.ConvertToDArray (); 
-	/********** End code by François Gagné **********/
+	/********** End code by FranÃ§ois GagnÃ© **********/
 
 	while ( 1 ) {
 
@@ -122,7 +122,7 @@ void WorldGenerator::GenerateValidMapPos ( int &x, int &y )
 
 		if ( worldmapmask->GetPixelR ( tX, tY ) != 0 ) {
 
-			/********** Start code by François Gagné **********/
+			/********** Start code by FranÃ§ois GagnÃ© **********/
 			int found = 0;
 			for ( int i = vls->Size () - 1; i >= 0; i-- ) {
 				if ( vls->ValidIndex ( i ) ) {
@@ -150,7 +150,7 @@ void WorldGenerator::GenerateValidMapPos ( int &x, int &y )
 	}
  
 	delete vls;
-	/********** End code by François Gagné **********/
+	/********** End code by FranÃ§ois GagnÃ© **********/
 }
 
 void WorldGenerator::GenerateRandomWorld ()
