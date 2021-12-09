@@ -470,16 +470,16 @@ void PrintStackTrace()
     unsigned *previousFramePtr = NULL;
 
     
-#ifdef WIN32
-	__asm { 
-		mov [framePtr], ebp
-	}
-#else
-	asm (
-	    "movl %%ebp, %0;"
-	    :"=r"(framePtr)
-	    );
-#endif
+//#ifdef WIN32
+//	__asm {
+//		mov [framePtr], ebp
+//	}
+//#else
+//	asm (
+//	    "movl %%ebp, %0;"
+//	    :"=r"(framePtr)
+//	    );
+//#endif
 	while(framePtr) {
 		                
 		printf("retAddress = %p\n", getRetAddress(framePtr));
