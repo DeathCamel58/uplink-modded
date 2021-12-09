@@ -4728,7 +4728,7 @@ char *PlotGenerator::SpecialMissionDescription ( int missionID )
 
 }
 
-/********** Patched by François Gagné **********/
+/********** Patched by FranÃ§ois GagnÃ© **********/
 bool PlotGenerator::IsPlotCompany ( const char *companyname )
 {
 

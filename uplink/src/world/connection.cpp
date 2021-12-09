@@ -66,7 +66,7 @@ void Connection::AddVLocation ( char *ip )
 
 }
 
-/********** Start code by François Gagné **********/
+/********** Start code by FranÃ§ois GagnÃ© **********/
 void Connection::AddOrRemoveVLocation ( char *ip )
 {
 
@@ -82,7 +82,7 @@ void Connection::AddOrRemoveVLocation ( char *ip )
 	AddVLocation ( ip );
 
 }
-/********** End code by François Gagné **********/
+/********** End code by FranÃ§ois GagnÃ© **********/
 
 void Connection::RemoveLastLocation ()
 {
