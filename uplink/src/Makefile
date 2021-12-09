@@ -62,8 +62,8 @@ LIBS = \
 #	-lgltt \
 #	-lttf \
 
-CXX = apg++
-CC = apgcc
+CXX = g++
+CC = gcc
 LINK = $(CXX)
 
 CXXFLAGS += -O2 -g
