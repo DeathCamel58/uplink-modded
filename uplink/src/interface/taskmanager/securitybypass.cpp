@@ -377,7 +377,7 @@ void SecurityBypass::CreateInterface ()
 		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid );
 
 
-		/********** Patched by François Gagné **********/
+		/********** Patched by FranÃ§ois GagnÃ© **********/
 		// To be complete, each type would need a picture just like the proxy bypass (software/proxy.tif)
 
 		char *bypassCaption, *pauseCaption, *closeCaption;
@@ -487,7 +487,7 @@ void SecurityBypass::ShowInterface ()
 	UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid );
 	UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid );
 	
-	/********** Patched by François Gagné **********/
+	/********** Patched by FranÃ§ois GagnÃ© **********/
 	if ( ShouldDraw ( pid ) ) {
 
 		EclButtonBringToFront ( main );
