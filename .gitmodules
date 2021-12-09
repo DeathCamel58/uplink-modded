@@ -1,0 +1,30 @@
+[submodule "contrib/SDL"]
+	path = contrib/SDL
+	url = https://github.com/libsdl-org/SDL.git
+[submodule "contrib/freetype"]
+	path = contrib/freetype
+	url = https://gitlab.freedesktop.org/freetype/freetype.git
+[submodule "contrib/binreloc"]
+	path = contrib/binreloc
+	url = https://github.com/limbahq/binreloc.git
+[submodule "contrib/zlib"]
+	path = contrib/zlib
+	url = https://github.com/madler/zlib.git
+[submodule "contrib/loki_setup"]
+	path = contrib/loki_setup
+	url = https://github.com/DeathCamel58/loki_setup.git
+[submodule "contrib/loki_setupdb"]
+	path = contrib/loki_setupdb
+	url = https://github.com/megastep/loki_setupdb.git
+[submodule "contrib/SDL_mixer"]
+	path = contrib/SDL_mixer
+	url = https://github.com/libsdl-org/SDL_mixer.git
+[submodule "contrib/libtiff"]
+	path = contrib/libtiff
+	url = https://gitlab.com/libtiff/libtiff.git
+[submodule "contrib/mikmod"]
+	path = contrib/mikmod
+	url = https://git.code.sf.net/p/mikmod/mikmod
+[submodule "contrib/xz"]
+	path = contrib/xz
+	url = https://git.tukaani.org/xz.git
