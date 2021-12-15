@@ -31,6 +31,7 @@ FILE(GLOB irclibLinuxSRC irclib/linux/*.cpp)
 FILE(GLOB irclibHeader irclib/*.h)
 FILE(GLOB irclibLinuxHeader irclib/*.h)
 add_library(irclib ${irclibSRC} ${irclibLinuxSRC} ${irclibHeader} ${irclibLinuxHeader})
+set_target_properties(irclib PROPERTIES LINKER_LANGUAGE CXX)
 include_directories(irclibSRC)
 
 add_subdirectory(xz)

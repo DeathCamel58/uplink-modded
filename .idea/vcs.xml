@@ -6,12 +6,13 @@
     <mapping directory="$PROJECT_DIR$/uplink/lib/SDL_mixer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/binreloc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/freetype" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/uplink/lib/freetype/subprojects/dlg" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/ftgl" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/uplink/lib/irclib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/libtiff" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/loki_setup" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/loki_setupdb" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/mikmod" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/uplink/lib/xz" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/zlib" vcs="Git" />
   </component>
 </project>
