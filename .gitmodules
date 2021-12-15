@@ -25,12 +25,12 @@
 [submodule "uplink/lib/mikmod"]
 	path = uplink/lib/mikmod
 	url = https://git.code.sf.net/p/mikmod/mikmod
-[submodule "uplink/lib/xz"]
-	path = uplink/lib/xz
-	url = https://git.tukaani.org/xz.git
 [submodule "uplink/lib/ftgl"]
 	path = uplink/lib/ftgl
 	url = https://github.com/ulrichard/ftgl.git
 [submodule "uplink/lib/irclib"]
 	path = uplink/lib/irclib
 	url = https://github.com/leitec/irclib.git
+[submodule "uplink/lib/xz"]
+	path = uplink/lib/xz
+	url = https://git.tukaani.org/xz.git
