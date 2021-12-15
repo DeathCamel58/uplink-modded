@@ -1,6 +1,6 @@
 // ExceptionHandler.cpp  Version 1.4
 //
-// Copyright © 1998 Bruce Dawson
+// Copyright ï¿½ 1998 Bruce Dawson
 //
 // This source file contains the exception handler for recording error
 // information after crashes. See ExceptionHandler.h for information

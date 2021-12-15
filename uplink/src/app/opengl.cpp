@@ -6,7 +6,7 @@
 
   */
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include <GL/gl.h>
 
@@ -345,7 +345,7 @@ void display(void)
 
 		glTranslatef ( 0.375f, 0.375f, 0.0f );
 
-		// Added by François for testing new display
+		// Added by Franï¿½ois for testing new display
 		EclClearRectangle ( 0, 0, app->GetOptions ()->GetOptionValue ( "graphics_screenwidth" ), 
 								  app->GetOptions ()->GetOptionValue ( "graphics_screenheight" ) );
         

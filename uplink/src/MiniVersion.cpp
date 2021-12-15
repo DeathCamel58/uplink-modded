@@ -13,7 +13,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "MiniVersion.h"
 
 #pragma message("automatic link to VERSION.LIB")

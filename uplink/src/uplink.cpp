@@ -20,7 +20,7 @@
 #define _WIN32_WINDOWS 0x0500	// for IsDebuggerPresent
 #endif
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include <time.h>
 #include <sys/stat.h>
@@ -397,7 +397,7 @@ void RunUplink ( int argc, char **argv )
 #ifdef WIN32
 		Init_App      ( argv[0] );
 #else
-		Init_App      ( br_find_exe(NULL) );
+		Init_App      ( br_find_exe("uplink") );
 #endif
 		Init_Options  ( argc, argv );
 
@@ -409,10 +409,11 @@ void RunUplink ( int argc, char **argv )
 		}
 #endif
 
-		if ( !VerifyLegitAndCodeCardCheck() ) {
-			Cleanup_Uplink ();
-			return;
-		}
+//      Make the game start no matter if there's a valid license
+//        if ( !VerifyLegitAndCodeCardCheck() ) {
+//			Cleanup_Uplink ();
+//			return;
+//		}
 #endif
 
 		if( !Load_Data() ) {
@@ -1027,15 +1028,16 @@ bool Load_Data ()
 
 	if ( debugging ) printf ( "Loading application data\n" );
 
-	if ( !TestRsLoadArchive ( "data.dat" ) ) return false;
-	if ( !TestRsLoadArchive ( "graphics.dat" ) ) return false;
-    if ( !TestRsLoadArchive ( "loading.dat" ) ) return false;
-	if ( !TestRsLoadArchive ( "sounds.dat" ) ) return false;
-	if ( !TestRsLoadArchive ( "music.dat" ) ) return false;
-	if ( !TestRsLoadArchive ( "fonts.dat" ) ) return false;
-    if ( !TestRsLoadArchive ( "patch.dat" ) ) return false;
-    if ( !TestRsLoadArchive ( "patch2.dat" ) ) return false;
-    if ( !TestRsLoadArchive ( "patch3.dat" ) ) return false;
+    // TODO: `.dat` files are not exported into the build directory, leading to the game closing. Export `.dat`s to build dir
+	if ( !TestRsLoadArchive ( "data/data.dat" ) ) return false;
+	if ( !TestRsLoadArchive ( "data/graphics.dat" ) ) return false;
+    if ( !TestRsLoadArchive ( "data/loading.dat" ) ) return false;
+	if ( !TestRsLoadArchive ( "data/sounds.dat" ) ) return false;
+	if ( !TestRsLoadArchive ( "data/music.dat" ) ) return false;
+	if ( !TestRsLoadArchive ( "data/fonts.dat" ) ) return false;
+    if ( !TestRsLoadArchive ( "data/patch.dat" ) ) return false;
+    if ( !TestRsLoadArchive ( "data/patch2.dat" ) ) return false;
+    if ( !TestRsLoadArchive ( "data/patch3.dat" ) ) return false;
 
 #ifdef _DEBUG
 	//DArray<char *> *fnames = RsListArchive("","");

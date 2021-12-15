@@ -2,7 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+//#include "stdafx.h"
+
+#include <strstream>
 
 #include "gucci.h"
 

@@ -2,7 +2,7 @@
 // App source file
 // By Christopher Delay
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #ifdef WIN32
 #include <direct.h>

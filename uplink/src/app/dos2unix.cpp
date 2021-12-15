@@ -1,6 +1,6 @@
 // -*- tab-width:4; c-file-style:"cc-mode" -*-
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include "app/dos2unix.h"
 
