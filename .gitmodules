@@ -1,30 +1,36 @@
-[submodule "contrib/SDL"]
-	path = contrib/SDL
+[submodule "uplink/lib/SDL"]
+	path = uplink/lib/SDL
 	url = https://github.com/libsdl-org/SDL.git
-[submodule "contrib/freetype"]
-	path = contrib/freetype
+[submodule "uplink/lib/freetype"]
+	path = uplink/lib/freetype
 	url = https://gitlab.freedesktop.org/freetype/freetype.git
-[submodule "contrib/binreloc"]
-	path = contrib/binreloc
+[submodule "uplink/lib/binreloc"]
+	path = uplink/lib/binreloc
 	url = https://github.com/limbahq/binreloc.git
-[submodule "contrib/zlib"]
-	path = contrib/zlib
+[submodule "uplink/lib/zlib"]
+	path = uplink/lib/zlib
 	url = https://github.com/madler/zlib.git
-[submodule "contrib/loki_setup"]
-	path = contrib/loki_setup
+[submodule "uplink/lib/loki_setup"]
+	path = uplink/lib/loki_setup
 	url = https://github.com/DeathCamel58/loki_setup.git
-[submodule "contrib/loki_setupdb"]
-	path = contrib/loki_setupdb
+[submodule "uplink/lib/loki_setupdb"]
+	path = uplink/lib/loki_setupdb
 	url = https://github.com/megastep/loki_setupdb.git
-[submodule "contrib/SDL_mixer"]
-	path = contrib/SDL_mixer
+[submodule "uplink/lib/SDL_mixer"]
+	path = uplink/lib/SDL_mixer
 	url = https://github.com/libsdl-org/SDL_mixer.git
-[submodule "contrib/libtiff"]
-	path = contrib/libtiff
+[submodule "uplink/lib/libtiff"]
+	path = uplink/lib/libtiff
 	url = https://gitlab.com/libtiff/libtiff.git
-[submodule "contrib/mikmod"]
-	path = contrib/mikmod
+[submodule "uplink/lib/mikmod"]
+	path = uplink/lib/mikmod
 	url = https://git.code.sf.net/p/mikmod/mikmod
-[submodule "contrib/xz"]
-	path = contrib/xz
+[submodule "uplink/lib/xz"]
+	path = uplink/lib/xz
 	url = https://git.tukaani.org/xz.git
+[submodule "uplink/lib/ftgl"]
+	path = uplink/lib/ftgl
+	url = https://github.com/ulrichard/ftgl.git
+[submodule "uplink/lib/irclib"]
+	path = uplink/lib/irclib
+	url = https://github.com/leitec/irclib.git
