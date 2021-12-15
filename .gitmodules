@@ -10,21 +10,12 @@
 [submodule "uplink/lib/zlib"]
 	path = uplink/lib/zlib
 	url = https://github.com/madler/zlib.git
-[submodule "uplink/lib/loki_setup"]
-	path = uplink/lib/loki_setup
-	url = https://github.com/DeathCamel58/loki_setup.git
-[submodule "uplink/lib/loki_setupdb"]
-	path = uplink/lib/loki_setupdb
-	url = https://github.com/megastep/loki_setupdb.git
 [submodule "uplink/lib/SDL_mixer"]
 	path = uplink/lib/SDL_mixer
 	url = https://github.com/libsdl-org/SDL_mixer.git
 [submodule "uplink/lib/libtiff"]
 	path = uplink/lib/libtiff
 	url = https://gitlab.com/libtiff/libtiff.git
-[submodule "uplink/lib/mikmod"]
-	path = uplink/lib/mikmod
-	url = https://git.code.sf.net/p/mikmod/mikmod
 [submodule "uplink/lib/ftgl"]
 	path = uplink/lib/ftgl
 	url = https://github.com/ulrichard/ftgl.git

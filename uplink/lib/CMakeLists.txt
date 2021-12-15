@@ -1,18 +1,12 @@
 cmake_minimum_required (VERSION 3.0.0)
 project (uplinkLibs)
 
-cmake_minimum_required (VERSION 3.0.0)
-project (uplinkContrib)
+if ( ${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR} )
+    message( FATAL_ERROR “In-source builds not allowed! Create a build directory and run CMake from there. ” )
+endif()
 
-# TODO: Don't statically link to Glib.
-# Find Glib, then link to wherever it is located
-#FIND_PACKAGE(PkgConfig REQUIRED)
-#PKG_CHECK_MODULES(GLIB REQUIRED glib-2.0)
-#message("libs:" ${GLIB_INCLUDE_DIRS})
-#include_directories(${GLIB_INCLUDE_DIRS})
-#link_directories(${GLIB_LIBRARY_DIRS})
-#include_directories(/usr/include/glib-2.0/)
-
+# Although `binreloc` is required, it isn't a library. It's used to generate a `cpp` and `h` file that goes into the
+# source tree.
 #FILE(GLOB binrelocSRC binreloc/*.c)
 #add_library(binreloc ${binrelocSRC})
 #include_directories(binreloc)
@@ -20,8 +14,6 @@ project (uplinkContrib)
 add_subdirectory(freetype)
 include_directories(freetype/include)
 
-#FILE(GLOB ftglSRC ftgl/src/*.cpp)
-#add_library(ftgl ${ftglSRC})
 add_subdirectory(ftgl)
 include_directories(ftgl/src ftgl/src/FTFont ftgl/src/FTGL ftgl/src/FTGlyph ftgl/src/FTLayout)
 
@@ -40,9 +32,6 @@ add_subdirectory(xz)
 #include_directories(${LIBLZMA_INCLUDE_DIRS})
 #add_subdirectory(libtiff)
 
-#add_subdirectory(mikmod/libmikmod)
-#add_subdirectory(mikmod/mikmod)
-
 add_subdirectory(SDL)
 add_subdirectory(SDL_mixer)
 
@@ -56,14 +45,6 @@ add_subdirectory(zlib)
 
 find_package(LibXml2 REQUIRED)
 include_directories(${LIBXML2_INCLUDE_DIR})
-
-#FILE(GLOB loki_setupdbSRC loki_setupdb/*.c)
-#add_library(loki_setupdb ${loki_setupdbSRC})
-#include_directories(loki_setupdb)
-#
-#FILE(GLOB loki_setupSRC loki_setup/*.c)
-#add_library(loki_setup ${loki_setupSRC})
-#include_directories(loki_setup)
 
 FILE(GLOB unrarSRC unrar/*.cpp)
 FILE(GLOB unrarHeaders unrar/*.hpp)

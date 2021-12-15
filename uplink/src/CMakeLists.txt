@@ -1,6 +1,10 @@
 cmake_minimum_required (VERSION 3.0.0)
 project(uplink)
 
+if ( ${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR} )
+    message( FATAL_ERROR “In-source builds not allowed! Create a build directory and run CMake from there. ” )
+endif()
+
 set(OpenGL_GL_PREFERENCE GLVND)
 find_package(OpenGL REQUIRED)
 
