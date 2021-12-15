@@ -1,5 +1,5 @@
 
-#include "stdafx.h"
+//#include "stdafx.h"
 
 #include "gucci.h"
 
@@ -676,8 +676,8 @@ void DeleteDArrayDataD( DArray <UplinkObject *> *darray, const char * file, int 
 					darray->RemoveData( i );
 				} catch(...) {
 					// Log the attempted deletion.
-					DEBUG_PRINTF( "Oops! Tried to delete something that wasn't there [%s (%d)].\n",
-						file, line );
+//					DEBUG_PRINTF( "Oops! Tried to delete something that wasn't there [%s (%d)].\n",
+//						file, line );
 				}
 			}
 
@@ -697,8 +697,8 @@ void DeleteDArrayDataD( DArray <char *> *darray, const char * file, int line )
 					    delete [] darray->GetData (i);
 						darray->RemoveData( i );
 					} catch(...) {
-						DEBUG_PRINTF( "Oops! Tried to delete something that wasn't there [%s (%d)].\n",
-							file, line );
+//						DEBUG_PRINTF( "Oops! Tried to delete something that wasn't there [%s (%d)].\n",
+//							file, line );
 					}
 
 }

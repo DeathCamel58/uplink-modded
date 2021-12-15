@@ -171,17 +171,7 @@ dkms.conf
 **/Make.conf
 
 
-uplink/src/.linux-objs/
-uplink/src/dist/
-uplink/src/uplink-full-*.sh
-uplink/src/uplink-full-*.tar.gz
-uplink/src/uplink.full
-uplink/src/version.full
-uplink/src/symbols/uplink-*.txt
-
-contrib/install/
-contrib/FTGL-2.1.2/unix/libtool
-contrib/FTGL-2.1.2/unix/ftgl.pc
-contrib/FTGL-2.1.2/unix/docs/doc-stamp
-
-install/
+lib/install/
+lib/FTGL-2.1.2/unix/libtool
+lib/FTGL-2.1.2/unix/ftgl.pc
+lib/FTGL-2.1.2/unix/docs/doc-stamp
