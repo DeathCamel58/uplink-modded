@@ -22,8 +22,6 @@
 //#include <FTGLPixmapFont.h>
 #  else
 #include <FTFace.h>
-#include <FTGLBitmapFont.h>
-//#include <ftgl/FTGLPixmapFont.h>
 #  endif
 
 static std::map<int, FTGLBitmapFont *> fonts;
@@ -197,6 +195,7 @@ bool GciLoadTrueTypeFont ( int index, char *fontname, char *filename, int size )
         
         FTGLBitmapFont *font = new FTGLBitmapFont(filename);
         //FTGLPixmapFont *font = new FTGLPixmapFont(filename);
+        font->GlyphLoadFlags(FT_LOAD_TARGET_MONO);
         if (font->Error() != 0 || !font->FaceSize(pointSize, 96)) {
             delete font;
             return false;

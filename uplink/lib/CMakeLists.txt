@@ -14,6 +14,15 @@ endif()
 add_subdirectory(freetype)
 include_directories(freetype/include)
 
+# This patches ftgl before compilation
+# Reference `uplink/src/data/docs/FTGL.patch` for original patches
+# Reference FTGL bug #36 <https://sourceforge.net/p/ftgl/bugs/36/> for details
+file(READ ftgl/src/FTSize.cpp FILE_CONTENTS)
+string(REPLACE "xResolution, yResolution" "xRes, yRes" FILE_CONTENTS_NEW "${FILE_CONTENTS}")
+file(WRITE ftgl/src/FTSize.cpp "${FILE_CONTENTS_NEW}")
+unset(FILE_CONTENTS)
+unset(FILE_CONTENTS_NEW)
+
 add_subdirectory(ftgl)
 include_directories(ftgl/src ftgl/src/FTFont ftgl/src/FTGL ftgl/src/FTGlyph ftgl/src/FTLayout)
 
@@ -72,8 +81,8 @@ include_directories(eclipse)
 
 include_directories(ftgl/src ftgl/src/FTFont ftgl/src/FTGL ftgl/src/FTGlyph ftgl/src/FTLayout)
 include_directories(freetype/include)
-add_definitions(-DUSE_FTGL=1)
-add_definitions(-DUSE_SDL=1)
+add_definitions(-DUSE_FTGL)
+add_definitions(-DUSE_SDL)
 add_library(gucci gucci/gucci.cpp gucci/image.cpp  gucci/gucci_sdl.cpp)
 include_directories(gucci)
 
