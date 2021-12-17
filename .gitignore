@@ -170,8 +170,4 @@ dkms.conf
 **/config.status
 **/Make.conf
 
-
-lib/install/
-lib/FTGL-2.1.2/unix/libtool
-lib/FTGL-2.1.2/unix/ftgl.pc
-lib/FTGL-2.1.2/unix/docs/doc-stamp
+uplink/src/app/globals_defines.h
