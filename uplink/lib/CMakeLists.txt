@@ -12,8 +12,9 @@ endif()
 #include_directories(binreloc)
 
 add_subdirectory(freetype)
-include_directories(freetype/include)
+set(FREETYPE_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/freetype/include)
 
+# Can't migrate ftgl to use cmake, as it's a submodule, and that change would have to be upstreamed
 # This patches ftgl before compilation
 # Reference `uplink/src/data/docs/FTGL.patch` for original patches
 # Reference FTGL bug #36 <https://sourceforge.net/p/ftgl/bugs/36/> for details
@@ -22,18 +23,16 @@ string(REPLACE "xResolution, yResolution" "xRes, yRes" FILE_CONTENTS_NEW "${FILE
 file(WRITE ftgl/src/FTSize.cpp "${FILE_CONTENTS_NEW}")
 unset(FILE_CONTENTS)
 unset(FILE_CONTENTS_NEW)
-
 add_subdirectory(ftgl)
-include_directories(ftgl/src ftgl/src/FTFont ftgl/src/FTGL ftgl/src/FTGlyph ftgl/src/FTLayout)
+set(FTGL_INCLUDE_DIR
+        ${PROJECT_SOURCE_DIR}/ftgl/src
+        ${PROJECT_SOURCE_DIR}/ftgl/src/FTFont
+        ${PROJECT_SOURCE_DIR}/ftgl/src/FTGL
+        ${PROJECT_SOURCE_DIR}/ftgl/src/FTGlyph
+        ${PROJECT_SOURCE_DIR}/ftgl/src/FTLayout
+        CACHE INTERNAL "ftgl: Include Directories" FORCE)
 
-include_directories(irclib/linux)
-FILE(GLOB irclibSRC irclib/*.cpp)
-FILE(GLOB irclibLinuxSRC irclib/linux/*.cpp)
-FILE(GLOB irclibHeader irclib/*.h)
-FILE(GLOB irclibLinuxHeader irclib/*.h)
-add_library(irclib ${irclibSRC} ${irclibLinuxSRC} ${irclibHeader} ${irclibLinuxHeader})
-set_target_properties(irclib PROPERTIES LINKER_LANGUAGE CXX)
-include_directories(irclibSRC)
+add_subdirectory(irclib)
 
 add_subdirectory(xz)
 
@@ -42,61 +41,38 @@ add_subdirectory(xz)
 #add_subdirectory(libtiff)
 
 add_subdirectory(SDL)
-add_subdirectory(SDL_mixer)
+set(SDL_INCLUDE_DIR
+        ${PROJECT_SOURCE_DIR}/SDL/src
+        ${PROJECT_SOURCE_DIR}/SDL/include
+        CACHE INTERNAL "SDL_mixer: Include Directories" FORCE)
 
-add_definitions(-DUNIX)
-add_definitions(-D${CMAKE_HOST_SYSTEM_NAME})
-include_directories(tcp4u.331/Include)
-FILE(GLOB tcp4uSRC tcp4u.331/src/*.c)
-add_library(tcp4u ${tcp4uSRC})
+add_subdirectory(SDL_mixer)
+set(SDL_MIXER_INCLUDE_DIR
+        ${PROJECT_SOURCE_DIR}/SDL_mixer
+        ${PROJECT_SOURCE_DIR}/SDL_mixer/include
+        CACHE INTERNAL "SDL_mixer: Include Directories" FORCE)
+
+add_subdirectory(tcp4u.331)
 
 add_subdirectory(zlib)
 
 find_package(LibXml2 REQUIRED)
 include_directories(${LIBXML2_INCLUDE_DIR})
 
-FILE(GLOB unrarSRC unrar/*.cpp)
-FILE(GLOB unrarHeaders unrar/*.hpp)
-add_definitions(-O2
-        -D_FILE_OFFSET_BITS=64
-        -D_LARGEFILE_SOURCE
-        -DRARDLL)
-add_library(unrar ${unrarHeaders} unrar/filestr.cpp unrar/recvol.cpp unrar/rs.cpp unrar/scantree.cpp unrar/rar.cpp unrar/strlist.cpp unrar/strfn.cpp unrar/pathfn.cpp unrar/int64.cpp unrar/savepos.cpp unrar/global.cpp unrar/file.cpp unrar/filefn.cpp unrar/filcreat.cpp unrar/archive.cpp unrar/arcread.cpp unrar/unicode.cpp unrar/system.cpp unrar/isnt.cpp unrar/crypt.cpp unrar/crc.cpp unrar/rawread.cpp unrar/encname.cpp unrar/resource.cpp unrar/match.cpp unrar/timefn.cpp unrar/rdwrfn.cpp unrar/consio.cpp unrar/options.cpp unrar/ulinks.cpp unrar/errhnd.cpp unrar/rarvm.cpp unrar/rijndael.cpp unrar/getbits.cpp unrar/sha1.cpp unrar/extinfo.cpp unrar/extract.cpp unrar/volume.cpp unrar/list.cpp unrar/find.cpp unrar/unpack.cpp unrar/cmddata.cpp unrar/filestr.cpp unrar/scantree.cpp unrar/dll.cpp)
+add_subdirectory(unrar)
 
-FILE(GLOB mmgrSRC mmgr/*.cpp)
-add_library(mmgr ${mmgrSRC})
-include_directories(mmgr)
+add_subdirectory(mmgr)
 
-FILE(GLOB tosserSRC tosser/*.cpp)
-add_library(tosser ${tosserSRC})
-include_directories(tosser)
+add_subdirectory(tosser)
 
-FILE(GLOB bungleSRC bungle/*.cpp)
-add_library(bungle ${bungleSRC})
-include_directories(bungle)
+add_subdirectory(bungle)
 
-FILE(GLOB eclipseSRC eclipse/*.cpp)
-add_library(eclipse ${eclipseSRC})
-include_directories(eclipse)
+add_subdirectory(gucci)
 
-include_directories(ftgl/src ftgl/src/FTFont ftgl/src/FTGL ftgl/src/FTGlyph ftgl/src/FTLayout)
-include_directories(freetype/include)
-add_definitions(-DUSE_FTGL)
-add_definitions(-DUSE_SDL)
-add_library(gucci gucci/gucci.cpp gucci/image.cpp  gucci/gucci_sdl.cpp)
-include_directories(gucci)
+add_subdirectory(eclipse)
 
-include_directories(unrar)
-FILE(GLOB redshirtSRC redshirt/*.cpp)
-add_library(redshirt ${redshirtSRC})
-include_directories(redshirt)
+add_subdirectory(redshirt)
 
-include_directories(SDL_mixer/include)
-include_directories(SDL/include)
-FILE(GLOB soundgardenSRC soundgarden/*.cpp)
-add_library(soundgarden ${soundgardenSRC})
-include_directories(soundgarden)
+add_subdirectory(soundgarden)
 
-FILE(GLOB vanbakelSRC vanbakel/*.cpp)
-add_library(vanbakel ${vanbakelSRC})
-include_directories(vanbakel)
+add_subdirectory(vanbakel)

@@ -329,7 +329,7 @@ void GciMainLoop()
   finished = false;
 
   unsigned lastFrameTime = _GciGetAccurateTime();
-  unsigned frameRate = 35;
+  unsigned frameRate = @GUCCI_FRAME_RATE@;
   unsigned framePeriod = 1000 / frameRate;
 
   while (!finished) {
