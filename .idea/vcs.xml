@@ -8,11 +8,8 @@
     <mapping directory="$PROJECT_DIR$/uplink/lib/freetype" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/freetype/subprojects/dlg" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/ftgl" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/uplink/lib/libmaxminddb" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/uplink/lib/libmaxminddb/maxmind-db" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/uplink/lib/libmaxminddb/t/libtap" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/uplink/lib/libmaxminddb/t/maxmind-db" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/libtiff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/uplink/lib/vcpkg" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/xz" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/uplink/lib/zlib" vcs="Git" />
   </component>

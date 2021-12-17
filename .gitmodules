@@ -22,3 +22,6 @@
 [submodule "uplink/lib/xz"]
 	path = uplink/lib/xz
 	url = https://git.tukaani.org/xz.git
+[submodule "uplink/lib/vcpkg"]
+	path = uplink/lib/vcpkg
+	url = https://github.com/microsoft/vcpkg

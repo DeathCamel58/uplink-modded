@@ -11,8 +11,16 @@ endif()
 #add_library(binreloc ${binrelocSRC})
 #include_directories(binreloc)
 
-add_subdirectory(freetype)
-set(FREETYPE_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/freetype/include)
+if(WIN32)
+    execute_process(COMMAND ${PROJECT_SOURCE_DIR}/vcpkg/bootstrap-vcpkg.bat
+            COMMAND ${PROJECT_SOURCE_DIR}/vcpkg install freetype
+            COMMAND ${PROJECT_SOURCE_DIR}/vcpkg install harfbuzz)
+    find_package(freetype CONFIG REQUIRED)
+    find_package(harfbuzz CONFIG REQUIRED)
+else()
+    add_subdirectory(freetype)
+    set(FREETYPE_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/freetype/include)
+endif()
 
 # Can't migrate ftgl to use cmake, as it's a submodule, and that change would have to be upstreamed
 # This patches ftgl before compilation
