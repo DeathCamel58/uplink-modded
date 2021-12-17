@@ -121,16 +121,16 @@ set(OpenGL_GL_PREFERENCE GLVND)
 find_package(OpenGL REQUIRED)
 
 # Dependencies for Uplink
-include_directories(../lib/eclipse)
-include_directories(../lib/gucci)
-include_directories(../lib/tosser)
-include_directories(../lib/mmgr)
-include_directories(../lib/vanbakel)
-include_directories(../lib/soundgarden)
-include_directories(../lib/redshirt)
-include_directories(../lib/bungle)
-include_directories(../lib/tcp4u.331/Include)
-include_directories(../lib/irclib ../lib/irclib/linux)
+include_directories(${ECLIPSE_INCLUDE_DIR}
+        ${GUCCI_INCLUDE_DIR}
+        ${TOSSER_INCLUDE_DIR}
+        ${MMGR_INCLUDE_DIR}
+        ${VANBAKEL_INCLUDE_DIR}
+        ${SOUNDGARDEN_INCLUDE_DIR}
+        ${REDSHIRT_INCLUDE_DIR}
+        ${BUNGLE_INCLUDE_DIR}
+        ${TCP4U_INCLUDE_DIR}
+        ${IRCLIB_INCLUDE_DIR})
 
 
 
