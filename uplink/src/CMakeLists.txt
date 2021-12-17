@@ -5,112 +5,115 @@ if ( ${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR} )
     message( FATAL_ERROR “In-source builds not allowed! Create a build directory and run CMake from there. ” )
 endif()
 
+message("Uplink Configuration:")
+
 # Set game type and add definition
 set(UPLINK_BUILDGAMETYPE "FULLGAME" CACHE STRING "Type of game build to target")
 set_property(CACHE UPLINK_BUILDGAMETYPE PROPERTY STRINGS FULLGAME TESTGAME DEMOGAME)
-message("UPLINK_BUILDGAMETYPE: '${UPLINK_BUILDGAMETYPE}'")
+message("-- UPLINK_BUILDGAMETYPE: '${UPLINK_BUILDGAMETYPE}'")
 add_definitions(-D${UPLINK_BUILDGAMETYPE})
 
 # Set version of uplink
 SET(UPLINK_VERSION "10.0" CACHE STRING "Type of game build to target")
-message("UPLINK_VERSION: '${UPLINK_VERSION}'")
+message("-- UPLINK_VERSION: '${UPLINK_VERSION}'")
 SET(UPLINK_VERSION_NAME "RELEASE" CACHE STRING "Name/status of release")
-message("UPLINK_VERSION_NAME: '${UPLINK_VERSION_NAME}'")
+message("-- UPLINK_VERSION_NAME: '${UPLINK_VERSION_NAME}'")
 
 # Set current save file version and minimum save file version
 SET(UPLINK_SAVEFILE_VERSION "SAV62" CACHE STRING "Max version is SAVZZ (due to the number of characters to read)")
-message("UPLINK_SAVEFILE_VERSION: '${UPLINK_SAVEFILE_VERSION}'")
+message("-- UPLINK_SAVEFILE_VERSION: '${UPLINK_SAVEFILE_VERSION}'")
 SET(UPLINK_SAVEFILE_VERSION_MIN "SAV56" CACHE STRING "Minimun Savefile version to run Uplink")
-message("UPLINK_SAVEFILE_VERSION_MIN: '${UPLINK_SAVEFILE_VERSION_MIN}'")
+message("-- UPLINK_SAVEFILE_VERSION_MIN: '${UPLINK_SAVEFILE_VERSION_MIN}'")
 
 # Use SDL instead of GLUT
 option(UPLINK_USE_SDL "Use SDL instead of glut" OFF)
 if (UPLINK_USE_SDL)
     add_definitions(-DUSE_SDL)
 endif ()
-message("UPLINK_USE_SDL: '${UPLINK_USE_SDL}'")
+message("-- UPLINK_USE_SDL: '${UPLINK_USE_SDL}'")
 
 # Set the alpha value for interface
 SET(UPLINK_ALPHA "0.85f" CACHE STRING "Alpha value used for interface")
-message("UPLINK_ALPHA: '${UPLINK_ALPHA}'")
+message("-- UPLINK_ALPHA: '${UPLINK_ALPHA}'")
 SET(UPLINK_ALPHA_DISABLED "0.5" CACHE STRING "Alpha value for disabled buttons")
-message("UPLINK_ALPHA_DISABLED: '${UPLINK_ALPHA_DISABLED}'")
+message("-- UPLINK_ALPHA_DISABLED: '${UPLINK_ALPHA_DISABLED}'")
 
-# This version designed for DOC labs
-option(UPLINK_DOCLABRELEASE "This version designed for DOC labs" OFF)
+# Sends an email to Introversion Software each time the copy is started
+option(UPLINK_DOCLABRELEASE "Sends an email to Introversion Software each time the copy is started" OFF)
 if (UPLINK_DOCLABRELEASE)
     add_definitions(-DDOCLABRELEASE)
 endif ()
-message("UPLINK_DOCLABRELEASE: '${UPLINK_DOCLABRELEASE}'")
+message("-- UPLINK_DOCLABRELEASE: '${UPLINK_DOCLABRELEASE}'")
 
-# Set if this is a warez release
-option(UPLINK_WAREZRELEASE "Should this release ignore license status" ON)
+# This will end the game after a condition, saying that this is an illegal copy
+option(UPLINK_WAREZRELEASE "This will end the game after a condition, saying that this is an illegal copy" OFF)
 if (UPLINK_WAREZRELEASE)
     add_definitions(-DWAREZRELEASE)
 endif ()
+message("-- UPLINK_WAREZRELEASE: '${UPLINK_WAREZRELEASE}'")
 
 # Eg all-links, all-software, password-bypass etc
 option(UPLINK_CHEATMODES_ENABLED "Eg all-links, all-software, password-bypass etc" OFF)
 if (UPLINK_CHEATMODES_ENABLED)
     add_definitions(-DCHEATMODES_ENABLED)
 endif ()
-message("UPLINK_CHEATMODES_ENABLED: '${UPLINK_CHEATMODES_ENABLED}'")
+message("-- UPLINK_CHEATMODES_ENABLED: '${UPLINK_CHEATMODES_ENABLED}'")
 
 # Do the code card lookup thingy at the start
 option(UPLINK_CODECARD_ENABLED "Do the code card lookup thingy at the start" OFF)
 if (UPLINK_CODECARD_ENABLED)
     add_definitions(-DCODECARD_ENABLED)
 endif ()
-message("UPLINK_CODECARD_ENABLED: '${UPLINK_CODECARD_ENABLED}'")
+message("-- UPLINK_CODECARD_ENABLED: '${UPLINK_CODECARD_ENABLED}'")
 
 # Redirect std* to users/debug.log
 option(UPLINK_DEBUGLOG_ENABLED "Redirect std* to users/debug.log" OFF)
 if (UPLINK_DEBUGLOG_ENABLED)
     add_definitions(-DDEBUGLOG_ENABLED)
 endif ()
-message("UPLINK_DEBUGLOG_ENABLED: '${UPLINK_DEBUGLOG_ENABLED}'")
+message("-- UPLINK_DEBUGLOG_ENABLED: '${UPLINK_DEBUGLOG_ENABLED}'")
 
 # Which code card to use. After V1.0 we use ALL THREE - to allow a unified patch that works on all copies
 option(UPLINK_CODECARD_CHRIS "Which code card to use. After V1.0 we use ALL THREE - to allow a unified patch that works on all copies" ON)
 if (UPLINK_CODECARD_CHRIS)
     add_definitions(-DCODECARD_CHRIS)
 endif ()
-message("UPLINK_CODECARD_CHRIS: '${UPLINK_CODECARD_CHRIS}'")
+message("-- UPLINK_CODECARD_CHRIS: '${UPLINK_CODECARD_CHRIS}'")
 
 # Which code card to use. After V1.0 we use ALL THREE - to allow a unified patch that works on all copies
 option(UPLINK_CODECARD_TOM "Which code card to use. After V1.0 we use ALL THREE - to allow a unified patch that works on all copies" ON)
 if (UPLINK_CODECARD_TOM)
     add_definitions(-DCODECARD_TOM)
 endif ()
-message("UPLINK_CODECARD_TOM: '${UPLINK_CODECARD_TOM}'")
+message("-- UPLINK_CODECARD_TOM: '${UPLINK_CODECARD_TOM}'")
 
 # Which code card to use. After V1.0 we use ALL THREE - to allow a unified patch that works on all copies
 option(UPLINK_CODECARD_MARK "Which code card to use. After V1.0 we use ALL THREE - to allow a unified patch that works on all copies" ON)
 if (UPLINK_CODECARD_MARK)
     add_definitions(-DCODECARD_MARK)
 endif ()
-message("UPLINK_CODECARD_MARK: '${UPLINK_CODECARD_MARK}'")
+message("-- UPLINK_CODECARD_MARK: '${UPLINK_CODECARD_MARK}'")
 
-# TODO: Find out what this does and fill in the description
-option(UPLINK_BETA_TIMEOUT "" OFF)
+# If enabled, Uplink won't ask for the code card if the system date is between June and August 2006
+option(UPLINK_BETA_TIMEOUT "If enabled, Uplink won't ask for the code card if the system date is between June and August 2006" OFF)
 if (UPLINK_BETA_TIMEOUT)
     add_definitions(-DBETA_TIMEOUT)
 endif ()
-message("UPLINK_BETA_TIMEOUT: '${UPLINK_BETA_TIMEOUT}'")
+message("-- UPLINK_BETA_TIMEOUT: '${UPLINK_BETA_TIMEOUT}'")
 
 # Show the winning code on the obituary interface and send a ingame message when the player win the game
 option(UPLINK_GAME_WINNING_CODE "Show the winning code on the obituary interface and send a ingame message when the player win the game" OFF)
 if (UPLINK_GAME_WINNING_CODE)
     add_definitions(-DGAME_WINNING_CODE)
 endif ()
-message("UPLINK_GAME_WINNING_CODE: '${UPLINK_GAME_WINNING_CODE}'")
+message("-- UPLINK_GAME_WINNING_CODE: '${UPLINK_GAME_WINNING_CODE}'")
 
 # Is the multi-monitor support is enabled
 option(UPLINK_MULTIMONITOR_SUPPORT "Is the multi-monitor support is enabled" OFF)
 if (UPLINK_MULTIMONITOR_SUPPORT)
     add_definitions(-DMULTIMONITOR_SUPPORT)
 endif ()
-message("UPLINK_MULTIMONITOR_SUPPORT: '${UPLINK_MULTIMONITOR_SUPPORT}'")
+message("-- UPLINK_MULTIMONITOR_SUPPORT: '${UPLINK_MULTIMONITOR_SUPPORT}'")
 
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/app/globals_defines.h.in" "${CMAKE_CURRENT_SOURCE_DIR}/app/globals_defines.h")
 
