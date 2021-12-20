@@ -11,12 +11,19 @@ endif()
 #add_library(binreloc ${binrelocSRC})
 #include_directories(binreloc)
 
+# Use vcpkg libraries
 if(WIN32)
-    execute_process(COMMAND ${PROJECT_SOURCE_DIR}/vcpkg/bootstrap-vcpkg.bat
-            COMMAND ${PROJECT_SOURCE_DIR}/vcpkg install freetype
-            COMMAND ${PROJECT_SOURCE_DIR}/vcpkg install harfbuzz)
-    find_package(freetype CONFIG REQUIRED)
-    find_package(harfbuzz CONFIG REQUIRED)
+    if (EXISTS ${PROJECT_SOURCE_DIR}/vcpkg/installed/x64-windows)
+        include_directories(./vcpkg/installed/x64-windows/include)
+        link_directories(./vcpkg/installed/x64-windows/lib)
+        find_package(freetype CONFIG REQUIRED)
+        find_package(harfbuzz CONFIG REQUIRED)
+    else()
+        message(FATAL_ERROR "`vcpkg` is not set up. Please run `${PROJECT_SOURCE_DIR}/vcpkg/bootstrap-vcpkg.bat` to set up `vcpkg`.\n
+Please also install `harfbuzz` and `freetype` by running:\n
+`${PROJECT_SOURCE_DIR}/vcpkg/vcpkg install harfbuzz`
+`${PROJECT_SOURCE_DIR}/vcpkg/vcpkg install freetype`")
+    endif ()
 else()
     add_subdirectory(freetype)
     set(FREETYPE_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/freetype/include)

@@ -7,4 +7,9 @@ endif()
 
 set(CMAKE_CXX_STANDARD 11)
 
+if(WIN32)
+    set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/lib/vcpkg/scripts/buildsystems/vcpkg.cmake
+            CACHE STRING "Vcpkg toolchain file")
+endif()
+
 add_subdirectory(uplink)
