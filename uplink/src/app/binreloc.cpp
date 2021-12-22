@@ -25,8 +25,8 @@ extern "C" {
 
 /** @internal
  * Find the canonical filename of the executable. Returns the filename
- * (which must be freed) or NULL on error. If the parameter 'error' is
- * not NULL, the error code will be stored there, if an error occured.
+ * (which must be freed) or nullptr on error. If the parameter 'error' is
+ * not nullptr, the error code will be stored there, if an error occured.
  */
 static char *
 _br_find_exe (BrInitError *error)
@@ -34,7 +34,7 @@ _br_find_exe (BrInitError *error)
 #ifndef ENABLE_BINRELOC
     if (error)
         *error = BR_INIT_ERROR_DISABLED;
-    return NULL;
+    return nullptr;
 #elif defined(sun) || defined(__sun)
     char *path;
 	path = getexecname();
@@ -58,19 +58,19 @@ _br_find_exe (BrInitError *error)
 	else
 		buf_size = PATH_MAX - 1;
 	path = (char *) malloc (buf_size);
-	if (path == NULL) {
+	if (path == nullptr) {
 		/* Cannot allocate memory. */
 		if (error)
 			*error = BR_INIT_ERROR_NOMEM;
-		return NULL;
+		return nullptr;
 	}
 	path2 = (char *) malloc (buf_size);
-	if (path2 == NULL) {
+	if (path2 == nullptr) {
 		/* Cannot allocate memory. */
 		if (error)
 			*error = BR_INIT_ERROR_NOMEM;
 		free (path);
-		return NULL;
+		return nullptr;
 	}
 
 #ifdef __FreeBSD__
@@ -115,7 +115,7 @@ _br_find_exe (BrInitError *error)
 #if defined(__FreeBSD__)
 {
     char *name, *start, *end;
-	char *buffer = NULL, *temp;
+	char *buffer = nullptr, *temp;
 	struct stat finfo;
 
 	name = (char*) getprogname();
@@ -148,7 +148,7 @@ _br_find_exe (BrInitError *error)
 
 	if (error)
 		*error = BR_INIT_ERROR_DISABLED;
-	return NULL;
+	return nullptr;
 }
 #endif
 
@@ -157,30 +157,30 @@ _br_find_exe (BrInitError *error)
 
 	buf_size = PATH_MAX + 128;
 	line = (char *) realloc (path, buf_size);
-	if (line == NULL) {
+	if (line == nullptr) {
 		/* Cannot allocate memory. */
 		free (path);
 		if (error)
 			*error = BR_INIT_ERROR_NOMEM;
-		return NULL;
+		return nullptr;
 	}
 
 	f = fopen ("/proc/self/maps", "r");
-	if (f == NULL) {
+	if (f == nullptr) {
 		free (line);
 		if (error)
 			*error = BR_INIT_ERROR_OPEN_MAPS;
-		return NULL;
+		return nullptr;
 	}
 
 	/* The first entry should be the executable name. */
 	result = fgets (line, (int) buf_size, f);
-	if (result == NULL) {
+	if (result == nullptr) {
 		fclose (f);
 		free (line);
 		if (error)
 			*error = BR_INIT_ERROR_READ_MAPS;
-		return NULL;
+		return nullptr;
 	}
 
 	/* Get rid of newline character. */
@@ -191,7 +191,7 @@ _br_find_exe (BrInitError *error)
 		free (line);
 		if (error)
 			*error = BR_INIT_ERROR_INVALID_MAPS;
-		return NULL;
+		return nullptr;
 	}
 	if (line[buf_size - 1] == 10)
 		line[buf_size - 1] = 0;
@@ -200,12 +200,12 @@ _br_find_exe (BrInitError *error)
 	path = strchr (line, '/');
 
 	/* Sanity check. */
-	if (strstr (line, " r-xp ") == NULL || path == NULL) {
+	if (strstr (line, " r-xp ") == nullptr || path == nullptr) {
 		fclose (f);
 		free (line);
 		if (error)
 			*error = BR_INIT_ERROR_INVALID_MAPS;
-		return NULL;
+		return nullptr;
 	}
 
 	path = strdup (path);
@@ -218,7 +218,7 @@ _br_find_exe (BrInitError *error)
 
 /** @internal
  * Find the canonical filename of the executable which owns symbol.
- * Returns a filename which must be freed, or NULL on error.
+ * Returns a filename which must be freed, or nullptr on error.
  */
 static char *
 _br_find_exe_for_symbol (const void *symbol, BrInitError *error)
@@ -226,19 +226,19 @@ _br_find_exe_for_symbol (const void *symbol, BrInitError *error)
 #ifndef ENABLE_BINRELOC
     if (error)
         *error = BR_INIT_ERROR_DISABLED;
-    return (char *) NULL;
+    return (char *) nullptr;
 #else
     #define SIZE PATH_MAX + 100
 	FILE *f;
 	size_t address_string_len;
 	char *address_string, line[SIZE], *found;
 
-	if (symbol == NULL)
-		return (char *) NULL;
+	if (symbol == nullptr)
+		return (char *) nullptr;
 
 	f = fopen ("/proc/self/maps", "r");
-	if (f == NULL)
-		return (char *) NULL;
+	if (f == nullptr)
+		return (char *) nullptr;
 
 	address_string_len = 4;
 	address_string = (char *) malloc (address_string_len);
@@ -247,20 +247,20 @@ _br_find_exe_for_symbol (const void *symbol, BrInitError *error)
 	{
 		if (error)
 			*error = BR_INIT_ERROR_NOMEM;
-		return (char *) NULL;
+		return (char *) nullptr;
 	}
-	found = (char *) NULL;
+	found = (char *) nullptr;
 
 	while (!feof (f)) {
 		char *start_addr, *end_addr, *end_addr_end, *file;
 		void *start_addr_p, *end_addr_p;
 		size_t len;
 
-		if (fgets (line, SIZE, f) == NULL)
+		if (fgets (line, SIZE, f) == nullptr)
 			break;
 
 		/* Sanity check. */
-		if (strstr (line, " r-xp ") == NULL || strchr (line, '/') == NULL)
+		if (strstr (line, " r-xp ") == nullptr || strchr (line, '/') == nullptr)
 			continue;
 
 		/* Parse line. */
@@ -269,13 +269,13 @@ _br_find_exe_for_symbol (const void *symbol, BrInitError *error)
 		file = strchr (line, '/');
 
 		/* More sanity check. */
-		if (!(file > end_addr && end_addr != NULL && end_addr[0] == '-'))
+		if (!(file > end_addr && end_addr != nullptr && end_addr[0] == '-'))
 			continue;
 
 		end_addr[0] = '\0';
 		end_addr++;
 		end_addr_end = strchr (end_addr, ' ');
-		if (end_addr_end == NULL)
+		if (end_addr_end == nullptr)
 			continue;
 
 		end_addr_end[0] = '\0';
@@ -306,7 +306,7 @@ _br_find_exe_for_symbol (const void *symbol, BrInitError *error)
 			{
 				if (error)
 					*error = BR_INIT_ERROR_NOMEM;
-				return (char *) NULL;
+				return (char *) nullptr;
 			}
 		}
 
@@ -330,8 +330,8 @@ _br_find_exe_for_symbol (const void *symbol, BrInitError *error)
 	free (address_string);
 	fclose (f);
 
-	if (found == NULL)
-		return (char *) NULL;
+	if (found == nullptr)
+		return (char *) nullptr;
 	else
 		return strdup (found);
 #endif /* ENABLE_BINRELOC */
@@ -339,11 +339,11 @@ _br_find_exe_for_symbol (const void *symbol, BrInitError *error)
 
 
 #ifndef BINRELOC_RUNNING_DOXYGEN
-#undef NULL
-#define NULL ((char *) 0) /* typecasted as char* for C++ type safeness */
+#undef nullptr
+#define nullptr ((char *) 0) /* typecasted as char* for C++ type safeness */
 #endif
 
-static char *exe = (char *) NULL;
+static char *exe = (char *) nullptr;
 
 
 /** Initialize the BinReloc library (for applications).
@@ -357,7 +357,7 @@ static char *exe = (char *) NULL;
  *       fallback to the supplied default path.
  *
  * @param error  If BinReloc failed to initialize, then the error code will
- *               be stored in this variable. Set to NULL if you want to
+ *               be stored in this variable. Set to nullptr if you want to
  *               ignore this. See #BrInitError for a list of error codes.
  *
  * @returns 1 on success, 0 if BinReloc failed to initialize.
@@ -366,7 +366,7 @@ int
 br_init (BrInitError *error)
 {
     exe = _br_find_exe (error);
-    return exe != NULL;
+    return exe != nullptr;
 }
 
 
@@ -381,7 +381,7 @@ br_init (BrInitError *error)
  *       fallback to the supplied default path.
  *
  * @param error  If BinReloc failed to initialize, then the error code will
- *               be stored in this variable. Set to NULL if you want to
+ *               be stored in this variable. Set to nullptr if you want to
  *               ignore this. See #BrInitError for a list of error codes.
  *
  * @returns 1 on success, 0 if a filename cannot be found.
@@ -390,7 +390,7 @@ int
 br_init_lib (BrInitError *error)
 {
     exe = _br_find_exe_for_symbol ((const void *) "", error);
-    return exe != NULL;
+    return exe != nullptr;
 }
 
 
@@ -400,18 +400,18 @@ br_init_lib (BrInitError *error)
  * @returns A string containing the application's canonical filename,
  *          which must be freed when no longer necessary. If BinReloc is
  *          not initialized, or if br_init() failed, then a copy of
- *          default_exe will be returned. If default_exe is NULL, then
- *          NULL will be returned.
+ *          default_exe will be returned. If default_exe is nullptr, then
+ *          nullptr will be returned.
  */
 char *
 br_find_exe (const char *default_exe)
 {
-    if (exe == (char *) NULL) {
+    if (exe == (char *) nullptr) {
         /* BinReloc is not initialized. */
-        if (default_exe != (const char *) NULL)
+        if (default_exe != (const char *) nullptr)
             return strdup (default_exe);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
     return strdup (exe);
 }
@@ -428,18 +428,18 @@ br_find_exe (const char *default_exe)
  * @return A string containing the directory, which must be freed when no
  *         longer necessary. If BinReloc is not initialized, or if the
  *         initialization function failed, then a copy of default_dir
- *         will be returned. If default_dir is NULL, then NULL will be
+ *         will be returned. If default_dir is nullptr, then nullptr will be
  *         returned.
  */
 char *
 br_find_exe_dir (const char *default_dir)
 {
-    if (exe == NULL) {
+    if (exe == nullptr) {
         /* BinReloc not initialized. */
-        if (default_dir != NULL)
+        if (default_dir != nullptr)
             return strdup (default_dir);
         else
-            return NULL;
+            return nullptr;
     }
 
     return br_dirname (exe);
@@ -457,19 +457,19 @@ br_find_exe_dir (const char *default_dir)
  * @return A string containing the prefix, which must be freed when no
  *         longer necessary. If BinReloc is not initialized, or if
  *         the initialization function failed, then a copy of default_prefix
- *         will be returned. If default_prefix is NULL, then NULL will be returned.
+ *         will be returned. If default_prefix is nullptr, then nullptr will be returned.
  */
 char *
 br_find_prefix (const char *default_prefix)
 {
     char *dir1, *dir2;
 
-    if (exe == (char *) NULL) {
+    if (exe == (char *) nullptr) {
         /* BinReloc not initialized. */
-        if (default_prefix != (const char *) NULL)
+        if (default_prefix != (const char *) nullptr)
             return strdup (default_prefix);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
 
     dir1 = br_dirname (exe);
@@ -490,20 +490,20 @@ br_find_prefix (const char *default_prefix)
  * @return A string containing the bin folder's path, which must be freed when
  *         no longer necessary. If BinReloc is not initialized, or if
  *         the initialization function failed, then a copy of default_bin_dir will
- *         be returned. If default_bin_dir is NULL, then NULL will be returned.
+ *         be returned. If default_bin_dir is nullptr, then nullptr will be returned.
  */
 char *
 br_find_bin_dir (const char *default_bin_dir)
 {
     char *prefix, *dir;
 
-    prefix = br_find_prefix ((const char *) NULL);
-    if (prefix == (char *) NULL) {
+    prefix = br_find_prefix ((const char *) nullptr);
+    if (prefix == (char *) nullptr) {
         /* BinReloc not initialized. */
-        if (default_bin_dir != (const char *) NULL)
+        if (default_bin_dir != (const char *) nullptr)
             return strdup (default_bin_dir);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
 
     dir = br_build_path (prefix, "bin");
@@ -523,20 +523,20 @@ br_find_bin_dir (const char *default_bin_dir)
  * @return A string containing the sbin folder's path, which must be freed when
  *         no longer necessary. If BinReloc is not initialized, or if the
  *         initialization function failed, then a copy of default_sbin_dir will
- *         be returned. If default_bin_dir is NULL, then NULL will be returned.
+ *         be returned. If default_bin_dir is nullptr, then nullptr will be returned.
  */
 char *
 br_find_sbin_dir (const char *default_sbin_dir)
 {
     char *prefix, *dir;
 
-    prefix = br_find_prefix ((const char *) NULL);
-    if (prefix == (char *) NULL) {
+    prefix = br_find_prefix ((const char *) nullptr);
+    if (prefix == (char *) nullptr) {
         /* BinReloc not initialized. */
-        if (default_sbin_dir != (const char *) NULL)
+        if (default_sbin_dir != (const char *) nullptr)
             return strdup (default_sbin_dir);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
 
     dir = br_build_path (prefix, "sbin");
@@ -556,7 +556,7 @@ br_find_sbin_dir (const char *default_sbin_dir)
  * @return A string containing the data folder's path, which must be freed when
  *         no longer necessary. If BinReloc is not initialized, or if the
  *         initialization function failed, then a copy of default_data_dir
- *         will be returned. If default_data_dir is NULL, then NULL will be
+ *         will be returned. If default_data_dir is nullptr, then nullptr will be
  *         returned.
  */
 char *
@@ -564,13 +564,13 @@ br_find_data_dir (const char *default_data_dir)
 {
     char *prefix, *dir;
 
-    prefix = br_find_prefix ((const char *) NULL);
-    if (prefix == (char *) NULL) {
+    prefix = br_find_prefix ((const char *) nullptr);
+    if (prefix == (char *) nullptr) {
         /* BinReloc not initialized. */
-        if (default_data_dir != (const char *) NULL)
+        if (default_data_dir != (const char *) nullptr)
             return strdup (default_data_dir);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
 
     dir = br_build_path (prefix, "share");
@@ -590,20 +590,20 @@ br_find_data_dir (const char *default_data_dir)
  * @return A string containing the localization folder's path, which must be freed when
  *         no longer necessary. If BinReloc is not initialized, or if the
  *         initialization function failed, then a copy of default_locale_dir will be returned.
- *         If default_locale_dir is NULL, then NULL will be returned.
+ *         If default_locale_dir is nullptr, then nullptr will be returned.
  */
 char *
 br_find_locale_dir (const char *default_locale_dir)
 {
     char *data_dir, *dir;
 
-    data_dir = br_find_data_dir ((const char *) NULL);
-    if (data_dir == (char *) NULL) {
+    data_dir = br_find_data_dir ((const char *) nullptr);
+    if (data_dir == (char *) nullptr) {
         /* BinReloc not initialized. */
-        if (default_locale_dir != (const char *) NULL)
+        if (default_locale_dir != (const char *) nullptr)
             return strdup (default_locale_dir);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
 
     dir = br_build_path (data_dir, "locale");
@@ -623,20 +623,20 @@ br_find_locale_dir (const char *default_locale_dir)
  * @return A string containing the library folder's path, which must be freed when
  *         no longer necessary. If BinReloc is not initialized, or if the initialization
  *         function failed, then a copy of default_lib_dir will be returned.
- *         If default_lib_dir is NULL, then NULL will be returned.
+ *         If default_lib_dir is nullptr, then nullptr will be returned.
  */
 char *
 br_find_lib_dir (const char *default_lib_dir)
 {
     char *prefix, *dir;
 
-    prefix = br_find_prefix ((const char *) NULL);
-    if (prefix == (char *) NULL) {
+    prefix = br_find_prefix ((const char *) nullptr);
+    if (prefix == (char *) nullptr) {
         /* BinReloc not initialized. */
-        if (default_lib_dir != (const char *) NULL)
+        if (default_lib_dir != (const char *) nullptr)
             return strdup (default_lib_dir);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
 
     dir = br_build_path (prefix, "lib");
@@ -656,20 +656,20 @@ br_find_lib_dir (const char *default_lib_dir)
  * @return A string containing the libexec folder's path, which must be freed when
  *         no longer necessary. If BinReloc is not initialized, or if the initialization
  *         function failed, then a copy of default_libexec_dir will be returned.
- *         If default_libexec_dir is NULL, then NULL will be returned.
+ *         If default_libexec_dir is nullptr, then nullptr will be returned.
  */
 char *
 br_find_libexec_dir (const char *default_libexec_dir)
 {
     char *prefix, *dir;
 
-    prefix = br_find_prefix ((const char *) NULL);
-    if (prefix == (char *) NULL) {
+    prefix = br_find_prefix ((const char *) nullptr);
+    if (prefix == (char *) nullptr) {
         /* BinReloc not initialized. */
-        if (default_libexec_dir != (const char *) NULL)
+        if (default_libexec_dir != (const char *) nullptr)
             return strdup (default_libexec_dir);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
 
     dir = br_build_path (prefix, "libexec");
@@ -689,20 +689,20 @@ br_find_libexec_dir (const char *default_libexec_dir)
  * @return A string containing the etc folder's path, which must be freed when
  *         no longer necessary. If BinReloc is not initialized, or if the initialization
  *         function failed, then a copy of default_etc_dir will be returned.
- *         If default_etc_dir is NULL, then NULL will be returned.
+ *         If default_etc_dir is nullptr, then nullptr will be returned.
  */
 char *
 br_find_etc_dir (const char *default_etc_dir)
 {
     char *prefix, *dir;
 
-    prefix = br_find_prefix ((const char *) NULL);
-    if (prefix == (char *) NULL) {
+    prefix = br_find_prefix ((const char *) nullptr);
+    if (prefix == (char *) nullptr) {
         /* BinReloc not initialized. */
-        if (default_etc_dir != (const char *) NULL)
+        if (default_etc_dir != (const char *) nullptr)
             return strdup (default_etc_dir);
         else
-            return (char *) NULL;
+            return (char *) nullptr;
     }
 
     dir = br_build_path (prefix, "etc");
@@ -727,9 +727,9 @@ br_strcat (const char *str1, const char *str2)
     char *result;
     size_t len1, len2;
 
-    if (str1 == NULL)
+    if (str1 == nullptr)
         str1 = "";
-    if (str2 == NULL)
+    if (str2 == nullptr)
         str2 = "";
 
     len1 = strlen (str1);
@@ -772,11 +772,11 @@ br_build_path (const char *dir, const char *file)
 static char *
 br_strndup (const char *str, size_t size)
 {
-    char *result = (char *) NULL;
+    char *result = (char *) nullptr;
     size_t len;
 
-    if (str == (const char *) NULL)
-        return (char *) NULL;
+    if (str == (const char *) nullptr)
+        return (char *) nullptr;
 
     len = strlen (str);
     if (len == 0)
@@ -812,11 +812,11 @@ br_dirname (const char *path)
 {
     char *end, *result;
 
-    if (path == (const char *) NULL)
-        return (char *) NULL;
+    if (path == (const char *) nullptr)
+        return (char *) nullptr;
 
     end = strrchr (path, '/');
-    if (end == (const char *) NULL)
+    if (end == (const char *) nullptr)
         return strdup (".");
 
     while (end > path && *end == '/')

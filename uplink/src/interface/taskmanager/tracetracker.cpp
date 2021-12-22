@@ -355,7 +355,7 @@ void TraceTracker::CreateInterface ()
         UplinkSnprintf ( audioname, sizeof ( audioname ), "tracetracker_audio %d", pid );
 
 		EclRegisterButton ( 25, 300, 100, 13, "Trace Tracker", "Trace Tracker", displayname );
-		EclRegisterButtonCallbacks ( displayname, TraceDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( displayname, TraceDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 125, 300, 13, 13, "", "Close the TraceTracker", closename );		
 		button_assignbitmaps ( closename, "close.tif", "close_h.tif", "close_c.tif" );
@@ -425,6 +425,6 @@ bool TraceTracker::IsInterfaceVisible ()
 	char displayname [64];		
 	UplinkSnprintf ( displayname, sizeof ( displayname ), "tracetracker_display %d", pid );
 
-	return ( EclGetButton ( displayname ) != NULL );
+	return ( EclGetButton ( displayname ) != nullptr );
 
 }

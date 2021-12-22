@@ -48,7 +48,7 @@ SendMailInterface::~SendMailInterface ()
 
 	//if ( m ) {
 	//	delete m;
-	//	m = NULL;
+	//	m = nullptr;
 	//}
 
 }
@@ -89,7 +89,7 @@ void SendMailInterface::AttachFileClick ( Button *button )
 
 	// Check this is still in memory
 
-	Data *data = NULL;
+	Data *data = nullptr;
 	DataBank *db = &(game->GetWorld ()->GetPlayer ()->gateway.databank);
 
 	for ( int i = 0; i < db->GetDataSize (); ++i ) {
@@ -324,20 +324,20 @@ void SendMailInterface::Create ()
 		EclRegisterButton ( screenw - panelwidth, (paneltop + 3) + 40, 50, 40, "Subject", "sendmail_tsubject" );
 
 		EclRegisterButtonCallbacks ( "sendmail_tto", button_draw, ToClick, button_click, button_highlight );
-		EclRegisterButtonCallbacks ( "sendmail_tsubject", button_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "sendmail_tsubject", button_draw, nullptr, nullptr, nullptr );
 
 		//EclRegisterButton ( screenw - panelwidth + 49, paneltop + 20, panelwidth - 52, 15, "", "Enter recipient name here", "sendmail_to" );
 		//EclRegisterButton ( screenw - panelwidth + 49, paneltop + 40, panelwidth - 52, 40, "", "Enter subject here", "sendmail_subject" );
 		EclRegisterButton ( screenw - panelwidth + 49 + 3, (paneltop + 3) + 20, (panelwidth - 7) - 52, 15, "", "Enter recipient name here", "sendmail_to" );
 		EclRegisterButton ( screenw - panelwidth + 49 + 3, (paneltop + 3) + 40, (panelwidth - 7) - 52, 40, "", "Enter subject here", "sendmail_subject" );
 
-		EclRegisterButtonCallbacks ( "sendmail_to", textbox_draw, NULL, NULL, button_highlight );
-		EclRegisterButtonCallbacks ( "sendmail_subject", textbox_draw, NULL, NULL, button_highlight );
+		EclRegisterButtonCallbacks ( "sendmail_to", textbox_draw, nullptr, nullptr, button_highlight );
+		EclRegisterButtonCallbacks ( "sendmail_subject", textbox_draw, nullptr, nullptr, button_highlight );
 
 		//int boxheight = screenh - (paneltop + 85) - 90;
 		//create_stextbox ( screenw - panelwidth - 3, paneltop + 85, panelwidth, boxheight, "", "sendmail_body" );
 		create_stextbox ( screenw - panelwidth, (paneltop + 3) + 85, (panelwidth - 7), boxheight, "", "sendmail_body" );
-		EclRegisterButtonCallbacks ( "sendmail_body box", draw_stextbox, NULL, NULL, button_highlight );
+		EclRegisterButtonCallbacks ( "sendmail_body box", draw_stextbox, nullptr, nullptr, button_highlight );
 
 		//EclRegisterButton ( screenw - panelwidth - 3, paneltop + 85 + boxheight + 5, panelwidth, 15, "File: None attached", "Attach a file to this email", "sendmail_file" );
 		EclRegisterButton ( screenw - panelwidth, (paneltop + 3) + 85 + boxheight + 5, (panelwidth - 7), 15, "File: None attached", "Attach a file to this email", "sendmail_file" );
@@ -437,7 +437,7 @@ void SendMailInterface::Update ()
 bool SendMailInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "sendmail_title" ) != NULL );
+	return ( EclGetButton ( "sendmail_title" ) != nullptr );
 
 }
 

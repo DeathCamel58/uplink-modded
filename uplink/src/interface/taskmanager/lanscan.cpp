@@ -276,10 +276,10 @@ void LanScan::CreateInterface ()
 		EclRegisterButtonCallback ( stitle, GoClick );
 
 		EclRegisterButton ( 285, 422, 120, 15, "", "", sborder );
-		EclRegisterButtonCallbacks ( sborder, BorderDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( sborder, BorderDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 285, 423, 0, 13, "LAN Scan", "Shows the progress of the scan", sprogress );
-		EclRegisterButtonCallbacks ( sprogress, ProgressDraw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( sprogress, ProgressDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 405, 423, 13, 13, "", "Close the LAN Scan", sclose );		
 		button_assignbitmaps ( sclose, "close.tif", "close_h.tif", "close_c.tif" );
@@ -346,7 +346,7 @@ bool LanScan::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid );
 
-	return ( EclGetButton ( stitle ) != NULL );
+	return ( EclGetButton ( stitle ) != nullptr );
 
 }
 

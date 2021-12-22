@@ -95,7 +95,7 @@ void RankingScreenInterface::NonActiveAgentDraw ( Button *button, bool highlight
 bool RankingScreenInterface::ReturnKeyPressed ()
 {
 
-	ExitClick ( NULL );
+	ExitClick ( nullptr );
 	return true;
 
 }
@@ -103,7 +103,7 @@ bool RankingScreenInterface::ReturnKeyPressed ()
 bool RankingScreenInterface::EscapeKeyPressed ()
 {
 
-	ExitClick ( NULL );
+	ExitClick ( nullptr );
 	return true;
 
 }
@@ -177,9 +177,9 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 		//
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "ranking_maintitle" );
-		EclRegisterButtonCallbacks ( "ranking_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "ranking_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "ranking_subtitle" );
-		EclRegisterButtonCallbacks ( "ranking_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "ranking_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 
 		for ( int i = 0; i < 10; ++i ) {
@@ -212,19 +212,19 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 
 				if ( i == playerrank ) {
 				
-					EclRegisterButtonCallbacks ( name, PlayerDraw, NULL, NULL, NULL );
-					EclRegisterButtonCallbacks ( status, PlayerDraw, NULL, NULL, NULL );
+					EclRegisterButtonCallbacks ( name, PlayerDraw, nullptr, nullptr, nullptr );
+					EclRegisterButtonCallbacks ( status, PlayerDraw, nullptr, nullptr, nullptr );
 
 				}
 				else {
 
 					if ( agent->GetStatus () == PERSON_STATUS_NONE ) {
-						EclRegisterButtonCallbacks ( name,   ActiveAgentDraw, NULL, NULL, NULL );
-						EclRegisterButtonCallbacks ( status, ActiveAgentDraw, NULL, NULL, NULL );
+						EclRegisterButtonCallbacks ( name,   ActiveAgentDraw, nullptr, nullptr, nullptr );
+						EclRegisterButtonCallbacks ( status, ActiveAgentDraw, nullptr, nullptr, nullptr );
 					}
 					else {
-						EclRegisterButtonCallbacks ( name,   NonActiveAgentDraw, NULL, NULL, NULL );
-						EclRegisterButtonCallbacks ( status, NonActiveAgentDraw, NULL, NULL, NULL );
+						EclRegisterButtonCallbacks ( name,   NonActiveAgentDraw, nullptr, nullptr, nullptr );
+						EclRegisterButtonCallbacks ( status, NonActiveAgentDraw, nullptr, nullptr, nullptr );
 					}
 
 				}
@@ -258,8 +258,8 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 			EclRegisterButton ( 60, 340, 170, 15, cname, "", "ranking_playerrank" );
 			EclRegisterButton ( 230, 340, 100, 15, "Active", "", "ranking_playerstatus" );
 			
-			EclRegisterButtonCallbacks ( "ranking_playerrank", ActiveAgentDraw, NULL, NULL, NULL );
-			EclRegisterButtonCallbacks ( "ranking_playerstatus", ActiveAgentDraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "ranking_playerrank", ActiveAgentDraw, nullptr, nullptr, nullptr );
+			EclRegisterButtonCallbacks ( "ranking_playerstatus", ActiveAgentDraw, nullptr, nullptr, nullptr );
 			
 		}
 
@@ -307,7 +307,7 @@ void RankingScreenInterface::Remove ()
 bool RankingScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "ranking_maintitle" ) != NULL );
+	return ( EclGetButton ( "ranking_maintitle" ) != nullptr );
 
 }
 

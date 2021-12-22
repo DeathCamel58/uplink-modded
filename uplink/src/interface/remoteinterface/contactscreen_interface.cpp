@@ -39,7 +39,7 @@ ContactScreenInterface::ContactScreenInterface ()
 {
 
 	TYPE = CONTACT_TYPE_NONE;
-	mission = NULL;
+	mission = nullptr;
 	waiting = false;
 	numquestions = 0;
 	origionalpayment = 0;
@@ -186,7 +186,7 @@ void ContactScreenInterface::SetMission ( Mission *newmission )
 
 	Record *rec = RecordGenerator::GetCriminal ( "PLAYER" );
 	UplinkAssert (rec);
-	char *crimrec = NULL;
+	char *crimrec = nullptr;
 	crimrec = rec->GetField ( "Convictions" );
 	UplinkAssert (crimrec);
 
@@ -554,7 +554,7 @@ void ContactScreenInterface::AskQuestion ( int index )
 bool ContactScreenInterface::ReturnKeyPressed ()
 {
 
-	PostClick (NULL);
+	PostClick (nullptr);
 	return true;
 
 }
@@ -570,7 +570,7 @@ void ContactScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( 20, 30, 405, 15, "Secure Communication Channel open", "", "contact_title" );
 
 		EclRegisterButton ( 20, 45, 405, NUMLINES * 15 + 10, "", "", "contact_border" );
-		EclRegisterButtonCallbacks ( "contact_border", BorderDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "contact_border", BorderDraw, nullptr, nullptr, nullptr );
 
 		for ( int i = 0; i < NUMLINES; ++i ) {
 
@@ -579,7 +579,7 @@ void ContactScreenInterface::Create ( ComputerScreen *newcs )
 			UplinkSnprintf ( name, sizeof ( name ), "contact_text %d", i );
 
 			EclRegisterButton ( 22, y, 400, 15, "", "", name );
-			EclRegisterButtonCallbacks ( name, MessageDraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( name, MessageDraw, nullptr, nullptr, nullptr );
 
 		}
 
@@ -587,7 +587,7 @@ void ContactScreenInterface::Create ( ComputerScreen *newcs )
 
 /*
 		EclRegisterButton ( 20, ybottom, 355, 15, "Type your message here", "", "contact_typehere" );
-		EclRegisterButtonCallbacks ( "contact_typehere", TypeHereDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "contact_typehere", TypeHereDraw, nullptr, button_click, button_highlight );
 
 		EclRegisterButton ( 375, ybottom, 50, 15, "Post", "Click here to post your message", "contact_post" );
 		EclRegisterButtonCallback ( "contact_post", PostClick );
@@ -645,7 +645,7 @@ void ContactScreenInterface::Remove ()
 bool ContactScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "contact_title" ) != NULL );
+	return ( EclGetButton ( "contact_title" ) != nullptr );
 
 }
 

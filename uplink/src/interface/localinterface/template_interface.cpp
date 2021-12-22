@@ -52,7 +52,7 @@ void MemoryInterface::Update ()
 bool MemoryInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "memory_title" ) != NULL );
+	return ( EclGetButton ( "memory_title" ) != nullptr );
 
 }
 

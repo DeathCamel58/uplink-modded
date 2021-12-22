@@ -140,7 +140,7 @@ bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t userna
 
 	int numdits = 0;
 	const char *currentdit = fullcode;
-	while ( strchr ( currentdit, '\'' ) != NULL ) {
+	while ( strchr ( currentdit, '\'' ) != nullptr ) {
 		currentdit = strchr ( currentdit, '\'' ) + 1;
 		++numdits;
 	}
@@ -208,7 +208,7 @@ void Agent::GiveLink ( char *newip )
              game->GetInterface ()->GetRemoteInterface ()->currentscreenindex == 0 ) {
 
             ((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->SetFullList ( &links );
-            ((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->ApplyFilter (NULL);
+            ((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->ApplyFilter (nullptr);
 
         }
 
@@ -228,7 +228,7 @@ int Agent::HasAccount  ( char *ip )
 	int securityLevel = -1;
 	bool firstime = true;
 
-	BTree <char *> *treeCode = NULL;
+	BTree <char *> *treeCode = nullptr;
 
 	do {
 
@@ -239,7 +239,7 @@ int Agent::HasAccount  ( char *ip )
 			if ( treeCode->Left () )
 				treeCode = treeCode->Left ()->LookupTree ( ip );
 			else
-				treeCode = NULL;
+				treeCode = nullptr;
 		}
 
 		if ( treeCode ) {
@@ -726,7 +726,7 @@ void Agent::AttemptMission_TraceUser ()
 					comp->logbank.internallogs.GetData (il)->SetSuspicious ( LOG_NOTSUSPICIOUS );
 
 				VLocation *vlf = game->GetWorld ()->GetVLocation ( al->fromip );
-				Computer *fromcomp = NULL;
+				Computer *fromcomp = nullptr;
 				if ( vlf )
 					fromcomp = vlf->GetComputer ();
 
@@ -762,7 +762,7 @@ void Agent::AttemptMission_TraceUser ()
 							// Look up the unfortunate individual
 
 							DArray <Person *> *people = game->GetWorld ()->people.ConvertToDArray ();
-							Person *framed = NULL;
+							Person *framed = nullptr;
 
 							for ( int ip = 0; ip < people->Size (); ++ip ) {
 								if ( people->ValidIndex (ip) ) {

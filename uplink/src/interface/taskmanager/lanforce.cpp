@@ -37,7 +37,7 @@ LanForce::LanForce() : UplinkTask()
 	status = LANFORCE_UNUSED;
 	progress = 0;
 	numticksrequired = 0;
-	comp = NULL;
+	comp = nullptr;
 	systemIndex = 0;
 
 }
@@ -169,7 +169,7 @@ void LanForce::SetTarget ( UplinkObject *uo, char *uos, int uoi )
             }
             else {
 
-                comp = NULL;
+                comp = nullptr;
                 systemIndex = 0;
 
             }
@@ -269,7 +269,7 @@ void LanForce::Tick ( int n )
 
             progress = 0;
             systemIndex = -1;
-            comp = NULL;
+            comp = nullptr;
             status = LANFORCE_UNUSED;
 
         }
@@ -372,7 +372,7 @@ bool LanForce::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanforce_border %d", pid );
 	
-	return ( EclGetButton (stitle) != NULL );
+	return ( EclGetButton (stitle) != nullptr );
 	
 }
 

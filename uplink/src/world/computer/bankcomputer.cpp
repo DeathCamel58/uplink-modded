@@ -107,7 +107,7 @@ BankAccount *BankComputer::GetRandomAccount ()
 
     if ( tempaccounts->Size () == 0 ) {
         delete tempaccounts;
-        return NULL;
+        return nullptr;
     }
 
 	int index = NumberGenerator::RandomNumber ( tempaccounts->Size () );

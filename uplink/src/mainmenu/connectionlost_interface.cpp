@@ -43,9 +43,9 @@ void ConnectionLostInterface::Create ()
 //		SgStopMod ();
 
 		EclRegisterButton ( 220, 230, 450, 200, " ", "", "connectionlost" );
-		EclRegisterButtonCallbacks ( "connectionlost", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "connectionlost", textbutton_draw, nullptr, nullptr, nullptr );
 
-		starttime = time(NULL);
+		starttime = time(nullptr);
 
 	}
 
@@ -69,12 +69,12 @@ void ConnectionLostInterface::Update ()
 
 	if ( IsVisible () ) {
 
-		if ( starttime != -1 && time(NULL) > starttime + 4 ) {
+		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
 			if ( strcmp ( EclGetButton ( "connectionlost" )->caption, " " ) == 0 ) {
 				
 				EclRegisterCaptionChange ( "connectionlost", "Connection to GATEWAY lost" );
-				starttime = time(NULL);				
+				starttime = time(nullptr);
                 
 			}
 			else {
@@ -101,7 +101,7 @@ void ConnectionLostInterface::Update ()
 bool ConnectionLostInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "connectionlost" ) != NULL );
+	return ( EclGetButton ( "connectionlost" ) != nullptr );
 
 }
 

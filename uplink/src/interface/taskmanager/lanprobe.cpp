@@ -39,7 +39,7 @@ LanProbe::LanProbe() : UplinkTask()
 	status = LANPROBE_UNUSED;
 	progress = 0;
 	numticksrequired = 0;
-	comp = NULL;
+	comp = nullptr;
 	systemIndex = 0;
 
 }
@@ -353,7 +353,7 @@ void LanProbe::Tick ( int n )
 
             progress = 0;
             systemIndex = -1;
-            comp = NULL;
+            comp = nullptr;
             status = LANPROBE_UNUSED;
 
         }
@@ -456,7 +456,7 @@ bool LanProbe::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanprobe_border %d", pid );
 	
-	return ( EclGetButton (stitle) != NULL );
+	return ( EclGetButton (stitle) != nullptr );
 	
 }
 

@@ -178,10 +178,10 @@ Data *DataBank::GetData ( int memoryindex )
 {
 
 	if ( !memory.ValidIndex (memoryindex) )
-		return NULL;
+		return nullptr;
 
 	else if ( !data.ValidIndex ( memory [memoryindex] ) )
-		return NULL;
+		return nullptr;
 
 	else
 		return data [ memory [memoryindex] ];
@@ -196,7 +196,7 @@ Data *DataBank::GetData ( char *title )
 			if ( strcmp ( data.GetData (i)->title, title ) == 0 )
 				return data.GetData (i);
 
-	return NULL;
+	return nullptr;
 
 }
 
@@ -219,7 +219,7 @@ Data *DataBank::GetDataFile ( int dataindex )
 {
 
 	if ( !data.ValidIndex (dataindex) )
-		return NULL;
+		return nullptr;
 
 	else
 		return data.GetData (dataindex);

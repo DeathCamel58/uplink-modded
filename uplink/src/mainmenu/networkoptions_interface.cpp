@@ -181,11 +181,11 @@ void NetworkOptionsInterface::Create ()
 		// Status of network
 
 		EclRegisterButton ( screenw - 240, screenh - 40, 230, 30, "checking...", "", "network_details" );
-		EclRegisterButtonCallbacks ( "network_details", textbutton_draw, NULL, NULL, NULL );	
+		EclRegisterButtonCallbacks ( "network_details", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterMovement ( "network_details", screenw - 240, screenh - 230, 500 );
 
 		EclRegisterButton ( screenw - 240, screenh - 40, 230, 15, "checking...", "", "network_status" );
-		EclRegisterButtonCallbacks ( "network_status", StatusButtonDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "network_status", StatusButtonDraw, nullptr, nullptr, nullptr );
 		EclRegisterMovement ( "network_status", screenw - 240, screenh - 195, 500 );
 
 		// Client / Server buttons
@@ -201,14 +201,14 @@ void NetworkOptionsInterface::Create ()
 		// Client IP address
 
 		EclRegisterButton ( screenw - 240, screenh - 40, 230, 15, "localhost", "", "network_clienttarget" );
-		EclRegisterButtonCallbacks ( "network_clienttarget", textbutton_draw, NULL, NULL, button_highlight );
+		EclRegisterButtonCallbacks ( "network_clienttarget", textbutton_draw, nullptr, nullptr, button_highlight );
 		EclRegisterMovement ( "network_clienttarget", screenw - 240, screenh - 135, 500 );
 		EclMakeButtonEditable ( "network_clienttarget" );
 
 		// Network connections
 
 		EclRegisterButton ( screenw - 240, screenh - 40, 230, 60, "", "", "network_connections" );
-		EclRegisterButtonCallbacks ( "network_connections", textbutton_draw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( "network_connections", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterMovement ( "network_connections", screenw - 240, screenh - 110, 500 );
 
 		// Close button
@@ -309,7 +309,7 @@ void NetworkOptionsInterface::Update ()
 bool NetworkOptionsInterface::IsVisible ()
 {
 	
-	return ( EclGetButton ( "network_title" ) != NULL );
+	return ( EclGetButton ( "network_title" ) != nullptr );
 
 }
 

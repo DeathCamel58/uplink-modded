@@ -40,9 +40,9 @@ void DemoGameOverInterface::Create ()
 //		SgStopMod ();
 
 		EclRegisterButton ( 120, 130, 450, 300, " ", "", "demogameover" );
-		EclRegisterButtonCallbacks ( "demogameover", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "demogameover", textbutton_draw, nullptr, nullptr, nullptr );
 
-		starttime = time(NULL);
+		starttime = time(nullptr);
 
 	}
 
@@ -66,7 +66,7 @@ void DemoGameOverInterface::Update ()
 
 	if ( IsVisible () ) {
 
-		if ( starttime != -1 && time(NULL) > starttime + 4 ) {
+		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
 			if ( strcmp ( EclGetButton ( "demogameover" )->caption, " " ) == 0 ) {
 
@@ -81,7 +81,7 @@ void DemoGameOverInterface::Update ()
                                                            "you will need to purchase the full Uplink CD.\n"
                                                            "Details can be found on our web site.\n\n"
                                                            "www.introversion.co.uk\n\n" );
-				starttime = time(NULL);				
+				starttime = time(nullptr);
 
 			}
 			else {
@@ -108,7 +108,7 @@ void DemoGameOverInterface::Update ()
 bool DemoGameOverInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "demogameover" ) != NULL );
+	return ( EclGetButton ( "demogameover" ) != nullptr );
 
 }
 

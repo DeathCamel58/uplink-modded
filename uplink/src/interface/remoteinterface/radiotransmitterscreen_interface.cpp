@@ -140,7 +140,7 @@ void RadioTransmitterScreenInterface::ConnectClick ( Button *button )
 
 bool RadioTransmitterScreenInterface::ReturnKeyPressed ()
 {
-    ConnectClick ( NULL );
+    ConnectClick ( nullptr );
     return true;
 }
 
@@ -148,7 +148,7 @@ void RadioTransmitterScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "RadioTransmitterScreenInterface::Create, tried to create when GenericScreen==NULL\n" );
+	else printf ( "RadioTransmitterScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
 
 }
 
@@ -161,24 +161,24 @@ void RadioTransmitterScreenInterface::Create ( ComputerScreen *newcs )
         cs = newcs;
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "radioscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "radioscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "radioscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "radioscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "radioscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "radioscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
         EclRegisterButton ( 100, 120, 300, 100, "Wireless LAN transmitter online\nReady to establish Uplink.", " ", "radioscreen_text" );
-        EclRegisterButtonCallbacks ( "radioscreen_text", textbutton_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "radioscreen_text", textbutton_draw, nullptr, nullptr, nullptr );
 
         //
         // Frequency selection dialog
 
         EclRegisterButton ( 160, 220, 220, 140, " ", " ", "radioscreen_background" );
-        EclRegisterButtonCallbacks ( "radioscreen_background", BackgroundDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "radioscreen_background", BackgroundDraw, nullptr, nullptr, nullptr );
 
         EclRegisterButton ( 170, 223, 220, 30, "Transmitter Frequency", " ", "radioscreen_bigtext" );
-        EclRegisterButtonCallbacks ( "radioscreen_bigtext", DrawMainTitle, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "radioscreen_bigtext", DrawMainTitle, nullptr, nullptr, nullptr );
 
         EclRegisterButton ( 220, 260, 100, 20, " ", "Enter desired frequency here", "radioscreen_frequency" );
-        EclRegisterButtonCallbacks ( "radioscreen_frequency", FrequencyDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "radioscreen_frequency", FrequencyDraw, nullptr, nullptr, nullptr );
         EclMakeButtonEditable ( "radioscreen_frequency" );
 
         EclRegisterButton ( 200, 260, 20, 20, "<", "Scan lower frequencies", "radioscreen_down" );
@@ -195,7 +195,7 @@ void RadioTransmitterScreenInterface::Create ( ComputerScreen *newcs )
         EclRegisterButtonCallback ( "radioscreen_connect", ConnectClick );
         
         EclRegisterButton ( 180, 320, 180, 15, "Not Connected", " ", "radioscreen_statustext" );
-        EclRegisterButtonCallbacks ( "radioscreen_statustext", textbutton_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "radioscreen_statustext", textbutton_draw, nullptr, nullptr, nullptr );
         
     }
 

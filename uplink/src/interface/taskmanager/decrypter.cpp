@@ -34,7 +34,7 @@
 Decrypter::Decrypter () : UplinkTask ()
 {
 	
-	source = NULL;
+	source = nullptr;
 	sourceindex = -1;
 	status = DECRYPTER_OFF;
 	numticksrequired = 0;
@@ -345,7 +345,7 @@ void Decrypter::Tick ( int n )
 		}
 		else if ( status == DECRYPTER_FINISHED ) {
 
-			source = NULL;
+			source = nullptr;
 			sourceindex = -1;
 			progress = 0;	
 			numticksrequired = 0;
@@ -451,6 +451,6 @@ bool Decrypter::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_border %d", pid );
 	
-	return ( EclGetButton (stitle) != NULL );
+	return ( EclGetButton (stitle) != nullptr );
 
 }

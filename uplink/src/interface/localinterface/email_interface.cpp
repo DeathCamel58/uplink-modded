@@ -119,7 +119,7 @@ EmailInterface::EmailInterface()
 
 	index = -1;
 	timesync = 0;
-	message = NULL;
+	message = nullptr;
 
 }
 
@@ -262,9 +262,9 @@ void EmailInterface::Create ()
 		EclRegisterButton ( screenw - panelwidth, (paneltop + 3) + 55, (panelwidth - 7), 15, "", "email_date" );
 		EclRegisterButton ( screenw - panelwidth, (paneltop + 3) + 75, (panelwidth - 7), 30, "", "email_subject" );
 
-		EclRegisterButtonCallbacks ( "email_from", textbox_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "email_date", textbox_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "email_subject", textbox_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "email_from", textbox_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "email_date", textbox_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "email_subject", textbox_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterCaptionChange ( "email_from", from, 100 );
 		EclRegisterCaptionChange ( "email_date", date, 100 );
@@ -328,7 +328,7 @@ void EmailInterface::Remove ()
 void EmailInterface::Update ()
 {
 
-	if ( time(NULL) > timesync + 1 ) {
+	if ( time(nullptr) > timesync + 1 ) {
 
 		// Get the mission at the supposed index
 
@@ -339,7 +339,7 @@ void EmailInterface::Update ()
 		if ( message != realmessage ) 
 			game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
-		timesync = time(NULL);
+		timesync = time(nullptr);
 
 	}
 

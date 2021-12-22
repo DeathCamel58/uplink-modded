@@ -214,7 +214,7 @@ void GatewayNuke::CreateInterface ()
 		EclRegisterButton ( 20, 20, 20, 15, "Yes", "Click here to nuke your gateway", yes );
 		EclRegisterButton ( 147, 20, 20, 15, "No", "Click here to abort", no );
 
-		EclRegisterButtonCallbacks ( title, TitleDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( title, TitleDraw, nullptr, nullptr, nullptr );
 		EclRegisterButtonCallback ( yes, YesClick );
 		EclRegisterButtonCallback ( no, NoClick );
 
@@ -273,6 +273,6 @@ bool GatewayNuke::IsInterfaceVisible ()
 	char title [32];
 	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid );
 
-	return ( EclGetButton ( title ) != NULL );
+	return ( EclGetButton ( title ) != nullptr );
 
 }

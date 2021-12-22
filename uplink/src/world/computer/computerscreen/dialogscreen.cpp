@@ -25,8 +25,8 @@
 DialogScreen::DialogScreen()
 {
 
-	returnkeybutton = NULL;
-    escapekeybutton = NULL;
+	returnkeybutton = nullptr;
+    escapekeybutton = nullptr;
 
 }
 
@@ -186,11 +186,11 @@ DialogScreenWidget::DialogScreenWidget ()
 {
 
 	x = y = width = height = 0;
-	name = caption = tooltip = NULL;
+	name = caption = tooltip = nullptr;
 	WIDGETTYPE = WIDGET_NONE;
 
 	data1 = data2 = 0;
-	stringdata1 = stringdata2 = NULL;
+	stringdata1 = stringdata2 = nullptr;
 
 }
 
@@ -290,7 +290,7 @@ void DialogScreenWidget::SetStringData ( char *newstringdata1, char *newstringda
 {
 
 	if ( stringdata1 ) delete [] stringdata1;
-	stringdata1 = NULL;
+	stringdata1 = nullptr;
 	
 	if ( newstringdata1 ) {
 		stringdata1 = new char [strlen(newstringdata1) + 1];
@@ -298,7 +298,7 @@ void DialogScreenWidget::SetStringData ( char *newstringdata1, char *newstringda
 	}
 	
 	if ( stringdata2 ) delete [] stringdata2;
-	stringdata2 = NULL;
+	stringdata2 = nullptr;
 
 	if ( newstringdata2 ) {
 		stringdata2 = new char [strlen(newstringdata2) + 1];

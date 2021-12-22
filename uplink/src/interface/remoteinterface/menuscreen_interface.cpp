@@ -57,7 +57,7 @@ void MenuScreenInterface::ClickMenuScreenOption ( Button *button )
 	char ip [ SIZE_VLOCATION_IP ] = {0};
 	sscanf ( button->name, "%s %d %d %s", text, &unused, &nextpage, ip );
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -76,12 +76,12 @@ void MenuScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 		
 		EclRegisterButton ( 0, 0, 0, 0, "", "", "menuscreeninterface" );
-		EclRegisterButtonCallbacks ( "menuscreeninterface", NULL, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "menuscreeninterface", nullptr, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "menuscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "menuscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "menuscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "menuscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "menuscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "menuscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		int timeinterval = (int) ( 1000.0 / GetComputerScreen ()->NumOptions () );
 
@@ -119,10 +119,10 @@ void MenuScreenInterface::Create ( ComputerScreen *newcs )
 				EclRegisterButton ( -350, 120 + i * 30, 16, 16, "", GetComputerScreen ()->GetTooltip ( i ), bname1 );
 				button_assignbitmap ( bname1, "menuscreenoption.tif" );
 				EclGetButton ( bname1 )->image_standard->SetAlpha ( ALPHA_DISABLED );
-				EclRegisterButtonCallbacks ( bname1, imagebutton_draw, NULL, NULL, NULL );
+				EclRegisterButtonCallbacks ( bname1, imagebutton_draw, nullptr, nullptr, nullptr );
 
 				EclRegisterButton ( -300, 120 + i * 30 - 5, 300, 32, GetComputerScreen ()->GetCaption ( i ), GetComputerScreen ()->GetTooltip ( i ), bname2 );
-				EclRegisterButtonCallbacks ( bname2, DrawMenuOptionDimmed, NULL, NULL, NULL );
+				EclRegisterButtonCallbacks ( bname2, DrawMenuOptionDimmed, nullptr, nullptr, nullptr );
 
 				EclRegisterMovement ( bname1, 100, 130 + i * 30, (i+1) * timeinterval );
 				EclRegisterMovement ( bname2, 140, 130 + i * 30 - 5, (i+1) * timeinterval );
@@ -166,7 +166,7 @@ void MenuScreenInterface::Remove ()
 bool MenuScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "menuscreeninterface" ) != NULL );
+	return ( EclGetButton ( "menuscreeninterface" ) != nullptr );
 
 }
 

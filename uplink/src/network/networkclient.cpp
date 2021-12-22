@@ -36,7 +36,7 @@ NetworkClient::NetworkClient()
 
     clienttype = CLIENT_NONE;
     currentscreencode = CLIENT_NONE;
-    screen = NULL;
+    screen = nullptr;
 
 }
 
@@ -54,7 +54,7 @@ bool NetworkClient::StartClient ( char *ip )
 
     unsigned short portnum = 31337;
 
-    int result = TcpConnect ( &socket, ip, NULL, &portnum );
+    int result = TcpConnect ( &socket, ip, nullptr, &portnum );
 
     if ( result != TCP4U_SUCCESS )
 	return false;
@@ -112,7 +112,7 @@ void NetworkClient::RunScreen ( int SCREENCODE )
     if ( screen ) {
 	screen->Remove ();
 	delete screen;
-	screen = NULL;
+	screen = nullptr;
     }
 
     currentscreencode = SCREENCODE;

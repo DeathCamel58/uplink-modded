@@ -150,9 +150,9 @@ void HighSecurityScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "highsecurity_maintitle" );
-		EclRegisterButtonCallbacks ( "highsecurity_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "highsecurity_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "highsecurity_subtitle" );
-		EclRegisterButtonCallbacks ( "highsecurity_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "highsecurity_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		HighSecurityScreen *hs = GetComputerScreen ();
 		UplinkAssert (hs);
@@ -265,7 +265,7 @@ void HighSecurityScreenInterface::Update ()
 bool HighSecurityScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "highsecurity_maintitle" ) != NULL );
+	return ( EclGetButton ( "highsecurity_maintitle" ) != nullptr );
 
 }
 

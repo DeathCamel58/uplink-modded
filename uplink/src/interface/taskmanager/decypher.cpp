@@ -380,6 +380,6 @@ bool Decypher::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_border %d", pid );
 	
-	return ( EclGetButton (stitle) != NULL );
+	return ( EclGetButton (stitle) != nullptr );
 
 }

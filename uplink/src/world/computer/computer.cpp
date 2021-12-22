@@ -197,7 +197,7 @@ ComputerScreen *Computer::GetComputerScreen ( int index )
 		return (ComputerScreen *) screens.GetData (index);
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -236,7 +236,7 @@ void Computer::CheckForSecurityBreaches ()
 
 			AccessLog *al = logbank.logs.GetData (i);
 			
-			AccessLog *internallog = NULL;
+			AccessLog *internallog = nullptr;
 			if ( logbank.internallogs.ValidIndex (i) ) internallog = logbank.internallogs.GetData (i);
 
 			if ( al->SUSPICIOUS == LOG_SUSPICIOUS ) {

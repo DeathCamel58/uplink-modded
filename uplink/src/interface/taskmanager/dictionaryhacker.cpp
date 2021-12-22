@@ -42,13 +42,13 @@ DictionaryHacker::DictionaryHacker () : UplinkTask ()
 {
 
 	currentindex = 0;	
-	password = username = NULL;
+	password = username = nullptr;
 	status = DICTIONARYHACKER_WAITING;
 
 	numticksrequired = 0;
 	progress = 0;
 
-	targetstring = NULL;
+	targetstring = nullptr;
 
 }
 
@@ -224,7 +224,7 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 	targetobject = uo;
 	if ( targetstring ) {
 		delete [] targetstring;
-		targetstring = NULL;
+		targetstring = nullptr;
 	}
 	if ( uos ) {
 		targetstring = new char[ strlen( uos ) + 1 ];
@@ -232,7 +232,7 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 	}
 	targetint    = uoi;
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 
 	if ( uo->GetOBJECTID () == OID_PASSWORDSCREEN ) {
 
@@ -250,7 +250,7 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		if ( username )
 			delete [] username;
-		username = NULL;
+		username = nullptr;
 
 		numticksrequired = TICKSREQUIRED_DICTIONARYHACKER;
 		progress = 0;
@@ -281,7 +281,7 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 		// Look up this user name in this computer's records
 			
 		Record *rec = comp->recordbank.GetRecordFromName ( name );
-		char *passwd = NULL;
+		char *passwd = nullptr;
 
 		// It's possible that RECORDBANK_PASSWORD doesn't exists,
 		// the accounts in the Global Criminal Database don't have it.
@@ -356,13 +356,13 @@ void DictionaryHacker::CreateInterface ()
 //		EclButtonSendToBack ( bname );
 
 		EclRegisterButton ( 0, 45, 105, 4, "", "", border1 );
-		EclRegisterButtonCallbacks ( border1, buttonborder_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( border1, buttonborder_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 101, 45, 4, 210, "", "", border2 );
-		EclRegisterButtonCallbacks ( border2, buttonborder_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( border2, buttonborder_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 0, 251, 105, 4, "", "", border3 );
-		EclRegisterButtonCallbacks ( border3, buttonborder_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( border3, buttonborder_draw, nullptr, nullptr, nullptr );
 
 
 		char closename [64];
@@ -443,7 +443,7 @@ bool DictionaryHacker::IsInterfaceVisible ()
 	char bname [128];
 	UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", SvbLookupPID (this) );
 
-	return ( EclGetButton ( bname ) != NULL );
+	return ( EclGetButton ( bname ) != nullptr );
 
 }
 

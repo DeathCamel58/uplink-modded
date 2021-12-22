@@ -181,9 +181,9 @@ void PasswordScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 150, 120, 350, 25, GetComputerScreen ()->maintitle, "", "passwordscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "passwordscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "passwordscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 150, 140, 350, 20, GetComputerScreen ()->subtitle, "", "passwordscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "passwordscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "passwordscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 		
 		EclRegisterButton ( 168, 185, 220, 110, "", "", "passwordscreen_message" );
 		button_assignbitmap ( "passwordscreen_message", "passwordscreen.tif" );
@@ -200,7 +200,7 @@ void PasswordScreenInterface::Create ( ComputerScreen *newcs )
 		if ( btree ) {
 
 			EclRegisterButton ( 200, 310, 250, 15, "Known Access Codes", "", "passwordscreen_codestitle" );
-			EclRegisterButtonCallbacks ( "passwordscreen_codestitle", textbutton_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "passwordscreen_codestitle", textbutton_draw, nullptr, nullptr, nullptr );
 
 			EclRegisterButton ( 200, 330, 250, 15, btree->data, "Use this code", "passwordscreen_codes" );
 			EclRegisterButtonCallbacks ( "passwordscreen_codes", textbutton_draw, AccessCodeClick, button_click, button_highlight );
@@ -253,7 +253,7 @@ void PasswordScreenInterface::Update ()
 bool PasswordScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "passwordscreen_message" ) != NULL );
+	return ( EclGetButton ( "passwordscreen_message" ) != nullptr );
 
 }
 

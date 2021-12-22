@@ -113,7 +113,7 @@ World::World()
 	}
 
 	thefile.close ();
-	RsArchiveFileClose ( "data/gatewaydefs.txt", NULL );
+	RsArchiveFileClose ( "data/gatewaydefs.txt", nullptr );
 
 }
 
@@ -141,7 +141,7 @@ World::~World()
 VLocation *World::CreateVLocation ( char *ip, int phys_x, int phys_y )
 {
 
-	if ( locations.LookupTree ( ip ) != NULL ) {
+	if ( locations.LookupTree ( ip ) != nullptr ) {
 
 		char warning [128];
 		UplinkSnprintf ( warning, sizeof ( warning ), "Duplicate IP created : %s", ip );
@@ -287,7 +287,7 @@ VLocation *World::GetVLocation  ( char *ip )
 	BTree <VLocation *> *vl = locations.LookupTree ( ip );
 
 	if ( vl ) return vl->data;
-	else	  return NULL;
+	else	  return nullptr;
 
 }
 
@@ -297,7 +297,7 @@ Company *World::GetCompany ( char *name )
 	BTree <Company *> *company = companies.LookupTree ( name );
 
 	if ( company ) return company->data;
-	else		   return NULL;
+	else		   return nullptr;
 
 }
 
@@ -307,7 +307,7 @@ Computer *World::GetComputer ( char *name )
 	BTree <Computer *> *computer = computers.LookupTree ( name );
 
 	if ( computer ) return computer->data;
-	else			return NULL;
+	else			return nullptr;
 
 }
 
@@ -327,7 +327,7 @@ Person *World::GetPerson ( char *name )
 		BTree <Person *> *person = people.LookupTree ( name );
 
 		if ( person ) return person->data;
-		else		  return NULL;
+		else		  return nullptr;
 
 	}
 
@@ -340,7 +340,7 @@ char *World::GetPassword ( int index )
 		return passwords.GetData (index);
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -367,7 +367,7 @@ GatewayDef *World::GetGatewayDef ( char *name )
 		delete [] nameTrim;
 	}
 
-	return NULL;
+	return nullptr;
 
 }
 

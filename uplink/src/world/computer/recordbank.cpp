@@ -82,7 +82,7 @@ Record *RecordBank::GetRecord ( int index )
 		return records [index];
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -93,13 +93,13 @@ Record *RecordBank::GetRecord ( char *query )
 
     if ( !result ) {
 
-		return NULL;
+		return nullptr;
 
 	}
     else if ( result->Size () == 0 ) {
 
         delete result;
-        return NULL;
+        return nullptr;
 
     }
 	else if ( result->Size () > 1 ) {
@@ -271,7 +271,7 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 
     else {
         delete results;
-		return NULL;
+		return nullptr;
     }
 
 }
@@ -291,7 +291,7 @@ Record *RecordBank::GetRandomRecord ( char *query )
 
 	}
     else 
-		return NULL;
+		return nullptr;
 
 }
 
@@ -426,7 +426,7 @@ void Record::ChangeField ( char *name, int newvalue )
 char *Record::GetField ( char *name )
 {
 
-	if ( !name ) return NULL;
+	if ( !name ) return nullptr;
 
 	BTree <char *> *tree = fields.LookupTree ( name );
 
@@ -437,7 +437,7 @@ char *Record::GetField ( char *name )
 	}
 	else {
 
-		return NULL;
+		return nullptr;
 
 	}
 

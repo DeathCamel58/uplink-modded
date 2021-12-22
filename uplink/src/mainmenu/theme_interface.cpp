@@ -24,7 +24,7 @@
 
 #include "mmgr.h"
 
-DArray <char *> *ThemeInterface::themes = NULL;
+DArray <char *> *ThemeInterface::themes = nullptr;
 int ThemeInterface::currentSelect = -1;
 
 
@@ -208,7 +208,7 @@ void ThemeInterface::Create ()
         // Available themes
 
         EclRegisterButton ( screenw - 210, screenh - 40, 200, 15, "Available Themes", " ", "theme_text" );
-        EclRegisterButtonCallbacks ( "theme_text", textbutton_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "theme_text", textbutton_draw, nullptr, nullptr, nullptr );
         EclRegisterMovement ( "theme_text", screenw - 210, screenh - 150 - numThemes * 20, 500 );
         
         // One button for each theme
@@ -298,7 +298,7 @@ void ThemeInterface::Remove ()
             
 			DeleteDArrayData ( themes );
             delete themes;
-            themes = NULL;
+            themes = nullptr;
         }
 
         EclRemoveButton ( "theme_userid" );
@@ -318,7 +318,7 @@ void ThemeInterface::Update ()
 bool ThemeInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "theme_return" ) != NULL );
+	return ( EclGetButton ( "theme_return" ) != nullptr );
 
 }
 

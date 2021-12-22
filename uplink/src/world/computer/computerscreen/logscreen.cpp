@@ -57,7 +57,7 @@ void LogScreen::SetTARGET ( int newTARGET )
 LogBank *LogScreen::GetTargetLogBank ()
 {
 
-	LogBank *logbank = NULL;
+	LogBank *logbank = nullptr;
 
 
 	switch ( TARGET ) {

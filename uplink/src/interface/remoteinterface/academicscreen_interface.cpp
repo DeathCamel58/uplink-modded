@@ -29,7 +29,7 @@
 AcademicScreenInterface::AcademicScreenInterface ()
 {
 
-	searchname = NULL;
+	searchname = nullptr;
 	recordindex = -1;
 	lastupdate = 0;
 
@@ -45,7 +45,7 @@ AcademicScreenInterface::~AcademicScreenInterface ()
 bool AcademicScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick (NULL);
+    CloseClick (nullptr);
     return false;
 
 }
@@ -107,9 +107,9 @@ void AcademicScreenInterface::Create ( ComputerScreen *newcs )
 		// Draw the screen titles
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "academic_maintitle" );
-		EclRegisterButtonCallbacks ( "academic_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "academic_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "academic_subtitle" );
-		EclRegisterButtonCallbacks ( "academic_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "academic_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		// Photo
 
@@ -119,19 +119,19 @@ void AcademicScreenInterface::Create ( ComputerScreen *newcs )
 		// Details
 
 		EclRegisterButton ( 180, 130, 200, 15, "Name", "", "academic_name" );
-		EclRegisterButtonCallbacks ( "academic_name", DetailsDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "academic_name", DetailsDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 180, 150, 200, 15, "College Qualifications", "", "academic_collegequalstitle" );
 		EclRegisterButton ( 180, 165, 200, 105, "", "", "academic_collegequals" );
-		EclRegisterButtonCallbacks ( "academic_collegequals", DetailsDraw, NULL, NULL, button_highlight );
+		EclRegisterButtonCallbacks ( "academic_collegequals", DetailsDraw, nullptr, nullptr, button_highlight );
 
 		EclRegisterButton ( 180, 270, 200, 15, "Graduate Qualifications", "", "academic_uniqualstitle" );
 		EclRegisterButton ( 180, 285, 200, 30, "", "", "academic_uniquals" );
-		EclRegisterButtonCallbacks ( "academic_uniquals", DetailsDraw, NULL, NULL, button_highlight );
+		EclRegisterButtonCallbacks ( "academic_uniquals", DetailsDraw, nullptr, nullptr, button_highlight );
 
 		EclRegisterButton ( 180, 325, 200, 15, "Other Qualifications", "", "academic_otherqualstitle" );
 		EclRegisterButton ( 180, 340, 200, 30, "", "", "academic_otherquals" );
-		EclRegisterButtonCallbacks ( "academic_otherquals", DetailsDraw, NULL, NULL, button_highlight );
+		EclRegisterButtonCallbacks ( "academic_otherquals", DetailsDraw, nullptr, nullptr, button_highlight );
 
 		// Control buttons
 
@@ -191,7 +191,7 @@ void AcademicScreenInterface::SetSearchName ( char *newsearchname )
 	if ( recordindex != -1 )
 		searchname = LowerCaseString (newsearchname);
 	else
-		searchname = NULL;
+		searchname = nullptr;
 
 }
 
@@ -273,7 +273,7 @@ void AcademicScreenInterface::Update ()
 			if ( recordindex == -1 ) {
 
 				delete [] searchname;
-				searchname = NULL;
+				searchname = nullptr;
 				recordindex = -1;
 				return;
 
@@ -294,7 +294,7 @@ void AcademicScreenInterface::Update ()
 				// Record found - stop searching
 
 				delete [] searchname;
-				searchname = NULL;
+				searchname = nullptr;
 
 			}
 			else {
@@ -318,7 +318,7 @@ void AcademicScreenInterface::Update ()
 bool AcademicScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "academic_photo" ) != NULL );
+	return ( EclGetButton ( "academic_photo" ) != nullptr );
 
 }
 

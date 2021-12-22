@@ -255,7 +255,7 @@ void EventQueueInterface::Update ()
 
 	// Update every 5 seconds
 
-	if ( time(NULL) > previousupdate + 5 ) {
+	if ( time(nullptr) > previousupdate + 5 ) {
 
 		// Invalidate all the buttons
 
@@ -274,7 +274,7 @@ void EventQueueInterface::Update ()
 bool EventQueueInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "evtqueue_title" ) != NULL );
+	return ( EclGetButton ( "evtqueue_title" ) != nullptr );
 
 }
 

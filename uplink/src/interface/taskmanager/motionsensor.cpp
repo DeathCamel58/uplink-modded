@@ -196,7 +196,7 @@ bool MotionSensor::IsInterfaceVisible ()
 	char bname [32];
 	UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid );
 
-	return ( EclGetButton ( bname ) != NULL );
+	return ( EclGetButton ( bname ) != nullptr );
 
 }
 

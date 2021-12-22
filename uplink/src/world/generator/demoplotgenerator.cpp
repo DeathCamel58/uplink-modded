@@ -113,9 +113,9 @@ bool DemoPlotGenerator::NumAvailableMissions ( int missiontype )
 Mission *DemoPlotGenerator::Generate_FileCopyMission ()
 {
 
-	Company *employer1 = NULL;
-	Computer *target1 = NULL;
-    Mission *mission = NULL;
+	Company *employer1 = nullptr;
+	Computer *target1 = nullptr;
+    Mission *mission = nullptr;
 
     while ( !mission ) {
 
@@ -141,9 +141,9 @@ Mission *DemoPlotGenerator::Generate_FileCopyMission ()
 Mission *DemoPlotGenerator::Generate_FileDeleteMission ()
 {
 
-	Company *employer2 = NULL;
-	Computer *target2 = NULL;
-    Mission *mission = NULL;
+	Company *employer2 = nullptr;
+	Computer *target2 = nullptr;
+    Mission *mission = nullptr;
 
     while ( !mission ) {
 
@@ -169,7 +169,7 @@ Mission *DemoPlotGenerator::Generate_FileDeleteMission ()
 Mission *DemoPlotGenerator::Generate_ChangeAcademicMission ()
 {
 
-    Mission *mission = NULL;
+    Mission *mission = nullptr;
 
     while ( !mission ) {
 
@@ -238,7 +238,7 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 
 	// Find someone who isn't dead
 
-	Person *person = NULL;
+	Person *person = nullptr;
 
     while ( !person ) {
 

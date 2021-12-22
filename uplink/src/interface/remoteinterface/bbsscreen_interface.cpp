@@ -338,7 +338,7 @@ void BBSScreenInterface::ScrollChange ( char *scrollname, int newValue )
 bool BBSScreenInterface::EscapeKeyPressed ()
 {
 
-    ExitClick (NULL);    
+    ExitClick (nullptr);
     return true;
 
 }
@@ -374,7 +374,7 @@ void BBSScreenInterface::Create ( ComputerScreen *newcs )
         int baseY = 50 + NumItemsOnScreen() * 20;
 
         EclRegisterButton ( 20, baseY, SY(388) - 55, 110, "", "", "bbs_details" );
-		EclRegisterButtonCallbacks ( "bbs_details", DrawDetails, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "bbs_details", DrawDetails, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( baseX, baseY, 70, 15, "Accept", "Accept this mission", "bbs_accept" );
 		EclRegisterButtonCallback ( "bbs_accept", AcceptClick );
@@ -450,7 +450,7 @@ void BBSScreenInterface::Update ()
 		previousnummessages = newnummessages;
     }
 
-	if ( time(NULL) > previousupdate ) {
+	if ( time(nullptr) > previousupdate ) {
 
 		for ( int i = 0; i < NumItemsOnScreen(); ++ i ) {
 
@@ -460,7 +460,7 @@ void BBSScreenInterface::Update ()
 
 		}
 		
-		previousupdate = (int) ( time(NULL) + 1 );
+		previousupdate = (int) ( time(nullptr) + 1 );
 
 	}
 

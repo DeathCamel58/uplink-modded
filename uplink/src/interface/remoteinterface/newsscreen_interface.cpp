@@ -297,7 +297,7 @@ void NewsScreenInterface::ExitClick ( Button *button )
 bool NewsScreenInterface::EscapeKeyPressed ()
 {
 
-    ExitClick (NULL);
+    ExitClick (nullptr);
     return true;
 
 }
@@ -344,7 +344,7 @@ void NewsScreenInterface::Create ( ComputerScreen *newcs )
 		}
 		
 		create_stextbox ( 20, 50 + numRows * 40, itemWidth + 16, SY(105), "", "news_details" );
-		EclRegisterButtonCallbacks ( "news_details box", DrawDetails, NULL, NULL, NULL);
+		EclRegisterButtonCallbacks ( "news_details box", DrawDetails, nullptr, nullptr, nullptr);
 
 		EclRegisterButton ( 20 + itemWidth + 16 - SX(70), 51 + numRows * 40 + SY(105), SX(70), 15, "Exit News", "Close the News screen and return to the main menu", "news_exit" );
 		EclRegisterButtonCallback ( "news_exit", ExitClick );

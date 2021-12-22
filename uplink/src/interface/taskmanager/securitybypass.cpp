@@ -217,7 +217,7 @@ void SecurityBypass::EndCurrentBypass ()
 		UplinkAssert ( ((Security *) targetobject)->GetSystem (targetint) );
 		((Security *) targetobject)->GetSystem (targetint)->EndBypass ();
 		
-		targetobject = NULL;
+		targetobject = nullptr;
 		targetint = 0;
 		status = 0;
 
@@ -411,12 +411,12 @@ void SecurityBypass::CreateInterface ()
 		EclRegisterButton ( 100, 100, 32, 32, "Bypass", bypassCaption, main ); 
 		button_assignbitmaps ( main, "software/proxybypass.tif", "software/proxybypass.tif", "software/proxybypass.tif" );
 		//EclRegisterButtonCallback ( main, BypassClick );
-		EclRegisterButtonCallbacks ( main, ImageButtonDraw, BypassClick, NULL, NULL );
+		EclRegisterButtonCallbacks ( main, ImageButtonDraw, BypassClick, nullptr, nullptr );
 		
 		EclRegisterButton ( 101, 101, 12, 12, "P", pauseCaption, pause );
 		button_assignbitmaps ( pause, "software/pause.tif", "software/pause_h.tif", "software/pause_c.tif" );
 		//EclRegisterButtonCallback ( pause, PauseClick );
-		EclRegisterButtonCallbacks ( pause, ImageButtonDraw, PauseClick, NULL, NULL );
+		EclRegisterButtonCallbacks ( pause, ImageButtonDraw, PauseClick, nullptr, nullptr );
 
 		EclRegisterButton ( 119, 101, 12, 12, "", closeCaption, close );
 		button_assignbitmaps ( close, "close.tif", "close_h.tif", "close_c.tif" );
@@ -424,16 +424,16 @@ void SecurityBypass::CreateInterface ()
 		EclGetButton ( close )->image_highlighted->Scale ( 12, 12 );
 		EclGetButton ( close )->image_clicked->Scale	 ( 12, 12 );
 		//EclRegisterButtonCallback ( close, CloseClick );
-		EclRegisterButtonCallbacks ( close, ImageButtonDraw, CloseClick, NULL, NULL );
+		EclRegisterButtonCallbacks ( close, ImageButtonDraw, CloseClick, nullptr, nullptr );
 
 		EclRegisterButton ( 101, 119, 12, 12, "", "", title );
 		button_assignbitmap ( title, "software/proxy.tif" );
-		//EclRegisterButtonCallbacks ( title, imagebutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( title, ImageButtonDraw, NULL, NULL, NULL );
+		//EclRegisterButtonCallbacks ( title, imagebutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( title, ImageButtonDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 119, 119, 12, 12, "", "", status );
 		button_assignbitmaps ( status, "software/greenlight.tif", "software/redlight.tif", "software/redlight.tif" );
-		EclRegisterButtonCallbacks ( status, StatusLightDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( status, StatusLightDraw, nullptr, nullptr, nullptr );
 
 	}
 

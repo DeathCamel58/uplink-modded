@@ -38,20 +38,20 @@
 Game::Game ()
 {
 
-	ui      = NULL;
-	view    = NULL;
-	world   = NULL;
+	ui      = nullptr;
+	view    = nullptr;
+	world   = nullptr;
 
 	gamespeed = GAMESPEED_PAUSED;
-	gob = NULL;
+	gob = nullptr;
 
-	loadedSavefileVer = NULL;
+	loadedSavefileVer = nullptr;
 
-	createdSavefileVer = NULL;
+	createdSavefileVer = nullptr;
 
 	winningCodeWon = 0;
-	winningCodeDesc = NULL;
-	winningCodeExtra = NULL;
+	winningCodeDesc = nullptr;
+	winningCodeExtra = nullptr;
 	winningCodeRandom = 0;
 
 	whichWorldMap = defconworldmap;
@@ -94,7 +94,7 @@ void Game::NewGame ()
 	for ( int i = 0; i < sizeof ( winningCodeRandom ); i++ )
 		winningCodeRandom |= ( NumberGenerator::RandomNumber ( 254 ) + 1 ) << ( i * 8 );
 
-	gob = NULL;
+	gob = nullptr;
 
 	whichWorldMap = defconworldmap;
 	if ( app->GetOptions ()->GetOption ("graphics_defaultworldmap") &&
@@ -248,7 +248,7 @@ bool Game::LoadGame ( FILE *file )
 
 	// Initialise the random number generator
 
-	srand( (unsigned) time( NULL ) );  
+	srand( (unsigned) time( nullptr ) );
 
 	LoadID ( file );
 
@@ -317,7 +317,7 @@ bool Game::Load ( FILE *file )
 	ui	    = new Interface ();
 	view    = new View ();
 	world   = new World ();
-	gob     = NULL;
+	gob     = nullptr;
 	WorldGenerator::LoadDynamicsGatewayDefs ();
 
 	LoadID ( file );
@@ -422,9 +422,9 @@ void Game::Print ()
 
 	printf ( "Game speed = %d\n", gamespeed );
 
-	if ( ui )      ui     ->Print ();		else printf ( "UI is NULL\n" );
-	if ( view )    view   ->Print ();		else printf ( "View is NULL\n" );
-	if ( world )   world  ->Print ();		else printf ( "World is NULL\n" );
+	if ( ui )      ui     ->Print ();		else printf ( "UI is nullptr\n" );
+	if ( view )    view   ->Print ();		else printf ( "View is nullptr\n" );
+	if ( world )   world  ->Print ();		else printf ( "World is nullptr\n" );
 	
 	printf ( "============== E N D  O F  G A M E =========================\n" );
 
@@ -456,10 +456,10 @@ void Game::Update ()
 	// Autosave every minute
 	//
 
-	if ( time(NULL) > lastsave + 1 * 60 ) {
+	if ( time(nullptr) > lastsave + 1 * 60 ) {
 
 		app->SaveGame ( GetWorld ()->GetPlayer ()->handle );
-		lastsave = time(NULL);
+		lastsave = time(nullptr);
 
 	}
 
@@ -491,7 +491,7 @@ void Game::WinCode ( const char *desc, const char *codeExtra )
 
 	if ( winningCodeExtra ) {
 		delete [] winningCodeExtra;
-		winningCodeExtra = NULL;
+		winningCodeExtra = nullptr;
 	}
 
 	if ( codeExtra ) {
@@ -597,5 +597,5 @@ enum Game::WorldMapType Game::GetWorldMapType ()
 }
 
 
-Game *game = NULL;
+Game *game = nullptr;
 

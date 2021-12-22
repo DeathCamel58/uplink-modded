@@ -308,7 +308,7 @@ void Defrag::Tick ( int n )
 
 					progress = 4;
 					EclRegisterCaptionChange ( sprogress, "Finished" );
-					timersync = time(NULL) + 2;
+					timersync = time(nullptr) + 2;
 
 				}
 
@@ -322,14 +322,14 @@ void Defrag::Tick ( int n )
 
 				progress = 4;
 				EclRegisterCaptionChange ( sprogress, "Interrupted" );
-				timersync = time(NULL) + 2;
+				timersync = time(nullptr) + 2;
 
 			}
 
 		}
 		else if ( progress == 2 ) {											// We are done
 
-			if ( time(NULL) > timersync ) {
+			if ( time(nullptr) > timersync ) {
 
 				SvbRemoveTask ( SvbLookupPID ( this ) );
 
@@ -364,10 +364,10 @@ void Defrag::CreateInterface ()
 		EclRegisterButtonCallback ( stitle, GoClick );
 
 		EclRegisterButton ( 285, 422, 120, 15, "", "", sborder );
-		EclRegisterButtonCallbacks ( sborder, BorderDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( sborder, BorderDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 285, 423, 0, 13, "Defrag", "Shows the progress of the defrag", sprogress );
-		EclRegisterButtonCallbacks ( sprogress, ProgressDraw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( sprogress, ProgressDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 405, 423, 13, 13, "", "Close the Defragger", sclose );		
 		button_assignbitmaps ( sclose, "close.tif", "close_h.tif", "close_c.tif" );
@@ -434,6 +434,6 @@ bool Defrag::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid );
 
-	return ( EclGetButton ( stitle ) != NULL );
+	return ( EclGetButton ( stitle ) != nullptr );
 
 }

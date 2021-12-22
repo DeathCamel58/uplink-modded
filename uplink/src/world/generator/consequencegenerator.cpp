@@ -105,7 +105,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 			std::ostrstream newconvictions;
 
-			if ( existing && strstr ( existing, "None" ) == NULL )
+			if ( existing && strstr ( existing, "None" ) == nullptr )
 				newconvictions << existing << "\n";
 
 			newconvictions << "Unauthorised systems access\n"

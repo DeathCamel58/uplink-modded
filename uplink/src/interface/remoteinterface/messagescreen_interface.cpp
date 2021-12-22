@@ -28,7 +28,7 @@ void MessageScreenInterface::Click ( Button *button )
 	char ip [ SIZE_VLOCATION_IP ] = {0};
 	sscanf ( button->name, "messagescreen_click %d %s", &nextpage, ip );
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -67,7 +67,7 @@ void MessageScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "MessageScreenInterface::Create, tried to create when MessageScreen==NULL\n" );
+	else printf ( "MessageScreenInterface::Create, tried to create when MessageScreen==nullptr\n" );
 
 }
 
@@ -80,12 +80,12 @@ void MessageScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "messagescreen_maintitle" );
-		EclRegisterButtonCallbacks ( "messagescreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "messagescreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "messagescreen_subtitle" );
-		EclRegisterButtonCallbacks ( "messagescreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "messagescreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 50, 120, 400, 245, "", "", "messagescreen_message" );
-		EclRegisterButtonCallbacks ( "messagescreen_message", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "messagescreen_message", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange   ( "messagescreen_message", GetComputerScreen ()->textmessage, 2000 );		
 
 		if ( GetComputerScreen ()->buttonmessage ) {
@@ -137,7 +137,7 @@ void MessageScreenInterface::Remove ()
 bool MessageScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "messagescreen_message" ) != NULL );
+	return ( EclGetButton ( "messagescreen_message" ) != nullptr );
 
 }
 

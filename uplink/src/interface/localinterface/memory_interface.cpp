@@ -281,9 +281,9 @@ void MemoryInterface::Create ()
 		EclRegisterButtonCallback ( "memory_title", TitleClick );
 
 		//EclRegisterButton ( screenw - panelwidth - 3, paneltop + 20, panelwidth, 15, "", "memory_capacity" );
-		//EclRegisterButtonCallbacks ( "memory_capacity", textbutton_draw, NULL, NULL, NULL );
+		//EclRegisterButtonCallbacks ( "memory_capacity", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterButton ( screenw - panelwidth, (paneltop + 3) + 20, panelwidth - 7, 15, "", "memory_capacity" );
-		EclRegisterButtonCallbacks ( "memory_capacity", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "memory_capacity", text_draw, nullptr, nullptr, nullptr );
 
 		for ( int i = 0; i < numrows; ++i ) {
 
@@ -390,7 +390,7 @@ void MemoryInterface::Update ()
 bool MemoryInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "memory_title" ) != NULL );
+	return ( EclGetButton ( "memory_title" ) != nullptr );
 
 }
 

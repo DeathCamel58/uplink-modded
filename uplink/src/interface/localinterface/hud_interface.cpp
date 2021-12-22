@@ -55,8 +55,8 @@ HUDInterfaceUpgrade HUDInterface::hudUpgrades[8] = {
 HUDInterface::HUDInterface ()
 {
 	
-	previoushighlight = NULL;
-	previousimage = NULL;
+	previoushighlight = nullptr;
+	previousimage = nullptr;
 
     for ( int i = 0; i < 8; ++i )
         visibleUpgrades[i] = 0;
@@ -477,7 +477,7 @@ void HUDInterface::UnHighlightToolbarButton ()
 		    Image *new_highlighted = GetHUD ()->previousimage;
 		    Image *new_clicked     = button->image_standard;
 
-		    GetHUD ()->previousimage = NULL;
+		    GetHUD ()->previousimage = nullptr;
 
 		    button->image_standard    = new_standard;
 		    button->image_highlighted = new_highlighted;
@@ -490,7 +490,7 @@ void HUDInterface::UnHighlightToolbarButton ()
 		// No button is now highlighted
 
 		delete [] GetHUD ()->previoushighlight;
-		GetHUD ()->previoushighlight = NULL;
+		GetHUD ()->previoushighlight = nullptr;
 
 	}
 
@@ -548,13 +548,13 @@ void HUDInterface::Create ()
 		EclRegisterButtonCallback ( "hud_mainmenu", MainMenuClick );
 		
 		EclRegisterButton ( 0, 0, 3, 3, "", "Close any connections and log off", "hud_topleftclick" );
-		EclRegisterButtonCallbacks ( "hud_topleftclick", NULL, MainMenuClick, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "hud_topleftclick", nullptr, MainMenuClick, button_click, button_highlight );
 
 		EclRegisterButton ( 20, 3, 147, 15, "", "Shows the current Date and Time", "hud_date" );
 		EclRegisterButton ( 170, 3, 90, 15, "", "Shows your current Uplink location", "hud_location" );
 
-		EclRegisterButtonCallbacks ( "hud_date", button_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "hud_location", button_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hud_date", button_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "hud_location", button_draw, nullptr, nullptr, nullptr );
 
 		// Speed buttons
 
@@ -662,7 +662,7 @@ HUDInterfaceUpgrade *HUDInterface::GetUpgrade ( char upgrade )
 
     }
 
-    return NULL;
+    return nullptr;
 
 }
 
@@ -778,7 +778,7 @@ void HUDInterface::Update ()
 bool HUDInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "hud_software" ) != NULL );
+	return ( EclGetButton ( "hud_software" ) != nullptr );
 
 }
 

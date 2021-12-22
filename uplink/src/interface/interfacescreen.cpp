@@ -19,7 +19,7 @@ InterfaceScreen::~InterfaceScreen()
 {
 	DeleteDArrayData( this->interface_buttons );
 	delete this->interface_buttons;
-	this->interface_buttons = NULL;
+	this->interface_buttons = nullptr;
 }
 
 void InterfaceScreen::Create ()
@@ -32,7 +32,7 @@ void InterfaceScreen::Remove ()
 	for ( int i = 0; i < btns->Size(); ++i ) {
 		if ( btns->ValidIndex( i ) ) {
 			char *btn_name = btns->GetData( i );
-			if ( (NULL != btn_name) && ('\0' != btn_name[0]) )
+			if ( (nullptr != btn_name) && ('\0' != btn_name[0]) )
 				EclRemoveButton( btn_name );
 		}
 	}

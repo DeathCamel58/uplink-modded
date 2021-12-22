@@ -33,7 +33,7 @@ void RecordScreenInterface::CloseClick ( Button *button )
 	char ip [ SIZE_VLOCATION_IP ] = {0};
 	sscanf ( button->name, "recordscreen_click %d %s", &nextpage, ip );
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -128,9 +128,9 @@ void RecordScreenInterface::Create ( ComputerScreen *newcs )
 		// Create the titles
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "recordscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "recordscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "recordscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "recordscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "recordscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "recordscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		// Create record 0
 
@@ -251,8 +251,8 @@ void RecordScreenInterface::CreateRecord ( int index )
 			if ( !found )
 				EclRegisterButton ( 140, currentY, 300, buttonheight, field_values->GetData (j), "", bname_value );
 
-			EclRegisterButtonCallbacks ( bname_title, textbutton_draw, NULL, NULL, NULL );
-			EclRegisterButtonCallbacks ( bname_value, textbutton_draw, NULL, button_click, button_highlight );
+			EclRegisterButtonCallbacks ( bname_title, textbutton_draw, nullptr, nullptr, nullptr );
+			EclRegisterButtonCallbacks ( bname_value, textbutton_draw, nullptr, button_click, button_highlight );
 
 			currentY += buttonheight + 5;
 

@@ -76,12 +76,12 @@ void VoicePhoneScreenInterface::Create ( ComputerScreen *newcs )
         voiceindex = person->voiceindex;
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "voicescreen_maintitle" );
-		EclRegisterButtonCallbacks ( "voicescreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "voicescreen_subtitle" );
-		EclRegisterButtonCallbacks ( "voicescreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 40, 140, 300, 250, " ", " ", "voicescreen_text" );
-		EclRegisterButtonCallbacks ( "voicescreen_text", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_text", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Set up the screen data
 
@@ -201,7 +201,7 @@ void VoicePhoneScreenInterface::Update ()
 bool VoicePhoneScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "voicescreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "voicescreen_maintitle" ) != nullptr );
 
 }
 

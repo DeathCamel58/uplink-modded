@@ -262,7 +262,7 @@ local void init(void)
     EclReset ( app->GetOptions ()->GetOptionValue ("graphics_screenwidth"),
 			   app->GetOptions ()->GetOptionValue ("graphics_screenheight") );
 	EclRegisterClearDrawFunction      ( clear_draw );
-	EclRegisterDefaultButtonCallbacks ( button_draw, NULL, button_click, button_highlight );
+	EclRegisterDefaultButtonCallbacks ( button_draw, nullptr, button_click, button_highlight );
 	EclRegisterSuperHighlightFunction ( 3, superhighlight_draw );
 
 	if ( app->GetOptions ()->GetOption ("graphics_buttonanimations") &&
@@ -637,7 +637,7 @@ void passivemouse ( int x, int y )
 
 		if ( !EclGetButton ( "mouse" ) ) {
 			EclRegisterButton ( 0, 0, 8, 8, "", "mouse" );
-			EclRegisterButtonCallbacks ( "mouse", mousedraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "mouse", mousedraw, nullptr, nullptr, nullptr );
 		}
 
 		EclButtonBringToFront ( "mouse" );
@@ -690,7 +690,7 @@ void mousemove(int x, int y)
 
 		if ( !EclGetButton ( "mouse" ) ) {
 			EclRegisterButton ( 0, 0, 8, 8, "", "mouse" );
-			EclRegisterButtonCallbacks ( "mouse", mousedraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "mouse", mousedraw, nullptr, nullptr, nullptr );
 		}
 
 		EclButtonBringToFront ( "mouse" );

@@ -57,7 +57,7 @@ void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool high
 	sscanf ( button->name, "%s %d", unused, &index );
     index += baseOffset;
 
-	GatewayDef *gd = NULL;
+	GatewayDef *gd = nullptr;
 	if ( game->GetWorld ()->gatewaydefs.ValidIndex ( index ) )
 		gd = game->GetWorld ()->gatewaydefs.GetData ( index );
 	if ( !gd ) {
@@ -330,7 +330,7 @@ void ChangeGatewayScreenInterface::ShowGateway ( int index )
 
 	// Get the new gateway
 
-	GatewayDef *gd = NULL;
+	GatewayDef *gd = nullptr;
 	if ( game->GetWorld ()->gatewaydefs.ValidIndex ( currentselect ) )
 		gd = game->GetWorld ()->gatewaydefs.GetData ( currentselect );
 
@@ -349,12 +349,12 @@ void ChangeGatewayScreenInterface::ShowGateway ( int index )
 	    // Show the new picture
 
 	    delete (EclGetButton ("changegateway_picture")->image_standard);
-	    EclGetButton ("changegateway_picture")->image_standard = NULL;
+	    EclGetButton ("changegateway_picture")->image_standard = nullptr;
 	    //char imagename [64];
 	    //UplinkSnprintf ( imagename, sizeof ( imagename ), "gateway/gateway_t%d.tif", index );
 	    button_assignbitmap ( "changegateway_picture", gd->thumbnail );
     //	EclGetButton ("changegateway_picture")->image_standard->Scale ( 240, 140 );
-	    EclRegisterButtonCallbacks ( "changegateway_picture", GatewayPictureDraw, NULL, NULL, NULL );
+	    EclRegisterButtonCallbacks ( "changegateway_picture", GatewayPictureDraw, nullptr, nullptr, nullptr );
 
     }
 
@@ -366,7 +366,7 @@ int ChangeGatewayScreenInterface::GetGatewayPrice ( int index )
 	GatewayDef *oldgateway = game->GetWorld ()->GetPlayer ()->gateway.curgatewaydef;
 	UplinkAssert (oldgateway);
 
-	GatewayDef *newgateway = NULL;
+	GatewayDef *newgateway = nullptr;
 	if ( game->GetWorld ()->gatewaydefs.ValidIndex ( index ) )
 		newgateway = game->GetWorld ()->gatewaydefs.GetData ( index );
 
@@ -393,9 +393,9 @@ void ChangeGatewayScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "changegateway_maintitle" );
-		EclRegisterButtonCallbacks ( "changegateway_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "changegateway_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "changegateway_subtitle" );
-		EclRegisterButtonCallbacks ( "changegateway_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "changegateway_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 20, 120, 220, 15, "Gateway Name and Cost", " ", "changegateway_title" );
 
@@ -405,7 +405,7 @@ void ChangeGatewayScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < numRows; ++i ) {
 
-			GatewayDef *gd = NULL;
+			GatewayDef *gd = nullptr;
 			if ( game->GetWorld ()->gatewaydefs.ValidIndex ( i ) )
 				gd = game->GetWorld ()->gatewaydefs.GetData ( i );
 
@@ -432,18 +432,18 @@ void ChangeGatewayScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( 245, 120, 200, 140, " ", " ", "changegateway_picture" );
 		button_assignbitmap ( "changegateway_picture", "gateway/gateway_t0.tif" );
 //		EclGetButton ("changegateway_picture")->image_standard->Scale ( 200, 140 );
-		EclRegisterButtonCallbacks ( "changegateway_picture", GatewayPictureDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "changegateway_picture", GatewayPictureDraw, nullptr, nullptr, nullptr );
 
 		// Stats
 
 		EclRegisterButton ( 245, 270, 110, 30, "accessing...", " ", "changegateway_stats1" );
 		EclRegisterButton ( 355, 270, 110, 30, "accessing...", " ", "changegateway_stats2" );
 
-		EclRegisterButtonCallbacks ( "changegateway_stats1", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "changegateway_stats2", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "changegateway_stats1", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "changegateway_stats2", textbutton_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 245, 315, 200, 70, "accessing...", " ", "changegateway_text" );
-		EclRegisterButtonCallbacks ( "changegateway_text", InfoTextDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "changegateway_text", InfoTextDraw, nullptr, nullptr, nullptr );
 
 		// Control buttons
 
@@ -482,9 +482,9 @@ void ChangeGatewayScreenInterface::CreateAreYouSure ()
 	// Titles
 
 	EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "changegateway_maintitle" );
-	EclRegisterButtonCallbacks ( "changegateway_maintitle", DrawMainTitle, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( "changegateway_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 	EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "changegateway_subtitle" );
-	EclRegisterButtonCallbacks ( "changegateway_subtitle", DrawSubTitle, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( "changegateway_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 	// Proceed and cancel
 
@@ -497,7 +497,7 @@ void ChangeGatewayScreenInterface::CreateAreYouSure ()
 	// Information
 
 	EclRegisterButton ( 40, 130, 400, 250, " ", " ", "changegateway_text" );
-	EclRegisterButtonCallbacks ( "changegateway_text", textbutton_draw, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( "changegateway_text", textbutton_draw, nullptr, nullptr, nullptr );
 
 	GatewayDef *oldgateway = game->GetWorld ()->GetPlayer ()->gateway.curgatewaydef;
 	UplinkAssert (oldgateway);
@@ -572,7 +572,7 @@ void ChangeGatewayScreenInterface::Update ()
 bool ChangeGatewayScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "changegateway_maintitle" ) != NULL );
+	return ( EclGetButton ( "changegateway_maintitle" ) != nullptr );
 
 }
 
@@ -586,7 +586,7 @@ bool ChangeGatewayScreenInterface::ReturnKeyPressed ()
 bool ChangeGatewayScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick ( NULL );
+    CloseClick ( nullptr );
     return true;
 
 }

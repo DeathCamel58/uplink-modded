@@ -26,7 +26,7 @@
 LoansScreenInterface::LoansScreenInterface ()
 {
 	
-	account = NULL;
+	account = nullptr;
 	loanchange = 0;
 
 }
@@ -38,7 +38,7 @@ LoansScreenInterface::~LoansScreenInterface ()
 bool LoansScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick (NULL);
+    CloseClick (nullptr);
     return true;
 
 }
@@ -167,7 +167,7 @@ void LoansScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "LoansScreenInterface::Create, tried to create when GenericScreen==NULL\n" );
+	else printf ( "LoansScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
 
 }
 
@@ -184,13 +184,13 @@ void LoansScreenInterface::Create ( ComputerScreen *newcs )
 	// Look up the account number based on the log in name
 	Record *rec = bank->recordbank.GetRecordFromName ( game->GetInterface ()->GetRemoteInterface ()->security_name );
 	if ( !rec ) {
-		account = NULL;
+		account = nullptr;
 		return;
 	}
 
 	char *accno = rec->GetField ( RECORDBANK_ACCNO );
 	if ( !accno ) {
-		account = NULL;
+		account = nullptr;
 		return;
 	}
 
@@ -200,38 +200,38 @@ void LoansScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "loansscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "loansscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loansscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "loansscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "loansscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loansscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		// Account Name
 
 		EclRegisterButton ( 70, 150, 100, 15, "Account Name", "Shows the name your account is in", "loansscreen_accountname_title" );
 		EclRegisterButton ( 190, 150, 100, 15, "Accessing...", "", "loansscreen_accountname" );
-		EclRegisterButtonCallbacks ( "loansscreen_accountname", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loansscreen_accountname", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Account number
 
 		EclRegisterButton ( 70, 175, 100, 15, "Account No.", "Shows your account number", "loansscreen_accountnumber_title" );
 		EclRegisterButton ( 190, 175, 100, 15, "Accessing...", "", "loansscreen_accountnumber" );
-		EclRegisterButtonCallbacks ( "loansscreen_accountnumber", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loansscreen_accountnumber", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Balance
 
 		EclRegisterButton ( 70, 200, 100, 15, "Balance", "Shows your bank balance", "loansscreen_balance_title" );
 		EclRegisterButton ( 190, 200, 100, 15, "Accessing...", "", "loansscreen_balance" );
-		EclRegisterButtonCallbacks ( "loansscreen_balance", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loansscreen_balance", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Loan
 
 		EclRegisterButton ( 70, 225, 100, 15, "Loan", "Shows your the size of your loan", "loansscreen_loan_title" );
 		EclRegisterButton ( 190, 225, 100, 15, "Accessing...", "", "loansscreen_loan" );
-		EclRegisterButtonCallbacks ( "loansscreen_loan", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loansscreen_loan", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Interest rate
 
 		EclRegisterButton ( 300, 225, 80, 15, "", "", "loansscreen_loanrate" );
-		EclRegisterButtonCallbacks ( "loansscreen_loanrate", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loansscreen_loanrate", textbutton_draw, nullptr, nullptr, nullptr );
 
 
 		if ( account ) {
@@ -301,7 +301,7 @@ void LoansScreenInterface::Create ( ComputerScreen *newcs )
 		}
 
 		EclRegisterButton ( 270, 260, 100, 15, maxloan, "", "loansscreen_maxloan" );
-		EclRegisterButtonCallbacks ( "loansscreen_maxloan", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loansscreen_maxloan", textbutton_draw, nullptr, nullptr, nullptr );
 		
 		// OK button
 
@@ -351,7 +351,7 @@ void LoansScreenInterface::Update ()
 bool LoansScreenInterface::IsVisible ()
 {
 	
-	return ( EclGetButton ( "loansscreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "loansscreen_maintitle" ) != nullptr );
 
 }
 

@@ -56,7 +56,7 @@ void ClosingInterface::Create ()
 {
 
     EclRegisterButton ( 260, 200, 125, 20, " ", " ", "closing_text" );
-    EclRegisterButtonCallbacks ( "closing_text", LargeTextDraw, NULL, NULL, NULL );
+    EclRegisterButtonCallbacks ( "closing_text", LargeTextDraw, nullptr, nullptr, nullptr );
 
 }
 
@@ -122,13 +122,13 @@ void ClosingInterface::Update ()
             {
 
                 EclRegisterButton ( 220, 205, 40, 15, "www.", " ", "closing_www" );
-                EclRegisterButtonCallbacks ( "closing_www", textbutton_draw, NULL, NULL, NULL );
+                EclRegisterButtonCallbacks ( "closing_www", textbutton_draw, nullptr, nullptr, nullptr );
                 
                 EclRegisterButton ( 375, 205, 40, 15, ".co.uk", " ", "closing_couk" );
-                EclRegisterButtonCallbacks ( "closing_couk", textbutton_draw, NULL, NULL, NULL );
+                EclRegisterButtonCallbacks ( "closing_couk", textbutton_draw, nullptr, nullptr, nullptr );
 
                 EclRegisterButton ( 120, 460, 500, 15, " ", " ", "closing_time" );
-                EclRegisterButtonCallbacks ( "closing_time", textbutton_draw, NULL, NULL, NULL );
+                EclRegisterButtonCallbacks ( "closing_time", textbutton_draw, nullptr, nullptr, nullptr );
                 int playtime = int( ((float)(EclGetAccurateTime () - app->starttime)/1000.0)/60.0 );
                 char closingtime[128];
                 UplinkSnprintf ( closingtime, sizeof ( closingtime ), "You've been using Uplink for %d minutes. Visit our web site to buy the full product.", playtime );
@@ -164,7 +164,7 @@ void ClosingInterface::Update ()
 bool ClosingInterface::IsVisible ()
 {
 
-    return ( EclGetButton ( "closing_text" ) != NULL );
+    return ( EclGetButton ( "closing_text" ) != nullptr );
         
 }
 

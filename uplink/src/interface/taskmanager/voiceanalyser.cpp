@@ -52,7 +52,7 @@ VoiceAnalyser::VoiceAnalyser ()
 	timesync = 0;
 	animsync = 0;
 
-	source = NULL;
+	source = nullptr;
 	sourceindex = -1;
 	numticksrequired = 0;
 	progress = 0;
@@ -625,10 +625,10 @@ void VoiceAnalyser::CreateInterface ()
 			EclRegisterButton ( 200, 413, 188, 50, "Awaiting voice input...", "", text );
 		else
 			EclRegisterButton ( 200, 413, 188, 50, "Awaiting voice or data input...", "", text );
-		EclRegisterButtonCallbacks ( text, MainTextDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( text, MainTextDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 388, 413, 100, 50, " ", " ", analyser );
-		EclRegisterButtonCallbacks ( analyser, DrawAnalysis, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( analyser, DrawAnalysis, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 370, 445, 15, 15, " ", "Play the analysed voice recording", play );
 		button_assignbitmaps ( play, "software/play.tif", "software/play_h.tif", "software/play_c.tif" );
@@ -705,7 +705,7 @@ bool VoiceAnalyser::IsInterfaceVisible ()
 	char title [64];
 	UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid );
 
-	return ( EclGetButton ( title ) != NULL );
+	return ( EclGetButton ( title ) != nullptr );
 
 }
 

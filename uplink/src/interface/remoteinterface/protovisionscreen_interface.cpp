@@ -36,7 +36,7 @@ void ProtovisionScreenInterface::Close ( Button *button )
 	char ip [ SIZE_VLOCATION_IP ] = {0};
 	sscanf ( button->name, "protovisionscreen_close %d %s", &nextpage, ip );
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -75,7 +75,7 @@ void ProtovisionScreenInterface::NuclearWar ( Button *button )
 	char ip [ SIZE_VLOCATION_IP ] = {0};
 	sscanf ( button->name, "protovisionscreen_nuclearwar %s", ip );
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -91,7 +91,7 @@ void ProtovisionScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "ProtovisionScreenInterface::Create, tried to create when GenericScreen==NULL\n" );
+	else printf ( "ProtovisionScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
 
 }
 
@@ -111,9 +111,9 @@ void ProtovisionScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "protovisionscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "protovisionscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "protovisionscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "protovisionscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "protovisionscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "protovisionscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
         char *textmessage = "Falken's maze\n"
 							"Black jack\n"
@@ -131,7 +131,7 @@ void ProtovisionScreenInterface::Create ( ComputerScreen *newcs )
 							"theatrewide biotoxic and chemical warefare";
 
 		EclRegisterButton ( 50, 120, 300, 245, "", "", "protovisionscreen_message" );
-		EclRegisterButtonCallbacks ( "protovisionscreen_message", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "protovisionscreen_message", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange   ( "protovisionscreen_message", textmessage, 5000, NuclearWarStart );		
 
 		char namenuclearwar [128 + SIZE_VLOCATION_IP + 1];
@@ -179,7 +179,7 @@ void ProtovisionScreenInterface::Update ()
 bool ProtovisionScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "protovisionscreen_message" ) != NULL );
+	return ( EclGetButton ( "protovisionscreen_message" ) != nullptr );
 
 }
 

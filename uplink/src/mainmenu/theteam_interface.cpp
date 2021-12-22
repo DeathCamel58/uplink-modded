@@ -208,27 +208,27 @@ void TheTeamInterface::Create ()
 
 		EclRegisterButton ( 10, 10, 200, 100, " ", " ", "theteam_member 1" );
 		button_assignbitmap ( "theteam_member 1", "mainmenu/team1.tif" );
-		EclRegisterButtonCallbacks ( "theteam_member 1", imagebutton_draw, NULL, NULL, TeamMemberHighlight );
+		EclRegisterButtonCallbacks ( "theteam_member 1", imagebutton_draw, nullptr, nullptr, TeamMemberHighlight );
 
 		EclRegisterButton ( 430, 10, 200, 100, " ", " ", "theteam_member 3" );
 		button_assignbitmap ( "theteam_member 3", "mainmenu/team3.tif" );
-		EclRegisterButtonCallbacks ( "theteam_member 3", imagebutton_draw, NULL, NULL, TeamMemberHighlight );
+		EclRegisterButtonCallbacks ( "theteam_member 3", imagebutton_draw, nullptr, nullptr, TeamMemberHighlight );
 
 		EclRegisterButton ( 430, 370, 200, 100, " ", " ", "theteam_member 2" );
 		button_assignbitmap ( "theteam_member 2", "mainmenu/team2.tif" );
-		EclRegisterButtonCallbacks ( "theteam_member 2", imagebutton_draw, NULL, NULL, TeamMemberHighlight );
+		EclRegisterButtonCallbacks ( "theteam_member 2", imagebutton_draw, nullptr, nullptr, TeamMemberHighlight );
 
 		EclRegisterButton ( 10, 370, 200, 100, " ", " ", "theteam_member 4" );
 		button_assignbitmap ( "theteam_member 4", "mainmenu/team4.tif" );
-		EclRegisterButtonCallbacks ( "theteam_member 4", imagebutton_draw, NULL, NULL, TeamMemberHighlight );
+		EclRegisterButtonCallbacks ( "theteam_member 4", imagebutton_draw, nullptr, nullptr, TeamMemberHighlight );
 
 		// Create the central textbox
 
 		EclRegisterButton ( 180, 140, 280, 20, " ", " ", "theteam_name" );
-		EclRegisterButtonCallbacks ( "theteam_name", NameDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "theteam_name", NameDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 180, 170, 280, 300, " ", " ", "theteam_details" );
-		EclRegisterButtonCallbacks ( "theteam_details", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "theteam_details", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Exit button
 
@@ -280,7 +280,7 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 
 	UplinkAssert ( EclGetButton(buttonName) );
 	char *currentCaption = EclGetButton (buttonName)->caption;
-	char *newCaption = NULL;
+	char *newCaption = nullptr;
 
 	//
 	// First check - is the current name the right length?

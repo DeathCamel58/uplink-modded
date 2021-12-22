@@ -77,19 +77,19 @@ void StatusInterface::Create ()
 		//
 
 		EclRegisterButton ( screenw - panelwidth + 50, paneltop + 40, 80, 20, "Ratings", "", "status_ratingstitle" );
-		EclRegisterButtonCallbacks ( "status_ratingstitle", MiniTitleDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "status_ratingstitle", MiniTitleDraw, nullptr, nullptr, nullptr );
 
 //		EclRegisterButton ( screenw - panelwidth, paneltop + 70, cwidth, 30, "UPLINK", "", "status_tuplinkrating" );		
 //		EclRegisterButton ( screenw - panelwidth, paneltop + 110, cwidth, 30, "NEUROMANCER", "", "status_tneuromancerrating" );
 		
-//		EclRegisterButtonCallbacks ( "status_tuplinkrating", text_draw, NULL, NULL, NULL );		
-//		EclRegisterButtonCallbacks ( "status_tneuromancerrating", text_draw, NULL, NULL, NULL );
+//		EclRegisterButtonCallbacks ( "status_tuplinkrating", text_draw, nullptr, nullptr, nullptr );
+//		EclRegisterButtonCallbacks ( "status_tneuromancerrating", text_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( screenw - panelwidth, paneltop + 70, panelwidth - 5, 30, "", "", "status_uplinkrating" );
 		EclRegisterButton ( screenw - panelwidth, paneltop + 120, panelwidth - 5, 30, "", "", "status_neuromancerrating" );
 		
-		EclRegisterButtonCallbacks ( "status_uplinkrating", text_draw, NULL, NULL, NULL );		
-		EclRegisterButtonCallbacks ( "status_neuromancerrating", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "status_uplinkrating", text_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "status_neuromancerrating", text_draw, nullptr, nullptr, nullptr );
 
 
         char urating [256];        
@@ -106,14 +106,14 @@ void StatusInterface::Create ()
 		//
 
 		EclRegisterButton ( screenw - panelwidth + 50, paneltop + 190, 80, 20, "Criminal", "", "status_legaltitle" );
-		EclRegisterButtonCallbacks ( "status_legaltitle", MiniTitleDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "status_legaltitle", MiniTitleDraw, nullptr, nullptr, nullptr );
 			
 		Record *rec = RecordGenerator::GetCriminal ( "PLAYER" );
-		char *crimrec = NULL;
+		char *crimrec = nullptr;
 		if ( rec ) crimrec = rec->GetField ( "Convictions" );					
 
 		EclRegisterButton ( screenw - panelwidth + 5, paneltop + 220, panelwidth - 15, 60, "", "", "status_legal" );
-		EclRegisterButtonCallbacks ( "status_legal", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "status_legal", text_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "status_legal", crimrec ? crimrec : (char *) "None" );
 
 
@@ -137,7 +137,7 @@ void StatusInterface::Create ()
 
                 EclRegisterButton ( x, y, 16, 16, " ", tooltip, name );                
                 button_assignbitmaps_blend ( name, filename, filename, filename );
-                EclRegisterButtonCallbacks ( name, imagebutton_draw, NULL, button_click, button_highlight );
+                EclRegisterButtonCallbacks ( name, imagebutton_draw, nullptr, button_click, button_highlight );
                 
                 x += 18;
 
@@ -199,7 +199,7 @@ void StatusInterface::Update ()
 bool StatusInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "status_title" ) != NULL );
+	return ( EclGetButton ( "status_title" ) != nullptr );
 
 }
 

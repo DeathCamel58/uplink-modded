@@ -28,7 +28,7 @@
 CriminalScreenInterface::CriminalScreenInterface ()
 {
 
-	searchname = NULL;
+	searchname = nullptr;
 	recordindex = -1;
 	lastupdate = 0;
 
@@ -44,7 +44,7 @@ CriminalScreenInterface::~CriminalScreenInterface ()
 bool CriminalScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick (NULL);
+    CloseClick (nullptr);
     return true;
 
 }
@@ -109,7 +109,7 @@ void CriminalScreenInterface::AddConvictionClick ( Button *button )
 
 			std::ostrstream newconvictions;
 
-			if ( strstr ( existing, "None" ) == NULL )
+			if ( strstr ( existing, "None" ) == nullptr )
 				newconvictions << existing << "\n";
 
 			newconvictions << newconviction
@@ -244,34 +244,34 @@ void CriminalScreenInterface::Create ( ComputerScreen *newcs )
 		// Draw the screen titles
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "criminalscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "criminalscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "criminalscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "criminalscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "criminalscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "criminalscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 30, 130, 128, 160, "", "Shows the person's photograph", "criminal_photo" );
 		button_assignbitmap ( "criminal_photo", "photos/image0.tif" );
 
         EclRegisterButton ( 180, 130, 210, 15, "Name", " ", "criminal_nametitle" );
-        EclRegisterButtonCallbacks ( "criminal_nametitle", button_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "criminal_nametitle", button_draw, nullptr, nullptr, nullptr );
 
         EclRegisterButton ( 190, 146, 190, 38, " ", " ", "criminal_name" );
-        EclRegisterButtonCallbacks ( "criminal_name", NameDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "criminal_name", NameDraw, nullptr, nullptr, nullptr );
 
         EclRegisterButton ( 180, 145, 210, 40, " ", " ", "criminal_nameborder" );
-        EclRegisterButtonCallbacks ( "criminal_nameborder", NameBorderDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "criminal_nameborder", NameBorderDraw, nullptr, nullptr, nullptr );
 
 		// History text box
 
 		EclRegisterButton ( 180, 200, 210, 15, "Criminal History", "", "criminal_historytitle" );
-		EclRegisterButtonCallbacks ( "criminal_historytitle", button_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "criminal_historytitle", button_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 180, 215, 210, 140, "", "", "criminal_history" );
-		EclRegisterButtonCallbacks ( "criminal_history", HistoryDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "criminal_history", HistoryDraw, nullptr, nullptr, nullptr );
 
 		if ( game->GetInterface ()->GetRemoteInterface ()->security_level <= 2 ) {
 
 			EclRegisterButton ( 180, 354, 180, 16, "", "Enter new convictions here", "criminal_newconvictiontext" );
-			EclRegisterButtonCallbacks ( "criminal_newconvictiontext", HistoryDraw, NULL, NULL, button_highlight );
+			EclRegisterButtonCallbacks ( "criminal_newconvictiontext", HistoryDraw, nullptr, nullptr, button_highlight );
 
 			EclRegisterButton ( 360, 355, 30, 15, "Add", "Click to add this conviction", "criminal_newconvictionadd" );
 			EclRegisterButtonCallback ( "criminal_newconvictionadd", AddConvictionClick );
@@ -335,7 +335,7 @@ void CriminalScreenInterface::SetSearchName ( char *newsearchname )
 	if ( recordindex != -1 )
 		searchname = LowerCaseString (newsearchname);
 	else
-		searchname = NULL;
+		searchname = nullptr;
 
 }
 
@@ -399,7 +399,7 @@ void CriminalScreenInterface::Update ()
 			if ( recordindex == -1 ) {
 
 				delete [] searchname;
-				searchname = NULL;
+				searchname = nullptr;
 				recordindex = -1;
 				return;
 
@@ -420,7 +420,7 @@ void CriminalScreenInterface::Update ()
 				// Record found - stop searching
 
 				delete [] searchname;
-				searchname = NULL;
+				searchname = nullptr;
 
 			}
 			else {
@@ -444,7 +444,7 @@ void CriminalScreenInterface::Update ()
 bool CriminalScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "criminal_photo" ) != NULL );
+	return ( EclGetButton ( "criminal_photo" ) != nullptr );
 
 }
 

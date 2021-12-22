@@ -13,7 +13,7 @@
 News::News ()
 {
 
-	details = NULL;
+	details = nullptr;
 	NEWSTYPE = NEWS_TYPE_NONE;
 
     UplinkStrncpy ( headline, " ", sizeof ( headline ) );

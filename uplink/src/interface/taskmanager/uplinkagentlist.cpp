@@ -263,7 +263,7 @@ void UplinkAgentList::UpdateLists ()
 			Data *thisfile = databank->GetDataFile (i);
 			UplinkAssert (thisfile);
 			
-            if ( strstr ( thisfile->title, datatitle ) != NULL ) {
+            if ( strstr ( thisfile->title, datatitle ) != nullptr ) {
 
 				char unused [64];
 				int thisfileindex;
@@ -350,7 +350,7 @@ void UplinkAgentList::CreateInterface ()
 		UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid );
 	
 		EclRegisterButton ( x, y, width, height, "", "", bname );
-		EclRegisterButtonCallbacks ( bname, UplinkAgentListDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( bname, UplinkAgentListDraw, nullptr, button_click, button_highlight );
 		EclRegisterCaptionChange ( bname, "Uplink Agent List" );
 
         //
@@ -392,7 +392,7 @@ void UplinkAgentList::CreateInterface ()
 
 	    EclRegisterButtonCallback  ( name_up, ScrollUpClick );
 	    EclRegisterButtonCallback  ( name_down, ScrollDownClick );
-	    EclRegisterButtonCallbacks ( name_bar, button_draw, NULL, NULL, NULL );
+	    EclRegisterButtonCallbacks ( name_bar, button_draw, nullptr, nullptr, nullptr );
         
         //
         // Update the lists
@@ -514,7 +514,7 @@ bool UplinkAgentList::IsInterfaceVisible ()
 	char bname [128];
 	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", SvbLookupPID (this) );
 
-	return ( EclGetButton ( bname ) != NULL );
+	return ( EclGetButton ( bname ) != nullptr );
 
 }
 

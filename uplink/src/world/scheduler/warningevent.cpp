@@ -12,7 +12,7 @@
 WarningEvent::WarningEvent ()
 {
 
-	event = NULL;
+	event = nullptr;
 
 }
 
@@ -67,7 +67,7 @@ bool WarningEvent::Load  ( FILE *file )
 
 	LoadID ( file );
 
-	event = NULL;
+	event = nullptr;
 
 	if  ( !UplinkEvent::Load ( file ) ) return false;
 
@@ -95,7 +95,7 @@ void WarningEvent::Save  ( FILE *file )
 
 	UplinkEvent::Save ( file );
 
-	bool eventexists = ( event != NULL );
+	bool eventexists = ( event != nullptr );
 	fwrite ( &eventexists, sizeof(eventexists), 1, file );
 
 	if ( eventexists ) {

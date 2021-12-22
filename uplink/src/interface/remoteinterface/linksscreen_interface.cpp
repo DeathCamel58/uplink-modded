@@ -40,13 +40,13 @@
 
 int LinksScreenInterface::baseoffset = 0;
 
-Image *LinksScreenInterface::ilink_tif = NULL;
-Image *LinksScreenInterface::ilink_h_tif = NULL;
-Image *LinksScreenInterface::ilink_c_tif = NULL;
+Image *LinksScreenInterface::ilink_tif = nullptr;
+Image *LinksScreenInterface::ilink_h_tif = nullptr;
+Image *LinksScreenInterface::ilink_c_tif = nullptr;
 
-Image *LinksScreenInterface::iadd_tif = NULL;
-Image *LinksScreenInterface::iadd_h_tif = NULL;
-Image *LinksScreenInterface::iadd_c_tif = NULL;
+Image *LinksScreenInterface::iadd_tif = nullptr;
+Image *LinksScreenInterface::iadd_h_tif = nullptr;
+Image *LinksScreenInterface::iadd_c_tif = nullptr;
 
 
 LinksScreenInterface::LinksScreenInterface ()
@@ -72,28 +72,28 @@ LinksScreenInterface::~LinksScreenInterface ()
 
 	if ( ilink_tif ) {
 		delete ilink_tif;
-		ilink_tif = NULL;
+		ilink_tif = nullptr;
 	}
 	if ( ilink_h_tif ) {
 		delete ilink_h_tif;
-		ilink_h_tif = NULL;
+		ilink_h_tif = nullptr;
 	}
 	if ( ilink_c_tif ) {
 		delete ilink_c_tif;
-		ilink_c_tif = NULL;
+		ilink_c_tif = nullptr;
 	}
 
 	if ( iadd_tif ) {
 		delete iadd_tif;
-		iadd_tif = NULL;
+		iadd_tif = nullptr;
 	}
 	if ( iadd_h_tif ) {
 		delete iadd_h_tif;
-		iadd_h_tif = NULL;
+		iadd_h_tif = nullptr;
 	}
 	if ( iadd_c_tif ) {
 		delete iadd_c_tif;
-		iadd_c_tif = NULL;
+		iadd_c_tif = nullptr;
 	}
 
 }
@@ -153,7 +153,7 @@ void LinksScreenInterface::LinkDraw ( Button *button, bool highlighted, bool cli
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;	
-    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : NULL;
+    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : nullptr;
 
 	/*
 		Re above line
@@ -266,7 +266,7 @@ void LinksScreenInterface::DeleteLinkDraw ( Button *button, bool highlighted, bo
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : NULL;
+    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : nullptr;
 
 	if ( link ) 
 		imagebutton_draw ( button, highlighted, clicked );
@@ -296,7 +296,7 @@ void LinksScreenInterface::DeleteLinkClick ( Button *button )
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-	char *link = filteredlist->ValidIndex (linkindex) ? filteredlist->GetData (linkindex) : NULL;
+	char *link = filteredlist->ValidIndex (linkindex) ? filteredlist->GetData (linkindex) : nullptr;
 
 	if ( link && game->GetWorld ()->GetPlayer ()->HasLink (link) &&
          strcmp( link, IP_INTERNIC) != 0 ) {
@@ -314,12 +314,12 @@ void LinksScreenInterface::DeleteLinkClick ( Button *button )
 		Button *filterbutton = EclGetButton ( "linksscreen_filtertext" );
 		if ( filterbutton ) {
 			char *filter = filterbutton->caption;
-			if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( NULL );
+			if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
 			else						thisinterface->ApplyFilter ( filter );
 			baseoffset = currentbaseoffset;
 		}
 		else
-			thisinterface->ApplyFilter ( NULL );
+			thisinterface->ApplyFilter ( nullptr );
 
 	}
 
@@ -335,7 +335,7 @@ void LinksScreenInterface::AddLinkDraw ( Button *button, bool highlighted, bool 
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-    char *link = filteredlist->ValidIndex (linkindex) ? filteredlist->GetData (linkindex) : NULL;
+    char *link = filteredlist->ValidIndex (linkindex) ? filteredlist->GetData (linkindex) : nullptr;
 
 	if ( link && !game->GetWorld ()->GetPlayer ()->HasLink (link) ) 
 		imagebutton_draw ( button, highlighted, clicked );
@@ -358,7 +358,7 @@ void LinksScreenInterface::AddLinkClick ( Button *button )
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : NULL;
+    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : nullptr;
 
 	if ( link && !game->GetWorld ()->GetPlayer ()->HasLink (link) )
 		game->GetWorld ()->GetPlayer ()->GiveLink ( link );
@@ -375,7 +375,7 @@ void LinksScreenInterface::ShowLinkDraw ( Button *button, bool highlighted, bool
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : NULL;
+    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : nullptr;
 
     if ( link ) {
 
@@ -495,7 +495,7 @@ void LinksScreenInterface::FilterClick ( Button *button )
 
 	char *filter = EclGetButton ( "linksscreen_filtertext" )->caption;
 
-	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( NULL );
+	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
 	else						thisinterface->ApplyFilter ( filter );
 
 }
@@ -557,7 +557,7 @@ void LinksScreenInterface::SetFullList ( LList <char *> *newfulllist )
 
     }
 	
-	ApplyFilter ( NULL );
+	ApplyFilter ( nullptr );
 
 }
 
@@ -576,7 +576,7 @@ void LinksScreenInterface::SetFullList ()
 
     }
 
-	ApplyFilter ( NULL );
+	ApplyFilter ( nullptr );
 
 }
 
@@ -605,7 +605,7 @@ void LinksScreenInterface::ApplyFilter ( char *filter )
 			char *computername = vl->computer;
 			char *lowercasename = LowerCaseString ( computername );
 
-            if ( strstr ( lowercasename, lowercasefilter ) != NULL) {
+            if ( strstr ( lowercasename, lowercasefilter ) != nullptr) {
 
 				size_t datacopysize = SIZE_VLOCATION_IP;
                 char *datacopy = new char [datacopysize];
@@ -688,7 +688,7 @@ void LinksScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "LinksScreenInterface::Create, tried to create when GenericScreen==NULL\n" );
+	else printf ( "LinksScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
 
 }
 
@@ -703,9 +703,9 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
 		// Draw the screen titles
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "linksscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "linksscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "linksscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "linksscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "linksscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "linksscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		// Create the links
 
@@ -821,7 +821,7 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
             if ( GetComputerScreen ()->nextpage != -1 ) width -= 50;
 
             EclRegisterButton ( 155, 150 + NumLinksOnScreen() * 15, width, 15, "", "Enter filter pattern here", "linksscreen_filtertext" );
-			EclRegisterButtonCallbacks ( "linksscreen_filtertext", FilterDraw, NULL, button_click, button_highlight );
+			EclRegisterButtonCallbacks ( "linksscreen_filtertext", FilterDraw, nullptr, button_click, button_highlight );
 			EclMakeButtonEditable ( "linksscreen_filtertext" );
 
 		}
@@ -851,7 +851,7 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
 
 
 		// Removed, ApplyFilter is already done in SetFullList
-		//ApplyFilter ( NULL );
+		//ApplyFilter ( nullptr );
 
 	}
 
@@ -893,7 +893,7 @@ void LinksScreenInterface::Remove ()
 
 		}
 
-        if ( ScrollBox::GetScrollBox( "linksscreen_scroll" ) != NULL ) {
+        if ( ScrollBox::GetScrollBox( "linksscreen_scroll" ) != nullptr ) {
 		
             ScrollBox::RemoveScrollBox( "linksscreen_scroll" );
 
@@ -923,7 +923,7 @@ bool LinksScreenInterface::ReturnKeyPressed ()
 	
 	if ( filterbutton ) {
 		char *filter = filterbutton->caption;
-		if ( filter [0] == '\x0' )  ApplyFilter ( NULL );
+		if ( filter [0] == '\x0' )  ApplyFilter ( nullptr );
 		else						ApplyFilter ( filter );
 		return true;
 	}

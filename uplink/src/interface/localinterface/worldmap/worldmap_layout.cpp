@@ -36,7 +36,7 @@ WorldMapInterfaceObject::WorldMapInterfaceObject ()
     y = 0;
     baseX = 0;
     baseY = 0;
-    ip = NULL;
+    ip = nullptr;
 	isMission = false;
 	isColored = false;
 
@@ -89,7 +89,7 @@ void WorldMapInterfaceObject::SetIP ( const char *newip )
 	else {
 		isMission = false;
 		isColored = false;
-		ip = NULL;
+		ip = nullptr;
 	}
 
 }
@@ -181,7 +181,7 @@ WorldMapInterfaceLabel::WorldMapInterfaceLabel(
     const char *newCaption)
 
     : featurePoint(newFeaturePoint),
-      caption(NULL),
+      caption(nullptr),
       labelWidth(0)
 {
     SetTYPE(WORLDMAPOBJECT_LABEL);

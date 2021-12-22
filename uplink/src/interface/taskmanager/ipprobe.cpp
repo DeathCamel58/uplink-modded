@@ -76,7 +76,7 @@ void IPProbe::GoClick ( Button *button )
 	if ( task->status == PROBE_IDLE ) {
 
 		task->status = PROBE_INPROGRESS;
-		task->timeout = (int) ( time(NULL) + 1 );						// (3 seconds to complete)
+		task->timeout = (int) ( time(nullptr) + 1 );						// (3 seconds to complete)
 		//EclRegisterCaptionChange ( name_display, "Probing IP..." );
 
 	}
@@ -112,7 +112,7 @@ void IPProbe::Tick ( int n )
 		}
 		else if ( status == PROBE_INPROGRESS ) {
 
-			if ( time(NULL) >= timeout ) {
+			if ( time(nullptr) >= timeout ) {
 
 				// Try to lookup the IP in the box
 
@@ -177,7 +177,7 @@ void IPProbe::Tick ( int n )
 				}
 
                 delete [] ip;
-				timeout = (int) ( time(NULL) + 5 );
+				timeout = (int) ( time(nullptr) + 5 );
 				status = PROBE_FINISHED;
 
 			}
@@ -187,7 +187,7 @@ void IPProbe::Tick ( int n )
 
 			// Revert to idle after 5 secs
 
-			if ( time (NULL) > timeout ) {
+			if ( time (nullptr) > timeout ) {
 
 				int pid = SvbLookupPID ( this );
 				char name_display [64];
@@ -230,7 +230,7 @@ void IPProbe::CreateInterface ()
 
 		button_assignbitmap ( name_go, "software/go.tif" );
 		EclRegisterButtonCallback ( name_go, GoClick );
-		EclRegisterButtonCallbacks ( name_display, DisplayDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( name_display, DisplayDraw, nullptr, button_click, button_highlight );
 		button_assignbitmaps ( name_close, "close.tif", "close_h.tif", "close_c.tif" );
 		EclRegisterButtonCallback ( name_close, CloseClick );
 

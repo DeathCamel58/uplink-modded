@@ -29,7 +29,7 @@
 SocialSecurityScreenInterface::SocialSecurityScreenInterface ()
 {
 
-	searchname = NULL;
+	searchname = nullptr;
 	recordindex = -1;
 	lastupdate = 0;
 
@@ -85,7 +85,7 @@ void SocialSecurityScreenInterface::CloseClick ( Button *button )
 bool SocialSecurityScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick (NULL);
+    CloseClick (nullptr);
     return false;
 
 }
@@ -108,9 +108,9 @@ void SocialSecurityScreenInterface::Create ( ComputerScreen *newcs )
 		// Draw the screen titles
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "ss_maintitle" );
-		EclRegisterButtonCallbacks ( "ss_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "ss_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "ss_subtitle" );
-		EclRegisterButtonCallbacks ( "ss_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "ss_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		// Photo
 
@@ -121,23 +121,23 @@ void SocialSecurityScreenInterface::Create ( ComputerScreen *newcs )
 
 		EclRegisterButton ( 180, 130, 200, 15, "Name", "", "ss_nametitle" );
 		EclRegisterButton ( 180, 145, 200, 15, "logging on...", "", "ss_name" );
-		EclRegisterButtonCallbacks ( "ss_name", DetailsDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "ss_name", DetailsDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 180, 170, 200, 15, "Social Security Number", "", "ss_numtitle" );
 		EclRegisterButton ( 180, 185, 200, 15, "logging on...", "", "ss_num" );
-		EclRegisterButtonCallbacks ( "ss_num", DetailsDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "ss_num", DetailsDraw, nullptr, button_click, button_highlight );
 
 		EclRegisterButton ( 180, 210, 200, 15, "Date of Birth", "", "ss_dobtitle" );
 		EclRegisterButton ( 180, 225, 200, 15, "logging on...", "", "ss_dob" );
-		EclRegisterButtonCallbacks ( "ss_dob", DetailsDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "ss_dob", DetailsDraw, nullptr, button_click, button_highlight );
 
 		EclRegisterButton ( 180, 250, 200, 15, "Marital Status", "", "ss_maritaltitle" );
 		EclRegisterButton ( 180, 265, 200, 15, "logging on...", "", "ss_marital" );
-		EclRegisterButtonCallbacks ( "ss_marital", DetailsDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "ss_marital", DetailsDraw, nullptr, button_click, button_highlight );
 
 		EclRegisterButton ( 180, 290, 200, 15, "Personal Status", "", "ss_personaltitle" );
 		EclRegisterButton ( 180, 305, 200, 15, "logging on...", "", "ss_personal" );
-		EclRegisterButtonCallbacks ( "ss_personal", DetailsDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "ss_personal", DetailsDraw, nullptr, button_click, button_highlight );
 
 		EclMakeButtonEditable ( "ss_num" );
 		EclMakeButtonEditable ( "ss_dob" );
@@ -205,7 +205,7 @@ void SocialSecurityScreenInterface::SetSearchName ( char *newsearchname )
 	if ( recordindex != -1 )
 		searchname = LowerCaseString (newsearchname);
 	else
-		searchname = NULL;
+		searchname = nullptr;
 
 }
 
@@ -292,7 +292,7 @@ void SocialSecurityScreenInterface::Update ()
 			if ( recordindex == -1 ) {
 
 				delete [] searchname;
-				searchname = NULL;
+				searchname = nullptr;
 				recordindex = -1;
 				return;
 
@@ -313,7 +313,7 @@ void SocialSecurityScreenInterface::Update ()
 				// Record found - stop searching
 
 				delete [] searchname;
-				searchname = NULL;
+				searchname = nullptr;
 
 			}
 			else {
@@ -337,7 +337,7 @@ void SocialSecurityScreenInterface::Update ()
 bool SocialSecurityScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "ss_photo" ) != NULL );
+	return ( EclGetButton ( "ss_photo" ) != nullptr );
 
 }
 

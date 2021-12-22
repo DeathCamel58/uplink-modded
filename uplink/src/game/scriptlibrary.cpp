@@ -557,7 +557,7 @@ void ScriptLibrary::Script31 ()
 		UplinkAssert (key);
 
 		EclRegisterButton ( key->x - 43, key->y + key->height/2 - 1, 42, 4, " ", " ", "start_keylink" );
-		EclRegisterButtonCallbacks ( "start_keylink", DrawConnection, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "start_keylink", DrawConnection, nullptr, nullptr, nullptr );
 		
 		GciTimerFunc ( 800, RunScript, 31 );
 
@@ -579,7 +579,7 @@ void ScriptLibrary::Script31 ()
 		int lockY = 340 + lock->height/2 - 1;
 
 		EclRegisterButton ( lockX + 200, lockY, 31, 4, " ", " ", "start_locklink" );
-		EclRegisterButtonCallbacks ( "start_locklink", DrawConnection, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "start_locklink", DrawConnection, nullptr, nullptr, nullptr );
 
 		EclRegisterMovement ( "start_target", 490, 320, 500 );
 		EclRegisterMovement ( "start_lock", 450, 340, 500 );
@@ -795,7 +795,7 @@ void ScriptLibrary::Script33 ()
 
 	Mission *mission = new Mission ();
 	mission->SetTYPE ( MISSION_STEALFILE );
-	mission->SetCompletion ( IP_UPLINKINTERNALSERVICES, "Uplink test data", NULL, NULL, NULL );
+	mission->SetCompletion ( IP_UPLINKINTERNALSERVICES, "Uplink test data", nullptr, nullptr, nullptr );
 	mission->SetEmployer ( "Uplink" );
 	mission->SetContact ( "internal@Uplink.net" );
 	mission->SetPayment ( 0 );
@@ -843,7 +843,7 @@ void ScriptLibrary::Script34 ()
 		UplinkAssert (key);
 
 		EclRegisterButton ( key->x - 43, key->y + key->height/2 - 1, 42, 4, " ", " ", "start_keylink" );
-		EclRegisterButtonCallbacks ( "start_keylink", DrawConnection, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "start_keylink", DrawConnection, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 450, 340, 32, 32, " ", " ", "start_lock" );
 		button_assignbitmap ( "start_lock", "analyser/secure.tif" );
@@ -855,10 +855,10 @@ void ScriptLibrary::Script34 ()
 		int lockY = lock->y + lock->height/2 - 1;
 
 		EclRegisterButton ( lockX, lockY, 31, 4, " ", " ", "start_locklink" );
-		EclRegisterButtonCallbacks ( "start_locklink", DrawConnection, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "start_locklink", DrawConnection, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( key->x + key->width/2 + 8, key->y + key->height/2 + 8, lock->x - key->x - 16, lock->x - key->x - 16, " ", " ", "start_link" );
-		EclRegisterButtonCallbacks ( "start_link", DrawConnection, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "start_link", DrawConnection, nullptr, nullptr, nullptr );
 
 		EclRegisterCaptionChange ( "connecting 0 0", "Disconnecting from Uplink Public access server...", 700 );
 
@@ -989,16 +989,16 @@ void ScriptLibrary::Script40 ()
 		// Button doesn't exist yet
 
 		EclRegisterButton ( 180, 180, 300, 20, "Downloading UPLINK Operating System...", "", "downloadingUOS_title" );
-		EclRegisterButtonCallbacks ( "downloadingUOS_title", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "downloadingUOS_title", textbutton_draw, nullptr, nullptr, nullptr );
 		
 		EclRegisterButton ( 190, 210, 0, 15, "", "Shows the progress of the download", "downloadingUOS" );
 		EclRegisterResize ( "downloadingUOS", 200, 15, 5000 );		
 
 		EclRegisterButton ( 150, 210, 40, 15, "", "0 %", "downloadingUOS_prog" );
-		EclRegisterButtonCallbacks ( "downloadingUOS_prog", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "downloadingUOS_prog", textbutton_draw, nullptr, nullptr, nullptr );
 		
 		EclRegisterButton ( 190, 230, 300, 15, " ", " ", "downloadingUOS_current" );
-		EclRegisterButtonCallbacks ( "downloadingUOS_current", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "downloadingUOS_current", textbutton_draw, nullptr, nullptr, nullptr );
 
 		GciTimerFunc ( 100, RunScript, 40 );
 
@@ -1099,7 +1099,7 @@ void ScriptLibrary::Script41 ()
 					char okname [32];
 					UplinkSnprintf ( okname, sizeof ( okname ), "syscheckUOS_OK_%d", (i-1) );
 					EclRegisterButton ( 450, 130 + 20 * (i-1), 30, 15, "[OK]", "", okname );
-					EclRegisterButtonCallbacks ( okname, textbutton_draw, NULL, NULL, NULL );
+					EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
 				}
 
@@ -1125,7 +1125,7 @@ void ScriptLibrary::Script41 ()
 				}
 
 				EclRegisterButton ( 20, 130 + 20 * i, 400, 15, caption, "", buttonname );
-				EclRegisterButtonCallbacks ( buttonname, textbutton_draw, NULL, NULL, NULL );
+				EclRegisterButtonCallbacks ( buttonname, textbutton_draw, nullptr, nullptr, nullptr );
 
 				SgPlaySound ( RsArchiveFileOpen ( "sounds/done.wav" ), "sounds/done.wav" );
 
@@ -1239,7 +1239,7 @@ void ScriptLibrary::Script45 ()
 				    char okname [32];
 				    UplinkSnprintf ( okname, sizeof ( okname ), "newpatch_OK_%d", (i-1) );
 				    EclRegisterButton ( 500, 140 + 20 * (i-1), 30, 15, "[OK]", "", okname );
-				    EclRegisterButtonCallbacks ( okname, textbutton_draw, NULL, NULL, NULL );
+				    EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
                 }
 
@@ -1255,7 +1255,7 @@ void ScriptLibrary::Script45 ()
 				}
 
 				EclRegisterButton ( 100, 140 + 20 * i, 400, 15, caption, "", buttonname );
-				EclRegisterButtonCallbacks ( buttonname, textbutton_draw, NULL, NULL, NULL );
+				EclRegisterButtonCallbacks ( buttonname, textbutton_draw, nullptr, nullptr, nullptr );
 
                 SgPlaySound ( RsArchiveFileOpen ( "sounds/done.wav" ), "sounds/done.wav" );
 
@@ -1331,11 +1331,11 @@ void ScriptLibrary::Script46 ()
 	char okname [32];
 	UplinkSnprintf ( okname, sizeof ( okname ), "newpatch_OK_%d", 3 );
 	EclRegisterButton ( 500, 140 + 20 * 3, 30, 15, "[OK]", "", okname );
-	EclRegisterButtonCallbacks ( okname, textbutton_draw, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
     EclRegisterButton ( 50, 270, 550, 190, " ", " ", "newpatch_text"  );
 
-    EclRegisterButtonCallbacks ( "newpatch_text", textbutton_draw, NULL, NULL, NULL );
+    EclRegisterButtonCallbacks ( "newpatch_text", textbutton_draw, nullptr, nullptr, nullptr );
     EclRegisterCaptionChange ( "newpatch_text", "UPLINK VERSION 1.3 PATCH\n"
                                                 "Release notes\n\n"
                                                 "Any problems with this patch should be reported to "
@@ -1402,7 +1402,7 @@ void ScriptLibrary::Script47 ()
     // Show recommendations to the player
 
     EclRegisterButton ( 100, 200, 300, 20, "Recommendations", " ", "newpatch_recommendtitle" );
-    EclRegisterButtonCallbacks ( "newpatch_recommendtitle", DrawMainTitle, NULL, NULL, NULL );
+    EclRegisterButtonCallbacks ( "newpatch_recommendtitle", DrawMainTitle, nullptr, nullptr, nullptr );
 
     //
     // Screen resolution to 1024x768
@@ -1413,7 +1413,7 @@ void ScriptLibrary::Script47 ()
 	delete mode;
 
     EclRegisterButton ( 150, 250, 300, 15, messagesetresolution, "This is now the recommended in-game resolution.", "newpatch_screenres" );
-    EclRegisterButtonCallbacks ( "newpatch_screenres", textbutton_draw, NULL, button_click, button_highlight );
+    EclRegisterButtonCallbacks ( "newpatch_screenres", textbutton_draw, nullptr, button_click, button_highlight );
 
 	EclRegisterButton ( 450, 250, 15, 15, "1", "click to Enable or Disable this option", "newpatch_screenrestoggle" );
 	button_assignbitmaps ( "newpatch_screenrestoggle", "mainmenu/optionno.tif", "mainmenu/optionyes.tif", "mainmenu/optionyes.tif" );
@@ -1423,7 +1423,7 @@ void ScriptLibrary::Script47 ()
     // New user profile
 
     EclRegisterButton ( 150, 280, 300, 15, "Start a new Agent profile", "Your old profiles will work but many new features won't be available", "newpatch_newuser" );
-    EclRegisterButtonCallbacks ( "newpatch_newuser", textbutton_draw, NULL, button_click, button_highlight );
+    EclRegisterButtonCallbacks ( "newpatch_newuser", textbutton_draw, nullptr, button_click, button_highlight );
 
 	EclRegisterButton ( 450, 280, 15, 15, "1", "click to Enable or Disable this option", "newpatch_newusertoggle" );
 	button_assignbitmaps ( "newpatch_newusertoggle", "mainmenu/optionno.tif", "mainmenu/optionyes.tif", "mainmenu/optionyes.tif" );
@@ -1714,7 +1714,7 @@ void ScriptLibrary::Script71 ()
 
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
-	mission->SetCompletion   ( ourcomp->ip, NULL, NULL, NULL, NULL );    
+	mission->SetCompletion   ( ourcomp->ip, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, payment );
@@ -2200,7 +2200,7 @@ void ScriptLibrary::Script92 ()
 	UplinkAssert (lock);
 	
 	EclRegisterButton ( key->x + key->width/2 + 8, key->y + key->height/2 + 8, lock->x - key->x - 16, lock->x - key->x - 16, " ", " ", "start_link" );
-	EclRegisterButtonCallbacks ( "start_link", DrawConnection, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( "start_link", DrawConnection, nullptr, nullptr, nullptr );
 
 	EclRegisterCaptionChange ( "firsttimeloading_text", "Awaiting connection acknowledgment from UPLINK...", 800 );
 
@@ -2219,7 +2219,7 @@ void ScriptLibrary::Script93 ()
 	UplinkAssert (lock);
 	
 	EclRegisterButton ( key->x + key->width/2 + 8, key->y + key->height/2 + 8, lock->x - key->x - 16, lock->x - key->x - 16, " ", " ", "start_link" );
-	EclRegisterButtonCallbacks ( "start_link", DrawConnection, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( "start_link", DrawConnection, nullptr, nullptr, nullptr );
 
 	EclRegisterCaptionChange ( "connecting 0 0", "Awaiting connection acknowledgment from GATEWAY...", 700 );
 	GciTimerFunc ( 3500, RunScript, 36 );

@@ -21,7 +21,7 @@
 ShotByFedsEvent::ShotByFedsEvent ()
 {
 
-	reason = NULL;
+	reason = nullptr;
 	memset ( name, 0, sizeof ( name ) );
 
 }

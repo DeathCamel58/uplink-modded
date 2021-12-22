@@ -75,15 +75,15 @@ void HWInterface::CreateHWInterface ()
 		// Hardware installed
 
 		EclRegisterButton ( screenw - panelwidth + 40, paneltop + 40, 80, 20, "Hardware", "", "hw_hardwaretitle" );
-		EclRegisterButtonCallbacks ( "hw_hardwaretitle", MiniTitleDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hw_hardwaretitle", MiniTitleDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( screenw - panelwidth, paneltop + 70,  panelwidth - 10, 15, "", "", "hw_cpu" );
 		EclRegisterButton ( screenw - panelwidth, paneltop + 85,  panelwidth - 10, 15, "", "", "hw_modem" );
 		EclRegisterButton ( screenw - panelwidth, paneltop + 100, panelwidth - 10, 15, "", "", "hw_memory" );
 
-		EclRegisterButtonCallbacks ( "hw_cpu",    text_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "hw_modem",  text_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "hw_memory", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hw_cpu",    text_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "hw_modem",  text_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "hw_memory", text_draw, nullptr, nullptr, nullptr );
 
 		// Total CPU speed
 
@@ -118,7 +118,7 @@ void HWInterface::CreateHWInterface ()
         hardware << '\x0';
 
 		EclRegisterButton ( screenw - panelwidth, paneltop + 130, panelwidth - 10, SY(150), "", "", "hw_hardware" );
-		EclRegisterButtonCallbacks ( "hw_hardware", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hw_hardware", text_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "hw_hardware", hardware.str (), 1000 );
 		
 		hardware.rdbuf()->freeze( 0 );
@@ -128,10 +128,10 @@ void HWInterface::CreateHWInterface ()
 		// HUD Upgrades installed
 
 		EclRegisterButton ( screenw - panelwidth + 20, paneltop + SY(150) + 50, 80, 20, "HUD Upgrades", "", "hw_hudupgradestitle" );
-		EclRegisterButtonCallbacks ( "hw_hudupgradestitle", MiniTitleDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hw_hudupgradestitle", MiniTitleDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( screenw - panelwidth, paneltop + SY(150) + 70, panelwidth - 10, 60, "", "", "hw_hudupgrades" );
-		EclRegisterButtonCallbacks ( "hw_hudupgrades", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hw_hudupgrades", text_draw, nullptr, nullptr, nullptr );
 
 		std::ostrstream hudupgrades;
 

@@ -111,7 +111,7 @@ char *Connection::GetSource ()
 		return vlocations.GetData ( 0 );
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -122,7 +122,7 @@ char *Connection::GetTarget ()
 		return vlocations.GetData ( vlocations.Size () - 1 );
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -133,7 +133,7 @@ char *Connection::GetGhost ()
 		return vlocations.GetData ( vlocations.Size () - 2 );
 
 	else
-		return NULL;
+		return nullptr;
 
 
 }

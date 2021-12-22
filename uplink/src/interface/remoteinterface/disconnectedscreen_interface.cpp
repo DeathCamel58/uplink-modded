@@ -33,7 +33,7 @@ void DisconnectedScreenInterface::Click ( Button *button )
 	char ip [ SIZE_VLOCATION_IP ] = {0};
 	sscanf ( button->name, "disconnectedscreen_click %d %s", &nextpage, ip );
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -57,7 +57,7 @@ void DisconnectedScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "DisconnectedScreenInterface::Create, tried to create when MessageScreen==NULL\n" );
+	else printf ( "DisconnectedScreenInterface::Create, tried to create when MessageScreen==nullptr\n" );
 
 }
 
@@ -70,18 +70,18 @@ void DisconnectedScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "disconnectedscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "disconnectedscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "disconnectedscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "disconnectedscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "disconnectedscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "disconnectedscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 50, 120, 400, 30, "", "", "disconnectedscreen_message" );
-		EclRegisterButtonCallbacks ( "disconnectedscreen_message", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "disconnectedscreen_message", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange   ( "disconnectedscreen_message", GetComputerScreen ()->textmessage, 2000 );
 
         if ( DisconnectedScreen::loginslost.Size () > 0 ) {
 
             EclRegisterButton ( 50, 180, 400, 200, "", "", "disconnectedscreen_loginslost" );
-            EclRegisterButtonCallbacks ( "disconnectedscreen_loginslost", textbutton_draw, NULL, NULL, NULL );
+            EclRegisterButtonCallbacks ( "disconnectedscreen_loginslost", textbutton_draw, nullptr, nullptr, nullptr );
 
             std::ostrstream loginslost;
             loginslost << "Your username and password was revoked on these systems:\n\n";
@@ -149,7 +149,7 @@ void DisconnectedScreenInterface::Remove ()
 bool DisconnectedScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "disconnectedscreen_message" ) != NULL );
+	return ( EclGetButton ( "disconnectedscreen_message" ) != nullptr );
 
 }
 

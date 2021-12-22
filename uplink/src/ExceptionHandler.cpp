@@ -84,7 +84,7 @@ static TCHAR * lstrrchr(LPCTSTR string, int ch)
 	if (*string == (TCHAR) ch)                /* char found ? */
 		return (TCHAR *)string;
 
-	return NULL;
+	return nullptr;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -140,13 +140,13 @@ static void hprintf(HANDLE LogFile, LPCTSTR Format, ...)
 // DumpMiniDump
 static void DumpMiniDump(HANDLE hFile, PEXCEPTION_POINTERS excpInfo)
 {
-	if (excpInfo == NULL)
+	if (excpInfo == nullptr)
 	{
 		// Generate exception to get proper context in dump
 		__try
 		{
 			OutputDebugString(_T("raising exception\r\n"));
-			RaiseException(EXCEPTION_BREAKPOINT, 0, 0, NULL);
+			RaiseException(EXCEPTION_BREAKPOINT, 0, 0, nullptr);
 		}
 		__except(DumpMiniDump(hFile, GetExceptionInformation()),
 				 EXCEPTION_CONTINUE_EXECUTION)
@@ -167,9 +167,9 @@ static void DumpMiniDump(HANDLE hFile, PEXCEPTION_POINTERS excpInfo)
 			GetCurrentProcessId(),
 			hFile,
 			MiniDumpWithIndirectlyReferencedMemory, //MiniDumpNormal,
-			excpInfo ? &eInfo : NULL,
-			NULL,
-			NULL);
+			excpInfo ? &eInfo : nullptr,
+			nullptr,
+			nullptr);
 	}
 }
 
@@ -771,10 +771,10 @@ int __cdecl RecordExceptionInfo(PEXCEPTION_POINTERS pExceptPtrs,
 		szModuleName,
 		GENERIC_WRITE,
 		0,
-		NULL,
+		nullptr,
 		CREATE_ALWAYS,
 		FILE_ATTRIBUTE_NORMAL | FILE_FLAG_WRITE_THROUGH,
-		NULL);
+		nullptr);
 
 	// Write the minidump to the file
 	if (hMiniDumpFile != INVALID_HANDLE_VALUE)
@@ -830,14 +830,14 @@ int __cdecl RecordExceptionInfo(PEXCEPTION_POINTERS pExceptPtrs,
 		ZeroMemory(&pi, sizeof(pi));
 
 		if (CreateProcess(
-			NULL,					// name of executable module
+			nullptr,					// name of executable module
 			szCommandLine,			// command line string
-			NULL,					// process attributes
-			NULL,					// thread attributes
+			nullptr,					// process attributes
+			nullptr,					// thread attributes
 			FALSE,					// handle inheritance option
 			0,						// creation flags
-			NULL,					// new environment block
-			NULL,					// current directory name
+			nullptr,					// new environment block
+			nullptr,					// current directory name
 			&si,					// startup information
 			&pi))					// process information
 		{

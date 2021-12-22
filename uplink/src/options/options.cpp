@@ -59,7 +59,7 @@ Option *Options::GetOption ( char *name )
 		return btree->data;
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -156,7 +156,7 @@ LList <Option *> *Options::GetAllOptions ( char *searchstring, bool returnhidden
 			UplinkAssert (option);
 
 			if ( option->visible || returnhidden )
-				if ( !searchstring || strstr ( option->name, searchstring ) != NULL )
+				if ( !searchstring || strstr ( option->name, searchstring ) != nullptr )
 					result->PutData ( option );
 
 		}
@@ -308,7 +308,7 @@ void Options::SetThemeName ( char *newThemeName )
     }
 
 
-    RsArchiveFileClose ( themeTextFilename, NULL );
+    RsArchiveFileClose ( themeTextFilename, nullptr );
     delete [] themeTextFilename;
 
 }
@@ -409,7 +409,7 @@ bool Options::Load ( FILE *file )
 	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath );
 	printf ( "Loading uplink options from %s...", filename );
 
-	FILE *optionsfile = NULL;
+	FILE *optionsfile = nullptr;
 	bool encrypted = false;
 	if ( RsFileEncryptedNoVerify ( filename ) ) {
 		if ( RsFileEncrypted ( filename ) ) {

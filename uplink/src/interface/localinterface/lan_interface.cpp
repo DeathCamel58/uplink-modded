@@ -583,7 +583,7 @@ void LanInterface::LanSystemClick ( Button *button )
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
     LanComputer *lancomp = (LanComputer *) comp;
 
-    LanComputerSystem *system = NULL;
+    LanComputerSystem *system = nullptr;
 	if ( lancomp->systems.ValidIndex ( systemIndex ) )
 		system = lancomp->systems.GetData(systemIndex);
     if ( system && system->visible != LANSYSTEMVISIBLE_NONE ) 
@@ -822,7 +822,7 @@ void LanInterface::GenerateClick ( Button *button )
             case 4  :   LanGenerator::GenerateLANCluster(lanComp,4);  break;
         };
 
-        CheatInterface::ShowLANClick( NULL );
+        CheatInterface::ShowLANClick( nullptr );
         LanMonitor::ResetAll ();
         game->GetInterface ()->GetLocalInterface ()->RunScreen( SCREEN_LAN );
 
@@ -897,7 +897,7 @@ void LanInterface::SelectSystem ( int systemIndex )
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
     LanComputer *lancomp = (LanComputer *) comp;
 
-    LanComputerSystem *system = NULL;
+    LanComputerSystem *system = nullptr;
 
     if ( lancomp->systems.ValidIndex(systemIndex) ) {
         system = lancomp->systems.GetData(systemIndex);
@@ -1137,22 +1137,22 @@ void LanInterface::Create ()
         // Create the side panel
 
     	//EclRegisterButton ( screenw - panelwidth - 3, paneltop, panelwidth, SY(300), "", "", "localint_background" );
-		//EclRegisterButtonCallbacks ( "localint_background", PanelBackgroundDraw, NULL, NULL, NULL );
+		//EclRegisterButtonCallbacks ( "localint_background", PanelBackgroundDraw, nullptr, nullptr, nullptr );
 		LocalInterfaceScreen::Create ();
 
 		EclRegisterButton ( screenw - panelwidth, paneltop + 3, panelwidth - 7, 15, "LOCAL AREA NETWORK", "Remove the LAN screen", "lan_title" );
 		EclRegisterButtonCallback ( "lan_title", TitleClick );
 
         EclRegisterButton ( screenw - panelwidth + 10, paneltop + 30, panelwidth - 10, 30, " ", " ", "lan_systemname" );
-        EclRegisterButtonCallbacks ( "lan_systemname", TitleDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "lan_systemname", TitleDraw, nullptr, nullptr, nullptr );
 
         EclRegisterButton ( screenw - 90, paneltop + 60, 32, 32, " ", " ", "lan_preview" );
-        EclRegisterButtonCallbacks ( "lan_preview", NULL, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "lan_preview", nullptr, nullptr, nullptr, nullptr );
 
         int infoWidth = (screenw - 90) - (screenw - panelwidth) - 10;
         EclRegisterButton ( screenw - panelwidth + 10, paneltop + 60, infoWidth, 200, " ", " ", "lan_systemdesc" );
-        //EclRegisterButtonCallbacks ( "lan_systemdesc", textbutton_draw, NULL, NULL, NULL );
-        EclRegisterButtonCallbacks ( "lan_systemdesc", text_draw, NULL, NULL, NULL );
+        //EclRegisterButtonCallbacks ( "lan_systemdesc", textbutton_draw, nullptr, nullptr, nullptr );
+        EclRegisterButtonCallbacks ( "lan_systemdesc", text_draw, nullptr, nullptr, nullptr );
 
         EclRegisterButton ( screenw - panelwidth, paneltop + SY(300) - 60, panelwidth - 7, 15, "Back", "Remove the last system from your connection", "lan_back" );
         EclRegisterButtonCallbacks ( "lan_back", BackDraw, BackClick, button_click, BackMouseMove );
@@ -1168,7 +1168,7 @@ void LanInterface::Create ()
         // Create the main box
 
         EclRegisterButton ( 5, 30, SX(440), SY(370), " ", " ", "lan_background" );
-        EclRegisterButtonCallbacks ( "lan_background", LanBackgroundDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "lan_background", LanBackgroundDraw, nullptr, nullptr, nullptr );
 
         UplinkStrncpy ( ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( ip ) );
 
@@ -1272,7 +1272,7 @@ void LanInterface::Update ()
 bool LanInterface::IsVisible ()
 {
 
-    return ( EclGetButton ( "lan_background" ) != NULL );
+    return ( EclGetButton ( "lan_background" ) != nullptr );
 
 }
 

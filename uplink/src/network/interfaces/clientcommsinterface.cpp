@@ -38,7 +38,7 @@
 
 BTree <VLocation *> ClientCommsInterface::locations;
 LList <char *> ClientCommsInterface::connection;
-WorldMapLayout *ClientCommsInterface::layout = NULL;
+WorldMapLayout *ClientCommsInterface::layout = nullptr;
 
 static int stippleindex = 0;
 static int STIPPLE []  = { 0x1111,		//		0001000100010001
@@ -259,11 +259,11 @@ void ClientCommsInterface::Create ()
     EclGetButton ( "comms_largemap" )->image_standard->ScaleToOpenGL ();
 
 	//EclGetButton ( "comms_largemap" )->image_standard->SetAlpha ( 0.99 );
-	EclRegisterButtonCallbacks ( "comms_largemap", LargeMapDraw, NULL, NULL, NULL );				
+	EclRegisterButtonCallbacks ( "comms_largemap", LargeMapDraw, nullptr, nullptr, nullptr );
 
 //		EclRegisterButton ( 22, 50, 595, 316, "", "Global communications", "comms_largemap" );												
 //		button_assignbitmap ( "comms_largemap", "worldmaplarge.tif" );
-//		EclRegisterButtonCallbacks ( "comms_largemap", LargeMapDraw, NULL, NULL, NULL );
+//		EclRegisterButtonCallbacks ( "comms_largemap", LargeMapDraw, nullptr, nullptr, nullptr );
 //		EclGetButton ( "comms_largemap" )->image_standard->FlipAroundH ();		
 
     }
@@ -328,7 +328,7 @@ void ClientCommsInterface::Update ()
 bool ClientCommsInterface::IsVisible ()
 {
 
-    return ( EclGetButton ( "comms_mainmenu" ) != NULL );
+    return ( EclGetButton ( "comms_mainmenu" ) != nullptr );
 
 }
 

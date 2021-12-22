@@ -128,7 +128,7 @@ void IPLookup::Tick ( int n )
 			}
 
             delete [] ip;
-			timeout = time(NULL);
+			timeout = time(nullptr);
 			status = IPLOOKUP_FINISHED;
 
 
@@ -137,7 +137,7 @@ void IPLookup::Tick ( int n )
 
 			// Revert to idle after 5 secs
 
-			if ( time (NULL) > timeout + 5 ) {
+			if ( time (nullptr) > timeout + 5 ) {
 
 				int pid = SvbLookupPID ( this );
 				char name_display [64];
@@ -180,7 +180,7 @@ void IPLookup::CreateInterface ()
 
 		button_assignbitmap ( name_go, "software/go.tif" );
 		EclRegisterButtonCallback ( name_go, GoClick );
-		EclRegisterButtonCallbacks ( name_display, DisplayDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( name_display, DisplayDraw, nullptr, button_click, button_highlight );
 		button_assignbitmaps ( name_close, "close.tif", "close_h.tif", "close_c.tif" );
 		EclRegisterButtonCallback ( name_close, CloseClick );
 

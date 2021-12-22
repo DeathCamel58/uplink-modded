@@ -295,7 +295,7 @@ void Tutorial::CreateInterface ()
 		EclRegisterButtonCallback ( close, CloseClick );
 		
 		EclRegisterButton ( 200, 413, 288, 50, "Starting...", "", text );
-		EclRegisterButtonCallbacks ( text, MainTextDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( text, MainTextDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 447, 447, 40, 15, "Next", "Click to go on to the next stage", next );
 		EclRegisterButtonCallbacks ( next, NextDraw, NextClick, NextMouseDown, NextMouseMove );
@@ -386,7 +386,7 @@ bool Tutorial::IsInterfaceVisible ()
 	char title [64];
 	UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid );
 
-	return ( EclGetButton ( title ) != NULL );
+	return ( EclGetButton ( title ) != nullptr );
 
 }
 
@@ -550,7 +550,7 @@ bool Tutorial::IsMenuInterfaceVisible ()
 	int pid = SvbLookupPID ( this );
 	char part1 [64];
 	UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid );
-	return ( EclGetButton ( part1 ) != NULL );
+	return ( EclGetButton ( part1 ) != nullptr );
 
 }
 
@@ -2049,16 +2049,16 @@ bool Tutorial::HasCompletedCurrentSection ()
                                                                  game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetOBJECTID () == OID_MENUSCREEN );
         else if ( current_part == 17 )                  return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKINTERNALSERVICES ) == 0 &&
                                                                  game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_SWSALESSCREEN );
-        else if ( current_part == 20 )                  return ( game->GetWorld ()->GetPlayer ()->gateway.databank.GetData ( "Password_Breaker" ) != NULL );
+        else if ( current_part == 20 )                  return ( game->GetWorld ()->GetPlayer ()->gateway.databank.GetData ( "Password_Breaker" ) != nullptr );
         else if ( current_part == 22 )                  return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKTESTMACHINE ) == 0 &&
                                                                  game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetOBJECTID () == OID_USERIDSCREEN );
         else if ( current_part == 24 )                  return ( game->GetInterface ()->GetLocalInterface ()->GetHUD ()->si.IsVisibleSoftwareMenu () );
-        else if ( current_part == 25 )                  return ( SvbGetTask ("Password_Breaker") != NULL );
+        else if ( current_part == 25 )                  return ( SvbGetTask ("Password_Breaker") != nullptr );
         else if ( current_part == 27 )                  return ( !game->GetWorld ()->GetPlayer ()->IsConnected () );
         else if ( current_part == 33 )                  return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKINTERNALSERVICES ) == 0 &&
                                                                  game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_SWSALESSCREEN );
         else if ( current_part == 36 )                  return ( game->GetWorld ()->GetPlayer ()->gateway.databank.ContainsData ( "Trace_Tracker", 2.0f ) );
-        else if ( current_part == 37 )                  return ( SvbGetTask ("Trace_Tracker") != NULL );
+        else if ( current_part == 37 )                  return ( SvbGetTask ("Trace_Tracker") != nullptr );
         else if ( current_part == 41 )                  return ( !game->GetWorld ()->GetPlayer ()->IsConnected () );
         else if ( current_part == 42 )					return ( game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi.IsVisibleWorldMapInterface () == WORLDMAP_LARGE );        
         else if ( current_part == 44 )                  return ( game->GetWorld ()->GetPlayer ()->GetConnection ()->LocationIncluded (IP_INTERNIC) );
@@ -2071,20 +2071,20 @@ bool Tutorial::HasCompletedCurrentSection ()
         else if ( current_part == 49 )                  return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKTESTMACHINE ) == 0 );                                                                 
         else if ( current_part == 50 )                  return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKTESTMACHINE ) == 0 &&
                                                                  game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetOBJECTID () == OID_USERIDSCREEN );
-        else if ( current_part == 51 )                  return ( SvbGetTask ("Password_Breaker") != NULL );
+        else if ( current_part == 51 )                  return ( SvbGetTask ("Password_Breaker") != nullptr );
         else if ( current_part == 52 )                  return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKTESTMACHINE ) == 0 &&
                                                                  game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetOBJECTID () == OID_MENUSCREEN );
         else if ( current_part == 54 )                  return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKTESTMACHINE ) == 0 &&
                                                                  game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_FILESERVERSCREEN );
-        else if ( current_part == 56 )                  return ( SvbGetTask ("File_Copier") != NULL );
-        else if ( current_part == 57 )                  return ( SvbGetTask ("File_Copier") != NULL &&
+        else if ( current_part == 56 )                  return ( SvbGetTask ("File_Copier") != nullptr );
+        else if ( current_part == 57 )                  return ( SvbGetTask ("File_Copier") != nullptr &&
                                                                  ((FileCopier *) SvbGetTask ("File_Copier"))->GetState () == FILECOPIER_INPROGRESS );
-        else if ( current_part == 58 )                  return ( SvbGetTask ("File_Copier") != NULL &&
+        else if ( current_part == 58 )                  return ( SvbGetTask ("File_Copier") != nullptr &&
                                                                  ((FileCopier *) SvbGetTask ("File_Copier"))->GetState () == FILECOPIER_WAITINGFORTARGET );
 		else if ( current_part == 59 )					return ( game->GetInterface ()->GetLocalInterface ()->InScreen () == SCREEN_MEMORY );
         else if ( current_part == 60 )                  return ( game->GetInterface ()->GetTaskManager ()->GetTargetProgram () &&
                                                                  strcmp ( game->GetInterface ()->GetTaskManager ()->GetTargetProgramName (), "File_Copier" ) == 0 );
-        else if ( current_part == 61 )                  return ( game->GetWorld ()->GetPlayer ()->gateway.databank.GetData ( "Uplink test data" ) != NULL );
+        else if ( current_part == 61 )                  return ( game->GetWorld ()->GetPlayer ()->gateway.databank.GetData ( "Uplink test data" ) != nullptr );
         else if ( current_part == 62 )                  return ( !game->GetWorld ()->GetPlayer ()->IsConnected () );
         else if ( current_part == 66 )                  return ( game->GetInterface ()->GetLocalInterface ()->InScreen () == SCREEN_MISSION );        
         else if ( current_part == 67 )                  return ( game->GetInterface ()->GetLocalInterface ()->InScreen () == SCREEN_SENDMAIL );        

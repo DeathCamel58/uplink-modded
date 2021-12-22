@@ -63,7 +63,7 @@ HWSalesScreenInterface::~HWSalesScreenInterface ()
 bool HWSalesScreenInterface::EscapeKeyPressed ()
 {
 
-    ExitClick (NULL);
+    ExitClick (nullptr);
     return true;
 
 }
@@ -487,7 +487,7 @@ void HWSalesScreenInterface::CreateMenu ( ComputerScreen *newcs )
 		button_assignbitmaps ( "hwsales_exit", "upgrades/exit.tif", "upgrades/exit_h.tif", "upgrades/exit_c.tif" );
 		EclRegisterButton ( 315, 320, 100, 15, "Exit", " ", "hwsales_exitcaption" );
 		EclRegisterButtonCallback ( "hwsales_exit", ExitClick );
-		EclRegisterButtonCallbacks ( "hwsales_exitcaption", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hwsales_exitcaption", DrawMainTitle, nullptr, nullptr, nullptr );
 
 
 		EclRegisterButtonCallback ( "hwsales_showmenu 1", ShowSalesMenuClick );
@@ -497,12 +497,12 @@ void HWSalesScreenInterface::CreateMenu ( ComputerScreen *newcs )
 		EclRegisterButtonCallback ( "hwsales_showmenu 5", ShowSalesMenuClick );
 //		EclRegisterButtonCallback ( "hwsales_showmenu 6", ShowSalesMenuClick );
 				
-		EclRegisterButtonCallbacks ( "hwsales_caption 1", DrawMainTitle, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "hwsales_caption 2", DrawMainTitle, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "hwsales_caption 3", DrawMainTitle, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "hwsales_caption 4", DrawMainTitle, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "hwsales_caption 5", DrawMainTitle, NULL, NULL, NULL );
-//		EclRegisterButtonCallbacks ( "hwsales_caption 6", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hwsales_caption 1", DrawMainTitle, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "hwsales_caption 2", DrawMainTitle, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "hwsales_caption 3", DrawMainTitle, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "hwsales_caption 4", DrawMainTitle, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "hwsales_caption 5", DrawMainTitle, nullptr, nullptr, nullptr );
+//		EclRegisterButtonCallbacks ( "hwsales_caption 6", DrawMainTitle, nullptr, nullptr, nullptr );
 
 	}
 
@@ -548,7 +548,7 @@ void HWSalesScreenInterface::CreateSalesMenu ( ComputerScreen *newcs )
 		}
 		
 		EclRegisterButton ( 20, 290, 330, 110, "", "", "hwsales_details" );
-		EclRegisterButtonCallbacks ( "hwsales_details", DrawDetails, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "hwsales_details", DrawDetails, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 355, 290, 72, 15, "Purchase", "Purchase this item", "hwsales_accept" );
 		EclRegisterButtonCallback ( "hwsales_accept", AcceptClick );

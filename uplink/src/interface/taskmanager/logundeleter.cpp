@@ -37,7 +37,7 @@
 LogUnDeleter::LogUnDeleter () : UplinkTask ()
 {
 
-	source = NULL;
+	source = nullptr;
 	sourceindex = -1;
 	status = LOGUNDELETER_OFF;
 	numticksrequired = 0;
@@ -323,7 +323,7 @@ void LogUnDeleter::Tick ( int n )
 			}
 			else if ( status == LOGUNDELETER_FINISHED ) {
 				
-				source = NULL;
+				source = nullptr;
 				sourceindex = -1;
 				numticksrequired = 0;
 				progress = 0;
@@ -435,6 +435,6 @@ bool LogUnDeleter::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_border %d", pid );
 	
-	return ( EclGetButton (stitle) != NULL );
+	return ( EclGetButton (stitle) != nullptr );
 
 }

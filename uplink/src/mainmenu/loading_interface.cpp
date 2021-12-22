@@ -79,14 +79,14 @@ void LoadingInterface::Create ()
 		EclRegisterButton ( 0, 0, screenw, screenh, "", "", "loading_background" );
 		button_assignbitmap ( "loading_background", filenames [pictureindex] );
 		EclGetButton ( "loading_background" )->image_standard->Scale ( 512, 512 );
-		EclRegisterButtonCallbacks ( "loading_background", imagebutton_drawtextured, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "loading_background", imagebutton_drawtextured, nullptr, nullptr, nullptr );
 		
         // Clear up memory used
 
         DeleteLListData ( &filenames );
 
 		EclRegisterButton ( SX(440), SY(450), 200, 15, "Connecting to GATEWAY...", "", "loading_text" );
-        EclRegisterButtonCallbacks ( "loading_text", text_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "loading_text", text_draw, nullptr, nullptr, nullptr );
 
         RsArchiveFileClose ( filename, file );
         delete [] filename;

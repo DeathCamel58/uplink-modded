@@ -194,7 +194,7 @@ void AnalyserInterface::Create ()
 	if ( !IsVisible () ) {
 
 		LocalInterfaceScreen::Create ();
-		EclRegisterButtonCallbacks ( "localint_background", ConnectionDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "localint_background", ConnectionDraw, nullptr, nullptr, nullptr );
 
 		UplinkStrncpy ( remotehost, " ", sizeof ( remotehost ) );
 
@@ -212,7 +212,7 @@ void AnalyserInterface::Create ()
 		button_assignbitmaps ( "analyser_localhost", "analyser/localhost.tif", "analyser/localhost_h.tif", "analyser/localhost_c.tif" );
 
 		EclRegisterButton ( screenw - panelwidth + 6, paneltop + 20, 70, 15, "Localhost", "", "analyser_localhost_t" );
-		EclRegisterButtonCallbacks ( "analyser_localhost_t", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "analyser_localhost_t", text_draw, nullptr, nullptr, nullptr );
 
 	}
 
@@ -319,10 +319,10 @@ void AnalyserInterface::Update ()
 				button_assignbitmaps ( "analyser_remotehost", "analyser/remotehost.tif", "analyser/remotehost_h.tif", "analyser/remotehost_c.tif" );
 
 				EclRegisterButton ( screenw - 78, paneltop + 281, 70, 15, "Remotehost", "", "analyser_remotehost_t" );
-				EclRegisterButtonCallbacks ( "analyser_remotehost_t", text_draw, NULL, NULL, NULL );
+				EclRegisterButtonCallbacks ( "analyser_remotehost_t", text_draw, nullptr, nullptr, nullptr );
 
 				EclRegisterButton ( screenw - panelwidth + 5, paneltop + 240, 110, 40, "", "", "analyser_remotehost_title" );
-				EclRegisterButtonCallbacks ( "analyser_remotehost_title", text_draw, NULL, NULL, NULL );
+				EclRegisterButtonCallbacks ( "analyser_remotehost_title", text_draw, nullptr, nullptr, nullptr );
 
 			}
 
@@ -339,7 +339,7 @@ void AnalyserInterface::Update ()
 			EclRegisterButtonCallback ( "analyser_system 0", SystemClick );
 
 			EclRegisterButton ( screenw - 120, paneltop + 180, 70, 15, "Analysing", "", "analyser_system_t 0" );
-			EclRegisterButtonCallbacks ( "analyser_system_t 0", text_draw, NULL, NULL, NULL );			
+			EclRegisterButtonCallbacks ( "analyser_system_t 0", text_draw, nullptr, nullptr, nullptr );
 
 		}
 		else if ( comp->security.NumSystems () == 2 ) {
@@ -349,14 +349,14 @@ void AnalyserInterface::Update ()
 			EclRegisterButtonCallback ( "analyser_system 0", SystemClick );
 
 			EclRegisterButton ( screenw - panelwidth + 15, paneltop + 180, 70, 15, "Analysing", "", "analyser_system_t 0" );
-			EclRegisterButtonCallbacks ( "analyser_system_t 0", text_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "analyser_system_t 0", text_draw, nullptr, nullptr, nullptr );
 
 			EclRegisterButton ( screenw - 55, paneltop + 145, 32, 32, "", "Shows a security system", "analyser_system 1" );
 			button_assignbitmaps_blend ( "analyser_system 1", "analyser/unknown.tif", "analyser/unknown.tif", "analyser/unknown.tif" );
 			EclRegisterButtonCallback ( "analyser_system 1", SystemClick );
 
 			EclRegisterButton ( screenw - 65, paneltop + 130, 70, 15, "Analysing", "", "analyser_system_t 1" );
-			EclRegisterButtonCallbacks ( "analyser_system_t 1", text_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "analyser_system_t 1", text_draw, nullptr, nullptr, nullptr );
 
 		}
 		else if ( comp->security.NumSystems () == 3 ) {
@@ -366,21 +366,21 @@ void AnalyserInterface::Update ()
 			EclRegisterButtonCallback ( "analyser_system 0", SystemClick );
 
 			EclRegisterButton ( screenw - panelwidth + 15, paneltop + 180, 70, 15, "Analysing", "", "analyser_system_t 0" );
-			EclRegisterButtonCallbacks ( "analyser_system_t 0", text_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "analyser_system_t 0", text_draw, nullptr, nullptr, nullptr );
 
 			EclRegisterButton ( screenw - panelwidth / 2 - 16, paneltop + 145, 32, 32, "", "Shows a security system", "analyser_system 1" );			
 			button_assignbitmaps_blend ( "analyser_system 1", "analyser/unknown.tif", "analyser/unknown.tif", "analyser/unknown.tif" );
 			EclRegisterButtonCallback ( "analyser_system 1", SystemClick );
 
 			EclRegisterButton ( screenw - panelwidth / 2 - 26, paneltop + 180, 70, 15, "Analysing", "", "analyser_system_t 1" );
-			EclRegisterButtonCallbacks ( "analyser_system_t 1", text_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "analyser_system_t 1", text_draw, nullptr, nullptr, nullptr );
 
 			EclRegisterButton ( screenw - 55, paneltop + 145, 32, 32, "", "Shows a security system", "analyser_system 2" );
 			button_assignbitmaps_blend ( "analyser_system 2", "analyser/unknown.tif", "analyser/unknown.tif", "analyser/unknown.tif" );
 			EclRegisterButtonCallback ( "analyser_system 2", SystemClick );
 	
 			EclRegisterButton ( screenw - 65, paneltop + 130, 70, 15, "Analysing", "", "analyser_system_t 2" );
-			EclRegisterButtonCallbacks ( "analyser_system_t 2", text_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "analyser_system_t 2", text_draw, nullptr, nullptr, nullptr );
 
 		}
 
@@ -391,7 +391,7 @@ void AnalyserInterface::Update ()
 
 		// Set up last update for a 3 second delay
 
-		lastupdate = time(NULL);
+		lastupdate = time(nullptr);
 
 	}
 
@@ -400,7 +400,7 @@ void AnalyserInterface::Update ()
 	// Every few seconds
 	//
 
-	if ( time(NULL) > lastupdate + 3 ) {
+	if ( time(nullptr) > lastupdate + 3 ) {
 
 		//
 		// Look up the host computer
@@ -435,7 +435,7 @@ void AnalyserInterface::Update ()
 
 		}
 	
-		lastupdate = time(NULL);
+		lastupdate = time(nullptr);
 
 	}
 
@@ -456,7 +456,7 @@ void AnalyserInterface::Update ()
 bool AnalyserInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "analyser_title" ) != NULL );
+	return ( EclGetButton ( "analyser_title" ) != nullptr );
 
 }
 

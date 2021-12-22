@@ -225,7 +225,7 @@ void WorldMapInterface::CancelClick ( Button *button )
 
     if ( game->GetWorld ()->GetPlayer ()->IsConnected () )
 		
-		CloseClick ( NULL );
+		CloseClick ( nullptr );
 
 
 	//
@@ -234,7 +234,7 @@ void WorldMapInterface::CancelClick ( Button *button )
 	if ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_LOCALHOST ) == 0 &&
 		 strcmp ( game->GetWorld ()->GetPlayer ()->GetConnection ()->GetTarget (), IP_LOCALHOST ) == 0 ) 
 	
-		 CloseClick ( NULL );
+		 CloseClick ( nullptr );
 
 
 	//
@@ -798,7 +798,7 @@ void WorldMapInterface::CreateWorldMapInterface_Small ()
     EclRegisterButtonCallbacks ( "worldmap_connect", ConnectDraw, ConnectClick, ConnectMouseDown, ConnectMouseMove );
 
     EclRegisterButton ( screenw - 3, 0, 3, 3, "", "Global Communications", "worldmap_toprightclick" );
-    EclRegisterButtonCallbacks ( "worldmap_toprightclick", NULL, FullScreenClick, button_click, button_highlight );
+    EclRegisterButtonCallbacks ( "worldmap_toprightclick", nullptr, FullScreenClick, button_click, button_highlight );
 
 }
 
@@ -891,7 +891,7 @@ MapRectangle WorldMapInterface::GetLargeMapRect()
 void WorldMapInterface::RemoveTempConnectionButton()
 {
 
-	Button *button = NULL;
+	Button *button = nullptr;
 	int numtempconbutton = 0;
 
 	do {
@@ -1162,20 +1162,20 @@ void WorldMapInterface::CreateWorldMapInterface_Large ()
     start = (int) EclGetAccurateTime();
     
     //EclGetButton ( "worldmap_largemap" )->image_standard->SetAlpha ( 0.99 );
-    EclRegisterButtonCallbacks ( "worldmap_largemap", DrawWorldMapLarge, NULL, NULL, button_highlight);                
+    EclRegisterButtonCallbacks ( "worldmap_largemap", DrawWorldMapLarge, nullptr, nullptr, button_highlight);
     
     VLocation *vl = game->GetWorld ()->GetVLocation ( game->GetWorld ()->GetPlayer ()->localhost );
     UplinkAssert ( vl );
     //EclRegisterButton ( GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3, GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3, 7, 7, "Localhost", "Your physical location", "worldmap 127.0.0.1 0" );
     EclRegisterButton ( GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3, GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3, 7, 7, "Localhost", "Your physical location", "worldmap 127.0.0.1" );
-    //EclRegisterButtonCallbacks ( "worldmap 127.0.0.1 0", DrawLocation, NULL, NULL, button_highlight );
-    EclRegisterButtonCallbacks ( "worldmap 127.0.0.1", DrawLocation, NULL, NULL, button_highlight );
+    //EclRegisterButtonCallbacks ( "worldmap 127.0.0.1 0", DrawLocation, nullptr, nullptr, button_highlight );
+    EclRegisterButtonCallbacks ( "worldmap 127.0.0.1", DrawLocation, nullptr, nullptr, button_highlight );
 
     // Create a text box for help messages
 
     //EclRegisterButton ( 120, y1 + fullsizeY + 3, 340, 25, "", "", "worldmap_texthelp" );
 	EclRegisterButton ( 235, y1 + fullsizeY + 3, 340, 25, "", "", "worldmap_texthelp" ); 
-    EclRegisterButtonCallbacks ( "worldmap_texthelp", textbutton_draw, NULL, NULL, NULL );
+    EclRegisterButtonCallbacks ( "worldmap_texthelp", textbutton_draw, nullptr, nullptr, nullptr );
 
     // Create the control buttons
 
@@ -1309,7 +1309,7 @@ void WorldMapInterface::RemoveWorldMapInterface ()
             EclRemoveButton ( "worldmap 127.0.0.1" );
 
 			// Crash me!!!
-			//char * nullPtr = NULL; *nullPtr = '\0';
+			//char * nullPtr = nullptr; *nullPtr = '\0';
 
         }
 
@@ -1376,7 +1376,7 @@ int WorldMapInterface::GetScaledY ( int y, int SIZE )
 }
 
 WorldMapInterface::WorldMapInterface ()
-    : layout (NULL), nbmissions(0), nbmessages(0), nbcolored(0)
+    : layout (nullptr), nbmissions(0), nbmessages(0), nbcolored(0)
 {
 }
 
@@ -1445,7 +1445,7 @@ void WorldMapInterface::ScrollX ( float x )
 
 	// Buttons added from missing connection links
 
-	Button *button = NULL;
+	Button *button = nullptr;
 	int numtempconbutton = 0;
 
 	do {
@@ -1508,7 +1508,7 @@ void WorldMapInterface::ScrollY ( float y )
 
 	// Buttons added from missing connection links
 
-	Button *button = NULL;
+	Button *button = nullptr;
 	int numtempconbutton = 0;
 
 	do {
@@ -1581,7 +1581,7 @@ void WorldMapInterface::SetZoom ( float z )
 
 	// Buttons added from missing connection links
 
-	Button *button = NULL;
+	Button *button = nullptr;
 	int numtempconbutton = 0;
 
 	do {
@@ -1701,7 +1701,7 @@ void WorldMapInterface::UpdateAccessLevel ()
 
 	// Buttons added from missing connection links
 
-	Button *button = NULL;
+	Button *button = nullptr;
 	int numtempconbutton = 0;
 
 	do {

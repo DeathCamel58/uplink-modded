@@ -41,8 +41,8 @@ char PhoneDialler::buttonnames [][9] = { "one", "two", "three", "four", "five", 
 PhoneDialler::PhoneDialler ()
 {
 
-	ip = NULL;
-	infosup = NULL;
+	ip = nullptr;
+	infosup = nullptr;
 	nextscene = -1;
 	lastupdate = 0;
 	curnumber = -1;
@@ -66,7 +66,7 @@ void PhoneDialler::Create ( int x, int y )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( x - 10, y - 10, 120, 140, "", "dialler_bg" );
-		EclRegisterButtonCallbacks ( "dialler_bg", BackgroundDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "dialler_bg", BackgroundDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton (  x +  0,  y +  0,  29,  29, "1", "one" );
 		EclRegisterButton (  x + 36,  y +  0,  29,  29, "2", "two" );
@@ -119,7 +119,7 @@ void PhoneDialler::Remove ()
 
 }
 
-void PhoneDialler::DialNumber ( int x, int y, char *number, int scenario, char *info /* = NULL */ )
+void PhoneDialler::DialNumber ( int x, int y, char *number, int scenario, char *info /* = nullptr */ )
 {
 
 	UplinkAssert ( number );
@@ -131,7 +131,7 @@ void PhoneDialler::DialNumber ( int x, int y, char *number, int scenario, char *
 
 	if ( infosup ) {
 		delete [] infosup;
-		infosup = NULL;
+		infosup = nullptr;
 	}
 	if ( info ) {
 		infosup = new char [ strlen ( info ) + 1 ];
@@ -159,7 +159,7 @@ bool PhoneDialler::IsVisible ()
 void PhoneDialler::UpdateDisplay ()
 {
 
-	Button *buttonDiallerNumber = NULL;
+	Button *buttonDiallerNumber = nullptr;
 
 	if ( curnumber != -1 && ( buttonDiallerNumber = EclGetButton ( "dialler_number" ) ) ) {
 	

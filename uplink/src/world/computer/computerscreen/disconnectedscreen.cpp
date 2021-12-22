@@ -14,7 +14,7 @@ DisconnectedScreen::DisconnectedScreen()
 {
 	
 	nextpage = -1;
-	textmessage = NULL;
+	textmessage = nullptr;
 
 }
 

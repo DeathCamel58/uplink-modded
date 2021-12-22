@@ -21,12 +21,12 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-char *KeyboardInterface::targetbuttonname = NULL;
+char *KeyboardInterface::targetbuttonname = nullptr;
 
 KeyboardInterface::KeyboardInterface()
 {
 
-	targetbuttonname = NULL;
+	targetbuttonname = nullptr;
 
 }
 
@@ -159,14 +159,14 @@ void KeyboardInterface::Create ( int x, int y )
 void KeyboardInterface::Remove ()
 {
 
-	RemoveKeyboardInterface ( NULL );
+	RemoveKeyboardInterface ( nullptr );
 
 }
 
 bool KeyboardInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "keyboard back" ) != NULL );
+	return ( EclGetButton ( "keyboard back" ) != nullptr );
 
 }
 

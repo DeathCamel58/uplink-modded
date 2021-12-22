@@ -40,9 +40,9 @@ void RevelationLostInterface::Create ()
 //		SgStopMod ();
 
 		EclRegisterButton ( 120, 130, 450, 200, " ", "", "revelationlost" );
-		EclRegisterButtonCallbacks ( "revelationlost", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "revelationlost", textbutton_draw, nullptr, nullptr, nullptr );
 
-		starttime = time(NULL);
+		starttime = time(nullptr);
 
 	}
 
@@ -66,7 +66,7 @@ void RevelationLostInterface::Update ()
 
 	if ( IsVisible () ) {
 
-		if ( starttime != -1 && time(NULL) > starttime + 4 ) {
+		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
 			if ( strcmp ( EclGetButton ( "revelationlost" )->caption, " " ) == 0 ) {
 				
@@ -79,7 +79,7 @@ void RevelationLostInterface::Update ()
                                                              "the active agent list.\n\n"
                                                              "Despite the damage you have caused, Revelation has not succeeded.\n\n"
                                                              "We hope you will think more carefully about your actions next time." );
-				starttime = time(NULL);				
+				starttime = time(nullptr);
 
 			}
 			else {
@@ -106,7 +106,7 @@ void RevelationLostInterface::Update ()
 bool RevelationLostInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "revelationlost" ) != NULL );
+	return ( EclGetButton ( "revelationlost" ) != nullptr );
 
 }
 

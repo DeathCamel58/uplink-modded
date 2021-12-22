@@ -43,7 +43,7 @@ MissionInterface::MissionInterface ()
 	
 	index = -1;
 	timesync = 0;
-	mission = NULL;
+	mission = nullptr;
 
 }
 
@@ -92,7 +92,7 @@ void MissionInterface::AbandonClick ( Button *button )
 
 			// Remove the mission
 			if ( mi->mission ) delete mi->mission;
-			mi->mission = NULL;
+			mi->mission = nullptr;
 			game->GetWorld ()->GetPlayer ()->missions.RemoveData ( mi->index );
 			
 		}
@@ -274,9 +274,9 @@ void MissionInterface::Create ()
 		EclRegisterButton ( screenw - panelwidth, (paneltop + 3) + 40, (panelwidth - 7), 15, "", "mission_payment" );
 		EclRegisterButton ( screenw - panelwidth, (paneltop + 3) + 60, (panelwidth - 7), 30, "", "mission_description" );		
 
-		EclRegisterButtonCallbacks ( "mission_employer",    textbox_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "mission_payment",     textbox_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "mission_description", textbox_draw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( "mission_employer",    textbox_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "mission_payment",     textbox_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "mission_description", textbox_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterCaptionChange ( "mission_employer", employer, 100 );
 		EclRegisterCaptionChange ( "mission_payment", payment, 100 );
@@ -340,7 +340,7 @@ void MissionInterface::Remove ()
 void MissionInterface::Update ()
 {
 
-	if ( time(NULL) > timesync + 1 ) {
+	if ( time(nullptr) > timesync + 1 ) {
 
 		// Get the mission at the supposed indexd
 
@@ -352,7 +352,7 @@ void MissionInterface::Update ()
 		if ( mission != realmission) 
 			game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
-		timesync = time(NULL);
+		timesync = time(nullptr);
 
 	}
 
@@ -361,7 +361,7 @@ void MissionInterface::Update ()
 bool MissionInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "mission_title" ) != NULL );
+	return ( EclGetButton ( "mission_title" ) != nullptr );
 
 }
 

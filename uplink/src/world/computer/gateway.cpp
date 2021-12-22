@@ -22,10 +22,10 @@
 Gateway::Gateway ()
 {
 
-	curgatewaydef = NULL;
+	curgatewaydef = nullptr;
 
 	id = 0;
-	newgatewaydef = NULL;
+	newgatewaydef = nullptr;
 	nuked = false;
 	proximity = 0;
 
@@ -145,7 +145,7 @@ void Gateway::ExchangeGateway ( GatewayDef *newgd )
 	if ( newgd )
 		newgatewaydef = new GatewayDef ( *newgd );
 	else
-		newgatewaydef = NULL;
+		newgatewaydef = nullptr;
 
 }
 
@@ -162,7 +162,7 @@ void Gateway::ExchangeGatewayComplete ()
 
 	if ( newgatewaydef ) {
 		delete newgatewaydef;
-		newgatewaydef = NULL;
+		newgatewaydef = nullptr;
 	}
 	nuked = false;
 	GenerateNewID ();
@@ -188,7 +188,7 @@ void Gateway::ExchangeGatewayComplete ()
 	while ( newgateway->maxcpus < GetNumCPUs () ) {
 
 		int indexSlowest = -1;
-		const ComputerUpgrade *upgradeSlowest = NULL;
+		const ComputerUpgrade *upgradeSlowest = nullptr;
 
 		for ( int i = 0; i < hardware.Size (); ++i ) {
 
@@ -196,7 +196,7 @@ void Gateway::ExchangeGatewayComplete ()
 			UplinkAssert (cu);
 
 			if ( cu->TYPE == GATEWAYUPGRADETYPE_CPU ) {
-				if ( indexSlowest == -1 || upgradeSlowest == NULL ) {
+				if ( indexSlowest == -1 || upgradeSlowest == nullptr ) {
 					indexSlowest = i;
 					upgradeSlowest = cu;
 				}
@@ -209,7 +209,7 @@ void Gateway::ExchangeGatewayComplete ()
 		}
 
 		if ( indexSlowest != -1 ) {
-			UplinkAssert (upgradeSlowest != NULL);
+			UplinkAssert (upgradeSlowest != nullptr);
 			removedItems.PutData ( upgradeSlowest->name );
 			hardware.RemoveData (indexSlowest);
 		}
@@ -369,7 +369,7 @@ void Gateway::GiveCPU ( char *CPUName )
 		// So replace his slowest
 
 		int indexSlowest = -1;
-		const ComputerUpgrade *upgradeSlowest = NULL;
+		const ComputerUpgrade *upgradeSlowest = nullptr;
 
 		for ( int i = 0; i < hardware.Size (); ++i ) {
 
@@ -377,7 +377,7 @@ void Gateway::GiveCPU ( char *CPUName )
 			UplinkAssert (cu);
 
 			if ( cu->TYPE == GATEWAYUPGRADETYPE_CPU ) {
-				if ( indexSlowest == -1 || upgradeSlowest == NULL ) {
+				if ( indexSlowest == -1 || upgradeSlowest == nullptr ) {
 					indexSlowest = i;
 					upgradeSlowest = cu;
 				}
@@ -584,7 +584,7 @@ void Gateway::GiveAllHardware ()
 
 	// Best gateway
 
-	GatewayDef *bestgatewayDef = NULL;
+	GatewayDef *bestgatewayDef = nullptr;
 	for ( int i = game->GetWorld ()->gatewaydefs.Size () - 1; i >= 0; i-- )
 		if ( game->GetWorld ()->gatewaydefs.ValidIndex ( i ) ) {
 			bestgatewayDef = game->GetWorld ()->gatewaydefs.GetData ( i );
@@ -636,8 +636,8 @@ bool Gateway::Load  ( FILE *file )
 
 	LoadID ( file );
 
-	curgatewaydef = NULL;
-	newgatewaydef = NULL;
+	curgatewaydef = nullptr;
+	newgatewaydef = nullptr;
 
 	if ( !databank.Load ( file ) ) return false;
 
@@ -758,7 +758,7 @@ void Gateway::Print ()
 {
 
 	printf ( "Gateway : name='%s', id=%d\n"
-	         "nuked=%d, proximity=%d\n", (curgatewaydef)? curgatewaydef->name : "NULL", id, nuked, proximity );
+	         "nuked=%d, proximity=%d\n", (curgatewaydef)? curgatewaydef->name : "nullptr", id, nuked, proximity );
 	printf ( "Upgrades : %c\n", hudupgrades );
 
 	databank.Print ();

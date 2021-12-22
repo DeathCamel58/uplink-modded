@@ -39,14 +39,14 @@ LList <UplinkIRCUser *> IRCInterface::users;
 
 char IRCInterface::channelName[256];
 
-WinsockInit *IRCInterface::winSockInit = NULL;
-CIrcSession *IRCInterface::cIrcSession = NULL;
-UplinkIRCMonitor *IRCInterface::uplinkIRCMonitor = NULL;
-//CIrcSessionInfo *IRCInterface::cIrcSessionInfo = NULL;
+WinsockInit *IRCInterface::winSockInit = nullptr;
+CIrcSession *IRCInterface::cIrcSession = nullptr;
+UplinkIRCMonitor *IRCInterface::uplinkIRCMonitor = nullptr;
+//CIrcSessionInfo *IRCInterface::cIrcSessionInfo = nullptr;
 
-Image *IRCInterface::imgSmileyHappy = NULL;
-Image *IRCInterface::imgSmileySad = NULL;
-Image *IRCInterface::imgSmileyWink = NULL;
+Image *IRCInterface::imgSmileyHappy = nullptr;
+Image *IRCInterface::imgSmileySad = nullptr;
+Image *IRCInterface::imgSmileyWink = nullptr;
 
 
 #define COLOUR_DEFAULT      0.6f, 0.6f, 0.6f
@@ -241,9 +241,9 @@ void IRCInterface::ConnectClick ( Button *button )
         delete uplinkIRCMonitor;
         delete cIrcSession;
         delete winSockInit;
-        uplinkIRCMonitor = NULL;
-        cIrcSession = NULL;
-        winSockInit = NULL;
+        uplinkIRCMonitor = nullptr;
+        cIrcSession = nullptr;
+        winSockInit = nullptr;
         
         ResetUsers();
         thisint->RemoveTalkWindow();
@@ -312,7 +312,7 @@ void IRCInterface::PostClick ( Button *button )
 
     char newMessage [512];
 
-    if ( textButton->caption[1] == '£' ) {
+    if ( textButton->caption[1] == 'ï¿½' ) {
 
         UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "%s", (textButton->caption+2) );
 		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
@@ -386,7 +386,7 @@ void IRCInterface::AddText ( char *user, const char *text, float r, float g, flo
 			UplinkAssert (theLine);
 			if ( strlen(theLine) > 0 ) {
 				UplinkIRCMessage *msg = new UplinkIRCMessage ();
-				char *thisuser = ( i == 0 ? user : NULL );
+				char *thisuser = ( i == 0 ? user : nullptr );
 				msg->Set ( thisuser, theLine, r, g, b );
 				buffer.PutDataAtEnd( msg );
 			}
@@ -533,14 +533,14 @@ UplinkIRCUser *IRCInterface::GetUser ( char *name )
             return user;        
     }
 
-    return NULL;
+    return nullptr;
 }
 
 
 UplinkIRCMessage::UplinkIRCMessage ()
 {
-	user = NULL;
-    text = NULL;
+	user = nullptr;
+    text = nullptr;
 }
 
 UplinkIRCMessage::~UplinkIRCMessage ()
@@ -553,7 +553,7 @@ void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, flo
 {
 	
     if ( user ) delete [] user;
-    user = NULL;
+    user = nullptr;
 
     if ( newuser ) {
         user = new char [strlen(newuser)+1];
@@ -561,7 +561,7 @@ void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, flo
     }
     
     if ( text ) delete [] text;
-	text = NULL;
+	text = nullptr;
 
 	if ( newtext ) {
 		text = new char [strlen(newtext)+1];
@@ -577,7 +577,7 @@ void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, flo
 
 UplinkIRCUser::UplinkIRCUser ()
 {
-    name = NULL;
+    name = nullptr;
     status = 0;
 }
 
@@ -590,7 +590,7 @@ void UplinkIRCUser::Set ( char *newname )
 {
 
     if ( name ) delete [] name;
-    name = NULL;
+    name = nullptr;
 
     if ( newname ) {
         name = new char [strlen(newname)+1];
@@ -622,7 +622,7 @@ void IRCInterface::CreateTalkWindow()
 	int mainHeight = ( 150 + ( ( screenh - 120 - 145 ) / 15 ) * 15 + 15 ) - 30;
 
 	EclRegisterButton ( 30, 30, mainWidth - 15, mainHeight, " ", " ", "irc_maintext" );
-	EclRegisterButtonCallbacks ( "irc_maintext", MainTextDraw, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( "irc_maintext", MainTextDraw, nullptr, nullptr, nullptr );
 
     //
     // Scroll bars
@@ -637,7 +637,7 @@ void IRCInterface::CreateTalkWindow()
 	// Input box
 
 	EclRegisterButton ( 30, mainHeight + 30, mainWidth - 50, 15, " ", "Enter your text here", "irc_inputbox" );
-	EclRegisterButtonCallbacks ( "irc_inputbox", textbutton_draw, NULL, button_click, button_highlight );
+	EclRegisterButtonCallbacks ( "irc_inputbox", textbutton_draw, nullptr, button_click, button_highlight );
     EclMakeButtonEditable ( "irc_inputbox" );
         
 	//
@@ -662,7 +662,7 @@ void IRCInterface::RemoveTalkWindow()
 bool IRCInterface::ReturnKeyPressed ()
 {
 
-    PostClick ( NULL );
+    PostClick ( nullptr );
     return true;
 
 }
@@ -695,7 +695,7 @@ void IRCInterface::Create ()
 		int mainHeight = 150 + ( ( screenh - 120 - 145 ) / 15 ) * 15 + 15;
 		
         EclRegisterButton ( 0, 30, mainWidth, mainHeight, " ", " ", "irc_backblackout" );
-        EclRegisterButtonCallbacks ( "irc_backblackout", BackBlackoutDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "irc_backblackout", BackBlackoutDraw, nullptr, nullptr, nullptr );
 
         //
         // User list
@@ -704,7 +704,7 @@ void IRCInterface::Create ()
 
         //EclRegisterButton ( screenw - panelwidth - 3, paneltop + 20, panelwidth - 15, 370, "USERS", " ", "irc_userlist" );
         EclRegisterButton ( screenw - panelwidth, (paneltop + 3) + 20, (panelwidth - 7) - 20, boxheight, "USERS", " ", "irc_userlist" );
-        EclRegisterButtonCallbacks ( "irc_userlist", UserListDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "irc_userlist", UserListDraw, nullptr, nullptr, nullptr );
 
         //int numUsers = 350 / 17;
         //ScrollBox::CreateScrollBox( "irc_userscroll", 
@@ -743,11 +743,11 @@ void IRCInterface::Create ()
         //EclRegisterButton ( 130, 230, 300, 15, "My Real Name", "Enter your real name here", "irc_fullname" );
         EclRegisterButton ( 130, 230, 300, 15, "Uplink Agent", "Enter your real name here", "irc_fullname" );
 
-		EclRegisterButtonCallbacks ( "irc_server", textbutton_draw, NULL, button_click, button_highlight );
-		EclRegisterButtonCallbacks ( "irc_port", textbutton_draw, NULL, button_click, button_highlight );
-		EclRegisterButtonCallbacks ( "irc_channel", textbutton_draw, NULL, button_click, button_highlight );
-		EclRegisterButtonCallbacks ( "irc_nickname", textbutton_draw, NULL, button_click, button_highlight );
-        EclRegisterButtonCallbacks ( "irc_fullname", textbutton_draw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "irc_server", textbutton_draw, nullptr, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "irc_port", textbutton_draw, nullptr, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "irc_channel", textbutton_draw, nullptr, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "irc_nickname", textbutton_draw, nullptr, button_click, button_highlight );
+        EclRegisterButtonCallbacks ( "irc_fullname", textbutton_draw, nullptr, button_click, button_highlight );
 
         EclMakeButtonEditable ( "irc_server" );
         EclMakeButtonEditable ( "irc_port" );
@@ -816,9 +816,9 @@ void IRCInterface::Remove ()
         //
         // Smileys
 
-        if ( imgSmileyHappy )   {   delete imgSmileyHappy;      imgSmileyHappy = NULL;  }
-        if ( imgSmileySad )     {   delete imgSmileySad;        imgSmileySad = NULL;    }
-        if ( imgSmileyWink )    {   delete imgSmileyWink;       imgSmileyWink = NULL;   }
+        if ( imgSmileyHappy )   {   delete imgSmileyHappy;      imgSmileyHappy = nullptr;  }
+        if ( imgSmileySad )     {   delete imgSmileySad;        imgSmileySad = nullptr;    }
+        if ( imgSmileyWink )    {   delete imgSmileyWink;       imgSmileyWink = nullptr;   }
 
 	}
 		
@@ -834,7 +834,7 @@ void IRCInterface::Update ()
 bool IRCInterface::IsVisible ()
 {
 	
-	return ( EclGetButton("irc_title") != NULL );
+	return ( EclGetButton("irc_title") != nullptr );
 
 }
 
@@ -856,7 +856,7 @@ void UplinkIRCMonitor::OnIrcDefault( const CIrcMessage* pmsg )
     UplinkIntSnprintf ( command, sizeof ( command ), "%s : %s", (char *) pmsg->sCommand.c_str(), (char *) pmsg->AsString().c_str() );
 	command [ sizeof ( command ) - 1 ] = '\0';
 	// Useless output?
-    //IRCInterface::AddText( NULL, command, 1.0, 1.0, 1.0 );
+    //IRCInterface::AddText( nullptr, command, 1.0, 1.0, 1.0 );
 
     unsigned int i = 0;
     while ( i < pmsg->parameters.size() ) {
@@ -864,7 +864,7 @@ void UplinkIRCMonitor::OnIrcDefault( const CIrcMessage* pmsg )
         UplinkIntSnprintf ( thisParam, sizeof ( thisParam ), "Param%d: %s", i, (char *) pmsg->parameters[i].c_str() );
 		thisParam [ sizeof ( thisParam ) - 1 ] = '\0';
 		// Useless output?
-        //IRCInterface::AddText( NULL, thisParam, COLOUR_DEFAULT );
+        //IRCInterface::AddText( nullptr, thisParam, COLOUR_DEFAULT );
         ++i;
     }
 
@@ -909,7 +909,7 @@ bool UplinkIRCMonitor::Received_PRIVMSG (const CIrcMessage* pmsg)
             char *fullMsg = GETIRCPARAM(1);
 		    UplinkIntSnprintf ( parsedMessage, sizeof( parsedMessage ), "%s %s", (char *) pmsg->prefix.sNick.c_str(), (action + 7) );
 			parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
-		    IRCInterface::AddText( NULL, parsedMessage, COLOUR_ACTION );
+		    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_ACTION );
             
         }
         else if ( version )
@@ -958,7 +958,7 @@ bool UplinkIRCMonitor::Received_JOIN (const CIrcMessage* pmsg)
 									pmsg->prefix.sNick.c_str(), pmsg->prefix.sHost.c_str() );
 		parsedMessage1 [ sizeof ( parsedMessage1 ) - 1 ] = '\0';
 
-		IRCInterface::AddText( NULL, parsedMessage1, COLOUR_JOINPART );
+		IRCInterface::AddText( nullptr, parsedMessage1, COLOUR_JOINPART );
 		IRCInterface::AddUser( (char *) pmsg->prefix.sNick.c_str() );
 	}
 
@@ -973,7 +973,7 @@ bool UplinkIRCMonitor::Received_PART (const CIrcMessage* pmsg)
 		UplinkIntSnprintf ( parsedMessage1, sizeof ( parsedMessage1 ), "%s has left this channel", pmsg->prefix.sNick.c_str() );
 		parsedMessage1 [ sizeof ( parsedMessage1 ) - 1 ] = '\0';
 
-		IRCInterface::AddText( NULL, parsedMessage1, COLOUR_JOINPART );
+		IRCInterface::AddText( nullptr, parsedMessage1, COLOUR_JOINPART );
 		IRCInterface::RemoveUser( (char *) pmsg->prefix.sNick.c_str() );
 	}
 
@@ -986,7 +986,7 @@ bool UplinkIRCMonitor::Received_RPL_TOPIC (const CIrcMessage* pmsg)
     char parsedMessage[512];
     UplinkIntSnprintf ( parsedMessage, sizeof ( parsedMessage ), "The topic is '%s'", GETIRCPARAM(2) );
 	parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
-    IRCInterface::AddText( NULL, parsedMessage, COLOUR_TOPIC );   
+    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_TOPIC );
 
     return true;
 
@@ -999,7 +999,7 @@ bool UplinkIRCMonitor::Received_TOPIC (const CIrcMessage* pmsg)
     UplinkIntSnprintf ( parsedMessage, sizeof ( parsedMessage ), "%s has changed the topic to '%s'", 
                             pmsg->prefix.sNick.c_str(), GETIRCPARAM(1) );
 	parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
-    IRCInterface::AddText( NULL, parsedMessage, COLOUR_TOPIC );   
+    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_TOPIC );
 
     return true;
 
@@ -1009,20 +1009,20 @@ bool UplinkIRCMonitor::Received_RPL_NAMREPLY (const CIrcMessage* pmsg)
 {
 
 	// Useless message?
-    //IRCInterface::AddText( NULL, GETIRCPARAM(3), COLOUR_JOINPART );
+    //IRCInterface::AddText( nullptr, GETIRCPARAM(3), COLOUR_JOINPART );
 
 	char *thisParam = GETIRCPARAM ( 3 );
 	int paramlen = (int) strlen( thisParam );
     char *thisParamCopy = new char [ paramlen + 1 ];
     UplinkSafeStrcpy ( thisParamCopy, thisParam );
 
-	char *currentName = NULL;
+	char *currentName = nullptr;
 	for ( int i = 0; i < paramlen; i++ ) {
 		if ( thisParamCopy [ i ] == ' ' ) {
 			thisParamCopy [ i ] = '\0';
 			if ( currentName ) {
 				IRCInterface::AddUser( currentName );
-				currentName = NULL;
+				currentName = nullptr;
 			}
 		}
 		else if ( !currentName ) {
@@ -1031,7 +1031,7 @@ bool UplinkIRCMonitor::Received_RPL_NAMREPLY (const CIrcMessage* pmsg)
 	}
 	if ( currentName ) {
 		IRCInterface::AddUser( currentName );
-		currentName = NULL;
+		currentName = nullptr;
 	}
 
 	delete [] thisParamCopy;
@@ -1044,7 +1044,7 @@ bool UplinkIRCMonitor::Received_RPL_ENDOFNAMES (const CIrcMessage* pmsg)
 {
 
 	// Useless message?
-    //IRCInterface::AddText( NULL, GETIRCPARAM(2), COLOUR_JOINPART );
+    //IRCInterface::AddText( nullptr, GETIRCPARAM(2), COLOUR_JOINPART );
     return true;
 
 }
@@ -1060,7 +1060,7 @@ bool UplinkIRCMonitor::Received_MOTD (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_RPL_LUSER (const CIrcMessage* pmsg)
 {
 
-    IRCInterface::AddText( NULL, GETIRCPARAM(1), COLOUR_MOTD );
+    IRCInterface::AddText( nullptr, GETIRCPARAM(1), COLOUR_MOTD );
     return true;
 
 }
@@ -1074,7 +1074,7 @@ bool UplinkIRCMonitor::Received_MODE (const CIrcMessage* pmsg)
                                                       GETIRCPARAM(2) );
 	parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
 
-    IRCInterface::AddText( NULL, parsedMessage, COLOUR_MODE );
+    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_MODE );
 
     UplinkIRCUser *user = IRCInterface::GetUser( GETIRCPARAM(2) );
     if ( user ) {
@@ -1096,7 +1096,7 @@ bool UplinkIRCMonitor::Received_NICK (const CIrcMessage* pmsg)
                                                       GETIRCPARAM(0) );
 	parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
     
-    IRCInterface::AddText( NULL, parsedMessage, COLOUR_JOINPART );
+    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_JOINPART );
     
     UplinkIRCUser *user = IRCInterface::GetUser( (char *) pmsg->prefix.sNick.c_str() );
     if ( user ) user->Set( GETIRCPARAM(0) );
@@ -1118,7 +1118,7 @@ bool UplinkIRCMonitor::Received_QUIT (const CIrcMessage* pmsg)
 													 GETIRCPARAM(0) );
 		parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
 	    
-		IRCInterface::AddText( NULL, parsedMessage, COLOUR_JOINPART );
+		IRCInterface::AddText( nullptr, parsedMessage, COLOUR_JOINPART );
 
 		IRCInterface::RemoveUser( (char *) pmsg->prefix.sNick.c_str() );
 	}
@@ -1130,9 +1130,9 @@ bool UplinkIRCMonitor::Received_QUIT (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_ERROR (const CIrcMessage* pmsg)
 {
 
-	IRCInterface::AddText( NULL, GETIRCPARAM(0), COLOUR_JOINPART );
+	IRCInterface::AddText( nullptr, GETIRCPARAM(0), COLOUR_JOINPART );
 
-	IRCInterface::AddText( NULL, "Disconnected", COLOUR_JOINPART );
+	IRCInterface::AddText( nullptr, "Disconnected", COLOUR_JOINPART );
 
 	IRCInterface::cIrcSession->Disconnect ();
 
@@ -1150,7 +1150,7 @@ bool UplinkIRCMonitor::Received_ERR_BANNEDFROMCHAN (const CIrcMessage* pmsg)
                                                       GETIRCPARAM(2) );
 		parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
 
-		IRCInterface::AddText( NULL, parsedMessage, COLOUR_JOINPART );
+		IRCInterface::AddText( nullptr, parsedMessage, COLOUR_JOINPART );
 
 	}
 

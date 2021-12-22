@@ -120,7 +120,7 @@ Computer *VLocation::GetComputer ()
 		return comp;
 
 	else
-		return NULL;
+		return nullptr;
 */
 
 
@@ -161,7 +161,7 @@ Computer *VLocation::GetComputer ()
         }
     }
 
-    return NULL;
+    return nullptr;
 
 }
 

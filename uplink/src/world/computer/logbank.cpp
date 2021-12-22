@@ -206,7 +206,7 @@ char *LogBank::TraceLog ( char *to_ip, char *logbank_ip, Date *date, int uplinkr
 		return logbank_ip;
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -397,7 +397,7 @@ AccessLog::AccessLog()
 
 	SUSPICIOUS = false;
 
-	data1 = data2 = data3 = NULL;
+	data1 = data2 = data3 = nullptr;
 
 }
 
@@ -464,7 +464,7 @@ void AccessLog::SetData1 ( char *newdata )
 {
 
 	if ( data1 ) delete [] data1;
-	data1 = NULL;
+	data1 = nullptr;
 
 	if ( newdata ) {
 		data1 = new char [strlen(newdata)+1];
@@ -477,7 +477,7 @@ void AccessLog::SetData2 ( char *newdata )
 {
 
 	if ( data2 ) delete [] data2;
-	data2 = NULL;
+	data2 = nullptr;
 
 	if ( newdata ) {
 		data2 = new char [strlen(newdata)+1];
@@ -490,7 +490,7 @@ void AccessLog::SetData3 ( char *newdata )
 {
 
 	if ( data3 ) delete [] data3;
-	data3 = NULL;
+	data3 = nullptr;
 
 	if ( newdata ) {
 		data3 = new char [strlen(newdata)+1];
@@ -592,7 +592,7 @@ char *AccessLog::GetDescription ()
 	char * ans = fullcaption.str();
     char * anscpy = new char[ strlen(ans) + 1 ];
 	UplinkSafeStrcpy( anscpy, ans );
-	ans = NULL;
+	ans = nullptr;
 	fullcaption.rdbuf()->freeze( 0 );
 	return anscpy;
 

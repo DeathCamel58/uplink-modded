@@ -103,8 +103,8 @@ void LogModifier::CommitClick ( Button *button )
 	UplinkSnprintf ( data1, sizeof ( data1 ),	"logmodifier_data1 %d",		pid );
 
 	EclRemoveButton ( nexttype );
-	EclRegisterButtonCallbacks ( fromip, textbutton_draw, NULL, NULL, NULL );
-	EclRegisterButtonCallbacks ( data1, textbutton_draw, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( fromip, textbutton_draw, nullptr, nullptr, nullptr );
+	EclRegisterButtonCallbacks ( data1, textbutton_draw, nullptr, nullptr, nullptr );
 
 	// Set the status up for modifying the log
 
@@ -242,7 +242,7 @@ void LogModifier::ProgressDraw ( Button *button, bool highlighted, bool clicked 
 LogModifier::LogModifier () : UplinkTask ()
 {
 
-	source = NULL;
+	source = nullptr;
 	sourceindex = -1;
 	status = LOGMODIFIER_STATUS_NONE;
 
@@ -514,7 +514,7 @@ void LogModifier::Tick ( int n )
 			UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid );
 			EclRegisterCaptionChange ( sprogress, "Select target log" );
 
-			source = NULL;
+			source = nullptr;
 			sourceindex = -1;
 
 			status = LOGMODIFIER_STATUS_WAITING;
@@ -669,7 +669,7 @@ bool LogModifier::IsInterfaceVisible ()
 	char stitle    [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid );
 
-	return ( EclGetButton ( stitle ) != NULL );
+	return ( EclGetButton ( stitle ) != nullptr );
 
 }
 
@@ -715,7 +715,7 @@ void LogModifier::CreateExpandedInterface ()
 			UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid );
 			
 			EclRegisterButton ( btitle->x + 155, btitle->y, 180, 110, "", "", background );
-			EclRegisterButtonCallbacks ( background, BackgroundDraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( background, BackgroundDraw, nullptr, nullptr, nullptr );
 
 			EclRegisterButton ( btitle->x + 165, btitle->y + 10, 50, 15, "Type", "", t_ltype );
 			EclRegisterButton ( btitle->x + 215, btitle->y + 10, 100, 15, "", "Enter new type here", ltype );
@@ -724,12 +724,12 @@ void LogModifier::CreateExpandedInterface ()
 			EclRegisterButton ( btitle->x + 165, btitle->y + 60, 50, 15, "", "", t_data1 );
 			EclRegisterButton ( btitle->x + 215, btitle->y + 60, 100, 15, "", "Enter new data here", data1 );
 
-			EclRegisterButtonCallbacks ( t_ltype, textbutton_draw, NULL, NULL, NULL );
-			EclRegisterButtonCallbacks ( ltype, textbutton_draw, NULL, NULL, NULL );
-			EclRegisterButtonCallbacks ( t_fromip, textbutton_draw, NULL, NULL, NULL );
-			EclRegisterButtonCallbacks ( fromip, textbutton_draw, NULL, button_click, button_highlight );
-			EclRegisterButtonCallbacks ( t_data1, textbutton_draw, NULL, NULL, NULL );
-			EclRegisterButtonCallbacks ( data1, textbutton_draw, NULL, button_click, button_highlight );
+			EclRegisterButtonCallbacks ( t_ltype, textbutton_draw, nullptr, nullptr, nullptr );
+			EclRegisterButtonCallbacks ( ltype, textbutton_draw, nullptr, nullptr, nullptr );
+			EclRegisterButtonCallbacks ( t_fromip, textbutton_draw, nullptr, nullptr, nullptr );
+			EclRegisterButtonCallbacks ( fromip, textbutton_draw, nullptr, button_click, button_highlight );
+			EclRegisterButtonCallbacks ( t_data1, textbutton_draw, nullptr, nullptr, nullptr );
+			EclRegisterButtonCallbacks ( data1, textbutton_draw, nullptr, button_click, button_highlight );
 
 			EclRegisterButton ( btitle->x + 215 + 100, btitle->y + 10, 15, 15, ">", "Change the type of this log", nexttype );
 			EclRegisterButtonCallback ( nexttype, NextTypeClick );
@@ -824,7 +824,7 @@ bool LogModifier::IsExpandedInterfaceVisible ()
 	char fromip_title [64];
 	UplinkSnprintf ( fromip_title, sizeof ( fromip_title ), "logmodifier_background %d", pid );
 
-	return ( EclGetButton ( fromip_title ) != NULL );
+	return ( EclGetButton ( fromip_title ) != nullptr );
 
 }
 	

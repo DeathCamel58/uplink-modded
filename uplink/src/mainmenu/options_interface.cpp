@@ -170,7 +170,7 @@ void OptionsInterface::Update ()
 bool OptionsInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "gameoptions" ) != NULL );
+	return ( EclGetButton ( "gameoptions" ) != nullptr );
 
 }
 

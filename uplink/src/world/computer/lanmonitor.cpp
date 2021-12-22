@@ -32,7 +32,7 @@
 
 
 bool LanMonitor::currentlyActive = false;
-LanComputer *LanMonitor::lanComputer = NULL;
+LanComputer *LanMonitor::lanComputer = nullptr;
 
 int LanMonitor::currentSystem = -1;
 int LanMonitor::currentSelected = -1;
@@ -125,7 +125,7 @@ void LanMonitor::ResetAll ()
 	connection.Empty ();
 
     currentlyActive = false;
-    lanComputer = NULL;
+    lanComputer = nullptr;
 	currentSystem = -1;
 	currentSelected = -1;
 	currentSpoof = -1;

@@ -20,13 +20,13 @@
 Mission::Mission ()
 {
 
-	details = NULL;
-	fulldetails = NULL;
-	duedate = NULL;
+	details = nullptr;
+	fulldetails = nullptr;
+	duedate = nullptr;
     
-	whysomuchmoney = NULL;
-	howsecure = NULL;
-	whoisthetarget = NULL;
+	whysomuchmoney = nullptr;
+	howsecure = nullptr;
+	whoisthetarget = nullptr;
 	
 	TYPE = MISSION_NONE;
 	UplinkStrncpy ( description, "", sizeof ( description ) );
@@ -76,7 +76,7 @@ void Mission::SetTYPE ( int newTYPE )
 void Mission::SetCompletion ( char *newA, char *newB, char *newC, char *newD, char *newE )
 {
 
-	// No need to set them if NULL is passed in - they will not be examined after all
+	// No need to set them if nullptr is passed in - they will not be examined after all
 
 	if ( newA ) {
 		UplinkAssert ( strlen(newA) < SIZE_MISSION_COMPLETION );
@@ -152,7 +152,7 @@ void Mission::SetWhySoMuchMoney	( char *answer )
 {
 
 	if ( whysomuchmoney ) delete [] whysomuchmoney;
-	whysomuchmoney = NULL;
+	whysomuchmoney = nullptr;
 
 	if ( answer ) {
 
@@ -167,7 +167,7 @@ void Mission::SetHowSecure ( char *answer )
 {
 
 	if ( howsecure ) delete [] howsecure;
-	howsecure = NULL;
+	howsecure = nullptr;
 
 	if ( answer ) {
 
@@ -182,7 +182,7 @@ void Mission::SetWhoIsTheTarget ( char *answer )
 {
 
 	if ( whoisthetarget ) delete [] whoisthetarget;
-	whoisthetarget = NULL;
+	whoisthetarget = nullptr;
 
 	if ( answer ) {
 
@@ -331,7 +331,7 @@ bool Mission::Load  ( FILE *file )
 
 	LoadID ( file );
 
-	duedate = NULL;
+	duedate = nullptr;
 
 	if ( !FileReadData ( &TYPE, sizeof(TYPE), 1, file ) ) return false;
 	
@@ -417,7 +417,7 @@ void Mission::Save  ( FILE *file )
 	SaveLList ( &links, file );
 	SaveBTree ( &codes, file );
 
-	bool hasduedate = (duedate != NULL);
+	bool hasduedate = (duedate != nullptr);
 	fwrite ( &hasduedate, sizeof(hasduedate), 1, file );
 	if ( hasduedate ) 	duedate->Save ( file );
 

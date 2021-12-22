@@ -118,7 +118,7 @@ static bool isSteamInit = false;
 
 #ifndef WIN32
 
-static FILE *file_stdout = NULL;
+static FILE *file_stdout = nullptr;
 
 void hSignalSIGSEGV ( int n )
 {
@@ -216,7 +216,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
     // Break up lpCmdLine into argc and argv
 
-    char **argv = NULL;
+    char **argv = nullptr;
     int argc = 1;
 
     if ( *lpCmdLine != '\x0' ) {
@@ -306,14 +306,14 @@ int RunUplinkExceptionHandling ()
 			printf ( "\nAn Uplink Internal Error has occured during graphics initialization\n" );
 #ifdef WIN32
 			if ( !opengl_isSoftwareRendering () && opengl_setSoftwareRendering ( true ) ) {
-				MessageBox ( NULL, "A Fatal Error occured in Uplink.\n\n"
+				MessageBox ( nullptr, "A Fatal Error occured in Uplink.\n\n"
 				                   "Software Rendering is now turn on.\n"
 				                   "Please restart Uplink.", 
 				                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 				exit(255);
 			}
 			else {
-				MessageBox ( NULL, "A Fatal Error occured in Uplink\n"
+				MessageBox ( nullptr, "A Fatal Error occured in Uplink\n"
 				                   "during graphics initialization.\n",
 				                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 			}
@@ -376,9 +376,9 @@ void RunUplink ( int argc, char **argv )
 {
 
 	// Crash!!!
-	//char * nullPtr = NULL;
+	//char * nullPtr = nullptr;
 	//(*nullPtr) = 'a';
-	//UplinkAssert(NULL);
+	//UplinkAssert(nullptr);
 
 #if defined(WIN32) && defined(CRASH_REPORTS)
 	__try {
@@ -510,7 +510,7 @@ void Init_App ( char *argv0 )
     UplinkSnprintf ( debugpath, sizeof ( debugpath ), "%sdebug.log", app->userpath );
 
 #ifndef WIN32
-	file_stdout = NULL;
+	file_stdout = nullptr;
 	int fd_stdout = dup ( fileno ( stdout ) );
 	if ( fd_stdout != -1 ) {
 		file_stdout = fdopen ( fd_stdout, "a" );
@@ -525,7 +525,7 @@ void Init_App ( char *argv0 )
 
     // Print some basic info to the file
 
-    time_t timet = time(NULL);
+    time_t timet = time(nullptr);
     tm *thetime = localtime(&timet);
 
     printf ( "\n\n" );
@@ -586,19 +586,19 @@ bool Init_Steam ()
  
     // If the handle is valid, try to get the function address.
  
-    if (hinstLib != NULL) 
+    if (hinstLib != nullptr)
     { 
 		ProcInitSteam = (InitSteamDLL) GetProcAddress(hinstLib, TEXT("InitSteam")); 
  
         // If the function address is valid, call the function.
  
-        if (NULL != ProcInitSteam) 
+        if (nullptr != ProcInitSteam)
         {
 			bool errorSteam;
 			char errorMsg[512];
 
 			// Initialise the random number generator
-			srand( (unsigned int) time( NULL ) );
+			srand( (unsigned int) time( nullptr ) );
 
 			int rand1 = rand();
 			int rand2 = rand();
@@ -638,7 +638,7 @@ bool Init_Steam ()
 				UplinkIntSnprintf ( message, sizeof(message), "An error occured in Uplink.\n\n"
 				                                              "%s\n", errorMsg);
 
-				MessageBox ( NULL, message, 
+				MessageBox ( nullptr, message,
 				                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 			}
 			return !errorSteam;
@@ -661,7 +661,7 @@ bool Init_Steam ()
 	printf ( "\nAn error occured in Uplink\n" );
 	printf ( "Could not initialize Steam: Function not found.\n" );
 
-	MessageBox ( NULL, "An error occured in Uplink.\n\n"
+	MessageBox ( nullptr, "An error occured in Uplink.\n\n"
 	                   "Could not initialize Steam: Function not found.\n", 
 	                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 	return false;
@@ -692,13 +692,13 @@ bool Cleanup_Steam ()
  
     // If the handle is valid, try to get the function address.
  
-    if (hinstLib != NULL) 
+    if (hinstLib != nullptr)
     { 
         ProcCleanupSteam = (CleanupSteamDLL) GetProcAddress(hinstLib, TEXT("CleanupSteam")); 
  
         // If the function address is valid, call the function.
  
-        if (NULL != ProcCleanupSteam) 
+        if (nullptr != ProcCleanupSteam)
         {
 			bool errorSteam;
 			char errorMsg[512];
@@ -890,7 +890,7 @@ bool VerifyLegitAndCodeCardCheck()
 	printf ( "Files integrity is not verified\n" );
 
 #ifdef WIN32
-	MessageBox ( NULL, "An error occured in Uplink.\n\n"
+	MessageBox ( nullptr, "An error occured in Uplink.\n\n"
 	                   "Files integrity is not verified.\n", 
 	                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 #else
@@ -1002,7 +1002,7 @@ static bool TestRsLoadArchive ( char *filename )
 		                                             "Files integrity is not verified.\n"
 		                                             "Failed loading '%s'\n", filename );
 
-		MessageBox ( NULL, message, 
+		MessageBox ( nullptr, message,
 						   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 #else
 		if ( file_stdout ) {
@@ -1064,7 +1064,7 @@ void Init_Game ()
 	if ( debugging ) printf ( "Init_Game called...creating game object\n" );
 
 	// Initialise the random number generator
-	srand( (unsigned int) time( NULL ) );  		
+	srand( (unsigned int) time( nullptr ) );
 
 	// Set up Game object
 	game = new Game ();	
@@ -1214,7 +1214,7 @@ void Init_OpenGL ( int argc, char **argv )
 #endif
 
 	app->GetOptions ()->SetOptionValue ( "crash_graphicsinit", 1, "", true, false );
-	app->GetOptions ()->Save ( NULL );
+	app->GetOptions ()->Save ( nullptr );
 
 	// Set up OpenGL
 
@@ -1222,7 +1222,7 @@ void Init_OpenGL ( int argc, char **argv )
 
 
 	app->GetOptions ()->SetOptionValue ( "crash_graphicsinit", 0, "", true, false );
-	app->GetOptions ()->Save ( NULL );
+	app->GetOptions ()->Save ( nullptr );
 
 }
 
@@ -1302,12 +1302,12 @@ void Cleanup_Uplink() {
 
 	if ( app ) {
 		delete app;
-		app = NULL;
+		app = nullptr;
 	}
 
 	//if ( game ) {
 	//	delete game;
-	//	game = NULL;
+	//	game = nullptr;
 	//}
 
 }

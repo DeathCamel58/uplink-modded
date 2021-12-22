@@ -45,11 +45,11 @@ BankAccount *BankAccount::GetAccount ( char *bankip, char *accno )
 {
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( bankip );
-	if ( !vl ) return NULL;
+	if ( !vl ) return nullptr;
 
 	Computer *comp = vl->GetComputer ();
-	if ( !comp ) return NULL;
-	if ( !(comp->GetOBJECTID () == OID_BANKCOMPUTER ) ) return NULL;
+	if ( !comp ) return nullptr;
+	if ( !(comp->GetOBJECTID () == OID_BANKCOMPUTER ) ) return nullptr;
 	BankComputer *bank = (BankComputer *) comp;
 
 	BankAccount *account = bank->accounts.GetData ( accno );
@@ -316,7 +316,7 @@ bool BankAccount::HasTransferOccured ( char *person, int amount )
 Person *BankAccount::GetPerson ()
 {
 
-	Person *accountowner = NULL;
+	Person *accountowner = nullptr;
 
 	Player *pl = game->GetWorld ()->GetPlayer ();
 	for ( int i = 0; i < pl->accounts.Size (); ++i ) {

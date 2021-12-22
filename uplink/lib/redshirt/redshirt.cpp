@@ -258,8 +258,8 @@ bool filterFile( char *infile, char *outfile,
     }
 
 	// Set completely unbuffered (we do our own)
-	//setvbuf(input, NULL, _IONBF, 0);
-	//setvbuf(output, NULL, _IONBF, 0);
+	//setvbuf(input, nullptr, _IONBF, 0);
+	//setvbuf(output, nullptr, _IONBF, 0);
 
 	// Write header into output file
 	if (!writeHeader(output)) {
@@ -341,11 +341,11 @@ const char *RsBasename(const char *filename)
 	do {
 		// Search for the next forward- or backslash
 		const char *slash = strchr(p, '/');
-		if (slash == NULL)
+		if (slash == nullptr)
 			slash = strchr(p, '\\');
 
 		// Didn't find one, quit out
-		if (slash == NULL)
+		if (slash == nullptr)
 			break;
 		
 		p = slash + 1;
@@ -357,7 +357,7 @@ const char *RsBasename(const char *filename)
 FILE *RsFileOpen ( char *filename, char *mode )
 {
 
-	if ( !RsFileExists ( filename ) ) return NULL;
+	if ( !RsFileExists ( filename ) ) return nullptr;
 
 	if ( !RsFileEncrypted ( filename ) ) {
 
@@ -378,7 +378,7 @@ FILE *RsFileOpen ( char *filename, char *mode )
 		}
 		else {
 			printf ( "Redshirt ERROR : Failed to write to output file\n" );
-			return NULL;
+			return nullptr;
 		}
     }
 }
@@ -443,7 +443,7 @@ bool RsLoadArchive ( char *filename )
 FILE *RsArchiveFileOpen	( char *filename, char *mode )
 {
 
-	FILE *file = NULL;
+	FILE *file = nullptr;
 	char *fname = RsArchiveFileOpen ( filename );
 
 	if ( fname ) {
@@ -519,7 +519,7 @@ char *RsArchiveFileOpen ( char *filename )
 	//
 
 	printf ( "REDSHIRT : Failed to load file : %s\n", fullfilename );
-	return NULL;
+	return nullptr;
 
 }
 
@@ -601,7 +601,7 @@ void RsInitialise ( char *newapppath )
 
 		strcpy(tempdir, "/tmp/uplink-XXXXXX");
 
-		if (mkdtemp(tempdir) == NULL) {
+		if (mkdtemp(tempdir) == nullptr) {
 			printf( "Failed to make temporary directory\n");
 			abort();
 		}
@@ -655,10 +655,10 @@ void RsCleanUp ()
 #else
     {
 	DIR *dir = opendir( tempdir );
-	if (dir != NULL) {
+	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
 
-	    while (entry != NULL) {
+	    while (entry != nullptr) {
                 
 			char fullfilename [SIZE_RSFILENAME];
 			sprintf ( fullfilename, "%s%s", tempdir, entry->d_name );

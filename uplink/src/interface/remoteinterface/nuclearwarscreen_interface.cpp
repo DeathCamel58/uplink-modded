@@ -263,7 +263,7 @@ void NuclearWarScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 40, 10, 350, 25, GetComputerScreen ()->subtitle, "", "nuclearwar_maintitle" );
-		EclRegisterButtonCallbacks ( "nuclearwar_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "nuclearwar_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 
 		// Work out the size/ratios of the map
 
@@ -278,7 +278,7 @@ void NuclearWarScreenInterface::Create ( ComputerScreen *newcs )
 		// Black out the background
 
 		EclRegisterButton ( 0, 0, screenw, screenh, " ", " ", "nuclearwar_black" );
-		EclRegisterButtonCallbacks ( "nuclearwar_black", DrawBlack, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "nuclearwar_black", DrawBlack, nullptr, nullptr, nullptr );
 
 		// Create the large map graphic
 
@@ -293,7 +293,7 @@ void NuclearWarScreenInterface::Create ( ComputerScreen *newcs )
 			numPhysicalGatewayLocations = NUM_PHYSICALGATEWAYLOCATIONS;
 			button_assignbitmap ( "nuclearwar_largemap", "worldmaplarge.tif" );
 		}
-		EclRegisterButtonCallbacks ( "nuclearwar_largemap", DrawMainMap, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "nuclearwar_largemap", DrawMainMap, nullptr, nullptr, nullptr );
     
 		// Create a button for each gateway
 
@@ -320,7 +320,7 @@ void NuclearWarScreenInterface::Create ( ComputerScreen *newcs )
 		// Create some helpfull text
 
 		EclRegisterButton ( 50, y1 + fullsizeY + 20, 400, 70, " ", " ", "nuclearwar_helptext" );
-		EclRegisterButtonCallbacks ( "nuclearwar_helptext", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "nuclearwar_helptext", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "nuclearwar_helptext", "Good Evening, Dr Falken.\n"
                                                           "Would you like to play a game?", 2000 );
 
@@ -377,7 +377,7 @@ void NuclearWarScreenInterface::Update ()
 bool NuclearWarScreenInterface::IsVisible ()
 {
 	
-	return ( EclGetButton ( "nuclearwar_largemap" ) != NULL );
+	return ( EclGetButton ( "nuclearwar_largemap" ) != nullptr );
 
 }
 

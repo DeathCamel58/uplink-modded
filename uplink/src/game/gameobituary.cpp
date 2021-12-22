@@ -20,7 +20,7 @@
 GameObituary::GameObituary ()
 {
 
-	gameoverreason = NULL;
+	gameoverreason = nullptr;
 	UplinkStrncpy ( name, " ", sizeof ( name ) );
 	money = 0;
 	uplinkrating = 0;

@@ -23,15 +23,15 @@
 Message::Message()
 {
 	
-	subject = NULL;
-	body = NULL;
+	subject = nullptr;
+	body = nullptr;
 
 	SetTo ( " " );
 	SetFrom ( " " );
 	SetSubject ( " " );
 	SetBody ( " " );
 
-	data = NULL;
+	data = nullptr;
 
 }
  
@@ -177,12 +177,12 @@ bool Message::Load ( FILE *file )
 
 	if ( subject ) {
 		delete [] subject;
-		subject = NULL;
+		subject = nullptr;
 	}
 	if ( !LoadDynamicStringPtr ( &subject, file ) ) return false;
 	if ( body ) {
 		delete [] body;
-		body = NULL;
+		body = nullptr;
 	}
 	if ( !LoadDynamicStringPtr ( &body, file ) ) return false;
 

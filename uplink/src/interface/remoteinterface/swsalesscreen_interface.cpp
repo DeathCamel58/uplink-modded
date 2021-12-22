@@ -207,7 +207,7 @@ void SWSalesScreenInterface::ExitClick ( Button *button )
 bool SWSalesScreenInterface::EscapeKeyPressed ()
 {
 
-    ExitClick ( NULL );
+    ExitClick ( nullptr );
     return true;
 
 }
@@ -456,7 +456,7 @@ void SWSalesScreenInterface::Create ( ComputerScreen *newcs )
         int baseY = 50 + NumItemsOnScreen() * 20;
 
 		EclRegisterButton ( 20, baseY, SY(388) - 55, 110, "", "", "swsales_details" );
-		EclRegisterButtonCallbacks ( "swsales_details", DrawDetails, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "swsales_details", DrawDetails, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( baseX, baseY, 72, 15, "Purchase", "Purchase this item", "swsales_accept" );
 		EclRegisterButtonCallback ( "swsales_accept", AcceptClick );

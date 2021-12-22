@@ -45,10 +45,10 @@ PasswordBreaker::PasswordBreaker () : UplinkTask ()
 {
 
 	length = difficulty = currentchar = 0;
-	caption = password = username = NULL;
-	found = NULL;
+	caption = password = username = nullptr;
+	found = nullptr;
 
-	targetstring = NULL;
+	targetstring = nullptr;
 
 }
 
@@ -89,7 +89,7 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 	targetobject = uo;
 	if ( targetstring ) {
 		delete [] targetstring;
-		targetstring = NULL;
+		targetstring = nullptr;
 	}
 	if ( uos ) {
 		targetstring = new char[ strlen( uos ) + 1 ];
@@ -97,7 +97,7 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 	}
 	targetint    = uoi;
 
-    Computer *comp = NULL;
+    Computer *comp = nullptr;
 
 	if ( uo->GetOBJECTID () == OID_PASSWORDSCREEN ) {
 
@@ -116,7 +116,7 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		if ( username )
 			delete [] username;
-		username = NULL;
+		username = nullptr;
 
 	}
 	else if ( uo->GetOBJECTID () == OID_USERIDSCREEN ) {
@@ -139,8 +139,8 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 		// Look up the user name in this computer's records
 				
 		Record *rec = comp->recordbank.GetRecordFromName ( name );
-		char *recPassword = NULL;
-		char *recSecurity = NULL;
+		char *recPassword = nullptr;
+		char *recSecurity = nullptr;
 
 		// It's possible that RECORDBANK_PASSWORD or RECORDBANK_SECURITY don't exists,
 		// the accounts in the Global Criminal Database don't have them.
@@ -429,7 +429,7 @@ void PasswordBreaker::CreateInterface ()
         char fillname [64];
         UplinkSnprintf ( fillname, sizeof ( fillname ), "passwordbreaker_fill %d", pid );
         EclRegisterButton ( 245, 360, 116, 15, "Password Breaker", "", fillname );
-        EclRegisterButtonCallbacks ( fillname, button_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( fillname, button_draw, nullptr, nullptr, nullptr );
 
 		char closename [64];
 		UplinkSnprintf ( closename, sizeof ( closename ), "passwordbreaker_close %d", pid );
@@ -491,7 +491,7 @@ bool PasswordBreaker::IsInterfaceVisible ()
 	char buttonname [64];
 	UplinkSnprintf ( buttonname, sizeof ( buttonname ), "passwordbreaker %d", SvbLookupPID (this) );
 
-	return ( EclGetButton ( buttonname ) != NULL );
+	return ( EclGetButton ( buttonname ) != nullptr );
 
 }
 

@@ -287,7 +287,7 @@ void CheatInterface::Update ()
 bool CheatInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "cheat_title" ) != NULL );
+	return ( EclGetButton ( "cheat_title" ) != nullptr );
 
 }
 

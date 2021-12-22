@@ -251,9 +251,9 @@ void CypherScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "cypherscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "cypherscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "cypherscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "cypherscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "cypherscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "cypherscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 50, 130, 380, 250, " ", " ", "cypherscreen_cypher" );
 		EclRegisterButtonCallbacks ( "cypherscreen_cypher", DrawCypher, ClickCypher, button_click, button_highlight );
@@ -291,7 +291,7 @@ void CypherScreenInterface::Remove ()
 bool CypherScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "cypherscreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "cypherscreen_maintitle" ) != nullptr );
 
 }
 

@@ -45,7 +45,7 @@ void FirstTimeLoadingInterface::Create ()
 		int screenh = app->GetOptions ()->GetOptionValue ("graphics_screenheight");
 
 		EclRegisterButton ( screenw - 370, screenh - 30, 370, 20, "", "", "firsttimeloading_text" );
-		EclRegisterButtonCallbacks ( "firsttimeloading_text", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "firsttimeloading_text", textbutton_draw, nullptr, nullptr, nullptr );
 
 	}
 

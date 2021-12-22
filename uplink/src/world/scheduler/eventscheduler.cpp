@@ -85,7 +85,7 @@ Date *EventScheduler::GetDateOfNextEvent ()
 		return &(event->rundate);
 
 	else
-		return NULL;
+		return nullptr;
 	
 }
 
@@ -142,7 +142,7 @@ void EventScheduler::Update ()
 			if ( events.ValidIndex ( 0 ) )
 				event = events.GetData (0);
 			else
-				event = NULL;
+				event = nullptr;
 
 		}
 
@@ -167,7 +167,7 @@ void EventScheduler::Update ()
 			if ( eventsToRun.ValidIndex ( 0 ) )
 				event = eventsToRun.GetData (0);
 			else
-				event = NULL;
+				event = nullptr;
 
 		}
 

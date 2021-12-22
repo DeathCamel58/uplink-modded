@@ -40,9 +40,9 @@ void RevelationWonInterface::Create ()
 //		SgStopMod ();
 
 		EclRegisterButton ( 180, 130, 450, 350, " ", "", "revelationwon" );
-		EclRegisterButtonCallbacks ( "revelationwon", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "revelationwon", textbutton_draw, nullptr, nullptr, nullptr );
 
-		starttime = time(NULL);
+		starttime = time(nullptr);
 
 	}
 
@@ -66,7 +66,7 @@ void RevelationWonInterface::Update ()
 
 	if ( IsVisible () ) {
 
-		if ( starttime != -1 && time(NULL) > starttime + 4 ) {
+		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
 			if ( strcmp ( EclGetButton ( "revelationwon" )->caption, " " ) == 0 ) {
 				
@@ -99,7 +99,7 @@ void RevelationWonInterface::Update ()
                                                             "01010 0010 1001 1010 01001010 01 01 0\n"
                                                             "01 1010 0 10110 00 010 01 0010 001010 \n"
                                                             "01 010 012 0120 12 10 010 010 010 010 0\n");
-				starttime = time(NULL);				
+				starttime = time(nullptr);
 
 			}
 			else {
@@ -126,7 +126,7 @@ void RevelationWonInterface::Update ()
 bool RevelationWonInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "revelationwon" ) != NULL );
+	return ( EclGetButton ( "revelationwon" ) != nullptr );
 
 }
 

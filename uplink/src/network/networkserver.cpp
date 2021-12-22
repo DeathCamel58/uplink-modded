@@ -39,8 +39,8 @@ bool NetworkServer::StartServer ()
 	// Establish a listen socket
 
 	unsigned short portnum = 31337;
-	int result = TcpGetListenSocket ( &listensocket, NULL, &portnum, 5 );
-	lastlisten = time (NULL);
+	int result = TcpGetListenSocket ( &listensocket, nullptr, &portnum, 5 );
+	lastlisten = time (nullptr);
 
 	if ( result != TCP4U_SUCCESS )
 		return false;
@@ -85,7 +85,7 @@ char *NetworkServer::GetRemoteHost ( int socketindex )
 
 	else {
 		printf ( "NetworkServer::GetRemoteHost, failed to get remote host\n" );
-		return NULL;
+		return nullptr;
 	}
 
 }
@@ -111,7 +111,7 @@ char *NetworkServer::GetRemoteIP ( int socketindex )
 
 	else {
 		printf ( "NetworkServer::GetRemoteIP, failed to get remote ip\n" );
-		return NULL;
+		return nullptr;
 	}
 
 }
@@ -157,7 +157,7 @@ void NetworkServer::Update ()
 
 	if ( listening && listensocket != -1 ) {
 
-		if ( time (NULL) > lastlisten + 5 ) {
+		if ( time (nullptr) > lastlisten + 5 ) {
 
 			SOCKET thesocket;
 			int result = TcpAccept ( &thesocket, listensocket, 1 );
@@ -176,7 +176,7 @@ void NetworkServer::Update ()
 
 			}
 
-			lastlisten = time (NULL);
+			lastlisten = time (nullptr);
 
 		}
 

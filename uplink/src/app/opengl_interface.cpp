@@ -42,7 +42,7 @@ local float windowScaleY = 1.0;
 //#define USE_DESKTOPBACKDROP
 //#define USE_BUTTONBACKDROP
 
-local Image *backdrop = NULL;					// Used for semi-transparent effects
+local Image *backdrop = nullptr;					// Used for semi-transparent effects
 
 
 void initialise_transparency ()
@@ -304,7 +304,7 @@ void imagebutton_drawtextured ( Button *button, bool highlighted, bool clicked )
 	glBlendFunc ( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
 	UplinkAssert (button);
 	
-	Image *image = NULL;
+	Image *image = nullptr;
 	if ( clicked && button->image_clicked ) {
 		UplinkAssert (button->image_clicked);
 		image = button->image_clicked;
@@ -351,7 +351,7 @@ void imagebutton_drawtextured ( Button *button, bool highlighted, bool clicked )
 	
 	UplinkAssert (button);
 	
-	Image *image = NULL;
+	Image *image = nullptr;
 	if ( clicked && button->image_clicked ) {
 		UplinkAssert (button->image_clicked);
 		image = button->image_clicked;
@@ -412,7 +412,7 @@ LList <char *> *wordwraptext ( const char *string, int linesize )
 		
 		*/
 
-	if ( !string ) return NULL;
+	if ( !string ) return nullptr;
 
 	LList <char *> *llist = new LList <char *> ();
 
@@ -528,7 +528,7 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 
 	// Print the text
 
-	LList <char *> *wrappedtext = NULL;
+	LList <char *> *wrappedtext = nullptr;
 	
 	if ( !highlighted || !EclIsButtonEditable (button->name) ) {
 		
@@ -539,7 +539,7 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 
 		// Highlighted - put a symbol at the end of every other second
 
-		if ( time(NULL) >= (curserflash - 1) ) {
+		if ( time(nullptr) >= (curserflash - 1) ) {
 
 			size_t newcaptionsize = strlen(button->caption) + 2;
 			char *newcaption = new char [newcaptionsize];
@@ -549,8 +549,8 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 
 			delete [] newcaption;					// It was copied by wordwraptext
 
-			if ( time(NULL) >= curserflash ) 
-				curserflash = time(NULL) + 2;
+			if ( time(nullptr) >= curserflash )
+				curserflash = time(nullptr) + 2;
 
 		}
 		else {
@@ -727,7 +727,7 @@ void superhighlight_draw ( Button *button, bool highlighted, bool clicked )
 
 	UplinkAssert (  button );
 
-	if ( time(NULL) >= (superhighlight_flash-1) ) {
+	if ( time(nullptr) >= (superhighlight_flash-1) ) {
 
 		glBegin ( GL_QUADS );
 
@@ -781,8 +781,8 @@ void superhighlight_draw ( Button *button, bool highlighted, bool clicked )
 
 		glEnd ();
 
-		if ( time (NULL) >= superhighlight_flash )
-			superhighlight_flash = time(NULL) + 2;
+		if ( time (nullptr) >= superhighlight_flash )
+			superhighlight_flash = time(nullptr) + 2;
 
 	}
 
@@ -921,7 +921,7 @@ void button_assignbitmap  ( char *name,	Image *standard_i_ref )
 	Button *button = EclGetButton ( name );
 	UplinkAssert ( button );
 
-	Image *image = NULL;
+	Image *image = nullptr;
 	if ( standard_i_ref )
 		image = new Image ( *standard_i_ref );
     
@@ -969,15 +969,15 @@ void button_assignbitmaps ( char *name, Image *standard_i_ref, Image *highlighte
 	Button *button = EclGetButton ( name );
 	UplinkAssert ( button );
 
-	Image *standard_i = NULL;
+	Image *standard_i = nullptr;
 	if ( standard_i_ref )
 		standard_i = new Image ( *standard_i_ref );
 
-	Image *highlighted_i = NULL;
+	Image *highlighted_i = nullptr;
 	if ( highlighted_i_ref )
 		highlighted_i = new Image ( *highlighted_i_ref );
     
-	Image *clicked_i = NULL;
+	Image *clicked_i = nullptr;
 	if ( clicked_i_ref )
 		clicked_i = new Image ( *clicked_i_ref );
 
@@ -1097,7 +1097,7 @@ void tooltip_update ( char *newtooltip )
 		int screenwidth = app->GetOptions ()->GetOptionValue ( "graphics_screenwidth" );
 		int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 		EclRegisterButton ( 0, screenheight - 15, 500, 15, "", "tooltip" );
-		EclRegisterButtonCallbacks ( "tooltip", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "tooltip", textbutton_draw, nullptr, nullptr, nullptr );
 		EclButtonSendToBack ( "tooltip" );
 		tooltip = EclGetButton ( "tooltip" );
 		
@@ -1134,7 +1134,7 @@ Button *getcurrentbutton ()
 		return EclGetButton ( currentbuttonname );
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -1148,7 +1148,7 @@ void create_stextbox ( int x, int y, int width, int height, char *caption, char 
 
 	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box",    name );
 	EclRegisterButton ( x, y, width - 16, height, caption, "", name_box );
-	EclRegisterButtonCallbacks ( name_box, draw_stextbox, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( name_box, draw_stextbox, nullptr, nullptr, nullptr );
 
     int numItems = 0;
     if ( strlen(caption) < 5 ) {
@@ -1344,7 +1344,7 @@ void closeclick_msgbox ( Button *button )
 
 }
 
-void create_msgbox ( char *title, char *message, void (*closeclick) (Button *) /* = NULL */ )
+void create_msgbox ( char *title, char *message, void (*closeclick) (Button *) /* = nullptr */ )
 {
 
 	if ( !isvisible_msgbox () ) {
@@ -1355,12 +1355,12 @@ void create_msgbox ( char *title, char *message, void (*closeclick) (Button *) /
 		int screenh = app->GetOptions ()->GetOptionValue ("graphics_screenheight");
 
 		EclRegisterButton ( 0, 0, screenw, screenh, "", "", "msgbox_background" );
-		EclRegisterButtonCallbacks ( "msgbox_background", draw_msgboxbackground, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "msgbox_background", draw_msgboxbackground, nullptr, nullptr, nullptr );
 
 		// Create the message box
 
 		EclRegisterButton ( screenw / 2 - 100, screenh / 3, 200, 140, "", "", "msgbox_box" );
-		EclRegisterButtonCallbacks ( "msgbox_box", draw_msgboxbox, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "msgbox_box", draw_msgboxbox, nullptr, nullptr, nullptr );
 
 		// Title bar
 
@@ -1370,7 +1370,7 @@ void create_msgbox ( char *title, char *message, void (*closeclick) (Button *) /
 		// Message box
 
 		EclRegisterButton ( screenw / 2 - 100 + 2, screenh / 3 + 20, 195, 80, "", "", "msgbox_text" );
-		EclRegisterButtonCallbacks ( "msgbox_text", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "msgbox_text", text_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "msgbox_text", message );
 
 		// OK button
@@ -1385,7 +1385,7 @@ void create_msgbox ( char *title, char *message, void (*closeclick) (Button *) /
 
 }
 
-void create_yesnomsgbox ( char *title, char *message, void (*yesclick) (Button *) /* = NULL */, void (*noclick) (Button *) /* = NULL */ )
+void create_yesnomsgbox ( char *title, char *message, void (*yesclick) (Button *) /* = nullptr */, void (*noclick) (Button *) /* = nullptr */ )
 {
 
 	if ( !isvisible_msgbox () ) {
@@ -1396,12 +1396,12 @@ void create_yesnomsgbox ( char *title, char *message, void (*yesclick) (Button *
 		int screenh = app->GetOptions ()->GetOptionValue ("graphics_screenheight");
 
 		EclRegisterButton ( 0, 0, screenw, screenh, "", "", "msgbox_background" );
-		EclRegisterButtonCallbacks ( "msgbox_background", draw_msgboxbackground, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "msgbox_background", draw_msgboxbackground, nullptr, nullptr, nullptr );
 
 		// Create the message box
 
 		EclRegisterButton ( screenw / 2 - 150, screenh / 3, 300, 140, "", "", "msgbox_box" );
-		EclRegisterButtonCallbacks ( "msgbox_box", draw_msgboxbox, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "msgbox_box", draw_msgboxbox, nullptr, nullptr, nullptr );
 
 		// Title bar
 
@@ -1411,7 +1411,7 @@ void create_yesnomsgbox ( char *title, char *message, void (*yesclick) (Button *
 		// Message box
 
 		EclRegisterButton ( screenw / 2 - 150 + 2, screenh / 3 + 20, 295, 80, "", "", "msgbox_text" );
-		EclRegisterButtonCallbacks ( "msgbox_text", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "msgbox_text", text_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "msgbox_text", message );
 
 		// Yes button
@@ -1457,7 +1457,7 @@ void remove_msgbox ()
 bool isvisible_msgbox ()
 {
 
-	return ( EclGetButton ( "msgbox_background" ) != NULL );
+	return ( EclGetButton ( "msgbox_background" ) != nullptr );
 
 }
 

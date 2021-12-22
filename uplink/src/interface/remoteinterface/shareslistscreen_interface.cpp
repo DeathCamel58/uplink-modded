@@ -211,7 +211,7 @@ void SharesListScreenInterface::FilterClick ( Button *button )
 
 	char *filter = EclGetButton ( "shareslistscreen_filtertext" )->caption;
 
-	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( NULL );
+	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
 	else						thisinterface->ApplyFilter ( filter );
 
 }
@@ -271,7 +271,7 @@ void SharesListScreenInterface::SetFullList ( LList <char *> *newfulllist )
 	for ( int i = 0; i < newfulllist->Size (); ++i )
 		fulllist.PutData ( newfulllist->GetData (i) );
 	
-	ApplyFilter ( NULL );
+	ApplyFilter ( nullptr );
 
 }
 
@@ -283,7 +283,7 @@ void SharesListScreenInterface::SetFullList ()
 	for ( int i = 0; i < filteredlist.Size (); ++i )
 		fulllist.PutData ( filteredlist.GetData (i) );
 
-	ApplyFilter ( NULL );
+	ApplyFilter ( nullptr );
 
 }
 
@@ -304,7 +304,7 @@ void SharesListScreenInterface::ApplyFilter ( char *filter )
 
 			char *companyname = LowerCaseString ( fulllist.GetData (i) );
 
-			if ( strstr ( companyname, lowercasefilter ) != NULL )
+			if ( strstr ( companyname, lowercasefilter ) != nullptr )
 				filteredlist.PutData ( fulllist.GetData (i) );
 
             delete [] companyname;
@@ -344,7 +344,7 @@ bool SharesListScreenInterface::ReturnKeyPressed ()
 	
 	if ( filterbutton ) {
 		char *filter = filterbutton->caption;
-		if ( filter [0] == '\x0' )  ApplyFilter ( NULL );
+		if ( filter [0] == '\x0' )  ApplyFilter ( nullptr );
 		else						ApplyFilter ( filter );
 		return true;
 	}
@@ -356,7 +356,7 @@ void SharesListScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "SharesListScreenInterface::Create, tried to create when cs==NULL\n" );
+	else printf ( "SharesListScreenInterface::Create, tried to create when cs==nullptr\n" );
 
 }
 
@@ -371,9 +371,9 @@ void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 		// Draw the screen titles
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "shareslistscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "shareslistscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "shareslistscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "shareslistscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "shareslistscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "shareslistscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 30, 120, 176, 15, "Company name", "", "shareslistscreen_companytitle" );
 		EclRegisterButton ( 210, 120, 96, 15, "Price per share", "", "shareslistscreen_pricetitle" );
@@ -442,7 +442,7 @@ void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 			EclRegisterButtonCallback ( "shareslistscreen_filter", FilterClick );
 			
 			EclRegisterButton ( 155, 365, 200, 15, "", "Enter filter pattern here", "shareslistscreen_filtertext" );
-			EclRegisterButtonCallbacks ( "shareslistscreen_filtertext", FilterDraw, NULL, button_click, button_highlight );
+			EclRegisterButtonCallbacks ( "shareslistscreen_filtertext", FilterDraw, nullptr, button_click, button_highlight );
 
             EclMakeButtonEditable ( "shareslistscreen_filtertext" );
 
@@ -457,7 +457,7 @@ void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 
 		}
 
-		ApplyFilter ( NULL );
+		ApplyFilter ( nullptr );
 
 	}
 
@@ -487,7 +487,7 @@ void SharesListScreenInterface::Remove ()
 		
 		}
 
-		if ( EclGetButton ( "shareslistscreen_scrollbar" ) != NULL ) {
+		if ( EclGetButton ( "shareslistscreen_scrollbar" ) != nullptr ) {
 
 			EclRemoveButton ( "shareslistscreen_scrollup" );
 			EclRemoveButton ( "shareslistscreen_scrollbar" );

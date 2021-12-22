@@ -120,9 +120,9 @@ void ResizeGlut ( int width, int height )
     size_hints.max_width = width;
     size_hints.max_height = height;
 
-    XSetWMProperties(dpy, rootWindow, 
-		     NULL,
-		     NULL,
+    XSetWMProperties(dpy, rootWindow,
+             nullptr,
+             nullptr,
 		     0,
 		     0,
 		     &size_hints,

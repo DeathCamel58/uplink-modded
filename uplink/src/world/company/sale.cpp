@@ -66,7 +66,7 @@ SaleVersion *Sale::GetVersion ( int index )
 		return versions.GetData (index);
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -141,7 +141,7 @@ int Sale::GetOBJECTID ()
 SaleVersion::SaleVersion ()
 {
 	
-	details = NULL;
+	details = nullptr;
 	cost = -1;
 	size = -1;
 	data = -1;

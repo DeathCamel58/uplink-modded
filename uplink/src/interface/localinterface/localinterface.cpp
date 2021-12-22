@@ -51,7 +51,7 @@ LocalInterface::LocalInterface()
 
 	currentscreencode = 0;
 	screenindex = 0;
-	screen = NULL;
+	screen = nullptr;
 
 	hud = new HUDInterface ();
 
@@ -88,7 +88,7 @@ void LocalInterface::Remove ()
 		if ( screen ) {
 			screen->Remove ();
 			delete screen;
-			screen = NULL;
+			screen = nullptr;
 		}
 
 }
@@ -107,7 +107,7 @@ void LocalInterface::RunScreen ( int SCREENCODE, int index )
 	if ( screen ) {
 		screen->Remove ();
 		delete screen;
-		screen = NULL;
+		screen = nullptr;
 	}
 
 	// Fixing problems with overlapping world map

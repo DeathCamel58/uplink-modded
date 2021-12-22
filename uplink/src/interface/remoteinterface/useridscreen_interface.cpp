@@ -93,7 +93,7 @@ void UserIDScreenInterface::AccessCodeClick ( Button *button )
 
 	int numdits = 0;
 	char *currentdit = fullcode;
-	while ( strchr ( currentdit, '\'' ) != NULL ) {
+	while ( strchr ( currentdit, '\'' ) != nullptr ) {
 		currentdit = strchr ( currentdit, '\'' ) + 1;
 		++numdits;
 	}
@@ -303,7 +303,7 @@ void UserIDScreenInterface::CodeButtonClick ( Button *button )
 bool UserIDScreenInterface::ReturnKeyPressed ()
 {
 
-	ProceedClick ( NULL );
+	ProceedClick ( nullptr );
 	return true;
 
 }
@@ -317,9 +317,9 @@ void UserIDScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 130, 90, 320, 25, GetComputerScreen ()->maintitle, "", "useridscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "useridscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "useridscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 130, 110, 320, 20, GetComputerScreen ()->subtitle, "", "useridscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "useridscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "useridscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 168, 155, 220, 120, "", "", "useridscreen_image" );
 		button_assignbitmap ( "useridscreen_image", "userid.tif" );
@@ -332,7 +332,7 @@ void UserIDScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButtonCallbacks ( "useridscreen_code", CodeButtonDraw, CodeButtonClick, button_click, button_highlight );
 
 		EclRegisterButton ( 168, 280, 120, 15, "", "", "useridscreen_message" );
-		EclRegisterButtonCallbacks ( "useridscreen_message", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "useridscreen_message", textbutton_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 308, 280, 80, 15, "Proceed", "Click here when done", "useridscreen_proceed" );
 		button_assignbitmaps ( "useridscreen_proceed", "proceed.tif", "proceed_h.tif", "proceed_c.tif" );
@@ -351,7 +351,7 @@ void UserIDScreenInterface::Create ( ComputerScreen *newcs )
 			DArray <char *> *ips   = game->GetWorld ()->GetPlayer ()->codes.ConvertIndexToDArray ();
 
 			EclRegisterButton ( 200, 310, 250, 15, "Known Access Codes", "", "useridscreen_codestitle" );
-			EclRegisterButtonCallbacks ( "useridscreen_codestitle", textbutton_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "useridscreen_codestitle", textbutton_draw, nullptr, nullptr, nullptr );
 
 			int currentcode = 0;
 
@@ -429,7 +429,7 @@ void UserIDScreenInterface::Update ()
 bool UserIDScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "useridscreen_image" ) != NULL );
+	return ( EclGetButton ( "useridscreen_image" ) != nullptr );
 
 }
 

@@ -92,7 +92,7 @@ Mission *CompanyUplink::GetMission ( int index )
 {
 
 	if ( missions.ValidIndex (index) )    return missions.GetData (index);
-	else								  return NULL;
+	else								  return nullptr;
 
 }
 
@@ -100,7 +100,7 @@ Sale *CompanyUplink::GetSWSale ( int index )
 {
 
 	if ( sw_sales.ValidIndex (index) )	  return sw_sales.GetData (index);
-	else								  return NULL;
+	else								  return nullptr;
 
 }
 
@@ -108,7 +108,7 @@ Sale *CompanyUplink::GetHWSale ( int index )
 {
 
 	if ( hw_sales.ValidIndex (index) )	  return hw_sales.GetData (index);
-	else								  return NULL;
+	else								  return nullptr;
 
 }
 
@@ -116,7 +116,7 @@ News *CompanyUplink::GetNews ( int index )
 {
 
 	if ( news.ValidIndex (index) )		return news.GetData (index);
-	else								return NULL;
+	else								return nullptr;
 
 }
 

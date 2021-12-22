@@ -461,7 +461,7 @@ void NotificationEvent::GiveMissionToNPC ()
 	LList <Mission *> missions;
 	LList <int>		  missions_index;											// Indexes of each mission
 
-	Mission *prioritymission = NULL;
+	Mission *prioritymission = nullptr;
 	int prioritymissionindex = -1;
 
 	for ( int i = 0; i < fullist->Size (); ++i ) {

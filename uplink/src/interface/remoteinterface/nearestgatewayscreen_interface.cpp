@@ -142,12 +142,12 @@ void NearestGatewayScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 40, 10, 350, 25, GetComputerScreen ()->subtitle, "", "nearestgateway_maintitle" );
-		EclRegisterButtonCallbacks ( "nearestgateway_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "nearestgateway_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 
 		// Black out the computer picture
 
 		EclRegisterButton ( 470, 280, 140, 140, " ", " ", "nearestgateway_black" );
-		EclRegisterButtonCallbacks ( "nearestgateway_black", DrawBlack, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "nearestgateway_black", DrawBlack, nullptr, nullptr, nullptr );
 
 		// Work out the size/ratios of the map
 
@@ -199,7 +199,7 @@ void NearestGatewayScreenInterface::Create ( ComputerScreen *newcs )
 		// Create some helpfull text
 
 		EclRegisterButton ( 50, y1 + fullsizeY + 20, 400, 70, " ", " ", "nearestgateway_helptext" );
-		EclRegisterButtonCallbacks ( "nearestgateway_helptext", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "nearestgateway_helptext", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "nearestgateway_helptext", "Uplink Corporation has offices all around the world.\n"
 															  "Please select a nearby location for your Gateway.\n"
 															  "You will dial into this location when you use Uplink.", 2000 );
@@ -240,7 +240,7 @@ void NearestGatewayScreenInterface::Remove ()
 bool NearestGatewayScreenInterface::IsVisible ()
 {
 	
-	return ( EclGetButton ( "nearestgateway_largemap" ) != NULL );
+	return ( EclGetButton ( "nearestgateway_largemap" ) != nullptr );
 
 }
 

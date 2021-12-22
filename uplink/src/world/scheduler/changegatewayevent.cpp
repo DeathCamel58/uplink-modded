@@ -15,7 +15,7 @@
 ChangeGatewayEvent::ChangeGatewayEvent ()
 {
 
-	newgatewaydef = NULL;
+	newgatewaydef = nullptr;
 
 }
 
@@ -78,7 +78,7 @@ char *ChangeGatewayEvent::GetShortString ()
 
 	size_t shortstringsize = 128 + ( (newgatewaydef)? strlen ( newgatewaydef->name ) : 4 );
 	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Exchanging gateway for '%s'", (newgatewaydef)? newgatewaydef->name : "NULL" );
+	UplinkSnprintf ( shortstring, shortstringsize, "Exchanging gateway for '%s'", (newgatewaydef)? newgatewaydef->name : "nullptr" );
 	return shortstring;
 		
 }
@@ -95,7 +95,7 @@ bool ChangeGatewayEvent::Load  ( FILE *file )
 
 	LoadID ( file );
 
-	newgatewaydef = NULL;
+	newgatewaydef = nullptr;
 
 	if ( !UplinkEvent::Load ( file ) ) return false;
 
@@ -148,7 +148,7 @@ void ChangeGatewayEvent::Print ()
 
 	printf ( "ChangeGateway Event\n" );
 	UplinkEvent::Print ();
-	printf ( "New gateway '%s'\n", (newgatewaydef)? newgatewaydef->name : "NULL" );
+	printf ( "New gateway '%s'\n", (newgatewaydef)? newgatewaydef->name : "nullptr" );
 
 }
 	

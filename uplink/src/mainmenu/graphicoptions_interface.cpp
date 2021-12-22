@@ -53,7 +53,7 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 
     bool shutdownRequired = false;
 
-	while ( EclGetButton ( name1 ) != NULL ) {
+	while ( EclGetButton ( name1 ) != nullptr ) {
 
 		// Look up the next option button
 
@@ -404,7 +404,7 @@ void GraphicOptionsInterface::SetOptionTYPE ( char *newtype )
 		else {
 
 			RegisterButton ( screenw - 60, screenh - 40, 50, 15, value, "enter the new value here", name2 );
-			EclRegisterButtonCallbacks ( name2, textbutton_draw, NULL, button_click, button_highlight );
+			EclRegisterButtonCallbacks ( name2, textbutton_draw, nullptr, button_click, button_highlight );
             EclMakeButtonEditable ( name2 );
 
 		}
@@ -467,7 +467,7 @@ void GraphicOptionsInterface::Create ()
 			for ( int i = 0; i < modes->Size(); ++i ) {
 				if ( modes->ValidIndex( i ) ) {
 					GciScreenMode *mode = modes->GetData( i );
-					if ( mode != NULL ) {
+					if ( mode != nullptr ) {
 						UplinkSnprintf( cap, sizeof ( cap ), "%dx%d", mode->w, mode->h );
 						UplinkSnprintf( nm, sizeof ( nm ), "graphic 1 %d %d", mode->w, mode->h );
 						RegisterButton ( 50, startY + vert_offset, 100, 15, cap, "Choose this resolution", nm);
@@ -493,7 +493,7 @@ void GraphicOptionsInterface::Create ()
 
 		GciDeleteScreenModeArrayData( modes );
 		delete modes;
-		modes = NULL;
+		modes = nullptr;
 
         RegisterButton ( 170, startY, 100, 15, "COLOUR DEPTH", "Select your colour depth", "graphic_colourdepthtitle" );
         RegisterButton ( 170, startY + 30, 100, 15, "8 Bit", "Choose this colour depth", "graphic 2 8 0" );
@@ -543,7 +543,7 @@ void GraphicOptionsInterface::Update ()
 bool GraphicOptionsInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "graphic_return" ) != NULL );
+	return ( EclGetButton ( "graphic_return" ) != nullptr );
 
 }
 

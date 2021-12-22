@@ -37,7 +37,7 @@ FaithScreenInterface::~FaithScreenInterface ()
 bool FaithScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick ( NULL );
+    CloseClick ( nullptr );
     return true;
 
 }
@@ -46,7 +46,7 @@ void FaithScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "FaithScreenInterface::Create, tried to create when GenericScreen==NULL\n" );
+	else printf ( "FaithScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
 
 }
 
@@ -61,9 +61,9 @@ void FaithScreenInterface::Create ( ComputerScreen *newcs )
 		// Create the titles
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "faithscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "faithscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "faithscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "faithscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "faithscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "faithscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 
 		// Create the information boxes
@@ -80,13 +80,13 @@ void FaithScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( 250, 150, 200, 30, faith, "", "faithscreen_faith" );
 		EclRegisterButton ( 250, 200, 200, 30, revelation, "", "faithscreen_revelation" );
 
-		EclRegisterButtonCallbacks ( "faithscreen_faithtitle",		DrawSubTitle, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "faithscreen_faith",			DrawMainTitle, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "faithscreen_revelationtitle", DrawSubTitle, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "faithscreen_revelation",		DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "faithscreen_faithtitle",		DrawSubTitle, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "faithscreen_faith",			DrawMainTitle, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "faithscreen_revelationtitle", DrawSubTitle, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "faithscreen_revelation",		DrawMainTitle, nullptr, nullptr, nullptr );
 		
 		EclRegisterButton ( 90, 260, 300, 110, "", "", "faithscreen_text" );
-		EclRegisterButtonCallbacks ( "faithscreen_text", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "faithscreen_text", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "faithscreen_text",	"This information is based on unofficial reports from the Web.  "
 														"No guarantee is given as to the accuracy of this information.\n\n"
 														"If you have any information which may help to keep this up to date, "
@@ -129,7 +129,7 @@ void FaithScreenInterface::Update ()
 bool FaithScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "faithscreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "faithscreen_maintitle" ) != nullptr );
 
 }
 

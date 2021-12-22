@@ -90,7 +90,7 @@ void SWInterface::SoftwareDraw ( Button *button, bool highlighted, bool clicked 
 	sscanf ( button->name, "%s %d", junk, &areyoutheone );
 	
 	if ( areyoutheone == currentprogrambutton &&
-		 strstr ( button->name, "version" ) == NULL )							// Don't auto-highlight buttons from a version menu
+		 strstr ( button->name, "version" ) == nullptr )							// Don't auto-highlight buttons from a version menu
 		nhighlighted = true;
 
 	else
@@ -241,7 +241,7 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 		char name [32];
 		UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", i );
 
-		while ( EclGetButton ( name ) != NULL ) {
+		while ( EclGetButton ( name ) != nullptr ) {
 
 			EclRemoveButton ( name );
 			++i;
@@ -275,8 +275,8 @@ void SWInterface::SoftwareHighlight ( Button *button )
 
 		// Remove any old version menus
 
-        if ( IsVisibleVersionMenu ( NULL ) ) {
-			ToggleVersionMenu ( NULL, 0, 0 );            
+        if ( IsVisibleVersionMenu ( nullptr ) ) {
+			ToggleVersionMenu ( nullptr, 0, 0 );
         }
 		else {										// Force redraw of previously selected button
 			char bname [32];
@@ -296,7 +296,7 @@ void SWInterface::SoftwareHighlight ( Button *button )
 bool SWInterface::IsVisibleSubMenu	( int softwareTYPE )
 {
 
-	return ( EclGetButton ( "hud_software 0" ) != NULL && 
+	return ( EclGetButton ( "hud_software 0" ) != nullptr &&
 			 currentsubmenu == softwareTYPE );
 
 }
@@ -336,8 +336,8 @@ void SWInterface::StartMenuItemHighlight ( Button *button )
 
 		// Remove the old sub menu
 		
-		if ( IsVisibleVersionMenu ( NULL ) )
-			ToggleVersionMenu ( NULL, 0, 0 );
+		if ( IsVisibleVersionMenu ( nullptr ) )
+			ToggleVersionMenu ( nullptr, 0, 0 );
 
 		if ( IsVisibleSubMenu ( currentsubmenu ) )
 			ToggleSubMenu ( currentsubmenu, 0, 0 );
@@ -361,8 +361,8 @@ void SWInterface::StartMenuItemHighlightUnavailable ( Button *button )
 
 	// Remove the old sub menus
 
-	if ( IsVisibleVersionMenu ( NULL ) )
-		ToggleVersionMenu ( NULL, 0, 0 );
+	if ( IsVisibleVersionMenu ( nullptr ) )
+		ToggleVersionMenu ( nullptr, 0, 0 );
 	
 	if ( IsVisibleSubMenu ( currentsubmenu ) )
 		ToggleSubMenu ( currentsubmenu, 0, 0 );
@@ -389,26 +389,26 @@ void SWInterface::ToggleSoftwareMenu ()
 		EclRegisterButton ( 3, yPos, 100, 15, "LAN tools", "Eg LAN Scan, LAN probe etc", "hud_swmenu 6" );
 		EclRegisterButton ( 3, yPos, 100, 15, "Other", "Other software programs", "hud_swmenu 10" );
 
-		if ( HasSoftwareType ( 1 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 1", StartMenuItemDraw, NULL, NULL, StartMenuItemHighlight );
-		else							EclRegisterButtonCallbacks ( "hud_swmenu 1", StartMenuItemDrawUnavailable, NULL, NULL, StartMenuItemHighlightUnavailable );
+		if ( HasSoftwareType ( 1 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 1", StartMenuItemDraw, nullptr, nullptr, StartMenuItemHighlight );
+		else							EclRegisterButtonCallbacks ( "hud_swmenu 1", StartMenuItemDrawUnavailable, nullptr, nullptr, StartMenuItemHighlightUnavailable );
 
-		if ( HasSoftwareType ( 2 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 2", StartMenuItemDraw, NULL, button_click, StartMenuItemHighlight );
-		else							EclRegisterButtonCallbacks ( "hud_swmenu 2", StartMenuItemDrawUnavailable, NULL, NULL, StartMenuItemHighlightUnavailable );
+		if ( HasSoftwareType ( 2 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 2", StartMenuItemDraw, nullptr, button_click, StartMenuItemHighlight );
+		else							EclRegisterButtonCallbacks ( "hud_swmenu 2", StartMenuItemDrawUnavailable, nullptr, nullptr, StartMenuItemHighlightUnavailable );
 
-		if ( HasSoftwareType ( 3 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 3", StartMenuItemDraw, NULL, button_click, StartMenuItemHighlight );
-		else							EclRegisterButtonCallbacks ( "hud_swmenu 3", StartMenuItemDrawUnavailable, NULL, NULL, StartMenuItemHighlightUnavailable );
+		if ( HasSoftwareType ( 3 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 3", StartMenuItemDraw, nullptr, button_click, StartMenuItemHighlight );
+		else							EclRegisterButtonCallbacks ( "hud_swmenu 3", StartMenuItemDrawUnavailable, nullptr, nullptr, StartMenuItemHighlightUnavailable );
 
-		if ( HasSoftwareType ( 4 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 4", StartMenuItemDraw, NULL, button_click, StartMenuItemHighlight );
-		else							EclRegisterButtonCallbacks ( "hud_swmenu 4", StartMenuItemDrawUnavailable, NULL, NULL, StartMenuItemHighlightUnavailable );
+		if ( HasSoftwareType ( 4 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 4", StartMenuItemDraw, nullptr, button_click, StartMenuItemHighlight );
+		else							EclRegisterButtonCallbacks ( "hud_swmenu 4", StartMenuItemDrawUnavailable, nullptr, nullptr, StartMenuItemHighlightUnavailable );
 
-		if ( HasSoftwareType ( 5 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 5", StartMenuItemDraw, NULL, button_click, StartMenuItemHighlight );
-		else							EclRegisterButtonCallbacks ( "hud_swmenu 5", StartMenuItemDrawUnavailable, NULL, NULL, StartMenuItemHighlightUnavailable );
+		if ( HasSoftwareType ( 5 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 5", StartMenuItemDraw, nullptr, button_click, StartMenuItemHighlight );
+		else							EclRegisterButtonCallbacks ( "hud_swmenu 5", StartMenuItemDrawUnavailable, nullptr, nullptr, StartMenuItemHighlightUnavailable );
 
-		if ( HasSoftwareType ( 6 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 6", StartMenuItemDraw, NULL, button_click, StartMenuItemHighlight );
-		else							EclRegisterButtonCallbacks ( "hud_swmenu 6", StartMenuItemDrawUnavailable, NULL, NULL, StartMenuItemHighlightUnavailable );
+		if ( HasSoftwareType ( 6 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 6", StartMenuItemDraw, nullptr, button_click, StartMenuItemHighlight );
+		else							EclRegisterButtonCallbacks ( "hud_swmenu 6", StartMenuItemDrawUnavailable, nullptr, nullptr, StartMenuItemHighlightUnavailable );
 
-		if ( HasSoftwareType ( 10 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 10", StartMenuItemDraw, NULL, button_click, StartMenuItemHighlight );
-		else							EclRegisterButtonCallbacks ( "hud_swmenu 10", StartMenuItemDrawUnavailable, NULL, NULL, StartMenuItemHighlightUnavailable );
+		if ( HasSoftwareType ( 10 ) )	EclRegisterButtonCallbacks ( "hud_swmenu 10", StartMenuItemDraw, nullptr, button_click, StartMenuItemHighlight );
+		else							EclRegisterButtonCallbacks ( "hud_swmenu 10", StartMenuItemDrawUnavailable, nullptr, nullptr, StartMenuItemHighlightUnavailable );
 
 
 		int timesplit = 500 / 6;							// Ensures total time = 500ms
@@ -428,8 +428,8 @@ void SWInterface::ToggleSoftwareMenu ()
 
 		// Remove the old sub menus
 		
-		if ( IsVisibleVersionMenu ( NULL ) )
-			ToggleVersionMenu ( NULL, 0, 0 );
+		if ( IsVisibleVersionMenu ( nullptr ) )
+			ToggleVersionMenu ( nullptr, 0, 0 );
 
 		if ( IsVisibleSubMenu ( currentsubmenu ) )
 			ToggleSubMenu ( currentsubmenu, 0, 0 );
@@ -528,7 +528,7 @@ void SWInterface::ToggleVersionMenu ( char *program, int x, int y )
 		char name [128];
 		UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", i );
 
-		while ( EclGetButton ( name ) != NULL ) {
+		while ( EclGetButton ( name ) != nullptr ) {
 
 			EclRemoveButton ( name );
 			++i;
@@ -552,11 +552,11 @@ bool SWInterface::IsVisibleVersionMenu ( char *program )
 {
 
 	if ( program ) 
-		return ( EclGetButton ( "hud_version 0" ) != NULL &&
-			     strstr ( EclGetButton ( "hud_version 0" )->caption, program ) != NULL );
+		return ( EclGetButton ( "hud_version 0" ) != nullptr &&
+			     strstr ( EclGetButton ( "hud_version 0" )->caption, program ) != nullptr );
 
 	else
-		return ( EclGetButton ( "hud_version 0" ) != NULL );
+		return ( EclGetButton ( "hud_version 0" ) != nullptr );
 
 }
 
@@ -630,7 +630,7 @@ void SWInterface::Update ()
 bool SWInterface::IsVisibleSoftwareMenu ()
 {
 
-	return ( EclGetButton ( "hud_swmenu 1" ) != NULL );
+	return ( EclGetButton ( "hud_swmenu 1" ) != nullptr );
 
 }
 

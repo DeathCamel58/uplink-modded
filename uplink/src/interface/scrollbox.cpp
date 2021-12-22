@@ -32,7 +32,7 @@ ScrollBox::ScrollBox()
     UplinkStrncpy ( name, "NewScrollBox", sizeof ( name ) );
     x = y = w = h = 0;
     numItems = windowSize = currentIndex = 0;
-    callback = NULL;
+    callback = nullptr;
 
 }
 
@@ -414,7 +414,7 @@ ScrollBox *ScrollBox::GetScrollBox ( char *name )
         if ( strcmp ( scrollBoxes.GetData(i)->name, name ) == 0 )
             return scrollBoxes.GetData(i);
 
-    return NULL;
+    return nullptr;
 
 }
 

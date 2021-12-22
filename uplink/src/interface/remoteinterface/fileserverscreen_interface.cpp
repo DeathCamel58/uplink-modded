@@ -47,7 +47,7 @@ void FileServerScreenInterface::CloseClick ( Button *button )
 	char ip [ SIZE_VLOCATION_IP ] = {0};
 	sscanf ( button->name, "fileserverscreen_click %d %s", &nextpage, ip );
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -190,7 +190,7 @@ int FileServerScreenInterface::GetNbRowsDisplayDataBank ( DataBank *db )
 int FileServerScreenInterface::GetInfoRowDisplayDataBank ( DataBank *db, int fileindex, Data **data, int *size, int *memoryindex )
 {
 
-	*data = NULL;
+	*data = nullptr;
 	*size = 0;
 	*memoryindex = -1;
 
@@ -202,7 +202,7 @@ int FileServerScreenInterface::GetInfoRowDisplayDataBank ( DataBank *db, int fil
 
 	if ( dataSize > 0 && memorySize > 0 ) {
 		int lastIndexMemory = -1;
-		Data *lastData = NULL;
+		Data *lastData = nullptr;
 
 		for ( int indexMemory = 0; indexMemory < memorySize; indexMemory++ ) {
 			int indexData = db->GetDataIndex ( indexMemory );
@@ -379,7 +379,7 @@ void FileServerScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "FileServerScreenInterface::Create, tried to create when GenericScreen==NULL\n" );
+	else printf ( "FileServerScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
 
 }
 
@@ -400,9 +400,9 @@ void FileServerScreenInterface::Create ( ComputerScreen *newcs )
 		GetComputerScreen ()->GetComputer ()->logbank.AddLog ( log );
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "fileserverscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "fileserverscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "fileserverscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "fileserverscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "fileserverscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "fileserverscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 15, 120, 144, 15, "Filename", "", "fileserverscreen_filenametitle" );
 		EclRegisterButton ( 162, 120, 96, 15, "Size", "", "fileserverscreen_sizetitle" );
@@ -499,7 +499,7 @@ void FileServerScreenInterface::Remove ()
 		EclRemoveButton ( "fileserverscreen_scrollbar" );
 		EclRemoveButton ( "fileserverscreen_scrolldown" );
 		*/
-        if ( ScrollBox::GetScrollBox( "fileserverscreen_scroll" ) != NULL )
+        if ( ScrollBox::GetScrollBox( "fileserverscreen_scroll" ) != nullptr )
             ScrollBox::RemoveScrollBox( "fileserverscreen_scroll" );
 
 		char name [128 + SIZE_VLOCATION_IP + 1];
@@ -513,7 +513,7 @@ void FileServerScreenInterface::Remove ()
 bool FileServerScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "fileserverscreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "fileserverscreen_maintitle" ) != nullptr );
 
 }
 

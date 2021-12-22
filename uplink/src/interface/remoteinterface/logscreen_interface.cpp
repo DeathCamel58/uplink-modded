@@ -56,7 +56,7 @@ void LogScreenInterface::CloseClick ( Button *button )
 bool LogScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick ( NULL );
+    CloseClick ( nullptr );
     return true;
     
 }
@@ -266,7 +266,7 @@ void LogScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "LogScreenInterface::Create, tried to create when LogScreen==NULL\n" );
+	else printf ( "LogScreenInterface::Create, tried to create when LogScreen==nullptr\n" );
 
 }
 
@@ -282,9 +282,9 @@ void LogScreenInterface::Create ( ComputerScreen *newcs )
 		UplinkAssert (logbank);
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "logscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "logscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "logscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "logscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "logscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "logscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 15, 120, 96, 15, "Date", "", "logscreen_datetitle" );
 		EclRegisterButton ( 115, 120, 300, 15, "Action", "", "logscreen_actiontitle" );
@@ -374,7 +374,7 @@ void LogScreenInterface::Remove ()
 		EclRemoveButton ( "logscreen_scrollbar" );
 		EclRemoveButton ( "logscreen_scrolldown" );
 		*/
-        if ( ScrollBox::GetScrollBox( "logscreen_scroll" ) != NULL )
+        if ( ScrollBox::GetScrollBox( "logscreen_scroll" ) != nullptr )
             ScrollBox::RemoveScrollBox( "logscreen_scroll" );
 
         EclRemoveButton ( "logscreen_close" );
@@ -386,7 +386,7 @@ void LogScreenInterface::Remove ()
 bool LogScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "logscreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "logscreen_maintitle" ) != nullptr );
 
 }
 

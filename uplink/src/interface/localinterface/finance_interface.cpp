@@ -250,10 +250,10 @@ void FinanceInterface::Create ()
 		EclRegisterButtonCallback ( "finance_title", TitleClick );
 
 		EclRegisterButton ( screenw - panelwidth, paneltop + 50, panelwidth - 7, 15, "", "", "finance_balance" );
-		EclRegisterButtonCallbacks ( "finance_balance", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "finance_balance", text_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( screenw - panelwidth, paneltop + 80, panelwidth - 7, 15, "AccNo     Bank            Balance", "", "finance_acctitle" );
-		EclRegisterButtonCallbacks ( "finance_acctitle", DrawAccountsTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "finance_acctitle", DrawAccountsTitle, nullptr, nullptr, nullptr );
 
 		// Create a new button for each open account
 
@@ -313,7 +313,7 @@ void FinanceInterface::Remove ()
 void FinanceInterface::Update ()
 {
 
-	if ( time(NULL) > lastupdate + 5 && IsVisible () ) {
+	if ( time(nullptr) > lastupdate + 5 && IsVisible () ) {
 
 		// Create/Destroy new account buttons if neccisary
 
@@ -417,7 +417,7 @@ void FinanceInterface::Update ()
 		UplinkSnprintf ( caption, sizeof ( caption ), "Balance : %d credits", balance );
 		EclGetButton ( "finance_balance" )->SetCaption ( caption );
 
-		lastupdate = time(NULL);
+		lastupdate = time(nullptr);
 
 	}
 
@@ -426,7 +426,7 @@ void FinanceInterface::Update ()
 bool FinanceInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "finance_title" ) != NULL );
+	return ( EclGetButton ( "finance_title" ) != nullptr );
 
 }
 

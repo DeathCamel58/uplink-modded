@@ -1215,7 +1215,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 	DialogScreen *ds3 = new DialogScreen ();
 	ds3->SetMainTitle ( comp->name );
 	ds3->SetSubTitle ( "eMailz" );
-	ds3->AddWidget ( "close", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Close", "Click to close this screen", 1, -1, NULL, NULL );
+	ds3->AddWidget ( "close", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Close", "Click to close this screen", 1, -1, nullptr, nullptr );
 	comp->AddComputerScreen ( ds3, 3 );
 
 	//
@@ -1418,10 +1418,10 @@ void PlotGenerator::Run_Act1Scene5 ()
 	ds->AddWidget ( "scheduletitle", WIDGET_CAPTION, 50, 150, 200, 20, "Scheduled emails", "" );
 	ds->AddWidget ( "email1", WIDGET_TEXTBOX, 80, 180, 200, 30, "TO: subscriptions@hackers.com\nSUBJECT: continuation of order", "" );
 	ds->AddWidget ( "email2", WIDGET_TEXTBOX, 80, 220, 200, 30, "TO: all-agents@uplink.com\nSUBJECT: Warning about ARC", "" );
-	ds->AddWidget ( "view1", WIDGET_SCRIPTBUTTON, 280, 180, 50, 14, "View", "Click to view this email", 62, -1, NULL, NULL );
-	ds->AddWidget ( "view2", WIDGET_SCRIPTBUTTON, 280, 220, 50, 14, "View", "Click to view this email", 63, -1, NULL, NULL );
-	ds->AddWidget ( "cancel1", WIDGET_SCRIPTBUTTON, 280, 195, 50, 14, "Cancel", "Click to stop this mail from being sent", 60, -1, NULL, NULL );
-	ds->AddWidget ( "cancel2", WIDGET_SCRIPTBUTTON, 280, 235, 50, 14, "Cancel", "Click to stop this mail from being sent", 61, -1, NULL, NULL );
+	ds->AddWidget ( "view1", WIDGET_SCRIPTBUTTON, 280, 180, 50, 14, "View", "Click to view this email", 62, -1, nullptr, nullptr );
+	ds->AddWidget ( "view2", WIDGET_SCRIPTBUTTON, 280, 220, 50, 14, "View", "Click to view this email", 63, -1, nullptr, nullptr );
+	ds->AddWidget ( "cancel1", WIDGET_SCRIPTBUTTON, 280, 195, 50, 14, "Cancel", "Click to stop this mail from being sent", 60, -1, nullptr, nullptr );
+	ds->AddWidget ( "cancel2", WIDGET_SCRIPTBUTTON, 280, 235, 50, 14, "Cancel", "Click to stop this mail from being sent", 61, -1, nullptr, nullptr );
 	ds->AddWidget ( "mailtext", WIDGET_TEXTBOX, 30, 270, 400, 100, "", "" );
 
 	agent->SetStatus ( PERSON_STATUS_DEAD );
@@ -3033,7 +3033,7 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
 
     Computer *ourcomp = WorldGenerator::GenerateEmptyFileServer ( "Arunmor" );
 	if ( UplinkIncompatibleSaveGameAssert (ourcomp, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
     // Put the tracer software on our own file server
     //
@@ -3069,7 +3069,7 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
 
     Computer *comp = game->GetWorld ()->GetComputer ( NameGenerator::GenerateInternalServicesServerName("ARC") );
     if ( UplinkIncompatibleSaveGameAssert (comp, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
     std::ostrstream fulldetails;
     fulldetails << "One of our sources within Andromeda Research Corporation has discovered that ARC "
@@ -3136,7 +3136,7 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
 
     Computer *target = game->GetWorld ()->GetComputer ( NameGenerator::GenerateInternalServicesServerName("Arunmor") );
     if ( UplinkIncompatibleSaveGameAssert (target, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
 
     //
@@ -3144,7 +3144,7 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
 
     Computer *ourcomp = game->GetWorld ()->GetComputer ( NameGenerator::GenerateFileServerName("Arunmor") );
 	if ( UplinkIncompatibleSaveGameAssert (ourcomp, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
     Data *data = new Data ();
     data->SetTitle ( "Revelation" );
@@ -3242,7 +3242,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 
     Computer *target = game->GetWorld ()->GetComputer ( NameGenerator::GenerateLANName("ARC") );
     if ( UplinkIncompatibleSaveGameAssert (target, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
 	//
 	// Get a new computer to dump the files to
@@ -3250,7 +3250,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 
     Computer *ourcomp = game->GetWorld ()->GetComputer ( NameGenerator::GenerateFileServerName("Arunmor") );
 	if ( UplinkIncompatibleSaveGameAssert (ourcomp, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
 	//
 	// Add in a new account for the player to use
@@ -3343,7 +3343,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	// Insert the mission
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
-	mission->SetCompletion   ( NULL, NULL, NULL, NULL, NULL );
+	mission->SetCompletion   ( nullptr, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( "Arunmor" );
 	mission->SetContact      ( "internal@Arunmor.net" );
 	mission->SetDifficulty   ( 10 );
@@ -3375,7 +3375,7 @@ Mission *PlotGenerator::GenerateMission_CounterAttack ()
 
     Computer *ourcomp = game->GetWorld ()->GetComputer ( NameGenerator::GenerateFileServerName("Arunmor") );
 	if ( UplinkIncompatibleSaveGameAssert (ourcomp, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
     //
     // Clear file server
@@ -3464,7 +3464,7 @@ Mission *PlotGenerator::GenerateMission_MaidenFlight ()
 
     Computer *comp = game->GetWorld ()->GetComputer ( NameGenerator::GenerateInternalServicesServerName("Arunmor") );
 	if ( UplinkIncompatibleSaveGameAssert (comp, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
 	std::ostrstream fulldetails;
 	fulldetails << "Our corporation has been developing a software product known as Revelation for some time now, "
@@ -3510,7 +3510,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 //    Computer *target = game->GetWorld ()->GetComputer ( "Darwin Research Associates Central Mainframe" );
     Computer *target = game->GetWorld ()->GetComputer ( NameGenerator::GenerateLANName("Darwin Research Associates") );
     if ( UplinkIncompatibleSaveGameAssert (target, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
 	//
 	// Generate a new computer to dump the files to
@@ -3518,7 +3518,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 
 	Computer *ourcomp = WorldGenerator::GenerateEmptyFileServer ( "ARC" );
 	if ( UplinkIncompatibleSaveGameAssert (ourcomp, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
 	//
 	// Add in a new account for the player to use
@@ -3604,7 +3604,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	// Insert the mission
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
-	mission->SetCompletion   ( NULL, NULL, NULL, NULL, NULL );
+	mission->SetCompletion   ( nullptr, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( "ARC" );
 	mission->SetContact      ( "internal@ARC.net" );
 	mission->SetDifficulty   ( 10 );
@@ -3703,7 +3703,7 @@ Mission *PlotGenerator::GenerateMission_ShinyHammer ()
 
     Computer *target = game->GetWorld ()->GetComputer ( NameGenerator::GenerateLANName("Arunmor") );
     if ( UplinkIncompatibleSaveGameAssert (target, __FILE__, __LINE__) )
-		return NULL;
+		return nullptr;
 
 	for ( int i = 0; i < 10; ++i ) {
 
@@ -3947,7 +3947,7 @@ bool PlotGenerator::IsMissionComplete_ARCInfiltration ()
 
             if ( !thisfile->encrypted ) {
 
-			    if ( strstr ( thisfile->title, "REVELATION" ) != NULL &&
+			    if ( strstr ( thisfile->title, "REVELATION" ) != nullptr &&
 				     thisfile->encrypted == 0 ) {
 
 				    char unused [64];
@@ -4114,7 +4114,7 @@ bool PlotGenerator::IsMissionComplete_Darwin ()
 
             if ( !thisfile->encrypted ) {
 
-			    if ( strstr ( thisfile->title, "DARWIN" ) != NULL &&
+			    if ( strstr ( thisfile->title, "DARWIN" ) != nullptr &&
 				     thisfile->encrypted == 0 ) {
 
 				    char unused [64];
@@ -4244,7 +4244,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 				 al->TYPE == LOG_TYPE_CONNECTIONOPENED ) {
 
 				VLocation *vlf = game->GetWorld ()->GetVLocation ( al->fromip );
-				Computer *fromcomp = NULL;
+				Computer *fromcomp = nullptr;
 				if ( vlf )
 					fromcomp = vlf->GetComputer ();
 

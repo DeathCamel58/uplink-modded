@@ -18,8 +18,8 @@
 UplinkTask::UplinkTask() : Task ()
 {
 
-	targetobject = NULL;
-	targetstring = NULL;
+	targetobject = nullptr;
+	targetstring = nullptr;
 	targetint = -1;
 	version = 1.0;
 	followmouse = false;

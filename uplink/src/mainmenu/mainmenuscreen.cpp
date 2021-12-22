@@ -28,7 +28,7 @@ MainMenuScreen::~MainMenuScreen()
 {
 	DeleteDArrayData( this->interface_buttons );
 	delete this->interface_buttons;
-	this->interface_buttons = NULL;
+	this->interface_buttons = nullptr;
 }
 
 void MainMenuScreen::Create ()
@@ -41,11 +41,11 @@ void MainMenuScreen::Create ()
 
 	RegisterButton ( SX(320) - 170, 75, 425, 60, "", "mainmenu_background" );
 	button_assignbitmap ( "mainmenu_background", "mainmenu/uplinklogo.tif" );		
-	EclRegisterButtonCallbacks ( "mainmenu_background", imagebutton_draw, NULL, NULL, NULL );
+	EclRegisterButtonCallbacks ( "mainmenu_background", imagebutton_draw, nullptr, nullptr, nullptr );
 
 	//RegisterButton ( SX(320) - 165, 75 + 60, 330, 15, "", "mainmenu_version" );
 	//button_assignbitmap ( "mainmenu_version", "mainmenu/versionnew.tif" );
-	//EclRegisterButtonCallbacks ( "mainmenu_version", imagebutton_draw, NULL, NULL, NULL );
+	//EclRegisterButtonCallbacks ( "mainmenu_version", imagebutton_draw, nullptr, nullptr, nullptr );
 
 }
 
@@ -55,7 +55,7 @@ void MainMenuScreen::Remove ()
 	for ( int i = 0; i < btns->Size(); ++i ) {
 		if ( btns->ValidIndex( i ) ) {
 			char *btn_name = btns->GetData( i );
-			if ( (NULL != btn_name) && ('\0' != btn_name[0]) )
+			if ( (nullptr != btn_name) && ('\0' != btn_name[0]) )
 				EclRemoveButton( btn_name );
 		}
 	}

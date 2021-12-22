@@ -58,7 +58,7 @@ SecuritySystem *Security::GetSystem (int index)
 		return systems.GetData (index);
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 

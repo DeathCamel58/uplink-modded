@@ -261,7 +261,7 @@ void SharesViewScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "SharesViewScreenInterface::Create, tried to create when cs==NULL\n" );
+	else printf ( "SharesViewScreenInterface::Create, tried to create when cs==nullptr\n" );
 
 }
 
@@ -276,16 +276,16 @@ void SharesViewScreenInterface::Create ( ComputerScreen *newcs )
 		// Draw the screen titles
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "sharesviewscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "sharesviewscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "sharesviewscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "sharesviewscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "sharesviewscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "sharesviewscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		// Share value graph
 
 		EclRegisterButton ( 30, 120, 200, 15, "Share value graph", "", "sharesviewscreen_valuetitle" );
 
 		EclRegisterButton ( 30, 135, 200, 200, "", "", "sharesviewscreen_pricegraph" );
-		EclRegisterButtonCallbacks ( "sharesviewscreen_pricegraph", DrawPriceGraph, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "sharesviewscreen_pricegraph", DrawPriceGraph, nullptr, nullptr, nullptr );
 
 		// Share values (numeric)
 
@@ -299,8 +299,8 @@ void SharesViewScreenInterface::Create ( ComputerScreen *newcs )
 			UplinkSnprintf ( name, sizeof ( name ), "sharesviewscreen_numbers %d", i );
 			EclRegisterButton ( 250, 135 + i * 17, 100, 15, "date", "", date );
 			EclRegisterButton ( 350, 135 + i * 17, 50, 15, "bla", "", name );
-			EclRegisterButtonCallbacks ( date, textbutton_draw, NULL, NULL, NULL );
-			EclRegisterButtonCallbacks ( name, textbutton_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( date, textbutton_draw, nullptr, nullptr, nullptr );
+			EclRegisterButtonCallbacks ( name, textbutton_draw, nullptr, nullptr, nullptr );
 
 		}
 
@@ -315,10 +315,10 @@ void SharesViewScreenInterface::Create ( ComputerScreen *newcs )
 		    EclRegisterButtonCallback ( "sharesviewscreen_sell", SellClick );
 
 		    EclRegisterButton ( 70, 350, 150, 30, "", "", "sharesviewscreen_owned" );
-		    EclRegisterButtonCallbacks ( "sharesviewscreen_owned", textbutton_draw, NULL, NULL, NULL );
+		    EclRegisterButtonCallbacks ( "sharesviewscreen_owned", textbutton_draw, nullptr, nullptr, nullptr );
 
 		    EclRegisterButton ( 220, 350, 140, 30, "", "", "sharesviewscreen_profit" );
-		    EclRegisterButtonCallbacks ( "sharesviewscreen_profit", DrawProfit, NULL, NULL, NULL );
+		    EclRegisterButtonCallbacks ( "sharesviewscreen_profit", DrawProfit, nullptr, nullptr, nullptr );
 
         }
 
@@ -375,7 +375,7 @@ void SharesViewScreenInterface::Update ()
 bool SharesViewScreenInterface::IsVisible ()
 {
 	
-	return ( EclGetButton ( "sharesviewscreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "sharesviewscreen_maintitle" ) != nullptr );
 
 }
 

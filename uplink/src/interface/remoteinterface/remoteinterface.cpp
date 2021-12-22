@@ -87,7 +87,7 @@ RemoteInterface::RemoteInterface ()
 
 	currentscreenindex = 0;
 	previousscreenindex = 0;
-	screen = NULL;
+	screen = nullptr;
 	security_level = 10;
 	UplinkStrncpy ( security_name, " ", sizeof ( security_name ) );
 
@@ -107,7 +107,7 @@ void RemoteInterface::RunNewLocation ()
 	if ( screen ) {
 		screen->Remove ();
 		delete screen;
-		screen = NULL;
+		screen = nullptr;
 	}
 
 	previousscreenindex = 0;
@@ -254,7 +254,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
 	if ( screen ) {
 		screen->Remove ();
 		delete screen;
-		screen = NULL;
+		screen = nullptr;
 	}
 
 	// Fixing problems with overlapping world map

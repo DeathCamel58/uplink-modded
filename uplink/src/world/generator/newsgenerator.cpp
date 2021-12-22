@@ -794,7 +794,7 @@ void NewsGenerator::Arrested ( Person *person, Computer *comp, char *reason )
 
 	UplinkAssert ( person );
 	UplinkAssert ( reason );
-	// comp can be NULL
+	// comp can be nullptr
 
 
 		/* ==========================================================
@@ -926,7 +926,7 @@ void NewsGenerator::Arrested ( Person *person, Computer *comp, char *reason )
 	News *news = new News ();
 	news->SetHeadline ( headline.str () );
 	news->SetDetails ( details.str () );
-	news->SetData ( NEWS_TYPE_ARREST, person->name, comp ? comp->ip : NULL );
+	news->SetData ( NEWS_TYPE_ARREST, person->name, comp ? comp->ip : nullptr );
 
 	headline.rdbuf()->freeze( 0 );
 	part1.rdbuf()->freeze( 0 );

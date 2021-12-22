@@ -53,7 +53,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 
 		thefile.close ();
 		RsArchiveFileClose ( filename );
-		return NULL;
+		return nullptr;
 
 	}
 
@@ -88,17 +88,17 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
         printf ( "[Already Loaded]\n", filename );
 		thefile.close ();
 		RsArchiveFileClose ( filename );
-        return NULL;
+        return nullptr;
     }
 
 	//
 	// Create blank LAN
 
 	if ( !game->GetWorld()->VerifyVLocation( ip, x, y ) ) {
-		printf ( "LanGenerator::LoadLAN WARNING: Location is invalid, ip(%s), x(%d), y(%d).(%s)\n", (ip)?ip:"NULL", x, y, filename );
+		printf ( "LanGenerator::LoadLAN WARNING: Location is invalid, ip(%s), x(%d), y(%d).(%s)\n", (ip)?ip:"nullptr", x, y, filename );
 		thefile.close ();
 		RsArchiveFileClose ( filename );
-        return NULL;
+        return nullptr;
 	}
 
 	game->GetWorld()->CreateVLocation( ip, x, y );
@@ -258,7 +258,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 
     cluster->Merge( comp );
 	delete cluster;
-	cluster = NULL;
+	cluster = nullptr;
 
     //
     // Load hidden data values
@@ -844,7 +844,7 @@ void LanGenerator::GenerateLAN_Level1Cluster ( LanComputer *comp, LanCluster *cl
 
         char freqData [128];
         UplinkSnprintf ( freqData, sizeof ( freqData ), "Radio Receiver Frequency : %d.%d Ghz", recei->data1, recei->data2 );
-        LanComputerSystem *term = NULL;
+        LanComputerSystem *term = nullptr;
         switch ( NumberGenerator::RandomNumber(3) )
         {
             case 0 : UplinkAssert ( cluster->systems.ValidIndex ( t1Index ) ); term = cluster->systems.GetData( t1Index ); break;
@@ -1533,9 +1533,9 @@ int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluste
 	ds->AddWidget( "text", WIDGET_CAPTION, 50, 100, 200, 100, "Access to authentication Server systems granted.\n"
 														 "Please proceed with caution.", " " );
 	ds->AddWidget( "enable", WIDGET_SCRIPTBUTTON, 50, 200, 150, 20, "Enable Security Locks",
-							"Enable the locks on this Local Area Network", 80, dsIndex, NULL, NULL );
+							"Enable the locks on this Local Area Network", 80, dsIndex, nullptr, nullptr );
 	ds->AddWidget( "disable", WIDGET_SCRIPTBUTTON, 50, 240, 150, 20, "Disable security locks",
-							"Disable the locks on this Local Area Network", 81, dsIndex, NULL, NULL );
+							"Disable the locks on this Local Area Network", 81, dsIndex, nullptr, nullptr );
 
 	hs->SetNextPage( dsIndex );
 
@@ -1714,9 +1714,9 @@ int LanGenerator::GenerateIsolationBridge ( LanComputer *comp, LanCluster *clust
 	ds->SetSubTitle ( "ISOLATION BRIDGE" );
 	ds->AddWidget( "text", WIDGET_CAPTION, 50, 100, 200, 100, "Isolation bridge accessed", " " );
 	ds->AddWidget( "enable", WIDGET_SCRIPTBUTTON, 50, 200, 150, 20, "Enable Isolation Bridge",
-							"Enable the bridge (disconnecting Router)", 82, -1, NULL, NULL );
+							"Enable the bridge (disconnecting Router)", 82, -1, nullptr, nullptr );
 	ds->AddWidget( "disable", WIDGET_SCRIPTBUTTON, 50, 240, 150, 20, "Disable Isolation Bridge",
-							"Disable the bridge (enable Router)", 83, -1, NULL, NULL );
+							"Disable the bridge (enable Router)", 83, -1, nullptr, nullptr );
 
 
     int systemIndex = cluster->AddLanSystem( LANSYSTEM_ISOLATIONBRIDGE, x, y, security, dsIndex );

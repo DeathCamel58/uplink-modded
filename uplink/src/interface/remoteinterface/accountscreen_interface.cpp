@@ -21,7 +21,7 @@
 AccountScreenInterface::AccountScreenInterface ()
 {
 
-	account = NULL;
+	account = nullptr;
 
 }
 
@@ -33,7 +33,7 @@ AccountScreenInterface::~AccountScreenInterface ()
 bool AccountScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick (NULL);
+    CloseClick (nullptr);
     return true;
 
 }
@@ -52,7 +52,7 @@ void AccountScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "AccountScreenInterface::Create, tried to create when GenericScreen==NULL\n" );
+	else printf ( "AccountScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
 
 }
 
@@ -70,13 +70,13 @@ void AccountScreenInterface::Create ( ComputerScreen *newcs )
 	// Look up the account number based on the log in name
 	Record *rec = bank->recordbank.GetRecordFromName ( game->GetInterface ()->GetRemoteInterface ()->security_name );
 	if ( !rec ) {
-		account = NULL;
+		account = nullptr;
 		return;
 	}
 
 	char *accno = rec->GetField ( RECORDBANK_ACCNO );
 	if ( !accno ) {
-		account = NULL;
+		account = nullptr;
 		return;
 	}
 
@@ -87,38 +87,38 @@ void AccountScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "accountscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "accountscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "accountscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "accountscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "accountscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "accountscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		// Account Name
 
 		EclRegisterButton ( 70, 150, 100, 15, "Account Name", "Shows the name your account is in", "accountscreen_accountname_title" );
 		EclRegisterButton ( 190, 150, 200, 15, "Accessing...", "", "accountscreen_accountname" );
-		EclRegisterButtonCallbacks ( "accountscreen_accountname", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "accountscreen_accountname", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Account number
 
 		EclRegisterButton ( 70, 175, 100, 15, "Account No.", "Shows your account number", "accountscreen_accountnumber_title" );
 		EclRegisterButton ( 190, 175, 100, 15, "Accessing...", "", "accountscreen_accountnumber" );
-		EclRegisterButtonCallbacks ( "accountscreen_accountnumber", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "accountscreen_accountnumber", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Balance
 
 		EclRegisterButton ( 70, 200, 100, 15, "Balance", "Shows your bank balance", "accountscreen_balance_title" );
 		EclRegisterButton ( 190, 200, 100, 15, "Accessing...", "", "accountscreen_balance" );
-		EclRegisterButtonCallbacks ( "accountscreen_balance", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "accountscreen_balance", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Loan
 
 		EclRegisterButton ( 70, 225, 100, 15, "Loan", "Shows your the size of your loan", "accountscreen_loan_title" );
 		EclRegisterButton ( 190, 225, 100, 15, "Accessing...", "", "accountscreen_loan" );
-		EclRegisterButtonCallbacks ( "accountscreen_loan", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "accountscreen_loan", textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Interest rate
 
 		EclRegisterButton ( 300, 225, 80, 15, "", "", "accountscreen_loanrate" );
-		EclRegisterButtonCallbacks ( "accountscreen_loanrate", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "accountscreen_loanrate", textbutton_draw, nullptr, nullptr, nullptr );
 
 
 		// Put text in any fields that are constant
@@ -187,7 +187,7 @@ void AccountScreenInterface::Update ()
 	// Update every 5 seconds
 	// (If there is an account to update)
 
-	if ( time (NULL) > lastupdate + 5 ) {
+	if ( time (nullptr) > lastupdate + 5 ) {
 
 		if ( account ) {
 
@@ -216,7 +216,7 @@ void AccountScreenInterface::Update ()
 
 		}
 
-		lastupdate = time (NULL);
+		lastupdate = time (nullptr);
 
 	}
 	

@@ -58,7 +58,7 @@ TaskManager::TaskManager ()
 	targetprogram = -1;
 	targetprogramreason = 0;
 	lasttargetprogram = -1;
-	programtarget = NULL;
+	programtarget = nullptr;
 	lastcycle = 0;
 
 }
@@ -71,7 +71,7 @@ TaskManager::~TaskManager ()
 void TaskManager::RunSoftware ( char *name, float version )
 {
 
-	UplinkTask *task = NULL;
+	UplinkTask *task = nullptr;
 
 	// Create the new task
 
@@ -153,7 +153,7 @@ void TaskManager::SetProgramTarget ( UplinkObject *newprogramtarget, char *targe
 		targetprogramreason = 1;
 		lasttargetprogram = targetprogram;
 		targetprogram = -1;
-		programtarget = NULL;
+		programtarget = nullptr;
 
 	}
 
@@ -184,7 +184,7 @@ UplinkTask *TaskManager::GetTargetProgram ()
 		return task;
 	}
 	else 
-        return NULL;
+        return nullptr;
 
 }
 
@@ -200,7 +200,7 @@ char *TaskManager::GetTargetProgramName ()
 
     }
     else 
-        return NULL;
+        return nullptr;
 
 }
 

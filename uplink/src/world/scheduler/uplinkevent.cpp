@@ -92,7 +92,7 @@ char *UplinkEvent::GetID ()
 {
 
 	UplinkAbort ( "This MUST be overridden" );
-	return NULL;
+	return nullptr;
 
 }
 

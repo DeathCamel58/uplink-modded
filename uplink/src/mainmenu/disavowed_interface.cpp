@@ -40,9 +40,9 @@ void DisavowedInterface::Create ()
 //		SgStopMod ();
 
 		EclRegisterButton ( 120, 130, 450, 200, " ", "", "disavowed" );
-		EclRegisterButtonCallbacks ( "disavowed", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "disavowed", textbutton_draw, nullptr, nullptr, nullptr );
 
-		starttime = time(NULL);
+		starttime = time(nullptr);
 
 	}
 
@@ -66,7 +66,7 @@ void DisavowedInterface::Update ()
 
 	if ( IsVisible () ) {
 
-		if ( starttime != -1 && time(NULL) > starttime + 4 ) {
+		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
 			if ( strcmp ( EclGetButton ( "disavowed" )->caption, " " ) == 0 ) {
 
@@ -76,7 +76,7 @@ void DisavowedInterface::Update ()
 														"and strike you off the active agents list.\n\n"
 														"Your gateway and accounts have already been siezed.\n\n"
 														"Let this be a warning to be more careful next time." );
-				starttime = time(NULL);				
+				starttime = time(nullptr);
 
 			}
 			else {
@@ -103,7 +103,7 @@ void DisavowedInterface::Update ()
 bool DisavowedInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "disavowed" ) != NULL );
+	return ( EclGetButton ( "disavowed" ) != nullptr );
 
 }
 

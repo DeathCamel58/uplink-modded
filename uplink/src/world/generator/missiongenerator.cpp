@@ -132,8 +132,8 @@ Mission *MissionGenerator::GenerateMission ( int type )
 Mission *MissionGenerator::GenerateMission ( int type, Company *employer )
 {
 
-	Computer *source = NULL;
-	Computer *target = NULL;
+	Computer *source = nullptr;
+	Computer *target = nullptr;
 
 	switch ( type ) {
 
@@ -191,7 +191,7 @@ Mission *MissionGenerator::GenerateMission ( int type, Company *employer )
 
 		default:
 
-			return NULL;
+			return nullptr;
 			break;
 
 	};
@@ -205,7 +205,7 @@ Mission *MissionGenerator::Generate_StealFile ( Company *employer )
 
 	int type = NumberGenerator::RandomNumber ( 2 ) + 1;
 
-	Mission *m = NULL;
+	Mission *m = nullptr;
 
 	switch ( type ) {
 
@@ -213,7 +213,7 @@ Mission *MissionGenerator::Generate_StealFile ( Company *employer )
 		{
 			Computer *target = WorldGenerator::GetRandomLowSecurityComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
 			UplinkAssert (target);
-			if ( strcmp ( employer->name, target->companyname ) == 0 ) return NULL;
+			if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
 			m = Generate_StealSingleFile ( employer, target );
 			break;
 		}
@@ -224,7 +224,7 @@ Mission *MissionGenerator::Generate_StealFile ( Company *employer )
                                                                    COMPUTER_TYPE_CENTRALMAINFRAME |
                                                                    COMPUTER_TYPE_LAN );
 			UplinkAssert (target);
-			if ( strcmp ( employer->name, target->companyname ) == 0 ) return NULL;
+			if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
 			m = Generate_StealAllFiles   ( employer, target );
 			break;
 		}
@@ -242,7 +242,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	UplinkAssert (target);
 
 
-	if ( strcmp ( employer->name, target->companyname ) == 0 ) return NULL;
+	if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
 
 	int difficulty = (int) NumberGenerator::RandomNormalNumber ( MINDIFFICULTY_MISSION_STEALFILE, DIFFICULTY_MISSION_VARIANCE );
 	if ( difficulty < MINDIFFICULTY_MISSION_STEALFILE ) difficulty = MINDIFFICULTY_MISSION_STEALFILE;
@@ -342,7 +342,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	// Insert the mission
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_STEALFILE );
-	mission->SetCompletion   ( target->ip, datatitle, NULL, NULL, NULL );
+	mission->SetCompletion   ( target->ip, datatitle, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -632,7 +632,7 @@ Mission *MissionGenerator::Generate_DestroyFile ( Company *employer )
 
 	int type = NumberGenerator::RandomNumber ( 2 ) + 1;
 
-	Mission *m = NULL;
+	Mission *m = nullptr;
 
 	switch ( type ) {
 
@@ -640,7 +640,7 @@ Mission *MissionGenerator::Generate_DestroyFile ( Company *employer )
 		{
 			Computer *target = WorldGenerator::GetRandomLowSecurityComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
 			UplinkAssert (target);
-			if ( strcmp ( employer->name, target->companyname ) == 0 ) return NULL;
+			if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
 			m = Generate_DestroySingleFile ( employer, target );
 			break;
 		}
@@ -651,7 +651,7 @@ Mission *MissionGenerator::Generate_DestroyFile ( Company *employer )
                                                                    COMPUTER_TYPE_CENTRALMAINFRAME |
                                                                    COMPUTER_TYPE_LAN );
 			UplinkAssert (target);
-			if ( strcmp ( employer->name, target->companyname ) == 0 ) return NULL;
+			if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
 			m = Generate_DestroyAllFiles ( employer, target );
 			break;
 		}
@@ -762,7 +762,7 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 	// Insert the mission
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_DESTROYFILE );
-	mission->SetCompletion   ( completionA, completionB, NULL, NULL, NULL );
+	mission->SetCompletion   ( completionA, completionB, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -967,7 +967,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	// Insert the mission
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_DESTROYFILE );
-	mission->SetCompletion   ( completionA, completionB, completionC, NULL, NULL );
+	mission->SetCompletion   ( completionA, completionB, completionC, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -1000,8 +1000,8 @@ Mission *MissionGenerator::Generate_FindData ( Company *employer )
 
 	int missiontype = 0;
 
-	Mission *mission = NULL;
-	Computer *target = NULL;
+	Mission *mission = nullptr;
+	Computer *target = nullptr;
 
 	switch ( missiontype ) {
 
@@ -1054,7 +1054,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 
 	// Make sure we don't target the player's Uplink bank account
 
-	if ( strcmp ( taccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+	if ( strcmp ( taccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 	//
 	// Fill in the fields of the mission
@@ -1099,9 +1099,9 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 					<< "NAME : " << taccount->name << "\n"
 					<< "ACCNO: " << taccount->accountnumber << "\n";
 
-//		char *balance = NULL;
+//		char *balance = nullptr;
 //		balance = rec->GetField ( "Balance" );
-//		if ( !balance ) return NULL;
+//		if ( !balance ) return nullptr;
 
 		UplinkStrncpy ( completionB, "Balance", sizeof ( completionB ) );
 
@@ -1115,9 +1115,9 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 					<< "NAME : " << taccount->name << "\n"
 					<< "ACCNO: " << taccount->accountnumber << "\n";
 
-//		char *loan = NULL;
+//		char *loan = nullptr;
 //		loan = rec->GetField ( "Loan" );
-//		if ( !loan ) return NULL;
+//		if ( !loan ) return nullptr;
 
 		UplinkStrncpy ( completionB, "Loan", sizeof ( completionB ) );
 
@@ -1130,15 +1130,15 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 		BankAccount *raccount = receiver->GetRandomAccount ();
 		UplinkAssert ( raccount );
 
-		if ( raccount == taccount )		return NULL;				// That would be silly ;)
+		if ( raccount == taccount )		return nullptr;				// That would be silly ;)
 
 		char taccountno [32];
 		char raccountno [32];
 		UplinkSnprintf ( taccountno, sizeof ( taccountno ), "%d", taccount->accountnumber );
 		UplinkSnprintf ( raccountno, sizeof ( raccountno ), "%d", raccount->accountnumber );
 
-		if ( game->GetWorld ()->GetPlayer ()->IsPlayerAccount (receiver->ip, raccountno) ) return NULL;
-		if ( game->GetWorld ()->GetPlayer ()->IsPlayerAccount (target->ip, taccountno) ) return NULL;
+		if ( game->GetWorld ()->GetPlayer ()->IsPlayerAccount (receiver->ip, raccountno) ) return nullptr;
+		if ( game->GetWorld ()->GetPlayer ()->IsPlayerAccount (target->ip, taccountno) ) return nullptr;
 
 		int amount = (int) NumberGenerator::RandomNormalNumber ( 1000000, 700000 );
 		amount = 100000 * ( amount / 100000 );
@@ -1191,7 +1191,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_FINDDATA );
-	mission->SetCompletion   ( completionA, completionB, completionC, NULL, NULL );
+	mission->SetCompletion   ( completionA, completionB, completionC, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -1226,7 +1226,7 @@ Mission *MissionGenerator::Generate_ChangeData ( Company *employer )
 
 	int missiontype = NumberGenerator::RandomNumber ( 3 );
 
-	Mission *mission = NULL;
+	Mission *mission = nullptr;
 
 	switch ( missiontype ) {
 		case 0	:		mission = Generate_ChangeData_AcademicRecord ( employer );		break;
@@ -1284,7 +1284,7 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 				<< "   IP      : " << target->ip << "\n"
 				<< "\n\n";
 
-	Person *person = NULL;							// Person whom mission affects
+	Person *person = nullptr;							// Person whom mission affects
 
 	char completionA [SIZE_VLOCATION_IP];			// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
@@ -1308,12 +1308,12 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 		// Find someone without a degree
 
 		Record *record = target->recordbank.GetRandomRecord ( "University = None" );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1359,12 +1359,12 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 		// Find someone with a degree that is not a 1st
 
 		Record *record = target->recordbank.GetRandomRecord ( "University ! None ; University - 1" );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1383,12 +1383,12 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 		// Find someone with a 1st
 
 		Record *record = target->recordbank.GetRandomRecord ( "University ! None ; University + 1" );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1425,12 +1425,12 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 		char query [64];
 		UplinkSnprintf ( query, sizeof ( query ), "Other - %s", qualification );
 		Record *record = target->recordbank.GetRandomRecord ( query );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1556,7 +1556,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 				<< "   IP      : " << target->ip << "\n"
 				<< "\n\n";
 
-	Person *person = NULL;							// Person whom mission affects
+	Person *person = nullptr;							// Person whom mission affects
 
 	char completionA [SIZE_VLOCATION_IP];			// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
@@ -1577,12 +1577,12 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 		// Find someone who isn't dead
 
 		Record *record = target->recordbank.GetRandomRecord ( "Personal Status ! Deceased" );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1599,12 +1599,12 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 		// Find someone who is dead
 
 		Record *record = target->recordbank.GetRandomRecord ( "Personal Status = Deceased" );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1724,7 +1724,7 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 				<< "   IP      : " << target->ip << "\n"
 				<< "\n\n";
 
-	Person *person = NULL;							// Person whom mission affects
+	Person *person = nullptr;							// Person whom mission affects
 
 	char completionA [SIZE_VLOCATION_IP];			// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
@@ -1747,12 +1747,12 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 		UplinkStrncpy ( description, "Help to discredit one of our rivals", sizeof ( description ) );
 
 		Record *record = target->recordbank.GetRandomRecord ( "Convictions = None" );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1774,12 +1774,12 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 		UplinkStrncpy ( description, "Help to stop a hacker from ever working again", sizeof ( description ) );
 
 		Record *record = target->recordbank.GetRandomRecord ( "Convictions = None" );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1804,12 +1804,12 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 		UplinkStrncpy ( description, "Clear a criminal record", sizeof ( description ) );
 
 		Record *record = target->recordbank.GetRandomRecord ( "Convictions ! None" );
-		if ( !record ) return NULL;
+		if ( !record ) return nullptr;
 
 		char *personname = record->GetField ( RECORDBANK_NAME );
 		UplinkAssert (personname);
 
-		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+		if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person);
@@ -1907,7 +1907,7 @@ Mission *MissionGenerator::Generate_TraceUser ( Company *employer )
 
 		*/
 
-	return NULL;
+	return nullptr;
 
 }
 
@@ -1993,7 +1993,7 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_TRACEUSER );
-	mission->SetCompletion   ( hacker->name, source->ip, tacc->name, NULL, NULL );
+	mission->SetCompletion   ( hacker->name, source->ip, tacc->name, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2100,7 +2100,7 @@ Mission *MissionGenerator::Generate_PayFine ( Person *person, Company *company, 
 
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_PAYFINE );
-	mission->SetCompletion   ( completionA, completionB, completionC, NULL, NULL );
+	mission->SetCompletion   ( completionA, completionB, completionC, nullptr, nullptr );
 	mission->SetDueDate		 ( duedate );
 	mission->SetEmployer     ( company->name );
 	mission->SetContact      ( personname );
@@ -2265,7 +2265,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 
 	Mission *m = new Mission ();
 	m->SetTYPE		   ( MISSION_FRAMEUSER );
-	m->SetCompletion   ( completionA, completionB, missiontype == 1 ? NULL : completionC, NULL, NULL );
+	m->SetCompletion   ( completionA, completionB, missiontype == 1 ? nullptr : completionC, nullptr, nullptr );
 	m->SetEmployer     ( employer->name );
 	m->SetContact      ( personname );
 	m->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2347,7 +2347,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 
 	bool provideaccount = (hacked->TYPE == COMPUTER_TYPE_INTERNALSERVICESMACHINE);
 
-	char *password = NULL;
+	char *password = nullptr;
 	char username [12];
 
 	if ( provideaccount ) {
@@ -2418,7 +2418,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 
 	Mission *m = new Mission ();
 	m->SetTYPE		 ( MISSION_TRACEUSER );
-	m->SetCompletion   ( hacker->name, hacked->ip, NULL, NULL, NULL );
+	m->SetCompletion   ( hacker->name, hacked->ip, nullptr, nullptr, nullptr );
 	m->SetEmployer     ( companyname );
 	m->SetContact      ( contact );
 	m->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2507,14 +2507,14 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	// Make sure they aren't player accounts
 	//
 
-	if ( strcmp ( sourceaccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
-	if ( strcmp ( targetaccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return NULL;
+	if ( strcmp ( sourceaccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
+	if ( strcmp ( targetaccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
 
 
 	int amount_to_transfer = (int) NumberGenerator::RandomNormalNumber ( sourceaccount->balance / 2.0f, sourceaccount->balance * 0.4f );
 	amount_to_transfer = int ( amount_to_transfer / 500 ) * 500;
 
-    if ( amount_to_transfer <= 0 ) return NULL;
+    if ( amount_to_transfer <= 0 ) return nullptr;
     if ( amount_to_transfer > sourceaccount->balance ) amount_to_transfer = (int) ( sourceaccount->balance * 0.9 );
 
 	//
@@ -2680,7 +2680,7 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_REMOVECOMPUTER );
-	mission->SetCompletion   ( completionA, NULL, NULL, NULL, NULL );
+	mission->SetCompletion   ( completionA, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2711,7 +2711,7 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 
 Mission *MissionGenerator::Generate_RemoveCompany ( Company *employer )
 {
-	return NULL;
+	return nullptr;
 }
 
 Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
@@ -2749,7 +2749,7 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 	//
 
 	Person *target = WorldGenerator::GetRandomPerson ();
-	if ( target == game->GetWorld ()->GetPlayer () ) return NULL;
+	if ( target == game->GetWorld ()->GetPlayer () ) return nullptr;
 
 	//
 	// Fill in the fields
@@ -2793,7 +2793,7 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 
 	Mission *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_REMOVEUSER );
-	mission->SetCompletion   ( completionA, NULL, NULL, NULL, NULL );
+	mission->SetCompletion   ( completionA, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2996,7 +2996,7 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 			Data *thisfile = ourcomp->databank.GetDataFile (i);
 			UplinkAssert (thisfile);
 
-			if ( strstr ( thisfile->title, stolendatatitle ) != NULL ) {
+			if ( strstr ( thisfile->title, stolendatatitle ) != nullptr ) {
 
 				if ( thisfile->encrypted == 0 ) {
 
@@ -3179,7 +3179,7 @@ bool MissionGenerator::IsMissionComplete_FindData ( Mission *mission, Person *pe
 	char *value5 = LowerCaseString ( mission->completionE );
 
 	// All 5 values need to be in the message
-	// (Unless they are NULL)
+	// (Unless they are nullptr)
 
 	char *msgbody = LowerCaseString ( message->GetBody () );
 	bool success = true;
@@ -3238,7 +3238,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
         int actualbalance = source_account->balance;
         char sbalance [64];
         UplinkSnprintf ( sbalance, sizeof ( sbalance ), "%d", actualbalance );
-        if ( strstr ( message->GetBody (), sbalance ) != NULL ) {
+        if ( strstr ( message->GetBody (), sbalance ) != nullptr ) {
 
             MissionCompleted ( mission, person, message );
             return true;
@@ -3257,7 +3257,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
         int actualloan = source_account->loan;
         char sloan [64];
         UplinkSnprintf ( sloan, sizeof ( sloan ), "%d", actualloan );
-        if ( strstr ( message->GetBody (), sloan ) != NULL ) {
+        if ( strstr ( message->GetBody (), sloan ) != nullptr ) {
 
             MissionCompleted ( mission, person, message );
             return true;
@@ -3278,7 +3278,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
 
 		char *messagebody = LowerCaseString(message->GetBody ());
 
-		bool ispersonresponsible = ( strstr ( messagebody, personresponsible ) != NULL );
+		bool ispersonresponsible = ( strstr ( messagebody, personresponsible ) != nullptr );
 
 		delete [] personresponsible;
 		delete [] messagebody;
@@ -3330,8 +3330,8 @@ bool MissionGenerator::IsMissionComplete_ChangeData	( Mission *mission, Person *
 
 		if ( fieldvalue ) {
 
-			char *string1 = mission->completionD ? LowerCaseString ( mission->completionD ) : NULL;      
-			char *string2 = mission->completionE ? LowerCaseString ( mission->completionE ) : NULL;
+			char *string1 = mission->completionD ? LowerCaseString ( mission->completionD ) : nullptr;
+			char *string2 = mission->completionE ? LowerCaseString ( mission->completionE ) : nullptr;
 
 			char *fieldvaluelower = LowerCaseString ( fieldvalue );
 			foundStrings = ( strstr ( fieldvaluelower, string1 ) && strstr ( fieldvaluelower, string2 ) );
@@ -3491,14 +3491,14 @@ bool MissionGenerator::IsMissionComplete_TraceUser ( Mission *mission, Person *p
 	char *personname    = LowerCaseString (mission->completionA);
 	char *targetaccount = mission->completionC ?
                             LowerCaseString (mission->completionC) :
-                            NULL;                                       // NULL unless this is a TraceUser_MoneyTransfer
+                            nullptr;                                       // nullptr unless this is a TraceUser_MoneyTransfer
     char *msgbody       = LowerCaseString ( message->GetBody () );
 
 	// Check the person's name is in the mail
 
 	bool success = false;
 
-	if ( strstr ( msgbody, personname ) != NULL ) {
+	if ( strstr ( msgbody, personname ) != nullptr ) {
 
 		if ( strcmp ( message->from, "PLAYER" ) == 0 )
 			game->GetWorld ()->GetPlayer ()->score_peoplefucked ++;
@@ -3509,7 +3509,7 @@ bool MissionGenerator::IsMissionComplete_TraceUser ( Mission *mission, Person *p
 	}
 	else {
 
-        if ( targetaccount && strstr ( msgbody, targetaccount ) != NULL ) {
+        if ( targetaccount && strstr ( msgbody, targetaccount ) != nullptr ) {
 
             MissionNotCompleted ( mission, person, message, "We've determined that the money was transfered into "
                                                             "an account owned by that person, but we do not believe "
@@ -3843,7 +3843,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
 			    Data *thisfile = ourcomp->databank.GetDataFile (i);
 			    UplinkAssert (thisfile);
 
-			    if ( strstr ( thisfile->title, "Uplink_Agent_Data" ) != NULL &&
+			    if ( strstr ( thisfile->title, "Uplink_Agent_Data" ) != nullptr &&
 				     thisfile->encrypted == 0 ) {
 
 				    char unused [64];

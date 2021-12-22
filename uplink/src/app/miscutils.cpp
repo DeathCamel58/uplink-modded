@@ -188,10 +188,10 @@ void EmptyDirectory ( const char *directory )
 	char userdir [256];
 	UplinkStrncpy ( userdir, directory, sizeof ( userdir ) );
 	DIR *dir = opendir( userdir );
-	if (dir != NULL) {
+	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
 
-	    while (entry != NULL) {
+	    while (entry != nullptr) {
 	    
 			if ( strcmp ( entry->d_name, "." ) != 0 && strcmp ( entry->d_name, ".." ) != 0 ) {
 				char newname [256];
@@ -313,10 +313,10 @@ DArray <char *> *ListDirectory  ( char *directory, char *filter )
 	//UplinkStrncpy ( userdir, directory, sizeof ( userdir ) );
 	UplinkSnprintf ( userdir, sizeof ( userdir ), "%s%s", app->path, directory ); 
 	DIR *dir = opendir( userdir );
-	if (dir != NULL) {
+	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
 
-	    while (entry != NULL) {
+	    while (entry != nullptr) {
 	    
 		    char *p = strstr(entry->d_name, filter);
 		    if ( p ) {
@@ -401,8 +401,8 @@ DArray <char *> *ListSubdirs ( char *directory )
 #else
 
 	DIR *dir = opendir(directory);
-	if (dir != NULL) {
-		for (struct dirent *d; (d = readdir(dir)) != NULL;) {
+	if (dir != nullptr) {
+		for (struct dirent *d; (d = readdir(dir)) != nullptr;) {
 			char fullfilename[256];
 			struct stat info;
 
@@ -467,7 +467,7 @@ void PrintStackTrace()
 
 	// Get our frame pointer, chain upwards
 	unsigned *framePtr;
-    unsigned *previousFramePtr = NULL;
+    unsigned *previousFramePtr = nullptr;
 
     
 //#ifdef WIN32

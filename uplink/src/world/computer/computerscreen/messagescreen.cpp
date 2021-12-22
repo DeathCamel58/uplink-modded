@@ -13,8 +13,8 @@ MessageScreen::MessageScreen()
 {
 	
 	nextpage = -1;
-	textmessage = NULL;
-	buttonmessage = NULL;
+	textmessage = nullptr;
+	buttonmessage = nullptr;
 	mailthistome = false;
 
 }

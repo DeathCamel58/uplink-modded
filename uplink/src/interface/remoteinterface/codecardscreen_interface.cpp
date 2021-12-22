@@ -189,7 +189,7 @@ void CodeCardScreenInterface::CodeButtonDraw ( Button *button, bool highlighted,
 bool CodeCardScreenInterface::ReturnKeyPressed ()
 {
 
-    ProceedClick (NULL);
+    ProceedClick (nullptr);
     return true;
 
 }
@@ -280,7 +280,7 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
 	{
         bool success = false;
 
-        time_t timet = time(NULL);
+        time_t timet = time(nullptr);
         tm *thetime = localtime(&timet);
         int y = thetime->tm_year+1900;
         int m = thetime->tm_mon;
@@ -321,9 +321,9 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
         // Create the buttons
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "codecard_maintitle" );
-		EclRegisterButtonCallbacks ( "codecard_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "codecard_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "codecard_subtitle" );
-		EclRegisterButtonCallbacks ( "codecard_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "codecard_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
         std::ostrstream caption;
         caption << "Your Uplink CD must be verified before account creation can continue.\n"
@@ -331,7 +331,7 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
                    "You are now required to enter a code from that card.\n"
                    "For example, the code at Row Z, Column 15 is 00." << '\x0';
         EclRegisterButton ( 100, 150, 400, 70, caption.str(), " ", "codecard_text" );
-        EclRegisterButtonCallbacks ( "codecard_text", textbutton_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "codecard_text", textbutton_draw, nullptr, nullptr, nullptr );
 
 		caption.rdbuf()->freeze( 0 );
         //delete [] caption.str();
@@ -339,10 +339,10 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
         char rowcolcaption [128];
         UplinkSnprintf ( rowcolcaption, sizeof ( rowcolcaption ), "Enter code from Row %c, Column %d", row + ('A' - 'a'), col );
         EclRegisterButton ( 100, 250, 200, 15, rowcolcaption, "codecard_rowcol" );
-        EclRegisterButtonCallbacks ( "codecard_rowcol", textbutton_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "codecard_rowcol", textbutton_draw, nullptr, nullptr, nullptr );
 
         EclRegisterButton ( 300, 250, 100, 15, "", "Enter code here", "codecard_answer" );
-        EclRegisterButtonCallbacks ( "codecard_answer", CodeButtonDraw, NULL, button_click, button_highlight );
+        EclRegisterButtonCallbacks ( "codecard_answer", CodeButtonDraw, nullptr, button_click, button_highlight );
 
         EclRegisterButton ( 250, 330, 80, 20, "OK", "Click here when done", "codecard_proceed" );
         EclRegisterButtonCallback ( "codecard_proceed", ProceedClick );
@@ -377,7 +377,7 @@ void CodeCardScreenInterface::Update ()
 bool CodeCardScreenInterface::IsVisible ()
 {
 
-    return ( EclGetButton ( "codecard_maintitle" ) != NULL );
+    return ( EclGetButton ( "codecard_maintitle" ) != nullptr );
 
 }
 

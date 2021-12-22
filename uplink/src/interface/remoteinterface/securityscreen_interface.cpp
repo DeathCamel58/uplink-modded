@@ -112,7 +112,7 @@ void SecurityScreenInterface::CloseClick ( Button *button )
 bool SecurityScreenInterface::EscapeKeyPressed ()
 {
 
-    CloseClick (NULL);
+    CloseClick (nullptr);
     return true;
 
 }
@@ -126,9 +126,9 @@ void SecurityScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "securityscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "securityscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "securityscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "securityscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "securityscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "securityscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
 		UplinkAssert (comp);
@@ -136,7 +136,7 @@ void SecurityScreenInterface::Create ( ComputerScreen *newcs )
 		if ( comp->security.NumSystems () == 0 ) {
 
 			EclRegisterButton ( 200, 100, 200, 20, "No security systems installed", "", "securityscreen_none" );
-			EclRegisterButtonCallbacks ( "securityscreen_none", textbutton_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "securityscreen_none", textbutton_draw, nullptr, nullptr, nullptr );
 
 		}
 		else {
@@ -218,7 +218,7 @@ void SecurityScreenInterface::Remove ()
 void SecurityScreenInterface::Update ()
 {
 
-	if ( time(NULL) > lastupdate + 5 ) {
+	if ( time(nullptr) > lastupdate + 5 ) {
 
 		if ( IsVisible () ) {
 
@@ -258,7 +258,7 @@ void SecurityScreenInterface::Update ()
 
 		}
 
-		lastupdate = time(NULL);
+		lastupdate = time(nullptr);
 
 	}
 
@@ -267,7 +267,7 @@ void SecurityScreenInterface::Update ()
 bool SecurityScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "securityscreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "securityscreen_maintitle" ) != nullptr );
 
 }
 

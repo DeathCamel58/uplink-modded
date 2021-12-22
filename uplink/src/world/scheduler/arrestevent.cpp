@@ -23,8 +23,8 @@
 ArrestEvent::ArrestEvent ()
 {
 
-	reason = NULL;
-	ip = NULL;
+	reason = nullptr;
+	ip = nullptr;
 	memset ( name, 0, sizeof ( name ) );
 
 }
@@ -75,7 +75,7 @@ void ArrestEvent::Run ()
 
 	// Look up the computer they messed with
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 
 	if ( ip ) {
 		VLocation *vl = game->GetWorld ()->GetVLocation ( ip );

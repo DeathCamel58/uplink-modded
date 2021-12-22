@@ -118,7 +118,7 @@ char *Network::GetLocalHost ()
 
 	else {
 		printf ( "Network::GetLocalHost, failed to get local host\n" );
-		return NULL;
+		return nullptr;
 	}
 
 }
@@ -142,7 +142,7 @@ char *Network::GetLocalIP ()
 
 	else {
 		printf ( "Network::GetLocalIP, failed to get local ip\n" );
-		return NULL;
+		return nullptr;
 	}
 
 }

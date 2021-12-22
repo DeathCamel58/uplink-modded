@@ -34,7 +34,7 @@
 FileDeleter::FileDeleter () : UplinkTask ()
 {
 
-	source = NULL;
+	source = nullptr;
 	sourceindex = -1;
 	status = FILEDELETER_OFF;
 	numticksrequired = 0;
@@ -330,7 +330,7 @@ void FileDeleter::Tick ( int n )
 
 			// Don't close it, put it back in it's initial state
 
-			source = NULL;
+			source = nullptr;
 			sourceindex = -1;
 			status = FILEDELETER_OFF;
 			numticksrequired = 0;
@@ -442,6 +442,6 @@ bool FileDeleter::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_border %d", pid );
 	
-	return ( EclGetButton (stitle) != NULL );
+	return ( EclGetButton (stitle) != nullptr );
 
 }

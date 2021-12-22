@@ -128,7 +128,7 @@ LanSpoof::LanSpoof() : UplinkTask()
 	status = LANSPOOF_UNUSED;
 	progress = 0;
 	numticksrequired = 0;
-	comp = NULL;
+	comp = nullptr;
 	systemIndex = 0;
 
 }
@@ -397,7 +397,7 @@ bool LanSpoof::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_border %d", pid );
 	
-	return ( EclGetButton (stitle) != NULL );
+	return ( EclGetButton (stitle) != nullptr );
 
 }
 

@@ -29,7 +29,7 @@ CompanyInfoScreenInterface::~CompanyInfoScreenInterface ()
 bool CompanyInfoScreenInterface::EscapeKeyPressed ()
 {
 
-    BackClick (NULL);
+    BackClick (nullptr);
     return true;
 
 }
@@ -116,9 +116,9 @@ void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "companyscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "companyscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "companyscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "companyscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "companyscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "companyscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		char *companyname = GetComputerScreen ()->GetComputer ()->companyname;
 		UplinkAssert (companyname);
@@ -159,7 +159,7 @@ void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 		}
 
 		EclRegisterButton ( 40, 120, 300, 25, "Contact details", " ", "companyscreen_contactdetails" );
-		EclRegisterButtonCallbacks ( "companyscreen_contactdetails", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "companyscreen_contactdetails", DrawMainTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 50, 150, 150, 15, "MANAGING DIRECTOR", " ", "companyscreen_mdtitle" );
 		EclRegisterButton ( 50, 170, 150, 15, company->boss, " ", "companyscreen_md" );
@@ -183,15 +183,15 @@ void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 			EclRegisterButtonCallback ( "companyscreen_adminadd", AdminAddClick );
 		}
 
-		EclRegisterButtonCallbacks ( "companyscreen_mdtitle", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "companyscreen_md", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "companyscreen_mdemail", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "companyscreen_mdtel", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "companyscreen_mdtitle", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "companyscreen_md", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "companyscreen_mdemail", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "companyscreen_mdtel", textbutton_draw, nullptr, nullptr, nullptr );
 
-		EclRegisterButtonCallbacks ( "companyscreen_admintitle", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "companyscreen_admin", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "companyscreen_adminemail", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "companyscreen_admintel", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "companyscreen_admintitle", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "companyscreen_admin", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "companyscreen_adminemail", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "companyscreen_admintel", textbutton_draw, nullptr, nullptr, nullptr );
 
         if ( GetComputerScreen ()->nextpage != -1 ) {
 
@@ -240,7 +240,7 @@ void CompanyInfoScreenInterface::Update ()
 bool CompanyInfoScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "companyscreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "companyscreen_maintitle" ) != nullptr );
 
 }
 

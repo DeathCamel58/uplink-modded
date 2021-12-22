@@ -52,7 +52,7 @@ void RevelationTracker::Tick ( int n )
 
 	if ( IsInterfaceVisible () ) {
 
-		if ( time(NULL) > timesync + 3 ) {
+		if ( time(nullptr) > timesync + 3 ) {
 
 			int pid = SvbLookupPID ( this );
 			char boxname [128];
@@ -190,9 +190,9 @@ void RevelationTracker::CreateInterface ()
 
         EclRegisterButtonCallback ( titlename, TitleClick );
         EclRegisterButtonCallback ( closename, CloseClick );
-        EclRegisterButtonCallbacks ( boxname, MainBoxDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( boxname, MainBoxDraw, nullptr, nullptr, nullptr );
 
-		timesync = time(NULL);
+		timesync = time(nullptr);
         height = 0;
 
 	}
@@ -275,6 +275,6 @@ bool RevelationTracker::IsInterfaceVisible ()
     char titlename [128];
     UplinkSnprintf ( titlename, sizeof ( titlename ), "revelationtracker_title %d", pid );
 
-	return ( EclGetButton ( titlename ) != NULL );
+	return ( EclGetButton ( titlename ) != nullptr );
 
 }

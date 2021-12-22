@@ -262,19 +262,19 @@ void ClientStatusInterface::Create ()
 		// Create a "gateway" panel
 
 		EclRegisterButton ( 10, 35, 200, 400, "", "", "status_gatewaybg" );
-		EclRegisterButtonCallbacks ( "status_gatewaybg", GatewayPanelDraw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( "status_gatewaybg", GatewayPanelDraw, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 13, 38, 193, 15, "Gateway Status", "Shows the status of your Gateway", "status_gatewaytitle" );
 			
 		// Create a "world" panel
 
 		EclRegisterButton ( 220, 35, 200, 400, "", "", "status_worldbg" );
-		EclRegisterButtonCallbacks ( "status_worldbg", WorldPanelDraw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( "status_worldbg", WorldPanelDraw, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 223, 38, 193, 15, "World Status", "Shows the status of the world", "status_worldtitle" );
 
 		// Create a "personal" panel
 
 		EclRegisterButton ( 430, 35, 200, 400, "", "", "status_personalbg" );
-		EclRegisterButtonCallbacks ( "status_personalbg", PersonalPanelDraw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( "status_personalbg", PersonalPanelDraw, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 433, 38, 193, 15, "Personal Status", "Shows your personal status", "status_personaltitle" );
 
 	}
@@ -308,7 +308,7 @@ void ClientStatusInterface::Update ()
 bool ClientStatusInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "status_mainmenu" ) != NULL );
+	return ( EclGetButton ( "status_mainmenu" ) != nullptr );
 
 }
 

@@ -40,9 +40,9 @@ void WarezGameOverInterface::Create ()
 //		SgStopMod ();
 
 		EclRegisterButton ( 120, 130, 450, 300, " ", "", "warezgameover" );
-		EclRegisterButtonCallbacks ( "warezgameover", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "warezgameover", textbutton_draw, nullptr, nullptr, nullptr );
 
-		starttime = time(NULL);
+		starttime = time(nullptr);
 
 	}
 
@@ -66,7 +66,7 @@ void WarezGameOverInterface::Update ()
 
 	if ( IsVisible () ) {
 
-		if ( starttime != -1 && time(NULL) > starttime + 4 ) {
+		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
 			if ( strcmp ( EclGetButton ( "warezgameover" )->caption, " " ) == 0 ) {
 
@@ -80,7 +80,7 @@ void WarezGameOverInterface::Update ()
                                                             "you will need to purchase the full Uplink CD.\n"
                                                             "Details can be found on our web site.\n\n"
                                                             "www.introversion.co.uk\n\n" );
-				starttime = time(NULL);				
+				starttime = time(nullptr);
 
 			}
 			else {
@@ -107,7 +107,7 @@ void WarezGameOverInterface::Update ()
 bool WarezGameOverInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "warezgameover" ) != NULL );
+	return ( EclGetButton ( "warezgameover" ) != nullptr );
 
 }
 

@@ -86,7 +86,7 @@ void Revelation::Tick ( int n )
 				char *caption = revelationText[captionIndex];
 
 				EclRegisterButton ( x, y, 200, 15, caption, " ", bname );
-				EclRegisterButtonCallbacks ( bname, DrawRevelation, NULL, NULL, NULL );
+				EclRegisterButtonCallbacks ( bname, DrawRevelation, nullptr, nullptr, nullptr );
 
 				// Play sound
 
@@ -108,7 +108,7 @@ void Revelation::Tick ( int n )
 
 	}
     
-	if ( time(NULL) > timesync + 10 ) {
+	if ( time(nullptr) > timesync + 10 ) {
 
         if ( !game->GetWorld ()->plotgenerator.revelation_releaseuncontrolled ) {
 
@@ -165,7 +165,7 @@ void Revelation::CreateInterface ()
 
 	if ( !IsInterfaceVisible () ) {
 		
-        timesync = time(NULL);
+        timesync = time(nullptr);
 		animationtime = (int) EclGetAccurateTime ();
         nextnumber = 0;
         numcopies = 4;
@@ -210,7 +210,7 @@ bool Revelation::IsInterfaceVisible ()
     char bname [64];
     UplinkSnprintf ( bname, sizeof ( bname ), "revelation %d %d %d", pid, 0, 0 );
 
-	return ( EclGetButton ( bname ) != NULL );
+	return ( EclGetButton ( bname ) != nullptr );
 
 }
 

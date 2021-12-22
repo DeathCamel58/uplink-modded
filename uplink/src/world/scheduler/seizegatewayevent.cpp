@@ -29,7 +29,7 @@
 SeizeGatewayEvent::SeizeGatewayEvent ()
 {
 
-	reason = NULL;
+	reason = nullptr;
 	gateway_id = 0;
 	memset ( name, 0, sizeof ( name ) );
 

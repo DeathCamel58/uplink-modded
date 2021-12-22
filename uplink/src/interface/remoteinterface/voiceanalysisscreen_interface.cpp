@@ -151,23 +151,23 @@ void VoiceAnalysisScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "voicescreen_maintitle" );
-		EclRegisterButtonCallbacks ( "voicescreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "voicescreen_subtitle" );
-		EclRegisterButtonCallbacks ( "voicescreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 50, 130, 400, 15, " ", " ", "voicescreen_instructions" );
-		EclRegisterButtonCallbacks ( "voicescreen_instructions", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_instructions", textbutton_draw, nullptr, nullptr, nullptr );
 		// used to be "Please read the following sentence clearly into your microphone."
 		EclRegisterCaptionChange ( "voicescreen_instructions", "Please read the following sentence into your voice device.", 0 );
 
 		EclRegisterButton ( 50, 180, 380, 150, " ", " ", "voicescreen_background" );
-		EclRegisterButtonCallbacks ( "voicescreen_background", DrawBackground, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_background", DrawBackground, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 75, 225, 100, 50, " ", " ", "voicescreen_analysis" );
-		EclRegisterButtonCallbacks ( "voicescreen_analysis", DrawAnalysis, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_analysis", DrawAnalysis, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 185, 225, 250, 50, " ", " ", "voicescreen_sentence" );
-		EclRegisterButtonCallbacks ( "voicescreen_sentence", text_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "voicescreen_sentence", text_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "voicescreen_sentence", "Hello.  I am the system administrator.\nMy voice is my passport.\nVerify me." );
 
 		EclRegisterButton ( 300, 300, 100, 20, " ", " ", "voicescreen_access" );
@@ -251,7 +251,7 @@ void VoiceAnalysisScreenInterface::Update ()
 bool VoiceAnalysisScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "voicescreen_maintitle" ) != NULL );
+	return ( EclGetButton ( "voicescreen_maintitle" ) != nullptr );
 
 }
 

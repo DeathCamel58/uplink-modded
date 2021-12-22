@@ -125,10 +125,10 @@ bool LoadBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 
 	for ( int i = 0; i < size; ++i ) {
 
-		char *id = NULL;
+		char *id = nullptr;
 		if ( !LoadDynamicStringPtr ( &id, file ) ) return false;
 		if ( !id ) {
-			UplinkPrintAbort ( "WARNING: LoadBTree NULL id" );
+			UplinkPrintAbort ( "WARNING: LoadBTree nullptr id" );
 			return false;
 		}
 
@@ -170,7 +170,7 @@ void PrintBTree ( BTree <UplinkObject *> *btree )
 				uo->GetData (i)->Print ();
 
 			else
-				printf ( "NULL\n" );
+				printf ( "nullptr\n" );
 
 		}
 	}
@@ -273,14 +273,14 @@ bool LoadBTree ( BTree <char *> *btree, FILE *file )
 
 	for ( int i = 0; i < size; ++i ) {
 
-		char *id = NULL;
+		char *id = nullptr;
 		if ( !LoadDynamicStringPtr ( &id, file ) ) return false;
 		if ( !id ) {
-			UplinkPrintAbort ( "WARNING: LoadBTree NULL id" );
+			UplinkPrintAbort ( "WARNING: LoadBTree nullptr id" );
 			return false;
 		}
 
-		char *data = NULL;
+		char *data = nullptr;
 		if ( !LoadDynamicStringPtr ( &data, file ) ) {
 			delete [] id;
 			return false;
@@ -313,7 +313,7 @@ void PrintBTree	( BTree <char *> *btree )
 				printf ( "%s\n", uo->GetData (i) );
 
 			else
-				printf ( "NULL\n" );
+				printf ( "nullptr\n" );
 
 		}
 	}
@@ -421,7 +421,7 @@ void PrintLList ( LList <UplinkObject *> *llist )
 			llist->GetData (i)->Print ();
 
 		else
-			printf ( "NULL\n" );
+			printf ( "nullptr\n" );
 
 	}
 
@@ -487,7 +487,7 @@ bool LoadLList ( LList <char *> *llist, FILE *file )
 
 	for ( int i = 0; i < size; ++i ) {
 
-		char *stringdata = NULL;
+		char *stringdata = nullptr;
 		if ( !LoadDynamicStringPtr ( &stringdata, file ) ) return false;
 		llist->PutData ( stringdata );
 
@@ -506,7 +506,7 @@ void PrintLList	( LList <char *> *llist )
 		if ( llist->GetData (i) )
 			printf ( "Index = %d : %s\n", i, llist->GetData (i) );
 		else
-			printf ( "Index = %d : NULL\n", i );
+			printf ( "Index = %d : nullptr\n", i );
 	}
 
 }
@@ -637,7 +637,7 @@ void PrintDArray ( DArray <UplinkObject *> *darray )
 				darray->GetData (i)->Print ();
 
 			else
-				printf ( "NULL\n" );
+				printf ( "nullptr\n" );
 
 		}
 		else {
@@ -808,7 +808,7 @@ void PrintDArray ( DArray <int> *darray )
 UplinkObject *CreateUplinkObject ( int OBJECTID )
 {
 
-	UplinkObject *uo = NULL;
+	UplinkObject *uo = nullptr;
 
 	switch ( OBJECTID ) {
 		
@@ -877,14 +877,14 @@ UplinkObject *CreateUplinkObject ( int OBJECTID )
 bool LoadDynamicStringInt ( char* _file, int _line, char **string, FILE *file )
 {
 
-	*string = NULL;
+	*string = nullptr;
 
 	int size;
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
 	if ( size == -1 ) {
 
-		// Nothing to do, NULL string.
+		// Nothing to do, nullptr string.
 
 	}
     else if ( size < 0 || size > MAX_LENGTH_DYMANIC_STRING ) {

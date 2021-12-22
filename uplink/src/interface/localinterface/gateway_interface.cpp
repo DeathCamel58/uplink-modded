@@ -112,14 +112,14 @@ void GatewayInterface::Create ()
 		UplinkAssert (gatewaydef);
 
 		EclRegisterButton ( 20, 50, SX(600), SY(350), "", "", "gateway_background" );
-		EclRegisterButtonCallbacks ( "gateway_background", DrawGatewayBackground, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( "gateway_background", DrawGatewayBackground, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( ( 20 + SX(600) ) - 15, 52, 13, 13, "", "", "gateway_close" );
 		button_assignbitmaps ( "gateway_close", "close.tif", "close_h.tif", "close_c.tif" );
 		EclRegisterButtonCallback ( "gateway_close", CloseClick );
 
 		EclRegisterButton ( 25, 55, 100, 30, "GATEWAY", " ", "gateway_title" );
-		EclRegisterButtonCallbacks ( "gateway_title", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "gateway_title", DrawMainTitle, nullptr, nullptr, nullptr );
 	
 		// Create the actual gateway graphics
 
@@ -136,7 +136,7 @@ void GatewayInterface::Create ()
 		EclRegisterButton ( gatewayX, gatewayY, gatewayW, gatewayH, "", "", "gateway_picture" );
 		button_assignbitmap ( "gateway_picture", gatewaydef->filename );
 //		EclGetButton ("gateway_picture")->image_standard->Scale ( 256, 256 );
-		EclRegisterButtonCallbacks ( "gateway_picture", DrawGatewayPicture, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "gateway_picture", DrawGatewayPicture, nullptr, nullptr, nullptr );
 
 		// Create the CPUs
 
@@ -157,13 +157,13 @@ void GatewayInterface::Create ()
 
 					EclGetButton ( bname )->SetTooltip ( cpus->GetData (ic) );
 					button_assignbitmap ( bname, "gateway/cpu.tif" );
-					EclRegisterButtonCallbacks ( bname, DrawPopulatedItem, NULL, button_click, button_highlight );
+					EclRegisterButtonCallbacks ( bname, DrawPopulatedItem, nullptr, button_click, button_highlight );
 
 				}
 				else {
 
 					EclGetButton ( bname )->SetTooltip ( "Empty CPU slot" );
-					EclRegisterButtonCallbacks ( bname, DrawUnPopulatedItem, NULL, button_click, button_highlight );
+					EclRegisterButtonCallbacks ( bname, DrawUnPopulatedItem, nullptr, button_click, button_highlight );
 
 				}
 
@@ -191,11 +191,11 @@ void GatewayInterface::Create ()
 				if ( im < gateway->memorysize / 8 ) {
 					EclGetButton ( bname )->SetTooltip ( "Memory (8 Gqs)" );
 					button_assignbitmap ( bname, "gateway/memory.tif" );
-					EclRegisterButtonCallbacks ( bname, DrawPopulatedItem, NULL, button_click, button_highlight );
+					EclRegisterButtonCallbacks ( bname, DrawPopulatedItem, nullptr, button_click, button_highlight );
 				}
 				else {
 					EclGetButton ( bname )->SetTooltip ( "Empty memory slot" );			
-					EclRegisterButtonCallbacks ( bname, DrawUnPopulatedItem, NULL, button_click, button_highlight );
+					EclRegisterButtonCallbacks ( bname, DrawUnPopulatedItem, nullptr, button_click, button_highlight );
 				}
 
 			}
@@ -222,11 +222,11 @@ void GatewayInterface::Create ()
 				if ( is < gateway->GetNumSecurity () ) {
 					EclGetButton ( bname )->SetTooltip ( security->GetData (is) );
 					button_assignbitmap ( bname, "gateway/security.tif" );
-					EclRegisterButtonCallbacks ( bname, DrawPopulatedItem, NULL, button_click, button_highlight );
+					EclRegisterButtonCallbacks ( bname, DrawPopulatedItem, nullptr, button_click, button_highlight );
 				}
 				else {
 					EclGetButton ( bname )->SetTooltip ( "Empty security slot" );			
-					EclRegisterButtonCallbacks ( bname, DrawUnPopulatedItem, NULL, button_click, button_highlight );
+					EclRegisterButtonCallbacks ( bname, DrawUnPopulatedItem, nullptr, button_click, button_highlight );
 				}
 
 			}
@@ -242,7 +242,7 @@ void GatewayInterface::Create ()
 		EclRegisterButton ( gatewayX + gatewaydef->modemX, gatewayY + gatewaydef->modemY, 
 							SIZE_GATEWAY_MODEM_W, SIZE_GATEWAY_MODEM_H, " ", modemtooltip, "gateway_modem" );
 		button_assignbitmap ( "gateway_modem", "gateway/modem.tif" );
-		EclRegisterButtonCallbacks ( "gateway_modem", DrawPopulatedItem, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "gateway_modem", DrawPopulatedItem, nullptr, button_click, button_highlight );
 
 		
 
@@ -251,7 +251,7 @@ void GatewayInterface::Create ()
 		EclRegisterButton ( gatewayX + gatewaydef->powerX, gatewayY + gatewaydef->powerY, 
 							SIZE_GATEWAY_POWER_W, SIZE_GATEWAY_POWER_H, " ", "Power Supply Unit", "gateway_power" );
 		button_assignbitmap ( "gateway_power", "gateway/power.tif" );
-		EclRegisterButtonCallbacks ( "gateway_power", DrawPopulatedItem, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "gateway_power", DrawPopulatedItem, nullptr, button_click, button_highlight );
 
 	}
 
@@ -316,7 +316,7 @@ void GatewayInterface::Update ()
 bool GatewayInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "gateway_background" ) != NULL );
+	return ( EclGetButton ( "gateway_background" ) != nullptr );
 
 }
 

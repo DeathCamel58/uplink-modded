@@ -443,7 +443,7 @@ void Person::Update ()
 						UplinkAssert (mis);
 
 						if ( strcmp ( mis->contact, name ) == 0 &&
-                             strstr ( msg->GetBody (), mis->description ) != NULL &&                // ie the name of the mission appears in your email
+                             strstr ( msg->GetBody (), mis->description ) != nullptr &&                // ie the name of the mission appears in your email
                              MissionGenerator::IsMissionComplete ( mis, this, msg ) ) {
 
 							game->GetWorld ()->GetPlayer ()->missions.RemoveData (i);

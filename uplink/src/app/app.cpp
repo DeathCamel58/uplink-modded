@@ -58,12 +58,12 @@ App :: App ()
 
     starttime = 0;
 
-	options = NULL;
-	network = NULL;
-	mainmenu = NULL;
-	phoneDial = NULL;
+	options = nullptr;
+	network = nullptr;
+	mainmenu = nullptr;
+	phoneDial = nullptr;
 
-	nextLoadGame = NULL;
+	nextLoadGame = nullptr;
 
     closed = false;
 
@@ -93,7 +93,7 @@ void App :: Initialise ()
 {
 
 	options = new Options ();	
-	options->Load ( NULL );
+	options->Load ( nullptr );
 	options->CreateDefaultOptions ();
 
     starttime = (int)EclGetAccurateTime ();
@@ -128,7 +128,7 @@ void App :: Set ( char *newpath, char *newversion, char *newtype, char *newdate,
 	// Under Linux, the user-path is ~/.uplink 
 	// (or %app-path%/users if no HOME environment variable)
 	char *homedir = getenv("HOME");
-	if (homedir != NULL) {
+	if (homedir != nullptr) {
 		UplinkSnprintf( userpath, sizeof ( userpath ), "%s/.uplink/", homedir);
 		UplinkSnprintf( usertmppath, sizeof ( usertmppath ), "%s/.uplink/userstmp/", homedir);
 		UplinkSnprintf( userretirepath, sizeof ( userretirepath ), "%s/.uplink/usersold/", homedir);
@@ -185,7 +185,7 @@ void App::UnRegisterPhoneDialler ( PhoneDialler *phoneDiallerScreen )
 
 		phoneDial->Remove ();
 		delete phoneDial;
-		phoneDial = NULL;
+		phoneDial = nullptr;
 
 	}
 
@@ -227,7 +227,7 @@ void App::LoadGame ( )
 	LoadGame ( nextLoadGame );
 
 	delete [] nextLoadGame;
-	nextLoadGame = NULL;
+	nextLoadGame = nullptr;
 
 }
 
@@ -467,10 +467,10 @@ DArray <char *> *App::ListExistingGames ()
 	char userdir [256];
 	UplinkStrncpy ( userdir, app->userpath, sizeof ( userdir ) );
 	DIR *dir = opendir( userdir );
-	if (dir != NULL) {
+	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
 
-	    while (entry != NULL) {
+	    while (entry != nullptr) {
 	    
 		char *p = strstr(entry->d_name, ".usr");
 		if ( p ) {
@@ -507,7 +507,7 @@ void App::Close ()
 	if ( game ) game->ExitGame ();
 
     options->ApplyShutdownChanges ();
-    options->Save ( NULL );
+    options->Save ( nullptr );
     
     SvbReset ();
     GciDeleteAllTrueTypeFonts ();
@@ -515,23 +515,23 @@ void App::Close ()
 	SgShutdown ();
 
 	delete mainmenu;
-	mainmenu = NULL;
+	mainmenu = nullptr;
 	delete options;
-	options = NULL;
+	options = nullptr;
 	delete network;
-	network = NULL;
+	network = nullptr;
 	if ( game ) {
 		delete game;
-		game = NULL;
+		game = nullptr;
 	}
 	if ( phoneDial ) {
 		delete phoneDial;
-		phoneDial = NULL;
+		phoneDial = nullptr;
 	}
 
 	if ( nextLoadGame ) {
 		delete [] nextLoadGame;
-		nextLoadGame = NULL;
+		nextLoadGame = nullptr;
 	}
 
 #ifdef _DEBUG
@@ -564,7 +564,7 @@ void App::CoreDump ()
 {
 
 #ifdef WIN32
-    MessageBox ( NULL, "A Fatal Error occured in Uplink.\n\n"
+    MessageBox ( nullptr, "A Fatal Error occured in Uplink.\n\n"
                        "Please report this on the Uplink forums at\n"
 					   "http://www.introversion.co.uk/\n\n"
                        "Uplink will now shut down.", 
@@ -583,10 +583,10 @@ void App::Print ()
     
   	printf ( "============== A P P =======================================\n" );
 
-	if ( game )     game->Print ();     else printf ( "game == NULL\n" );
-    if ( mainmenu ) mainmenu->Print (); else printf ( "mainmenu == NULL\n" );
-	if ( options )  options->Print ();  else printf ( "options == NULL\n" );
-	if ( network )  network->Print ();  else printf ( "network == NULL\n" );
+	if ( game )     game->Print ();     else printf ( "game == nullptr\n" );
+    if ( mainmenu ) mainmenu->Print (); else printf ( "mainmenu == nullptr\n" );
+	if ( options )  options->Print ();  else printf ( "options == nullptr\n" );
+	if ( network )  network->Print ();  else printf ( "network == nullptr\n" );
 
     printf ( "============== E N D  O F  A P P ===========================\n" );
 
@@ -659,7 +659,7 @@ char *App::GetID ()
 }
 
 
-App *app = NULL;
+App *app = nullptr;
 
 
 

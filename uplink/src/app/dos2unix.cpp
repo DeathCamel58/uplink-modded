@@ -26,7 +26,7 @@ void dos2unixbuf::close()
 {
 	if ( buffer )
 		delete [] (buffer - 1);
-	buffer = NULL;
+	buffer = nullptr;
 	inner.close(); 
 }
 
@@ -53,7 +53,7 @@ int dos2unixbuf::underflow()
 			*b++ = ch;
 	}
 
-	setg(NULL, buffer, b); 
+	setg(nullptr, buffer, b);
 
 	if (b == buffer) 
 		return EOF;
@@ -77,7 +77,7 @@ int dos2unixbuf::uflow() {
 	
 int dos2unixbuf::pbackfail(int c) {
 	if (gptr() > pbase()) {
-		setg(NULL, gptr() - 1, egptr());
+		setg(nullptr, gptr() - 1, egptr());
 		return c;
 	} 
 	else

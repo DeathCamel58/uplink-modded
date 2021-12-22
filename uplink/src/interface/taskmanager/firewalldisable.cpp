@@ -274,14 +274,14 @@ void FirewallDisable::Tick ( int n )
 					EclRegisterCaptionChange ( sprogress, "Success" );
 				}
 
-				timersync = time(NULL) + 2;
+				timersync = time(nullptr) + 2;
 
 			}
 
 		}
 		else if ( progress == 3 ) {											// Unable to proceed due to insufficient version
 
-			if ( time(NULL) > timersync ) {
+			if ( time(nullptr) > timersync ) {
 
 				SvbRemoveTask ( SvbLookupPID ( this ) );
 
@@ -290,7 +290,7 @@ void FirewallDisable::Tick ( int n )
 		}
 		else if ( progress == 4 ) {											// We are done
 
-			if ( time(NULL) > timersync ) {
+			if ( time(nullptr) > timersync ) {
 
 				SvbRemoveTask ( SvbLookupPID ( this ) );
 
@@ -325,10 +325,10 @@ void FirewallDisable::CreateInterface ()
 		EclRegisterButtonCallback ( stitle, GoClick );
 
 		EclRegisterButton ( 285, 442, 120, 15, "", "", sborder );
-		EclRegisterButtonCallbacks ( sborder, BorderDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( sborder, BorderDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 285, 443, 0, 13, "Firewall Disable", "Shows the progress of the disable", sprogress );
-		EclRegisterButtonCallbacks ( sprogress, ProgressDraw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( sprogress, ProgressDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 405, 443, 13, 13, "", "Close the Firewall disabler", sclose );		
 		button_assignbitmaps ( sclose, "close.tif", "close_h.tif", "close_c.tif" );
@@ -395,6 +395,6 @@ bool FirewallDisable::IsInterfaceVisible ()
 	char stitle [128];
 	UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid );
 
-	return ( EclGetButton ( stitle ) != NULL );
+	return ( EclGetButton ( stitle ) != nullptr );
 
 }

@@ -51,7 +51,7 @@ ConsoleScreenInterface::~ConsoleScreenInterface ()
 bool ConsoleScreenInterface::IsVisibleInterface ()
 {
 
-	return ( EclGetButton ( "console_title" ) != NULL );
+	return ( EclGetButton ( "console_title" ) != nullptr );
 
 }
 
@@ -218,14 +218,14 @@ void ConsoleScreenInterface::RunCommand ( char *command )
 
 	char *lccommand = LowerCaseString ( command );
 
-	if      ( strstr ( lccommand, "help" ) ) {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_HELP, NULL, 0 ) );		}
-	else if ( strstr ( lccommand, "dir" ) )  {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DIR, NULL, 0 ) );			}
+	if      ( strstr ( lccommand, "help" ) ) {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_HELP, nullptr, 0 ) );		}
+	else if ( strstr ( lccommand, "dir" ) )  {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DIR, nullptr, 0 ) );			}
 	else if ( strstr ( lccommand, "cd " ) )  {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_CD, lccommand+3, 0 ) );	}
-	else if ( strstr ( lccommand, "delete" ) ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DELETEALL, NULL, 0 ) );	}
+	else if ( strstr ( lccommand, "delete" ) ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DELETEALL, nullptr, 0 ) );	}
 	else if ( strstr ( lccommand, "run " ) ) {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_RUN, lccommand+4, 0 ) );	}
-	else if ( strstr ( lccommand, "exit" ) ) {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_EXIT, NULL, 0 ) );		}
-	else if ( strstr ( lccommand, "shutdown" ) ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_SHUTDOWN, NULL, 0 ) );	}
-	else if ( strstr ( lccommand, "disconnect" ) ) {	queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DISCONNECT, NULL, 0 ) );	}
+	else if ( strstr ( lccommand, "exit" ) ) {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_EXIT, nullptr, 0 ) );		}
+	else if ( strstr ( lccommand, "shutdown" ) ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_SHUTDOWN, nullptr, 0 ) );	}
+	else if ( strstr ( lccommand, "disconnect" ) ) {	queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DISCONNECT, nullptr, 0 ) );	}
 	else {
 
 		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_TEXT, "Unrecognised text", 0 ) );
@@ -729,7 +729,7 @@ void ConsoleScreenInterface::RunCommand_SHUTDOWN ()
 		if ( comp->GetOBJECTID () != OID_LANCOMPUTER )
 			GetComputerScreen ()->GetComputer ()->SetIsRunning ( false );
 
-		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_DISCONNECT, NULL, 3000 ) );
+		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_DISCONNECT, nullptr, 3000 ) );
 		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "System failure - disconnecting remote users...", 2000 ) );
 		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "[Failed]", 5000 ) );
 		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Loading Kernel...", 4000 ) );
@@ -798,7 +798,7 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( 20, 30, 405, 15, "Console", "", "console_title" );
 
 		EclRegisterButton ( 20, 45, 405, NUMLINES * 15 + 10, "", "", "console_border" );
-		EclRegisterButtonCallbacks ( "console_border", BorderDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "console_border", BorderDraw, nullptr, nullptr, nullptr );
 
 		for ( int i = 0; i < NUMLINES; ++i ) {
 
@@ -807,7 +807,7 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 			UplinkSnprintf ( name, sizeof ( name ), "console_text %d", i );
 
 			EclRegisterButton ( 22, y, 390, 15, "", "", name );
-			EclRegisterButtonCallbacks ( name, MessageDraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( name, MessageDraw, nullptr, nullptr, nullptr );
 
 		}
 
@@ -819,7 +819,7 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 		int ybottom = 50 + NUMLINES * 15 + 6;
 
 		EclRegisterButton ( 20, ybottom, 355, 15, newcaption, "", "console_typehere" );
-		EclRegisterButtonCallbacks ( "console_typehere", TypeHereDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "console_typehere", TypeHereDraw, nullptr, button_click, button_highlight );
 
 		EclRegisterButton ( 375, ybottom, 50, 15, "Post", "Click here to enter your command", "console_post" );
 		EclRegisterButtonCallback ( "console_post", PostClick );
@@ -883,7 +883,7 @@ bool ConsoleScreenInterface::IsVisible ()
 bool ConsoleScreenInterface::ReturnKeyPressed ()
 {
 
-	PostClick ( NULL );
+	PostClick ( nullptr );
 	return true;
 
 }
@@ -943,7 +943,7 @@ ConsoleCommand::ConsoleCommand ()
 {
 
 	TYPE = CMDTYPE_NONE;
-	data1 = NULL;
+	data1 = nullptr;
 	time = -1;
 
 }
@@ -959,7 +959,7 @@ ConsoleCommand::ConsoleCommand ( int newTYPE, char *newdata1, int newtime )
 		UplinkSafeStrcpy ( data1, newdata1 );
 	}
 	else
-		data1 = NULL;
+		data1 = nullptr;
 
 }
 

@@ -40,7 +40,7 @@ MainMenu::MainMenu()
 {
 
 	currentscreencode = 0;
-	screen = NULL;
+	screen = nullptr;
 
 }
 
@@ -67,7 +67,7 @@ void MainMenu::Remove ()
 		if ( screen ) {
 			screen->Remove ();
 			delete screen;
-			screen = NULL;
+			screen = nullptr;
 		}
 
 }
@@ -86,7 +86,7 @@ void MainMenu::RunScreen ( int SCREENCODE )
 	if ( screen ) {
 		screen->Remove ();
 		delete screen;
-		screen = NULL;
+		screen = nullptr;
 	}
 
 	currentscreencode = SCREENCODE;

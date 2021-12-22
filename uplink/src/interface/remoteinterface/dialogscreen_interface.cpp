@@ -85,7 +85,7 @@ void DialogScreenInterface::NextPageClick ( Button *button )
 
 	int nextpage = data1;
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -110,7 +110,7 @@ void DialogScreenInterface::ScriptButtonClick ( Button *button )
 
 	if ( scriptindex != -1 ) ScriptLibrary::RunScript ( scriptindex );
 
-	Computer *comp = NULL;
+	Computer *comp = nullptr;
 	if ( ip ) {
 		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
 		if ( loc )
@@ -211,12 +211,12 @@ void DialogScreenInterface::Create ( ComputerScreen *newcs )
 	if ( !IsVisible () ) {
 
 		EclRegisterButton ( 0, 0, 0, 0, " ", " ", "dialogscreen" );
-		EclRegisterButtonCallbacks ( "dialogscreen", NULL, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "dialogscreen", nullptr, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "dialogscreen_maintitle" );
-		EclRegisterButtonCallbacks ( "dialogscreen_maintitle", DrawMainTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "dialogscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "dialogscreen_subtitle" );
-		EclRegisterButtonCallbacks ( "dialogscreen_subtitle", DrawSubTitle, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "dialogscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		DialogScreen *ds = GetComputerScreen ();
 
@@ -240,20 +240,20 @@ void DialogScreenInterface::Create ( ComputerScreen *newcs )
 			switch ( dsw->WIDGETTYPE ) {
 
 				case WIDGET_BASIC		:		EclRegisterButton ( dsw->x, dsw->y, dsw->width, dsw->height, dsw->GetCaption (), dsw->GetTooltip (), name );
-												EclRegisterButtonCallbacks ( name, button_draw, NULL, NULL, NULL );
+												EclRegisterButtonCallbacks ( name, button_draw, nullptr, nullptr, nullptr );
 												break;
 
 				case WIDGET_CAPTION		:		EclRegisterButton ( dsw->x, dsw->y, dsw->width, dsw->height, dsw->GetCaption (), dsw->GetTooltip (), name );
-												EclRegisterButtonCallbacks ( name, textbutton_draw, NULL, NULL, NULL );
+												EclRegisterButtonCallbacks ( name, textbutton_draw, nullptr, nullptr, nullptr );
 												break;
 
 				case WIDGET_TEXTBOX		:		EclRegisterButton ( dsw->x, dsw->y, dsw->width, dsw->height, dsw->GetCaption (), dsw->GetTooltip (), name );
-												EclRegisterButtonCallbacks ( name, textbutton_draw, NULL, button_click, button_highlight );		
+												EclRegisterButtonCallbacks ( name, textbutton_draw, nullptr, button_click, button_highlight );
 												EclMakeButtonEditable ( name );
 												break;
 
 				case WIDGET_PASSWORDBOX :       EclRegisterButton ( dsw->x, dsw->y, dsw->width, dsw->height, dsw->GetCaption (), dsw->GetTooltip (), name );
-												EclRegisterButtonCallbacks ( name, PasswordBoxDraw, NULL, button_click, button_highlight );
+												EclRegisterButtonCallbacks ( name, PasswordBoxDraw, nullptr, button_click, button_highlight );
 												EclMakeButtonEditable ( name );
 												break;
 
@@ -276,7 +276,7 @@ void DialogScreenInterface::Create ( ComputerScreen *newcs )
 	
 				case WIDGET_FIELDVALUE  :		EclRegisterButton ( dsw->x, dsw->y, dsw->width, dsw->height, dsw->GetCaption (), dsw->GetTooltip (), name );
 												{
-													EclRegisterButtonCallbacks ( name, textbutton_draw, NULL, NULL, NULL );
+													EclRegisterButtonCallbacks ( name, textbutton_draw, nullptr, nullptr, nullptr );
 													EclMakeButtonEditable ( name );
 													Record *rec = ds->GetComputer ()->recordbank.GetRecordFromName ( game->GetInterface ()->GetRemoteInterface ()->security_name );
 													if ( rec ) {
@@ -345,7 +345,7 @@ void DialogScreenInterface::RemoveWidget ( DialogScreenWidget *dsw, Computer *co
 bool DialogScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "dialogscreen" ) != NULL );
+	return ( EclGetButton ( "dialogscreen" ) != nullptr );
 
 }
 

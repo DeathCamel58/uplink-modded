@@ -339,7 +339,7 @@ void LoginInterface::StatusClick	( Button *button )
 bool LoginInterface::ReturnKeyPressed ()
 {
 
-	ProceedClick ( NULL );
+	ProceedClick ( nullptr );
 	return true;
 
 }
@@ -391,9 +391,9 @@ void LoginInterface::Create ()
 
 		// TODO : Look at this alpha stuff - it don't work no more
 		if ( app->GetNetwork ()->STATUS == NETWORK_CLIENT ) {
-			EclRegisterButtonCallbacks ( "newgame", imagebutton_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "newgame", imagebutton_draw, nullptr, nullptr, nullptr );
 			EclGetButton ( "newgame" )->image_standard->SetAlpha ( ALPHA_DISABLED );
-			EclRegisterButtonCallbacks ( "retireagent", imagebutton_draw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "retireagent", imagebutton_draw, nullptr, nullptr, nullptr );
 			EclGetButton ( "retireagent" )->image_standard->SetAlpha ( ALPHA_DISABLED );
 		}
 		else {
@@ -428,13 +428,13 @@ void LoginInterface::Create ()
 		button_assignbitmap ( "userid_image", "userid.tif" );		
 
 		EclRegisterButton ( useridX + 59, useridY + 55, 147, 15, "", "Enter your userID here", "userid_name" );
-		EclRegisterButtonCallbacks ( "userid_name", UserIDButtonDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "userid_name", UserIDButtonDraw, nullptr, button_click, button_highlight );
 
 		EclRegisterButton ( useridX + 59, useridY + 81, 147, 15, "", "Enter your access code here", "userid_code" );
-		EclRegisterButtonCallbacks ( "userid_code", CodeButtonDraw, NULL, button_click, button_highlight );
+		EclRegisterButtonCallbacks ( "userid_code", CodeButtonDraw, nullptr, button_click, button_highlight );
 		
 		EclRegisterButton ( useridX, useridY + 125, 120, 15, "", "", "userid_message" );
-		EclRegisterButtonCallbacks ( "userid_message", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "userid_message", textbutton_draw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( useridX + 140, useridY + 125, 80, 15, "Proceed", "Click here when done", "userid_proceed" );
 		button_assignbitmaps ( "userid_proceed", "proceed.tif", "proceed_h.tif", "proceed_c.tif" );
@@ -443,7 +443,7 @@ void LoginInterface::Create ()
 		// Text help box
 
 		EclRegisterButton ( useridX, SY(200), 240, SY(50), "", "", "texthelp" );
-		EclRegisterButtonCallbacks ( "texthelp", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "texthelp", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "texthelp", "If you are registered as an Uplink Agent,\n"
 											   "enter your username and password below.\n"
 											   "Otherwise, click on the New User button." );
@@ -451,7 +451,7 @@ void LoginInterface::Create ()
 		// List of all existing games
 
 		EclRegisterButton ( SX(35), SY(270), SX(170), SY(20), "Valid User Names", "", "usernames_title" );
-		EclRegisterButtonCallbacks ( "usernames_title", LargeTextBoxDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "usernames_title", LargeTextBoxDraw, nullptr, nullptr, nullptr );
 
 		CreateExistingGames ();
 
@@ -461,7 +461,7 @@ void LoginInterface::Create ()
 		// Version
        
 		EclRegisterButton ( screenw - 8 * sizeof ( VERSION_NUMBER ), screenh - 15, 8 * sizeof ( VERSION_NUMBER ), 15, VERSION_NUMBER, "", "login_int_version" );
-		EclRegisterButtonCallbacks ( "login_int_version", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "login_int_version", textbutton_draw, nullptr, nullptr, nullptr );
 
 	}
 
@@ -516,7 +516,7 @@ void LoginInterface::Update ()
 bool LoginInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "newgame" ) != NULL );
+	return ( EclGetButton ( "newgame" ) != nullptr );
 
 }
 

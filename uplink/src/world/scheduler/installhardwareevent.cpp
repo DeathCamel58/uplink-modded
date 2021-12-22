@@ -22,7 +22,7 @@
 InstallHardwareEvent::InstallHardwareEvent ()
 {
 
-	hwsale = NULL;
+	hwsale = nullptr;
 	version = -1;
 
 }
@@ -219,7 +219,7 @@ bool InstallHardwareEvent::Load  ( FILE *file )
 
 	LoadID ( file );
 
-	hwsale = NULL;
+	hwsale = nullptr;
 
 	if ( !UplinkEvent::Load ( file ) ) return false;
 
@@ -245,7 +245,7 @@ void InstallHardwareEvent::Save  ( FILE *file )
 
 	UplinkEvent::Save ( file );
 
-	bool hwsaleavail = (hwsale != NULL);
+	bool hwsaleavail = (hwsale != nullptr);
 	fwrite ( &hwsaleavail, sizeof(hwsaleavail), 1, file );
 	if ( hwsale ) hwsale->Save ( file );
 

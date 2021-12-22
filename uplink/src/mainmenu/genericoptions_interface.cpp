@@ -41,7 +41,7 @@ void GenericOptionsInterface::ApplyClick ( Button *button )
 	char name1 [64];
 	UplinkSnprintf ( name1, sizeof ( name1 ), "generic_option %d", index );
 
-	while ( EclGetButton ( name1 ) != NULL ) {
+	while ( EclGetButton ( name1 ) != nullptr ) {
 
 		// Look up the next option button
 
@@ -209,7 +209,7 @@ void GenericOptionsInterface::SetOptionTYPE ( char *newtype )
 		else {
 
 			EclRegisterButton ( screenw - 60, screenh - 40, 50, 15, value, "enter the new value here", name2 );
-			EclRegisterButtonCallbacks ( name2, textbutton_draw, NULL, button_click, button_highlight );
+			EclRegisterButtonCallbacks ( name2, textbutton_draw, nullptr, button_click, button_highlight );
             EclMakeButtonEditable ( name2 );
 
 		}
@@ -262,7 +262,7 @@ void GenericOptionsInterface::Remove ()
 		char name1 [64];
 		UplinkSnprintf ( name1, sizeof ( name1 ), "generic_option %d", index );
 
-		while ( EclGetButton ( name1 ) != NULL ) {
+		while ( EclGetButton ( name1 ) != nullptr ) {
 
 			char name2 [64];
 			UplinkSnprintf ( name2, sizeof ( name2 ), "generic_value %d", index );
@@ -288,7 +288,7 @@ void GenericOptionsInterface::Update ()
 bool GenericOptionsInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "generic_return" ) != NULL );
+	return ( EclGetButton ( "generic_return" ) != nullptr );
 
 }
 

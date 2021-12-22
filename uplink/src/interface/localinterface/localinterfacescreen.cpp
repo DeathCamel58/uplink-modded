@@ -79,7 +79,7 @@ void LocalInterfaceScreen::CreateHeight ( int panelheight )
 		else
 			EclRegisterButton ( screenw - panelwidth - 3, paneltop, panelwidth, panelheight, "", "", "localint_background" );
 
-		EclRegisterButtonCallbacks ( "localint_background", BackgroundDraw, NULL, NULL, NULL );		
+		EclRegisterButtonCallbacks ( "localint_background", BackgroundDraw, nullptr, nullptr, nullptr );
 
 	}
 

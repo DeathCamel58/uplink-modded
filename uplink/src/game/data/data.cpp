@@ -607,7 +607,7 @@ const ComputerUpgrade *GetSoftwareUpgrade ( char *name )
 			return cu;
 	}
 
-	return NULL;
+	return nullptr;
 		
 }
 
@@ -621,6 +621,6 @@ const ComputerUpgrade *GetHardwareUpgrade ( char *name )
 			return cu;
 	}
 
-	return NULL;
+	return nullptr;
 		
 }

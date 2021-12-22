@@ -125,13 +125,13 @@ void ObituaryInterface::Create ()
 			char *winningDesc = game->GetWinningCodeDesc ();
 
 			EclRegisterButton ( 20, 150, 400, 15, winningDesc, "", "obituary_winningcodedesc" );
-			EclRegisterButtonCallbacks ( "obituary_winningcodedesc", MediumTextDraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "obituary_winningcodedesc", MediumTextDraw, nullptr, nullptr, nullptr );
 
 			EclRegisterButton ( 20, 170, 400, 15, "Code: ", "", "obituary_winningcodelabel" );
-			EclRegisterButtonCallbacks ( "obituary_winningcodelabel", MediumTextDraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "obituary_winningcodelabel", MediumTextDraw, nullptr, nullptr, nullptr );
 
 			EclRegisterButton ( 60, 170, 400, 15, winningCode, "", "obituary_winningcode" );
-			EclRegisterButtonCallbacks ( "obituary_winningcode", MediumTextDraw, NULL, NULL, NULL );
+			EclRegisterButtonCallbacks ( "obituary_winningcode", MediumTextDraw, nullptr, nullptr, nullptr );
 
 			delete [] winningDesc;
 			delete [] winningCode;
@@ -147,10 +147,10 @@ void ObituaryInterface::Create ()
 		UplinkSnprintf ( name, sizeof ( name ), "Agent %s", gob->name );
 
 		EclRegisterButton ( 20, 200, 200, 40, name, "", "obituary_name" );
-		EclRegisterButtonCallbacks ( "obituary_name", LargeTextDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "obituary_name", LargeTextDraw, nullptr, nullptr, nullptr );
 
 		EclRegisterButton ( 20, 240, 400, 50, gob->GameOverReason (), "obituary_text" );
-		EclRegisterButtonCallbacks ( "obituary_text", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "obituary_text", textbutton_draw, nullptr, nullptr, nullptr );
 
 		//
 		// Left column
@@ -163,18 +163,18 @@ void ObituaryInterface::Create ()
 		EclRegisterButton ( 190, 320, 100, 15, Rating::GetUplinkRatingString ( gob->uplinkrating ), "", "obituary_urating" );
 		EclRegisterButton ( 190, 340, 100, 15, Rating::GetNeuromancerRatingString ( gob->neuromancerrating ), "", "obituary_nrating" );
 
-		EclRegisterButtonCallbacks ( "obituary_financestext", MediumTextDraw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "obituary_uratingtext", MediumTextDraw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "obituary_nratingtext", MediumTextDraw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "obituary_finances", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "obituary_urating", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "obituary_nrating", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "obituary_financestext", MediumTextDraw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "obituary_uratingtext", MediumTextDraw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "obituary_nratingtext", MediumTextDraw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "obituary_finances", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "obituary_urating", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "obituary_nrating", textbutton_draw, nullptr, nullptr, nullptr );
 
 		//
 		// Special missions buttons
 
 		EclRegisterButton ( 20, 400, 120, 15, "Special Awards", "", "obituary_specialmissions" );
-        EclRegisterButtonCallbacks ( "obituary_specialmissions", MediumTextDraw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "obituary_specialmissions", MediumTextDraw, nullptr, nullptr, nullptr );
 
         int x = 30;
         int y = 420;
@@ -192,7 +192,7 @@ void ObituaryInterface::Create ()
 
                 EclRegisterButton ( x, y, 16, 16, " ", tooltip, name );                
                 button_assignbitmaps ( name, filename, filename, filename );
-                EclRegisterButtonCallbacks ( name, imagebutton_draw, NULL, button_click, button_highlight );
+                EclRegisterButtonCallbacks ( name, imagebutton_draw, nullptr, button_click, button_highlight );
                 
                 x += 18;
                 numcompleted++;
@@ -203,7 +203,7 @@ void ObituaryInterface::Create ()
         char numberoutof[128];
         UplinkSnprintf ( numberoutof, sizeof ( numberoutof ), "(%d out of %d)", numcompleted, 12 );
         EclRegisterButton ( 190, 400, 120, 15, numberoutof, "", "obituary_numberoutof" );
-        EclRegisterButtonCallbacks ( "obituary_numberoutof", textbutton_draw, NULL, NULL, NULL );
+        EclRegisterButtonCallbacks ( "obituary_numberoutof", textbutton_draw, nullptr, nullptr, nullptr );
 
 		//
 		// Right column
@@ -220,15 +220,15 @@ void ObituaryInterface::Create ()
 		EclRegisterButton ( 350, 320, 300, 15, systemsdestroyed, "", "obituary_systemsdestroyed" );
 		EclRegisterButton ( 350, 340, 300, 15, livesruined, "", "obituary_livesruined" );
 
-		EclRegisterButtonCallbacks ( "obituary_highsecurityhacks", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "obituary_livesruined", textbutton_draw, NULL, NULL, NULL );
-		EclRegisterButtonCallbacks ( "obituary_systemsdestroyed", textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "obituary_highsecurityhacks", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "obituary_livesruined", textbutton_draw, nullptr, nullptr, nullptr );
+		EclRegisterButtonCallbacks ( "obituary_systemsdestroyed", textbutton_draw, nullptr, nullptr, nullptr );
 
 		char score [64];
 		UplinkSnprintf ( score, sizeof ( score ), "Final Score    %d", gob->score );
 
 		EclRegisterButton ( 360, 410, 200, 25, score, "", "obituary_score" );
-		EclRegisterButtonCallbacks ( "obituary_score", LargeTextDraw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "obituary_score", LargeTextDraw, nullptr, nullptr, nullptr );
 
 		// Exit button
 
