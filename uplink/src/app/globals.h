@@ -194,7 +194,7 @@
 						 "An Uplink snprintf Failure has occured\n"									\
 						 "======================================\n"									\
 						 " Location    : %s, line %d\n"												\
-						 " Buffer size : %d\n"														\
+						 " Buffer size : %ld\n"														\
 						 " Format      : %s\n"														\
 						 " Buffer      : %s\n",														\
 						 __FILE__, __LINE__, bufsize, format, buf );								\
@@ -244,8 +244,8 @@
 						 "An Uplink strncpy Failure has occured\n"									\
 						 "=====================================\n"									\
 						 " Location    : %s, line %d\n"												\
-						 " Dest. size  : %d\n"														\
-						 " Source size : %d\n"														\
+						 " Dest. size  : %ld\n"														\
+						 " Source size : %ld\n"														\
 						 " Str. Source : %s\n",														\
 						 __FILE__, __LINE__, count, _1377819_retCount, strSource );					\
 				char * nullPtr = NULL; *nullPtr = '\0';												\
