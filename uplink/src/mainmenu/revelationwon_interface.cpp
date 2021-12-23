@@ -18,12 +18,10 @@
 
 
 RevelationWonInterface::RevelationWonInterface ()
-{
-}
+= default;
 
 RevelationWonInterface::~RevelationWonInterface ()
-{
-}
+= default;
 
 void RevelationWonInterface::ReturnToMainMenuClick ( Button *button )
 {

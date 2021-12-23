@@ -517,7 +517,7 @@ void SWSalesScreenInterface::Remove ()
 bool SWSalesScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "swsales_exit" ) != 0 );
+	return ( EclGetButton ( "swsales_exit" ) != nullptr );
 
 }
 

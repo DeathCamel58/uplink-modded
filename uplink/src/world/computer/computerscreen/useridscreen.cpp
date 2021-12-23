@@ -14,8 +14,7 @@ UserIDScreen::UserIDScreen ()
 }
 
 UserIDScreen::~UserIDScreen ()
-{
-}
+= default;
 
 void UserIDScreen::SetNextPage ( int newnextpage )
 {

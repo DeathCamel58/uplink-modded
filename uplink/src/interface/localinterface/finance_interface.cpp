@@ -49,9 +49,7 @@ FinanceInterface::FinanceInterface ()
 }
 
 FinanceInterface::~FinanceInterface ()
-{
-
-}
+= default;
 
 
 void FinanceInterface::TitleClick ( Button *button )

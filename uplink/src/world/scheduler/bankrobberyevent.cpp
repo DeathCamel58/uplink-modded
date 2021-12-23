@@ -37,8 +37,7 @@ BankRobberyEvent::BankRobberyEvent ()
 }
 
 BankRobberyEvent::~BankRobberyEvent ()
-{
-}
+= default;
 
 void BankRobberyEvent::Run ()
 {
@@ -64,8 +63,8 @@ void BankRobberyEvent::Run ()
 
 					if ( al->data1 && al->data2 ) {
 
-						if ( strstr ( al->data1, target_ip )    != 0 &&
-							 strstr ( al->data1, target_accno ) != 0 &&
+						if ( strstr ( al->data1, target_ip )    != nullptr &&
+							 strstr ( al->data1, target_accno ) != nullptr &&
 							 strcmp ( al->data2, amount_s )     == 0 ) {
 
 							rumbled = true;
@@ -101,8 +100,8 @@ void BankRobberyEvent::Run ()
 
 						if ( al->data1 && al->data2 ) {
 
-							if ( strstr ( al->data1, source_ip )    != 0 &&
-								 strstr ( al->data1, source_accno ) != 0 &&
+							if ( strstr ( al->data1, source_ip )    != nullptr &&
+								 strstr ( al->data1, source_accno ) != nullptr &&
 								 strcmp ( al->data2, amount_s )     == 0 ) {
 
 								rumbled = true;

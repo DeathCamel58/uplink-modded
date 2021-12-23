@@ -184,7 +184,7 @@ void HWInterface::RemoveHWInterface ()
 bool HWInterface::IsVisibleHWInterface ()
 {
 
-	return ( EclGetButton ( "hw_title" ) != 0 );
+	return ( EclGetButton ( "hw_title" ) != nullptr );
 
 }
 

@@ -46,8 +46,7 @@ DemoPlotGenerator::DemoPlotGenerator ()
 }
 
 DemoPlotGenerator::~DemoPlotGenerator ()
-{
-}
+= default;
 
 void DemoPlotGenerator::Initialise ()
 {

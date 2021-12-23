@@ -86,8 +86,7 @@ MotionSensor::MotionSensor () : UplinkTask ()
 }
 
 MotionSensor::~MotionSensor ()
-{
-}
+= default;
 
 void MotionSensor::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 {

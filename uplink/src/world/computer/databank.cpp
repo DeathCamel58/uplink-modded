@@ -441,8 +441,7 @@ Data::Data ( Data *copyme )
 }
 
 Data::~Data ()
-{
-}
+= default;
 
 void Data::SetTitle ( char *newtitle )
 {

@@ -47,14 +47,10 @@ void LocalInterfaceScreen::BackgroundDraw ( Button *button, bool highlighted, bo
 }
 
 LocalInterfaceScreen::LocalInterfaceScreen()
-{
-
-}
+= default;
 
 LocalInterfaceScreen::~LocalInterfaceScreen()
-{
-
-}
+= default;
 
 void LocalInterfaceScreen::Create ()
 {

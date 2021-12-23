@@ -11,7 +11,7 @@
 #ifndef _included_date_h
 #define _included_date_h
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "app/uplinkobject.h"
 

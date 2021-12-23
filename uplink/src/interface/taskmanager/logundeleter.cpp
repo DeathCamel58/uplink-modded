@@ -46,8 +46,7 @@ LogUnDeleter::LogUnDeleter () : UplinkTask ()
 }
 
 LogUnDeleter::~LogUnDeleter ()
-{
-}
+= default;
 
 void LogUnDeleter::MoveTo ( int x, int y, int time_ms )
 {

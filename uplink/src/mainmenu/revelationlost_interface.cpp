@@ -18,12 +18,10 @@
 
 
 RevelationLostInterface::RevelationLostInterface ()
-{
-}
+= default;
 
 RevelationLostInterface::~RevelationLostInterface ()
-{
-}
+= default;
 
 void RevelationLostInterface::ReturnToMainMenuClick ( Button *button )
 {

@@ -34,8 +34,7 @@ VoicePhoneScreenInterface::VoicePhoneScreenInterface ()
 }
 
 VoicePhoneScreenInterface::~VoicePhoneScreenInterface ()
-{
-}
+= default;
 
 
 bool VoicePhoneScreenInterface::ReturnKeyPressed ()

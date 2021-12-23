@@ -65,8 +65,7 @@ void ThemeInterface::DefaultClick ( Button *button )
 }
 
 ThemeInterface::ThemeInterface ()
-{
-}
+= default;
 
 ThemeInterface::~ThemeInterface ()
 {

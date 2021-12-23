@@ -24,8 +24,7 @@ FrameRate :: FrameRate ()
 }
 
 FrameRate :: ~FrameRate ()
-{
-}
+= default;
 
 void FrameRate :: Start ()
 {

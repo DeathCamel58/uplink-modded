@@ -45,7 +45,7 @@ public:
 	void SetAccNumber	 ( int newaccnumber );	
 	void SetBalance		 ( int newbalance, int newloan );
 
-	void ChangeBalance	 ( int amount, char *description = NULL );	
+	void ChangeBalance	 ( int amount, char *description = nullptr );
 	
 	// Has this account sent money to target account
 	// If partial is true,  it return true if there is a log of the transaction on the target _or_ source account

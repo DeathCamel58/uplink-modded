@@ -63,9 +63,7 @@ ClientConnection::ClientConnection()
 }
 
 ClientConnection::~ClientConnection()
-{
-
-}
+= default;
 
 void ClientConnection::SetSocket ( SOCKET newsocket )
 {

@@ -134,8 +134,7 @@ LanSpoof::LanSpoof() : UplinkTask()
 }
 
 LanSpoof::~LanSpoof()
-{
-}
+= default;
 
 void LanSpoof::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 {

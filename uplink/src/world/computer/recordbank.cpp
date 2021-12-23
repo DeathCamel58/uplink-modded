@@ -15,9 +15,7 @@
 
 
 RecordBank::RecordBank ()
-{
-
-}
+= default;
 
 
 RecordBank::~RecordBank ()
@@ -349,9 +347,7 @@ int RecordBank::GetOBJECTID ()
 //////////////////////////////////////////////////////////////////////
 
 Record::Record()
-{
-
-}
+= default;
 
 Record::~Record()
 {

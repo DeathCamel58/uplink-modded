@@ -10,7 +10,7 @@
 #ifndef _included_uplinkobject_h
 #define _included_uplinkobject_h
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "tosser.h"
 

@@ -38,8 +38,7 @@ NotificationEvent::NotificationEvent ()
 }
 
 NotificationEvent::~NotificationEvent ()
-{
-}
+= default;
 
 void NotificationEvent::SetTYPE ( int newTYPE )
 {

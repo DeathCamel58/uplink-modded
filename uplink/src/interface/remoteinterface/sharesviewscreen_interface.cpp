@@ -38,8 +38,7 @@ SharesViewScreenInterface::SharesViewScreenInterface ()
 }
 
 SharesViewScreenInterface::~SharesViewScreenInterface ()
-{
-}
+= default;
 
 bool SharesViewScreenInterface::EscapeKeyPressed ()
 {

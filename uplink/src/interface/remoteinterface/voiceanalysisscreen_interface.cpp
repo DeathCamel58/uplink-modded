@@ -41,8 +41,7 @@ VoiceAnalysisScreenInterface::VoiceAnalysisScreenInterface ()
 }
 
 VoiceAnalysisScreenInterface::~VoiceAnalysisScreenInterface ()
-{
-}
+= default;
 
 void VoiceAnalysisScreenInterface::ClickAccess ( Button *button )
 {

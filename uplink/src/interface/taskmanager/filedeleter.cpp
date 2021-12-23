@@ -44,8 +44,7 @@ FileDeleter::FileDeleter () : UplinkTask ()
 }
 
 FileDeleter::~FileDeleter ()
-{
-}
+= default;
 
 void FileDeleter::MoveTo ( int x, int y, int time_ms )
 {

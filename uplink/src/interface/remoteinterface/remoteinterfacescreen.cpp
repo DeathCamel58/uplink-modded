@@ -32,8 +32,7 @@ RemoteInterfaceScreen::RemoteInterfaceScreen()
 }
 
 RemoteInterfaceScreen::~RemoteInterfaceScreen()
-{
-}
+= default;
 
 void RemoteInterfaceScreen::DrawMainTitle ( Button *button, bool highlighted, bool clicked )
 {

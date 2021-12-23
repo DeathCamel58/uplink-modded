@@ -152,7 +152,7 @@ void PhoneDialler::DialNumber ( int x, int y, char *number, int scenario, char *
 bool PhoneDialler::IsVisible () 
 {
 
-	return ( EclGetButton ( "dialler_number" ) != 0 );
+	return ( EclGetButton ( "dialler_number" ) != nullptr );
 
 }
 

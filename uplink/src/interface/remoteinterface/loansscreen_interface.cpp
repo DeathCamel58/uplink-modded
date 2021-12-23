@@ -32,8 +32,7 @@ LoansScreenInterface::LoansScreenInterface ()
 }
 
 LoansScreenInterface::~LoansScreenInterface ()
-{
-}
+= default;
 
 bool LoansScreenInterface::EscapeKeyPressed ()
 {

@@ -44,9 +44,7 @@ ConsoleScreenInterface::ConsoleScreenInterface ()
 }
 
 ConsoleScreenInterface::~ConsoleScreenInterface ()
-{
-
-}
+= default;
 
 bool ConsoleScreenInterface::IsVisibleInterface ()
 {

@@ -120,12 +120,10 @@ void GenericOptionsInterface::ToggleBoxClick ( Button *button )
 
 
 GenericOptionsInterface::GenericOptionsInterface ()
-{
-}
+= default;
 
 GenericOptionsInterface::~GenericOptionsInterface ()
-{
-}
+= default;
 
 void GenericOptionsInterface::ChangeOptionValue ( char *option, int newvalue )
 {

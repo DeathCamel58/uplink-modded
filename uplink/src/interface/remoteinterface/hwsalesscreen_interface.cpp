@@ -57,8 +57,7 @@ HWSalesScreenInterface::HWSalesScreenInterface ()
 }
 
 HWSalesScreenInterface::~HWSalesScreenInterface ()
-{
-}
+= default;
 
 bool HWSalesScreenInterface::EscapeKeyPressed ()
 {
@@ -640,7 +639,7 @@ bool HWSalesScreenInterface::IsVisible ()
 bool HWSalesScreenInterface::IsVisibleMenu ()
 {
 
-	return ( EclGetButton ( "hwsales_showmenu 1" ) != 0 );
+	return ( EclGetButton ( "hwsales_showmenu 1" ) != nullptr );
 
 }
 

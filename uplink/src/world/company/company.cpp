@@ -36,9 +36,7 @@ Company::Company()
 }
 
 Company::~Company()
-{
-
-}
+= default;
 
 void Company::SetName ( char *newname )
 {

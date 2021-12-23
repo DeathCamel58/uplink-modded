@@ -27,9 +27,7 @@ ComputerScreen::ComputerScreen()
 }
 
 ComputerScreen::~ComputerScreen()
-{
-
-}
+= default;
 
 void ComputerScreen::SetMainTitle ( char *newmaintitle )
 {

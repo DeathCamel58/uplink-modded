@@ -91,12 +91,10 @@ void ObituaryInterface::PiClick ( Button *button )
 }
 
 ObituaryInterface::ObituaryInterface()
-{
-}
+= default;
 
 ObituaryInterface::~ObituaryInterface()
-{
-}
+= default;
 
 void ObituaryInterface::Create ()
 {	
@@ -305,7 +303,7 @@ void ObituaryInterface::Update ()
 bool ObituaryInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "obituary_text" ) != 0 );
+	return ( EclGetButton ( "obituary_text" ) != nullptr );
 
 }
 

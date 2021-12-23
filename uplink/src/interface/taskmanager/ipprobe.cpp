@@ -93,8 +93,7 @@ IPProbe::IPProbe () : UplinkTask ()
 }
 
 IPProbe::~IPProbe ()
-{
-}
+= default;
 
 void IPProbe::Initialise ()
 {
@@ -291,6 +290,6 @@ bool IPProbe::IsInterfaceVisible ()
 	char name_display [64];
 	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
 
-	return ( EclGetButton ( name_display ) != 0 );
+	return ( EclGetButton ( name_display ) != nullptr );
 
 }

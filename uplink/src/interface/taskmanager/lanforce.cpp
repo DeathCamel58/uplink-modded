@@ -43,8 +43,7 @@ LanForce::LanForce() : UplinkTask()
 }
 
 LanForce::~LanForce()
-{
-}
+= default;
 
 void LanForce::BorderDraw ( Button *button, bool highlighted, bool clicked )
 {

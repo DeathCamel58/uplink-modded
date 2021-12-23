@@ -18,9 +18,7 @@
 //////////////////////////////////////////////////////////////////////
  
 OptionsInterface::OptionsInterface()
-{
-
-}
+= default;
 
 OptionsInterface::~OptionsInterface()
 {

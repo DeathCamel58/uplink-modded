@@ -30,8 +30,7 @@
 
 
 HighSecurityScreenInterface::HighSecurityScreenInterface ()
-{
-}
+= default;
 
 HighSecurityScreenInterface::~HighSecurityScreenInterface ()
 {

@@ -185,8 +185,7 @@ AnalyserInterface::AnalyserInterface ()
 }
 
 AnalyserInterface::~AnalyserInterface ()
-{
-}
+= default;
 
 void AnalyserInterface::Create ()
 {

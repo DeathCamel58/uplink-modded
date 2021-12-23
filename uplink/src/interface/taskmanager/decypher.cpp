@@ -46,8 +46,7 @@ Decypher::Decypher () : UplinkTask ()
 }
 
 Decypher::~Decypher ()
-{
-}
+= default;
 
 void Decypher::MoveTo ( int x, int y, int time_ms )
 {

@@ -249,8 +249,7 @@ LogModifier::LogModifier () : UplinkTask ()
 }
 
 LogModifier::~LogModifier ()
-{
-}
+= default;
 
 
 void LogModifier::SetTarget ( UplinkObject *uo, char *uos, int uoi )

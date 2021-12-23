@@ -23,12 +23,10 @@ static void PrintIndent ();					//
 
 
 UplinkObject::UplinkObject()
-{
-}
+= default;
 
 UplinkObject::~UplinkObject()
-{
-}
+= default;
 
 bool UplinkObject::Load ( FILE *file )
 {

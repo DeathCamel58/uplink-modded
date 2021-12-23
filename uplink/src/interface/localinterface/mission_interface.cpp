@@ -48,8 +48,7 @@ MissionInterface::MissionInterface ()
 }
 
 MissionInterface::~MissionInterface ()
-{
-}
+= default;
 
 void MissionInterface::TitleClick ( Button *button )
 {

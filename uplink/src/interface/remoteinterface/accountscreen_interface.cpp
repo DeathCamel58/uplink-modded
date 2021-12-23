@@ -26,9 +26,7 @@ AccountScreenInterface::AccountScreenInterface ()
 }
 
 AccountScreenInterface::~AccountScreenInterface ()
-{
-
-}
+= default;
 
 bool AccountScreenInterface::EscapeKeyPressed ()
 {
@@ -225,7 +223,7 @@ void AccountScreenInterface::Update ()
 bool AccountScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "accountscreen_maintitle" ) != 0 );
+	return ( EclGetButton ( "accountscreen_maintitle" ) != nullptr );
 
 }
 

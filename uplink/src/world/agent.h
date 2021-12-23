@@ -13,7 +13,7 @@
 
 // ============================================================================
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "world/person.h"
 #include "world/computer/gateway.h"

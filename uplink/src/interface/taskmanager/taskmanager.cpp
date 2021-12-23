@@ -64,8 +64,7 @@ TaskManager::TaskManager ()
 }
 
 TaskManager::~TaskManager ()
-{
-}
+= default;
 
 
 void TaskManager::RunSoftware ( char *name, float version )

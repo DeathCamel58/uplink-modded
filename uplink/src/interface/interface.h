@@ -15,7 +15,7 @@
 #ifndef _included_classinterface_h				
 #define _included_classinterface_h
 
-#include <stdio.h>
+#include <cstdio>
 
 // ============================================================================
 

@@ -162,8 +162,7 @@ GatewayNuke::GatewayNuke () : UplinkTask ()
 }
 
 GatewayNuke::~GatewayNuke ()
-{
-}
+= default;
 
 void GatewayNuke::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 {

@@ -68,8 +68,7 @@ void ClientCommsInterface::CycleStipplePattern ()
 
 
 ClientCommsInterface::ClientCommsInterface()
-{
-}
+= default;
 
 ClientCommsInterface::~ClientCommsInterface()
 {

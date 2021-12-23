@@ -59,9 +59,7 @@ Date::Date ( int newsecond, int newminute, int newhour, int newday, int newmonth
 }
 
 Date::~Date()
-{
-
-}
+= default;
 
 void Date::SetDate ( Date *copydate )
 {

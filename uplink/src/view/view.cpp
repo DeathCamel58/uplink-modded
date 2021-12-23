@@ -20,14 +20,10 @@
 #include "mmgr.h"
 
 View::View()
-{
-	
-}
+= default;
 
 View::~View()
-{
-	
-}
+= default;
 
 void View::Initialise ()
 {

@@ -20,7 +20,7 @@ class RevelationWonInterface : public MainMenuScreen
 
 protected:
 
-	time_t starttime;
+	time_t starttime{};
 
 protected:
 

@@ -138,8 +138,7 @@ LanComputerSystem::LanComputerSystem ()
 }
 
 LanComputerSystem::~LanComputerSystem ()
-{
-}
+= default;
 
 void LanComputerSystem::IncreaseVisibility( int newValue )
 {
@@ -242,8 +241,7 @@ LanComputerLink::LanComputerLink ()
 }
 
 LanComputerLink::~LanComputerLink ()
-{
-}
+= default;
 
 void LanComputerLink::IncreaseVisibility( int newValue )
 {

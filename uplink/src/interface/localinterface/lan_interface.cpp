@@ -883,8 +883,7 @@ LanInterface::LanInterface ()
 }
 
 LanInterface::~LanInterface ()
-{
-}
+= default;
 
 void LanInterface::SelectSystem ( int systemIndex )
 {

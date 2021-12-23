@@ -36,8 +36,7 @@ ClosingInterface::ClosingInterface ()
 }
 
 ClosingInterface::~ClosingInterface ()
-{
-}
+= default;
 
 void ClosingInterface::LargeTextDraw ( Button *button, bool highlighted, bool clicked )
 {

@@ -600,12 +600,10 @@ void UplinkIRCUser::Set ( char *newname )
 }
 
 IRCInterface::IRCInterface()
-{
-}
+= default;
 
 IRCInterface::~IRCInterface()
-{
-}
+= default;
 
 void IRCInterface::CreateTalkWindow()
 {

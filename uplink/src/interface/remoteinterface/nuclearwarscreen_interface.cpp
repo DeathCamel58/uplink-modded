@@ -36,8 +36,7 @@
 
 
 NuclearWarScreenInterface::NuclearWarScreenInterface ()
-{
-}
+= default;
 
 NuclearWarScreenInterface::~NuclearWarScreenInterface ()
 {

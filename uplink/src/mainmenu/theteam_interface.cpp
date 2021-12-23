@@ -114,9 +114,7 @@ TheTeamInterface::TheTeamInterface()
 }
 
 TheTeamInterface::~TheTeamInterface()
-{
-
-}
+= default;
 
 void TheTeamInterface::NameDraw ( Button *button, bool highlighted, bool clicked )
 {
@@ -398,7 +396,7 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 bool TheTeamInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "theteam_member 1" ) != 0 );
+	return ( EclGetButton ( "theteam_member 1" ) != nullptr );
 
 }
 

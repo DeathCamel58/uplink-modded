@@ -20,9 +20,7 @@ BBSScreen::BBSScreen()
 }
 
 BBSScreen::~BBSScreen()
-{
-
-}
+= default;
 
 void BBSScreen::SetNextPage ( int newnextpage )
 {

@@ -43,8 +43,7 @@ Decrypter::Decrypter () : UplinkTask ()
 }
 
 Decrypter::~Decrypter ()
-{
-}
+= default;
 
 void Decrypter::MoveTo ( int x, int y, int time_ms )
 {

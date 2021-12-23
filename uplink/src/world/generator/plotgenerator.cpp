@@ -114,9 +114,7 @@ PlotGenerator::PlotGenerator ()
 }
 
 PlotGenerator::~PlotGenerator ()
-{
-
-}
+= default;
 
 void PlotGenerator::Initialise ()
 {

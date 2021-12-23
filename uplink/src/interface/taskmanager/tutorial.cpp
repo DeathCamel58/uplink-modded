@@ -49,8 +49,7 @@ Tutorial::Tutorial ()
 }
 
 Tutorial::~Tutorial ()
-{
-}
+= default;
 
 void Tutorial::CloseClick ( Button *button )
 {

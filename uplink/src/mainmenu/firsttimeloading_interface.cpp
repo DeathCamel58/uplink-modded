@@ -18,14 +18,10 @@
 //////////////////////////////////////////////////////////////////////
 
 FirstTimeLoadingInterface::FirstTimeLoadingInterface()
-{
-
-}
+= default;
 
 FirstTimeLoadingInterface::~FirstTimeLoadingInterface()
-{
-
-}
+= default;
 
 void FirstTimeLoadingInterface::Create ()
 {	
@@ -69,7 +65,7 @@ void FirstTimeLoadingInterface::Update ()
 bool FirstTimeLoadingInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "firsttimeloading_text" ) != 0 );
+	return ( EclGetButton ( "firsttimeloading_text" ) != nullptr );
 
 }
 

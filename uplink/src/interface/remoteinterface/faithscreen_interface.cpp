@@ -27,12 +27,10 @@ void FaithScreenInterface::CloseClick ( Button *button )
 }
 
 FaithScreenInterface::FaithScreenInterface ()
-{
-}
+= default;
 
 FaithScreenInterface::~FaithScreenInterface ()
-{
-}
+= default;
 
 bool FaithScreenInterface::EscapeKeyPressed ()
 {

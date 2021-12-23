@@ -149,8 +149,7 @@ FirewallDisable::FirewallDisable () : UplinkTask ()
 }
 
 FirewallDisable::~FirewallDisable ()
-{
-}
+= default;
 
 
 void FirewallDisable::SetTarget ( UplinkObject *uo, char *uos, int uoi )

@@ -392,7 +392,7 @@ void NewsScreenInterface::Remove ()
 bool NewsScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "news_exit" ) != 0 );
+	return ( EclGetButton ( "news_exit" ) != nullptr );
 
 }
 

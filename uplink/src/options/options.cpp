@@ -571,9 +571,7 @@ Option::Option()
 }
 
 Option::~Option()
-{
-
-}
+= default;
 
 void Option::SetName ( char *newname )
 {

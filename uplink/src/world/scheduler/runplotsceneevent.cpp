@@ -20,8 +20,7 @@ RunPlotSceneEvent::RunPlotSceneEvent ()
 }
 
 RunPlotSceneEvent::~RunPlotSceneEvent ()
-{
-}
+= default;
 
 void RunPlotSceneEvent::SetActAndScene ( int newact, int newscene )
 {

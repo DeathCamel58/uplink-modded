@@ -912,7 +912,7 @@ void LinksScreenInterface::Remove ()
 bool LinksScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "linksscreen_maintitle" ) != 0 );
+	return ( EclGetButton ( "linksscreen_maintitle" ) != nullptr );
 
 }
 

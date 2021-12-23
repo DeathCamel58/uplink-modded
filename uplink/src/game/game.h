@@ -107,7 +107,7 @@ public:
 
 	// Winning Code functions
 
-	void WinCode ( const char *desc, const char *codeExtra = NULL ); // The player won the code
+	void WinCode ( const char *desc, const char *codeExtra = nullptr ); // The player won the code
 
 	bool  IsCodeWon          ();                                     // Is the winning code was won
 	char *GetWinningCodeDesc ();                                     // Return the winning code description

@@ -28,8 +28,7 @@ InstallHardwareEvent::InstallHardwareEvent ()
 }
 
 InstallHardwareEvent::~InstallHardwareEvent ()
-{
-}
+= default;
 
 void InstallHardwareEvent::SetHWSale ( Sale *newsale, int newversion )
 {

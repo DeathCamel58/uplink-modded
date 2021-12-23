@@ -27,9 +27,7 @@ UplinkTask::UplinkTask() : Task ()
 }
 
 UplinkTask::~UplinkTask()
-{
-
-}
+= default;
 
 void UplinkTask::SetVersion ( float newversion )
 {

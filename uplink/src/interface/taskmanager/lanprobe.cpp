@@ -45,8 +45,7 @@ LanProbe::LanProbe() : UplinkTask()
 }
 
 LanProbe::~LanProbe()
-{
-}
+= default;
 
 void LanProbe::BorderDraw ( Button *button, bool highlighted, bool clicked )
 {

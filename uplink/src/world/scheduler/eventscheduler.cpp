@@ -18,8 +18,7 @@
 
 
 EventScheduler::EventScheduler ()
-{
-}
+= default;
 
 EventScheduler::~EventScheduler ()
 {

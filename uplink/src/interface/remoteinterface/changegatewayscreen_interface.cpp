@@ -44,8 +44,7 @@ ChangeGatewayScreenInterface::ChangeGatewayScreenInterface ()
 }
 
 ChangeGatewayScreenInterface::~ChangeGatewayScreenInterface ()
-{
-}
+= default;
 
 void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool highlighted, bool clicked )
 {

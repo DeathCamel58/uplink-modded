@@ -158,8 +158,7 @@ SecurityBypass::SecurityBypass ( int newTYPE )
 }
 
 SecurityBypass::~SecurityBypass ()
-{
-}
+= default;
 
 void SecurityBypass::SetTYPE ( int newTYPE )
 {
@@ -515,6 +514,6 @@ bool SecurityBypass::IsInterfaceVisible ()
 	char main [32];
 	UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid );
 
-	return ( EclGetButton ( main ) != 0 );
+	return ( EclGetButton ( main ) != nullptr );
 
 }

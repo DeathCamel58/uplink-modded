@@ -18,12 +18,10 @@
 
 
 WarezGameOverInterface::WarezGameOverInterface ()
-{
-}
+= default;
 
 WarezGameOverInterface::~WarezGameOverInterface ()
-{
-}
+= default;
 
 void WarezGameOverInterface::ReturnToMainMenuClick ( Button *button )
 {

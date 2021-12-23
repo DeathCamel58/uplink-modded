@@ -41,14 +41,10 @@
 //////////////////////////////////////////////////////////////////////
 
 LoginInterface::LoginInterface()
-{
-
-}
+= default;
 
 LoginInterface::~LoginInterface()
-{
-
-}
+= default;
 
 void LoginInterface::CreateExistingGames ()
 {

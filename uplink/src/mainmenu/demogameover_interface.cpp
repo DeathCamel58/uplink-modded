@@ -18,12 +18,10 @@
 
 
 DemoGameOverInterface::DemoGameOverInterface ()
-{
-}
+= default;
 
 DemoGameOverInterface::~DemoGameOverInterface ()
-{
-}
+= default;
 
 void DemoGameOverInterface::ReturnToMainMenuClick ( Button *button )
 {

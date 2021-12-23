@@ -114,7 +114,7 @@ public:
     
     void Reset ();
     void ResetTemp ();
-    void AddLocation ( int x, int y, const char *name, const char *ip = NULL, bool tempForConnection = false );
+    void AddLocation ( int x, int y, const char *name, const char *ip = nullptr, bool tempForConnection = false );
     void DeleteLocationsTemp ();
     
     void PartialLayoutLabels();

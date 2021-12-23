@@ -10,12 +10,10 @@
 
 
 UplinkEvent::UplinkEvent ()
-{
-}
+= default;
 
 UplinkEvent::~UplinkEvent ()
-{
-}
+= default;
 	
 void UplinkEvent::SetRunDate ( Date *newrundate )
 {

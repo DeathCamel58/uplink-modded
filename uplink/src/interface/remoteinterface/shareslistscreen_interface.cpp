@@ -504,7 +504,7 @@ void SharesListScreenInterface::Remove ()
 bool SharesListScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "shareslistscreen_maintitle" ) != 0 );
+	return ( EclGetButton ( "shareslistscreen_maintitle" ) != nullptr );
 
 }
 

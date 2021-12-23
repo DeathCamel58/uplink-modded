@@ -124,9 +124,7 @@ EmailInterface::EmailInterface()
 }
 
 EmailInterface::~EmailInterface()
-{
-
-}
+= default;
 
 void EmailInterface::SetMessage ( int newindex )
 {
@@ -348,7 +346,7 @@ void EmailInterface::Update ()
 bool EmailInterface::IsVisible ()
 {
 
-	return ( EclGetButton ("email_title") != 0 );
+	return ( EclGetButton ("email_title") != nullptr );
 
 }
 

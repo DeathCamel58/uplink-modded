@@ -25,8 +25,7 @@ SecuritySystem::SecuritySystem ()
 }
 
 SecuritySystem::~SecuritySystem ()
-{
-}
+= default;
 
 
 void SecuritySystem::SetTYPE ( int newTYPE )

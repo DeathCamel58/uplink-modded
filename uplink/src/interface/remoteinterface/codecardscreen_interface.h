@@ -16,8 +16,8 @@ protected:
     static char carddataCHRIS[26][16][3];
     static char carddataMARK[26][16][3];
 
-    char row;
-    int col;
+    char row{};
+    int col{};
 
 protected:
 

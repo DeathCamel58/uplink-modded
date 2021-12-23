@@ -11,14 +11,10 @@
 //////////////////////////////////////////////////////////////////////
 
 NetworkScreen::NetworkScreen()
-{
-
-}
+= default;
 
 NetworkScreen::~NetworkScreen()
-{
-
-}
+= default;
 
 void NetworkScreen::Create ()
 {	

@@ -61,8 +61,7 @@ VoiceAnalyser::VoiceAnalyser ()
 }
 
 VoiceAnalyser::~VoiceAnalyser ()
-{
-}
+= default;
 
 void VoiceAnalyser::CloseClick ( Button *button )
 {

@@ -36,9 +36,7 @@ LogScreen::LogScreen()
 }
 
 LogScreen::~LogScreen()
-{
-
-}
+= default;
 
 void LogScreen::SetNextPage ( int newnextpage )
 {

@@ -37,8 +37,7 @@ ScrollBox::ScrollBox()
 }
 
 ScrollBox::~ScrollBox()
-{
-}
+= default;
 
 void ScrollBox::SetName ( char *newname )
 {

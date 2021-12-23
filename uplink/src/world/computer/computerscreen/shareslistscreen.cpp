@@ -19,8 +19,7 @@ SharesListScreen::SharesListScreen ()
 }
 
 SharesListScreen::~SharesListScreen ()
-{
-}
+= default;
 
 void SharesListScreen::SetNextPage ( int newnextpage )
 {

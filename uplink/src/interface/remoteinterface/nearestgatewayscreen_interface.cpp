@@ -30,12 +30,10 @@
 
 
 NearestGatewayScreenInterface::NearestGatewayScreenInterface ()
-{
-}
+= default;
 
 NearestGatewayScreenInterface::~NearestGatewayScreenInterface ()
-{
-}
+= default;
 
 void NearestGatewayScreenInterface::DrawBlack ( Button *button, bool highlighted, bool clicked )
 {
@@ -171,7 +169,7 @@ void NearestGatewayScreenInterface::Create ( ComputerScreen *newcs )
 			numPhysicalGatewayLocations = NUM_PHYSICALGATEWAYLOCATIONS;
 			button_assignbitmap ( "nearestgateway_largemap", "worldmaplarge.tif" );
 		}
-		EclRegisterButtonCallbacks ( "nearestgateway_largemap", DrawMainMap, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "nearestgateway_largemap", DrawMainMap, nullptr, nullptr, nullptr );
     
 		// Create a button for each gateway
 

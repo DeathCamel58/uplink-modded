@@ -10,8 +10,7 @@
 
 
 Security::Security ()
-{
-}
+= default;
 
 Security::~Security ()
 {

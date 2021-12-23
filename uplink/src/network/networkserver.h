@@ -9,7 +9,7 @@
 
 #include <tcp4u.h>
 
-#include <time.h>
+#include <ctime>
 
 #include "tosser.h"
 

@@ -40,8 +40,7 @@ RevelationTracker::RevelationTracker ()
 }
 
 RevelationTracker::~RevelationTracker ()
-{
-}
+= default;
 
 void RevelationTracker::Initialise ()
 {

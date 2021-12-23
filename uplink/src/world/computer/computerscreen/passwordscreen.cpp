@@ -28,9 +28,7 @@ PasswordScreen::PasswordScreen()
 }
 
 PasswordScreen::~PasswordScreen()
-{
-
-}
+= default;
 
 void PasswordScreen::SetNextPage ( int newnextpage )
 {

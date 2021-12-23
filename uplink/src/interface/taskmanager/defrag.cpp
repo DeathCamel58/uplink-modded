@@ -191,8 +191,7 @@ Defrag::Defrag () : UplinkTask ()
 }
 
 Defrag::~Defrag ()
-{
-}
+= default;
 
 void Defrag::Initialise ()
 {

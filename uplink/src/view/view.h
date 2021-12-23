@@ -15,7 +15,7 @@
 
 // ============================================================================
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "app/uplinkobject.h"
 #include "view/fps.h"

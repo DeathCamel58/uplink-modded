@@ -18,8 +18,7 @@ LinksScreen::LinksScreen ()
 }
 
 LinksScreen::~LinksScreen ()
-{
-}
+= default;
 
 void LinksScreen::SetNextPage ( int newnextpage )
 {

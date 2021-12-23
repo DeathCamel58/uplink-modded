@@ -15,8 +15,7 @@ CypherScreen::CypherScreen ()
 }
 
 CypherScreen::~CypherScreen ()
-{
-}
+= default;
 
 void CypherScreen::SetNextPage ( int newnextpage )
 {

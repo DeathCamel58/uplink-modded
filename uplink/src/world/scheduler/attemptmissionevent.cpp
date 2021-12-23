@@ -25,8 +25,7 @@ AttemptMissionEvent::AttemptMissionEvent ()
 }
 
 AttemptMissionEvent::~AttemptMissionEvent ()
-{
-}
+= default;
 
 void AttemptMissionEvent::Run ()
 {

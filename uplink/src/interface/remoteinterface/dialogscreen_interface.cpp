@@ -193,14 +193,10 @@ bool DialogScreenInterface::EscapeKeyPressed ()
 }
 
 DialogScreenInterface::DialogScreenInterface()
-{
-
-}
+= default;
 
 DialogScreenInterface::~DialogScreenInterface()
-{
-
-}
+= default;
 
 void DialogScreenInterface::Create ( ComputerScreen *newcs )
 {

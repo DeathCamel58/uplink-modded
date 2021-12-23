@@ -174,8 +174,7 @@ CodeCardScreenInterface::CodeCardScreenInterface ()
 }
 
 CodeCardScreenInterface::~CodeCardScreenInterface ()
-{
-}
+= default;
 
 void CodeCardScreenInterface::CodeButtonDraw ( Button *button, bool highlighted, bool clicked )
 {

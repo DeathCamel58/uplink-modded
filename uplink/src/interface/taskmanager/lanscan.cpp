@@ -42,8 +42,7 @@ LanScan::LanScan() : UplinkTask()
 }
 
 LanScan::~LanScan()
-{
-}
+= default;
 
 void LanScan::BorderDraw ( Button *button, bool highlighted, bool clicked )
 {

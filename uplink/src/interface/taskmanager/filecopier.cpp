@@ -46,8 +46,7 @@ FileCopier::FileCopier () : UplinkTask ()
 }
 
 FileCopier::~FileCopier ()
-{
-}
+= default;
 
 int FileCopier::GetState ()
 {

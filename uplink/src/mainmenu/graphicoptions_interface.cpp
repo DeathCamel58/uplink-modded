@@ -153,12 +153,10 @@ void GraphicOptionsInterface::ToggleBoxClick ( Button *button )
 
 
 GraphicOptionsInterface::GraphicOptionsInterface ()
-{
-}
+= default;
 
 GraphicOptionsInterface::~GraphicOptionsInterface ()
-{
-}
+= default;
 
 bool GraphicOptionsInterface::ChangeOptionValue ( char *option, int newvalue )
 {

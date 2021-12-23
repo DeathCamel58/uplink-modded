@@ -31,8 +31,7 @@ VLocation::VLocation()
 }
 
 VLocation::~VLocation()
-{
-}
+= default;
 
 void VLocation::SetIP ( char *newip )
 {
@@ -239,8 +238,7 @@ VLocationSpecial::VLocationSpecial () : VLocation ()
 
 
 VLocationSpecial::~VLocationSpecial ()
-{
-}
+= default;
 
 void VLocationSpecial::SetScreenIndex ( int newScreenIndex )
 {

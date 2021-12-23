@@ -88,7 +88,7 @@ public:
 
 	void RunNewLocation ();						// Looks at players location
 	
-	void RunScreen ( int screenindex, Computer *compref = NULL );			// Runs at existing location
+	void RunScreen ( int screenindex, Computer *compref = nullptr );			// Runs at existing location
 	bool VerifyScreen ( int screenindex );
 
 	void SetSecurity ( char *newname, int newvalue );

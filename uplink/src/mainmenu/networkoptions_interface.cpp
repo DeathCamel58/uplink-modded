@@ -29,14 +29,10 @@ int NetworkOptionsInterface::oldNetworkStatus = NETWORK_NONE;
 //////////////////////////////////////////////////////////////////////
 
 NetworkOptionsInterface::NetworkOptionsInterface()
-{
-
-}
+= default;
 
 NetworkOptionsInterface::~NetworkOptionsInterface()
-{
-
-}
+= default;
 
 void NetworkOptionsInterface::CloseClick ( Button *button )
 {

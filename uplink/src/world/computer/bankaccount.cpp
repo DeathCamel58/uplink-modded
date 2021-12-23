@@ -38,8 +38,7 @@ BankAccount::BankAccount ()
 }
 
 BankAccount::~BankAccount ()
-{
-}
+= default;
 	
 BankAccount *BankAccount::GetAccount ( char *bankip, char *accno )
 {
@@ -215,8 +214,8 @@ bool BankAccount::HasTransferOccured ( char *s_ip, char *t_ip, int t_accno, int 
     			UplinkAssert ( al->data1 );
 	    		UplinkAssert ( al->data2 );
 
-				if ( strstr ( al->data1, t_ip )      != 0 &&
-				     strstr ( al->data1, t_accno_s ) != 0 &&
+				if ( strstr ( al->data1, t_ip )      != nullptr &&
+				     strstr ( al->data1, t_accno_s ) != nullptr &&
 				     strcmp ( al->data2, amount_s )  == 0 ) {
 
 				    // This is the correct log in the source account
@@ -255,8 +254,8 @@ bool BankAccount::HasTransferOccured ( char *s_ip, char *t_ip, int t_accno, int 
 			    UplinkAssert ( al->data1 );
 			    UplinkAssert ( al->data2 );
 
-				if ( strstr ( al->data1, s_ip )      != 0 &&
-				     strstr ( al->data1, s_accno_s ) != 0 &&
+				if ( strstr ( al->data1, s_ip )      != nullptr &&
+				     strstr ( al->data1, s_accno_s ) != nullptr &&
 				     strcmp ( al->data2, amount_s )  == 0 ) {
 			
 				    // This is the correct log in the target account

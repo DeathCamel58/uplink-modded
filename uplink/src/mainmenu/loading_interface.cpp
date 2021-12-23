@@ -29,14 +29,10 @@
 //////////////////////////////////////////////////////////////////////
 
 LoadingInterface::LoadingInterface()
-{
-
-}
+= default;
 
 LoadingInterface::~LoadingInterface()
-{
-
-}
+= default;
 
 void LoadingInterface::Create ()
 {	
@@ -116,7 +112,7 @@ void LoadingInterface::Update ()
 bool LoadingInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "loading_background" ) != 0 );
+	return ( EclGetButton ( "loading_background" ) != nullptr );
 
 }
 

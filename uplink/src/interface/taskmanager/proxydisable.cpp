@@ -150,8 +150,7 @@ ProxyDisable::ProxyDisable () : UplinkTask ()
 }
 
 ProxyDisable::~ProxyDisable ()
-{
-}
+= default;
 
 
 void ProxyDisable::SetTarget ( UplinkObject *uo, char *uos, int uoi )

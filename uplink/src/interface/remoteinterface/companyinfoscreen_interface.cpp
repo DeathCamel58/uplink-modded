@@ -19,8 +19,7 @@
 
 
 CompanyInfoScreenInterface::CompanyInfoScreenInterface ()
-{
-}
+= default;
 
 CompanyInfoScreenInterface::~CompanyInfoScreenInterface ()
 {

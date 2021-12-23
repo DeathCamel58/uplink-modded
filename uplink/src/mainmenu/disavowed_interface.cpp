@@ -18,12 +18,10 @@
 
 
 DisavowedInterface::DisavowedInterface ()
-{
-}
+= default;
 
 DisavowedInterface::~DisavowedInterface ()
-{
-}
+= default;
 
 void DisavowedInterface::ReturnToMainMenuClick ( Button *button )
 {

@@ -295,7 +295,7 @@ void RecordScreenInterface::Update ()
 bool RecordScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "recordscreen_maintitle" ) != 0 );
+	return ( EclGetButton ( "recordscreen_maintitle" ) != nullptr );
 
 }
 

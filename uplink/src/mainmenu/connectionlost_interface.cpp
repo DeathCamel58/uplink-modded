@@ -25,8 +25,7 @@ ConnectionLostInterface::ConnectionLostInterface ()
 }
 
 ConnectionLostInterface::~ConnectionLostInterface ()
-{
-}
+= default;
 
 void ConnectionLostInterface::ReturnToMainMenuClick ( Button *button )
 {

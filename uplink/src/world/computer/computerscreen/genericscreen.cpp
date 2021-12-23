@@ -18,8 +18,7 @@ GenericScreen::GenericScreen ()
 }
 
 GenericScreen::~GenericScreen ()
-{
-}
+= default;
 
 void GenericScreen::SetNextPage ( int newnextpage )
 {

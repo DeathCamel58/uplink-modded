@@ -17,8 +17,7 @@ WarningEvent::WarningEvent ()
 }
 
 WarningEvent::~WarningEvent ()
-{
-}
+= default;
 
 
 void WarningEvent::SetEvent ( UplinkEvent *newevent )

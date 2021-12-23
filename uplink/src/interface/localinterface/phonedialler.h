@@ -33,7 +33,7 @@ public:
 	bool UpdateSpecial ();
 	bool IsVisible ();
 
-	void DialNumber ( int x, int y, char *number, int scenario, char *info = NULL );
+	void DialNumber ( int x, int y, char *number, int scenario, char *info = nullptr );
 
 };
 

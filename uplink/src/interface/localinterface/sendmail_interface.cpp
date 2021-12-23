@@ -117,7 +117,7 @@ void SendMailInterface::AttachFileClick ( Button *button )
 bool SendMailInterface::IsVisibleFileList ()
 {
 
-	return ( EclGetButton ( "sendmail_file 0" ) != 0 );
+	return ( EclGetButton ( "sendmail_file 0" ) != nullptr );
 
 }
 
@@ -193,7 +193,7 @@ void SendMailInterface::ToClick ( Button *button )
 bool SendMailInterface::IsVisibleAddressBook ()
 {
 	
-	return ( EclGetButton ( "sendmail_addressbook 0" ) != 0 );
+	return ( EclGetButton ( "sendmail_addressbook 0" ) != nullptr );
 
 }
 

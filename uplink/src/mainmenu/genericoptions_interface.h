@@ -24,7 +24,7 @@ class GenericOptionsInterface : public MainMenuScreen
 
 protected:
 
-	char optionTYPE [16];
+	char optionTYPE [16]{};
 
 protected:
 

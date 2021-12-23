@@ -45,8 +45,7 @@ CypherScreenInterface::CypherScreenInterface ()
 }
 
 CypherScreenInterface::~CypherScreenInterface ()
-{
-}
+= default;
 
 bool CypherScreenInterface::ReturnKeyPressed ()
 {

@@ -48,9 +48,7 @@ ContactScreenInterface::ContactScreenInterface ()
 }
 
 ContactScreenInterface::~ContactScreenInterface ()
-{
-
-}
+= default;
 
 
 void ContactScreenInterface::BorderDraw ( Button *button, bool highlighted, bool clicked )

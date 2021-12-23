@@ -74,7 +74,7 @@ public:
     static void CreateScrollBox ( char *name, 
                                   int x, int y, int w, int h,
                                   int numItems, int windowSize, int currentIndex,
-                                  void (*callback)(char *, int) = NULL );
+                                  void (*callback)(char *, int) = nullptr );
 
     static void RemoveScrollBox ( char *name );
     static ScrollBox *GetScrollBox ( char *name );

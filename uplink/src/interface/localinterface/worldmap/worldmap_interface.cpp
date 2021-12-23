@@ -1320,10 +1320,10 @@ void WorldMapInterface::RemoveWorldMapInterface ()
 int WorldMapInterface::IsVisibleWorldMapInterface ()
 {
 
-    if ( EclGetButton ( "worldmap_smallmap" ) != 0 )
+    if ( EclGetButton ( "worldmap_smallmap" ) != nullptr )
         return WORLDMAP_SMALL;
 
-    else if ( EclGetButton ( "worldmap_largemap" ) != 0 )
+    else if ( EclGetButton ( "worldmap_largemap" ) != nullptr )
         return WORLDMAP_LARGE;
 
     else

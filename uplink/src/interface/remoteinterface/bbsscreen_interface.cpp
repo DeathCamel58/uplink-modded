@@ -434,7 +434,7 @@ void BBSScreenInterface::Remove ()
 bool BBSScreenInterface::IsVisible ()
 {
 
-	return ( EclGetButton ( "bbs_details" ) != 0 );	
+	return ( EclGetButton ( "bbs_details" ) != nullptr );
 
 }
 

@@ -18,9 +18,7 @@
 //////////////////////////////////////////////////////////////////////
 
 MenuScreen::MenuScreen()
-{
-
-}
+= default;
 
 MenuScreen::~MenuScreen()
 {
@@ -159,8 +157,7 @@ MenuScreenOption::MenuScreenOption ()
 }
 
 MenuScreenOption::~MenuScreenOption ()
-{
-}
+= default;
 
 void MenuScreenOption::SetCaption ( char *newcaption )
 {
