@@ -171,3 +171,4 @@ dkms.conf
 **/Make.conf
 
 uplink/src/app/globals_defines.h
+uplink/lib/gucci/gucci_sdl.cpp

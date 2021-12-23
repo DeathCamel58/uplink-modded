@@ -53,53 +53,35 @@
 
 // Build options (define in Preprocessor directives) 
 
-#if defined(USE_SDL)
-#define		USE_SDL											// Use SDL instead of glut
-#endif
+#cmakedefine		USE_SDL											// Use SDL instead of glut
 
 #define		ALPHA				@UPLINK_ALPHA@							// Alpha value used for interface
 #define		ALPHA_DISABLED		@UPLINK_ALPHA_DISABLED@			// Alpha value for disabled buttons
 
-#if defined(DOCLABRELEASE)
-#define	DOCLABRELEASE									    // This version designed for DOC labs
-#endif
-#if defined(WAREZRELEASE)
-#define	WAREZRELEASE                                        // Purity Control
-#endif
+#cmakedefine	DOCLABRELEASE									    // This version designed for DOC labs
+#cmakedefine	WAREZRELEASE                                        // Purity Control
 
-#if defined(CHEATMODES_ENABLED)
-#define	CHEATMODES_ENABLED									// Eg all-links, all-software, password-bypass etc
-#endif
+#cmakedefine	CHEATMODES_ENABLED									// Eg all-links, all-software, password-bypass etc
 #if defined(FULLGAME) && defined(CODECARD_ENABLED)
 // Remove code card check for all builds
-#define     CODECARD_ENABLED                                    // Do the code card lookup thingy at the start
+#cmakedefine     CODECARD_ENABLED                                    // Do the code card lookup thingy at the start
 #endif
-#if defined(DEBUGLOG_ENABLED)
-#define   DEBUGLOG_ENABLED                                      // Redirect std* to users/debug.log
-#endif
+#cmakedefine   DEBUGLOG_ENABLED                                      // Redirect std* to users/debug.log
 
-#if defined(CODECARD_CHRIS)
-#define     CODECARD_CHRIS                                      // Which code card to use
-#endif
-#if defined(CODECARD_TOM)
-#define     CODECARD_TOM                                        // After V1.0 we use ALL THREE - to allow a unified
-#endif
-#if defined(CODECARD_MARK)
-#define     CODECARD_MARK                                       // Patch that works on all copies
-#endif
+#cmakedefine     CODECARD_CHRIS                                      // Which code card to use
+#cmakedefine     CODECARD_TOM                                        // After V1.0 we use ALL THREE - to allow a unified
+#cmakedefine     CODECARD_MARK                                       // Patch that works on all copies
 
 #if !defined(DEMOGAME) && defined(BETA_TIMEOUT)
-#define     BETA_TIMEOUT
+#cmakedefine     BETA_TIMEOUT
 #endif
 
 #if !defined(DEMOGAME) && defined(GAME_WINNING_CODE)
-#define     GAME_WINNING_CODE                                   // Show the winning code on the obituary interface and send a ingame message
+#cmakedefine     GAME_WINNING_CODE                                   // Show the winning code on the obituary interface and send a ingame message
                                                                 // when the player win the game.
 #endif
 
-#if defined(MULTIMONITOR_SUPPORT)
-#define     MULTIMONITOR_SUPPORT                              // Is the multi-monitor support is enabled
-#endif
+#cmakedefine     MULTIMONITOR_SUPPORT                              // Is the multi-monitor support is enabled
 
 #if defined(FULLGAME) && !defined(WAREZRELEASE)
 #define VERIFY_UPLINK_LEGIT                                     // Verify if a standard patch is put on the warez or steam version.
