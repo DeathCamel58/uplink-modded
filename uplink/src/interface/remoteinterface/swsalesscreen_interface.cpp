@@ -7,7 +7,7 @@
 
 #include <GL/glu.h>
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "eclipse.h"
 #include "soundgarden.h"

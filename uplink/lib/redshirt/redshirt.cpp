@@ -10,9 +10,9 @@
 #include <dirent.h>
 #endif
 
-#include <string.h>
-#include <assert.h>
-#include <stdlib.h>
+#include <cstring>
+#include <cassert>
+#include <cstdlib>
 
 #include "bungle.h"
 #include "tosser.h"

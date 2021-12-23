@@ -3,7 +3,7 @@
 #include <windows.h>
 #endif
 
-#include <string.h>
+#include <cstring>
 
 #include <GL/gl.h>
 

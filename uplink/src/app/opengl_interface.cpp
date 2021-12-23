@@ -1,13 +1,13 @@
 
 //#include "stdafx.h"
 
-#include <time.h>
+#include <ctime>
 
 #include <GL/gl.h>
 
 #include <GL/glu.h> /* glu extention library */
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "eclipse.h"
 #include "opengl_interface.h"

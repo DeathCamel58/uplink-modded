@@ -7,7 +7,7 @@
 #include <GL/glu.h>
 
 
-#include <stdlib.h>
+#include <cstdlib>
 
 #include "gucci.h"
 #include "redshirt.h"

@@ -7,7 +7,7 @@
 
 #include <GL/glu.h> /* glu extention library */
 
-#include <math.h>
+#include <cmath>
 
 
 #include "eclipse.h"

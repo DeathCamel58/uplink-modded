@@ -1,5 +1,5 @@
 
-#include <time.h>
+#include <ctime>
 
 #include "eclipse.h"
 #include "soundgarden.h"

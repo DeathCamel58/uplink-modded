@@ -4,7 +4,7 @@
 
 //#include "stdafx.h"
 
-#include <time.h>
+#include <ctime>
 #include <fstream>
 
 #include "redshirt.h"

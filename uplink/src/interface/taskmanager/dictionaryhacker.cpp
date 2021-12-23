@@ -7,8 +7,8 @@
 
 #include <GL/glu.h> /*_glu_extention_library_*/
 
-#include <string.h>
-#include <stdio.h>
+#include <cstring>
+#include <cstdio>
 
 #include "soundgarden.h"
 #include "gucci.h"

@@ -22,7 +22,7 @@
 
 //#include "stdafx.h"
 
-#include <time.h>
+#include <ctime>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <fcntl.h>
@@ -37,7 +37,7 @@
 
 #else
 #include <unistd.h>
-#include <signal.h>
+#include <csignal>
 #endif
 
 #include <GL/gl.h>

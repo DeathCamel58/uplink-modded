@@ -7,7 +7,7 @@
 
 #include <GL/glu.h> /* glu extention library */
 
-#include <string.h>
+#include <cstring>
 
 #include "eclipse.h"
 #include "soundgarden.h"

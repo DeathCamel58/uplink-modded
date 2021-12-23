@@ -16,8 +16,8 @@ void RestoreGlut ( int, int )
 #include <GL/glu.h>
 #include <GL/glx.h>
 
-#include <stdlib.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstring>
 
 // From ClanLib, LGPL (x11_resolution.cpp)
 // needed by qsort

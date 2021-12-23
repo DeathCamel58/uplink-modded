@@ -1,5 +1,5 @@
 
-#include <string.h>
+#include <cstring>
 #include <strstream>
 
 #include "gucci.h"

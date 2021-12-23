@@ -7,10 +7,10 @@
 	#include <sys/stat.h>
 	#include <unistd.h>
 #endif /* ENABLE_BINRELOC */
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <climits>
+#include <cstring>
 #if defined(__APPLE__) && defined(__MACH__)
 #include <sys/param.h>
 #include <mach-o/dyld.h>

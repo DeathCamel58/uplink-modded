@@ -7,7 +7,7 @@
 
 #include <GL/glu.h>
 
-#include <string.h>
+#include <cstring>
 
 #include "soundgarden.h"
 #include "soundgarden.h"

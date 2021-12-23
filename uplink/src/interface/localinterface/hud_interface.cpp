@@ -6,7 +6,7 @@
 
 #include <GL/glu.h>
 
-#include <time.h>
+#include <ctime>
 
 #include "vanbakel.h"
 #include "eclipse.h"

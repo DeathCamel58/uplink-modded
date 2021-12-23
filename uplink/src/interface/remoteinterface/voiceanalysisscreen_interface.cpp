@@ -7,7 +7,7 @@
 #include <GL/glu.h>
 
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "app/app.h"
 #include "app/globals.h"

@@ -7,7 +7,7 @@
 
 #include <GL/glu.h>
 
-#include <math.h>
+#include <cmath>
 
 #include "gucci.h"
 #include "vanbakel.h"

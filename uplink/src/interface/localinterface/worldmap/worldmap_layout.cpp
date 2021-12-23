@@ -5,8 +5,8 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
-#include <math.h>
-#include <stdio.h>
+#include <cmath>
+#include <cstdio>
 
 #include "eclipse.h"
 

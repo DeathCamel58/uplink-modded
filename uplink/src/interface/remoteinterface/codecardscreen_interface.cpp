@@ -15,7 +15,7 @@
 #endif
 
 #include <strstream>
-#include <time.h>
+#include <ctime>
 
 #include <GL/gl.h>
 #include <GL/glu.h>
