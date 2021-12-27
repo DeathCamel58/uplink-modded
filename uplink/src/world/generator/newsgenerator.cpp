@@ -368,14 +368,14 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	news->SetDetails ( details.str () );
 	news->SetData ( NEWS_TYPE_HACKED, comp->ip );
 
-	headline.rdbuf()->freeze( 0 );
-	part1.rdbuf()->freeze( 0 );
-	part2.rdbuf()->freeze( 0 );
-	part3.rdbuf()->freeze( 0 );
-	part4.rdbuf()->freeze( 0 );
-	part5.rdbuf()->freeze( 0 );
-	part6.rdbuf()->freeze( 0 );
-	details.rdbuf()->freeze( 0 );
+	headline.rdbuf()->freeze( false );
+	part1.rdbuf()->freeze( false );
+	part2.rdbuf()->freeze( false );
+	part3.rdbuf()->freeze( false );
+	part4.rdbuf()->freeze( false );
+	part5.rdbuf()->freeze( false );
+	part6.rdbuf()->freeze( false );
+	details.rdbuf()->freeze( false );
 	//delete [] headline.str ();
 	//delete [] part1.str ();
 	//delete [] part2.str ();
@@ -522,12 +522,12 @@ void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 	if ( filesdeleted ) news->SetData ( NEWS_TYPE_COMPUTERDESTROYED, comp->ip );
 	else				news->SetData ( NEWS_TYPE_COMPUTERSHUTDOWN, comp->ip );
 
-	headline.rdbuf()->freeze( 0 );
-	part1.rdbuf()->freeze( 0 );
-	part2.rdbuf()->freeze( 0 );
-	part3.rdbuf()->freeze( 0 );
-	part4.rdbuf()->freeze( 0 );
-	details.rdbuf()->freeze( 0 );
+	headline.rdbuf()->freeze( false );
+	part1.rdbuf()->freeze( false );
+	part2.rdbuf()->freeze( false );
+	part3.rdbuf()->freeze( false );
+	part4.rdbuf()->freeze( false );
+	details.rdbuf()->freeze( false );
 	//delete [] headline.str ();
 	//delete [] part1.str ();
 	//delete [] part2.str ();
@@ -651,11 +651,11 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 	news->SetDetails ( details.str () );
 	news->SetData ( NEWS_TYPE_STOLEN, comp->ip );
 
-	headline.rdbuf()->freeze( 0 );
-	part1.rdbuf()->freeze( 0 );
-	part2.rdbuf()->freeze( 0 );
-	part3.rdbuf()->freeze( 0 );
-	details.rdbuf()->freeze( 0 );
+	headline.rdbuf()->freeze( false );
+	part1.rdbuf()->freeze( false );
+	part2.rdbuf()->freeze( false );
+	part3.rdbuf()->freeze( false );
+	details.rdbuf()->freeze( false );
 	//delete [] headline.str ();
 	//delete [] part1.str ();
 	//delete [] part2.str ();
@@ -772,11 +772,11 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 	news->SetDetails ( details.str () );
 	news->SetData ( NEWS_TYPE_DELETED, comp->ip );
 
-	headline.rdbuf()->freeze( 0 );
-	part1.rdbuf()->freeze( 0 );
-	part2.rdbuf()->freeze( 0 );
-	part3.rdbuf()->freeze( 0 );
-	details.rdbuf()->freeze( 0 );
+	headline.rdbuf()->freeze( false );
+	part1.rdbuf()->freeze( false );
+	part2.rdbuf()->freeze( false );
+	part3.rdbuf()->freeze( false );
+	details.rdbuf()->freeze( false );
 	//delete [] headline.str ();
 	//delete [] part1.str ();
 	//delete [] part2.str ();
@@ -928,11 +928,11 @@ void NewsGenerator::Arrested ( Person *person, Computer *comp, char *reason )
 	news->SetDetails ( details.str () );
 	news->SetData ( NEWS_TYPE_ARREST, person->name, comp ? comp->ip : nullptr );
 
-	headline.rdbuf()->freeze( 0 );
-	part1.rdbuf()->freeze( 0 );
-	part2.rdbuf()->freeze( 0 );
-	part3.rdbuf()->freeze( 0 );
-	details.rdbuf()->freeze( 0 );
+	headline.rdbuf()->freeze( false );
+	part1.rdbuf()->freeze( false );
+	part2.rdbuf()->freeze( false );
+	part3.rdbuf()->freeze( false );
+	details.rdbuf()->freeze( false );
 	//delete [] headline.str ();
 	//delete [] part1.str ();
 	//delete [] part2.str ();

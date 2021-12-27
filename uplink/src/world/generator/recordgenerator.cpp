@@ -257,7 +257,7 @@ void RecordGenerator::GenerateRecord_Criminal ( char *personname, int age )
 
 	crimdb->recordbank.AddRecordSorted ( crim );
 
-	convictions.rdbuf()->freeze( 0 );
+	convictions.rdbuf()->freeze( false );
 	//delete [] convictions.str ();
 
 }
@@ -423,9 +423,9 @@ void RecordGenerator::GenerateRecord_Academic ( char *personname, int age )
 
 	ac->recordbank.AddRecordSorted ( rec );
 
-	collegequals.rdbuf()->freeze( 0 );
-	universityquals.rdbuf()->freeze( 0 );
-	otherquals.rdbuf()->freeze( 0 );
+	collegequals.rdbuf()->freeze( false );
+	universityquals.rdbuf()->freeze( false );
+	otherquals.rdbuf()->freeze( false );
 	//delete [] collegequals.str ();
 	//delete [] universityquals.str ();
 	//delete [] otherquals.str ();

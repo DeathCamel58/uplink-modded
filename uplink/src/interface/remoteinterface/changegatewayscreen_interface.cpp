@@ -525,7 +525,7 @@ void ChangeGatewayScreenInterface::CreateAreYouSure ()
 
 	EclRegisterCaptionChange ( "changegateway_text", caption.str(), 8000 );
 	
-	caption.rdbuf()->freeze( 0 );
+	caption.rdbuf()->freeze( false );
 	//delete [] caption.str();
 
 }

@@ -112,7 +112,7 @@ void WorldGenerator::GenerateValidMapPos ( int &x, int &y )
 	DArray <VLocation *> *vls = game->GetWorld ()->locations.ConvertToDArray (); 
 	/********** End code by François Gagné **********/
 
-	while ( 1 ) {
+	while ( true ) {
 
 		int tX = NumberGenerator::RandomNumber ( VIRTUAL_WIDTH - 1 );
 		int tY = NumberGenerator::RandomNumber ( VIRTUAL_HEIGHT - 1 ) ;
@@ -665,7 +665,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 			"\n\nYou are here because you wish to join this company." << '\x0';
 
 	msg1->SetTextMessage ( body.str () );
-	body.rdbuf()->freeze( 0 );
+	body.rdbuf()->freeze( false );
 	//delete [] body.str ();
 	comp->AddComputerScreen ( msg1, 0 );
 
@@ -694,7 +694,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 			 "rating increases you will find new avenues of work become available." << '\x0';
 
 	dlg2->AddWidget ( "caption1", WIDGET_CAPTION, 100, 110, 380, 270, body2.str (), "" );
-	body2.rdbuf()->freeze( 0 );
+	body2.rdbuf()->freeze( false );
 	//delete [] body2.str ();
 	dlg2->AddWidget ( "cancel", WIDGET_NEXTPAGE, 160, 380, 100, 20, "Cancel", "Cancel registration", 1, 0, nullptr, nullptr );
 	dlg2->AddWidget ( "continue", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Continue", "Continue registration", 3, 0, nullptr, nullptr );
@@ -750,7 +750,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 			  "knowledge of your actions and will destroy your account.  Your Gateway machine will also be destroyed.\n\n"
 			  "Rental of your Gateway computer will cost " << COST_UPLINK_PERMONTH << " credits a month." << '\x0';
 	dlg5->AddWidget ( "caption1", WIDGET_CAPTION, 100, 130, 380, 270, body3.str (), "" );
-	body3.rdbuf()->freeze( 0 );
+	body3.rdbuf()->freeze( false );
 	//delete [] body3.str ();
 
 #ifdef TESTGAME
@@ -2223,7 +2223,7 @@ void WorldGenerator::GenerateStockMarket ()
 	comp->AddComputerScreen ( ms0, 0 );
 
     //delete [] txtmsg.str ();
-	txtmsg.rdbuf()->freeze( 0 );
+	txtmsg.rdbuf()->freeze( false );
 
 	// Screen 1									( Main Menu )
 
@@ -3848,7 +3848,7 @@ Company *WorldGenerator::GetRandomCompany ()
 	DArray <char *> *comps = game->GetWorld ()->companies.ConvertIndexToDArray ();
 	UplinkAssert ( comps->Size () > 0 );
 
-	while (1) {
+	while (true) {
 
 		int index = NumberGenerator::RandomNumber ( comps->Size () );
 		UplinkAssert ( comps->ValidIndex ( index ) );

@@ -90,7 +90,7 @@ void SeizeGatewayEvent::Run ()
 
 			game->GameOver ( deathmsg.str () );
 
-			deathmsg.rdbuf()->freeze( 0 );
+			deathmsg.rdbuf()->freeze( false );
 			//delete [] deathmsg.str ();
 
 		}

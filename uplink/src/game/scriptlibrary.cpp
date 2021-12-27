@@ -1723,7 +1723,7 @@ void ScriptLibrary::Script71 ()
 	mission->GiveLink ( ourcomp->ip );
 	mission->GiveCode ( ourcomp->ip, code );
 
-	details.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
 	//delete [] details.str ();
 
     game->GetWorld ()->GetPlayer ()->GiveMission (mission);

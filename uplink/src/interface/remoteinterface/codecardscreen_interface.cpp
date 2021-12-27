@@ -330,7 +330,7 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
         EclRegisterButton ( 100, 150, 400, 70, caption.str(), " ", "codecard_text" );
         EclRegisterButtonCallbacks ( "codecard_text", textbutton_draw, nullptr, nullptr, nullptr );
 
-		caption.rdbuf()->freeze( 0 );
+		caption.rdbuf()->freeze( false );
         //delete [] caption.str();
 
         char rowcolcaption [128];

@@ -111,7 +111,7 @@ void DisconnectedScreenInterface::Create ( ComputerScreen *newcs )
             EclRegisterCaptionChange ( "disconnectedscreen_loginslost", loginslost.str (),  2000 );
             //delete [] loginslost.str ();
 
-			loginslost.rdbuf()->freeze( 0 );
+			loginslost.rdbuf()->freeze( false );
 
             DisconnectedScreen::ClearLoginsLost ();
 

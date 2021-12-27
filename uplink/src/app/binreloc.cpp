@@ -79,7 +79,7 @@ _br_find_exe (BrInitError *error)
 	strncpy (path2, "/proc/self/exe", buf_size - 1);
 #endif
 
-	while (1) {
+	while (true) {
 		int i;
 
 		size = readlink (path2, path, buf_size - 1);

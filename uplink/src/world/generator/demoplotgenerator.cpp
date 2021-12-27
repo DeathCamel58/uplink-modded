@@ -308,8 +308,8 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 	mission->SetFullDetails  ( fulldetails.str () );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -460,7 +460,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
         m->SetBody ( body.str () );
         m->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
         //delete [] body.str ();
 
     }
@@ -532,7 +532,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
 	    UplinkAssert (cu);
 	    cu->CreateNews ( news );
 
-		newsdetails.rdbuf()->freeze( 0 );
+		newsdetails.rdbuf()->freeze( false );
         //delete [] newsdetails.str ();
 
         // Warning mail to all

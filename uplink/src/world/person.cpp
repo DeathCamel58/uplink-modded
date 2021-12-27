@@ -234,7 +234,7 @@ void Person::ChangeBalance ( int amount, char *description )
 
 				delete date;
 
-				reason.rdbuf()->freeze( 0 );
+				reason.rdbuf()->freeze( false );
                 //delete [] reason.str();
 
             }

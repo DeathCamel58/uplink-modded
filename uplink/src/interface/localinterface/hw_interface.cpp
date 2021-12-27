@@ -121,7 +121,7 @@ void HWInterface::CreateHWInterface ()
 		EclRegisterButtonCallbacks ( "hw_hardware", text_draw, nullptr, nullptr, nullptr );
 		EclRegisterCaptionChange ( "hw_hardware", hardware.str (), 1000 );
 		
-		hardware.rdbuf()->freeze( 0 );
+		hardware.rdbuf()->freeze( false );
 		//delete [] hardware.str ();
         delete security;
 
@@ -145,7 +145,7 @@ void HWInterface::CreateHWInterface ()
 
 		EclRegisterCaptionChange ( "hw_hudupgrades", hudupgrades.str () );
 
-		hudupgrades.rdbuf()->freeze( 0 );
+		hudupgrades.rdbuf()->freeze( false );
 		//delete [] hudupgrades.str ();
 
 		// View gateway

@@ -145,7 +145,7 @@ void MissionInterface::ReplyClick ( Button *button )
 	EclRegisterCaptionChange ( "sendmail_subject", "Mission completed" );
 	EclRegisterCaptionChange ( "sendmail_body box", body.str (), 1000 );
 
-	body.rdbuf()->freeze( 0 );
+	body.rdbuf()->freeze( false );
 	//delete [] body.str ();
 
 }
@@ -307,7 +307,7 @@ void MissionInterface::Create ()
 		EclRegisterButton ( x3, y, width, 15, "Abandon", "Abandon this mission", "mission_abandon" );
 		EclRegisterButtonCallback ( "mission_abandon", AbandonClick );
 
-		details.rdbuf()->freeze( 0 );
+		details.rdbuf()->freeze( false );
 		//delete [] details.str ();
 
 	}

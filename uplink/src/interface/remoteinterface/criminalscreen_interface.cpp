@@ -117,7 +117,7 @@ void CriminalScreenInterface::AddConvictionClick ( Button *button )
 
 			rec->ChangeField ( "Convictions", newconvictions.str () );
 
-			newconvictions.rdbuf()->freeze( 0 );
+			newconvictions.rdbuf()->freeze( false );
 			//delete [] newconvictions.str ();
 
 		}

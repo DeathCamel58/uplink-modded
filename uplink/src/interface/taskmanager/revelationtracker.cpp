@@ -113,7 +113,7 @@ void RevelationTracker::Tick ( int n )
 
 				button->SetCaption ( newcaption.str () );
 
-				newcaption.rdbuf()->freeze( 0 );
+				newcaption.rdbuf()->freeze( false );
 				//delete [] newcaption.str ();
 
 			}

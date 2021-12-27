@@ -135,7 +135,7 @@ void ContactScreenInterface::PutMessage ( int userid, char *message )
 
 	char * msg = new char[ strlen( fullmessage.str() ) + 1 ];
 	UplinkSafeStrcpy( msg, fullmessage.str() );
-	fullmessage.rdbuf()->freeze( 0 );
+	fullmessage.rdbuf()->freeze( false );
 	thisint->messagequeue.PutData ( msg );
 
 	// Can't delete the fullmessage.str here

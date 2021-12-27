@@ -361,7 +361,7 @@ void NotificationEvent::AddInterestOnLoans ()
 			    msg->SetBody ( body.str () );
 			    msg->Send ();
 
-				body.rdbuf()->freeze( 0 );
+				body.rdbuf()->freeze( false );
 			    //delete [] body.str ();
 
 		    }
@@ -624,7 +624,7 @@ void NotificationEvent::PayUplinkMonthlyFee ()
 				m->SetBody ( body.str () );
 				m->Send ();
 
-				body.rdbuf()->freeze( 0 );
+				body.rdbuf()->freeze( false );
 				//delete [] body.str ();
 
 

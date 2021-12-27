@@ -113,7 +113,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 			rec->ChangeField ( "Convictions", newconvictions.str () );
 
-			newconvictions.rdbuf()->freeze( 0 );
+			newconvictions.rdbuf()->freeze( false );
 			//delete [] newconvictions.str ();
 		}
 
@@ -244,7 +244,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 			game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( event );
 
-			reason.rdbuf()->freeze( 0 );
+			reason.rdbuf()->freeze( false );
 			//delete [] reason.str ();
 
 		}
@@ -266,7 +266,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 			game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( event );
 
-			reason.rdbuf()->freeze( 0 );
+			reason.rdbuf()->freeze( false );
 			//delete [] reason.str ();
 
 		}
@@ -302,7 +302,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 			game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( event );
 
-			reason.rdbuf()->freeze( 0 );
+			reason.rdbuf()->freeze( false );
 			//delete [] reason.str ();
 
 		}
@@ -324,7 +324,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 			game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( event );
 
-			reason.rdbuf()->freeze( 0 );
+			reason.rdbuf()->freeze( false );
 			//delete [] reason.str ();
 
 		}
@@ -398,7 +398,7 @@ void ConsequenceGenerator::DidntPayFine ( Person *person, Mission *fine )
 		game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( event );
 
-		reason.rdbuf()->freeze( 0 );
+		reason.rdbuf()->freeze( false );
 		//delete [] reason.str ();
 
 	}
@@ -419,7 +419,7 @@ void ConsequenceGenerator::DidntPayFine ( Person *person, Mission *fine )
 		game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( event );
 
-		reason.rdbuf()->freeze( 0 );
+		reason.rdbuf()->freeze( false );
 		//delete [] reason.str ();
 
 	}

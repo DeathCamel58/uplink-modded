@@ -283,7 +283,7 @@ void Gateway::ExchangeGatewayComplete ()
 		msg->SetBody ( removedText.str () );
 		msg->Send ();
 
-		removedText.rdbuf()->freeze( 0 );
+		removedText.rdbuf()->freeze( false );
 		//delete [] removedText.str ();
 
 	}

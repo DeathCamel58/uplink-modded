@@ -82,7 +82,7 @@ void EmailInterface::EmailReply ( Button *button )
 	EclRegisterCaptionChange ( "sendmail_subject", "RE your email" );
 	EclRegisterCaptionChange ( "sendmail_body box", body.str (), 1000 );
 
-	body.rdbuf()->freeze( 0 );
+	body.rdbuf()->freeze( false );
     //delete [] body.str ();
 
 }
@@ -294,7 +294,7 @@ void EmailInterface::Create ()
 
 		delete [] subject;
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
 	}

@@ -592,7 +592,7 @@ char *AccessLog::GetDescription ()
     char * anscpy = new char[ strlen(ans) + 1 ];
 	UplinkSafeStrcpy( anscpy, ans );
 	ans = nullptr;
-	fullcaption.rdbuf()->freeze( 0 );
+	fullcaption.rdbuf()->freeze( false );
 	return anscpy;
 
 }

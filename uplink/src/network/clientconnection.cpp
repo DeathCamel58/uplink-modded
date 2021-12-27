@@ -118,7 +118,7 @@ void ClientConnection::Handle_ClientCommsInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS ) 	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 		traceprogress = conn->traceprogress;
@@ -144,7 +144,7 @@ void ClientConnection::Handle_ClientCommsInterface ()
 	    int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 	    if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 	    //delete [] msgstream.str ();
 
 	    sentgateway = true;
@@ -177,7 +177,7 @@ void ClientConnection::Handle_ClientCommsInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 	    }
@@ -216,7 +216,7 @@ void ClientConnection::Handle_ClientCommsInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS ) 	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 
@@ -251,7 +251,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 		rating.uplinkrating = player->rating.uplinkrating;
@@ -290,7 +290,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 
@@ -322,7 +322,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 		UplinkStrncpy ( convictions, crimrec, sizeof ( convictions ) );
@@ -350,7 +350,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 		hudupgrades = player->gateway.GetHudUpgrades ();
@@ -384,7 +384,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 		cpumodemmemory = player->gateway.GetCPUSpeed () * player->gateway.GetBandwidth () * player->gateway.memorysize;
@@ -419,7 +419,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 		if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-		msgstream.rdbuf()->freeze( 0 );
+		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
 		UplinkStrncpy ( ip, player->GetRemoteHost ()->ip, sizeof ( ip ) );
@@ -475,7 +475,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 			int result = TcpSend ( socket, message, (unsigned int) ( strlen(message)+1 ), false, HFILE_ERROR );
 			if ( result != TCP4U_SUCCESS )	app->GetNetwork ()->GetServer ()->clients.RemoveData (index);
 
-			msgstream.rdbuf()->freeze( 0 );
+			msgstream.rdbuf()->freeze( false );
 			//delete [] msgstream.str ();
 
 		}

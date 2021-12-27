@@ -233,7 +233,7 @@ void Rating::ChangeUplinkScore ( int amount )
 			msg->SetBody ( body.str () );
 			msg->Send ();
 
-			body.rdbuf()->freeze( 0 );
+			body.rdbuf()->freeze( false );
 			//delete [] body.str ();
 
 			// Increase our credit rating
@@ -267,7 +267,7 @@ void Rating::ChangeUplinkScore ( int amount )
 			msg->SetBody ( body.str () );
 			msg->Send ();
 
-			body.rdbuf()->freeze( 0 );
+			body.rdbuf()->freeze( false );
 			//delete [] body.str ();
 
 		}

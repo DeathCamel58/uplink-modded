@@ -1261,7 +1261,7 @@ void PlotGenerator::Run_Act1Scene3 ()
 	news->SetHeadline ( "High ranking Agent raises doubts over ARC" );
 	news->SetDetails ( details.str () );
 
-	details.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -1328,7 +1328,7 @@ void PlotGenerator::Run_Act1Scene4 ()
 	news->SetHeadline ( "Top Uplink Agent re-assures community" );
 	news->SetDetails ( details.str () );
 
-	details.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -1444,7 +1444,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 	news->SetHeadline ( "Top agent working for ARC found dead" );
 	news->SetDetails ( details.str () );
 
-	details.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -1519,7 +1519,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 		msg->GiveCode ( comp->ip, code );
 		msg->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
         // Make sure that mail doesn't appear on his computer any more
@@ -1679,7 +1679,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 		msg->SetBody ( body.str () );
 		msg->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
     }
@@ -1715,7 +1715,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 		msg->SetBody ( body.str () );
 		msg->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
 	}
@@ -1744,7 +1744,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 		msg->SetBody ( body.str () );
 		msg->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
     }
@@ -1833,7 +1833,7 @@ void PlotGenerator::Run_Act2Scene3 ()
     msg->SetBody ( body.str () );
     msg->Send ();
 
-	body.rdbuf()->freeze( 0 );
+	body.rdbuf()->freeze( false );
     //delete [] body.str ();
 
 }
@@ -2007,7 +2007,7 @@ void PlotGenerator::Run_Act3Scene3 ()
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
-	details.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
     //delete [] details.str ();
 
 
@@ -2048,7 +2048,7 @@ void PlotGenerator::Run_Act3Scene4 ()
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
-	details.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
     //delete [] details.str ();
 
 
@@ -3117,8 +3117,8 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
     m->GiveLink ( ourcomp->ip );
     m->GiveCode ( ourcomp->ip, code );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
     //delete [] fulldetails.str ();
 
@@ -3223,8 +3223,8 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
     m->GiveLink ( ourcomp->ip );
     m->GiveCode ( ourcomp->ip, code );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
     //delete [] fulldetails.str ();
 
@@ -3358,8 +3358,8 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	mission->GiveLink ( ourcomp->ip );
 	mission->GiveCode ( ourcomp->ip, code );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
     //delete [] details.str ();
     //delete [] fulldetails.str ();
 
@@ -3495,7 +3495,7 @@ Mission *PlotGenerator::GenerateMission_MaidenFlight ()
 	m->SetDescription ( SpecialMissionDescription (SPECIALMISSION_MAIDENFLIGHT)  );
 	m->SetFullDetails ( fulldetails.str () );
 
-	fulldetails.rdbuf()->freeze( 0 );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] fulldetails.str ();
 
 	return m;
@@ -3613,7 +3613,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	mission->GiveLink ( ourcomp->ip );
 	mission->GiveCode ( ourcomp->ip, code );
 
-	fulldetails.rdbuf()->freeze( 0 );
+	fulldetails.rdbuf()->freeze( false );
     //delete [] fulldetails.str ();
 
     return mission;
@@ -3755,7 +3755,7 @@ Mission *PlotGenerator::GenerateMission_ShinyHammer ()
     m->SetDescription ( SpecialMissionDescription (SPECIALMISSION_SHINYHAMMER) );
     m->SetFullDetails ( details.str () );
 
-	details.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
     //delete [] details.str ();
 
     return m;
@@ -3796,7 +3796,7 @@ Mission *PlotGenerator::GenerateMission_GrandTour ()
     m->SetDescription ( SpecialMissionDescription (SPECIALMISSION_GRANDTOUR) );
     m->SetFullDetails ( details.str() );
 
-	details.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
     //delete [] details.str();
 
     return m;
@@ -4008,7 +4008,7 @@ bool PlotGenerator::IsMissionComplete_ARCInfiltration ()
         msg->SetBody ( body.str () );
         msg->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
         //delete [] body.str ();
 
         completed_arcinfiltration = true;
@@ -4173,7 +4173,7 @@ bool PlotGenerator::IsMissionComplete_Darwin ()
         msg->SetBody ( body.str () );
         msg->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
         //delete [] body.str ();
 
         completed_darwin = true;
@@ -4535,11 +4535,11 @@ void PlotGenerator::NewsRevelationUsed ( char *ip, int success )
 
 	news->SetData ( NEWS_TYPE_COMPUTERDESTROYED, comp->ip );
 
-	headline.rdbuf()->freeze( 0 );
-	part1.rdbuf()->freeze( 0 );
-	part2.rdbuf()->freeze( 0 );
-	part3.rdbuf()->freeze( 0 );
-	details.rdbuf()->freeze( 0 );
+	headline.rdbuf()->freeze( false );
+	part1.rdbuf()->freeze( false );
+	part2.rdbuf()->freeze( false );
+	part3.rdbuf()->freeze( false );
+	details.rdbuf()->freeze( false );
 	//delete [] headline.str ();
 	//delete [] part1.str ();
 	//delete [] part2.str ();
@@ -4768,7 +4768,7 @@ void PlotGenerator::MessageIncompatibleSaveGame ( const char *fileassert, int li
 
 	msg->Send ();
 
-	body.rdbuf()->freeze( 0 );
+	body.rdbuf()->freeze( false );
 	//delete [] body.str ();
 
 }
