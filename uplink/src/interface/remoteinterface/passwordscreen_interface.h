@@ -32,14 +32,14 @@ public:
 
 	void NextPage ();
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	PasswordScreen *GetComputerScreen ();
 

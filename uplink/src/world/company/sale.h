@@ -40,7 +40,7 @@ public:
 public:
 
 	Sale ();
-	virtual ~Sale ();
+	~Sale () override;
 
 	void SetTitle ( char *newtitle );
 	void SetSaleTYPE ( int newTYPE );
@@ -51,13 +51,13 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
-	void Update ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 
@@ -78,20 +78,20 @@ public:
 public:
 
 	SaleVersion ();
-	~SaleVersion ();
+	~SaleVersion () override;
 
 	void Set ( char *newdetails, int newcost, int newsize, int newdata );
 	char *GetDetails ();
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
-	void Update ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

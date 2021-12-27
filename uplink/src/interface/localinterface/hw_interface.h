@@ -31,12 +31,12 @@ protected:
 	
 public:
 
-	void Create ();
-	void Update ();
-	void Remove ();
-	bool IsVisible ();
+	void Create () override;
+	void Update () override;
+	void Remove () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 };
 

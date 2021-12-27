@@ -73,7 +73,7 @@ protected:
 public:
 
 	Game ();
-	~Game ();
+	~Game () override;
 
 	void NewGame ();
 	void ExitGame ();
@@ -97,11 +97,11 @@ public:
 
 	// Common functions
 
-	bool Load   ( FILE *file );
-	void Save   ( FILE *file );
-	void Print  ();
-	void Update ();
-	char *GetID ();
+	bool Load   ( FILE *file ) override;
+	void Save   ( FILE *file ) override;
+	void Print  () override;
+	void Update () override;
+	char *GetID () override;
 
 	const char *GetLoadedSavefileVer () const;   // Return the savefile version the game is/was loaded from
 

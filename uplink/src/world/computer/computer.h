@@ -99,7 +99,7 @@ public:
 public:
 
 	Computer();
-	virtual ~Computer();
+	~Computer() override;
 
 	void SetTYPE        ( int newTYPE );
 	void SetName		( char *newname );
@@ -133,13 +133,13 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
-	void Update ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

@@ -34,7 +34,7 @@ public:
 public:
 
     LanComputer ();
-    ~LanComputer ();
+    ~LanComputer () override;
 
     int AddLanSystem ( LanComputerSystem *system );
     int AddLanSystem ( int TYPE, int x, int y, int security = 2, int screenIndex = -1, int dataScreenIndex = -1 );
@@ -43,13 +43,13 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
-	void Update ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 
@@ -113,18 +113,18 @@ public:
 public:
 
     LanComputerSystem ();
-    ~LanComputerSystem ();
+    ~LanComputerSystem () override;
 
     void IncreaseVisibility ( int newValue );
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 
@@ -153,18 +153,18 @@ public:
 public:
 
     LanComputerLink ();
-    ~LanComputerLink ();
+    ~LanComputerLink () override;
 
     void IncreaseVisibility ( int newValue );
 
     // Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

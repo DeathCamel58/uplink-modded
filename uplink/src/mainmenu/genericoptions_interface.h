@@ -39,17 +39,17 @@ protected:
 public:
 
 	GenericOptionsInterface ();
-	~GenericOptionsInterface ();
+	~GenericOptionsInterface () override;
 
 	void SetOptionTYPE ( char *newtype );						// eg GAME, SOUND etc
 	void ChangeOptionValue ( char *option, int newvalue );
 
-	void Create ();
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();		
+	int  ScreenID () override;
 
 };
 

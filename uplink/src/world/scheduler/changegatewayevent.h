@@ -31,24 +31,24 @@ public:
 public:
 
 	ChangeGatewayEvent ();
-	~ChangeGatewayEvent ();
+	~ChangeGatewayEvent () override;
 
 	void SetNewGateway ( GatewayDef *value );
 
-	void Run ();
-	void RunWarning ();
+	void Run () override;
+	void RunWarning () override;
 
-	char *GetShortString ();
-	char *GetLongString ();
+	char *GetShortString () override;
+	char *GetLongString () override;
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();				
-	int   GetOBJECTID ();		
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

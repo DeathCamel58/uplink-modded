@@ -31,25 +31,25 @@ public:
 public:
 
 	ArrestEvent ();
-	~ArrestEvent ();
+	~ArrestEvent () override;
 
 	void SetName	( char *newname );
 	void SetReason	( char *newreason );
 	void SetIP		( char *newip );
 
-	void Run ();
+	void Run () override;
 
-	char *GetShortString ();
-	char *GetLongString ();
+	char *GetShortString () override;
+	char *GetLongString () override;
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();				
-	int   GetOBJECTID ();		
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

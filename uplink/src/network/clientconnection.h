@@ -57,7 +57,7 @@ protected:
 public:
 
 	ClientConnection();
-	virtual ~ClientConnection();
+	~ClientConnection() override;
 
 	void SetSocket ( SOCKET socket );	
 	void SetClientType ( int newclienttype );
@@ -69,11 +69,11 @@ public:
 
 	// Common functions
 
-	bool Load   ( FILE *file );
-	void Save   ( FILE *file );
-	void Print  ();
-	void Update ();
-	char *GetID ();
+	bool Load   ( FILE *file ) override;
+	void Save   ( FILE *file ) override;
+	void Print  () override;
+	void Update () override;
+	char *GetID () override;
 
 };
 

@@ -51,7 +51,7 @@ public:
 public:
 
 	News ();
-	~News ();
+	~News () override;
 
 	void SetDate     ( Date *newdate );
 	void SetHeadline ( char *newheadline );
@@ -63,12 +63,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

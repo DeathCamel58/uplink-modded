@@ -25,15 +25,15 @@ protected:
 public:
 
 	LocalInterfaceScreen();
-	virtual ~LocalInterfaceScreen();
+	~LocalInterfaceScreen() override;
 
-	virtual void Create ();
+	void Create () override;
 	void CreateHeight ( int panelheight );
-	virtual void Remove ();
-	virtual void Update ();
-	virtual bool IsVisible ();
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	virtual int  ScreenID ();			
+	int  ScreenID () override;
 
 	static LocalInterfaceScreen *GetInterfaceScreen ( int screenID );						// Returns this object, asserts screenID
 

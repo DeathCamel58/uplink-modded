@@ -29,13 +29,13 @@ protected:
 public:
 
 	KeyboardInterface();
-	virtual ~KeyboardInterface();
+	~KeyboardInterface() override;
 
 	void SetTargetButton ( char *bname );
 
 	void Create ( int x, int y );
-	void Remove ();
-	bool IsVisible ();
+	void Remove () override;
+	bool IsVisible () override;
 
 };
 

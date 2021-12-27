@@ -26,11 +26,11 @@ protected:
 
 public:
 
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	MenuScreen *GetComputerScreen ();
 

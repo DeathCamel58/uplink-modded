@@ -51,17 +51,17 @@ public:
     WorldMapInterfaceLabel(const MapRectangle &mapRect, 
 			   WorldMapInterfaceObject *newFeaturePoint,
 			   const char *newCaption);
-    ~WorldMapInterfaceLabel();
+    ~WorldMapInterfaceLabel() override;
     
     void SetCaption ( const char *newcaption );
     void SetLabelPosition(int n);
     void SetRandomLabelPosition();
 
     int GetLabelPosition() const;
-    virtual MapRectangle GetExtent() const;
+    MapRectangle GetExtent() const override;
     bool Overlaps(WorldMapInterfaceObject *label) const;
     
-    virtual void Draw( int xOffset = 0, int yOffset = 0, float zoom = 1.0  );
+    void Draw( int xOffset = 0, int yOffset = 0, float zoom = 1.0  ) override;
     const char *GetCaption() const;
     
 protected:

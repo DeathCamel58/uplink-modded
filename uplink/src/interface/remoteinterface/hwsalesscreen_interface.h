@@ -55,25 +55,25 @@ protected:
 public:
 
 	HWSalesScreenInterface ();
-	~HWSalesScreenInterface ();
+	~HWSalesScreenInterface () override;
 
-    bool EscapeKeyPressed ();
+    bool EscapeKeyPressed () override;
 
 	void SetHWType ( int newType );							// Populates "items" with all valid upgrades
 
-	void Create ( ComputerScreen *cs );						// Creates the menu (HWType == -1)
+	void Create ( ComputerScreen *cs ) override;						// Creates the menu (HWType == -1)
 	void CreateMenu ( ComputerScreen *cs );
 	void CreateSalesMenu ( ComputerScreen *cs );
 
-	void Remove ();
+	void Remove () override;
 	void RemoveMenu ();
 	void RemoveSalesMenu ();
 
-	bool IsVisible ();
+	bool IsVisible () override;
 	bool IsVisibleMenu ();
 	bool IsVisibleSalesMenu ();
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

@@ -44,23 +44,23 @@ protected:
 public:
 
 	ChangeGatewayScreenInterface ();
-	~ChangeGatewayScreenInterface ();
+	~ChangeGatewayScreenInterface () override;
 
 	void ShowGateway ( int index );
 	int GetGatewayPrice ( int index );							// Takes into account Part exchange value of your gateway
 
-	void Create ();
-	void Create ( ComputerScreen *cs );
+	void Create () override;
+	void Create ( ComputerScreen *cs ) override;
 	void CreateAreYouSure ();
 
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	bool ReturnKeyPressed ();
-    bool EscapeKeyPressed ();
+	bool ReturnKeyPressed () override;
+    bool EscapeKeyPressed () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

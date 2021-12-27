@@ -42,16 +42,16 @@ protected:
 public:
 
 	LoginInterface ();
-	virtual ~LoginInterface ();
+	~LoginInterface () override;
 
-	void Create ();
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();			
+	int  ScreenID () override;
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
 };
 

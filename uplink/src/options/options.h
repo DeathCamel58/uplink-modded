@@ -41,7 +41,7 @@ protected:
 public:
 
 	Options();
-	virtual ~Options();
+	~Options() override;
 
 	void CreateDefaultOptions ();													// Fills in all options not yet created
 
@@ -70,11 +70,11 @@ public:
 
 	// Common functions
 
-	bool Load   ( FILE *file );														// Does not actually save to file
-	void Save   ( FILE *file );														// "" ""
-	void Print  ();
-	void Update ();
-	char *GetID ();
+	bool Load   ( FILE *file ) override;														// Does not actually save to file
+	void Save   ( FILE *file ) override;														// "" ""
+	void Print  () override;
+	void Update () override;
+	char *GetID () override;
 
 };
 
@@ -100,7 +100,7 @@ public:
 public:
 
 	Option();
-	virtual ~Option();
+	~Option() override;
 
 	void SetName    ( char *newname );
 	void SetTooltip ( char *newtooltip );
@@ -111,12 +111,12 @@ public:
 
 	// Common functions
 
-	bool Load   ( FILE *file );
-	void Save   ( FILE *file );
-	void Print  ();
-	void Update ();
-	char *GetID ();
-	int  GetOBJECTID ();
+	bool Load   ( FILE *file ) override;
+	void Save   ( FILE *file ) override;
+	void Print  () override;
+	void Update () override;
+	char *GetID () override;
+	int  GetOBJECTID () override;
 
 };
 

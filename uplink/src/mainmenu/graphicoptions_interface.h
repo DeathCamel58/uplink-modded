@@ -47,17 +47,17 @@ protected:
 public:
 
 	GraphicOptionsInterface ();
-	~GraphicOptionsInterface ();
+	~GraphicOptionsInterface () override;
 
 	void SetOptionTYPE ( char *newtype );						// eg GAME, SOUND etc
 	bool ChangeOptionValue ( char *option, int newvalue );      // Returns true if shutdown required
 
-	void Create ();
+	void Create () override;
 	//void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Update () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();		
+	int  ScreenID () override;
 
 };
 

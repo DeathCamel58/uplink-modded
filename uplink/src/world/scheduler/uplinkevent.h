@@ -31,7 +31,7 @@ public:
 public:
 
 	UplinkEvent ();
-	~UplinkEvent ();
+	~UplinkEvent () override;
 	
 	void SetRunDate ( Date *newrundate );
 	
@@ -44,12 +44,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();							// You must override this
-	int   GetOBJECTID ();					// You must override this
+	char *GetID () override;							// You must override this
+	int   GetOBJECTID () override;					// You must override this
 
 };
 

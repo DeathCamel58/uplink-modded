@@ -57,7 +57,7 @@ public:
 public:
 
 	Company();
-	virtual ~Company();
+	~Company() override;
 
 	void SetName ( char *newname );	
 
@@ -78,13 +78,13 @@ public:
 	
 	// Common functions
 
-	virtual bool Load  ( FILE *file );
-	virtual void Save  ( FILE *file );
-	virtual void Print ();
-	virtual void Update ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 	
-	virtual char *GetID ();
-	virtual int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

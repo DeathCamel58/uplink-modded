@@ -53,11 +53,11 @@ public:
 
 	// Common functions
 
-	void Create ();
-	void Remove ();
-	void Update ();
+	void Create () override;
+	void Remove () override;
+	void Update () override;
 	
-	bool IsVisible ();
+	bool IsVisible () override;
 
 };
 

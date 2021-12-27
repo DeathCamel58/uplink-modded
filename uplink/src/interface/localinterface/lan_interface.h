@@ -98,7 +98,7 @@ protected:
 public:
 
     LanInterface ();
-    ~LanInterface ();
+    ~LanInterface () override;
 
     void CreateLayout ();
     void RemoveLayout ();
@@ -108,12 +108,12 @@ public:
 
     static LanInterfaceObject *GetLanInterfaceObject( int TYPE );
 
-	virtual void Create ();
-	virtual void Remove ();
-	virtual void Update ();
-	virtual bool IsVisible ();
+	void Create () override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	virtual int  ScreenID ();			
+	int  ScreenID () override;
 
 };
 

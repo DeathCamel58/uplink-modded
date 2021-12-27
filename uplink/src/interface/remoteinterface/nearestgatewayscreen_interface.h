@@ -32,15 +32,15 @@ protected:
 public:
 
 	NearestGatewayScreenInterface ();
-	~NearestGatewayScreenInterface ();
+	~NearestGatewayScreenInterface () override;
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

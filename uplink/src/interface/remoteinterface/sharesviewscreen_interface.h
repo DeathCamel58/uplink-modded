@@ -43,19 +43,19 @@ protected:
 public:
 
 	SharesViewScreenInterface ();
-	~SharesViewScreenInterface ();
+	~SharesViewScreenInterface () override;
 
-    bool EscapeKeyPressed ();
+    bool EscapeKeyPressed () override;
 
 	void SetCompanyName ( char *newcompanyname );
 
-	void Create ();
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

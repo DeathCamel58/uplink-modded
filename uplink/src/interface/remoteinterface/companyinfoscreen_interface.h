@@ -33,17 +33,17 @@ protected:
 public:
 
 	CompanyInfoScreenInterface ();
-	~CompanyInfoScreenInterface ();
+	~CompanyInfoScreenInterface () override;
 
-    bool EscapeKeyPressed ();
+    bool EscapeKeyPressed () override;
 
-	void Create ();
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

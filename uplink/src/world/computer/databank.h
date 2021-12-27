@@ -33,7 +33,7 @@ public:
 public:
 
 	DataBank();
-	virtual ~DataBank();
+	~DataBank() override;
 
 	void SetSize ( int newsize );
 	int  GetSize ();										
@@ -65,13 +65,13 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );			
-	void Save  ( FILE *file );			
-	void Print ();		
-	void Update ();			
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 	
-	char *GetID ();	
-	int GetOBJECTID ();
+	char *GetID () override;
+	int GetOBJECTID () override;
 
 };
 
@@ -115,7 +115,7 @@ public:
 
 	Data ();
 	Data ( Data *copyme );
-	~Data ();
+	~Data () override;
 
 	void SetTitle ( char *newtitle );
 	void SetDetails ( int newTYPE, int newsize, 
@@ -124,13 +124,13 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );			
-	void Save  ( FILE *file );			
-	void Print ();		
-	void Update ();			
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 	
-	char *GetID ();	
-	int GetOBJECTID ();
+	char *GetID () override;
+	int GetOBJECTID () override;
 
 };
 

@@ -41,17 +41,17 @@ protected:
 public:
 
 	EmailInterface();
-	virtual ~EmailInterface();
+	~EmailInterface() override;
 
 	void SetMessage ( int index );
 
-	void Create ();
+	void Create () override;
 
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();			
+	int  ScreenID () override;
 
 };
 

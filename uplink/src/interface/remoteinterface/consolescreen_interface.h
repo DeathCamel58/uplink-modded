@@ -54,7 +54,7 @@ protected:
 public:
 
 	ConsoleScreenInterface ();
-	~ConsoleScreenInterface ();
+	~ConsoleScreenInterface () override;
 
 	void AddUser ( char *name );
 
@@ -75,14 +75,14 @@ public:
 	void RunCommand_SHUTDOWN	();
 	void RunCommand_DISCONNECT	();
 
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

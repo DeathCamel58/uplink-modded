@@ -64,7 +64,7 @@ protected:
 public:
 
 	ContactScreenInterface ();
-	~ContactScreenInterface ();
+	~ContactScreenInterface () override;
 
 	void SetTYPE ( int newTYPE );
 	void SetMission  ( Mission *newmission );
@@ -72,14 +72,14 @@ public:
 	void AddUser ( char *name );
 	void AddQuestion ( char *question, int index = -1 );
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

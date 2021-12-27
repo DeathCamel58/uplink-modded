@@ -14,16 +14,16 @@ public:
 #endif
 
   dos2unixbuf(const char *filename, openmode mode);
-  virtual ~dos2unixbuf();
+  ~dos2unixbuf() override;
 
   void close();
 
 protected:
-  virtual int overflow(int c = EOF);
-  virtual int underflow();
-  virtual int uflow();
-  virtual int pbackfail(int c = EOF);
-  virtual int sync();
+  int overflow(int c = EOF) override;
+  int underflow() override;
+  int uflow() override;
+  int pbackfail(int c = EOF) override;
+  int sync() override;
   
 private:
   filebuf inner;
@@ -38,7 +38,7 @@ public:
     {
     }
 
-  virtual ~idos2unixstream();
+  ~idos2unixstream() override;
 
   void close();
 };

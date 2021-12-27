@@ -41,7 +41,7 @@ public:
 public:
 
 	Agent ();
-	~Agent ();
+	~Agent () override;
 
 	void SetHandle ( char *newhandle );
 
@@ -53,11 +53,11 @@ public:
 	void RemoveLink  ( char *ip );
 
 	void GiveCode    ( char *newip, char *newcode );
-	void GiveMessage ( Message *message );
+	void GiveMessage ( Message *message ) override;
     int HasAccount  ( char *ip );                           // Returns access level or -1
 
 	int  CreateNewAccount ( char *bankip, char *accname, char *password, 
-							int balance, int loan );			// Returns account number	
+							int balance, int loan ) override;			// Returns account number
 
 	bool HasMissionLink ( const char *ip );
 
@@ -74,13 +74,13 @@ public:
 
 	// Common functions
 
-	bool Load   ( FILE *file );
-	void Save   ( FILE *file );
-	void Print  ();
-	void Update ();
+	bool Load   ( FILE *file ) override;
+	void Save   ( FILE *file ) override;
+	void Print  () override;
+	void Update () override;
 
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

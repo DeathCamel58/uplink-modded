@@ -44,19 +44,19 @@ protected:
 public:
 
 	FirewallDisable ();
-	~FirewallDisable ();
+	~FirewallDisable () override;
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi );
-	void MoveTo ( int x, int y, int time_ms );			
+	void SetTarget ( UplinkObject *uo, char *uos, int uoi ) override;
+	void MoveTo ( int x, int y, int time_ms ) override;
 
-	void Initialise ();     
-	void Tick ( int n );    
+	void Initialise () override;
+	void Tick ( int n ) override;
 	
-	void CreateInterface ();       
-	void RemoveInterface ();
-	void ShowInterface ();
+	void CreateInterface () override;
+	void RemoveInterface () override;
+	void ShowInterface () override;
 
-	bool IsInterfaceVisible ();     
+	bool IsInterfaceVisible () override;
 
 };
 

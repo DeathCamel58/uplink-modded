@@ -68,19 +68,19 @@ protected:
 public:
 
 	VoiceAnalyser ();
-	~VoiceAnalyser ();
+	~VoiceAnalyser () override;
 	
 
-	void Initialise ();     
-	void Tick ( int n );           
+	void Initialise () override;
+	void Tick ( int n ) override;
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi );
-	void MoveTo ( int x, int y, int time_ms );			
+	void SetTarget ( UplinkObject *uo, char *uos, int uoi ) override;
+	void MoveTo ( int x, int y, int time_ms ) override;
 
-	void CreateInterface ();       
-	void RemoveInterface ();
-	void ShowInterface ();
-	bool IsInterfaceVisible ();     
+	void CreateInterface () override;
+	void RemoveInterface () override;
+	void ShowInterface () override;
+	bool IsInterfaceVisible () override;
 
 };
 

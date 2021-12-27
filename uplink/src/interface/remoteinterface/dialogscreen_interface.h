@@ -33,16 +33,16 @@ protected:
 public:
 
 	DialogScreenInterface();
-	virtual ~DialogScreenInterface();
+	~DialogScreenInterface() override;
 
-	bool ReturnKeyPressed ();
-    bool EscapeKeyPressed ();
+	bool ReturnKeyPressed () override;
+    bool EscapeKeyPressed () override;
 
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();			
+	int  ScreenID () override;
 
 	DialogScreen *GetComputerScreen ();				// Should override this with correct data type
 

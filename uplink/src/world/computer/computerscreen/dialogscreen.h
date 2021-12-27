@@ -34,7 +34,7 @@ public:
 public:
 
 	DialogScreen();
-	virtual ~DialogScreen();
+	~DialogScreen() override;
 
 	void AddWidget ( char *name, int WIDGETTYPE, int x, int y, int width, int height, char *caption, char *tooltip );
 	void AddWidget ( char *name, int WIDGETTYPE, int x, int y, int width, int height, char *caption, char *tooltip,
@@ -47,12 +47,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );			
-	void Save  ( FILE *file );			
-	void Print ();						
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();						
-	int   GetOBJECTID ();				
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 
@@ -96,7 +96,7 @@ public:
 public:
 
 	DialogScreenWidget ();
-	~DialogScreenWidget ();
+	~DialogScreenWidget () override;
 
 	void SetName ( char *newname );
 	void SetTYPE ( int NEWWIDGETTYPE );
@@ -119,12 +119,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );			
-	void Save  ( FILE *file );			
-	void Print ();						
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();						
-	int   GetOBJECTID ();				
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

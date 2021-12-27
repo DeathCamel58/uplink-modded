@@ -24,14 +24,14 @@ protected:
 
 public:
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
-	void Create ();
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	bool IsVisible ();
+	void Create () override;
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	MessageScreen *GetComputerScreen ();
 

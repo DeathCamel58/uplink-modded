@@ -40,20 +40,20 @@ protected:
 public:
 
 	SocialSecurityScreenInterface ();
-	~SocialSecurityScreenInterface ();
+	~SocialSecurityScreenInterface () override;
 
 	void SetSearchName ( char *newsearchname );
 
 
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 //	bool ReturnKeyPressed ();				// Can't do this - need to be able to press return
-    bool EscapeKeyPressed ();
+    bool EscapeKeyPressed () override;
 
 	GenericScreen *GetComputerScreen ();
 

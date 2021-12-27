@@ -47,14 +47,14 @@ protected:
 
 public:
 
-    bool EscapeKeyPressed ();
+    bool EscapeKeyPressed () override;
 
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	BBSScreen *GetComputerScreen ();				// Should override this with correct data type
 

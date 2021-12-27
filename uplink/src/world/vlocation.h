@@ -42,7 +42,7 @@ public:
 public:
 
 	VLocation();
-	virtual ~VLocation();
+	~VLocation() override;
 
 	void SetIP ( char *newip );
 	static bool VerifyIP ( char *newip );
@@ -58,12 +58,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 
@@ -86,19 +86,19 @@ public:
 public:
 
 	VLocationSpecial ();
-	virtual ~VLocationSpecial ();
+	~VLocationSpecial () override;
 
 	void SetScreenIndex ( int newScreenIndex );
     void SetSecuritySystemIndex ( int newIndex );
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

@@ -43,16 +43,16 @@ protected:
 public:
 
     ClientCommsInterface();
-    virtual ~ClientCommsInterface();
+    ~ClientCommsInterface() override;
     
     void LayoutLabels();
     
-    void Create ();
-    void Remove ();
-    void Update ();
-    bool IsVisible ();
+    void Create () override;
+    void Remove () override;
+    void Update () override;
+    bool IsVisible () override;
 
-    int  ScreenID ();			
+    int  ScreenID () override;
 
 };
 

@@ -35,18 +35,18 @@ protected:
 public:
 
     RevelationTracker ();
-    ~RevelationTracker ();
+    ~RevelationTracker () override;
 
-    void MoveTo ( int x, int y, int time_ms );
+    void MoveTo ( int x, int y, int time_ms ) override;
 
-	void Initialise ();     
-	void Tick ( int n );	
+	void Initialise () override;
+	void Tick ( int n ) override;
 
-	void CreateInterface ();       
-	void RemoveInterface ();
-	void ShowInterface ();
+	void CreateInterface () override;
+	void RemoveInterface () override;
+	void ShowInterface () override;
 
-	bool IsInterfaceVisible ();    
+	bool IsInterfaceVisible () override;
 
 };
 

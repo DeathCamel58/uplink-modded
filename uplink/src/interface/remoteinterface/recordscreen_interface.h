@@ -34,13 +34,13 @@ protected:
 
 public:
 
-	void Create ( ComputerScreen *newcs );
+	void Create ( ComputerScreen *newcs ) override;
 		
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();			
+	int  ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();		
 

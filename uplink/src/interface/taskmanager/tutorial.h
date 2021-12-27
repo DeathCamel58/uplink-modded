@@ -48,7 +48,7 @@ protected:
 public:
 
 	Tutorial ();
-	~Tutorial ();
+	~Tutorial () override;
 
 	void RunMenu ();
 	void RunTutorial ( int tutorial, int part );
@@ -58,15 +58,15 @@ public:
 	bool HasCompletedCurrentSection ();
 	
 
-	void Initialise ();     
-	void Tick ( int n );           
+	void Initialise () override;
+	void Tick ( int n ) override;
 
-	void MoveTo ( int x, int y, int time_ms );			
+	void MoveTo ( int x, int y, int time_ms ) override;
 
-	void CreateInterface ();       
-	void RemoveInterface ();
-	void ShowInterface ();
-	bool IsInterfaceVisible ();     
+	void CreateInterface () override;
+	void RemoveInterface () override;
+	void ShowInterface () override;
+	bool IsInterfaceVisible () override;
 
 	void MoveMenuTo ( int x, int y, int time_ms );
 

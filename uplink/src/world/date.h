@@ -42,7 +42,7 @@ public:
 	Date ( int newsecond, int newminute, int newhour,
 		   int newday, int newmonth, int newyear );
 
-	virtual ~Date();
+	~Date() override;
 
 	void SetDate ( int newsecond, int newminute, int newhour,
 				   int newday, int newmonth, int newyear );
@@ -76,12 +76,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
-	void Update ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 
-	char *GetID ();
+	char *GetID () override;
 
 };
 

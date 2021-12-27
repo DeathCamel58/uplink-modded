@@ -32,14 +32,14 @@ public:
 	static void AfterPhoneDialler ( char *ip, char *info );
 
 	FinanceInterface ();
-	~FinanceInterface ();
+	~FinanceInterface () override;
 
-	void Create ();
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 };
 

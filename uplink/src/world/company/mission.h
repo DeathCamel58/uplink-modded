@@ -74,7 +74,7 @@ public:
 public:
 
 	Mission ();
-	~Mission ();
+	~Mission () override;
 
 	void SetTYPE			( int newTYPE );
 	void SetCompletion		( char *newA, char *newB, char *newC, char *newD, char *newE );
@@ -109,12 +109,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

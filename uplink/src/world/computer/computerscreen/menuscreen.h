@@ -33,7 +33,7 @@ protected:
 public:
 
 	MenuScreen();
-	virtual ~MenuScreen();
+	~MenuScreen() override;
 
 	void  AddOption	  ( char *caption, char *tooltip, int nextpage, int security = 10, int index = -1 );
 	int   NumOptions  ();
@@ -45,12 +45,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );			
-	void Save  ( FILE *file );			
-	void Print ();						
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();						
-	int   GetOBJECTID ();				
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 
@@ -74,7 +74,7 @@ public :
 public:
 
 	MenuScreenOption ();
-	~MenuScreenOption ();
+	~MenuScreenOption () override;
 
 	void SetCaption ( char *newcaption );
 	void SetTooltip ( char *newtooltip );
@@ -84,13 +84,13 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
-	void Update ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 
-	char *GetID ();
-	int GetOBJECTID ();
+	char *GetID () override;
+	int GetOBJECTID () override;
 	
 };
 

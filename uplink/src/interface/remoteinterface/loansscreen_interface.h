@@ -38,17 +38,17 @@ protected:
 public:
 
 	LoansScreenInterface ();
-	~LoansScreenInterface ();
+	~LoansScreenInterface () override;
 
-    bool EscapeKeyPressed ();
+    bool EscapeKeyPressed () override;
 
-	void Create ();
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();			
 

@@ -44,18 +44,18 @@ protected:
 public:
 
 	CriminalScreenInterface ();
-	~CriminalScreenInterface ();
+	~CriminalScreenInterface () override;
 
-    bool EscapeKeyPressed ();
+    bool EscapeKeyPressed () override;
 
 	void SetSearchName ( char *newsearchname );
 
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

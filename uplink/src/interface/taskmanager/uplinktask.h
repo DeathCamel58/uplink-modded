@@ -30,7 +30,7 @@ public:
 public:
 
 	UplinkTask();
-	virtual ~UplinkTask();
+	~UplinkTask() override;
 
 	void SetVersion ( float newversion );
 	void SetFollowMouse ( bool newfollowmouse );

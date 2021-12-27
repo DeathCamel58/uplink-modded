@@ -44,21 +44,21 @@ protected:
 public:
 
 	FileCopier ();
-	~FileCopier ();
+	~FileCopier () override;
 
     int GetState ();                    // Returns variable 'downloading'
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi );
-	void MoveTo ( int x, int y, int time_ms );				// Centred on top-right of title image
+	void SetTarget ( UplinkObject *uo, char *uos, int uoi ) override;
+	void MoveTo ( int x, int y, int time_ms ) override;				// Centred on top-right of title image
 
-	void Initialise ();     // Called at creation time, neccisary
-	void Tick ( int n );           // n ticks occur
+	void Initialise () override;     // Called at creation time, neccisary
+	void Tick ( int n ) override;           // n ticks occur
 	
-	void CreateInterface ();       
-	void RemoveInterface ();
-	void ShowInterface ();
+	void CreateInterface () override;
+	void RemoveInterface () override;
+	void ShowInterface () override;
 
-	bool IsInterfaceVisible ();     
+	bool IsInterfaceVisible () override;
 
 };
 

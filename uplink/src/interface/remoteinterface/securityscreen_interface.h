@@ -35,14 +35,14 @@ protected:
 
 public:
 
-    bool EscapeKeyPressed ();
+    bool EscapeKeyPressed () override;
 
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	GenericScreen *GetComputerScreen ();
 

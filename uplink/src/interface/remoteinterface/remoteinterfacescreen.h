@@ -37,16 +37,16 @@ protected:
 public:
 
 	RemoteInterfaceScreen();
-	virtual ~RemoteInterfaceScreen();
+	~RemoteInterfaceScreen() override;
 	
-	void Create ();											// Provided
+	void Create () override;											// Provided
 	virtual void Create ( ComputerScreen *newcs );
 
-	virtual void Remove ();
-	virtual void Update ();
-	virtual bool IsVisible ();
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	virtual int  ScreenID ();			
+	int  ScreenID () override;
 
 	ComputerScreen *GetComputerScreen ();			// Should override this with correct data type
 

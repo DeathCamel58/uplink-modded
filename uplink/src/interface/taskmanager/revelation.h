@@ -27,13 +27,13 @@ protected:
 
 public:
 
-	void Initialise ();     
-	void Tick ( int n );	
+	void Initialise () override;
+	void Tick ( int n ) override;
 
-	void CreateInterface ();       
-	void RemoveInterface ();
-	void ShowInterface ();
+	void CreateInterface () override;
+	void RemoveInterface () override;
+	void ShowInterface () override;
 
-	bool IsInterfaceVisible ();    
+	bool IsInterfaceVisible () override;
 
 };

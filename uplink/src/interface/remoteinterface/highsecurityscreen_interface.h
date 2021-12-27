@@ -33,16 +33,16 @@ protected:
 public:
 	
 	HighSecurityScreenInterface ();
-	~HighSecurityScreenInterface ();
+	~HighSecurityScreenInterface () override;
 
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
 	HighSecurityScreen *GetComputerScreen ();
 

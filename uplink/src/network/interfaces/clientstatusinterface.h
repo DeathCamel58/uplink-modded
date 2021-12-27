@@ -43,7 +43,7 @@ protected:
 public:
 
 	ClientStatusInterface();
-	virtual ~ClientStatusInterface();
+	~ClientStatusInterface() override;
 
 	void SetHardware	( char *newhw );
 	void SetHUDUpgrades ( char *newhud );
@@ -55,12 +55,12 @@ public:
 	
 	void AddNewsStory   ( char *news );
 
-	void Create ();
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();	
+	int  ScreenID () override;
 
 };
 

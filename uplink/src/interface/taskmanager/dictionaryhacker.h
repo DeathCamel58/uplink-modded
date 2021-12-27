@@ -36,18 +36,18 @@ public:
 
 	DictionaryHacker();
 
-	virtual ~DictionaryHacker();
+	~DictionaryHacker() override;
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi );				
+	void SetTarget ( UplinkObject *uo, char *uos, int uoi ) override;
 
-	void Initialise ();     // Called at creation time, neccisary
-	void Tick ( int n );           // n ticks occur
+	void Initialise () override;     // Called at creation time, neccisary
+	void Tick ( int n ) override;           // n ticks occur
 	
-	void CreateInterface ();       
-	void RemoveInterface ();
-	void ShowInterface ();
+	void CreateInterface () override;
+	void RemoveInterface () override;
+	void ShowInterface () override;
 
-	bool IsInterfaceVisible ();     
+	bool IsInterfaceVisible () override;
 
 };
 

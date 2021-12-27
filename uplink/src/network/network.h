@@ -46,7 +46,7 @@ public:
 public:
 
 	Network();
-	virtual ~Network();
+	~Network() override;
 
 	void SetStatus ( int newSTATUS );
 
@@ -66,11 +66,11 @@ public:
 
 	// Common functions
 
-	bool Load   ( FILE *file );
-	void Save   ( FILE *file );
-	void Print  ();
-	void Update ();
-	char *GetID ();
+	bool Load   ( FILE *file ) override;
+	void Save   ( FILE *file ) override;
+	void Print  () override;
+	void Update () override;
+	char *GetID () override;
 
 };
 

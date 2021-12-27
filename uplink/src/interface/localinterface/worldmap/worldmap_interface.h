@@ -112,23 +112,23 @@ public:
 	static void AfterPhoneDialler ( char *ip, char *info );
     
     WorldMapInterface ();
-    ~WorldMapInterface ();
+    ~WorldMapInterface () override;
 
-    void Create ();
+    void Create () override;
     void Create ( int SIZE );
-    void Update ();
-    void Remove ();
-    bool IsVisible ();					
+    void Update () override;
+    void Remove () override;
+    bool IsVisible () override;
 
-    int ScreenID ();
+    int ScreenID () override;
 
 	// Common functions
 
-	virtual bool Load  ( FILE *file );
-	virtual void Save  ( FILE *file );
-	virtual void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	virtual char *GetID ();
+	char *GetID () override;
 
 protected:
 

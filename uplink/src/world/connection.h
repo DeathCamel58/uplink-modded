@@ -39,7 +39,7 @@ public:
 public:
 	
 	Connection();
-	virtual ~Connection();
+	~Connection() override;
 
 	void SetOwner ( char *newowner );
 
@@ -71,11 +71,11 @@ public:
 	
 	// Common functions
 
-	virtual bool Load  ( FILE *file );
-	virtual void Save  ( FILE *file );
-	virtual void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	virtual char *GetID ();
+	char *GetID () override;
 
 };
 

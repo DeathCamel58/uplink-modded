@@ -27,20 +27,20 @@ protected:
 public:
 
     CodeCardScreenInterface ();
-    ~CodeCardScreenInterface ();
+    ~CodeCardScreenInterface () override;
 
     static char *GetCodeTOM     ( char row, int column );                          // Lower case char only please
     static char *GetCodeCHRIS   ( char row, int column );
     static char *GetCodeMARK    ( char row, int column );
 
-	void Create ( ComputerScreen *cs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create ( ComputerScreen *cs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-    bool ReturnKeyPressed ();
+    bool ReturnKeyPressed () override;
 
-	int  ScreenID ();	
+	int  ScreenID () override;
     GenericScreen *GetComputerScreen ();
 
 };

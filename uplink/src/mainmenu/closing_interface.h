@@ -31,14 +31,14 @@ public:
 public:
 
     ClosingInterface ();
-    ~ClosingInterface ();
+    ~ClosingInterface () override;
 
-	void Create ();
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();			
+	int  ScreenID () override;
 
 };
 

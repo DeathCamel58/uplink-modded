@@ -82,7 +82,7 @@ protected:
 public:
 
 	HUDInterface ();
-	~HUDInterface ();
+	~HUDInterface () override;
 
 	static void MoveSelecter ( int screenID, int screenindex );			// Controls which button is "selected"
 
@@ -91,11 +91,11 @@ public:
     void RemoveUpgrade    ( char upgrade );
     HUDInterfaceUpgrade *GetUpgrade ( char upgrade );
 
-	void Create ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
 	static HUDInterface *GetHUD ();	
 
@@ -103,11 +103,11 @@ public:
 
 	// Common functions
 
-	virtual bool Load  ( FILE *file );
-	virtual void Save  ( FILE *file );
-	virtual void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	virtual char *GetID ();
+	char *GetID () override;
 
 };
 

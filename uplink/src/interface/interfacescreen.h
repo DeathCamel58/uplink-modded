@@ -30,11 +30,11 @@ protected:
 public:
 
 	InterfaceScreen();
-	virtual ~InterfaceScreen();
+	~InterfaceScreen() override;
 
 	virtual void Create ();
 	virtual void Remove ();
-	virtual void Update ();
+	void Update () override;
 	virtual bool IsVisible ();
 
 	virtual int  ScreenID ();			

@@ -66,21 +66,21 @@ public:
 	static void AfterPhoneDialler ( char *ip, char *info );
 
     LinksScreenInterface ();
-    ~LinksScreenInterface ();
+    ~LinksScreenInterface () override;
 
 	void SetFullList ( LList <char *> *newfulllist );						            // The list is copied
 	void SetFullList ();										            			// Uses current filtered list
 	void ApplyFilter ( char *filter );
 
-	void Create ();
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int ScreenID ();
+	int ScreenID () override;
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
 	LinksScreen *GetComputerScreen ();
 

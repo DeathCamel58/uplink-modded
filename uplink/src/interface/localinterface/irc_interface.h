@@ -69,7 +69,7 @@ public:
 public:
 
 	IRCInterface();
-	virtual ~IRCInterface();
+	~IRCInterface() override;
 
 	void CreateTalkWindow();
 	void RemoveTalkWindow();
@@ -84,12 +84,12 @@ public:
     static void RemoveUser          ( char *name );    
     static UplinkIRCUser *GetUser   ( char *name );
 
-	void Create ();
-	void Remove ();
-	void Update ();
-	bool IsVisible ();
+	void Create () override;
+	void Remove () override;
+	void Update () override;
+	bool IsVisible () override;
 
-	int  ScreenID ();			
+	int  ScreenID () override;
 
 };
 
@@ -137,7 +137,7 @@ class UplinkIRCMonitor : public CIrcDefaultMonitor
 public:
     
 
-    void OnIrcDefault               (const CIrcMessage* pmsg);        
+    void OnIrcDefault               (const CIrcMessage* pmsg) override;
     bool Received_PRIVMSG           (const CIrcMessage* pmsg);
 	bool Received_JOIN              (const CIrcMessage* pmsg);
     bool Received_PART              (const CIrcMessage* pmsg);

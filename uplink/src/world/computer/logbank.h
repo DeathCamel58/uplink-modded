@@ -33,7 +33,7 @@ public:
 public:
 
 	LogBank ();
-	~LogBank ();
+	~LogBank () override;
 
 	void AddLog ( AccessLog *log, int index = -1 );			// Adds to both
 
@@ -46,13 +46,13 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
-	void Update ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
+	void Update () override;
 	
-	char *GetID ();	
-	int GetOBJECTID ();
+	char *GetID () override;
+	int GetOBJECTID () override;
 
 };
 
@@ -107,7 +107,7 @@ public:
 public:
 
 	AccessLog();
-	virtual ~AccessLog();
+	~AccessLog() override;
 
 	void SetProperties ( Date *newdate, char *newfromip, char *newfromname,
 						 int newSUSPICIOUS = LOG_NOTSUSPICIOUS,
@@ -127,12 +127,12 @@ public:
 
 	// Common functions
 
-	bool Load  ( FILE *file );
-	void Save  ( FILE *file );
-	void Print ();
+	bool Load  ( FILE *file ) override;
+	void Save  ( FILE *file ) override;
+	void Print () override;
 	
-	char *GetID ();
-	int   GetOBJECTID ();
+	char *GetID () override;
+	int   GetOBJECTID () override;
 
 };
 

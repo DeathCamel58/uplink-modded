@@ -61,7 +61,7 @@ public :
 public:
 
     App ();
-    ~App ();
+    ~App () override;
     
     void Set ( char *newpath, char *newversion, char *newtype,
 			   char *newdate, char *newtitle );
@@ -87,11 +87,11 @@ public:
 
 	// Common functions
 
-	bool Load   ( FILE *file );
-	void Save   ( FILE *file );
-	void Print  ();
-	void Update ();
-	char *GetID ();
+	bool Load   ( FILE *file ) override;
+	void Save   ( FILE *file ) override;
+	void Print  () override;
+	void Update () override;
+	char *GetID () override;
 
 };
 

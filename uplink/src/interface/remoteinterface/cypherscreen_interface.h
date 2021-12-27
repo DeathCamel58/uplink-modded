@@ -48,7 +48,7 @@ protected:
 public:
 
 	CypherScreenInterface ();
-	~CypherScreenInterface ();
+	~CypherScreenInterface () override;
 
 	int NumLocked ();								// Once they are all locked,
 	int NumUnLocked ();								// The screen can be bypassed
@@ -57,14 +57,14 @@ public:
 	void CypherLock ();								// Picks an unlocked number at random and locks it
 	void Cycle ();
 
-	bool ReturnKeyPressed ();
+	bool ReturnKeyPressed () override;
 
-	void Create ( ComputerScreen *newcs );
-	void Remove ();
-	bool IsVisible ();
-	void Update ();
+	void Create ( ComputerScreen *newcs ) override;
+	void Remove () override;
+	bool IsVisible () override;
+	void Update () override;
 
-	int  ScreenID ();			
+	int  ScreenID () override;
 
 	CypherScreen *GetComputerScreen ();				// Should override this with correct data type
 
