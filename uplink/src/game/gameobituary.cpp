@@ -41,7 +41,7 @@ GameObituary::GameObituary ()
 GameObituary::~GameObituary ()
 {
 
-	if ( gameoverreason ) delete [] gameoverreason;
+	delete [] gameoverreason;
 
 }
 
@@ -49,7 +49,7 @@ GameObituary::~GameObituary ()
 void GameObituary::SetGameOverReason ( char *newreason )
 {
 
-	if ( gameoverreason ) delete [] gameoverreason;
+	delete [] gameoverreason;
 	gameoverreason = new char [strlen(newreason)+1];
 	UplinkSafeStrcpy ( gameoverreason, newreason );
 

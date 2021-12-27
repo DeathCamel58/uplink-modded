@@ -211,8 +211,7 @@ void App::SetNextLoadGame ( const char *username )
 
 	UplinkAssert ( username );
 
-	if ( nextLoadGame )
-		delete [] nextLoadGame;
+    delete [] nextLoadGame;
 
 	nextLoadGame = new char [ strlen ( username ) + 1 ];
 	UplinkSafeStrcpy ( nextLoadGame, username );

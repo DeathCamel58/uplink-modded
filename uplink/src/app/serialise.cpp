@@ -138,7 +138,7 @@ bool LoadBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 		UplinkObject *uo = CreateUplinkObject ( OBJECTID );
 		if ( !uo || !uo->Load ( file ) ) {
 			delete [] id;
-			if ( uo ) delete uo;
+			delete uo;
 			return false;
 		}
 
@@ -397,7 +397,7 @@ bool LoadLList ( LList <UplinkObject *> *llist, FILE *file )
 		UplinkObject *uo = CreateUplinkObject ( OBJECTID );
 
 		if ( !uo || !uo->Load ( file ) ) {
-			if ( uo ) delete uo;
+			delete uo;
 			return false;
 		}
 		llist->PutData ( uo );
@@ -608,7 +608,7 @@ bool LoadDArray ( DArray <UplinkObject *> *darray, FILE *file )
 
 			UplinkObject *uo = CreateUplinkObject ( OBJECTID );
 			if ( !uo || !uo->Load ( file ) ) {
-				if ( uo ) delete uo;
+				delete uo;
 				return false;
 			}
 

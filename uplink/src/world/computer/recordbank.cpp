@@ -382,7 +382,7 @@ void Record::ChangeField ( char *name, char *newvalue )
 
 	if ( tree ) {
 
-		if ( tree->data ) delete [] tree->data;
+		delete [] tree->data;
 		size_t tree__datasize = strlen(newvalue) + 1;
 		tree->data = new char [tree__datasize];
 		UplinkStrncpy ( tree->data, newvalue, tree__datasize );
@@ -404,7 +404,7 @@ void Record::ChangeField ( char *name, int newvalue )
 
 	if ( tree ) {
 
-		if ( tree->data ) delete [] tree->data;
+		delete [] tree->data;
 		size_t tree__datasize = 8;
 		tree->data = new char [tree__datasize];
 		UplinkSnprintf ( tree->data, tree__datasize, "%d", newvalue );

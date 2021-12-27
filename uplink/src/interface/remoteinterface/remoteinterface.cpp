@@ -96,7 +96,7 @@ RemoteInterface::RemoteInterface ()
 RemoteInterface::~RemoteInterface ()
 {
 	
-	if ( screen ) delete screen;
+	delete screen;
 
 }
 

@@ -29,7 +29,7 @@ ShotByFedsEvent::ShotByFedsEvent ()
 ShotByFedsEvent::~ShotByFedsEvent ()
 {
 
-	if ( reason ) delete [] reason;
+	delete [] reason;
 
 }
 
@@ -44,8 +44,7 @@ void ShotByFedsEvent::SetName ( char *newname )
 void ShotByFedsEvent::SetReason ( char *newreason )
 {
 
-	if ( reason )
-		delete [] reason;
+    delete [] reason;
 	reason = new char [strlen(newreason)+1];
 	UplinkSafeStrcpy ( reason, newreason );
 

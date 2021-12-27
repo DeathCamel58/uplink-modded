@@ -646,7 +646,7 @@ bool HWSalesScreenInterface::IsVisibleMenu ()
 bool HWSalesScreenInterface::IsVisibleSalesMenu ()
 {
 
-	return ( EclGetButton ( "hwsales_exit" ) != 0 );
+	return ( EclGetButton ( "hwsales_exit" ) != nullptr );
 
 }
 

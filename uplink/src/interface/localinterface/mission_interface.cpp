@@ -90,7 +90,7 @@ void MissionInterface::AbandonClick ( Button *button )
 			MissionGenerator::MissionFailed ( mi->mission, game->GetWorld ()->GetPlayer (), "You abandoned the mission." );
 
 			// Remove the mission
-			if ( mi->mission ) delete mi->mission;
+			delete mi->mission;
 			mi->mission = nullptr;
 			game->GetWorld ()->GetPlayer ()->missions.RemoveData ( mi->index );
 			

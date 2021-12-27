@@ -52,11 +52,9 @@ PhoneDialler::PhoneDialler ()
 PhoneDialler::~PhoneDialler ()
 {
     
-	if ( ip )
-		delete [] ip;
+	delete [] ip;
 
-	if ( infosup )
-		delete [] infosup;
+	delete [] infosup;
 
 }
 
@@ -124,8 +122,7 @@ void PhoneDialler::DialNumber ( int x, int y, char *number, int scenario, char *
 
 	UplinkAssert ( number );
 
-	if ( ip )
-		delete [] ip;
+	delete [] ip;
 	ip = new char [ strlen ( number ) + 1 ];
 	UplinkSafeStrcpy ( ip, number );
 

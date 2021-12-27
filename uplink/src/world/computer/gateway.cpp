@@ -41,10 +41,8 @@ Gateway::~Gateway ()
 {
 
     DeleteLListData ( &hardware );
-	if ( curgatewaydef )
-		delete curgatewaydef;
-	if ( newgatewaydef )
-		delete newgatewaydef;
+    delete curgatewaydef;
+    delete newgatewaydef;
 
 }
 
@@ -139,8 +137,7 @@ void Gateway::SetGateway ( GatewayDef *newgd )
 void Gateway::ExchangeGateway ( GatewayDef *newgd )
 {
 
-	if ( newgatewaydef )
-		delete newgatewaydef;
+    delete newgatewaydef;
 
 	if ( newgd )
 		newgatewaydef = new GatewayDef ( *newgd );
@@ -291,8 +288,7 @@ void Gateway::ExchangeGatewayComplete ()
 
 	}
 
-	if ( oldgateway )
-		delete oldgateway;
+    delete oldgateway;
 
 }
 

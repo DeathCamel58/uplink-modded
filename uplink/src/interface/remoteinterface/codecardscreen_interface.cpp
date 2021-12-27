@@ -169,9 +169,7 @@ char *CodeCardScreenInterface::GetCodeMARK ( char row, int column )
 }
 
 CodeCardScreenInterface::CodeCardScreenInterface ()
-{
-
-}
+= default;
 
 CodeCardScreenInterface::~CodeCardScreenInterface ()
 = default;

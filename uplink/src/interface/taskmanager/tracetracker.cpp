@@ -180,9 +180,7 @@ TraceTracker::TraceTracker() : UplinkTask ()
 }
 
 TraceTracker::~TraceTracker()
-{
-
-}
+= default;
 
 void TraceTracker::Initialise ()
 {

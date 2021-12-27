@@ -22,8 +22,7 @@ CompanyInfoScreenInterface::CompanyInfoScreenInterface ()
 = default;
 
 CompanyInfoScreenInterface::~CompanyInfoScreenInterface ()
-{
-}
+= default;
 
 bool CompanyInfoScreenInterface::EscapeKeyPressed ()
 {

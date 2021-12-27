@@ -55,10 +55,10 @@ DictionaryHacker::DictionaryHacker () : UplinkTask ()
 DictionaryHacker::~DictionaryHacker()
 {
 
-	if ( password ) delete [] password;
-	if ( username ) delete [] username;
+	delete [] password;
+	delete [] username;
 
-	if ( targetstring ) delete [] targetstring;
+	delete [] targetstring;
 
 }
 
@@ -240,16 +240,14 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
         comp = ps->GetComputer ();
 	    UplinkAssert (comp);
 
-		if ( password )
-			delete [] password;
+		delete [] password;
 		size_t length = strlen ( ps->password );
 		size_t passwordsize = length+1;
 		password = new char [passwordsize];
 		UplinkStrncpy ( password, ps->password, passwordsize );
 		status = DICTIONARYHACKER_INPROGRESS;
 
-		if ( username )
-			delete [] username;
+		delete [] username;
 		username = nullptr;
 
 		numticksrequired = TICKSREQUIRED_DICTIONARYHACKER;
@@ -273,8 +271,7 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 			EclGetButton ( "useridscreen_name" )->SetCaption ( "admin" );
 		char *name = EclGetButton ( "useridscreen_name" )->caption;
 
-		if ( username )
-			delete [] username;
+		delete [] username;
 		username = new char [strlen(name)+1];
 		UplinkSafeStrcpy ( username, name );
 
@@ -292,8 +289,7 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		if ( rec && passwd ) {
 
-			if ( password )
-				delete [] password;
+			delete [] password;
 			size_t length = strlen ( passwd );
 			size_t passwordsize = length+1;
 			password = new char [passwordsize];

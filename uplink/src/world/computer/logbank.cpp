@@ -403,9 +403,9 @@ AccessLog::AccessLog()
 AccessLog::~AccessLog()
 {
 
-	if ( data1 ) delete [] data1;
-	if ( data2 ) delete [] data2;
-	if ( data3 ) delete [] data3;
+	delete [] data1;
+	delete [] data2;
+	delete [] data3;
 
 }
 
@@ -462,7 +462,7 @@ void AccessLog::SetSuspicious ( int newSUSPICIOUS )
 void AccessLog::SetData1 ( char *newdata )
 {
 
-	if ( data1 ) delete [] data1;
+	delete [] data1;
 	data1 = nullptr;
 
 	if ( newdata ) {
@@ -475,7 +475,7 @@ void AccessLog::SetData1 ( char *newdata )
 void AccessLog::SetData2 ( char *newdata )
 {
 
-	if ( data2 ) delete [] data2;
+	delete [] data2;
 	data2 = nullptr;
 
 	if ( newdata ) {
@@ -488,7 +488,7 @@ void AccessLog::SetData2 ( char *newdata )
 void AccessLog::SetData3 ( char *newdata )
 {
 
-	if ( data3 ) delete [] data3;
+	delete [] data3;
 	data3 = nullptr;
 
 	if ( newdata ) {

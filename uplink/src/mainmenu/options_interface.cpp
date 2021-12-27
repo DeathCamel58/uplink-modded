@@ -21,9 +21,7 @@ OptionsInterface::OptionsInterface()
 = default;
 
 OptionsInterface::~OptionsInterface()
-{
-
-}
+= default;
 
 void OptionsInterface::GameOptionsClick ( Button *button )
 {

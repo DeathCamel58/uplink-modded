@@ -73,7 +73,7 @@ ClientCommsInterface::ClientCommsInterface()
 ClientCommsInterface::~ClientCommsInterface()
 {
     
-    if (layout)	delete layout;
+    	delete layout;
     
 }
 
@@ -247,8 +247,7 @@ void ClientCommsInterface::Create ()
 	int fullsizeY = (int)(316.0 * ( fullsizeX / 595.0 ));
 		
 	// Create the background bitmap
-	if ( layout )
-		delete layout;
+	delete layout;
 	layout = new WorldMapLayout( MapRectangle( 20, 50, fullsizeX, fullsizeY ) );
 	
 	EclRegisterButton ( 20, 50, fullsizeX, fullsizeY, "", "", "comms_largemap" );												

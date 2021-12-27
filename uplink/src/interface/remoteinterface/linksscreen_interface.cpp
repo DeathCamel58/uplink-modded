@@ -752,12 +752,9 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
 
 		}
 
-		if ( iclose_tif )
-			delete iclose_tif;
-		if ( iclose_h_tif )
-			delete iclose_h_tif;
-		if ( iclose_c_tif )
-			delete iclose_c_tif;
+		delete iclose_tif;
+		delete iclose_h_tif;
+		delete iclose_c_tif;
 		
 		//
 		// Set the full list depending on the screen type

@@ -61,31 +61,31 @@ Game::Game ()
 Game::~Game () 
 {
 
-	if ( ui )      delete ui;
-	if ( view )    delete view;
-	if ( world )   delete world;
+    delete ui;
+    delete view;
+    delete world;
 
-	if ( gob )	   delete gob;
+    delete gob;
 
-	if ( loadedSavefileVer )  delete [] loadedSavefileVer;
+    delete [] loadedSavefileVer;
 
-	if ( createdSavefileVer ) delete [] createdSavefileVer;
+	delete [] createdSavefileVer;
 
-	if ( winningCodeDesc )    delete [] winningCodeDesc;
-	if ( winningCodeExtra )   delete [] winningCodeExtra;
+    delete [] winningCodeDesc;
+    delete [] winningCodeExtra;
 
 }
 
 void Game::NewGame ()
 {
  
-	if ( ui )      delete ui;
-	if ( view )    delete view;
-	if ( world )   delete world;
-	if ( gob )	   delete gob;
+    delete ui;
+    delete view;
+    delete world;
+    delete gob;
 
-	if ( createdSavefileVer )
-		delete [] createdSavefileVer;
+
+    delete [] createdSavefileVer;
 	createdSavefileVer = new char [ sizeof( SAVEFILE_VERSION ) + 1 ];
 	UplinkSafeStrcpy ( createdSavefileVer, SAVEFILE_VERSION );
 
@@ -254,7 +254,7 @@ bool Game::LoadGame ( FILE *file )
 
 	// Check the file version is correct
 
-	if ( loadedSavefileVer )
+
 		delete [] loadedSavefileVer;
 	loadedSavefileVer = new char [sizeof (SAVEFILE_VERSION) + 1];
 	if ( !FileReadData ( loadedSavefileVer, sizeof (SAVEFILE_VERSION), 1, file ) ) {
@@ -309,10 +309,10 @@ bool Game::Load ( FILE *file )
 
 	// Reset currently running game
 
-	if ( ui )      delete ui;
-	if ( view )    delete view;
-	if ( world )   delete world;
-	if ( gob )	   delete gob;
+    delete ui;
+    delete view;
+    delete world;
+    delete gob;
 
 	ui	    = new Interface ();
 	view    = new View ();
@@ -483,8 +483,7 @@ void Game::WinCode ( const char *desc, const char *codeExtra )
 	if ( createdSavefileVer && strcmp( createdSavefileVer, "SAV58" ) >= 0 )
 		winningCodeWon = 1;
 
-	if ( winningCodeDesc )
-		delete [] winningCodeDesc;
+	delete [] winningCodeDesc;
 
 	winningCodeDesc = new char [ strlen ( desc ) + 1 ];
 	UplinkSafeStrcpy ( winningCodeDesc, desc );

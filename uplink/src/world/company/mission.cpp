@@ -53,13 +53,13 @@ Mission::Mission ()
 Mission::~Mission ()
 {
 
-	if ( details )			delete [] details;
-	if ( fulldetails )		delete [] fulldetails;
-	if ( whysomuchmoney )	delete [] whysomuchmoney;
-	if ( howsecure )		delete [] howsecure;
-	if ( whoisthetarget )	delete [] whoisthetarget;
+    delete [] details;
+    delete [] fulldetails;
+    delete [] whysomuchmoney;
+    delete [] howsecure;
+    delete [] whoisthetarget;
 
-	if ( duedate ) delete duedate;
+	delete duedate;
 
 	DeleteLListData ( &links );
 	DeleteBTreeData ( &codes );
@@ -131,7 +131,7 @@ void Mission::SetDescription ( char *newdescription )
 void Mission::SetDetails ( char *newdetails )
 {
 
-	if ( details ) delete [] details;
+	delete [] details;
 
 	details = new char [strlen(newdetails)+1];
 	UplinkSafeStrcpy ( details, newdetails );
@@ -141,7 +141,7 @@ void Mission::SetDetails ( char *newdetails )
 void Mission::SetFullDetails ( char *newdetails )
 {
 
-	if ( fulldetails ) delete [] fulldetails;
+	delete [] fulldetails;
 
 	fulldetails = new char [strlen(newdetails)+1];
 	UplinkSafeStrcpy ( fulldetails, newdetails );
@@ -151,7 +151,7 @@ void Mission::SetFullDetails ( char *newdetails )
 void Mission::SetWhySoMuchMoney	( char *answer )
 {
 
-	if ( whysomuchmoney ) delete [] whysomuchmoney;
+	delete [] whysomuchmoney;
 	whysomuchmoney = nullptr;
 
 	if ( answer ) {
@@ -166,7 +166,7 @@ void Mission::SetWhySoMuchMoney	( char *answer )
 void Mission::SetHowSecure ( char *answer )
 {
 
-	if ( howsecure ) delete [] howsecure;
+	delete [] howsecure;
 	howsecure = nullptr;
 
 	if ( answer ) {
@@ -181,7 +181,7 @@ void Mission::SetHowSecure ( char *answer )
 void Mission::SetWhoIsTheTarget ( char *answer )
 {
 
-	if ( whoisthetarget ) delete [] whoisthetarget;
+	delete [] whoisthetarget;
 	whoisthetarget = nullptr;
 
 	if ( answer ) {

@@ -25,7 +25,7 @@ News::News ()
 News::~News ()
 {
 
-	if ( details ) delete [] details;
+	delete [] details;
 		
 }
 
@@ -47,7 +47,7 @@ void News::SetHeadline ( char *newheadline )
 void News::SetDetails ( char *newdetails )
 {
 
-	if ( details )
+
 		delete [] details;
 	details = new char [strlen(newdetails)+1];
 	UplinkSafeStrcpy ( details, newdetails );

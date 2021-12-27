@@ -82,8 +82,7 @@ IPLookup::IPLookup () : UplinkTask ()
 }
 
 IPLookup::~IPLookup ()
-{
-}
+= default;
 
 void IPLookup::Initialise ()
 {
@@ -242,6 +241,6 @@ bool IPLookup::IsInterfaceVisible ()
 	char name_display [64];
 	UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid );
 
-	return ( EclGetButton ( name_display ) != 0 );
+	return ( EclGetButton ( name_display ) != nullptr );
 
 }

@@ -88,7 +88,7 @@ void WorldGenerator::Initialise()
 void WorldGenerator::Shutdown ()
 {
 
-    if ( worldmapmask ) delete worldmapmask;
+    delete worldmapmask;
 
 }
 
@@ -3784,8 +3784,7 @@ void WorldGenerator::UpdateSoftwareUpgrades ( )
 	for ( int i = 0; i < cu->sw_sales.Size (); i++ )
 		if ( cu->sw_sales.ValidIndex ( i ) ) {
 			Sale *sale = cu->sw_sales.GetData ( i );
-			if ( sale )
-				delete sale;
+			delete sale;
 	}
 	cu->sw_sales.Empty ();
 

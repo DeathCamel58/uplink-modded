@@ -13,7 +13,7 @@
 #ifndef _included_game_h
 #define _included_game_h
 
-#include <stdio.h>
+#include <cstdio>
 #include <time.h>
 
 // ============================================================================

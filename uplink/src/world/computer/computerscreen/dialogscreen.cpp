@@ -35,8 +35,8 @@ DialogScreen::~DialogScreen()
 	
 	DeleteLListData ( (LList <UplinkObject *> *) &widgets );
 
-    if ( returnkeybutton ) delete [] returnkeybutton;
-    if ( escapekeybutton ) delete [] escapekeybutton;
+    delete [] returnkeybutton;
+    delete [] escapekeybutton;
 
 }
 
@@ -103,7 +103,7 @@ void DialogScreen::RemoveWidget ( char *name )
 void DialogScreen::SetReturnKeyButton ( char *name )
 {
 
-	if ( returnkeybutton ) delete [] returnkeybutton;
+	delete [] returnkeybutton;
 	returnkeybutton = new char [strlen(name)+1];
 	UplinkSafeStrcpy ( returnkeybutton, name );
 	
@@ -112,7 +112,7 @@ void DialogScreen::SetReturnKeyButton ( char *name )
 void DialogScreen::SetEscapeKeyButton ( char *name )
 {
 
-    if ( escapekeybutton ) delete [] escapekeybutton;
+    delete [] escapekeybutton;
     escapekeybutton = new char [strlen(name)+1];
     UplinkSafeStrcpy ( escapekeybutton, name );
 
@@ -197,19 +197,19 @@ DialogScreenWidget::DialogScreenWidget ()
 DialogScreenWidget::~DialogScreenWidget ()
 {
 
-	if ( name )	   delete [] name;
-	if ( caption ) delete [] caption;
-	if ( tooltip ) delete [] tooltip;
+    delete [] name;
+	delete [] caption;
+	delete [] tooltip;
 
-	if ( stringdata1 ) delete [] stringdata1;
-	if ( stringdata2 ) delete [] stringdata2;
+	delete [] stringdata1;
+	delete [] stringdata2;
 
 }
 
 void DialogScreenWidget::SetName ( char *newname )
 {
 
-	if ( name ) delete [] name;
+	delete [] name;
 	name = new char [strlen(newname)+1];
 	UplinkSafeStrcpy ( name, newname );
 
@@ -241,7 +241,7 @@ void DialogScreenWidget::SetSize ( int newwidth, int newheight )
 void DialogScreenWidget::SetTooltip ( char *newtooltip )
 {
 
-	if ( tooltip ) delete [] tooltip;
+	delete [] tooltip;
 	tooltip = new char [strlen(newtooltip) + 1];
 	UplinkSafeStrcpy ( tooltip, newtooltip );
 
@@ -250,7 +250,7 @@ void DialogScreenWidget::SetTooltip ( char *newtooltip )
 void DialogScreenWidget::SetCaption ( char *newcaption )
 {
 
-	if ( caption ) delete [] caption;
+	delete [] caption;
 	caption = new char [strlen(newcaption) + 1];
 	UplinkSafeStrcpy ( caption, newcaption );
 
@@ -289,7 +289,7 @@ void DialogScreenWidget::SetData ( int newdata1, int newdata2 )
 void DialogScreenWidget::SetStringData ( char *newstringdata1, char *newstringdata2 )
 {
 
-	if ( stringdata1 ) delete [] stringdata1;
+	delete [] stringdata1;
 	stringdata1 = nullptr;
 	
 	if ( newstringdata1 ) {
@@ -297,7 +297,7 @@ void DialogScreenWidget::SetStringData ( char *newstringdata1, char *newstringda
 		UplinkSafeStrcpy ( stringdata1, newstringdata1 );
 	}
 	
-	if ( stringdata2 ) delete [] stringdata2;
+	delete [] stringdata2;
 	stringdata2 = nullptr;
 
 	if ( newstringdata2 ) {

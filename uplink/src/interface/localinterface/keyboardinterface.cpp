@@ -33,7 +33,7 @@ KeyboardInterface::KeyboardInterface()
 KeyboardInterface::~KeyboardInterface()
 {
 
-	if ( targetbuttonname ) delete [] targetbuttonname;
+	delete [] targetbuttonname;
 
 }
 
@@ -111,7 +111,7 @@ void KeyboardInterface::Keypress ( Button *button )
 void KeyboardInterface::SetTargetButton ( char *bname ) 
 {
 
-	if ( targetbuttonname ) delete [] targetbuttonname;
+	delete [] targetbuttonname;
 	targetbuttonname = new char [ strlen (bname) + 1 ];
 	UplinkSafeStrcpy ( targetbuttonname, bname );
 

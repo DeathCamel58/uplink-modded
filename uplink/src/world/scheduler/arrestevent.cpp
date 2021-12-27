@@ -32,8 +32,8 @@ ArrestEvent::ArrestEvent ()
 ArrestEvent::~ArrestEvent ()
 {
 
-	if ( reason ) delete [] reason;
-	if ( ip ) delete [] ip;
+	delete [] reason;
+	delete [] ip;
 
 }
 
@@ -48,8 +48,7 @@ void ArrestEvent::SetName ( char *newname )
 void ArrestEvent::SetReason ( char *newreason )
 {
 
-	if ( reason )
-		delete [] reason;
+	delete [] reason;
 	reason = new char [strlen(newreason)+1];
 	UplinkSafeStrcpy ( reason, newreason );
 
@@ -58,8 +57,7 @@ void ArrestEvent::SetReason ( char *newreason )
 void ArrestEvent::SetIP ( char *newip )
 {
 
-	if ( ip )
-		delete [] ip;
+	delete [] ip;
 	ip = new char [strlen(newip)+1];
 	UplinkSafeStrcpy ( ip, newip );
 

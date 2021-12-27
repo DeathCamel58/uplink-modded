@@ -39,8 +39,7 @@ Rating::Rating ()
 }
 
 Rating::~Rating ()
-{
-}
+= default;
 
 char *Rating::GetUplinkRatingString ( int urating )
 {

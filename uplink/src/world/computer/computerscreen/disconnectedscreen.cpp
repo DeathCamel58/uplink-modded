@@ -21,7 +21,7 @@ DisconnectedScreen::DisconnectedScreen()
 DisconnectedScreen::~DisconnectedScreen()
 {
 	
-	if ( textmessage ) delete [] textmessage;
+	delete [] textmessage;
 
 }
 
@@ -35,7 +35,7 @@ void DisconnectedScreen::SetNextPage ( int newnextpage )
 void DisconnectedScreen::SetTextMessage ( char *newtextmessage )
 {
 
-	if ( textmessage ) delete [] textmessage;
+	delete [] textmessage;
 	textmessage = new char [strlen(newtextmessage)+1];
 	UplinkSafeStrcpy ( textmessage, newtextmessage );
 

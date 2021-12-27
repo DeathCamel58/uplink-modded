@@ -60,8 +60,8 @@ LocalInterface::LocalInterface()
 LocalInterface::~LocalInterface()
 {
 
-	if ( screen ) delete screen;
-	if ( hud ) delete hud;
+	delete screen;
+	delete hud;
 
 }
 

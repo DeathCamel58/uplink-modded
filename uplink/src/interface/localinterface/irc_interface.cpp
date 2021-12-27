@@ -545,14 +545,14 @@ UplinkIRCMessage::UplinkIRCMessage ()
 
 UplinkIRCMessage::~UplinkIRCMessage ()
 {
-	if ( user ) delete [] user;
-    if ( text ) delete [] text;
+	delete [] user;
+    delete [] text;
 }
 
 void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, float b )
 {
 	
-    if ( user ) delete [] user;
+    delete [] user;
     user = nullptr;
 
     if ( newuser ) {
@@ -560,7 +560,7 @@ void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, flo
         UplinkSafeStrcpy ( user, newuser );
     }
     
-    if ( text ) delete [] text;
+    delete [] text;
 	text = nullptr;
 
 	if ( newtext ) {
@@ -583,13 +583,13 @@ UplinkIRCUser::UplinkIRCUser ()
 
 UplinkIRCUser::~UplinkIRCUser ()
 {
-    if ( name ) delete [] name;
+    delete [] name;
 }
 
 void UplinkIRCUser::Set ( char *newname )
 {
 
-    if ( name ) delete [] name;
+    delete [] name;
     name = nullptr;
 
     if ( newname ) {

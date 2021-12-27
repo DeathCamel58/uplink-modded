@@ -1383,7 +1383,7 @@ WorldMapInterface::WorldMapInterface ()
 WorldMapInterface::~WorldMapInterface ()
 {
 
-    if ( layout ) delete layout;
+    delete layout;
 
 }
 

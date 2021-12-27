@@ -38,7 +38,7 @@ SeizeGatewayEvent::SeizeGatewayEvent ()
 SeizeGatewayEvent::~SeizeGatewayEvent ()
 {
 
-	if ( reason ) delete [] reason;
+	delete [] reason;
 
 }
 
@@ -53,8 +53,7 @@ void SeizeGatewayEvent::SetName ( char *newname )
 void SeizeGatewayEvent::SetReason ( char *newreason )
 {
 
-	if ( reason )
-		delete [] reason;
+    delete [] reason;
 	reason = new char [strlen(newreason)+1];
 	UplinkSafeStrcpy ( reason, newreason );
 

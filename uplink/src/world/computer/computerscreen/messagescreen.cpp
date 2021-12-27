@@ -22,8 +22,8 @@ MessageScreen::MessageScreen()
 MessageScreen::~MessageScreen()
 {
 	
-	if ( textmessage ) delete [] textmessage;
-	if ( buttonmessage ) delete [] buttonmessage;
+	delete [] textmessage;
+	delete [] buttonmessage;
 
 }
 
@@ -37,7 +37,7 @@ void MessageScreen::SetNextPage ( int newnextpage )
 void MessageScreen::SetTextMessage ( char *newtextmessage )
 {
 
-	if ( textmessage ) delete [] textmessage;
+	delete [] textmessage;
 	textmessage = new char [strlen(newtextmessage)+1];
 	UplinkSafeStrcpy ( textmessage, newtextmessage );
 
@@ -46,7 +46,7 @@ void MessageScreen::SetTextMessage ( char *newtextmessage )
 void MessageScreen::SetButtonMessage ( char *newbuttonmessage )
 {
 
-	if ( buttonmessage ) delete [] buttonmessage;
+	delete [] buttonmessage;
 	buttonmessage = new char [strlen(newbuttonmessage)+1];
 	UplinkSafeStrcpy ( buttonmessage, newbuttonmessage );
 

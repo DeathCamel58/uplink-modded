@@ -37,7 +37,7 @@ CriminalScreenInterface::CriminalScreenInterface ()
 CriminalScreenInterface::~CriminalScreenInterface ()
 {
 
-	if ( searchname ) delete [] searchname;
+	delete [] searchname;
 
 }
 
@@ -330,7 +330,7 @@ void CriminalScreenInterface::SetSearchName ( char *newsearchname )
 
 	recordindex = comp->recordbank.FindNextRecordIndexNameNotSystemAccount ();
 
-	if ( searchname ) delete [] searchname;
+	delete [] searchname;
 
 	if ( recordindex != -1 )
 		searchname = LowerCaseString (newsearchname);

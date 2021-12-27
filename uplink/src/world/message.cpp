@@ -38,9 +38,9 @@ Message::Message()
 Message::~Message()
 {
 
-	if ( subject ) delete [] subject;
-	if ( body ) delete [] body;
-	if ( data ) delete data;
+	delete [] subject;
+	delete [] body;
+	delete data;
 
     DeleteLListData ( &links );
     DeleteBTreeData ( &codes );
@@ -66,7 +66,7 @@ void Message::SetFrom ( char *newfrom )
 void Message::SetSubject ( char *newsubject )
 {
 
-	if ( subject ) delete [] subject;
+	delete [] subject;
 	subject = new char [ strlen(newsubject) + 1 ];
 	UplinkSafeStrcpy ( subject, newsubject );
 
@@ -75,7 +75,7 @@ void Message::SetSubject ( char *newsubject )
 void Message::SetBody ( char *newbody )
 {
 
-	if ( body ) delete [] body;
+	delete [] body;
 	body = new char [ strlen (newbody) + 1 ];
 	UplinkSafeStrcpy ( body, newbody );
 
@@ -111,8 +111,7 @@ void Message::GiveCode ( char *ip, char *code )
 void Message::AttachData ( Data *newdata )
 {
 
-	if ( data )
-		delete data;
+	delete data;
 	// Copy newdata
 	data = new Data ( newdata );	
 

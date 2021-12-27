@@ -55,20 +55,19 @@ PasswordBreaker::PasswordBreaker () : UplinkTask ()
 PasswordBreaker::~PasswordBreaker()
 {
 
-	if ( caption )  delete [] caption;
-	if ( username ) delete [] username;
-	if ( password ) delete [] password;
-	if ( found )    delete [] found;
+	delete [] caption;
+	delete [] username;
+	delete [] password;
+	delete [] found;
 
-	if ( targetstring ) delete [] targetstring;
+	delete [] targetstring;
 
 }
 
 void PasswordBreaker::Initialise ()
 {
 
-	if ( caption )
-		delete [] caption;
+	delete [] caption;
 	size_t captionsize = 32;
 	caption = new char [captionsize];
 	UplinkStrncpy ( caption, "Select target", captionsize );
@@ -108,14 +107,12 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 		length = (int) strlen ( ps->password );
 		difficulty = ps->difficulty;
 		
-		if ( password )
-			delete [] password;
+		delete [] password;
 		size_t passwordsize = length+1;
 		password = new char [passwordsize];
 		UplinkStrncpy ( password, ps->password, passwordsize );
 
-		if ( username )
-			delete [] username;
+		delete [] username;
 		username = nullptr;
 
 	}
@@ -130,8 +127,7 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 		if ( strcmp ( EclGetButton ( "useridscreen_name" )->caption, "" ) == 0 ) 
 			EclGetButton ( "useridscreen_name" )->SetCaption ( "admin" );
 				
-		if ( username )
-			delete [] username;
+		delete [] username;
 		char *name = EclGetButton ( "useridscreen_name" )->caption;
 		username = new char [strlen(name)+1];
 		UplinkSafeStrcpy ( username, name );
@@ -160,8 +156,7 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 			length = (int) strlen ( passwd );
 			
-			if ( password )
-				delete [] password;
+			delete [] password;
 			size_t passwordsize = length+1;
 			password = new char [passwordsize];
 			UplinkStrncpy ( password, passwd, passwordsize );
@@ -185,12 +180,10 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 	// Set up the password breaker to work with this new data
 
-	if ( caption )
-		delete [] caption;
+	delete [] caption;
 	size_t captionsize = length+1;
 	caption = new char [captionsize];
-	if ( found )
-		delete [] found;
+	delete [] found;
 	found = new bool [length];
 
 	UplinkStrncpy ( caption, "", captionsize );

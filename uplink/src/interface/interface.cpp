@@ -29,9 +29,9 @@ Interface::Interface()
 Interface::~Interface()
 {
 
-	if ( li ) delete li;
-	if ( ri ) delete ri;
-	if ( tm ) delete tm;
+	delete li;
+	delete ri;
+	delete tm;
 
 }	
 

@@ -66,8 +66,8 @@ HUDInterface::HUDInterface ()
 HUDInterface::~HUDInterface ()
 {
 
-	if ( previoushighlight ) delete [] previoushighlight;
-	if ( previousimage ) delete previousimage;
+	delete [] previoushighlight;
+	delete previousimage;
 
 }
 
@@ -447,7 +447,7 @@ void HUDInterface::HighlightToolbarButton   ( char *bname )
 
 		// Remember this button was highlighted
 
-		if ( GetHUD ()->previoushighlight ) delete [] GetHUD ()->previoushighlight;
+		delete [] GetHUD ()->previoushighlight;
 		GetHUD ()->previoushighlight = new char [strlen(bname)+1];
 		UplinkSafeStrcpy ( GetHUD ()->previoushighlight, bname );
 

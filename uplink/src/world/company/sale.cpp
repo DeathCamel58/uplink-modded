@@ -151,14 +151,14 @@ SaleVersion::SaleVersion ()
 SaleVersion::~SaleVersion ()
 {
 
-	if ( details ) delete [] details;
+	delete [] details;
 
 }
 
 void SaleVersion::Set ( char *newdetails, int newcost, int newsize, int newdata )
 {
 
-	if ( details ) delete [] details;
+	delete [] details;
 	details = new char [strlen(newdetails)+1];
 	UplinkSafeStrcpy ( details, newdetails );
 

@@ -47,7 +47,7 @@ MainMenu::MainMenu()
 MainMenu::~MainMenu()
 {
 
-	if ( screen ) delete screen;
+	delete screen;
 
 }
 

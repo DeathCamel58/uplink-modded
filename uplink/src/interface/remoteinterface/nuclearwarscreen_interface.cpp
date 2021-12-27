@@ -39,8 +39,7 @@ NuclearWarScreenInterface::NuclearWarScreenInterface ()
 = default;
 
 NuclearWarScreenInterface::~NuclearWarScreenInterface ()
-{
-}
+= default;
 
 void NuclearWarScreenInterface::DrawBlack ( Button *button, bool highlighted, bool clicked )
 {

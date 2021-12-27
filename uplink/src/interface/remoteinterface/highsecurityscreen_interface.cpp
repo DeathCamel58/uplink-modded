@@ -33,8 +33,7 @@ HighSecurityScreenInterface::HighSecurityScreenInterface ()
 = default;
 
 HighSecurityScreenInterface::~HighSecurityScreenInterface ()
-{
-}
+= default;
 
 void HighSecurityScreenInterface::SystemTitleDraw ( Button *button, bool highlighted, bool clicked )
 {

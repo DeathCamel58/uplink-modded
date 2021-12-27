@@ -43,7 +43,7 @@ NetworkClient::NetworkClient()
 NetworkClient::~NetworkClient()
 {
 
-    if ( screen ) delete screen;
+    delete screen;
 
 }
 

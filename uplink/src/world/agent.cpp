@@ -1020,17 +1020,14 @@ bool Agent::Load ( FILE *file )
 
 				if ( !success ) {
 					codes.RemoveData ( thisip, thiscode );
-					if ( thiscode )
-						delete [] thiscode;
+                    delete [] thiscode;
 				}
 			}
 		}
 	}
 
-	if ( ips )
-		delete ips;
-	if ( thecodes )
-		delete thecodes;
+    delete ips;
+    delete thecodes;
 
 	return true;
 

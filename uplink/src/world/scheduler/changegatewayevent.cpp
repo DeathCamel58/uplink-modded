@@ -22,8 +22,7 @@ ChangeGatewayEvent::ChangeGatewayEvent ()
 ChangeGatewayEvent::~ChangeGatewayEvent ()
 {
 
-	if ( newgatewaydef )
-		delete newgatewaydef;
+	delete newgatewaydef;
 
 }
 
@@ -32,8 +31,7 @@ void ChangeGatewayEvent::SetNewGateway ( GatewayDef *value )
 
 	UplinkAssert ( value );
 
-	if ( newgatewaydef )
-		delete newgatewaydef;
+	delete newgatewaydef;
 
 	newgatewaydef = new GatewayDef ( *value );
 

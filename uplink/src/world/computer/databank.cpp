@@ -154,7 +154,7 @@ void DataBank::RemoveDataFile ( int dataindex )
 		// Delete the file
 
         Data *thefile = data.GetData (dataindex);               // TODO is it safe to delete the data here?
-        if ( thefile ) delete thefile;
+        delete thefile;
 
 		data.RemoveData (dataindex);
 
