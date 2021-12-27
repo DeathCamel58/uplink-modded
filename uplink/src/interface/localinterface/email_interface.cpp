@@ -50,7 +50,7 @@ void EmailInterface::EmailClose ( Button *button )
 void EmailInterface::EmailReply ( Button *button )
 {
 
-	EmailInterface *em = (EmailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
+	auto *em = (EmailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
 	UplinkAssert (em);
 	UplinkAssert (em->message);
 
@@ -90,7 +90,7 @@ void EmailInterface::EmailReply ( Button *button )
 void EmailInterface::EmailDelete ( Button *button )
 {
 
-	EmailInterface *em = (EmailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
+	auto *em = (EmailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
 	UplinkAssert (em);
 	UplinkAssert (em->message);
 

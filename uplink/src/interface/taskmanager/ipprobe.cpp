@@ -71,7 +71,7 @@ void IPProbe::GoClick ( Button *button )
 	char name_display [64];
 	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
 
-	IPProbe *task = (IPProbe *) SvbGetTask ( pid );
+	auto *task = (IPProbe *) SvbGetTask ( pid );
 
 	if ( task->status == PROBE_IDLE ) {
 
@@ -157,7 +157,7 @@ void IPProbe::Tick ( int n )
 					body << '\x0';
 
 					// Found - send a message to the player with the details
-					Message *msg = new Message ();
+					auto *msg = new Message ();
 					msg->SetTo ( "PLAYER" );
 					msg->SetFrom ( "IP Probe" );
 					msg->SetSubject ( "Results of probe" );

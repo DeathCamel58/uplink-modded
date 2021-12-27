@@ -45,7 +45,7 @@ SocialSecurityScreenInterface::~SocialSecurityScreenInterface ()
 void SocialSecurityScreenInterface::CommitClick ( Button *button )
 {
 
-	SocialSecurityScreenInterface *sssi = (SocialSecurityScreenInterface *) GetInterfaceScreen ( SCREEN_SOCSECSCREEN );
+	auto *sssi = (SocialSecurityScreenInterface *) GetInterfaceScreen ( SCREEN_SOCSECSCREEN );
 	UplinkAssert (sssi);
 
 	if ( sssi->recordindex != -1 ) {
@@ -75,7 +75,7 @@ void SocialSecurityScreenInterface::CommitClick ( Button *button )
 void SocialSecurityScreenInterface::CloseClick ( Button *button )
 {
 
-	GenericScreen *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (gs);
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );

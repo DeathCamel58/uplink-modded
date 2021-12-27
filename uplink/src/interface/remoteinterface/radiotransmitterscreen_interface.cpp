@@ -261,7 +261,7 @@ void RadioTransmitterScreenInterface::Connect ()
     if ( comp->TYPE == COMPUTER_TYPE_LAN )
     {
 
-        LanComputer *lc = (LanComputer *) comp;
+        auto *lc = (LanComputer *) comp;
         
         for ( int i = 0; i < lc->systems.Size(); ++i ) {
             if ( lc->systems.ValidIndex(i) ) {

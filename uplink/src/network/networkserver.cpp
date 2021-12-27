@@ -166,7 +166,7 @@ void NetworkServer::Update ()
 
 				// New connection requested - deal with it
 				
-				ClientConnection *cc = new ClientConnection ();
+				auto *cc = new ClientConnection ();
 				cc->SetSocket          ( thesocket );
 				cc->SetClientType      ( CLIENT_NONE );
 				cc->SetConnectionTime  ( (int) EclGetAccurateTime () );

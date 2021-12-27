@@ -63,7 +63,7 @@ void CompanyUplink::CreateMission ( Mission *mission )
 void CompanyUplink::CreateMission ( char *employer, int payment, char *description, char *details, char *fulldetails )
 {
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 
 	mission->SetEmployer ( employer );
 	mission->SetPayment ( payment );

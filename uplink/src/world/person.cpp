@@ -253,7 +253,7 @@ int Person::CreateNewAccount ( char *bankip, char *accname, char *password, int 
 	UplinkAssert (vl);
 	Computer *comp = game->GetWorld ()->GetComputer ( vl->computer );
 	UplinkAssert (comp);
-	BankComputer *bank = (BankComputer *) comp;
+	auto *bank = (BankComputer *) comp;
 
 	// Add the account in
 

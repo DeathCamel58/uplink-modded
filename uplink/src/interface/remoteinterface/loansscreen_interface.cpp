@@ -45,7 +45,7 @@ bool LoansScreenInterface::EscapeKeyPressed ()
 void LoansScreenInterface::IncreaseLoanClick ( Button *button )
 {
 
-	LoansScreenInterface *thisint = (LoansScreenInterface *) GetInterfaceScreen ( SCREEN_LOANSSCREEN );
+	auto *thisint = (LoansScreenInterface *) GetInterfaceScreen ( SCREEN_LOANSSCREEN );
 	UplinkAssert (thisint);
 
 	Person *accountowner;
@@ -96,7 +96,7 @@ void LoansScreenInterface::IncreaseLoanClick ( Button *button )
 void LoansScreenInterface::DecreaseLoanClick ( Button *button )
 {
 
-	LoansScreenInterface *thisint = (LoansScreenInterface *) GetInterfaceScreen ( SCREEN_LOANSSCREEN );
+	auto *thisint = (LoansScreenInterface *) GetInterfaceScreen ( SCREEN_LOANSSCREEN );
 	UplinkAssert (thisint);
 
 	Person *accountowner;
@@ -140,7 +140,7 @@ void LoansScreenInterface::CloseClick ( Button *button )
 
 	// Update the account if changed
 
-	LoansScreenInterface *thisint = (LoansScreenInterface *) GetInterfaceScreen ( SCREEN_LOANSSCREEN );
+	auto *thisint = (LoansScreenInterface *) GetInterfaceScreen ( SCREEN_LOANSSCREEN );
 	UplinkAssert (thisint);
 
 	Person *accountowner;
@@ -178,7 +178,7 @@ void LoansScreenInterface::Create ( ComputerScreen *newcs )
 	// Look up the BankAccount object and store it
 	Computer *comp = cs->GetComputer ();
 	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER );
-	BankComputer *bank = (BankComputer *) comp;
+	auto *bank = (BankComputer *) comp;
 
 	// Look up the account number based on the log in name
 	Record *rec = bank->recordbank.GetRecordFromName ( game->GetInterface ()->GetRemoteInterface ()->security_name );

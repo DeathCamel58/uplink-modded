@@ -375,7 +375,7 @@ void ScrollBox::CreateScrollBox ( char *name,
                        void (*callback)(char *, int) )
 {
 
-    ScrollBox *sb = new ScrollBox ();
+    auto *sb = new ScrollBox ();
     sb->SetName ( name );
     sb->SetDimensions ( x, y, w, h );
     sb->SetNumItems ( numItems );

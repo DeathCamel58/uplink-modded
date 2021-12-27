@@ -543,7 +543,7 @@ char *Game::GetWinningCode ()
 	size_t lenRandom = sizeof ( winningCodeRandom );
 
 	size_t lenfinal = lenExtra + lenRandom;
-	unsigned char *final = new unsigned char [ lenfinal + 4 + 1 ];
+	auto *final = new unsigned char [ lenfinal + 4 + 1 ];
 
 	size_t lenMask = 6;
 	unsigned char mask[] = "UPLINK";

@@ -80,7 +80,7 @@ void HWSalesScreenInterface::ShowSalesMenuClick ( Button *button )
 	int newHWType;
 	sscanf ( button->name, "hwsales_showmenu %d", &newHWType );
 
-	HWSalesScreenInterface *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	thisint->RemoveMenu ();
@@ -108,7 +108,7 @@ void HWSalesScreenInterface::ClickHWButton ( Button *button )
 	UplinkSnprintf ( oldname, sizeof ( oldname ), "HWsale %d", currentselect - baseoffset );
 	EclDirtyButton ( oldname );
 
-	HWSalesScreenInterface *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	Sale *sale = thisint->items.GetData (index);
@@ -135,7 +135,7 @@ void HWSalesScreenInterface::DrawHWButton ( Button *button, bool highlighted, bo
 
 	// Get the text from sale number (index + baseoffset)
 
-	HWSalesScreenInterface *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 	Sale *sale = thisint->items.GetData ( index );
 
@@ -200,7 +200,7 @@ void HWSalesScreenInterface::MousedownHWButton ( Button *button )
 	int index;
 	sscanf ( button->name, "HWsale %d", &index );
 
-	HWSalesScreenInterface *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 	Sale *sale = thisint->items.GetData (index + baseoffset);
 
@@ -216,7 +216,7 @@ void HWSalesScreenInterface::HighlightHWButton ( Button *button )
 	int index;
 	sscanf ( button->name, "HWsale %d", &index );
 
-	HWSalesScreenInterface *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 	Sale *sale = thisint->items.GetData (index + baseoffset);
 
@@ -228,7 +228,7 @@ void HWSalesScreenInterface::HighlightHWButton ( Button *button )
 void HWSalesScreenInterface::ExitClick ( Button *button )
 {
 
-	HWSalesScreenInterface *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	if ( thisint->HWType == -1 ) {
@@ -236,7 +236,7 @@ void HWSalesScreenInterface::ExitClick ( Button *button )
 		// We are viewing the menu
 		// So exit to the next page
 
-		GenericScreen *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+		auto *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 		UplinkAssert (sss);
 		game->GetInterface ()->GetRemoteInterface ()->RunScreen ( sss->nextpage, sss->GetComputer () );
 
@@ -257,7 +257,7 @@ void HWSalesScreenInterface::ExitClick ( Button *button )
 void HWSalesScreenInterface::AcceptClick ( Button *button )
 {
 
-	HWSalesScreenInterface *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 	Sale *sale = thisint->items.GetData ( currentselect );
 
@@ -358,7 +358,7 @@ void HWSalesScreenInterface::AcceptClick ( Button *button )
 		warningdate.SetDate ( &duedate );
 		warningdate.AdvanceMinute ( TIME_TOINSTALLHARDWARE_WARNING * -1 );
 
-		InstallHardwareEvent *event = new InstallHardwareEvent ();
+		auto *event = new InstallHardwareEvent ();
 		event->SetRunDate ( &duedate );
 		event->SetHWSale ( sale, 1 );
 		
@@ -409,7 +409,7 @@ void HWSalesScreenInterface::ScrollDownClick ( Button *button )
 
 	++baseoffset;
 
-	HWSalesScreenInterface *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 	int numitems = thisint->items.Size ();
 
@@ -520,7 +520,7 @@ void HWSalesScreenInterface::CreateSalesMenu ( ComputerScreen *newcs )
 		//
 
 		items.Empty ();
-		CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+		auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 		UplinkAssert ( cu );
 		for ( int ic = 0; ic < cu->hw_sales.Size (); ++ic ) {
 			Sale *thissale = cu->GetHWSale (ic);

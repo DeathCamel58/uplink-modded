@@ -33,7 +33,7 @@ int LanComputer::AddLanSystem ( LanComputerSystem *system )
 int LanComputer::AddLanSystem ( int TYPE, int x, int y, int security, int screenIndex, int dataScreenIndex )
 {
 
-    LanComputerSystem *system = new LanComputerSystem ();
+    auto *system = new LanComputerSystem ();
     system->TYPE = TYPE;
     system->x = x;
     system->y = y;
@@ -50,7 +50,7 @@ int LanComputer::AddLanLink ( int from, float fromX, float fromY,
                                int to, float toX, float toY, int security )
 {
 
-    LanComputerLink *link = new LanComputerLink ();
+    auto *link = new LanComputerLink ();
     link->from = from;
     link->to = to;
     link->fromX = fromX;

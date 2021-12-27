@@ -150,7 +150,7 @@ void Gateway::ExchangeGatewayComplete ()
 {
 
 	UplinkAssert (curgatewaydef);
-	GatewayDef *oldgateway = new GatewayDef ( *curgatewaydef );
+	auto *oldgateway = new GatewayDef ( *curgatewaydef );
 
 	if ( !newgatewaydef )
 		printf ( "WARNING: Gateway::ExchangeGatewayComplete, cannot find exchange gateway\n" );
@@ -276,7 +276,7 @@ void Gateway::ExchangeGatewayComplete ()
 
 		removedText << '\x0';
 
-		Message *msg = new Message ();
+		auto *msg = new Message ();
 		msg->SetTo ( "PLAYER" );
 		msg->SetFrom ( "Uplink Corporation" );
 		msg->SetSubject ( "Removed hardware items" );
@@ -437,7 +437,7 @@ int Gateway::GetCPUSpeed ()
 LList <char *> *Gateway::GetCPUs ()
 {
 
-	LList <char *> *list = new LList <char *> ();
+	auto *list = new LList <char *> ();
 
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 
@@ -489,7 +489,7 @@ int Gateway::GetNumSecurity ()
 LList <char *> *Gateway::GetSecurity ()
 {
 
-	LList <char *> *list = new LList <char *> ();
+	auto *list = new LList <char *> ();
 
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 

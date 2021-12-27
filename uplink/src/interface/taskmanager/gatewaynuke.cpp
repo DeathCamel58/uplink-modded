@@ -56,7 +56,7 @@ void GatewayNuke::YesClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "gatenuke_yes %d", &pid );
 
-	GatewayNuke *task = (GatewayNuke *) SvbGetTask ( pid );
+	auto *task = (GatewayNuke *) SvbGetTask ( pid );
 	UplinkAssert (task);
 
 	char title [32];

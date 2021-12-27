@@ -129,7 +129,7 @@ void Options::SetOptionValue ( char *name, int newvalue, char *tooltip, bool yes
 	else {
 
 		// Create a new entry
-		Option *option = new Option ();
+		auto *option = new Option ();
 		option->SetName ( name );
 		option->SetValue ( newvalue );
 		option->SetTooltip ( tooltip );
@@ -147,7 +147,7 @@ LList <Option *> *Options::GetAllOptions ( char *searchstring, bool returnhidden
 {
 
 	DArray <Option *> *alloptions = options.ConvertToDArray ();
-	LList <Option *> *result = new LList <Option *> ();
+	auto *result = new LList <Option *> ();
 
 	for ( int i = 0; i < alloptions->Size (); ++i ) {
 		if ( alloptions->ValidIndex (i) ) {
@@ -376,7 +376,7 @@ char *Options::ThemeFilename ( char *filename )
 void Options::RequestShutdownChange ( char *optionName, int newValue )
 {
 
-    OptionChange *oc = new OptionChange ();
+    auto *oc = new OptionChange ();
     UplinkStrncpy ( oc->name, optionName, sizeof ( oc->name ) );
     oc->value = newValue;
 

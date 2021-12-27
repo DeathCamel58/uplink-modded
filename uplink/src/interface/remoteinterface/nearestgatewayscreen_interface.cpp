@@ -116,7 +116,7 @@ void NearestGatewayScreenInterface::ClickLocation ( Button *button )
 	
 	// Go on to the next screen
 
-	NearestGatewayScreenInterface *thisint = (NearestGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (NearestGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 	GenericScreen *gs = thisint->GetComputerScreen ();
 	UplinkAssert(gs);

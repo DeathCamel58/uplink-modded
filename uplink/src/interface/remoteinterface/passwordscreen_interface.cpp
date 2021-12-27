@@ -54,7 +54,7 @@ void PasswordScreenInterface::PasswordClick ( Button *button )
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (ris);
-	PasswordScreenInterface *ps = (PasswordScreenInterface *) ris;
+	auto *ps = (PasswordScreenInterface *) ris;
 
 	game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( ps->GetComputerScreen (), button->name, -1 );
 
@@ -91,7 +91,7 @@ void PasswordScreenInterface::BypassClick ( Button *button )
 //	game->GetWorld ()->GetPlayer ()->GetConnection ()->BeginTrace ();
 	
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	PasswordScreenInterface *ps = (PasswordScreenInterface *) ris;
+	auto *ps = (PasswordScreenInterface *) ris;
 	if ( game->GetWorld ()->GetPlayer ()->IsConnected () )
 		ps->NextPage ();
 
@@ -154,7 +154,7 @@ void PasswordScreenInterface::NextPage ()
 
 	// Add this into the computer's logs
 
-	AccessLog *log = new AccessLog ();
+	auto *log = new AccessLog ();
 	log->SetProperties ( &(game->GetWorld ()->date), 
 						 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER" );
 	log->SetData1 ( "Password authentication accepted" );

@@ -414,7 +414,7 @@ LList <char *> *wordwraptext ( const char *string, int linesize )
 
 	if ( !string ) return nullptr;
 
-	LList <char *> *llist = new LList <char *> ();
+	auto *llist = new LList <char *> ();
 
 	if ( strlen ( string ) == 0 ) {
 
@@ -903,7 +903,7 @@ void button_assignbitmap ( char *name, char *standard_f )
 	UplinkAssert ( button );
 
     char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
-	Image *image = new Image ();
+	auto *image = new Image ();
 	image->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	image->SetAlpha ( ALPHA );	
     delete [] fullfilename;
@@ -939,19 +939,19 @@ void button_assignbitmaps ( char *name, char *standard_f, char *highlighted_f, c
 	UplinkAssert ( button );
 
     char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
-	Image *standard_i = new Image ();
+	auto *standard_i = new Image ();
 	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	standard_i->SetAlpha ( ALPHA );	
     delete [] fullfilename;
 
     fullfilename = app->GetOptions()->ThemeFilename( highlighted_f );
-	Image *highlighted_i = new Image ();
+	auto *highlighted_i = new Image ();
 	highlighted_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	highlighted_i->SetAlpha ( ALPHA );
     delete [] fullfilename;
     
     fullfilename = app->GetOptions()->ThemeFilename( clicked_f );
-	Image *clicked_i = new Image ();
+	auto *clicked_i = new Image ();
 	clicked_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	clicked_i->SetAlpha ( ALPHA );
     delete [] fullfilename;
@@ -1006,21 +1006,21 @@ void button_assignbitmaps_blend ( char *name, char *standard_f, char *highlighte
 	}
 
     char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
-	Image *standard_i = new Image ();
+	auto *standard_i = new Image ();
 	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	standard_i->SetAlpha ( 1.0f );
 	standard_i->SetAlphaBorder ( 0.0f, br, bg, bb );
     delete [] fullfilename;
 
     fullfilename = app->GetOptions()->ThemeFilename( highlighted_f );
-	Image *highlighted_i = new Image ();
+	auto *highlighted_i = new Image ();
 	highlighted_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	highlighted_i->SetAlpha ( 1.0f );
 	highlighted_i->SetAlphaBorder ( 0.0f, br, bg, bb );
     delete [] fullfilename;
     
     fullfilename = app->GetOptions()->ThemeFilename( clicked_f );
-	Image *clicked_i = new Image ();
+	auto *clicked_i = new Image ();
 	clicked_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	clicked_i->SetAlpha ( 1.0f );
 	clicked_i->SetAlphaBorder ( 0.0f, br, bg, bb );
@@ -1051,7 +1051,7 @@ void button_assignbitmap_blend ( char *name, char *standard_f )
 	}
 
     char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
-	Image *image = new Image ();
+	auto *image = new Image ();
 	image->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	image->SetAlpha ( 1.0f );
 	image->SetAlphaBorder ( 0.0f, br, bg, bb );
@@ -1068,7 +1068,7 @@ Image *get_assignbitmap ( char *filename )
 {
 
     char *fullfilename = app->GetOptions()->ThemeFilename( filename );
-	Image *standard_i = new Image ();
+	auto *standard_i = new Image ();
 	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	standard_i->SetAlpha ( ALPHA );	
     delete [] fullfilename;

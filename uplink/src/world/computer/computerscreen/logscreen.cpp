@@ -76,7 +76,7 @@ LogBank *LogScreen::GetTargetLogBank ()
 			Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
 			UplinkAssert ( comp );
 			UplinkAssert ( comp->GetOBJECTID () == OID_BANKCOMPUTER );			
-			BankComputer *bank = (BankComputer *) comp;
+			auto *bank = (BankComputer *) comp;
 
 			// Get the account number
 

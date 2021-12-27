@@ -48,7 +48,7 @@ void RecordGenerator::GenerateRecords_Player ( char *playername )
 
 	// Social Security Record
 
-	Record *socsec = new Record ();
+	auto *socsec = new Record ();
 	socsec->AddField ( RECORDBANK_NAME, playername );
 	socsec->AddField ( "D.O.B", "24 - 3 - 1989" );
 	socsec->AddField ( "Social Security", "14011401" );
@@ -62,7 +62,7 @@ void RecordGenerator::GenerateRecords_Player ( char *playername )
 
 	// Criminal Record
 
-	Record *crim = new Record ();
+	auto *crim = new Record ();
 	crim->AddField ( RECORDBANK_NAME, playername );
 	crim->AddField ( "Convictions", "None" );
 
@@ -73,7 +73,7 @@ void RecordGenerator::GenerateRecords_Player ( char *playername )
 
 	// Academic Record
 
-	Record *ac = new Record ();
+	auto *ac = new Record ();
 	ac->AddField ( RECORDBANK_NAME, playername );
 	ac->AddField ( "IQ", "172" );
 	ac->AddField ( "College", "Maths    -   A\n"
@@ -124,7 +124,7 @@ void RecordGenerator::GenerateRecord_SocialSecurity ( char *personname, int age 
 		case 4		:		UplinkStrncpy ( personalstatus, "Deceased", sizeof ( personalstatus ) );			break;
 	}
 
-	Record *soc = new Record ();
+	auto *soc = new Record ();
 	soc->AddField ( RECORDBANK_NAME, personname );
 	soc->AddField ( "Social Security", socialsecurity );
 	soc->AddField ( "D.O.B", dob );
@@ -248,7 +248,7 @@ void RecordGenerator::GenerateRecord_Criminal ( char *personname, int age )
 
 	convictions << '\x0';
 
-	Record *crim = new Record ();
+	auto *crim = new Record ();
 	crim->AddField ( RECORDBANK_NAME, personname );
 	crim->AddField ( "Convictions", convictions.str () );
 
@@ -265,7 +265,7 @@ void RecordGenerator::GenerateRecord_Criminal ( char *personname, int age )
 void RecordGenerator::GenerateRecord_Medical ( char *personname, int age )
 {
 
-	Record *rec = new Record ();
+	auto *rec = new Record ();
 	rec->AddField ( RECORDBANK_NAME, personname );
 	rec->AddField ( "Known alergies", "None" );
 	rec->AddField ( "History", "None" );
@@ -411,7 +411,7 @@ void RecordGenerator::GenerateRecord_Academic ( char *personname, int age )
 	otherquals << '\x0';
 
 
-	Record *rec = new Record ();
+	auto *rec = new Record ();
 	rec->AddField ( RECORDBANK_NAME, personname );
 	rec->AddField ( "IQ", brains + 50 );
 	rec->AddField ( "College", collegequals.str () );
@@ -441,7 +441,7 @@ void RecordGenerator::GenerateRecord_Financial ( char *personname, int age )
 	Computer *comp = WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 	UplinkAssert (comp);
 	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER );
-	BankComputer *bank = (BankComputer *) comp;
+	auto *bank = (BankComputer *) comp;
 
 	// Base level value - used to determine this man's situation
 	//
@@ -481,7 +481,7 @@ void RecordGenerator::GenerateRecord_Financial ( char *personname, int age )
 
 		while ( transferdate.Before ( &nomoredate ) ) {
 
-			BankComputer *target_bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
+			auto *target_bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 			UplinkAssert ( target_bank );
 			BankAccount  *target_acc = target_bank->GetRandomAccount ();
 
@@ -503,14 +503,14 @@ void RecordGenerator::GenerateRecord_Financial ( char *personname, int age )
 							UplinkSnprintf ( target_data, sizeof ( target_data ), "%s %d", bank->ip, myaccount->accountnumber );
 							UplinkSnprintf ( s_amount, sizeof ( s_amount ), "%d", amount );
 
-							AccessLog *source_log = new AccessLog ();
+							auto *source_log = new AccessLog ();
 							source_log->SetProperties ( &transferdate, bank->ip, person->name, LOG_NOTSUSPICIOUS, LOG_TYPE_TRANSFERTO );
 							source_log->SetData1 ( source_data );
 							source_log->SetData2 ( s_amount );
 							source_log->SetData3 ( person->name );
 							myaccount->log.AddLog ( source_log );
 
-							AccessLog *target_log = new AccessLog ();
+							auto *target_log = new AccessLog ();
 							target_log->SetProperties ( &transferdate, bank->ip, person->name, LOG_NOTSUSPICIOUS, LOG_TYPE_TRANSFERFROM );
 							target_log->SetData1 ( target_data );
 							target_log->SetData2 ( s_amount );

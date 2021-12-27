@@ -107,7 +107,7 @@ void Defrag::GoClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
 
-	Defrag *thistask = (Defrag *) SvbGetTask ( pid );
+	auto *thistask = (Defrag *) SvbGetTask ( pid );
 	UplinkAssert (thistask);
 
 	// Set it going
@@ -130,7 +130,7 @@ void Defrag::CloseClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
 
-	Defrag *thistask = (Defrag *) SvbGetTask ( pid );
+	auto *thistask = (Defrag *) SvbGetTask ( pid );
 	UplinkAssert (thistask);
 
 	thistask->StopDefrag ();
@@ -173,7 +173,7 @@ void Defrag::StopDefrag ( )
 
 		LocalInterfaceScreen *lis = game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();   
 		UplinkAssert (lis);
-		MemoryInterface *mi = (MemoryInterface *) lis;
+		auto *mi = (MemoryInterface *) lis;
 		mi->SpecialHighlight ( -1 ); // No highlight
 		mi->ForceUpdateAll ();
 
@@ -262,7 +262,7 @@ void Defrag::HandleNewMemorySlot ( int index )
 
         LocalInterfaceScreen *lis = game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();    
         UplinkAssert (lis);
-        MemoryInterface *mi = (MemoryInterface *) lis;
+        auto *mi = (MemoryInterface *) lis;
         mi->SpecialHighlight ( index );
         mi->ForceUpdateAll ();
 

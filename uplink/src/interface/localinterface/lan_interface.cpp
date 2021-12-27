@@ -136,7 +136,7 @@ void LanInterface::LanBackgroundDraw ( Button *button, bool highlighted, bool cl
 
     }
 
-    LanComputer *lanComp = (LanComputer *) comp;
+    auto *lanComp = (LanComputer *) comp;
 
     //
 	// Draw current selection box
@@ -323,7 +323,7 @@ void LanInterface::LanBackgroundDraw ( Button *button, bool highlighted, bool cl
     //
     // Draw highlights
 
-    LanInterface *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
+    auto *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
     UplinkAssert (thisInt);
 
     for ( int h = 0; h < thisInt->highlights.Size(); ++h ) {
@@ -518,7 +518,7 @@ void LanInterface::LanSystemDraw ( Button *button, bool highlighted, bool clicke
 	Computer *comp = vl->GetComputer ();
 	UplinkAssert (comp);
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
-    LanComputer *lancomp = (LanComputer *) comp;
+    auto *lancomp = (LanComputer *) comp;
 
     char unused [64];
     int systemIndex;
@@ -567,7 +567,7 @@ void LanInterface::LanSystemClick ( Button *button )
     int systemIndex;
     sscanf ( button->name, "%s %d", unused, &systemIndex );
 
-    LanInterface *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
+    auto *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
     UplinkAssert (thisInt);
 
     thisInt->SelectSystem ( systemIndex );
@@ -581,7 +581,7 @@ void LanInterface::LanSystemClick ( Button *button )
 	Computer *comp = vl->GetComputer ();
 	UplinkAssert (comp);
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
-    LanComputer *lancomp = (LanComputer *) comp;
+    auto *lancomp = (LanComputer *) comp;
 
     LanComputerSystem *system = nullptr;
 	if ( lancomp->systems.ValidIndex ( systemIndex ) )
@@ -602,7 +602,7 @@ void LanInterface::LanSystemMouseMove ( Button *button )
 	Computer *comp = vl->GetComputer ();
 	UplinkAssert (comp);
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
-    LanComputer *lancomp = (LanComputer *) comp;
+    auto *lancomp = (LanComputer *) comp;
 
 
     char unused [64];
@@ -686,7 +686,7 @@ void LanInterface::ConnectClick ( Button *button )
         //
         // Show the screen attached to this system
 
-        LanComputer *lanComp = (LanComputer *) comp;
+        auto *lanComp = (LanComputer *) comp;
 
 		if ( lanComp->systems.ValidIndex(LanMonitor::currentSelected) ) {
 
@@ -737,7 +737,7 @@ void LanInterface::CancelClick ( Button *button )
     if ( comp->TYPE == COMPUTER_TYPE_LAN )
     {
 
-        LanComputer *lc = (LanComputer *) comp;
+        auto *lc = (LanComputer *) comp;
 		if ( lc->systems.ValidIndex ( currentSystem ) ) {
 			LanComputerSystem *system = lc->systems.GetData(currentSystem);
 			game->GetInterface()->GetRemoteInterface()->RunScreen ( system->screenIndex, lc );
@@ -809,7 +809,7 @@ void LanInterface::GenerateClick ( Button *button )
     if ( comp->TYPE == COMPUTER_TYPE_LAN ) {
 
         game->GetInterface ()->GetLocalInterface ()->RunScreen( SCREEN_NONE );
-        LanComputer *lanComp = (LanComputer *) comp;
+        auto *lanComp = (LanComputer *) comp;
         lanComp->systems.Empty ();
         lanComp->links.Empty ();
         
@@ -871,7 +871,7 @@ void LanInterface::ScrollClick ( Button *button )
     else if ( direction == 3 ) offsetX += scrollSpeed;
     else if ( direction == 4 ) offsetX -= scrollSpeed;
 
-    LanInterface *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
+    auto *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
     UplinkAssert (thisInt);
     thisInt->PositionLayout ();
 
@@ -894,7 +894,7 @@ void LanInterface::SelectSystem ( int systemIndex )
 	Computer *comp = vl->GetComputer ();
 	UplinkAssert (comp);
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
-    LanComputer *lancomp = (LanComputer *) comp;
+    auto *lancomp = (LanComputer *) comp;
 
     LanComputerSystem *system = nullptr;
 
@@ -995,7 +995,7 @@ void LanInterface::CreateLayout ()
 
         if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
 
-        LanComputer *lancomp = (LanComputer *) comp;
+        auto *lancomp = (LanComputer *) comp;
         Button *background = EclGetButton ( "lan_background" );
         UplinkAssert (background);
 
@@ -1086,7 +1086,7 @@ void LanInterface::PositionLayout ()
 
         if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
 
-        LanComputer *lancomp = (LanComputer *) comp;
+        auto *lancomp = (LanComputer *) comp;
         Button *background = EclGetButton ( "lan_background" );
         UplinkAssert (background);
 

@@ -199,7 +199,7 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
     Button *answerbutton = EclGetButton ( "codecard_answer" );
     UplinkAssert (answerbutton);
 
-    CodeCardScreenInterface *thisint = (CodeCardScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+    auto *thisint = (CodeCardScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
     UplinkAssert (thisint);
 
     char *lowercasecaption = LowerCaseString (answerbutton->caption);
@@ -251,7 +251,7 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
 
     if ( success ) {
 
-	    GenericScreen *gs= (GenericScreen *) thisint->GetComputerScreen ();
+	    auto *gs= (GenericScreen *) thisint->GetComputerScreen ();
 	    UplinkAssert (gs);
 
 	    if ( gs->nextpage != -1 )
@@ -300,7 +300,7 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
 
 
 	if ( !app->askCodeCard ) {
-		GenericScreen *gs = (GenericScreen *) cs;
+		auto *gs = (GenericScreen *) cs;
 		if ( gs->nextpage != -1 ) {
 			game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
 			return;

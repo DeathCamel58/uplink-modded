@@ -77,7 +77,7 @@ void ConsoleScreenInterface::PostClick ( Button *button )
 	Button *b = EclGetButton ( "console_typehere" );
 	UplinkAssert (b);
 
-	ConsoleScreenInterface *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
+	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
 
 	char *actualcommand = strchr ( b->caption, '>' );
 
@@ -111,7 +111,7 @@ void ConsoleScreenInterface::TypeHereDraw ( Button *button, bool highlighted, bo
 void ConsoleScreenInterface::WaitingCallback ()
 {
 
-	ConsoleScreenInterface *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
+	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
 	thisint->waiting = false;
 
 }
@@ -439,7 +439,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 {
 
-	ConsoleScreenInterface *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
+	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
 	UplinkAssert (thisint);
 
 	Computer *comp = GetComputerScreen ()->GetComputer ();
@@ -472,7 +472,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 					comp->logbank.logs.RemoveData (i);
 
 					// Replace it with a "Deleted" marker
-					AccessLog *al = new AccessLog ();
+					auto *al = new AccessLog ();
 					al->SetProperties ( &logdate, "Unknown", " ",
 										LOG_NOTSUSPICIOUS, LOG_TYPE_DELETED );
 					comp->logbank.logs.PutData ( al, i );
@@ -585,7 +585,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 void ConsoleScreenInterface::RunCommand_RUN	( char *program, bool actuallyrun )
 {
 
-	ConsoleScreenInterface *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
+	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
 	UplinkAssert (thisint);
 
 	Computer *comp = GetComputerScreen ()->GetComputer ();
@@ -832,7 +832,7 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 
 		// Log this access
 
-		AccessLog *log = new AccessLog ();
+		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date),
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER",
 							 LOG_NOTSUSPICIOUS, LOG_TYPE_TEXT );

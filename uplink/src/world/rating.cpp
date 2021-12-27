@@ -136,7 +136,7 @@ void Rating::ChangeUplinkScore ( int amount )
         if ( uplinkrating == 6 && oldrating < 6 ) {
             if ( !game->GetWorld ()->GetPlayer ()->gateway.HasHUDUpgrade (HUDUPGRADE_CONNECTIONANALYSIS) ) {
 
-                Message *m = new Message ();
+                auto *m = new Message ();
                 m->SetTo ( "PLAYER" );
                 m->SetFrom ( "Uplink Corporation" );
                 m->SetSubject ( "Information for Skilled Agents" );
@@ -226,7 +226,7 @@ void Rating::ChangeUplinkScore ( int amount )
 					"Your rating is now " << GetUplinkRating () << "."
 				 << '\x0';
 
-			Message *msg = new Message ();
+			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );
 			msg->SetTo ( owner );
 			msg->SetSubject ( "Congratulations" );
@@ -260,7 +260,7 @@ void Rating::ChangeUplinkScore ( int amount )
 					"Uplink Corporation will not tolerate failure."
 				 << '\x0';
 
-			Message *msg = new Message ();
+			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );
 			msg->SetTo ( owner );
 			msg->SetSubject ( "Uplink WARNING" );
@@ -321,7 +321,7 @@ void Rating::ChangeNeuromancerScore ( int amount )
 													strcmp ( owner, "PLAYER" ) != 0 ? owner : game->GetWorld ()->GetPlayer ()->handle,
 													GetNeuromancerRating () );
 
-			Message *msg = new Message ();
+			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );
 			msg->SetTo ( owner );
 			msg->SetSubject ( "Neuromancer rating change" );
@@ -342,7 +342,7 @@ void Rating::ChangeNeuromancerScore ( int amount )
 													"Your new rating is %s.",
 													GetNeuromancerRating () );
 
-			Message *msg = new Message ();
+			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );
 			msg->SetTo ( owner );
 			msg->SetSubject ( "Neuromancer rating change" );

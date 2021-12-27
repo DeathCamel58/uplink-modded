@@ -60,7 +60,7 @@ void SharesViewScreenInterface::DrawPriceGraph ( Button *button, bool highlighte
 
 	clear_draw ( button->x, button->y, button->width, button->height );
 
-	SharesViewScreenInterface *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	if ( thisint->companyname [0] != ' ' ) {
@@ -127,7 +127,7 @@ void SharesViewScreenInterface::DrawProfit ( Button *button, bool highlighted, b
 void SharesViewScreenInterface::BuyClick ( Button *button )
 {
 
-	SharesViewScreenInterface *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	if ( thisint->companyname [0] != ' ' ) {
@@ -143,7 +143,7 @@ void SharesViewScreenInterface::BuyClick ( Button *button )
 void SharesViewScreenInterface::SellClick ( Button *button )
 {
 
-	SharesViewScreenInterface *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	if ( thisint->companyname [0] != ' ' ) {
@@ -159,7 +159,7 @@ void SharesViewScreenInterface::SellClick ( Button *button )
 void SharesViewScreenInterface::CloseClick ( Button *button )
 {
 
-    GenericScreen *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+    auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
     UplinkAssert (gs);
 
 	if ( gs->nextpage != -1 ) 
@@ -170,7 +170,7 @@ void SharesViewScreenInterface::CloseClick ( Button *button )
 void SharesViewScreenInterface::UpdateStatus ()
 {
 
-	SharesViewScreenInterface *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	if ( thisint->companyname [0] != ' ' ) {

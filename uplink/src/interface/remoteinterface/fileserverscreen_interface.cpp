@@ -103,7 +103,7 @@ void FileServerScreenInterface::FileClick ( Button *button )
 		char action [64];
 
 		UplinkSnprintf ( action, sizeof ( action ), "Accessed file %s", data->title );
-		AccessLog *log = new AccessLog ();
+		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date), 
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER",
 							 LOG_NOTSUSPICIOUS, LOG_TYPE_TEXT );
@@ -130,7 +130,7 @@ void FileServerScreenInterface::FileClick ( Button *button )
 		char action [64];
 
 		UplinkSnprintf ( action, sizeof ( action ), "Accessed memory file index %d", fileindex );
-		AccessLog *log = new AccessLog ();
+		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date), 
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER",
 							 LOG_NOTSUSPICIOUS, LOG_TYPE_TEXT );
@@ -393,7 +393,7 @@ void FileServerScreenInterface::Create ( ComputerScreen *newcs )
 
 		DataBank *db = &(GetComputerScreen ()->GetComputer ()->databank);
 
-		AccessLog *log = new AccessLog ();
+		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date), 
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER" );
 		log->SetData1 ( "Accessed fileserver" );

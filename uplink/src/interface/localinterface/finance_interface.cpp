@@ -176,7 +176,7 @@ void FinanceInterface::ClickAccountButton ( Button *button )
 		game->GetWorld ()->GetPlayer ()->GetConnection ()->Disconnect ();
 		game->GetWorld ()->GetPlayer ()->GetConnection ()->Reset ();
 
-		PhoneDialler *pd = new PhoneDialler ();
+		auto *pd = new PhoneDialler ();
 		pd->DialNumber ( 100, 100, ip, 4, accno );	
 
 	}

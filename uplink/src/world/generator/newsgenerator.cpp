@@ -385,7 +385,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	//delete [] part6.str ();
 	//delete [] details.str ();
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -536,7 +536,7 @@ void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 	//delete [] details.str ();
 
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -662,7 +662,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 	//delete [] part3.str ();
 	//delete [] details.str ();
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -783,7 +783,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 	//delete [] part3.str ();
 	//delete [] details.str ();
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -939,7 +939,7 @@ void NewsGenerator::Arrested ( Person *person, Computer *comp, char *reason )
 	//delete [] part3.str ();
 	//delete [] details.str ();
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 

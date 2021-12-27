@@ -52,7 +52,7 @@ void Sale::SetSwhwTYPE ( int newSwhwTYPE )
 void Sale::AddVersion ( char *details, int cost, int size, int data )
 {
 
-	SaleVersion *sv = new SaleVersion ();
+	auto *sv = new SaleVersion ();
 	sv->Set ( details, cost, size, data );
 
 	versions.PutData ( sv );

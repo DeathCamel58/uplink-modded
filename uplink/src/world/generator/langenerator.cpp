@@ -115,7 +115,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 	company->SetBoss ( ceo->name );
 	company->SetAdmin ( admin->name );
 
-	LanComputer *comp = new LanComputer ();
+	auto *comp = new LanComputer ();
 	comp->SetTYPE ( COMPUTER_TYPE_LAN );
 	comp->SetTraceSpeed ( TRACESPEED_LAN );
 	comp->SetTraceAction ( COMPUTER_TRACEACTION_DISCONNECT |
@@ -129,7 +129,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 	comp->SetIsTargetable( false );
     game->GetWorld ()->CreateComputer ( comp );
 
-    LanCluster *cluster = new LanCluster ();
+    auto *cluster = new LanCluster ();
 
 	//
 	// Load each LAN system
@@ -320,7 +320,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 
 	for ( i = 0; i < numlogs; ++i ) {
 
-		AccessLog *al = new AccessLog ();
+		auto *al = new AccessLog ();
 		al->SetProperties ( &(game->GetWorld ()->date), WorldGenerator::GetRandomLocation ()->ip, " " );
 		al->SetData1 ( "Accessed File" );
 		comp->logbank.AddLog (al);
@@ -331,7 +331,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 	// Create some log-in's
     //
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
@@ -364,7 +364,7 @@ Computer  *LanGenerator::GenerateLAN ( char *companyname, int difficulty )
 	VLocation *vl = WorldGenerator::GenerateLocation ();
     vl->SetListed ( false );
 
-	LanComputer *comp = new LanComputer ();
+	auto *comp = new LanComputer ();
 	comp->SetTYPE ( COMPUTER_TYPE_LAN );
 	comp->SetName ( computername );
 	comp->SetCompanyName ( companyname );
@@ -419,7 +419,7 @@ Computer  *LanGenerator::GenerateLAN ( char *companyname, int difficulty )
 
 	for ( i = 0; i < numlogs; ++i ) {
 
-		AccessLog *al = new AccessLog ();
+		auto *al = new AccessLog ();
 		al->SetProperties ( &(game->GetWorld ()->date), WorldGenerator::GetRandomLocation ()->ip, " " );
 		al->SetData1 ( "Accessed File" );
 		comp->logbank.AddLog (al);
@@ -430,7 +430,7 @@ Computer  *LanGenerator::GenerateLAN ( char *companyname, int difficulty )
 	// Create some log-in's
     //
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
@@ -453,7 +453,7 @@ void LanGenerator::SanityCheckLAN ( LanComputer *comp )
             UplinkAssert (cs);
             if ( cs->GetOBJECTID () == OID_HIGHSECURITYSCREEN ) {
 
-                HighSecurityScreen *hss = (HighSecurityScreen *) cs;
+                auto *hss = (HighSecurityScreen *) cs;
 
                 for ( int j = 0; j < hss->systems.Size(); ++j ) {
                     if ( hss->systems.ValidIndex(j) ) {
@@ -484,7 +484,7 @@ void LanGenerator::SanityCheckLAN ( LanComputer *comp )
 void LanGenerator::GenerateLANCluster ( LanComputer *comp, int difficulty )
 {
 
-    LanCluster *cluster = new LanCluster ();
+    auto *cluster = new LanCluster ();
 
 	LList <int> usedRadioFrenquencies;
 
@@ -950,7 +950,7 @@ void LanGenerator::GenerateLAN_Level2Cluster ( LanComputer *comp, LanCluster *cl
         int input1 = cluster->input;
         int output1 = cluster->output;
 
-        LanCluster *cluster1 = new LanCluster ();
+        auto *cluster1 = new LanCluster ();
         GenerateLAN_Level0Cluster ( comp, cluster1, usedRadioFrenquencies, 325, 0, 200, 200 );
         cluster1->Rotate ( 3 );
         cluster1->Merge ( cluster, comp );
@@ -1037,7 +1037,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
 
         // Part 2
 
-        LanCluster *part2 = new LanCluster ();
+        auto *part2 = new LanCluster ();
         GenerateLAN_Level0Cluster ( comp, part2, usedRadioFrenquencies, 325, 0, 200, 200 );
         part2->Rotate( 3 );
         part2->Merge( cluster, comp );
@@ -1053,7 +1053,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
 
         // Part 4
 
-        LanCluster *part4 = new LanCluster ();
+        auto *part4 = new LanCluster ();
         GenerateLAN_Level1Cluster ( comp, part4, usedRadioFrenquencies, 800, 350, 275, 275 );
         part4->Rotate( 3 );
         part4->Merge( cluster, comp );
@@ -1139,7 +1139,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
 
         // Left authentication
 
-        LanCluster *leftCluster = new LanCluster ();
+        auto *leftCluster = new LanCluster ();
         int rec1Index = GenerateRadioReceiver ( comp, leftCluster, 100, 0, 1 );
         GenerateLAN_Level1Cluster ( comp, leftCluster, usedRadioFrenquencies, 0, 100, 300, 300 );
         int auth1Index = GenerateAuthentication ( comp, leftCluster, 350, 400, 1 );
@@ -1157,7 +1157,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
 
         // Right authentication
 
-        LanCluster *rightCluster = new LanCluster ();
+        auto *rightCluster = new LanCluster ();
         int rec2Index = GenerateRadioReceiver ( comp, rightCluster, 1000, 0, 1 );
         GenerateLAN_Level1Cluster ( comp, rightCluster, usedRadioFrenquencies, 900, 60, 300, 300 );
         int auth2Index = GenerateAuthentication ( comp, rightCluster, 1250, 400, 1 );
@@ -1175,7 +1175,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
 
         // Lower authentication
 
-        LanCluster *lowerCluster = new LanCluster ();
+        auto *lowerCluster = new LanCluster ();
         int rec3Index = GenerateRadioReceiver ( comp, lowerCluster, 575, 400, 1 );
         GenerateLAN_Level1Cluster ( comp, lowerCluster, usedRadioFrenquencies, 460, 500, 300, 300 );
         int auth3Index = GenerateAuthentication ( comp, lowerCluster, 800, 900, 1 );
@@ -1266,7 +1266,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
         int input2 = cluster->input;
         int output2 = cluster->output;
 
-        LanCluster *part3 = new LanCluster ();
+        auto *part3 = new LanCluster ();
         GenerateLAN_Level1Cluster ( comp, part3, usedRadioFrenquencies, 340, 275, 300, 300 );
         part3->Rotate( 3 );
         part3->Merge( cluster, comp );
@@ -1318,7 +1318,7 @@ int LanGenerator::GenerateRouter( LanComputer *comp, LanCluster *cluster, int x,
 	//
 	// Create the screen
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
 	ms->SetSubTitle ( "Local Area Network" );
 	ms->SetTextMessage ( "EXTERNAL ROUTER ACCESSED\n\n"
@@ -1350,7 +1350,7 @@ int LanGenerator::GenerateHUB ( LanComputer *comp, LanCluster *cluster, int x, i
 	//
 	// Create the screen
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
 	ms->SetSubTitle ( "Local Area Network" );
 	ms->SetTextMessage ( "INTERNAL HUB ACCESSED\n\n"
@@ -1381,7 +1381,7 @@ int LanGenerator::GenerateTerminal ( LanComputer *comp, LanCluster *cluster, int
 
 	// Opening message screen
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
 	ms->SetSubTitle ( "Local Area Network" );
 	ms->SetTextMessage ( "TERMINAL ACCESSED\n\n"
@@ -1395,7 +1395,7 @@ int LanGenerator::GenerateTerminal ( LanComputer *comp, LanCluster *cluster, int
 
 	// Password screen
 
-	PasswordScreen *ps = new PasswordScreen ();
+	auto *ps = new PasswordScreen ();
 	ps->SetMainTitle ( "LAN Terminal" );
 	ps->SetSubTitle ( "Password verification required" );
     ps->SetDifficulty ( HACKDIFFICULTY_LANTERMINAL );
@@ -1406,7 +1406,7 @@ int LanGenerator::GenerateTerminal ( LanComputer *comp, LanCluster *cluster, int
 
 	// You're in screen
 
-	MessageScreen *ms2 = new MessageScreen();
+	auto *ms2 = new MessageScreen();
 	ms2->SetMainTitle ( comp->companyname );
 	ms2->SetSubTitle ( "ACCESS GRANTED" );
 	ms2->SetTextMessage ( "All security verification checks out OK.\n"
@@ -1441,7 +1441,7 @@ int LanGenerator::GenerateLock ( LanComputer *comp, LanCluster *cluster, int x, 
 	//
 	// Create the screen
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
 	ms->SetSubTitle ( "Local Area Network" );
 	ms->SetTextMessage ( "LOCK ACCESSED\n\n"
@@ -1476,7 +1476,7 @@ int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluste
 	//
 	// Opening message screen
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
 	ms->SetSubTitle ( "Local Area Network" );
 	ms->SetTextMessage ( "AUTHENTICATION SERVER ACCESSED\n\n"
@@ -1493,7 +1493,7 @@ int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluste
 
 	// Password Screen
 
-	PasswordScreen *ps = new PasswordScreen ();
+	auto *ps = new PasswordScreen ();
 	ps->SetMainTitle ( "Authentication Server" );
 	ps->SetSubTitle ( "Password verification required" );
 	ps->SetDifficulty ( HACKDIFFICULTY_LANAUTHENTICATIONSERVER );
@@ -1505,7 +1505,7 @@ int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluste
 
 	// Cypher screen
 
-	CypherScreen *cs = new CypherScreen ();
+	auto *cs = new CypherScreen ();
 	cs->SetMainTitle ( "Authentication Server" );
 	cs->SetSubTitle ( "Enter elliptic-curve encryption cypher" );
 	cs->SetDifficulty ( HACKDIFFICULTY_GLOBALCRIMINALDATABASE );
@@ -1513,7 +1513,7 @@ int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluste
 
 	// High Security Screen
 
-	HighSecurityScreen *hs = new HighSecurityScreen ();
+	auto *hs = new HighSecurityScreen ();
 	hs->SetMainTitle ( "Authentication Server" );
 	hs->SetSubTitle ( "Authorisation required" );
 	hs->AddSystem ( "Password verification", psIndex );
@@ -1526,7 +1526,7 @@ int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluste
 
 	// All done screen
 
-	DialogScreen *ds = new DialogScreen ();
+	auto *ds = new DialogScreen ();
 	int dsIndex = comp->AddComputerScreen( ds );
 	ds->SetMainTitle ( comp->companyname );
 	ds->SetSubTitle ( "Authentication Server" );
@@ -1556,7 +1556,7 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 	//
 	// Opening message screen
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
 	ms->SetSubTitle ( "Local Area Network" );
 	ms->SetTextMessage ( "MAIN SERVER ACCESSED\n\n"
@@ -1570,7 +1570,7 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 
 	// Password Screen
 
-	PasswordScreen *ps = new PasswordScreen ();
+	auto *ps = new PasswordScreen ();
 	ps->SetMainTitle ( "Main Server" );
 	ps->SetSubTitle ( "Password verification required" );
     ps->SetDifficulty ( HACKDIFFICULTY_LANMAINSERVER );
@@ -1583,7 +1583,7 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 
 	// Voice print screen
 
-	GenericScreen *gs = new GenericScreen ();
+	auto *gs = new GenericScreen ();
 	gs->SetMainTitle ( "Main Server" );
 	gs->SetSubTitle ( "Voice print analysis required" );
 	gs->SetScreenType ( SCREEN_VOICEANALYSIS );
@@ -1591,7 +1591,7 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 
 	// High Security Screen
 
-	HighSecurityScreen *hs = new HighSecurityScreen ();
+	auto *hs = new HighSecurityScreen ();
 	hs->SetMainTitle ( "Authentication Server" );
 	hs->SetSubTitle ( "Authorisation required" );
 	hs->AddSystem ( "UserID / password verification", psIndex );
@@ -1604,7 +1604,7 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 
 	// File server
 
-	GenericScreen *fss = new GenericScreen ();
+	auto *fss = new GenericScreen ();
 	fss->SetScreenType ( SCREEN_FILESERVERSCREEN );
 	fss->SetMainTitle ( "Main Server" );
 	fss->SetSubTitle ( "File server" );
@@ -1612,7 +1612,7 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 
     // Log screen
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( "Log Server" );
 	ls->SetSubTitle ( "Access Logs" );
@@ -1620,7 +1620,7 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 
 	// Console
 
-	GenericScreen *gs6 = new GenericScreen ();
+	auto *gs6 = new GenericScreen ();
 	gs6->SetScreenType ( SCREEN_CONSOLESCREEN );
 	gs6->SetMainTitle ( "Main Server" );
 	gs6->SetSubTitle ( "Console" );
@@ -1628,7 +1628,7 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 
 	// Menu
 
-	MenuScreen *menu = new MenuScreen ();
+	auto *menu = new MenuScreen ();
 	menu->SetMainTitle ( "Main Server" );
 	menu->SetSubTitle ( "Main Menu" );
 	menu->AddOption ( "File Server", "Access the file server", fssIndex, 3 );
@@ -1656,7 +1656,7 @@ int LanGenerator::GenerateLogServer ( LanComputer *comp, LanCluster *cluster, in
 
     // Message screen
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
 	ms->SetSubTitle ( "Log Server" );
 	ms->SetTextMessage ( "External access to LOG server granted.\n\n"
@@ -1670,7 +1670,7 @@ int LanGenerator::GenerateLogServer ( LanComputer *comp, LanCluster *cluster, in
 
 	// Password Screen
 
-	PasswordScreen *ps = new PasswordScreen ();
+	auto *ps = new PasswordScreen ();
 	ps->SetMainTitle ( "Log Server" );
 	ps->SetSubTitle ( "Password verification required" );
     ps->SetDifficulty ( HACKDIFFICULTY_LANLOGSERVER );
@@ -1683,7 +1683,7 @@ int LanGenerator::GenerateLogServer ( LanComputer *comp, LanCluster *cluster, in
 
     // Log screen
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( "Log Server" );
 	ls->SetSubTitle ( "Access Logs" );
@@ -1708,7 +1708,7 @@ int LanGenerator::GenerateIsolationBridge ( LanComputer *comp, LanCluster *clust
     // Main control panel
 
 
-	DialogScreen *ds = new DialogScreen ();
+	auto *ds = new DialogScreen ();
 	int dsIndex = comp->AddComputerScreen( ds );
 	ds->SetMainTitle ( comp->companyname );
 	ds->SetSubTitle ( "ISOLATION BRIDGE" );
@@ -1730,7 +1730,7 @@ int LanGenerator::GenerateSessionKeyServer ( LanComputer *comp, LanCluster *clus
     UplinkAssert (comp);
     UplinkAssert (cluster);
 
-    MessageScreen *ms = new MessageScreen ();
+    auto *ms = new MessageScreen ();
     ms->SetMainTitle ( comp->companyname );
     ms->SetSubTitle ( "Session key server" );
     ms->SetTextMessage ( "This is a session key server" );
@@ -1765,7 +1765,7 @@ int LanGenerator::GenerateModem ( LanComputer *comp, LanCluster *cluster, int x,
 		    									NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10) );
 	}
 
-	VLocationSpecial *vl = new VLocationSpecial ();
+	auto *vl = new VLocationSpecial ();
 	vl->SetPLocation ( mapx, mapy );
 	vl->SetIP ( ip );
 	game->GetWorld ()->CreateVLocation ( vl );
@@ -1777,7 +1777,7 @@ int LanGenerator::GenerateModem ( LanComputer *comp, LanCluster *cluster, int x,
 	//
 	// Password Screen
 
-	PasswordScreen *ps = new PasswordScreen ();
+	auto *ps = new PasswordScreen ();
 	ps->SetMainTitle ( "Modem" );
 	ps->SetSubTitle ( "Password verification required" );
     ps->SetDifficulty ( HACKDIFFICULTY_LANMODEM );
@@ -1801,7 +1801,7 @@ int LanGenerator::GenerateModem ( LanComputer *comp, LanCluster *cluster, int x,
 													 "The local dial-up number is %s.",
 													 ip );
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
 	ms->SetSubTitle ( "Local Area Network" );
 	ms->SetTextMessage ( textMsg );
@@ -1824,7 +1824,7 @@ int LanGenerator::GenerateRadioTransmitter ( LanComputer *comp, LanCluster *clus
     UplinkAssert (comp);
     UplinkAssert (cluster);
 
-    GenericScreen *gs = new GenericScreen ();
+    auto *gs = new GenericScreen ();
     gs->SetMainTitle ( comp->companyname );
     gs->SetSubTitle ( "Wireless LAN Transmitter" );
     gs->SetScreenType ( SCREEN_RADIOTRANSMITTER );
@@ -1841,7 +1841,7 @@ int LanGenerator::GenerateRadioReceiver ( LanComputer *comp, LanCluster *cluster
     UplinkAssert (comp);
     UplinkAssert (cluster);
 
-    MessageScreen *ms = new MessageScreen ();
+    auto *ms = new MessageScreen ();
     ms->SetMainTitle ( comp->companyname );
     ms->SetSubTitle ( "Wireless LAN Receiver" );
     ms->SetTextMessage ( "Wireless connection successfully established.\n"
@@ -1864,7 +1864,7 @@ int LanGenerator::GenerateFaxPrinter ( LanComputer *comp, LanCluster *cluster, i
     UplinkAssert (comp);
     UplinkAssert (cluster);
 
-    MessageScreen *ms = new MessageScreen ();
+    auto *ms = new MessageScreen ();
     ms->SetMainTitle ( comp->companyname );
     ms->SetSubTitle ( "Fax printer" );
     ms->SetTextMessage ( "This is a fax printer" );
@@ -1904,7 +1904,7 @@ bool LanGenerator::HideData ( LanComputer *comp, LanComputerSystem *system, char
         ComputerScreen *cs = comp->GetComputerScreen( system->dataScreenIndex );
         if ( cs && cs->GetOBJECTID() == OID_MESSAGESCREEN ) {
 
-            MessageScreen *ms = (MessageScreen *) cs;
+            auto *ms = (MessageScreen *) cs;
 			size_t newCaptionsize = strlen(ms->textmessage) + strlen(data) + 5;
             char *newCaption = new char [ newCaptionsize ];
             UplinkSnprintf ( newCaption, newCaptionsize, "%s\n\n%s", ms->textmessage, data );
@@ -1962,7 +1962,7 @@ int LanCluster::AddLanSystem ( LanComputerSystem *system )
 int LanCluster::AddLanSystem ( int TYPE, int x, int y, int security, int screenIndex, int dataScreenIndex )
 {
 
-    LanComputerSystem *system = new LanComputerSystem ();
+    auto *system = new LanComputerSystem ();
     system->TYPE = TYPE;
     system->x = x;
     system->y = y;
@@ -1978,7 +1978,7 @@ int LanCluster::AddLanSystem ( int TYPE, int x, int y, int security, int screenI
 int LanCluster::AddLanLink ( int from, float fromX, float fromY,
                              int to, float toX, float toY, int security )
 {
-    LanComputerLink *link = new LanComputerLink ();
+    auto *link = new LanComputerLink ();
     link->from = from;
     link->to = to;
     link->fromX = fromX;
@@ -2095,7 +2095,7 @@ void LanCluster::Merge ( LanCluster *target, LanComputer *comp )
 						if ( locations->ValidIndex(i) ) {
 							if ( locations->GetData(i)->GetOBJECTID() == OID_VLOCATIONSPECIAL ) {
 
-								VLocationSpecial *vl = (VLocationSpecial *) locations->GetData(i);
+								auto *vl = (VLocationSpecial *) locations->GetData(i);
 								if ( strcmp ( vl->computer, comp->name ) == 0 &&
 									 vl->screenIndex == targetScreenIndex &&
 									 vl->securitySystemIndex < systems.Size () ) {
@@ -2198,7 +2198,7 @@ void LanCluster::Merge ( LanComputer *target )
 						if ( locations->ValidIndex(i) ) {
 							if ( locations->GetData(i)->GetOBJECTID() == OID_VLOCATIONSPECIAL ) {
 
-								VLocationSpecial *vl = (VLocationSpecial *) locations->GetData(i);
+								auto *vl = (VLocationSpecial *) locations->GetData(i);
 								if ( strcmp ( vl->computer, target->name ) == 0 &&
 									 vl->screenIndex == targetScreenIndex &&
 									 vl->securitySystemIndex < systems.Size () ) {

@@ -155,7 +155,7 @@ void Message::Send ()
 	else {
 
 		// Send an error message to the sender
-		Message *msg = new Message ();
+		auto *msg = new Message ();
 		msg->SetTo ( from );
 		msg->SetFrom ( "MAIL SERVER" );
 		msg->SetSubject ( "Failed to deliver this email - unknown recipient" );

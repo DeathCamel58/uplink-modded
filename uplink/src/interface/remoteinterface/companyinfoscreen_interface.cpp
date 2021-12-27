@@ -35,7 +35,7 @@ bool CompanyInfoScreenInterface::EscapeKeyPressed ()
 void CompanyInfoScreenInterface::MdAddClick ( Button *button )
 {
 
-	CompanyInfoScreenInterface *thisint = (CompanyInfoScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (CompanyInfoScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	char *companyname = thisint->GetComputerScreen ()->GetComputer ()->companyname;
@@ -55,7 +55,7 @@ void CompanyInfoScreenInterface::MdAddClick ( Button *button )
 void CompanyInfoScreenInterface::AdminAddClick ( Button *button )
 {
 
-	CompanyInfoScreenInterface *thisint = (CompanyInfoScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (CompanyInfoScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	char *companyname = thisint->GetComputerScreen ()->GetComputer ()->companyname;
@@ -75,7 +75,7 @@ void CompanyInfoScreenInterface::AdminAddClick ( Button *button )
 void CompanyInfoScreenInterface::BackClick ( Button *button )
 {
 
-	GenericScreen *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
     UplinkAssert (gs);
 
     if ( gs->nextpage != -1 )

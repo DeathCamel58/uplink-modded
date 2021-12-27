@@ -101,7 +101,7 @@ void SecurityScreenInterface::StatusClick ( Button *button )
 void SecurityScreenInterface::CloseClick ( Button *button )
 {
 
-    GenericScreen *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+    auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
     UplinkAssert (gs);
 
 	if ( gs->nextpage != -1 ) 

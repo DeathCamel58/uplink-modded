@@ -61,7 +61,7 @@ int BankComputer::CreateBankAccount ( BankAccount *newaccount )
 
 	// Create the access record
 
-	Record *rec = new Record ();
+	auto *rec = new Record ();
 	//Due to buggy code all around Uplink, don't change: rec->AddField ( RECORDBANK_NAME, newaccount->name );
 	//rec->AddField ( "Name", newaccount->name );
 	rec->AddField ( RECORDBANK_NAME, newaccount->accountnumber );
@@ -78,7 +78,7 @@ int BankComputer::CreateBankAccount ( char *name, char *password, int security,
 										int balance, int loan )
 {
 
-	BankAccount *ba = new BankAccount ();
+	auto *ba = new BankAccount ();
 	ba->SetOwner ( name );
 	ba->SetSecurity ( password, security );
 	ba->SetBalance ( balance, loan );

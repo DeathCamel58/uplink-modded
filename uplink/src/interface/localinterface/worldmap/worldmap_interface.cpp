@@ -147,7 +147,7 @@ void WorldMapInterface::ConnectClick ( Button *button )
 
             CreateWorldMapInterface ( WORLDMAP_SMALL );
 
-			PhoneDialler *pd = new PhoneDialler ();
+			auto *pd = new PhoneDialler ();
             pd->DialNumber ( 100, 100, game->GetWorld ()->GetPlayer ()->GetConnection ()->GetTarget (), 3 );    
 
         }
@@ -544,7 +544,7 @@ void WorldMapInterface::DrawWorldMapLarge ( Button *button, bool highlighted, bo
     // Draw the text labels, dots etc
     //
 
-    WorldMapInterface *wmi = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *wmi = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
     UplinkAssert (wmi);
 
     wmi->DrawAllObjects ();
@@ -805,21 +805,21 @@ void WorldMapInterface::CreateWorldMapInterface_Small ()
 void WorldMapInterface::ZoomInClick ( Button *button )
 {
 
-    WorldMapInterface *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
     UplinkAssert (thisint);
     thisint->ChangeZoom ( 0.1f );
 }
 
 void WorldMapInterface::ZoomOutClick ( Button *button )
 {
-    WorldMapInterface *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
     UplinkAssert (thisint);
     thisint->ChangeZoom ( -0.1f );
 }
 
 void WorldMapInterface::ZoomButtonClick ( Button *button )
 {
-    WorldMapInterface *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
     UplinkAssert (thisint);
 
     float fractionX = (float) (get_mouseX() - button->x) / (float) button->width;
@@ -843,7 +843,7 @@ void WorldMapInterface::ZoomButtonDraw ( Button *button, bool highlighted, bool 
         glVertex2i ( button->x + button->width, button->y + 10 );
     glEnd ();
     
-    WorldMapInterface *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
     UplinkAssert (thisint);
 
     //
@@ -1145,7 +1145,7 @@ void WorldMapInterface::CreateWorldMapInterface_Large ()
     int fullsizeX = mapRect.width;
     int fullsizeY = mapRect.height;
     
-    WorldMapInterface *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
     UplinkAssert (thisint);
 
     // Create the background bitmap

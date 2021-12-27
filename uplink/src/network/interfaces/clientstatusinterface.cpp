@@ -72,7 +72,7 @@ void ClientStatusInterface::GatewayPanelDraw ( Button *button, bool highlighted,
 	glEnable ( GL_SCISSOR_TEST );
 
 
-	ClientStatusInterface *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
+	auto *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
 	UplinkAssert (thisint);
 
 	BackgroundDraw ( button, highlighted, clicked );
@@ -103,7 +103,7 @@ void ClientStatusInterface::PersonalPanelDraw ( Button *button, bool highlighted
 	glEnable ( GL_SCISSOR_TEST );
 
 
-	ClientStatusInterface *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
+	auto *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
 	UplinkAssert (thisint);
 
 	BackgroundDraw ( button, highlighted, clicked );
@@ -134,7 +134,7 @@ void ClientStatusInterface::WorldPanelDraw ( Button *button, bool highlighted, b
 	glEnable ( GL_SCISSOR_TEST );
 
 
-	ClientStatusInterface *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
+	auto *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
 	UplinkAssert (thisint);
 
 	BackgroundDraw ( button, highlighted, clicked );

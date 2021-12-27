@@ -367,7 +367,7 @@ DArray <char *> *ListDirectory  ( char *directory, char *filter )
 DArray <char *> *ListSubdirs ( char *directory )
 {
 
-    DArray <char *> *result = new DArray <char *> ();
+    auto *result = new DArray <char *> ();
 
     //
     // Now add on all files found locally
@@ -457,7 +457,7 @@ unsigned *getRetAddress(unsigned *mBP)
 
 	return retAddr;
 #else
-	unsigned **p = (unsigned **) mBP;
+	auto **p = (unsigned **) mBP;
 	return p[1];
 #endif
 }

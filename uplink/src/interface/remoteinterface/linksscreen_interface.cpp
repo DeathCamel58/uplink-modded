@@ -119,7 +119,7 @@ void LinksScreenInterface::LinkClick ( Button *button )
 		game->GetWorld ()->GetPlayer ()->GetConnection ()->Disconnect ();
 		game->GetWorld ()->GetPlayer ()->GetConnection ()->Reset ();
 
-		PhoneDialler *pd = new PhoneDialler ();
+		auto *pd = new PhoneDialler ();
 		pd->DialNumber ( 100, 100, ip, 5 );	
 	
 	}
@@ -527,7 +527,7 @@ void LinksScreenInterface::ScrollChange ( char *scrollname, int newValue )
 void LinksScreenInterface::CloseClick ( Button *button )
 {
 
-	LinksScreenInterface *lsi = (LinksScreenInterface *) GetInterfaceScreen ( SCREEN_LINKSSCREEN );
+	auto *lsi = (LinksScreenInterface *) GetInterfaceScreen ( SCREEN_LINKSSCREEN );
 	UplinkAssert (lsi);
 
 	int nextpage = lsi->GetComputerScreen ()->nextpage;

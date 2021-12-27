@@ -41,10 +41,10 @@ void MessageScreenInterface::Click ( Button *button )
 void MessageScreenInterface::MailMeClick ( Button *button )
 {
 
-	MessageScreen *msi = (MessageScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *msi = (MessageScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (msi);
 
-	Message *m = new Message ();
+	auto *m = new Message ();
 	m->SetTo ( "PLAYER" );
 	m->SetFrom ( msi->GetComputer ()->name );	
 	m->SetSubject ( msi->subtitle );

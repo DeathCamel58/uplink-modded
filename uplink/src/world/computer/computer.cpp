@@ -687,7 +687,7 @@ void Computer::Update ()
 
 	if ( NumberGenerator::RandomNumber ( 1000 ) == 0 ) {
 
-		AccessLog *al = new AccessLog ();
+		auto *al = new AccessLog ();
 		al->SetProperties ( &(game->GetWorld ()->date), WorldGenerator::GetRandomLocation ()->ip, " " );
 		al->SetData1 ( "Accessed File" );
 		logbank.AddLog (al);

@@ -430,7 +430,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 	// Send latest news items
 	//
 
-	CompanyUplink *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (uplink);
 
 	News *latest = uplink->GetNews (0);

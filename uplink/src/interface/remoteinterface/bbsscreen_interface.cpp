@@ -61,7 +61,7 @@ void BBSScreenInterface::ClickBBSButton ( Button *button )
 	UplinkSnprintf ( oldname, sizeof ( oldname ), "BBmessage %d", currentselect - baseoffset );
 	EclDirtyButton ( oldname );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetMission ( index ) ) {
@@ -93,7 +93,7 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 
 	// Get the text from mission number (index + baseoffset)
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	Mission *mission = cu->GetMission ( index );
@@ -123,7 +123,7 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 
 		if ( !encrypted ) {
 
-			float ratingdif = (float)(game->GetWorld ()->GetPlayer ()->rating.uplinkrating - mission->minuplinkrating);
+			auto ratingdif = (float)(game->GetWorld ()->GetPlayer ()->rating.uplinkrating - mission->minuplinkrating);
 			if ( ratingdif > 5.0f ) ratingdif = 5.0f;
 			
 			UplinkStrncpy ( subject, mission->description, sizeof ( subject ) );
@@ -177,7 +177,7 @@ void BBSScreenInterface::MousedownBBSButton ( Button *button )
 	int index;
 	sscanf ( button->name, "BBmessage %d", &index );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetMission ( index + baseoffset ) ) 
@@ -192,7 +192,7 @@ void BBSScreenInterface::HighlightBBSButton ( Button *button )
 	int index;
 	sscanf ( button->name, "BBmessage %d", &index );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetMission ( index + baseoffset ) )
@@ -203,7 +203,7 @@ void BBSScreenInterface::HighlightBBSButton ( Button *button )
 void BBSScreenInterface::ExitClick ( Button *button )
 {
 
-	BBSScreen *bbs = (BBSScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *bbs = (BBSScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (bbs);
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( bbs->nextpage, bbs->GetComputer () );
@@ -213,7 +213,7 @@ void BBSScreenInterface::ExitClick ( Button *button )
 void BBSScreenInterface::AcceptClick ( Button *button )
 {
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	Mission *mission = cu->GetMission ( currentselect );
@@ -271,14 +271,14 @@ void BBSScreenInterface::ContactClick ( Button *button )
 
 	// Get the currently selected mission
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	Mission *mission = cu->GetMission ( currentselect );
 
 	// Get the bbs screen
 
-	BBSScreen *bbs = (BBSScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *bbs = (BBSScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (bbs);
 	
 	if ( mission && bbs->contactpage != -1 ) {
@@ -301,7 +301,7 @@ void BBSScreenInterface::ContactClick ( Button *button )
 
 			game->GetInterface ()->GetRemoteInterface ()->RunScreen ( bbs->contactpage, bbs->GetComputer () );
 			
-			ContactScreenInterface *cs = (ContactScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+			auto *cs = (ContactScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 			
 			UplinkAssert ( cs );
 			UplinkAssert ( cs->ScreenID () == SCREEN_CONTACTSCREEN );
@@ -385,7 +385,7 @@ void BBSScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( baseX, baseY + 110 - 15, 70, 15, "Exit BBS", "Close the BBS screen and return to the main menu", "bbs_exit" );
 		EclRegisterButtonCallback ( "bbs_exit", ExitClick );
 
-    	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+    	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert ( cu );
         ScrollBox::CreateScrollBox ( "bbs_scroll", 22 + SY(388), 47, 15, NumItemsOnScreen() * 20, cu->missions.Size(), 12, 0, ScrollChange );
 
@@ -441,7 +441,7 @@ bool BBSScreenInterface::IsVisible ()
 void BBSScreenInterface::Update ()
 {
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	int newnummessages = cu->missions.Size ();

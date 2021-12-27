@@ -30,7 +30,7 @@ MenuScreen::~MenuScreen()
 void MenuScreen::AddOption ( char *caption, char *tooltip, int nextpage, int security, int index )
 {
 
-	MenuScreenOption *mso = new MenuScreenOption ();
+	auto *mso = new MenuScreenOption ();
 	mso->SetCaption ( caption );
 	mso->SetTooltip ( tooltip );
 	mso->SetNextPage ( nextpage );

@@ -61,7 +61,7 @@ void SWSalesScreenInterface::ClickSWButton ( Button *button )
 	UplinkSnprintf ( oldname, sizeof ( oldname ), "SWsale %d", currentselect - baseoffset );
 	EclDirtyButton ( oldname );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetSWSale ( index ) && cu->GetSWSale ( index )->GetVersion (1) ) {
@@ -88,7 +88,7 @@ void SWSalesScreenInterface::DrawSWButton ( Button *button, bool highlighted, bo
 
 	// Get the text from sale number (index + baseoffset)
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	Sale *sale = cu->GetSWSale ( index );
@@ -168,7 +168,7 @@ void SWSalesScreenInterface::MousedownSWButton ( Button *button )
 	int index;
 	sscanf ( button->name, "SWsale %d", &index );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetSWSale ( index + baseoffset ) ) {
@@ -186,7 +186,7 @@ void SWSalesScreenInterface::HighlightSWButton ( Button *button )
 	int index;
 	sscanf ( button->name, "SWsale %d", &index );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetSWSale ( index + baseoffset ) )
@@ -197,7 +197,7 @@ void SWSalesScreenInterface::HighlightSWButton ( Button *button )
 void SWSalesScreenInterface::ExitClick ( Button *button )
 {
 
-	GenericScreen *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (sss);
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( sss->nextpage, sss->GetComputer () );
@@ -215,7 +215,7 @@ bool SWSalesScreenInterface::EscapeKeyPressed ()
 void SWSalesScreenInterface::AcceptClick ( Button *button )
 {
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	Sale *sale = cu->GetSWSale ( currentselect );
@@ -356,7 +356,7 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 void SWSalesScreenInterface::NextVersionClick ( Button *button )
 {
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	Sale *sale = cu->GetSWSale ( currentselect );
@@ -383,7 +383,7 @@ void SWSalesScreenInterface::NextVersionClick ( Button *button )
 void SWSalesScreenInterface::PrevVersionClick ( Button *button )
 {
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	Sale *sale = cu->GetSWSale ( currentselect );
@@ -470,7 +470,7 @@ void SWSalesScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( baseX, baseY + 110 - 15, 72, 15, "Exit Market", "Close the screen and return to the main menu", "swsales_exit" );
 		EclRegisterButtonCallback ( "swsales_exit", ExitClick );
 
-    	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+    	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert ( cu );
         ScrollBox::CreateScrollBox ( "swsales_scroll", 22 + SY(390), 47, 15, NumItemsOnScreen() * 20, cu->sw_sales.Size(), NumItemsOnScreen(), 0, ScrollChange );
 

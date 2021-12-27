@@ -57,7 +57,7 @@ bool CypherScreenInterface::ReturnKeyPressed ()
 void CypherScreenInterface::DrawCypher ( Button *button, bool highlighted, bool clicked )
 {
 
-	CypherScreenInterface *thisint = (CypherScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (CypherScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
@@ -118,7 +118,7 @@ void CypherScreenInterface::ClickCypher ( Button *button )
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (ris);
-	CypherScreenInterface *csi = (CypherScreenInterface *) ris;
+	auto *csi = (CypherScreenInterface *) ris;
 
 	game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( csi->GetComputerScreen (), button->name, -1 );
 
@@ -129,7 +129,7 @@ void CypherScreenInterface::BypassClick ( Button *button )
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (ris);
-	CypherScreenInterface *csi = (CypherScreenInterface *) ris;
+	auto *csi = (CypherScreenInterface *) ris;
 	CypherScreen *cs = csi->GetComputerScreen ();
 	UplinkAssert (cs);
 
@@ -145,7 +145,7 @@ void CypherScreenInterface::ProceedClick ( Button *button )
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (ris);
-	CypherScreenInterface *csi = (CypherScreenInterface *) ris;
+	auto *csi = (CypherScreenInterface *) ris;
 
 	if ( csi->NumUnLocked () == 0 ) {
 	

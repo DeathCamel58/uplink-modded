@@ -67,7 +67,7 @@ void EventScheduler::ScheduleWarning ( UplinkEvent *event, Date *date )
 	UplinkAssert (event);
 	UplinkAssert (date);
 
-	WarningEvent *wevent = new WarningEvent ();
+	auto *wevent = new WarningEvent ();
 	wevent->SetEvent ( event );
 	wevent->SetRunDate ( date );
 

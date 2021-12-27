@@ -243,7 +243,7 @@ void NetworkClient::Handle_ClientCommsData ( char *buffer )
 	}
 	else {
 
-	    VLocation *vl = new VLocation ();
+	    auto *vl = new VLocation ();
 	    vl->SetPLocation ( x, y );
 	    vl->SetIP ( ip );
 	    vl->SetComputer ( compname );

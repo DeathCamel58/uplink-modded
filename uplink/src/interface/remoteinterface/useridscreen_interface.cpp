@@ -48,12 +48,12 @@ void UserIDScreenInterface::BypassClick ( Button *button )
 
 	// Add this into the computer's logs
 
-	AccessLog *log = new AccessLog ();
+	auto *log = new AccessLog ();
 	log->SetProperties ( &(game->GetWorld ()->date),
 						 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER" );
 	log->SetData1 ( "User [Admin] logged on (level 1)" );
 
-	UserIDScreen *uid = (UserIDScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *uid = (UserIDScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (uid);
 	uid->GetComputer ()->logbank.AddLog ( log );
 
@@ -158,7 +158,7 @@ void UserIDScreenInterface::ProceedClick ( Button *button )
 
 	// Look up that code in this computer's records
 
-	UserIDScreen *uid = (UserIDScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *uid = (UserIDScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (uid);
 	Computer *comp = uid->GetComputer ();
 	UplinkAssert (comp);
@@ -182,7 +182,7 @@ void UserIDScreenInterface::ProceedClick ( Button *button )
 
 		// Add this into the computer's logs
 
-		AccessLog *log = new AccessLog ();
+		auto *log = new AccessLog ();
 		char logdetails [256];
 		UplinkSnprintf ( logdetails, sizeof ( logdetails ), "User [%s] logged on (level %d)", name, security );
 		log->SetProperties ( &(game->GetWorld ()->date),
@@ -294,7 +294,7 @@ void UserIDScreenInterface::CodeButtonClick ( Button *button )
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (ris);
-	UserIDScreenInterface *uid = (UserIDScreenInterface *) ris;
+	auto *uid = (UserIDScreenInterface *) ris;
 
 	game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( uid->GetComputerScreen (), "useridscreen_code", -1 );
 

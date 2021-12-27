@@ -64,7 +64,7 @@ void IPLookup::GoClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "iplookup_go %d", &pid );
 
-	IPLookup *task = (IPLookup *) SvbGetTask ( pid );
+	auto *task = (IPLookup *) SvbGetTask ( pid );
 
 	if ( task->status == IPLOOKUP_IDLE )
 		task->status = IPLOOKUP_INPROGRESS;

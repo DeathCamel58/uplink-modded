@@ -674,7 +674,7 @@ void Agent::AttemptMission_TraceUser ()
 
 					AccessLog *recovered = comp->logbank.internallogs.GetData (il);
 					if ( recovered ) {
-						AccessLog *internalcopy = new AccessLog ();
+						auto *internalcopy = new AccessLog ();
 						internalcopy->SetProperties ( recovered );
 						comp->logbank.logs.PutData ( internalcopy, il );
 						delete al;
@@ -693,7 +693,7 @@ void Agent::AttemptMission_TraceUser ()
 
 				AccessLog *recovered = comp->logbank.internallogs.GetData (il);
 				if ( recovered ) {
-					AccessLog *internalcopy = new AccessLog ();
+					auto *internalcopy = new AccessLog ();
 					internalcopy->SetProperties ( recovered );
 					comp->logbank.logs.PutData ( internalcopy, il );
 					delete al;
@@ -913,7 +913,7 @@ void Agent::EstablishConnection ( char *ip )
 
 								AccessLog *copyme = comp->logbank.logs.GetData (is);
 								// This log was made by someone else
-								AccessLog *al = new AccessLog ();
+								auto *al = new AccessLog ();
 								al->SetProperties ( copyme );
 								al->date.SetDate ( &logdate );
 								al->SetSuspicious ( LOG_NOTSUSPICIOUS );
@@ -930,7 +930,7 @@ void Agent::EstablishConnection ( char *ip )
 						// Could not find log to overwrite with -
 						// So make up a new one
 
-						AccessLog *al = new AccessLog ();
+						auto *al = new AccessLog ();
 						al->SetProperties ( &logdate, WorldGenerator::GetRandomLocation ()->ip, " ",
 											LOG_NOTSUSPICIOUS, LOG_TYPE_TEXT );
 						al->SetData1 ( "Accessed File" );
@@ -944,7 +944,7 @@ void Agent::EstablishConnection ( char *ip )
 					delete comp->logbank.logs.GetData (il);
 
 					// Blank the log
-					AccessLog *al = new AccessLog ();
+					auto *al = new AccessLog ();
 					al->SetProperties ( &logdate, "Unknown", name,
 										LOG_NOTSUSPICIOUS, LOG_TYPE_DELETED);
 					comp->logbank.logs.PutData ( al, il );
@@ -955,7 +955,7 @@ void Agent::EstablishConnection ( char *ip )
 					delete comp->logbank.logs.GetData (il);
 
 					// Delete the log, leave marker
-					AccessLog *al = new AccessLog ();
+					auto *al = new AccessLog ();
 					al->SetProperties ( &logdate, "Unknown", name,
 										LOG_NOTSUSPICIOUS, LOG_TYPE_DELETED);
 					comp->logbank.logs.PutData ( al, il );

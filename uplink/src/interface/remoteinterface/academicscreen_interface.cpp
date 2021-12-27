@@ -53,7 +53,7 @@ bool AcademicScreenInterface::EscapeKeyPressed ()
 void AcademicScreenInterface::CommitClick ( Button *button )
 {
 
-	AcademicScreenInterface *asi = (AcademicScreenInterface *) GetInterfaceScreen ( SCREEN_ACADEMICSCREEN );
+	auto *asi = (AcademicScreenInterface *) GetInterfaceScreen ( SCREEN_ACADEMICSCREEN );
 	UplinkAssert (asi);
 
 	if ( asi->recordindex != -1 ) {
@@ -82,7 +82,7 @@ void AcademicScreenInterface::CommitClick ( Button *button )
 void AcademicScreenInterface::CloseClick ( Button *button )
 {
 
-	GenericScreen *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (gs);
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );

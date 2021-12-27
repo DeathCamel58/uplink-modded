@@ -103,7 +103,7 @@ void FirewallDisable::GoClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
 
-	FirewallDisable *thistask = (FirewallDisable *) SvbGetTask ( pid );
+	auto *thistask = (FirewallDisable *) SvbGetTask ( pid );
 	UplinkAssert (thistask);
 
 	// Set it going

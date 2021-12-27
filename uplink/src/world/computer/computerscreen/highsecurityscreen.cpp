@@ -26,7 +26,7 @@ HighSecurityScreen::~HighSecurityScreen ()
 void HighSecurityScreen::AddSystem ( char *name, int page )
 {
 
-	MenuScreenOption *mso = new MenuScreenOption ();
+	auto *mso = new MenuScreenOption ();
 	mso->SetCaption ( name );
 	mso->SetNextPage ( page );
 	mso->SetSecurity ( 10 );

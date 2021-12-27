@@ -60,7 +60,7 @@ void NewsScreenInterface::ClickNewsButton ( Button *button )
 	UplinkSnprintf ( oldname, sizeof ( oldname ), "news_story %d", currentselect - baseoffset );
 	EclDirtyButton ( oldname );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetNews (index) ) {
@@ -104,7 +104,7 @@ void NewsScreenInterface::DrawNewsButton ( Button *button, bool highlighted, boo
 
 	// Get the text from news item (index + baseoffset)
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	News *news = cu->GetNews (index);
@@ -262,7 +262,7 @@ void NewsScreenInterface::MousedownNewsButton ( Button *button )
 	int index;
 	sscanf ( button->name, "news_story %d", &index );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetNews ( index + baseoffset ) ) 
@@ -277,7 +277,7 @@ void NewsScreenInterface::HighlightNewsButton ( Button *button )
 	int index;
 	sscanf ( button->name, "news_story %d", &index );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	if ( cu->GetNews ( index + baseoffset ) )
@@ -288,7 +288,7 @@ void NewsScreenInterface::HighlightNewsButton ( Button *button )
 void NewsScreenInterface::ExitClick ( Button *button )
 {
 
-	GenericScreen *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (gs);
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
 
@@ -349,7 +349,7 @@ void NewsScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( 20 + itemWidth + 16 - SX(70), 51 + numRows * 40 + SY(105), SX(70), 15, "Exit News", "Close the News screen and return to the main menu", "news_exit" );
 		EclRegisterButtonCallback ( "news_exit", ExitClick );
 
-    	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+    	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert ( cu );
         ScrollBox::CreateScrollBox( "news_scroll", itemWidth + 21, 50, 15, numRows * 40, cu->news.Size(), numRows, 0, ScrollChange );
 
@@ -399,7 +399,7 @@ bool NewsScreenInterface::IsVisible ()
 void NewsScreenInterface::Update ()
 {
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	int newnummessages = cu->news.Size ();

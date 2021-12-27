@@ -273,7 +273,7 @@ Player *WorldGenerator::GeneratePlayer ( char *handle )
 {
 
 	// Initialise the player
-	Player *player = new Player ();
+	auto *player = new Player ();
 
 	player->SetName						( "PLAYER" );
 	player->SetAge						( 21 );
@@ -328,7 +328,7 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	// Screen 0			:			Links
 
-	LinksScreen *links = new LinksScreen ();
+	auto *links = new LinksScreen ();
 	links->SetScreenType ( LINKSSCREENTYPE_PLAYERLINKS );
 	links->SetMainTitle ( "Gateway" );
 	links->SetSubTitle ( "Click on a link to quick-connect to that site" );
@@ -336,7 +336,7 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	// Screen 1			:			Connection disconnected locally
 
-	DisconnectedScreen *msg1 = new DisconnectedScreen ();
+	auto *msg1 = new DisconnectedScreen ();
 	msg1->SetMainTitle ( "" );
 	msg1->SetSubTitle ( "" );
 	msg1->SetTextMessage ( "Connection terminated by Gateway" );
@@ -345,7 +345,7 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	// Screen 2			:			Connection disconnected remotely (naughty!!)
 
-	DisconnectedScreen *msg2 = new DisconnectedScreen ();
+	auto *msg2 = new DisconnectedScreen ();
 	msg2->SetMainTitle ( "" );
 	msg2->SetSubTitle ( "" );
 	msg2->SetTextMessage ( "Connection terminated by remote host" );
@@ -354,7 +354,7 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	// Screen 3			:			Welcome to Gateway - time since last log in
 
-	DialogScreen *dlg3 = new DialogScreen ();
+	auto *dlg3 = new DialogScreen ();
 	dlg3->SetMainTitle ( "Gateway" );
 	dlg3->SetSubTitle ( "Log on complete" );
 	dlg3->AddWidget ( "text2", WIDGET_CAPTION, 170, 210, 270, 15, "Welcome back to your Gateway", "" );
@@ -364,19 +364,19 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	// Screen 5			:			Welcome to Gateway
 
-	DialogScreen *dlg5 = new DialogScreen ();
+	auto *dlg5 = new DialogScreen ();
 	localmachine->AddComputerScreen ( dlg5, 5 );
 
 	// Screen 6						Successfully started
 
-	DialogScreen *dlg6 = new DialogScreen ();
+	auto *dlg6 = new DialogScreen ();
 	dlg6->AddWidget ( "text2", WIDGET_CAPTION, 100, 210, 340, 15, "UPLINK Operating System successfully started on Gateway", "" );
 	dlg6->AddWidget ( "okbutton", WIDGET_NEXTPAGE, 300, 350, 50, 20, "OK", "Click to continue", 7, 0, nullptr, nullptr );
 	localmachine->AddComputerScreen ( dlg6, 6 );
 
 	// Screen 7						All done!
 
-	DialogScreen *dlg7 = new DialogScreen ();
+	auto *dlg7 = new DialogScreen ();
 	dlg7->SetMainTitle ( "Gateway" );
 	dlg7->SetSubTitle ( "Set up complete" );
 	dlg7->AddWidget ( "caption", WIDGET_CAPTION, 50, 120, 400, 280,
@@ -394,7 +394,7 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	// Screen 8						404 page not found error ;)
 
-	MessageScreen *ms8 = new MessageScreen ();
+	auto *ms8 = new MessageScreen ();
 	ms8->SetMainTitle ( "Error 404" );
 	ms8->SetSubTitle ( "System not found" );
 	ms8->SetTextMessage ( "The IP address you specified did not \nhave a valid computer host.\n\n"
@@ -405,7 +405,7 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	// Screen 9						Cannot connect to remotehost - they are not externally targetable
 
-	MessageScreen *ms9 = new MessageScreen ();
+	auto *ms9 = new MessageScreen ();
 	ms9->SetMainTitle ( "Failed to establish connection" );
 	ms9->SetSubTitle ( "External connections not permitted" );
 	ms9->SetTextMessage ( "The computer you tried to access will not accept external connections.\n"
@@ -418,7 +418,7 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	// Screen 10					Welcome to your new gateway
 
-	MessageScreen *ms10 = new MessageScreen ();
+	auto *ms10 = new MessageScreen ();
 	ms10->SetMainTitle ( "Gateway" );
 	ms10->SetSubTitle ( "Upgrade complete" );
 	ms10->SetTextMessage ( "Congratulations agent - your are now using your new gateway and your old one is already "
@@ -506,7 +506,7 @@ void WorldGenerator::LoadDynamicsGatewayDefs ()
 	        UplinkAssert (rsFilename);
 	        idos2unixstream thisFile ( rsFilename );
 
-            GatewayDef *def = new GatewayDef ();
+            auto *def = new GatewayDef ();
             def->LoadGatewayDefinition ( thisFile );
 
             char filename [256];
@@ -536,7 +536,7 @@ void WorldGenerator::GenerateCompanyUplink ()
 {
 
 	// Create the BIG company
-	CompanyUplink *cu = new CompanyUplink ();
+	auto *cu = new CompanyUplink ();
 	game->GetWorld ()->CreateCompany ( cu );
 	GenerateUplinkPublicAccessServer ();
 	GenerateUplinkInternalServicesSystem ();
@@ -650,7 +650,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
     //delete compName;
 
 	// Screen 0						Intro
-	MessageScreen *msg1 = new MessageScreen ();
+	auto *msg1 = new MessageScreen ();
 	msg1->SetMainTitle ( "Uplink" );
 	msg1->SetSubTitle ( "About us" );
 	msg1->SetNextPage ( 1 );
@@ -671,7 +671,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 
 	// Screen 1						Main menu
 
-	MenuScreen *menu0 = new MenuScreen ();
+	auto *menu0 = new MenuScreen ();
 	menu0->SetMainTitle ( "Uplink" );
 	menu0->SetSubTitle ( "Public server Main Menu" );
 	menu0->AddOption ( "About Us", "Find out who we are and what we do", 0 );
@@ -680,7 +680,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 
 	// Screen 2						Registration info
 
-	DialogScreen *dlg2 = new DialogScreen ();
+	auto *dlg2 = new DialogScreen ();
 	dlg2->SetMainTitle ( "Uplink" );
 	dlg2->SetSubTitle ( "Registration" );
 	std::ostrstream body2;
@@ -703,7 +703,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 
 	// Screen 3						Username / password
 
-	DialogScreen *dlg3 = new DialogScreen ();
+	auto *dlg3 = new DialogScreen ();
 	dlg3->SetMainTitle ( "Uplink Registration" );
 	dlg3->SetSubTitle ( "Create your agent profile" );
 	dlg3->AddWidget ( "name",      WIDGET_BASIC, 80, 140, 170, 20, "Enter your name", "Enter the name you wish to use" );
@@ -726,7 +726,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 
 	// Screen 4						World map - select nearby gateway
 
-	GenericScreen *gs4 = new GenericScreen ();
+	auto *gs4 = new GenericScreen ();
 	gs4->SetMainTitle ( "Uplink" );
 	gs4->SetSubTitle ( "Local gateway selection" );
 	gs4->SetScreenType ( SCREEN_NEARESTGATEWAY );
@@ -737,7 +737,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 
 	// Screen 5						Introduction to your Gateway
 
-	DialogScreen *dlg5 = new DialogScreen ();
+	auto *dlg5 = new DialogScreen ();
 	dlg5->SetMainTitle ( "Uplink Registration" );
 	dlg5->SetSubTitle ( "Your Gateway computer" );
 	std::ostrstream body3;
@@ -764,7 +764,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 
 	// Screen 6						Connecting to Gateway
 
-	DialogScreen *dlg6 = new DialogScreen ();
+	auto *dlg6 = new DialogScreen ();
 
 	int screenw = app->GetOptions ()->GetOptionValue ("graphics_screenwidth");
 	int screenh = app->GetOptions ()->GetOptionValue ("graphics_screenheight");
@@ -774,7 +774,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 
     // Screen 9                     Code card verification
 
-	GenericScreen *gs9 = new GenericScreen ();
+	auto *gs9 = new GenericScreen ();
 	gs9->SetMainTitle ( "Uplink" );
 	gs9->SetSubTitle ( "Code card verification" );
 	gs9->SetScreenType ( SCREEN_CODECARD );
@@ -783,7 +783,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 
 	// Screen 10					Your Gateway is Gone!
 
-	DialogScreen *dlg10 = new DialogScreen ();
+	auto *dlg10 = new DialogScreen ();
 	dlg10->SetMainTitle ( "Uplink" );
 	dlg10->SetSubTitle ( "Gateway connection failed" );
 	dlg10->AddWidget ( "caption1", WIDGET_CAPTION, 100, 130, 400, 270,
@@ -822,7 +822,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 0			( ID )
 
-	UserIDScreen *uid = new UserIDScreen ();
+	auto *uid = new UserIDScreen ();
 	uid->SetMainTitle ( "Uplink" );
 	uid->SetSubTitle ( "Internal Services System" );
 	uid->SetNextPage ( 1 );
@@ -831,7 +831,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 1			( Main menu )
 
-	MenuScreen *menu2 = new MenuScreen ();
+	auto *menu2 = new MenuScreen ();
 	menu2->SetMainTitle ( "Uplink" );
 	menu2->SetSubTitle ( "Internal Services Main Menu" );
 	menu2->AddOption ( "News Server",       "Read the latest news", 11 );
@@ -846,7 +846,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 2			( Admin menu )
 
-	MenuScreen *menu3 = new MenuScreen ();
+	auto *menu3 = new MenuScreen ();
 	menu3->SetMainTitle ( "Uplink" );
 	menu3->SetSubTitle ( "Administrator services" );
 	menu3->AddOption ( "Access fileserver", "Upload or Download files", 14, 1 );
@@ -857,21 +857,21 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 4			( Bulletin board )
 
-	BBSScreen *bbs = new BBSScreen ();
+	auto *bbs = new BBSScreen ();
 	bbs->SetNextPage ( 1 );
 	bbs->SetContactPage ( 5 );
 	comp->AddComputerScreen ( bbs, 4 );
 
 	// Screen 5			( Contact screen )
 
-	GenericScreen *gs5 = new GenericScreen ();
+	auto *gs5 = new GenericScreen ();
 	gs5->SetScreenType ( SCREEN_CONTACTSCREEN );
 	gs5->SetNextPage ( 4 );
 	comp->AddComputerScreen ( gs5, 5 );
 
 	// Screen 6			( Software market )
 
-	GenericScreen *sss = new GenericScreen ();
+	auto *sss = new GenericScreen ();
 	sss->SetScreenType ( SCREEN_SWSALESSCREEN );
 	sss->SetMainTitle ( "Uplink" );
 	sss->SetSubTitle ( "Software sales" );
@@ -880,7 +880,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 7			( Hardware market )
 
-	GenericScreen *hss = new GenericScreen ();
+	auto *hss = new GenericScreen ();
 	hss->SetScreenType ( SCREEN_HWSALESSCREEN );
 	hss->SetMainTitle ( "Uplink" );
 	hss->SetSubTitle ( "Hardware sales" );
@@ -889,7 +889,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 8			( Change Gateway )
 
-	GenericScreen *gs8 = new GenericScreen ();
+	auto *gs8 = new GenericScreen ();
 	gs8->SetScreenType ( SCREEN_CHANGEGATEWAY );
 	gs8->SetMainTitle ( "Uplink" );
 	gs8->SetSubTitle ( "Exchange gateway" );
@@ -898,7 +898,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 9			( Access security )
 
-	GenericScreen *rs = new GenericScreen ();
+	auto *rs = new GenericScreen ();
 	rs->SetScreenType ( SCREEN_SECURITYSCREEN );
 	rs->SetMainTitle ( "Uplink" );
 	rs->SetSubTitle ( "Security Systems" );
@@ -907,7 +907,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 10			( Access logs )
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( "Uplink" );
 	ls->SetSubTitle ( "Access Logs" );
@@ -916,7 +916,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 11		( News server )
 
-	GenericScreen *gs11 = new GenericScreen ();
+	auto *gs11 = new GenericScreen ();
 	gs11->SetMainTitle ( "Uplink" );
 	gs11->SetSubTitle ( "News server" );
 	gs11->SetScreenType ( SCREEN_NEWSSCREEN );
@@ -925,7 +925,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 12		( Rankings screen )
 
-	GenericScreen *gs12 = new GenericScreen ();
+	auto *gs12 = new GenericScreen ();
 	gs12->SetMainTitle ( "Uplink" );
 	gs12->SetSubTitle ( "Agent Rankings" );
 	gs12->SetScreenType ( SCREEN_RANKINGSCREEN );
@@ -934,7 +934,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
     // Screen 13        ( Decypher )
 
-	CypherScreen *cs13 = new CypherScreen ();
+	auto *cs13 = new CypherScreen ();
 	cs13->SetMainTitle ( "Uplink" );
 	cs13->SetSubTitle ( "Enter Elliptic-Curve encryption cypher" );
 	cs13->SetDifficulty ( HACKDIFFICULTY_UPLINK_INTERNALSERVICESMACHINE );
@@ -943,7 +943,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
     // Screen 14        ( File Server )
 
-	GenericScreen *fss14 = new GenericScreen ();
+	auto *fss14 = new GenericScreen ();
 	fss14->SetScreenType ( SCREEN_FILESERVERSCREEN );
 	fss14->SetMainTitle ( "Uplink" );
 	fss14->SetSubTitle ( "File server" );
@@ -953,7 +953,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 20		( Help menu )
 
-	MenuScreen *ms20 = new MenuScreen ();
+	auto *ms20 = new MenuScreen ();
 	ms20->SetMainTitle ( "Uplink" );
 	ms20->SetSubTitle ( "Help/" );
 	ms20->AddOption ( "Getting Started", "If you're new to this, you should read this section", 40 );
@@ -965,7 +965,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 21		( Secure connections help menu )
 
-	MenuScreen *ms21 = new MenuScreen ();
+	auto *ms21 = new MenuScreen ();
 	ms21->SetMainTitle ( "Uplink Help" );
 	ms21->SetSubTitle ( "Help/Secure Connections" );
 	ms21->AddOption ( "Introduction", "Introduction", 22 );
@@ -980,7 +980,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 22		( Intro to secure connections )
 
-	MessageScreen *ms22 = new MessageScreen ();
+	auto *ms22 = new MessageScreen ();
 	ms22->SetMainTitle ( "Secure connections" );
 	ms22->SetSubTitle ( "Help/Secure Connections/Introduction" );
 	ms22->SetTextMessage ( "When you connect to a computer from your links screen, a direct connection is established between  "
@@ -993,7 +993,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 23		( Call bouncing help )
 
-	MessageScreen *ms23 = new MessageScreen ();
+	auto *ms23 = new MessageScreen ();
 	ms23->SetMainTitle ( "Secure connections" );
 	ms23->SetSubTitle ( "Help/Secure Connections/Call bouncing" );
 	ms23->SetTextMessage ( "The first step in establishing a secure untracable connection is to route your connection through "
@@ -1009,7 +1009,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// screen 24		( Active traces )
 
-	MessageScreen *ms24 = new MessageScreen ();
+	auto *ms24 = new MessageScreen ();
 	ms24->SetMainTitle ( "Secure connections" );
 	ms24->SetSubTitle ( "Help/Secure Connections/Active traces" );
 	ms24->SetTextMessage ( "Whenever you begin to act suspiciously, the target machine will begin to trace you.  Many computers "
@@ -1025,7 +1025,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 25		( Passive traces )
 
-	MessageScreen *ms25 = new MessageScreen ();
+	auto *ms25 = new MessageScreen ();
 	ms25->SetMainTitle ( "Secure connections" );
 	ms25->SetSubTitle ( "Help/Secure Connections/Passive traces" );
 	ms25->SetTextMessage ( "Whenever you use call bouncing to connect to a computer, you will leave logs behind on each computer "
@@ -1041,7 +1041,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 26		( Trace tracking )
 
-	MessageScreen *ms26 = new MessageScreen ();
+	auto *ms26 = new MessageScreen ();
 	ms26->SetMainTitle ( "Secure connections" );
 	ms26->SetSubTitle ( "Help/Secure Connections/Trace tracking" );
 	ms26->SetTextMessage ( "Whilst you are hacking, it is inevitable that people will attempt to trace you.  It is very important "
@@ -1057,7 +1057,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 27		( Tips on secure connections )
 
-	MessageScreen *ms27 = new MessageScreen ();
+	auto *ms27 = new MessageScreen ();
 	ms27->SetMainTitle ( "Secure connections" );
 	ms27->SetSubTitle ( "Help/Secure Connections/Passive Tips" );
 	ms27->SetTextMessage ( "There are several methods of preventing Passive traces from coming back to you.  Here are some suggestions. \n"
@@ -1074,7 +1074,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 28		( Gateway info )
 
-	MenuScreen *ms28 = new MenuScreen ();
+	auto *ms28 = new MenuScreen ();
 	ms28->SetMainTitle ( "Uplink help" );
 	ms28->SetSubTitle ( "Help/Gateway Computers" );
 	ms28->AddOption ( "Introduction", "Introduction to the use of Gateway computers", 29 );
@@ -1086,7 +1086,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 29		( Intro to gateway )
 
-	MessageScreen *ms29 = new MessageScreen ();
+	auto *ms29 = new MessageScreen ();
 	ms29->SetMainTitle ( "Gateway computers" );
 	ms29->SetSubTitle ( "Help/Gateway Computers/Introduction" );
 	ms29->SetTextMessage ( "When an Uplink agent logs on to his local machine, the Uplink software on his computer establishes a direct "
@@ -1103,7 +1103,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 30		( Why use a gateway )
 
-	MessageScreen *ms30 = new MessageScreen ();
+	auto *ms30 = new MessageScreen ();
 	ms30->SetMainTitle ( "Gateway computers" );
 	ms30->SetSubTitle ( "Help/Gateway Computers/Why use Gateways" );
 	ms30->SetTextMessage ( "A gateway computer gives total physical anonymity to all Uplink Agents who use them.  A gateway computer is "
@@ -1121,7 +1121,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 31		( Physical specs of gateway )
 
-	MessageScreen *ms31 = new MessageScreen ();
+	auto *ms31 = new MessageScreen ();
 	ms31->SetMainTitle ( "Gateway computers" );
 	ms31->SetSubTitle ( "Help/Gateway Computers/Physical specifications" );
 	ms31->SetTextMessage ( "Uplink Corporation owns several large offices around the world, which are used to house hundreds of Gateway computers.  "
@@ -1137,7 +1137,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 32		( Upgrading your gateway )
 
-	MessageScreen *ms32 = new MessageScreen ();
+	auto *ms32 = new MessageScreen ();
 	ms32->SetMainTitle ( "Gateway Computers" );
 	ms32->SetSubTitle ( "Help/Gateway Computers/Upgrading your gateway" );
 	ms32->SetTextMessage ( "You can order new hardware upgrades for your Gateway from the Hardware Menu on the Uplink Internal Services Machine.  "
@@ -1154,7 +1154,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 35		( Security systems )
 
-	MenuScreen *ms35 = new MenuScreen ();
+	auto *ms35 = new MenuScreen ();
 	ms35->SetMainTitle ( "Uplink Help" );
 	ms35->SetSubTitle ( "Help/Security Systems" );
 	ms35->AddOption ( "Introduction", "Introduction to security systems", 36 );
@@ -1168,7 +1168,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 36		( Introduction to security systems )
 
-	MessageScreen *ms36 = new MessageScreen ();
+	auto *ms36 = new MessageScreen ();
 	ms36->SetMainTitle ( "Security Systems Help" );
 	ms36->SetSubTitle ( "Help/Security Systems/Introduction" );
 	ms36->SetTextMessage ( "As you accept more work from Uplink Corporation you will encounter more and more security systems of different types and strengths.  "
@@ -1182,7 +1182,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 37		( Proxy systems )
 
-	MessageScreen *ms37 = new MessageScreen ();
+	auto *ms37 = new MessageScreen ();
 	ms37->SetMainTitle ( "Security Systems Help" );
 	ms37->SetSubTitle ( "Help/Security Systems/the Proxy" );
 	ms37->SetTextMessage ( "The primary purpose of the Proxy server is to stop unauthorised users from modifying records or logs.  A system with a good Proxy server "
@@ -1198,7 +1198,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 38		( Firewall systems )
 
-	MessageScreen *ms38 = new MessageScreen ();
+	auto *ms38 = new MessageScreen ();
 	ms38->SetMainTitle ( "Security Systems Help" );
 	ms38->SetSubTitle ( "Help/Security Systems/the Firewall" );
 	ms38->SetTextMessage ( "The primary purpose of the firewall is to prevent unauthorised usage of files on the target system.  A good Firewall will stop you from "
@@ -1213,7 +1213,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 40		( Getting started menu )
 
-	MenuScreen *ms40 = new MenuScreen ();
+	auto *ms40 = new MenuScreen ();
 	ms40->SetMainTitle ( "Uplink Help" );
 	ms40->SetSubTitle ( "Help/Getting Started" );
 	ms40->AddOption ( "Introduction", "What this section is about", 41 );
@@ -1228,7 +1228,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 41		( Intro to getting started )
 
-	MessageScreen *ms41 = new MessageScreen ();
+	auto *ms41 = new MessageScreen ();
 	ms41->SetMainTitle ( "Getting Started" );
 	ms41->SetSubTitle ( "Help/Getting Started/Introduction" );
 	ms41->SetTextMessage ( "This section of the help documents is designed to help new Uplink Agents with their first few hours online.\n\n"
@@ -1242,7 +1242,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 42		( Basic tools )
 
-	MessageScreen *ms42 = new MessageScreen ();
+	auto *ms42 = new MessageScreen ();
 	ms42->SetMainTitle ( "Getting Started" );
 	ms42->SetSubTitle ( "Help/Getting Started/Basic Tools" );
 	ms42->SetTextMessage ( "The basic tools that you will require for the Uplink Test mission will also be required for almost every other type of mission, so you "
@@ -1260,7 +1260,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 43		( the Connection )
 
-	MessageScreen *ms43 = new MessageScreen ();
+	auto *ms43 = new MessageScreen ();
 	ms43->SetMainTitle ( "Getting Started" );
 	ms43->SetSubTitle ( "Help/Getting Started/The Connection" );
 	ms43->SetTextMessage ( "The Uplink Test Mission requires you to connect to the Uplink Test Machine and steal a file.  You should not connect directly to it - "
@@ -1276,7 +1276,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 44		( The hack )
 
-	MessageScreen *ms44 = new MessageScreen ();
+	auto *ms44 = new MessageScreen ();
 	ms44->SetMainTitle ( "Getting Started" );
 	ms44->SetSubTitle ( "Help/Getting Started/Password breaking" );
 	ms44->SetTextMessage ( "Once connected to the Uplink Test Machine, you will see the main log in screen.  Since you do not have security clearence to use this machine, "
@@ -1291,7 +1291,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 45		( Stealing the file )
 
-	MessageScreen *ms45 = new MessageScreen ();
+	auto *ms45 = new MessageScreen ();
 	ms45->SetMainTitle ( "Getting Started" );
 	ms45->SetSubTitle ( "Help/Getting Started/Stealing the file" );
 	ms45->SetTextMessage ( "Once you are in the system, you should have no trouble accessing the file server and downloading the file you need.  (Use the file copier and download "
@@ -1307,7 +1307,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 46		( Hide )
 
-	MessageScreen *ms46 = new MessageScreen ();
+	auto *ms46 = new MessageScreen ();
 	ms46->SetMainTitle ( "Getting Started" );
 	ms46->SetSubTitle ( "Help/Getting Started/Covering your tracks" );
 	ms46->SetTextMessage ( "The final step in any hack is to cover your tracks.  "
@@ -1325,7 +1325,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 47		( Missions )
 
-	MessageScreen *ms47 = new MessageScreen ();
+	auto *ms47 = new MessageScreen ();
 	ms47->SetMainTitle ( "Getting Started" );
 	ms47->SetSubTitle ( "Help/Getting Started/Future missions" );
 	ms47->SetTextMessage ( "The Uplink test mission is the easiest mission you will ever attempt.  Once you feel good enough, connect to the Uplink Internal Services "
@@ -1339,7 +1339,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 48		( Tips on secure connections (active) )
 
-	MessageScreen *ms48 = new MessageScreen ();
+	auto *ms48 = new MessageScreen ();
 	ms48->SetMainTitle ( "Secure connections" );
 	ms48->SetSubTitle ( "Help/Secure Connections/Active Tips" );
 	ms48->SetTextMessage ( "There are several important points to keep in mind when setting up connections. If done correctly, you can give yourself the extra few "
@@ -1355,7 +1355,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Screen 49		( Monitor systems )
 
-	MessageScreen *ms49 = new MessageScreen ();
+	auto *ms49 = new MessageScreen ();
 	ms49->SetMainTitle ( "Security Systems Help" );
 	ms49->SetSubTitle ( "Help/Security Systems/the Monitor" );
 	ms49->SetTextMessage ( "Monitor systems are designed to detect unauthorised activity. They are usually triggered when a user attempts to hack a password, "
@@ -1369,7 +1369,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
     // Screen 50        ( Voice print ID systems )
 
-    MessageScreen *ms50 = new MessageScreen ();
+    auto *ms50 = new MessageScreen ();
     ms50->SetMainTitle ( "Security Systems Help" );
     ms50->SetSubTitle ( "Help/Security Systems/Voice Print ID" );
     ms50->SetTextMessage ( "Many systems that require a specific person to log in use Voice Print technology.  The users voice is first sampled and analysed "
@@ -1384,7 +1384,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
     // Screen 51        ( Elliptic Curve systems )
 
-    MessageScreen *ms51 = new MessageScreen ();
+    auto *ms51 = new MessageScreen ();
     ms51->SetMainTitle ( "Security Systems Help" );
     ms51->SetSubTitle ( "Help/Security Systems/Elliptic Curve Security" );
     ms51->SetTextMessage ( "Faced with the growing threat of hackers, many companies have begun using Elliptic Curve Cryptography.  A user on a system must "
@@ -1398,7 +1398,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	// Add in the admin account
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
@@ -1470,7 +1470,7 @@ void WorldGenerator::GenerateUplinkTestMachine ()
 
 	// Generate an admin log on
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, "rosebud" );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
@@ -1480,7 +1480,7 @@ void WorldGenerator::GenerateUplinkTestMachine ()
 
 	// Screen 0			( Opening message )
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( "Uplink" );
 	ms->SetSubTitle ( "Welcome to the Uplink Test Machine" );
 	ms->SetTextMessage ( "This will be your first opportunity to hack into a real computer system with real defenses. "
@@ -1496,7 +1496,7 @@ void WorldGenerator::GenerateUplinkTestMachine ()
 
 	// Screen 1			( User ID )
 
-	UserIDScreen *uid = new UserIDScreen ();
+	auto *uid = new UserIDScreen ();
 	uid->SetMainTitle ( "Uplink" );
 	uid->SetSubTitle ( "Test machine" );
 	uid->SetDifficulty ( HACKDIFFICULTY_UPLINK_TESTMACHINE );
@@ -1505,7 +1505,7 @@ void WorldGenerator::GenerateUplinkTestMachine ()
 
 	// Screen 2			( Main menu )
 
-	MenuScreen *menu = new MenuScreen ();
+	auto *menu = new MenuScreen ();
 	menu->SetMainTitle ( "Uplink" );
 	menu->SetSubTitle ( "Test machine Main Menu" );
 	menu->AddOption ( "Access fileserver", "", 4 );
@@ -1515,7 +1515,7 @@ void WorldGenerator::GenerateUplinkTestMachine ()
 
 	// Screen 3			( Logs )
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( "Uplink Test Machine" );
 	ls->SetSubTitle ( "Access logs" );
@@ -1524,7 +1524,7 @@ void WorldGenerator::GenerateUplinkTestMachine ()
 
 	// Screen 4			( file server )
 
-	GenericScreen *gs4 = new GenericScreen ();
+	auto *gs4 = new GenericScreen ();
 	gs4->SetScreenType ( SCREEN_FILESERVERSCREEN );
 	gs4->SetMainTitle ( "Uplink Test Machine" );
 	gs4->SetSubTitle ( "File Server" );
@@ -1533,7 +1533,7 @@ void WorldGenerator::GenerateUplinkTestMachine ()
 
 	// Screen 5			( Console )
 
-	GenericScreen *gs5 = new GenericScreen ();
+	auto *gs5 = new GenericScreen ();
 	gs5->SetScreenType ( SCREEN_CONSOLESCREEN );
 	gs5->SetMainTitle ( "Uplink Test Machine" );
 	gs5->SetSubTitle ( "Console" );
@@ -1556,7 +1556,7 @@ void WorldGenerator::GenerateUplinkCreditsMachine ()
 	UplinkAssert ( comp );
 	comp->SetIsTargetable ( false );
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( "Uplink" );
 	ms->SetSubTitle ( "The Credits Machine" );
 	ms->SetTextMessage ( "Produced by INTROVERSION SOFTWARE\n\n"
@@ -1594,7 +1594,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "Global Criminal Database" );
 	comp->SetCompanyName ( "Government" );
@@ -1609,7 +1609,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 0					( Opening message screen )
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( "Global Criminal Database" );
 	ms->SetSubTitle ( "Unauthorised Access will be punished" );
 	ms->SetTextMessage ( "This is a Government owned computer system - all attempts at\n"
@@ -1626,7 +1626,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 1					( High Security Screen )
 
-	HighSecurityScreen *hs = new HighSecurityScreen ();
+	auto *hs = new HighSecurityScreen ();
 	hs->SetMainTitle ( "Global Criminal Database" );
 	hs->SetSubTitle ( "Authorisation required" );
 	hs->AddSystem ( "UserID / password verification", 2 );
@@ -1636,7 +1636,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 2					( User ID Screen )
 
-	UserIDScreen *uid = new UserIDScreen ();
+	auto *uid = new UserIDScreen ();
 	uid->SetMainTitle ( "Global Criminal Database" );
 	uid->SetSubTitle ( "Log in" );
 	uid->SetDifficulty ( HACKDIFFICULTY_GLOBALCRIMINALDATABASE );
@@ -1645,7 +1645,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 3					( Cypher screen )
 
-	CypherScreen *cs = new CypherScreen ();
+	auto *cs = new CypherScreen ();
 	cs->SetMainTitle ( "Global Criminal Database" );
 	cs->SetSubTitle ( "Enter elliptic-curve encryption cypher" );
 	cs->SetDifficulty ( HACKDIFFICULTY_GLOBALCRIMINALDATABASE );
@@ -1654,7 +1654,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 4					( Main Menu )
 
-	MenuScreen *menu = new MenuScreen ();
+	auto *menu = new MenuScreen ();
 	menu->SetMainTitle ( "Global Criminal Database" );
 	menu->SetSubTitle ( "Main Menu" );
 	menu->AddOption ( "Search Records", "", 7 );
@@ -1667,7 +1667,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 5					( Records )
 
-	GenericScreen *rs = new GenericScreen ();
+	auto *rs = new GenericScreen ();
 	rs->SetScreenType ( SCREEN_RECORDSCREEN );
 	rs->SetMainTitle ( "Global Criminal Database" );
 	rs->SetSubTitle ( "Criminal Records" );
@@ -1676,7 +1676,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 6					( Logs )
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( "Global Criminal Database" );
 	ls->SetSubTitle ( "Access logs" );
@@ -1685,7 +1685,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 7					( Search )
 
-	DialogScreen *ds7 = new DialogScreen ();
+	auto *ds7 = new DialogScreen ();
 	ds7->SetMainTitle ( "Global Criminal Database" );
 	ds7->SetSubTitle ( "Search for Criminal Record" );
 	ds7->AddWidget ( "name", WIDGET_TEXTBOX, 150, 200, 200, 15, "Enter name here", "Type the name of the person to search for here" );
@@ -1704,7 +1704,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 8					( Search )
 
-	GenericScreen *gs8 = new GenericScreen ();
+	auto *gs8 = new GenericScreen ();
 	gs8->SetScreenType ( SCREEN_CRIMINALSCREEN );
 	gs8->SetMainTitle ( "Global Criminal Database" );
 	gs8->SetSubTitle ( "View Criminal Records" );
@@ -1713,7 +1713,7 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Screen 9					( Security )
 
-	GenericScreen *gs9 = new GenericScreen ();
+	auto *gs9 = new GenericScreen ();
 	gs9->SetScreenType ( SCREEN_SECURITYSCREEN );
 	gs9->SetMainTitle ( "Global Criminal Database" );
 	gs9->SetSubTitle ( "Security settings" );
@@ -1723,19 +1723,19 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 
 	// Add in the user accounts
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
 	comp->recordbank.AddRecord ( record );
 
-	Record *record2 = new Record ();
+	auto *record2 = new Record ();
 	record2->AddField ( RECORDBANK_NAME, RECORDBANK_READWRITE );
 	record2->AddField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );
 	record2->AddField ( RECORDBANK_SECURITY, "2" );
 	comp->recordbank.AddRecord ( record2 );
 
-	Record *record3 = new Record ();
+	auto *record3 = new Record ();
 	record3->AddField ( RECORDBANK_NAME, RECORDBANK_READONLY );
 	record3->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record3->AddField ( RECORDBANK_SECURITY, "4" );
@@ -1754,7 +1754,7 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "International Social Security Database" );
 	comp->SetCompanyName ( "Government" );
@@ -1769,7 +1769,7 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Screen 0					( Opening message screen )
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( "Social Security Database" );
 	ms->SetSubTitle ( "Unauthorised Access will be punished" );
 	ms->SetTextMessage ( "This is a Government owned computer system - all attempts at\n"
@@ -1785,7 +1785,7 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Screen 1					( User ID Screen )
 
-	UserIDScreen *uid = new UserIDScreen ();
+	auto *uid = new UserIDScreen ();
 	uid->SetMainTitle ( "Social Security Database" );
 	uid->SetSubTitle ( "Log in" );
 	uid->SetDifficulty ( HACKDIFFICULTY_INTERNATIONALSOCIALSECURITYDATABASE );
@@ -1794,7 +1794,7 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Screen 2					( Main Menu )
 
-	MenuScreen *menu = new MenuScreen ();
+	auto *menu = new MenuScreen ();
 	menu->SetMainTitle ( "Social Security Database" );
 	menu->SetSubTitle ( "Main Menu" );
 	menu->AddOption ( "Search Records", "", 5, 3 );
@@ -1806,7 +1806,7 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Screen 3					( Records )
 
-	GenericScreen *rs = new GenericScreen ();
+	auto *rs = new GenericScreen ();
 	rs->SetScreenType ( SCREEN_RECORDSCREEN );
 	rs->SetMainTitle ( "Social Security Database" );
 	rs->SetSubTitle ( "Records" );
@@ -1815,7 +1815,7 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Screen 4					( Logs )
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( "Social Security Database" );
 	ls->SetSubTitle ( "Access logs" );
@@ -1824,7 +1824,7 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Screen 5					( Search )
 
-	DialogScreen *ds5 = new DialogScreen ();
+	auto *ds5 = new DialogScreen ();
 	ds5->SetMainTitle ( "Social Security Database" );
 	ds5->SetSubTitle ( "Search for social security record" );
 	ds5->AddWidget ( "name", WIDGET_TEXTBOX, 150, 200, 200, 15, "Enter name here", "Type the name of the person to search for here" );
@@ -1843,7 +1843,7 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Screen 6					( View record )
 
-	GenericScreen *gs6 = new GenericScreen ();
+	auto *gs6 = new GenericScreen ();
 	gs6->SetMainTitle ( "Social Security Database" );
 	gs6->SetSubTitle ( "View record" );
 	gs6->SetNextPage ( 2 );
@@ -1852,21 +1852,21 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 
 	// Add in the accounts
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
 	record->AddField ( "Social Security", -1 );
 	comp->recordbank.AddRecord ( record );
 
-	Record *record2 = new Record ();
+	auto *record2 = new Record ();
 	record2->AddField ( RECORDBANK_NAME, RECORDBANK_READWRITE );
 	record2->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record2->AddField ( RECORDBANK_SECURITY, "2" );
 	record2->AddField ( "Social Security", -1 );
 	comp->recordbank.AddRecord ( record2 );
 
-	Record *record3 = new Record ();
+	auto *record3 = new Record ();
 	record3->AddField ( RECORDBANK_NAME, RECORDBANK_READONLY );
 	record3->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record3->AddField ( RECORDBANK_SECURITY, "4" );
@@ -1886,7 +1886,7 @@ void WorldGenerator::GenerateCentralMedicalDatabase ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "Central Medical Database" );
 	comp->SetCompanyName ( "Government" );
@@ -1901,7 +1901,7 @@ void WorldGenerator::GenerateCentralMedicalDatabase ()
 
 	// Screen 0					( Opening message screen )
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( "Central Medical Database" );
 	ms->SetSubTitle ( "No Unauthorised Access" );
 	ms->SetTextMessage ( "admin - Complete read/write/delete access on all records" );
@@ -1911,7 +1911,7 @@ void WorldGenerator::GenerateCentralMedicalDatabase ()
 
 	// Screen 1					( User ID Screen )
 
-	UserIDScreen *uid = new UserIDScreen ();
+	auto *uid = new UserIDScreen ();
 	uid->SetMainTitle ( "Central Medical Database" );
 	uid->SetSubTitle ( "Log in" );
 	uid->SetDifficulty ( HACKDIFFICULTY_CENTRALMEDICALDATABASE );
@@ -1920,7 +1920,7 @@ void WorldGenerator::GenerateCentralMedicalDatabase ()
 
 	// Screen 2					( Main Menu )
 
-	MenuScreen *menu = new MenuScreen ();
+	auto *menu = new MenuScreen ();
 	menu->SetMainTitle ( "Central Medical Database" );
 	menu->SetSubTitle ( "Main Menu" );
 	menu->AddOption ( "View Records", "", 3 );
@@ -1929,7 +1929,7 @@ void WorldGenerator::GenerateCentralMedicalDatabase ()
 
 	// Screen 3					( Records )
 
-	GenericScreen *rs = new GenericScreen ();
+	auto *rs = new GenericScreen ();
 	rs->SetScreenType ( SCREEN_RECORDSCREEN );
 	rs->SetMainTitle ( "Central Medical Database" );
 	rs->SetSubTitle ( "Medical Records" );
@@ -1938,7 +1938,7 @@ void WorldGenerator::GenerateCentralMedicalDatabase ()
 
 	// Screen 4					( Logs )
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( "Central Medical Database" );
 	ls->SetSubTitle ( "Access logs" );
@@ -1947,7 +1947,7 @@ void WorldGenerator::GenerateCentralMedicalDatabase ()
 
 	// Add in the admin account
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( "Handle", RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );
@@ -1971,7 +1971,7 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "International Academic Database" );
 	comp->SetCompanyName ( "Government" );
@@ -1985,7 +1985,7 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Screen 0					( Opening message screen )
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( "International Academic Database" );
 	ms->SetSubTitle ( "Unauthorised Access will be punished" );
 	ms->SetTextMessage ( "This is a Government owned computer system - all attempts at\n"
@@ -2001,7 +2001,7 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Screen 1					( User ID Screen )
 
-	UserIDScreen *uid = new UserIDScreen ();
+	auto *uid = new UserIDScreen ();
 	uid->SetMainTitle ( "International Academic Database" );
 	uid->SetSubTitle ( "Log in" );
 	uid->SetDifficulty ( HACKDIFFICULTY_INTERNATIONALACADEMICDATABASE );
@@ -2010,7 +2010,7 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Screen 2					( Main Menu )
 
-	MenuScreen *menu = new MenuScreen ();
+	auto *menu = new MenuScreen ();
 	menu->SetMainTitle ( "International Academic Database" );
 	menu->SetSubTitle ( "Main Menu" );
 	menu->AddOption ( "Search Records", "", 5, 3 );
@@ -2022,7 +2022,7 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Screen 3					( Records )
 
-	GenericScreen *rs = new GenericScreen ();
+	auto *rs = new GenericScreen ();
 	rs->SetScreenType ( SCREEN_RECORDSCREEN );
 	rs->SetMainTitle ( "International Academic Database" );
 	rs->SetSubTitle ( "Academic Records" );
@@ -2031,7 +2031,7 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Screen 4					( Logs )
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( "International Academic Database" );
 	ls->SetSubTitle ( "Access logs" );
@@ -2040,7 +2040,7 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Screen 5					( Search )
 
-	DialogScreen *ds5 = new DialogScreen ();
+	auto *ds5 = new DialogScreen ();
 	ds5->SetMainTitle ( "International Academic Database" );
 	ds5->SetSubTitle ( "Search for Academic record" );
 	ds5->AddWidget ( "name", WIDGET_TEXTBOX, 150, 200, 200, 15, "Enter name here", "Type the name of the person to search for here" );
@@ -2059,7 +2059,7 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Screen 6					( View record )
 
-	GenericScreen *gs6 = new GenericScreen ();
+	auto *gs6 = new GenericScreen ();
 	gs6->SetMainTitle ( "International Academic Database" );
 	gs6->SetSubTitle ( "View record" );
 	gs6->SetNextPage ( 2 );
@@ -2068,19 +2068,19 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 
 	// Add in the accounts
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
 	comp->recordbank.AddRecord ( record );
 
-	Record *record2 = new Record ();
+	auto *record2 = new Record ();
 	record2->AddField ( RECORDBANK_NAME, RECORDBANK_READWRITE );
 	record2->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record2->AddField ( RECORDBANK_SECURITY, "2" );
 	comp->recordbank.AddRecord ( record2 );
 
-	Record *record3 = new Record ();
+	auto *record3 = new Record ();
 	record3->AddField ( RECORDBANK_NAME, RECORDBANK_READONLY );
 	record3->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record3->AddField ( RECORDBANK_SECURITY, "4" );
@@ -2100,7 +2100,7 @@ void WorldGenerator::GenerateInterNIC ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "InterNIC" );
 	comp->SetCompanyName ( "Government" );
@@ -2113,7 +2113,7 @@ void WorldGenerator::GenerateInterNIC ()
 
 	// Screen 0						-			Intro screen
 
-	MessageScreen *ms0 = new MessageScreen ();
+	auto *ms0 = new MessageScreen ();
 	ms0->SetMainTitle ( "InterNIC" );
 	ms0->SetSubTitle ( "InterNet Information Center" );
 	ms0->SetNextPage ( 1 );
@@ -2125,7 +2125,7 @@ void WorldGenerator::GenerateInterNIC ()
 
 	// Screen 1						-			Main menu
 
-	MenuScreen *ms1 = new MenuScreen ();
+	auto *ms1 = new MenuScreen ();
 	ms1->SetMainTitle ( "InterNIC" );
 	ms1->SetSubTitle ( "Main menu" );
 	ms1->AddOption ( "Browse/Search", "Click here to use a list of all known IP's", 2 );
@@ -2135,7 +2135,7 @@ void WorldGenerator::GenerateInterNIC ()
 
 	// Screen 2						-			Full list
 
-	LinksScreen *ls2 = new LinksScreen ();
+	auto *ls2 = new LinksScreen ();
 	ls2->SetMainTitle ( "InterNIC" );
 	ls2->SetSubTitle ( "Search list" );
 	ls2->SetScreenType ( LINKSSCREENTYPE_ALLLINKS );
@@ -2144,7 +2144,7 @@ void WorldGenerator::GenerateInterNIC ()
 
 	// Screen 3						-			Admin password
 
-	PasswordScreen *ps3 = new PasswordScreen ();
+	auto *ps3 = new PasswordScreen ();
 	ps3->SetMainTitle ( "InterNIC" );
 	ps3->SetSubTitle ( "Password authorisation required" );
 	ps3->SetNextPage ( 4 );
@@ -2154,7 +2154,7 @@ void WorldGenerator::GenerateInterNIC ()
 
 	// Screen 4						-			Admin menu
 
-	MenuScreen *ms4 = new MenuScreen ();
+	auto *ms4 = new MenuScreen ();
 	ms4->SetMainTitle ( "InterNIC" );
 	ms4->SetSubTitle ( "Admin menu" );
 	ms4->AddOption ( "Access Logs", "Click here to view access logs", 5 );
@@ -2163,7 +2163,7 @@ void WorldGenerator::GenerateInterNIC ()
 
 	// Screen 5						-			Logs
 
-	LogScreen *ls5 = new LogScreen ();
+	auto *ls5 = new LogScreen ();
 	ls5->SetMainTitle ( "InterNIC" );
 	ls5->SetSubTitle ( "Log Screen" );
 	ls5->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
@@ -2184,7 +2184,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "International Stock Market System" );
 	comp->SetCompanyName ( "Government" );
@@ -2214,7 +2214,7 @@ void WorldGenerator::GenerateStockMarket ()
 
     txtmsg << '\x0';
 
-	MessageScreen *ms0 = new MessageScreen ();
+	auto *ms0 = new MessageScreen ();
 	ms0->SetMainTitle ( comp->name );
 	ms0->SetSubTitle ( "Welcome" );
 	ms0->SetTextMessage ( txtmsg.str () );
@@ -2227,7 +2227,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 1									( Main Menu )
 
-	MenuScreen *ms1 = new MenuScreen ();
+	auto *ms1 = new MenuScreen ();
 	ms1->SetMainTitle ( comp->name );
 	ms1->SetSubTitle ( "Main Menu" );
 	ms1->AddOption ( "Log in", "Log in using an existing username and password", 4 );
@@ -2241,7 +2241,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 2									( New user )
 
-	DialogScreen *ds2 = new DialogScreen ();
+	auto *ds2 = new DialogScreen ();
 	ds2->SetMainTitle ( comp->name );
 	ds2->SetSubTitle ( "New User" );
 
@@ -2260,7 +2260,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 3									( New user created )
 
-	MessageScreen *ms3 = new MessageScreen ();
+	auto *ms3 = new MessageScreen ();
 	ms3->SetMainTitle ( comp->name );
 	ms3->SetSubTitle ( "New user created" );
 	ms3->SetTextMessage ( "Your new user account has been created successfully.\n"
@@ -2271,7 +2271,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 4									( Log in )
 
-	UserIDScreen *uid4 = new UserIDScreen ();
+	auto *uid4 = new UserIDScreen ();
 	uid4->SetMainTitle ( comp->name );
 	uid4->SetSubTitle ( "Enter username and password" );
 	uid4->SetDifficulty ( HACKDIFFICULTY_STOCKMARKET );
@@ -2280,7 +2280,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 5									( User menu )
 
-	MenuScreen *ms5 = new MenuScreen ();
+	auto *ms5 = new MenuScreen ();
 	ms5->SetMainTitle ( comp->name );
 	ms5->SetSubTitle ( "User Menu" );
 	ms5->AddOption ( "Browse shares", "Browse a list of all shares available", 7 );
@@ -2291,7 +2291,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 7									( Browse shares )
 
-	SharesListScreen *sls7 = new SharesListScreen ();
+	auto *sls7 = new SharesListScreen ();
 	sls7->SetMainTitle ( comp->name );
 	sls7->SetSubTitle ( "Browse Shares" );
 	sls7->SetScreenType ( SHARESLISTSCREENTYPE_ALLSHARES );
@@ -2301,7 +2301,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 8									( Admin menu )
 
-	MenuScreen *ms8 = new MenuScreen ();
+	auto *ms8 = new MenuScreen ();
 	ms8->SetMainTitle ( comp->name );
 	ms8->SetSubTitle ( "Admin menu" );
 #ifdef TESTGAME
@@ -2313,7 +2313,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 9									( Records )
 
-	GenericScreen *rs9 = new GenericScreen ();
+	auto *rs9 = new GenericScreen ();
 	rs9->SetScreenType ( SCREEN_RECORDSCREEN );
 	rs9->SetMainTitle ( comp->name );
 	rs9->SetSubTitle ( "Records" );
@@ -2322,7 +2322,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 10								( Logs )
 
-	LogScreen *ls10 = new LogScreen ();
+	auto *ls10 = new LogScreen ();
 	ls10->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls10->SetMainTitle ( comp->name );
 	ls10->SetSubTitle ( "Access logs" );
@@ -2331,7 +2331,7 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 11								( View a share )
 
-	GenericScreen *gs11 = new GenericScreen ();
+	auto *gs11 = new GenericScreen ();
 	gs11->SetScreenType ( SCREEN_SHARESVIEWSCREEN );
 	gs11->SetMainTitle ( comp->name );
 	gs11->SetSubTitle ( "View share details" );
@@ -2341,13 +2341,13 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Create some logins
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
 	comp->recordbank.AddRecord ( record );
 
-	Record *record2 = new Record ();
+	auto *record2 = new Record ();
 	record2->AddField ( RECORDBANK_NAME, "guest" );
 	record2->AddField ( RECORDBANK_PASSWORD, "guest" );
 	record2->AddField ( RECORDBANK_SECURITY, "10" );
@@ -2371,7 +2371,7 @@ void WorldGenerator::GenerateProtoVision ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "Protovision Game Server" );
 	comp->SetCompanyName ( "Protovision" );
@@ -2384,7 +2384,7 @@ void WorldGenerator::GenerateProtoVision ()
 
 	// Screen 0					Password ID
 
-	PasswordScreen *ps0 = new PasswordScreen ();
+	auto *ps0 = new PasswordScreen ();
 	ps0->SetMainTitle ( "Protovision" );
 	ps0->SetSubTitle ( "Game Server" );
 	ps0->SetDifficulty ( HACKDIFFICULTY_PROTOVISION );
@@ -2394,7 +2394,7 @@ void WorldGenerator::GenerateProtoVision ()
 
 	// Screen 1					Main menu
 
-	MenuScreen *ms1 = new MenuScreen ();
+	auto *ms1 = new MenuScreen ();
 	ms1->SetMainTitle ( "Protovision" );
 	ms1->SetSubTitle ( "Main Menu" );
 	ms1->AddOption ( "WarGames", " ", 2, 1 );
@@ -2403,7 +2403,7 @@ void WorldGenerator::GenerateProtoVision ()
 
 	// Screen 2					WarGames
 
-	GenericScreen *ms2 = new GenericScreen ();
+	auto *ms2 = new GenericScreen ();
 	ms2->SetScreenType ( SCREEN_PROTOVISION );
     ms2->SetMainTitle ( "Protovision" );
 	ms2->SetSubTitle ( "WarGames" );
@@ -2412,7 +2412,7 @@ void WorldGenerator::GenerateProtoVision ()
 
 	// Screen 3					New Games
 
-	MessageScreen *ms3 = new MessageScreen ();
+	auto *ms3 = new MessageScreen ();
 	ms3->SetMainTitle ( "Protovision" );
 	ms3->SetSubTitle ( "Hints" );
 	ms3->SetTextMessage	( "Getting warmmmmm ;)\n"
@@ -2423,7 +2423,7 @@ void WorldGenerator::GenerateProtoVision ()
 
     // Screen 4                 Global Thermonuclear War
 
-    GenericScreen *gs4 = new GenericScreen ();
+    auto *gs4 = new GenericScreen ();
     gs4->SetScreenType ( SCREEN_NUCLEARWAR );
     gs4->SetMainTitle ( "Protovision" );
     gs4->SetSubTitle ( "Global Thermonuclear War" );
@@ -2443,7 +2443,7 @@ void WorldGenerator::GenerateOCP ()
 
 	// Create the company
 
-    Company *company = new Company ();
+    auto *company = new Company ();
 	company->SetName ( "OCP" );
 	company->SetSize ( 20 );
 	company->SetTYPE ( COMPANYTYPE_COMMERCIAL );
@@ -2454,7 +2454,7 @@ void WorldGenerator::GenerateOCP ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "OCP remote monitoring system" );
 	comp->SetCompanyName ( "OCP" );
@@ -2464,7 +2464,7 @@ void WorldGenerator::GenerateOCP ()
 
 	// Screen 1					Message
 
-    MessageScreen *ms0 = new MessageScreen ();
+    auto *ms0 = new MessageScreen ();
     ms0->SetMainTitle ( "OCP" );
     ms0->SetSubTitle ( "Remote Monitoring System" );
     ms0->SetTextMessage ( "\n\n\n\n\n\n\nServe the public trust\n"
@@ -2499,7 +2499,7 @@ void WorldGenerator::GenerateSJGames ()
 
 	// Create the company
 
-	Company *company = new Company ();
+	auto *company = new Company ();
 	company->SetName ( "Steve Jackson Games" );
 	company->SetSize ( 3 );
 	company->SetTYPE ( COMPANYTYPE_COMMERCIAL );
@@ -2510,7 +2510,7 @@ void WorldGenerator::GenerateSJGames ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "Steve Jackson Games Server" );
 	comp->SetCompanyName ( "Steve Jackson Games" );
@@ -2520,7 +2520,7 @@ void WorldGenerator::GenerateSJGames ()
 
 	// Screen 1					Message
 
-    MessageScreen *ms0 = new MessageScreen ();
+    auto *ms0 = new MessageScreen ();
     ms0->SetMainTitle ( "Steve Jackson Games" );
     ms0->SetSubTitle ( "Public Access Server" );
     ms0->SetTextMessage ( "ATTENTION\n\n"
@@ -2557,7 +2557,7 @@ void WorldGenerator::GenerateIntroversion ()
 
 	// Create the company
 
-	Company *company = new Company ();
+	auto *company = new Company ();
 	company->SetName ( "Introversion Software" );
 	company->SetSize ( 10 );
 	company->SetTYPE ( COMPANYTYPE_COMMERCIAL );
@@ -2568,7 +2568,7 @@ void WorldGenerator::GenerateIntroversion ()
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( "Introversion Software" );
 	comp->SetCompanyName ( "Introversion Software" );
@@ -2578,7 +2578,7 @@ void WorldGenerator::GenerateIntroversion ()
 
 	// Screen 0					Welcome Message
 
-    MessageScreen *ms0 = new MessageScreen ();
+    auto *ms0 = new MessageScreen ();
     ms0->SetMainTitle ( "Introversion Software" );
     ms0->SetSubTitle ( "Internal Services" );
     ms0->SetTextMessage ( "Welcome, employee\n"
@@ -2592,7 +2592,7 @@ void WorldGenerator::GenerateIntroversion ()
 
     // Screen 1                 Password
 
-    PasswordScreen *ps1 = new PasswordScreen ();
+    auto *ps1 = new PasswordScreen ();
     ps1->SetMainTitle ( "Introversion Software" );
     ps1->SetSubTitle ( "Enter password" );
     ps1->SetPassword ( NameGenerator::GenerateComplexPassword () );
@@ -2602,7 +2602,7 @@ void WorldGenerator::GenerateIntroversion ()
 
     // Screen 2                 Menu
 
-    MenuScreen *ms2 = new MenuScreen ();
+    auto *ms2 = new MenuScreen ();
     ms2->SetMainTitle ( "Introversion Software" );
     ms2->SetSubTitle ( "Project Uplink2 : TERMINAL" );
     ms2->AddOption ( "Introduction", "Introduction", 3 );
@@ -2615,7 +2615,7 @@ void WorldGenerator::GenerateIntroversion ()
 
     // Screen 3                 Introduction
 
-    MessageScreen *ms3 = new MessageScreen ();
+    auto *ms3 = new MessageScreen ();
     ms3->SetMainTitle ( "Introversion Software" );
     ms3->SetSubTitle ( "Introduction" );
     ms3->SetTextMessage ( "The aim of this site is to serve as a repository for "
@@ -2634,7 +2634,7 @@ void WorldGenerator::GenerateIntroversion ()
 
     // Screen 4                 Uplink
 
-    MessageScreen *ms4 = new MessageScreen ();
+    auto *ms4 = new MessageScreen ();
     ms4->SetMainTitle ( "Introversion Software" );
     ms4->SetSubTitle ( "Uplink" );
     ms4->SetTextMessage ( "At some point I would like one of our members to perform a "
@@ -2646,7 +2646,7 @@ void WorldGenerator::GenerateIntroversion ()
 
     // Screen 5                  Mission: Impossible
 
-    MessageScreen *ms5 = new MessageScreen ();
+    auto *ms5 = new MessageScreen ();
     ms5->SetMainTitle ( "Introversion Software" );
     ms5->SetSubTitle ( "Mission: Impossible" );
     ms5->SetTextMessage ( "One possible direction for Uplink to go is shown in the film Mission:Impossible, "
@@ -2664,7 +2664,7 @@ void WorldGenerator::GenerateIntroversion ()
 
     // Screen 6                 Johnny Mnemonic
 
-    MessageScreen *ms6 = new MessageScreen ();
+    auto *ms6 = new MessageScreen ();
     ms6->SetMainTitle ( "Introversion Software" );
     ms6->SetSubTitle ( "Johnny Mnemonic" );
     ms6->SetTextMessage ( "Around 15 years ago a film was released in what was then called Hollywood, called Johnny Mnemonic. "
@@ -2681,7 +2681,7 @@ void WorldGenerator::GenerateIntroversion ()
 
     // Screen 7                 Other
 
-    MessageScreen *ms7 = new MessageScreen ();
+    auto *ms7 = new MessageScreen ();
     ms7->SetMainTitle ( "Introversion Software" );
     ms7->SetSubTitle ( "Other ideas" );
     ms7->SetTextMessage ( "Assasination mission. The target is flying on a chartered flight. Agent has to hack into airport "
@@ -2698,7 +2698,7 @@ void WorldGenerator::GenerateIntroversion ()
 
     // Screen 8                 The Holy Grail
 
-    MessageScreen *ms8 = new MessageScreen ();
+    auto *ms8 = new MessageScreen ();
     ms8->SetMainTitle ( "Introversion Software" );
     ms8->SetSubTitle ( "The Holy Grail" );
     ms8->SetTextMessage ( "The founder of Introversion Software believes the definitive version of Uplink could only be achieved "
@@ -2737,7 +2737,7 @@ VLocation *WorldGenerator::GenerateLocation ()
 	char ip [SIZE_VLOCATION_IP];
 	UplinkSnprintf ( ip, sizeof ( ip ), "%d.%d.%d.%d", NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000) );
 
-	VLocation *vl = new VLocation ();
+	auto *vl = new VLocation ();
 	vl->SetPLocation ( x, y );
 	vl->SetIP ( ip );
 	game->GetWorld ()->CreateVLocation ( vl );
@@ -2749,7 +2749,7 @@ VLocation *WorldGenerator::GenerateLocation ()
 Company *WorldGenerator::GenerateCompany ( char *companyname, int size, int TYPE, int growth, int alignment )
 {
 
-	Company *company = new Company ();
+	auto *company = new Company ();
 	company->SetName ( companyname );
 	company->SetSize ( size );
 	company->SetTYPE ( TYPE );
@@ -2835,7 +2835,7 @@ Computer *WorldGenerator::GenerateComputer ( char *companyname )
 
 	VLocation *vl = GenerateLocation ();
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetName ( computername );
 	comp->SetCompanyName ( companyname );
 	comp->SetTraceSpeed ( 20 );
@@ -2843,7 +2843,7 @@ Computer *WorldGenerator::GenerateComputer ( char *companyname )
 	comp->SetIsTargetable ( false );
 	comp->SetIP ( vl->ip );
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( companyname );
 	ms->SetSubTitle ( "Access Terminal" );
 	ms->SetTextMessage ( "No public log-ons permitted" );
@@ -2885,7 +2885,7 @@ Computer *WorldGenerator::GeneratePublicAccessServer ( char *companyname )
 
 	VLocation *vl = GenerateLocation ();
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_PUBLICACCESSSERVER );
 	comp->SetName ( computername );
 	comp->SetCompanyName ( companyname );
@@ -2893,7 +2893,7 @@ Computer *WorldGenerator::GeneratePublicAccessServer ( char *companyname )
 	                                                                  (float) ( TRACESPEED_PUBLICACCESSSERVER * TRACESPEED_VARIANCE ) ) );
 	comp->SetIP ( vl->ip );
 
-	MessageScreen *ms = new MessageScreen ();
+	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( companyname );
 	ms->SetSubTitle ( "Public Access Server" );
 	ms->SetTextMessage ( computername );
@@ -2901,7 +2901,7 @@ Computer *WorldGenerator::GeneratePublicAccessServer ( char *companyname )
 	ms->SetNextPage ( 1 );
 	comp->AddComputerScreen ( ms, 0 );
 
-	GenericScreen *gs = new GenericScreen ();
+	auto *gs = new GenericScreen ();
 	gs->SetMainTitle ( companyname );
 	gs->SetSubTitle ( "Company data" );
 	gs->SetScreenType ( SCREEN_COMPANYINFO );
@@ -2935,7 +2935,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 
 	// Create the computer
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
 	comp->SetName ( computername );
 	comp->SetCompanyName ( companyname );
@@ -2987,7 +2987,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 
 	// Create the screens
 
-	UserIDScreen *uid = new UserIDScreen ();
+	auto *uid = new UserIDScreen ();
 	uid->SetMainTitle ( companyname );
 	uid->SetSubTitle ( "Log in" );
 	uid->SetDifficulty ( (int) NumberGenerator::RandomNormalNumber ( HACKDIFFICULTY_INTERNALSERVICESMACHINE,
@@ -2995,7 +2995,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 	uid->SetNextPage ( 1 );
 	comp->AddComputerScreen ( uid, 0 );
 
-	MenuScreen *ms = new MenuScreen ();
+	auto *ms = new MenuScreen ();
 	ms->SetMainTitle ( companyname );
 	ms->SetSubTitle ( "Internal Services Main Menu" );
 	ms->AddOption ( "File Server", "Access the file server", 2 );
@@ -3004,42 +3004,42 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 	ms->AddOption ( "Admin", "Enter administrative mode", 7, 1 );
 	comp->AddComputerScreen ( ms, 1 );
 
-	GenericScreen *fss = new GenericScreen ();
+	auto *fss = new GenericScreen ();
 	fss->SetScreenType ( SCREEN_FILESERVERSCREEN );
 	fss->SetMainTitle ( companyname );
 	fss->SetSubTitle ( "File server" );
 	fss->SetNextPage ( 1 );
 	comp->AddComputerScreen ( fss, 2 );
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( companyname );
 	ls->SetSubTitle ( "Access Logs" );
 	ls->SetNextPage ( 7 );
 	comp->AddComputerScreen ( ls, 3 );
 
-	GenericScreen *rs = new GenericScreen ();
+	auto *rs = new GenericScreen ();
 	rs->SetScreenType ( SCREEN_RECORDSCREEN );
 	rs->SetMainTitle ( companyname );
 	rs->SetSubTitle ( "Records" );
 	rs->SetNextPage ( 1 );
 	comp->AddComputerScreen ( rs, 4 );
 
-	GenericScreen *gs5 = new GenericScreen ();
+	auto *gs5 = new GenericScreen ();
 	gs5->SetScreenType ( SCREEN_SECURITYSCREEN );
 	gs5->SetMainTitle ( companyname );
 	gs5->SetSubTitle ( "Security" );
 	gs5->SetNextPage ( 7 );
 	comp->AddComputerScreen ( gs5, 5 );
 
-	LinksScreen *ls6 = new LinksScreen ();
+	auto *ls6 = new LinksScreen ();
 	ls6->SetMainTitle ( companyname );
 	ls6->SetSubTitle ( "Links" );
 	ls6->SetNextPage ( 1 );
 	ls6->SetScreenType ( LINKSSCREENTYPE_LOCALLINKS );
 	comp->AddComputerScreen ( ls6, 6 );
 
-	MenuScreen *ms7 = new MenuScreen ();
+	auto *ms7 = new MenuScreen ();
 	ms7->SetMainTitle ( companyname );
 	ms7->SetSubTitle ( "Admin menu" );
 	ms7->AddOption ( "View logs", "View the access logs on this system", 3, 1 );
@@ -3048,7 +3048,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 	ms7->AddOption ( "Exit", "Return to the main menu", 1 );
 	comp->AddComputerScreen ( ms7, 7 );
 
-	GenericScreen *gs8 = new GenericScreen ();
+	auto *gs8 = new GenericScreen ();
 	gs8->SetScreenType ( SCREEN_CONSOLESCREEN );
 	gs8->SetMainTitle ( companyname );
 	gs8->SetSubTitle ( "Console" );
@@ -3085,7 +3085,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 
 	for ( i = 0; i < numlogs; ++i ) {
 
-		AccessLog *al = new AccessLog ();
+		auto *al = new AccessLog ();
 		al->SetProperties ( &(game->GetWorld ()->date), WorldGenerator::GetRandomLocation ()->ip, " " );
 		al->SetData1 ( "Accessed File" );
 		comp->logbank.AddLog (al);
@@ -3094,7 +3094,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 
 	// Create some log-in's
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GeneratePassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
@@ -3122,7 +3122,7 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 	VLocation *vl = GenerateLocation ();
 	vl->SetListed ( false );
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_CENTRALMAINFRAME );
 	comp->SetName ( computername );
 	comp->SetCompanyName ( companyname );
@@ -3159,7 +3159,7 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 
 	// Create the screens
 
-	HighSecurityScreen *hs = new HighSecurityScreen ();
+	auto *hs = new HighSecurityScreen ();
 	hs->SetMainTitle ( companyname );
 	hs->SetSubTitle ( "Authorisation required" );
 	hs->AddSystem ( "UserID / password verification", 1 );
@@ -3167,7 +3167,7 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 	hs->SetNextPage ( 3 );
 	comp->AddComputerScreen ( hs, 0 );
 
-	UserIDScreen *uid = new UserIDScreen ();
+	auto *uid = new UserIDScreen ();
 	uid->SetMainTitle ( companyname );
 	uid->SetSubTitle ( "Log in" );
 	uid->SetDifficulty ( (int) NumberGenerator::RandomNormalNumber ( HACKDIFFICULTY_CENTRALMAINFRAME,
@@ -3175,14 +3175,14 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 	uid->SetNextPage ( 0 );
 	comp->AddComputerScreen ( uid, 1 );
 
-	GenericScreen *gs2 = new GenericScreen ();
+	auto *gs2 = new GenericScreen ();
 	gs2->SetMainTitle ( companyname );
 	gs2->SetSubTitle ( "Voice print analysis required" );
 	gs2->SetScreenType ( SCREEN_VOICEANALYSIS );
 	gs2->SetNextPage ( 0 );
 	comp->AddComputerScreen ( gs2, 2 );
 
-	MenuScreen *ms = new MenuScreen ();
+	auto *ms = new MenuScreen ();
 	ms->SetMainTitle ( companyname );
 	ms->SetSubTitle ( "Central Mainframe Main Menu" );
 	ms->AddOption ( " File Server", "Access the file server", 4, 3 );
@@ -3190,21 +3190,21 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 	ms->AddOption ( "Console", "Use a console on this system", 6, 1 );
 	comp->AddComputerScreen ( ms, 3 );
 
-	GenericScreen *fss = new GenericScreen ();
+	auto *fss = new GenericScreen ();
 	fss->SetScreenType ( SCREEN_FILESERVERSCREEN );
 	fss->SetMainTitle ( companyname );
 	fss->SetSubTitle ( "File server" );
 	fss->SetNextPage ( 3 );
 	comp->AddComputerScreen ( fss, 4 );
 
-	LogScreen *ls = new LogScreen ();
+	auto *ls = new LogScreen ();
 	ls->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls->SetMainTitle ( companyname );
 	ls->SetSubTitle ( "Access Logs" );
 	ls->SetNextPage ( 3 );
 	comp->AddComputerScreen ( ls, 5 );
 
-	GenericScreen *gs6 = new GenericScreen ();
+	auto *gs6 = new GenericScreen ();
 	gs6->SetScreenType ( SCREEN_CONSOLESCREEN );
 	gs6->SetMainTitle ( companyname );
 	gs6->SetSubTitle ( "Console" );
@@ -3243,7 +3243,7 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 
 	for ( i = 0; i < numlogs; ++i ) {
 
-		AccessLog *al = new AccessLog ();
+		auto *al = new AccessLog ();
 		al->SetProperties ( &(game->GetWorld ()->date), WorldGenerator::GetRandomLocation ()->ip, " " );
 		al->SetData1 ( "Accessed File" );
 		comp->logbank.AddLog (al);
@@ -3252,7 +3252,7 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 
 	// Create some log-in's
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, RECORDBANK_ADMIN );
 	record->AddField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );
 	record->AddField ( RECORDBANK_SECURITY, "1" );
@@ -3276,7 +3276,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	VLocation *vl = GenerateLocation ();
 
-	BankComputer *comp = new BankComputer ();
+	auto *comp = new BankComputer ();
 	comp->SetTYPE ( COMPUTER_TYPE_PUBLICBANKSERVER );
 	comp->SetName ( computername );
 	comp->SetCompanyName ( companyname );
@@ -3291,7 +3291,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 0										(Main Menu)
 
-	MenuScreen *s0 = new MenuScreen ();
+	auto *s0 = new MenuScreen ();
 	s0->SetMainTitle ( companyname );
 	s0->SetSubTitle ( "Welcome to our Online Banking Server" );
 	s0->AddOption ( "About Us", "About us", 1 );
@@ -3302,7 +3302,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 1										(About us)
 
-	GenericScreen *gs = new GenericScreen ();
+	auto *gs = new GenericScreen ();
 	gs->SetMainTitle ( companyname );
 	gs->SetSubTitle ( "Company data" );
 	gs->SetScreenType ( SCREEN_COMPANYINFO );
@@ -3311,7 +3311,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 2										(Login)
 
-	UserIDScreen *s2 = new UserIDScreen ();
+	auto *s2 = new UserIDScreen ();
 	s2->SetMainTitle ( companyname );
 	s2->SetSubTitle ( "Log in" );
 	s2->SetNextPage ( 3 );
@@ -3320,7 +3320,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 3										(Manage existing account)
 
-	MenuScreen *s3 = new MenuScreen ();
+	auto *s3 = new MenuScreen ();
 	s3->SetMainTitle ( companyname );
 	s3->SetSubTitle ( "Manage Existing Account" );
 	s3->AddOption ( "View Account", "View account", 12 );
@@ -3333,7 +3333,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 4										(Create new account)
 
-	DialogScreen *ds4 = new DialogScreen ();
+	auto *ds4 = new DialogScreen ();
 	ds4->SetMainTitle ( companyname );
 	ds4->SetSubTitle ( "Create new account" );
 	ds4->AddWidget ( "name",      WIDGET_BASIC, 80, 180, 170, 20, "Enter your name", "This is your name" );
@@ -3352,7 +3352,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 5										(New account created)
 
-	MessageScreen *ms5 = new MessageScreen ();
+	auto *ms5 = new MessageScreen ();
 	ms5->SetMainTitle ( companyname );
 	ms5->SetSubTitle ( "Create new account" );
 	ms5->SetTextMessage ( "Your new account has been created." );
@@ -3362,7 +3362,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 6										(Admin security verification)
 
-	HighSecurityScreen *hs = new HighSecurityScreen ();
+	auto *hs = new HighSecurityScreen ();
 	hs->SetMainTitle ( companyname );
 	hs->SetSubTitle ( "Admin Authorisation required" );
 	hs->AddSystem ( "Admin Password verification", 13 );
@@ -3373,7 +3373,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 7										(Money transfer)
 
-	DialogScreen *ds7 = new DialogScreen ();
+	auto *ds7 = new DialogScreen ();
 	ds7->SetMainTitle ( companyname );
 	ds7->SetSubTitle ( "Transfer money" );
 
@@ -3394,7 +3394,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 8										(Transfer successfull)
 
-	MessageScreen *ms8 = new MessageScreen ();
+	auto *ms8 = new MessageScreen ();
 	ms8->SetMainTitle ( companyname );
 	ms8->SetSubTitle ( "Transfer completed" );
 	ms8->SetTextMessage ( "The transfer was completed successfully." );
@@ -3404,7 +3404,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 9										(Transfer not successfull)
 
-	MessageScreen *ms9 = new MessageScreen ();
+	auto *ms9 = new MessageScreen ();
 	ms9->SetMainTitle ( companyname );
 	ms9->SetSubTitle ( "Transfer failed" );
 	ms9->SetTextMessage ( "The transfer was not completed successfully.\nPlease contact the bank administrator." );
@@ -3414,7 +3414,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 10
 
-	GenericScreen *gs10 = new GenericScreen ();
+	auto *gs10 = new GenericScreen ();
 	gs10->SetScreenType ( SCREEN_LOANSSCREEN );
 	gs10->SetMainTitle ( companyname );
 	gs10->SetSubTitle ( "Loans Management" );
@@ -3423,7 +3423,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 11
 
-	LogScreen *log11 = new LogScreen ();
+	auto *log11 = new LogScreen ();
 	log11->SetTARGET ( LOGSCREEN_TARGET_ACCOUNTLOGS );
 	log11->SetMainTitle ( companyname );
 	log11->SetSubTitle ( "Account Statement" );
@@ -3432,7 +3432,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 12									(View account)
 
-	GenericScreen *view12 = new GenericScreen ();
+	auto *view12 = new GenericScreen ();
 	view12->SetScreenType ( SCREEN_ACCOUNTSCREEN );
 	view12->SetMainTitle ( companyname );
 	view12->SetSubTitle ( "View account" );
@@ -3442,7 +3442,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 13									(Admin password screen)
 
-	PasswordScreen *ps13 = new PasswordScreen ();
+	auto *ps13 = new PasswordScreen ();
 	ps13->SetMainTitle ( companyname );
 	ps13->SetSubTitle ( "Access code required" );
 	ps13->SetPassword ( NameGenerator::GenerateComplexPassword () );
@@ -3452,7 +3452,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 14									(Voice print analysis)
 
-	GenericScreen *gs14 = new GenericScreen ();
+	auto *gs14 = new GenericScreen ();
 	gs14->SetMainTitle ( companyname );
 	gs14->SetSubTitle ( "Voice print analysis required" );
 	gs14->SetScreenType ( SCREEN_VOICEANALYSIS );
@@ -3461,7 +3461,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 15									(Elliptic-Curve encryption cypher)
 
-	CypherScreen *cs = new CypherScreen ();
+	auto *cs = new CypherScreen ();
 	cs->SetMainTitle ( companyname );
 	cs->SetSubTitle ( "Enter Elliptic-Curve encryption cypher" );
 	cs->SetDifficulty ( HACKDIFFICULTY_PUBLICBANKSERVER_ADMIN );
@@ -3471,7 +3471,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 16									(Admin menu)
 
-	MenuScreen *ms16 = new MenuScreen ();
+	auto *ms16 = new MenuScreen ();
 	ms16->SetMainTitle ( companyname );
 	ms16->SetSubTitle ( "Admin Menu" );
 	ms16->AddOption ( "View All Accounts", "View all accounts", 17 );
@@ -3481,7 +3481,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 17									(View all records)
 
-	GenericScreen *rs17 = new GenericScreen ();
+	auto *rs17 = new GenericScreen ();
 	rs17->SetScreenType ( SCREEN_RECORDSCREEN );
 	rs17->SetMainTitle ( companyname );
 	rs17->SetSubTitle ( "Bank accounts" );
@@ -3490,7 +3490,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 	// Screen 18									(Access logs)
 
-	LogScreen *ls18 = new LogScreen ();
+	auto *ls18 = new LogScreen ();
 	ls18->SetTARGET ( LOGSCREEN_TARGET_ACCESSLOGS );
 	ls18->SetMainTitle ( companyname );
 	ls18->SetSubTitle ( "Access logs" );
@@ -3499,7 +3499,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
     // Screen 19                                    (Close account)
 
-	DialogScreen *ds19 = new DialogScreen ();
+	auto *ds19 = new DialogScreen ();
 	ds19->SetMainTitle ( companyname );
 	ds19->SetSubTitle ( "Close account" );
 	ds19->AddWidget ( "text", WIDGET_CAPTION, 100, 150, 200, 50, "Are you sure you wish to close your account?", "Shows the source account number" );
@@ -3510,7 +3510,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
     // Screen 20                                    (Account closed)
 
-	MessageScreen *ms20 = new MessageScreen ();
+	auto *ms20 = new MessageScreen ();
 	ms20->SetMainTitle ( companyname );
 	ms20->SetSubTitle ( "Account closed" );
 	ms20->SetTextMessage ( "Your account has been closed.\n"
@@ -3542,7 +3542,7 @@ Computer *WorldGenerator::GenerateEmptyFileServer ( char *companyname )
 	VLocation *vl = GenerateLocation ();
 	vl->SetListed ( false );
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_UNKNOWN );
 	comp->SetName ( computername );
 	comp->SetCompanyName ( companyname );
@@ -3556,7 +3556,7 @@ Computer *WorldGenerator::GenerateEmptyFileServer ( char *companyname )
 
 	// Screen 0			User ID
 
-	UserIDScreen *uid0 = new UserIDScreen ();
+	auto *uid0 = new UserIDScreen ();
 	uid0->SetMainTitle ( companyname );
 	uid0->SetSubTitle ( "File Server" );
 	uid0->SetNextPage ( 1 );
@@ -3564,7 +3564,7 @@ Computer *WorldGenerator::GenerateEmptyFileServer ( char *companyname )
 
 	// Screen 1			File Server
 
-	GenericScreen *gs1 = new GenericScreen ();
+	auto *gs1 = new GenericScreen ();
 	gs1->SetMainTitle ( companyname );
 	gs1->SetSubTitle ( "File Server" );
 	gs1->SetScreenType ( SCREEN_FILESERVERSCREEN );
@@ -3609,7 +3609,7 @@ Computer *WorldGenerator::GeneratePersonalComputer ( char *personname )
 	vl->SetListed ( false );
 	game->GetWorld ()->CreateCompany ( personname );
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_PERSONALCOMPUTER );
 	comp->SetName ( computername );
 	comp->SetCompanyName ( personname );
@@ -3620,7 +3620,7 @@ Computer *WorldGenerator::GeneratePersonalComputer ( char *personname )
 
     //delete computername;
 
-	MessageScreen *ms0 = new MessageScreen ();
+	auto *ms0 = new MessageScreen ();
 	ms0->SetMainTitle ( personname );
 	ms0->SetSubTitle ( "Personal Computer" );
 	ms0->SetTextMessage ( "No external log-ins permitted.\nPlease leave now." );
@@ -3649,13 +3649,13 @@ Computer *WorldGenerator::GenerateVoicePhoneSystem ( char *personname )
 	char ip [SIZE_VLOCATION_IP];
 	UplinkSnprintf ( ip, sizeof ( ip ), "(0%d%d%d%d)%d%d%d%d%d%d", NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10),
 																	NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10) );
-	VLocation *vl = new VLocation ();
+	auto *vl = new VLocation ();
 	vl->SetPLocation ( x, y );
 	vl->SetIP ( ip );
 	game->GetWorld ()->CreateVLocation ( vl );
 	vl->SetListed ( false );
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_VOICEPHONESYSTEM );
 	comp->SetName ( computername );
 	comp->SetCompanyName ( personname );
@@ -3666,7 +3666,7 @@ Computer *WorldGenerator::GenerateVoicePhoneSystem ( char *personname )
 
     //delete computername;
 
-	GenericScreen *gs0 = new GenericScreen ();
+	auto *gs0 = new GenericScreen ();
 	gs0->SetMainTitle ( personname );
 	gs0->SetSubTitle ( ip );
 	gs0->SetScreenType ( SCREEN_VOICEPHONE );
@@ -3703,7 +3703,7 @@ Person *WorldGenerator::GeneratePerson ()
     voice = NumberGenerator::RandomNumber ( NUM_STARTING_VOICES ) + 1;
 #endif
 
-	Person *person = new Person ();
+	auto *person = new Person ();
 	person->SetName ( name );
 	person->SetAge ( age );
 	person->SetPhotoIndex ( photo );
@@ -3749,7 +3749,7 @@ Agent *WorldGenerator::GenerateAgent ()
     voice = NumberGenerator::RandomNumber ( NUM_STARTING_VOICES ) + 1;
 #endif
 
-	Agent *person = new Agent ();
+	auto *person = new Agent ();
 	person->SetName ( name );
 	person->SetHandle ( handle );
 	person->SetAge ( age );
@@ -3774,7 +3774,7 @@ Agent *WorldGenerator::GenerateAgent ()
 void WorldGenerator::UpdateSoftwareUpgrades ( )
 {
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 
 	if ( !cu )
 		return;
@@ -3911,7 +3911,7 @@ Computer *WorldGenerator::GetRandomComputer ( int TYPE )
 
 	// Create a new array of all valid computers
 
-	DArray <char *> *typecomps = new DArray <char *> ();
+	auto *typecomps = new DArray <char *> ();
 
 	for ( int i = 0; i < comps->Size (); ++i ) {
 
@@ -4124,7 +4124,7 @@ Agent *WorldGenerator::GetRandomAgent ()
 Mission *WorldGenerator::GetRandomMission  ()
 {
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu );
 
 	LList <Mission *> *missions = &(cu->missions);

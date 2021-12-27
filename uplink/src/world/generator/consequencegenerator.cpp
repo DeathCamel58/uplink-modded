@@ -156,7 +156,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 		// Send warning mail
 
-		Message *msg = new Message ();
+		auto *msg = new Message ();
 		msg->SetTo ( person->name );
 		msg->SetFrom ( comp->companyname );
 		msg->SetSubject ( "You were caught hacking our computer systems" );
@@ -235,7 +235,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 				   << comp->name << ".\n"
 				   << '\x0';
 
-			ArrestEvent *event = new ArrestEvent ();
+			auto *event = new ArrestEvent ();
 			event->SetName ( person->name );
 			event->SetReason ( reason.str () );
 			event->SetIP ( comp->ip );
@@ -257,7 +257,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 				   << comp->name << ".\n"
 				   << '\x0';
 
-			SeizeGatewayEvent *event = new SeizeGatewayEvent ();
+			auto *event = new SeizeGatewayEvent ();
 			event->SetName ( person->name );
 			event->SetGatewayID ( game->GetWorld ()->GetPlayer ()->gateway.id );
 			event->SetReason ( reason.str () );
@@ -294,7 +294,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 				   << comp->name << ".\n"
 				   << '\x0';
 
-			ShotByFedsEvent *event = new ShotByFedsEvent ();
+			auto *event = new ShotByFedsEvent ();
 			event->SetName ( person->name );
 			event->SetReason ( reason.str () );
 			event->SetRunDate ( &duedate );
@@ -315,7 +315,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 				   << comp->name << ".\n"
 				   << '\x0';
 
-			SeizeGatewayEvent *event = new SeizeGatewayEvent ();
+			auto *event = new SeizeGatewayEvent ();
 			event->SetName ( person->name );
 			event->SetGatewayID ( game->GetWorld ()->GetPlayer ()->gateway.id );
 			event->SetReason ( reason.str () );
@@ -390,7 +390,7 @@ void ConsequenceGenerator::DidntPayFine ( Person *person, Mission *fine )
 			   << "Send to jail for " << jailtime << " years.\n"
 			   << '\x0';
 
-		ArrestEvent *event = new ArrestEvent ();
+		auto *event = new ArrestEvent ();
 		event->SetName ( person->name );
 		event->SetReason ( reason.str () );
 		event->SetRunDate ( &duedate );
@@ -410,7 +410,7 @@ void ConsequenceGenerator::DidntPayFine ( Person *person, Mission *fine )
 		reason << "For refusing to pay a " << finesize << "c fine.\n"
 			   << '\x0';
 
-		SeizeGatewayEvent *event = new SeizeGatewayEvent ();
+		auto *event = new SeizeGatewayEvent ();
 		event->SetName ( person->name );
 		event->SetGatewayID ( game->GetWorld ()->GetPlayer ()->gateway.id );
 		event->SetReason ( reason.str () );
@@ -465,7 +465,7 @@ void ConsequenceGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 			// No point in generating another tracehacker mission if that person and machine
 			// are already under investigation
 
-			CompanyUplink *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+			auto *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 			UplinkAssert (uplink);
 
 			Date testdate;
@@ -601,12 +601,12 @@ void ConsequenceGenerator::MissionCompleted_ChangeAccount ( Mission *mission, Pe
 
 		VLocation *vls = game->GetWorld ()->GetVLocation ( source_ip );
 		UplinkAssert (vls);
-		BankComputer *source = (BankComputer *) vls->GetComputer ();
+		auto *source = (BankComputer *) vls->GetComputer ();
 		UplinkAssert (source);
 
 		VLocation *vlt = game->GetWorld ()->GetVLocation ( target_ip );
 		UplinkAssert (vlt);
-		BankComputer *target = (BankComputer *) vlt->GetComputer ();
+		auto *target = (BankComputer *) vlt->GetComputer ();
 		UplinkAssert (target);
 
 		// Get the source and target bank accounts

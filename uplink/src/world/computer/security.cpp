@@ -34,7 +34,7 @@ void Security::AddSystem ( SecuritySystem *newsystem, int index )
 void Security::AddSystem ( int TYPE, int level, int index )
 {
 
-	SecuritySystem *ss = new SecuritySystem ();
+	auto *ss = new SecuritySystem ();
 	ss->SetTYPE ( TYPE );
 	ss->SetLevel ( level );
 	ss->Enable ();

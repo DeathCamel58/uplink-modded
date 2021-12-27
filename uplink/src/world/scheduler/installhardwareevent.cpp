@@ -124,7 +124,7 @@ void InstallHardwareEvent::Run ()
 	//
 
 	std::ostrstream body;
-	Message *msg = new Message ();
+	auto *msg = new Message ();
 	msg->SetTo ( "PLAYER" );
 	msg->SetFrom ( "Uplink Corporation" );
 
@@ -173,7 +173,7 @@ void InstallHardwareEvent::RunWarning ()
 			<< "\n\n"
 			<< "We anticipate this will take 30 - 60 minutes to complete."
 			<< '\x0';
-	Message *msg = new Message ();
+	auto *msg = new Message ();
 	msg->SetTo ( "PLAYER" );
 	msg->SetFrom ( "Uplink Corporation" );
 	msg->SetSubject ( "Gateway upgrade commencing" );

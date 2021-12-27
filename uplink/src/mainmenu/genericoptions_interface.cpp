@@ -34,7 +34,7 @@ void GenericOptionsInterface::ReturnToMainMenuClick ( Button *button )
 void GenericOptionsInterface::ApplyClick ( Button *button )
 {
 
-	GenericOptionsInterface *thisint = (GenericOptionsInterface *) app->GetMainMenu ()->GetMenuScreen ();
+	auto *thisint = (GenericOptionsInterface *) app->GetMainMenu ()->GetMenuScreen ();
 	UplinkAssert (thisint);
 
 	int index = 0;

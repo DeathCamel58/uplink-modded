@@ -43,7 +43,7 @@ DialogScreen::~DialogScreen()
 void DialogScreen::AddWidget ( char *name, int WIDGETTYPE, int x, int y, int width, int height, char *caption, char *tooltip )
 {
 
-	DialogScreenWidget *dsw = new DialogScreenWidget ();
+	auto *dsw = new DialogScreenWidget ();
 	
 	dsw->SetName ( name );
 	dsw->SetTYPE ( WIDGETTYPE );
@@ -60,7 +60,7 @@ void DialogScreen::AddWidget ( char *name, int WIDGETTYPE, int x, int y, int wid
 							   int data1, int data2, char *stringdata1, char *stringdata2 )
 {
 
-	DialogScreenWidget *dsw = new DialogScreenWidget ();
+	auto *dsw = new DialogScreenWidget ();
 	
 	dsw->SetName ( name );
 	dsw->SetTYPE ( WIDGETTYPE );

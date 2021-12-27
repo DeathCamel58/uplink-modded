@@ -220,7 +220,7 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 	// Test the conditions on each record 
 	// Add any successes into the results list
 	
-	LList <Record *> *results = new LList <Record *> ();
+	auto *results = new LList <Record *> ();
 	
 	for ( int ri = 0; ri < records.Size (); ++ri ) {
 		if ( records.ValidIndex (ri) ) {

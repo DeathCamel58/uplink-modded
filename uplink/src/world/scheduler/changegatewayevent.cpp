@@ -48,7 +48,7 @@ void ChangeGatewayEvent::Run ()
 
 	// Send a mail to the player
 
-	Message *msg = new Message ();
+	auto *msg = new Message ();
 	msg->SetTo ( "PLAYER" );
 	msg->SetFrom ( "Uplink Corporation" );
 	msg->SetSubject ( "New Gateway Ready" );

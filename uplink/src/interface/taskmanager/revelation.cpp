@@ -143,7 +143,7 @@ void Revelation::DrawRevelation ( Button *button, bool highlighted, bool clicked
 
     sscanf ( button->name, "%s %d %d %d", unused, &pid, &buttonnumber, &copynumber );
 
-    Revelation *thistask = (Revelation *) SvbGetTask (pid);
+    auto *thistask = (Revelation *) SvbGetTask (pid);
 
     if ( thistask ) {
 

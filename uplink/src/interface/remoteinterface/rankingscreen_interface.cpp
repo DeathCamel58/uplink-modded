@@ -35,7 +35,7 @@
 void RankingScreenInterface::ExitClick ( Button *button )
 {
 
-	GenericScreen *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (sss);
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( sss->nextpage, sss->GetComputer () );
@@ -195,7 +195,7 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 				UplinkAssert ( sorted.GetData (i)->GetOBJECTID () == OID_AGENT ||
 							   sorted.GetData (i)->GetOBJECTID () == OID_PLAYER );
 
-				Agent *agent = (Agent *) sorted.GetData (i);
+				auto *agent = (Agent *) sorted.GetData (i);
 
 				char cname [128];
 				UplinkSnprintf ( cname, sizeof ( cname ), "%2d  :  Agent %s", i + 1, agent->handle );

@@ -360,7 +360,7 @@ void LogDeleter::Tick ( int n )
 							source->logs.RemoveData (sourceindex);
 
 							// Replace it with a "Deleted" marker
-							AccessLog *al = new AccessLog ();
+							auto *al = new AccessLog ();
 							al->SetProperties ( &logdate, "Unknown", " ",
 												LOG_NOTSUSPICIOUS, LOG_TYPE_DELETED );
 							source->logs.PutData ( al, sourceindex );
@@ -383,7 +383,7 @@ void LogDeleter::Tick ( int n )
 							source->logs.RemoveData (sourceindex);
 
 							// Replace it with a "Deleted" marker
-							AccessLog *al = new AccessLog ();
+							auto *al = new AccessLog ();
 							al->SetProperties ( &logdate, " ", " ",
 												LOG_NOTSUSPICIOUS, LOG_TYPE_DELETED);
 							source->logs.PutData ( al, sourceindex );
@@ -413,7 +413,7 @@ void LogDeleter::Tick ( int n )
 										
 										AccessLog *copyme = source->logs.GetData (i);
 										// This log was made by someone else
-										AccessLog *al = new AccessLog ();
+										auto *al = new AccessLog ();
 										al->SetProperties ( copyme );
 										al->date.SetDate ( &logdate );
 										al->SetSuspicious ( LOG_NOTSUSPICIOUS );
@@ -430,7 +430,7 @@ void LogDeleter::Tick ( int n )
 								// Could not find log to overwrite with - 
 								// So make up a new one
 
-								AccessLog *al = new AccessLog ();
+								auto *al = new AccessLog ();
 								al->SetProperties ( &logdate, WorldGenerator::GetRandomLocation ()->ip, " ",
 													LOG_NOTSUSPICIOUS, LOG_TYPE_TEXT );
 								al->SetData1 ( "Accessed File" );

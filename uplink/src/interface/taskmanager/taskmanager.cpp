@@ -144,7 +144,7 @@ void TaskManager::SetProgramTarget ( UplinkObject *newprogramtarget, char *targe
 	if ( programtarget && (targetprogram != -1) ) {
 
 		// Link the program to the target
-		UplinkTask *task = (UplinkTask *) SvbGetTask ( targetprogram );
+		auto *task = (UplinkTask *) SvbGetTask ( targetprogram );
 
 		if ( task )
 			task->SetTarget ( programtarget, targetstring, targetint );
@@ -179,7 +179,7 @@ UplinkTask *TaskManager::GetTargetProgram ()
 {
 
 	if ( targetprogram != -1 ) {
-		UplinkTask *task = (UplinkTask *) SvbGetTask ( targetprogram );
+		auto *task = (UplinkTask *) SvbGetTask ( targetprogram );
 		return task;
 	}
 	else 

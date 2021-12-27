@@ -91,7 +91,7 @@ void RecordScreenInterface::CommitClick ( Button *button )
 	char logcaption [32];
 	UplinkSnprintf ( logcaption, sizeof ( logcaption ), "Changed Record #%d", recordindex );
 
-	AccessLog *log = new AccessLog ();
+	auto *log = new AccessLog ();
 	log->SetProperties ( &(game->GetWorld ()->date), 
 						 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER" );
 	log->SetData1 ( logcaption );
@@ -156,7 +156,7 @@ void RecordScreenInterface::Create ( ComputerScreen *newcs )
 
 		// Log this access
 
-		AccessLog *log = new AccessLog ();
+		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date), 
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER" );
 		log->SetData1 ( "Accessed logs" );

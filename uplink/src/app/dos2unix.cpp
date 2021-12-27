@@ -90,7 +90,7 @@ int dos2unixbuf::sync() {
 
 void idos2unixstream::close()
 {
-	dos2unixbuf *buf = (dos2unixbuf *) rdbuf();
+	auto *buf = (dos2unixbuf *) rdbuf();
 	buf->close();
 }
 

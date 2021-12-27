@@ -33,7 +33,7 @@ void SecurityBypass::PauseClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	SecurityBypass *pb = (SecurityBypass *) SvbGetTask ( pid );
+	auto *pb = (SecurityBypass *) SvbGetTask ( pid );
 	UplinkAssert (pb);
 
 	if		( pb->status == 1 ) pb->PauseCurrentBypass ();
@@ -50,7 +50,7 @@ void SecurityBypass::CloseClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	SecurityBypass *pb = (SecurityBypass *) SvbGetTask ( pid );
+	auto *pb = (SecurityBypass *) SvbGetTask ( pid );
 	UplinkAssert (pb);
 	pb->EndCurrentBypass ();
 
@@ -80,7 +80,7 @@ void SecurityBypass::StatusLightDraw ( Button *button, bool highlighted, bool cl
 
 	if ( ShouldDraw ( pid ) ) {
 
-		SecurityBypass *pb = (SecurityBypass *) SvbGetTask ( pid );
+		auto *pb = (SecurityBypass *) SvbGetTask ( pid );
 		UplinkAssert (pb);
 
 		if ( pb->status > 0 ) {
@@ -124,7 +124,7 @@ void SecurityBypass::ImageButtonDraw ( Button *button, bool highlighted, bool cl
 bool SecurityBypass::ShouldDraw ( int pid )
 {
 
-	SecurityBypass *pb = (SecurityBypass *) SvbGetTask ( pid );
+	auto *pb = (SecurityBypass *) SvbGetTask ( pid );
 	if ( !pb || pb->status == 0 ) // 0 = static, 1 = working
 		return true;
 

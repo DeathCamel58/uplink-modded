@@ -125,7 +125,7 @@ void ContactScreenInterface::PutMessage ( int userid, char *message )
 
 	std::ostrstream fullmessage;
 
-	ContactScreenInterface *thisint = (ContactScreenInterface *) GetInterfaceScreen ( SCREEN_CONTACTSCREEN );
+	auto *thisint = (ContactScreenInterface *) GetInterfaceScreen ( SCREEN_CONTACTSCREEN );
 
 	if	( userid == 0 )	fullmessage << message << '\x0';
 	else				fullmessage << thisint->users.GetData (userid) << " : " << message << '\x0';
@@ -146,7 +146,7 @@ void ContactScreenInterface::PutMessage ( int userid, char *message )
 void ContactScreenInterface::WaitingCallback ()
 {
 
-	ContactScreenInterface *thisint = (ContactScreenInterface *) GetInterfaceScreen ( SCREEN_CONTACTSCREEN );
+	auto *thisint = (ContactScreenInterface *) GetInterfaceScreen ( SCREEN_CONTACTSCREEN );
 
 	thisint->waiting = false;
 
@@ -286,7 +286,7 @@ void ContactScreenInterface::AddQuestion ( char *question, int index )
 void ContactScreenInterface::AskQuestion ( int index )
 {
 
-	ContactScreenInterface *thisint = (ContactScreenInterface *) GetInterfaceScreen ( SCREEN_CONTACTSCREEN );
+	auto *thisint = (ContactScreenInterface *) GetInterfaceScreen ( SCREEN_CONTACTSCREEN );
 
 	UplinkAssert (thisint->mission);
 
@@ -298,7 +298,7 @@ void ContactScreenInterface::AskQuestion ( int index )
 		case CONTACT_TYPE_MISSION:
 			{
 
-			CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+			auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 			UplinkAssert ( cu );
 			int indexmission = cu->missions.FindData ( thisint->mission );
 

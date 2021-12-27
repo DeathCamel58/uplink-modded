@@ -39,7 +39,7 @@ bool AccountScreenInterface::EscapeKeyPressed ()
 void AccountScreenInterface::CloseClick ( Button *button )
 {
 
-    GenericScreen *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+    auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
     
 	if ( gs->nextpage != -1 ) 
         game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
@@ -63,7 +63,7 @@ void AccountScreenInterface::Create ( ComputerScreen *newcs )
 	// Look up the BankAccount object and store it
 	Computer *comp = cs->GetComputer ();
 	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER );
-	BankComputer *bank = (BankComputer *) comp;
+	auto *bank = (BankComputer *) comp;
 
 	// Look up the account number based on the log in name
 	Record *rec = bank->recordbank.GetRecordFromName ( game->GetInterface ()->GetRemoteInterface ()->security_name );

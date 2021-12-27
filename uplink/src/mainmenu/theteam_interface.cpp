@@ -178,7 +178,7 @@ void TheTeamInterface::TeamMemberHighlight ( Button *button )
 	int index;
 	sscanf ( button->name, "theteam_member %d", &index );
 
-	TheTeamInterface *thisint = (TheTeamInterface *) app->GetMainMenu ()->GetMenuScreen ();
+	auto *thisint = (TheTeamInterface *) app->GetMainMenu ()->GetMenuScreen ();
 	UplinkAssert (thisint);
 
 	if ( thisint->targetindex != index ) {

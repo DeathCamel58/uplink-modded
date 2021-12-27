@@ -98,7 +98,7 @@ World::World()
 
 	for ( int i = 0; i < numgateways; ++i ) {
 	
-		GatewayDef *def = new GatewayDef ();
+		auto *def = new GatewayDef ();
 		def->LoadGatewayDefinition ( thefile );
 
         char filename[256];
@@ -149,7 +149,7 @@ VLocation *World::CreateVLocation ( char *ip, int phys_x, int phys_y )
 
 	}
 
-	VLocation *vl = new VLocation ();
+	auto *vl = new VLocation ();
 	locations.PutData ( ip, vl );
 	
 	vl->SetIP ( ip );
@@ -175,7 +175,7 @@ bool World::VerifyVLocation ( char *ip, int phys_x, int phys_y )
 Company *World::CreateCompany ( char *name )
 {
 
-	Company *company = new Company ();
+	auto *company = new Company ();
 	companies.PutData ( name, company );
 	
 	company->SetName ( name );
@@ -187,7 +187,7 @@ Company *World::CreateCompany ( char *name )
 Computer *World::CreateComputer ( char *name, char *companyname, char *ip )
 {
 
-	Computer *computer = new Computer ();
+	auto *computer = new Computer ();
 	computers.PutData ( name, computer );
 
 	computer->SetName ( name );
@@ -204,7 +204,7 @@ Computer *World::CreateComputer ( char *name, char *companyname, char *ip )
 Person *World::CreatePerson ( char *name, char *localhost )
 {
 
-	Person *person = new Person ();
+	auto *person = new Person ();
 	people.PutData ( name, person );
 
 	person->SetName ( name );

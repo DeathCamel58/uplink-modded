@@ -92,7 +92,7 @@ void Decypher::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		if ( uo->GetOBJECTID () == OID_CYPHERSCREEN ) {
 
-			CypherScreen *cs = (CypherScreen *) uo;
+			auto *cs = (CypherScreen *) uo;
 			UplinkAssert (cs);
 			Computer *comp = cs->GetComputer ();
 			UplinkAssert (comp);
@@ -246,7 +246,7 @@ void Decypher::Tick ( int n )
 				return;
 			}
 
-			CypherScreenInterface *csi = (CypherScreenInterface *) ris;
+			auto *csi = (CypherScreenInterface *) ris;
 				
 			progress += (int)(n * version);
 

@@ -70,7 +70,7 @@ void MissionInterface::AbandonClick ( Button *button )
 
 		// Get the mission that this interface is looking at
 
-		MissionInterface *mi = (MissionInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
+		auto *mi = (MissionInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
 		//UplinkAssert (mi);
 		if ( !mi ) {
 			game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
@@ -108,7 +108,7 @@ void MissionInterface::ReplyClick ( Button *button )
 
 	// Get the mission that this interface is looking at
 
-	MissionInterface *mi = (MissionInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
+	auto *mi = (MissionInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
 	//UplinkAssert (mi);
 	if ( !mi ) {
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );

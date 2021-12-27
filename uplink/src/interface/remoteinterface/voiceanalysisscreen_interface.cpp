@@ -46,7 +46,7 @@ VoiceAnalysisScreenInterface::~VoiceAnalysisScreenInterface ()
 void VoiceAnalysisScreenInterface::ClickAccess ( Button *button )
 {
 
-	VoiceAnalysisScreenInterface *thisint = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 	
 	if ( thisint->STATUS == VOICEANALYSISSCREEN_PASSED ) {
@@ -94,7 +94,7 @@ void VoiceAnalysisScreenInterface::FinishVoicePlayback ( char *voicename )
 void VoiceAnalysisScreenInterface::DrawAnalysis ( Button *button, bool highlighted, bool clicked )
 {
 
-	VoiceAnalysisScreenInterface *thisint = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	clear_draw ( button->x, button->y, button->width, button->height );

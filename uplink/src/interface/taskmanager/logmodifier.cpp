@@ -89,7 +89,7 @@ void LogModifier::CommitClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
 
-	LogModifier *thistask = (LogModifier *) SvbGetTask ( pid );
+	auto *thistask = (LogModifier *) SvbGetTask ( pid );
 	UplinkAssert (thistask);
 	
 	// Stop the existing text buttons from being modified
@@ -121,7 +121,7 @@ void LogModifier::NextTypeClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
 
-	LogModifier *thistask = (LogModifier *) SvbGetTask ( pid );
+	auto *thistask = (LogModifier *) SvbGetTask ( pid );
 	UplinkAssert (thistask);
 
 	thistask->logtype ++;
@@ -136,7 +136,7 @@ void LogModifier::NextTypeClick ( Button *button )
 void LogModifier::ChangeLogType ( int pid )
 {
 
-	LogModifier *thistask = (LogModifier *) SvbGetTask ( pid );
+	auto *thistask = (LogModifier *) SvbGetTask ( pid );
 	UplinkAssert (thistask);
 
 	char ltype	[64];
@@ -451,7 +451,7 @@ void LogModifier::Tick ( int n )
 
 					}
 					else {
-						AccessLog *internalcopy = new AccessLog ();
+						auto *internalcopy = new AccessLog ();
 						internalcopy->SetProperties ( log );
 						source->internallogs.PutData ( internalcopy, sourceindex );
 					}
@@ -489,7 +489,7 @@ void LogModifier::Tick ( int n )
 
 					// All done - create the new log
 
-					AccessLog *newlog = new AccessLog ();
+					auto *newlog = new AccessLog ();
 					newlog->SetProperties ( &(game->GetWorld ()->date), "New IP", "PLAYER" );
 					newlog->SetData1 ( "Blank Action" );
 

@@ -231,7 +231,7 @@ void IRCInterface::UserListDraw ( Button *button, bool highlighted, bool clicked
 void IRCInterface::ConnectClick ( Button *button )
 {
 
-    IRCInterface *thisint = (IRCInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
+    auto *thisint = (IRCInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
     UplinkAssert (thisint);
 
     if ( connected ) {
@@ -385,7 +385,7 @@ void IRCInterface::AddText ( char *user, const char *text, float r, float g, flo
 			char *theLine = wrapped->GetData(i);
 			UplinkAssert (theLine);
 			if ( strlen(theLine) > 0 ) {
-				UplinkIRCMessage *msg = new UplinkIRCMessage ();
+				auto *msg = new UplinkIRCMessage ();
 				char *thisuser = ( i == 0 ? user : nullptr );
 				msg->Set ( thisuser, theLine, r, g, b );
 				buffer.PutDataAtEnd( msg );
@@ -459,7 +459,7 @@ void IRCInterface::AddUser ( char *name )
 
     // Create the new user
 
-    UplinkIRCUser *user = new UplinkIRCUser ();
+    auto *user = new UplinkIRCUser ();
 
     // Is he a channel op?
 

@@ -145,7 +145,7 @@ void NotificationEvent::ApplyMonthlyGrowth ()
 	duedate.SetDate ( duedate.GetSecond (), duedate.GetMinute (), duedate.GetHour (),
 					  1, duedate.GetMonth (), duedate.GetYear () );
 
-	NotificationEvent *event = new NotificationEvent ();
+	auto *event = new NotificationEvent ();
 	event->SetTYPE ( NOTIFICATIONEVENT_TYPE_GROWCOMPANIES );
 	event->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( event );
@@ -163,7 +163,7 @@ void NotificationEvent::GenerateNewMission ()
 	duedate.SetDate ( &rundate );
 	duedate.AdvanceMinute ( FREQUENCY_GENERATENEWMISSION );
 
-	NotificationEvent *event = new NotificationEvent ();
+	auto *event = new NotificationEvent ();
 	event->SetTYPE ( NOTIFICATIONEVENT_TYPE_GENNEWMISSION );
 	event->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( event );
@@ -181,7 +181,7 @@ void NotificationEvent::DemoGenerateNewMission ()
 	duedate.SetDate ( &rundate );
 	duedate.AdvanceMinute ( FREQUENCY_DEMOGENERATENEWMISSION );
 
-	NotificationEvent *event = new NotificationEvent ();
+	auto *event = new NotificationEvent ();
 	event->SetTYPE ( NOTIFICATIONEVENT_TYPE_DEMOGENNEWMISSION );
 	event->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( event );
@@ -206,7 +206,7 @@ void NotificationEvent::CheckForSecurityBreaches ()
 	duedate.SetDate ( &rundate );
 	duedate.AdvanceMinute ( FREQUENCY_CHECKFORSECURITYBREACHES );
 
-	NotificationEvent *event = new NotificationEvent ();
+	auto *event = new NotificationEvent ();
 	event->SetTYPE ( NOTIFICATIONEVENT_TYPE_CHECKFORSECURITYBREACHES );
 	event->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( event );
@@ -248,7 +248,7 @@ void NotificationEvent::ExpireOldStuff ()
 	// Expire old news stories
 	//
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 
 	for ( int in = cu->news.Size () - 1; in >= 1; --in ) {
@@ -295,7 +295,7 @@ void NotificationEvent::ExpireOldStuff ()
 	duedate.SetDate ( &rundate );
 	duedate.AdvanceMinute ( FREQUENCY_EXPIREOLDSTUFF );
 
-	NotificationEvent *event = new NotificationEvent ();
+	auto *event = new NotificationEvent ();
 	event->SetTYPE ( NOTIFICATIONEVENT_TYPE_EXPIREOLDSTUFF );
 	event->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( event );
@@ -354,7 +354,7 @@ void NotificationEvent::AddInterestOnLoans ()
 				     << "Your new loan is " << account->loan << "c."
 				     << '\x0';
 
-			    Message *msg = new Message ();
+			    auto *msg = new Message ();
 			    msg->SetFrom ( comp->name );
 			    msg->SetTo ( "PLAYER" );
 			    msg->SetSubject ( "Interest charged" );
@@ -378,7 +378,7 @@ void NotificationEvent::AddInterestOnLoans ()
 	duedate.SetDate ( &rundate );
 	duedate.AdvanceMinute ( FREQUENCY_ADDINTERESTONLOANS );
 
-	NotificationEvent *event = new NotificationEvent ();
+	auto *event = new NotificationEvent ();
 	event->SetTYPE ( NOTIFICATIONEVENT_TYPE_ADDINTERESTONLOANS );
 	event->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( event );
@@ -396,7 +396,7 @@ void NotificationEvent::CheckMissionDueDates ()
 	duedate.SetDate ( &rundate );
 	duedate.AdvanceMinute ( FREQUENCY_CHECKMISSIONDUEDATES );
 
-	NotificationEvent *event = new NotificationEvent ();
+	auto *event = new NotificationEvent ();
 	event->SetTYPE ( NOTIFICATIONEVENT_TYPE_CHECKMISSIONDUEDATES );
 	event->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( event );
@@ -416,7 +416,7 @@ void NotificationEvent::CheckRecentHackCount ()
 
 	// Schedule another
 
-	NotificationEvent *ne = new NotificationEvent ();
+	auto *ne = new NotificationEvent ();
 	ne->SetTYPE ( NOTIFICATIONEVENT_TYPE_CHECKRECENTHACKCOUNT );
 
 	Date duedate;
@@ -454,7 +454,7 @@ void NotificationEvent::GiveMissionToNPC ()
 	// Keep an eye out for "priority" missions
 	//
 
-	CompanyUplink *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (uplink);
 	LList <Mission *> *fullist = &(uplink->missions);
 	LList <Mission *> missions;
@@ -526,7 +526,7 @@ void NotificationEvent::GiveMissionToNPC ()
 		duedate.SetDate ( &rundate );
 		duedate.AdvanceHour ( NumberGenerator::RandomNumber ( 2 ) + 1 );
 
-		AttemptMissionEvent *ami = new AttemptMissionEvent ();
+		auto *ami = new AttemptMissionEvent ();
 		ami->SetAgentName ( agent->name );
 		ami->SetRunDate ( &duedate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( ami );
@@ -564,7 +564,7 @@ void NotificationEvent::GiveMissionToNPC ()
 			duedate.SetDate ( &rundate );
 			duedate.AdvanceHour ( NumberGenerator::RandomNumber ( 4 ) + 1 );
 
-			AttemptMissionEvent *ami = new AttemptMissionEvent ();
+			auto *ami = new AttemptMissionEvent ();
 			ami->SetAgentName ( agent->name );
 			ami->SetRunDate ( &duedate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( ami );
@@ -581,7 +581,7 @@ void NotificationEvent::GiveMissionToNPC ()
 	duedate.SetDate ( &rundate );
 	duedate.AdvanceMinute ( FREQUENCY_GIVEMISSIONTONPC );
 
-	NotificationEvent *ne = new NotificationEvent ();
+	auto *ne = new NotificationEvent ();
 	ne->SetRunDate ( &duedate );
 	ne->SetTYPE ( NOTIFICATIONEVENT_TYPE_GIVEMISSIONTONPC );
 	game->GetWorld ()->scheduler.ScheduleEvent ( ne );
@@ -596,7 +596,7 @@ void NotificationEvent::PayUplinkMonthlyFee ()
 	// everyone with an Uplink Rating
 	//
 
-	DArray <Person *> *people = (DArray <Person *> *) game->GetWorld ()->people.ConvertToDArray ();
+	auto *people = (DArray <Person *> *) game->GetWorld ()->people.ConvertToDArray ();
 
 	for ( int i = 0; i < people->Size (); ++i ) {
 		if ( people->ValidIndex (i) ) {
@@ -617,7 +617,7 @@ void NotificationEvent::PayUplinkMonthlyFee ()
 						"and prosperous month with our organisation.\n"
 						"Thank you." << '\x0';
 
-				Message *m = new Message ();
+				auto *m = new Message ();
 				m->SetTo ( person->name );
 				m->SetFrom ( "Uplink Corporation" );
 				m->SetSubject ( "Uplink monthly fee deducted" );
@@ -643,7 +643,7 @@ void NotificationEvent::PayUplinkMonthlyFee ()
 	duedate.SetDate ( &rundate );
 	duedate.AdvanceMonth ( 1 );
 
-	NotificationEvent *ne = new NotificationEvent ();
+	auto *ne = new NotificationEvent ();
 	ne->SetRunDate ( &duedate );
 	ne->SetTYPE ( NOTIFICATIONEVENT_TYPE_UPLINKMONTHLYFEE );
 	game->GetWorld ()->scheduler.ScheduleEvent ( ne );
@@ -671,27 +671,27 @@ void NotificationEvent::WarezGameOver ()
 void NotificationEvent::ScheduleStartingEvents ()
 {
 
-	NotificationEvent *monthlygrowth = new NotificationEvent ();
+	auto *monthlygrowth = new NotificationEvent ();
 	monthlygrowth->SetTYPE ( NOTIFICATIONEVENT_TYPE_GROWCOMPANIES );
 	monthlygrowth->SetRunDate ( &(game->GetWorld ()->date) );
 	game->GetWorld ()->scheduler.ScheduleEvent ( monthlygrowth );
 
-	NotificationEvent *gennewmission = new NotificationEvent ();
+	auto *gennewmission = new NotificationEvent ();
 	gennewmission->SetTYPE ( NOTIFICATIONEVENT_TYPE_GENNEWMISSION );
 	gennewmission->SetRunDate ( &(game->GetWorld ()->date) );
 	game->GetWorld ()->scheduler.ScheduleEvent ( gennewmission );
 
-	NotificationEvent *checksec = new NotificationEvent ();
+	auto *checksec = new NotificationEvent ();
 	checksec->SetTYPE ( NOTIFICATIONEVENT_TYPE_CHECKFORSECURITYBREACHES );
 	checksec->SetRunDate ( &(game->GetWorld ()->date) );
 	game->GetWorld ()->scheduler.ScheduleEvent ( checksec );
 
-	NotificationEvent *duedates = new NotificationEvent ();
+	auto *duedates = new NotificationEvent ();
 	duedates->SetTYPE ( NOTIFICATIONEVENT_TYPE_CHECKMISSIONDUEDATES );
 	duedates->SetRunDate ( &(game->GetWorld ()->date) );
 	game->GetWorld ()->scheduler.ScheduleEvent ( duedates );
 
-	NotificationEvent *hackcount = new NotificationEvent ();
+	auto *hackcount = new NotificationEvent ();
 	hackcount->SetTYPE ( NOTIFICATIONEVENT_TYPE_CHECKRECENTHACKCOUNT );
 	Date duedate;
 	duedate.SetDate ( &(game->GetWorld ()->date) );
@@ -700,12 +700,12 @@ void NotificationEvent::ScheduleStartingEvents ()
 	hackcount->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( hackcount );
 
-	NotificationEvent *givemission = new NotificationEvent ();
+	auto *givemission = new NotificationEvent ();
 	givemission->SetTYPE ( NOTIFICATIONEVENT_TYPE_GIVEMISSIONTONPC );
 	givemission->SetRunDate ( &(game->GetWorld ()->date) );
 	game->GetWorld ()->scheduler.ScheduleEvent ( givemission );
 
-	NotificationEvent *payfee = new NotificationEvent ();
+	auto *payfee = new NotificationEvent ();
 	payfee->SetTYPE ( NOTIFICATIONEVENT_TYPE_UPLINKMONTHLYFEE );
 	duedate.SetDate ( &(game->GetWorld ()->date) );
 	duedate.AdvanceMonth ( 1 );
@@ -713,12 +713,12 @@ void NotificationEvent::ScheduleStartingEvents ()
 	payfee->SetRunDate ( &duedate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( payfee );
 
-	NotificationEvent *expirelogs = new NotificationEvent ();
+	auto *expirelogs = new NotificationEvent ();
 	expirelogs->SetTYPE ( NOTIFICATIONEVENT_TYPE_EXPIREOLDSTUFF );
 	expirelogs->SetRunDate ( &(game->GetWorld ()->date) );
 	game->GetWorld ()->scheduler.ScheduleEvent ( expirelogs );
 
-	NotificationEvent *interestonloans = new NotificationEvent ();
+	auto *interestonloans = new NotificationEvent ();
 	interestonloans->SetTYPE ( NOTIFICATIONEVENT_TYPE_ADDINTERESTONLOANS );
 	interestonloans->SetRunDate ( &(game->GetWorld ()->date) );
 	game->GetWorld ()->scheduler.ScheduleEvent ( interestonloans );

@@ -45,7 +45,7 @@ void LogScreenInterface::CloseClick ( Button *button )
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen );
 	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
-	LogScreen *ls = (LogScreen *) compscreen;
+	auto *ls = (LogScreen *) compscreen;
     UplinkAssert (ls);
     
 	if ( ls->nextpage != -1 ) 
@@ -73,7 +73,7 @@ void LogScreenInterface::LogClick ( Button *button )
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen );
 	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
-	LogScreen *ls = (LogScreen *) compscreen;
+	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
@@ -177,7 +177,7 @@ void LogScreenInterface::ScrollChange ( char *scrollname, int newValue )
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen );
 	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
-	LogScreen *ls = (LogScreen *) compscreen;
+	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
     baseoffset = GetLastItem ( &logbank->logs ) - newValue;
@@ -208,7 +208,7 @@ void LogScreenInterface::LogDraw ( Button *button, bool highlighted, bool clicke
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen );
 	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
-	LogScreen *ls = (LogScreen *) compscreen;
+	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
 	if ( logbank->logs.ValidIndex (logindex) ) {
@@ -396,7 +396,7 @@ void LogScreenInterface::Update ()
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen );
 	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
-	LogScreen *ls = (LogScreen *) compscreen;
+	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
 	/*

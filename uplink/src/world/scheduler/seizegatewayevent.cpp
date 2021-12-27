@@ -99,7 +99,7 @@ void SeizeGatewayEvent::Run ()
 			// The player's old gateway was seized
 			// Not quite as severe - not game over
 
-			Message *m = new Message ();
+			auto *m = new Message ();
 			m->SetTo ( "PLAYER" );
 			m->SetFrom ( "Uplink Corporation" );
 			m->SetSubject ( "Gateway seizure" );

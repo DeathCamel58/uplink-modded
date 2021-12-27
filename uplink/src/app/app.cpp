@@ -434,7 +434,7 @@ void App::RetireGame ( char *username )
 DArray <char *> *App::ListExistingGames ()
 {
 
-	DArray <char *> *existing = new DArray <char *> ();
+	auto *existing = new DArray <char *> ();
 
 #ifdef WIN32
 

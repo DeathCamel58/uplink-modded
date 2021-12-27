@@ -64,7 +64,7 @@ void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool high
 		return;
 	}
 
-	ChangeGatewayScreenInterface *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	// Fill in the background
@@ -153,7 +153,7 @@ void ChangeGatewayScreenInterface::GatewayButtonClick ( Button *button )
 	sscanf ( button->name, "%s %d", unused, &index );
     index += baseOffset;
 
-	ChangeGatewayScreenInterface *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	thisint->ShowGateway ( index );
@@ -163,7 +163,7 @@ void ChangeGatewayScreenInterface::GatewayButtonClick ( Button *button )
 void ChangeGatewayScreenInterface::CloseClick ( Button *button )
 {
 
-	GenericScreen *gs= (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *gs= (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (gs);
 
 	if ( gs->nextpage != -1 )
@@ -174,7 +174,7 @@ void ChangeGatewayScreenInterface::CloseClick ( Button *button )
 void ChangeGatewayScreenInterface::BuyClick ( Button *button )
 {
 
-	ChangeGatewayScreenInterface *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	if ( !game->GetWorld ()->gatewaydefs.ValidIndex ( thisint->currentselect ) || !game->GetWorld ()->gatewaydefs.GetData ( thisint->currentselect ) )
@@ -212,7 +212,7 @@ void ChangeGatewayScreenInterface::BuyClick ( Button *button )
 void ChangeGatewayScreenInterface::BuyConfirmClick ( Button *button )
 {
 
-	ChangeGatewayScreenInterface *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	if ( !game->GetWorld ()->gatewaydefs.ValidIndex ( thisint->currentselect ) || !game->GetWorld ()->gatewaydefs.GetData ( thisint->currentselect ) )
@@ -234,14 +234,14 @@ void ChangeGatewayScreenInterface::BuyConfirmClick ( Button *button )
 	rundate.AdvanceMinute ( TIME_TOCHANGEGATEWAY );
 	rundate.AdvanceMinute ( NumberGenerator::RandomNumber (60) );
 
-	ChangeGatewayEvent *cge = new ChangeGatewayEvent ();
+	auto *cge = new ChangeGatewayEvent ();
 	cge->SetRunDate ( &rundate );
 	cge->SetNewGateway ( game->GetWorld ()->gatewaydefs.GetData ( thisint->currentselect ) );
 	game->GetWorld ()->scheduler.ScheduleEvent ( cge );
 
 	// Send a confirmation email to the player
 
-	Message *msg = new Message ();
+	auto *msg = new Message ();
 	msg->SetTo ( "PLAYER" );
 	msg->SetFrom ( "Uplink Corporation" );
 	msg->SetSubject ( "Gateway Upgrade" );
@@ -263,7 +263,7 @@ void ChangeGatewayScreenInterface::BuyConfirmClick ( Button *button )
 void ChangeGatewayScreenInterface::BuyCancelClick ( Button *button )
 {
 
-	ChangeGatewayScreenInterface *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	thisint->Remove ();
@@ -277,7 +277,7 @@ void ChangeGatewayScreenInterface::GatewayPictureDraw ( Button *button, bool hig
 
     imagebutton_draw ( button, highlighted, clicked );
 
-	ChangeGatewayScreenInterface *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
     glColor3f ( 1.0f, 1.0f, 1.0f );

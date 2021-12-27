@@ -42,7 +42,7 @@ void HighSecurityScreenInterface::SystemTitleDraw ( Button *button, bool highlig
 	char unused [64];
 	sscanf ( button->name, "%s %d", unused, &index );
 
-	HighSecurityScreen *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (hs);
 	MenuScreenOption *mso = hs->systems.GetData (index);
 	UplinkAssert (mso);
@@ -83,7 +83,7 @@ void HighSecurityScreenInterface::SystemClick ( Button *button )
 	char unused [64];
 	sscanf ( button->name, "%s %d", unused, &index );
 
-	HighSecurityScreen *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (hs);
 	MenuScreenOption *mso = hs->systems.GetData (index);
 	UplinkAssert (mso);
@@ -103,7 +103,7 @@ void HighSecurityScreenInterface::BypassClick ( Button *button )
 
 	// Run the next screen
 
-	HighSecurityScreen *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (hs);
 
 	if ( hs->nextpage != -1 )
@@ -116,7 +116,7 @@ void HighSecurityScreenInterface::ProceedClick ( Button *button )
 
 	UplinkAssert ( button );
 
-	HighSecurityScreen *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (hs);
 
 	int worstlevel = 1;

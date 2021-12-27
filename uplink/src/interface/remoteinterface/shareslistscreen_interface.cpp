@@ -44,7 +44,7 @@ void SharesListScreenInterface::ShareClick ( Button *button )
 	sscanf ( button->name, "shareslistscreen_share %d", &fileindex );
 	fileindex += baseoffset;
 
-	SharesListScreenInterface *thisint = (SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *thisint = (SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint);
 
 	if ( thisint->filteredlist.ValidIndex (fileindex) ) {
@@ -52,7 +52,7 @@ void SharesListScreenInterface::ShareClick ( Button *button )
 		char *companyname = thisint->filteredlist.GetData (fileindex);
 
 		game->GetInterface ()->GetRemoteInterface ()->RunScreen ( thisint->GetComputerScreen ()->viewpage, thisint->GetComputerScreen ()->GetComputer () );
-		SharesViewScreenInterface *newint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+		auto *newint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 		UplinkAssert (newint);
 		newint->SetCompanyName ( companyname );
 
@@ -250,7 +250,7 @@ void SharesListScreenInterface::ScrollDownClick ( Button *button )
 void SharesListScreenInterface::CloseClick ( Button *button )
 {
 
-	SharesListScreenInterface *lsi = (SharesListScreenInterface *) GetInterfaceScreen ( SCREEN_SHARESLISTSCREEN );
+	auto *lsi = (SharesListScreenInterface *) GetInterfaceScreen ( SCREEN_SHARESLISTSCREEN );
 	UplinkAssert (lsi);
 
 	int nextpage = lsi->GetComputerScreen ()->nextpage;

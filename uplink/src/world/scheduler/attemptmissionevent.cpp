@@ -30,7 +30,7 @@ AttemptMissionEvent::~AttemptMissionEvent ()
 void AttemptMissionEvent::Run ()
 {
 
-	Agent *agent = (Agent *) game->GetWorld ()->GetPerson ( agentname );
+	auto *agent = (Agent *) game->GetWorld ()->GetPerson ( agentname );
 	UplinkAssert (agent);
 
 	agent->AttemptMission ();
@@ -58,7 +58,7 @@ char *AttemptMissionEvent::GetShortString ()
 char *AttemptMissionEvent::GetLongString ()
 {
 
-	Agent *agent = (Agent *) game->GetWorld ()->GetPerson ( agentname );
+	auto *agent = (Agent *) game->GetWorld ()->GetPerson ( agentname );
 	UplinkAssert (agent);
 
 	Mission *m = agent->missions.GetData (0);

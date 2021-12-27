@@ -73,7 +73,7 @@ void Tutorial::TitleClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	Tutorial *thistask = (Tutorial *) SvbGetTask ( pid );
+	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
 	thistask->followmouse = true;
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
@@ -89,7 +89,7 @@ void Tutorial::SkipClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	Tutorial *thistask = (Tutorial *) SvbGetTask ( pid );
+	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
 	thistask->RunMenu ();
 
@@ -104,7 +104,7 @@ void Tutorial::NextDraw ( Button *button, bool highlighted, bool clicked )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	Tutorial *thistask = (Tutorial *) SvbGetTask ( pid );
+	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
 	if ( thistask->nextvisible ) {
 
@@ -123,7 +123,7 @@ void Tutorial::NextMouseMove ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	Tutorial *thistask = (Tutorial *) SvbGetTask ( pid );
+	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
 	if ( thistask->nextvisible ) {
 
@@ -142,7 +142,7 @@ void Tutorial::NextMouseDown ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	Tutorial *thistask = (Tutorial *) SvbGetTask ( pid );
+	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
 	if ( thistask->nextvisible ) {
 
@@ -161,7 +161,7 @@ void Tutorial::NextClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	Tutorial *thistask = (Tutorial *) SvbGetTask ( pid );
+	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
 	if ( thistask->nextvisible ) {
 		
@@ -183,7 +183,7 @@ void Tutorial::MenuButtonClick ( Button *button )
 
 	// Run that part of the tutorial
 
-	Tutorial *thistask = (Tutorial *) SvbGetTask (pid);
+	auto *thistask = (Tutorial *) SvbGetTask (pid);
 	UplinkAssert (thistask);
 	thistask->RemoveMenuInterface ();
 	thistask->menu = false;

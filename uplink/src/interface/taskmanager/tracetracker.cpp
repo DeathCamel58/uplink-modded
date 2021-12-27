@@ -63,7 +63,7 @@ void TraceTracker::TraceDraw ( Button *button, bool highlighted, bool clicked )
 	int pid;
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
-    TraceTracker *thistask = (TraceTracker *) SvbGetTask (pid);
+    auto *thistask = (TraceTracker *) SvbGetTask (pid);
     UplinkAssert (thistask);
 
     //
@@ -132,7 +132,7 @@ void TraceTracker::AudioDraw ( Button *button, bool highlighted, bool clicked )
 	int pid;
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
-    TraceTracker *thistask = (TraceTracker *) SvbGetTask (pid);
+    auto *thistask = (TraceTracker *) SvbGetTask (pid);
     UplinkAssert (thistask);
 
     if ( thistask->audioon )
@@ -149,7 +149,7 @@ void TraceTracker::AudioClick ( Button *button )
 	int pid;
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
-    TraceTracker *thistask = (TraceTracker *) SvbGetTask (pid);
+    auto *thistask = (TraceTracker *) SvbGetTask (pid);
     UplinkAssert (thistask);
 
     thistask->audioon = !thistask->audioon;

@@ -133,7 +133,7 @@ void RemoteInterface::RunNewLocation ()
             Computer *comp = game->GetWorld ()->GetComputer ( vl->computer );
             if ( comp && comp->GetOBJECTID () == OID_LANCOMPUTER ) {
 
-                LanComputer *lanComp = (LanComputer *) comp;
+                auto *lanComp = (LanComputer *) comp;
 
 		        if ( lanComp->systems.ValidIndex(LanMonitor::currentSelected) ) {
 

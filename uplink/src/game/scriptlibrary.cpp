@@ -144,7 +144,7 @@ void ScriptLibrary::Script1 ()
 		
 		*/
 
-	Message *msg = new Message ();
+	auto *msg = new Message ();
 	msg->SetTo		( "PLAYER" );
 	msg->SetFrom	( "Script Library" );
 	msg->SetSubject ( "Test message from Script Library" );
@@ -270,7 +270,7 @@ void ScriptLibrary::Script11 ()
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
 	UplinkAssert (comp);
-	BankComputer *bank = (BankComputer *) comp;
+	auto *bank = (BankComputer *) comp;
 
 	// Verify the name is unique
 
@@ -339,7 +339,7 @@ void ScriptLibrary::Script12 ()
 	if ( strlen ( passwd ) >= 33 )
 		passwd [ 33 - 1 ] = '\0';
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, name );
     record->AddField ( RECORDBANK_PASSWORD, passwd );
 	record->AddField ( RECORDBANK_SECURITY, "3" );
@@ -372,7 +372,7 @@ void ScriptLibrary::Script13 ()
     Computer *comp = vl->GetComputer ();
     UplinkAssert (comp);
 	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER );
-	BankComputer *bank = (BankComputer *) comp;
+	auto *bank = (BankComputer *) comp;
 
 	// Look up the account number based on the log in name
 	Record *rec = bank->recordbank.GetRecordFromName (game->GetInterface ()->GetRemoteInterface ()->security_name);
@@ -446,7 +446,7 @@ void ScriptLibrary::Script15 ()
 	
 	// Start the search going
 
-	CriminalScreenInterface *csi = (CriminalScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *csi = (CriminalScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert ( csi );
 	UplinkAssert ( csi->ScreenID () == SCREEN_CRIMINALSCREEN );
 	csi->SetSearchName ( name );
@@ -479,7 +479,7 @@ void ScriptLibrary::Script16 ()
 	
 	// Start the search going
 
-	AcademicScreenInterface *asi = (AcademicScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *asi = (AcademicScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert ( asi );
 	UplinkAssert ( asi->ScreenID () == SCREEN_ACADEMICSCREEN );
 	asi->SetSearchName ( name );
@@ -512,7 +512,7 @@ void ScriptLibrary::Script17 ()
 	
 	// Start the search going
 
-	SocialSecurityScreenInterface *sssi = (SocialSecurityScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+	auto *sssi = (SocialSecurityScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert ( sssi );
 	UplinkAssert ( sssi->ScreenID () == SCREEN_SOCSECSCREEN );
 	sssi->SetSearchName ( name );
@@ -594,7 +594,7 @@ void ScriptLibrary::Script31 ()
 
 		// Third time through
 
-	    PhoneDialler *pd = new PhoneDialler ();
+	    auto *pd = new PhoneDialler ();
 		pd->DialNumber ( 400, 170, IP_UPLINKPUBLICACCESSSERVER, 1 );    
 
 		// See the next step in script 92
@@ -755,7 +755,7 @@ void ScriptLibrary::Script33 ()
 
 	// Store the new player's account on Uplink's computer
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, name );
 	record->AddField ( RECORDBANK_ACCNO, accno );
 	record->AddField ( RECORDBANK_PASSWORD, password );
@@ -776,7 +776,7 @@ void ScriptLibrary::Script33 ()
 	// Send notification to the player
 	//
 
-	Message *msg = new Message ();
+	auto *msg = new Message ();
 	msg->SetTo		( "PLAYER" );
 	msg->SetFrom	( "Uplink public access system" );
 	msg->SetSubject ( "Welcome to Uplink" );
@@ -793,7 +793,7 @@ void ScriptLibrary::Script33 ()
 	// Send the player a test mission as a tutorial
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE ( MISSION_STEALFILE );
 	mission->SetCompletion ( IP_UPLINKINTERNALSERVICES, "Uplink test data", nullptr, nullptr, nullptr );
 	mission->SetEmployer ( "Uplink" );
@@ -932,7 +932,7 @@ void ScriptLibrary::Script35 ()
 
 		// Third time through - connect to gateway
 
-	    PhoneDialler *pd = new PhoneDialler ();
+	    auto *pd = new PhoneDialler ();
 		pd->DialNumber ( 400, 170, IP_LOCALHOST, 2 );    
 
 		// See the next step in script 93
@@ -1493,7 +1493,7 @@ void ScriptLibrary::Script60 ()
 
 		*/
 
-	DialogScreen *ds = (DialogScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *ds = (DialogScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (ds);
 	UplinkAssert (ds->GetOBJECTID () == OID_DIALOGSCREEN );
 
@@ -1520,7 +1520,7 @@ void ScriptLibrary::Script61 ()
 
 		*/
 
-	DialogScreen *ds = (DialogScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *ds = (DialogScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (ds);
 	UplinkAssert (ds->GetOBJECTID () == OID_DIALOGSCREEN );
 
@@ -1614,7 +1614,7 @@ void ScriptLibrary::Script70 ()
     rundate.SetDate ( &game->GetWorld ()->date );
     rundate.AdvanceDay ( 7 );
     
-	NotificationEvent *ne = new NotificationEvent ();
+	auto *ne = new NotificationEvent ();
 	ne->SetTYPE ( NOTIFICATIONEVENT_TYPE_BUYAGENTLIST );
 	ne->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( ne );
@@ -1669,7 +1669,7 @@ void ScriptLibrary::Script71 ()
 															'a' + NumberGenerator::RandomNumber ( 26 ),
 															'a' + NumberGenerator::RandomNumber ( 26 ) );
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
 	record->AddField ( RECORDBANK_PASSWORD, password );
 	record->AddField ( RECORDBANK_SECURITY, "3" );
@@ -1712,7 +1712,7 @@ void ScriptLibrary::Script71 ()
     // Generate the mission
     //
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
 	mission->SetCompletion   ( ourcomp->ip, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
@@ -1761,7 +1761,7 @@ void ScriptLibrary::Script72 ()
                        "are never converted into real-world people, effectively providing anonymity for their agents."
                        );
    
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -1781,7 +1781,7 @@ void ScriptLibrary::Script80 ()
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
 	
-	LanComputer *lan = (LanComputer *) comp;
+	auto *lan = (LanComputer *) comp;
 
 
 	//
@@ -1833,7 +1833,7 @@ void ScriptLibrary::Script80 ()
                 if ( comp->TYPE == COMPUTER_TYPE_LAN )
                 {
 
-                    LanComputer *lc = (LanComputer *) comp;
+                    auto *lc = (LanComputer *) comp;
 					if ( lc->systems.ValidIndex ( currentSystem ) ) {
 						LanComputerSystem *system = lc->systems.GetData(currentSystem);
 						game->GetInterface()->GetRemoteInterface()->RunScreen ( system->screenIndex, lc );
@@ -1872,7 +1872,7 @@ void ScriptLibrary::Script81 ()
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
 	
-	LanComputer *lan = (LanComputer *) comp;
+	auto *lan = (LanComputer *) comp;
 
 
 	//
@@ -1936,7 +1936,7 @@ void ScriptLibrary::Script82 ()
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
 	
-	LanComputer *lan = (LanComputer *) comp;
+	auto *lan = (LanComputer *) comp;
 
 
 	//
@@ -1984,7 +1984,7 @@ void ScriptLibrary::Script82 ()
                 if ( comp->TYPE == COMPUTER_TYPE_LAN )
                 {
 
-                    LanComputer *lc = (LanComputer *) comp;
+                    auto *lc = (LanComputer *) comp;
 					if ( lc->systems.ValidIndex ( currentSystem ) ) {
 						LanComputerSystem *system = lc->systems.GetData(currentSystem);
 						game->GetInterface()->GetRemoteInterface()->RunScreen ( system->screenIndex, lc );
@@ -2025,7 +2025,7 @@ void ScriptLibrary::Script83 ()
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
 	
-	LanComputer *lan = (LanComputer *) comp;
+	auto *lan = (LanComputer *) comp;
 
 
 	//
@@ -2073,7 +2073,7 @@ void ScriptLibrary::Script83 ()
                 if ( comp->TYPE == COMPUTER_TYPE_LAN )
                 {
 
-                    LanComputer *lc = (LanComputer *) comp;
+                    auto *lc = (LanComputer *) comp;
 					if ( lc->systems.ValidIndex ( currentSystem ) ) {
 						LanComputerSystem *system = lc->systems.GetData(currentSystem);
 						game->GetInterface()->GetRemoteInterface()->RunScreen ( system->screenIndex, lc );
@@ -2157,7 +2157,7 @@ void ScriptLibrary::Script85 ()
 
         if ( captionIndex == NUMCAPTIONS - 1 ) {
 
-            RadioTransmitterScreenInterface *rsi = (RadioTransmitterScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+            auto *rsi = (RadioTransmitterScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
             rsi->Connect ();
 
         }

@@ -100,7 +100,7 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 	if ( uo->GetOBJECTID () == OID_PASSWORDSCREEN ) {
 
-		PasswordScreen *ps = (PasswordScreen *) uo;
+		auto *ps = (PasswordScreen *) uo;
 	    comp = ps->GetComputer ();
 	    UplinkAssert (comp);
 
@@ -118,7 +118,7 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 	}
 	else if ( uo->GetOBJECTID () == OID_USERIDSCREEN ) {
 
-	    UserIDScreen *uid = (UserIDScreen *) uo;
+	    auto *uid = (UserIDScreen *) uo;
 	    comp = uid->GetComputer ();
 	    UplinkAssert (comp);
 

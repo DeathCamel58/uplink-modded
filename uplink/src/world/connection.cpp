@@ -236,7 +236,7 @@ void Connection::Connect ()
 			if ( i == vlocations.Size () - 1 ) {
 
 				// Previous -> This (ie connection opened)
-				AccessLog *log = new AccessLog ();
+				auto *log = new AccessLog ();
 				log->SetProperties ( &(game->GetWorld ()->date), vlocations.GetData (i-1), owner, 
 										LOG_NOTSUSPICIOUS, LOG_TYPE_CONNECTIONOPENED );
 				bouncecomp->logbank.AddLog ( log );
@@ -245,7 +245,7 @@ void Connection::Connect ()
 			else {			
 
 				// Previous -> Next (ie a bounce)
-				AccessLog *log = new AccessLog ();
+				auto *log = new AccessLog ();
 			
 				int logtype = ( i == 0 ) ? LOG_TYPE_BOUNCEBEGIN : LOG_TYPE_BOUNCE;
 				char *fromip = ( i == 0 ) ? (char *) "LOCAL" : vlocations.GetData (i-1);
@@ -284,7 +284,7 @@ void Connection::Disconnect ()
 						LOG_SUSPICIOUS	 :
 						LOG_NOTSUSPICIOUS;
 
-	AccessLog *log1 = new AccessLog ();
+	auto *log1 = new AccessLog ();
 	log1->SetProperties ( &(game->GetWorld ()->date), 
 						  vlocations.GetData ( vlocations.Size () - 2 ), owner,
 						  LOG_NOTSUSPICIOUS, LOG_TYPE_CONNECTIONCLOSED );

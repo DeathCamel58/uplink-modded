@@ -126,7 +126,7 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 
 		for ( int ic = 0; ic < maxcpus; ++ic ) {
 		
-			GatewayDefLocation *gdl = new GatewayDefLocation ();
+			auto *gdl = new GatewayDefLocation ();
 			thefile >> gdl->x >> gdl->y >> ws;
 			cpus.PutData ( gdl, ic );
 			
@@ -145,7 +145,7 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 
 		for ( int i = 0; i < maxmemory; ++i ) {
 
-			GatewayDefLocation *gdl = new GatewayDefLocation ();
+			auto *gdl = new GatewayDefLocation ();
 			thefile >> gdl->x >> gdl->y >> ws;
 			memory.PutData ( gdl, i );
 
@@ -164,7 +164,7 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 
 		for ( int i = 0; i < maxsecurity; ++i ) {
 
-			GatewayDefLocation *gdl = new GatewayDefLocation ();
+			auto *gdl = new GatewayDefLocation ();
 			thefile >> gdl->x >> gdl->y >> ws;
 			security.PutData ( gdl, i );
 
@@ -360,7 +360,7 @@ static bool LoadDArrayGatewayDefLocation ( DArray <GatewayDefLocation *> *darray
 		}
 		else {
 
-			GatewayDefLocation *data = new GatewayDefLocation;
+			auto *data = new GatewayDefLocation;
 			if ( !FileReadData ( data, sizeof(GatewayDefLocation), 1, file ) ) {
 				delete data;
 				return false;

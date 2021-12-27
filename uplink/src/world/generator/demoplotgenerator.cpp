@@ -56,7 +56,7 @@ void DemoPlotGenerator::Initialise ()
 void DemoPlotGenerator::MoveNewMissionToRandomLocation ( Mission *mission )
 {
 
-    CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
     UplinkAssert (cu);
 
     // Remove the mission from the list first
@@ -83,7 +83,7 @@ void DemoPlotGenerator::MoveNewMissionToRandomLocation ( Mission *mission )
 bool DemoPlotGenerator::NumAvailableMissions ( int missiontype )
 {
 
-    CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
     UplinkAssert (cu);
 
     int found = 0;
@@ -293,7 +293,7 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 	// Generate the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_CHANGEDATA );
 	mission->SetCompletion   ( completionA, completionB, completionC, completionD, completionE );
 	//mission->SetEmployer     ( employer->name );
@@ -364,7 +364,7 @@ void DemoPlotGenerator::PlayerCompletedMission ( Mission *mission )
         // to the player from ARC
         //
 
-        RunPlotSceneEvent *rpse = new RunPlotSceneEvent ();
+        auto *rpse = new RunPlotSceneEvent ();
         rpse->SetActAndScene ( -1, 1 );
         Date rundate;
         rundate.SetDate ( &game->GetWorld ()->date );
@@ -437,7 +437,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
         // Jig this guys social-security record
         //
 
-        Message *m = new Message ();
+        auto *m = new Message ();
         m->SetFrom ( "internal@ARC.net" );
         m->SetTo ( "PLAYER" );
         m->SetSubject ( "Offer from Andromeda Research Corporation" );
@@ -478,7 +478,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
 
         // Player completed the ARC mission
 
-        Message *m = new Message ();
+        auto *m = new Message ();
         m->SetFrom ( "internal@ARC.net" );
         m->SetTo ( "PLAYER" );
         m->SetSubject ( "Message from ARC" );
@@ -492,7 +492,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
 
         // The target of that mission dies in one minute
 
-        RunPlotSceneEvent *rpse = new RunPlotSceneEvent ();
+        auto *rpse = new RunPlotSceneEvent ();
         rpse->SetActAndScene ( -1, 4 );
         Date rundate;
         rundate.SetDate ( &game->GetWorld ()->date );
@@ -528,7 +528,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
 	    news->SetHeadline ( "Uplink agent dies in mysterious circumstances" );
 	    news->SetDetails ( newsdetails.str () );
 
-	    CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert (cu);
 	    cu->CreateNews ( news );
 
@@ -537,7 +537,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
 
         // Warning mail to all
 
-        Message *m = new Message ();
+        auto *m = new Message ();
         m->SetFrom ( "Uplink Corporation" );
         m->SetTo ( "PLAYER" );
         m->SetSubject ( "Warning to all Agents" );
@@ -625,7 +625,7 @@ void DemoPlotGenerator::Update ()
         rundate.SetDate ( &game->GetWorld ()->date );
         rundate.AdvanceMinute ( TIME_TODEMOGAMEOVER );
 
-        NotificationEvent *ne = new NotificationEvent ();
+        auto *ne = new NotificationEvent ();
         ne->SetTYPE ( NOTIFICATIONEVENT_TYPE_DEMOGAMEOVER );
         ne->SetRunDate ( &rundate );
 

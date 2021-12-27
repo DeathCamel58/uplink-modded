@@ -45,7 +45,7 @@ void LogBank::AddLog ( AccessLog *log, int index )
 
 	// Add the log into the internal structure
 
-	AccessLog *internalcopy = new AccessLog ();
+	auto *internalcopy = new AccessLog ();
 	internalcopy->SetProperties ( log );
 
 	internallogs.SetSize ( logs.Size () );
@@ -110,7 +110,7 @@ char *LogBank::TraceLog ( char *to_ip, char *logbank_ip, Date *date, int uplinkr
 
 					AccessLog *recovered = internallogs.GetData (i);
 					if ( recovered ) {
-						AccessLog *internalcopy = new AccessLog ();
+						auto *internalcopy = new AccessLog ();
 						internalcopy->SetProperties ( recovered );
 						logs.PutData ( internalcopy, i );
 						delete al;
@@ -130,7 +130,7 @@ char *LogBank::TraceLog ( char *to_ip, char *logbank_ip, Date *date, int uplinkr
 
 					AccessLog *recovered = internallogs.GetData (i);
 					if ( recovered ) {
-						AccessLog *internalcopy = new AccessLog ();
+						auto *internalcopy = new AccessLog ();
 						internalcopy->SetProperties ( recovered );
 						logs.PutData ( internalcopy, i );
 						delete al;
@@ -256,7 +256,7 @@ bool LogBank::Load ( FILE *file )
 		}
 		else {
 
-			AccessLog *al = new AccessLog ();
+			auto *al = new AccessLog ();
 			if ( !al->Load ( file ) ) {
 				delete al;
 				return false;
@@ -272,7 +272,7 @@ bool LogBank::Load ( FILE *file )
 
 		if ( modified ) {
 
-			AccessLog *al = new AccessLog ();
+			auto *al = new AccessLog ();
 			if ( !al->Load ( file ) ) {
 				delete al;
 				return false;
@@ -284,7 +284,7 @@ bool LogBank::Load ( FILE *file )
 
             if ( index != -1 ) {
 
-			    AccessLog *al = new AccessLog ();
+			    auto *al = new AccessLog ();
 				if ( al ) {
 					if ( !logs.ValidIndex ( index ) ) {
 						UplinkPrintAssert ( logs.ValidIndex ( index ) );

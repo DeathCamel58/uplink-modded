@@ -44,7 +44,7 @@ void GraphicOptionsInterface::ReturnToMainMenuClick ( Button *button )
 void GraphicOptionsInterface::ApplyClick ( Button *button )
 {
 
-	GraphicOptionsInterface *thisint = (GraphicOptionsInterface *) app->GetMainMenu ()->GetMenuScreen ();
+	auto *thisint = (GraphicOptionsInterface *) app->GetMainMenu ()->GetMenuScreen ();
 	UplinkAssert (thisint);
 
 	int index = 0;

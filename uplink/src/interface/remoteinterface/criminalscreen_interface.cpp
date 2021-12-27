@@ -74,7 +74,7 @@ void CriminalScreenInterface::NameBorderDraw ( Button *button, bool highlighted,
 void CriminalScreenInterface::CloseClick ( Button *button )
 {
 
-	GenericScreen *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
+	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (gs);
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
@@ -84,7 +84,7 @@ void CriminalScreenInterface::CloseClick ( Button *button )
 void CriminalScreenInterface::AddConvictionClick ( Button *button )
 {
 
-	CriminalScreenInterface *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
+	auto *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
 	UplinkAssert (csi);
 
 	if ( csi->recordindex != -1 ) {
@@ -133,7 +133,7 @@ void CriminalScreenInterface::AddConvictionClick ( Button *button )
 void CriminalScreenInterface::ClearClick ( Button *button )
 {
 
-	CriminalScreenInterface *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
+	auto *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
 	UplinkAssert (csi);
 
 	if ( csi->recordindex != -1 ) {
@@ -159,7 +159,7 @@ void CriminalScreenInterface::ClearClick ( Button *button )
 void CriminalScreenInterface::ArrestClick ( Button *button )
 {
 
-	CriminalScreenInterface *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
+	auto *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
 	UplinkAssert (csi);
 
 	if ( csi->recordindex != -1 ) {
@@ -207,7 +207,7 @@ void CriminalScreenInterface::ArrestClick ( Button *button )
 			rundate.SetDate ( &(game->GetWorld ()->date) );
 			rundate.AdvanceMinute ( TIME_LEGALACTION );
 
-			ArrestEvent *ae = new ArrestEvent ();
+			auto *ae = new ArrestEvent ();
 			ae->SetName ( name );
 			ae->SetReason ( "breaking parole after 2 previous convictions" );
 			ae->SetRunDate ( &rundate );

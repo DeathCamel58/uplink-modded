@@ -95,7 +95,7 @@ void NuclearWarScreenInterface::DrawMainMap ( Button *button, bool highlighted, 
 	glColor3ub ( 81, 138, 215 );
 	border_draw ( button );
     
-    NuclearWarScreenInterface *nwsi = (NuclearWarScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen();
+    auto *nwsi = (NuclearWarScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen();
     UplinkAssert (nwsi);
 
     for ( int i = 0; i < nwsi->nukes.Size (); ++i ) {
@@ -198,10 +198,10 @@ void NuclearWarScreenInterface::ClickLocation ( Button *button )
 	}
 	UplinkAssert (pgl);
 
-    NuclearWarScreenInterface *nwsi = (NuclearWarScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen();
+    auto *nwsi = (NuclearWarScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen();
     UplinkAssert (nwsi);
 
-    NuclearWar_Nuke *nuke = new NuclearWar_Nuke ();
+    auto *nuke = new NuclearWar_Nuke ();
     nuke->sx = NumberGenerator::RandomNumber ( 640 );
     nuke->sy = 0;
     nuke->x = (int) NumberGenerator::RandomNormalNumber ( (float) SX(pgl->x), 20.0f );
@@ -239,7 +239,7 @@ void NuclearWarScreenInterface::CloseClick ( Button *button )
                            "on the world.  Let me tell you this - that prank nearly wiped out the Western Hemisphere.\n\n"
                           );
 
-	    CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert (cu);
 	    cu->CreateNews ( news );
         

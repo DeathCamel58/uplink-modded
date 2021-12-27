@@ -77,7 +77,7 @@ void UplinkAgentList::UplinkAgentListDraw ( Button *button, bool highlighted, bo
 	int pid;
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
-    UplinkAgentList *ual = (UplinkAgentList *) SvbGetTask ( pid );
+    auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual);
 
     //
@@ -156,7 +156,7 @@ void UplinkAgentList::TitleClick ( Button *button )
 	int pid;
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
-    UplinkAgentList *ual = (UplinkAgentList *) SvbGetTask ( pid );
+    auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual);
 
 	ual->followmouse = true;
@@ -174,7 +174,7 @@ void UplinkAgentList::ScrollUpClick ( Button *button )
 	int pid;
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
-    UplinkAgentList *ual = (UplinkAgentList *) SvbGetTask ( pid );
+    auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual);
 
 	char listname [32];
@@ -191,7 +191,7 @@ void UplinkAgentList::ScrollDownClick ( Button *button )
 	int pid;
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
-    UplinkAgentList *ual = (UplinkAgentList *) SvbGetTask ( pid );
+    auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual);
 
 	char listname [32];

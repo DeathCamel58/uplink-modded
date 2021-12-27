@@ -49,7 +49,7 @@ BankAccount *BankAccount::GetAccount ( char *bankip, char *accno )
 	Computer *comp = vl->GetComputer ();
 	if ( !comp ) return nullptr;
 	if ( !(comp->GetOBJECTID () == OID_BANKCOMPUTER ) ) return nullptr;
-	BankComputer *bank = (BankComputer *) comp;
+	auto *bank = (BankComputer *) comp;
 
 	BankAccount *account = bank->accounts.GetData ( accno );
 	return account;
@@ -86,7 +86,7 @@ bool BankAccount::TransferMoney ( char *source_ip, char *source_accno,
         rundate.SetDate ( &game->GetWorld ()->date );
         rundate.AdvanceMinute ( TIME_TOCOVERBANKROBBERY );
 
-        BankRobberyEvent *bre = new BankRobberyEvent ();
+        auto *bre = new BankRobberyEvent ();
         bre->SetDetails ( source_ip, source_accno, target_ip, target_accno, amount, &game->GetWorld ()->date );
         bre->SetRunDate ( &rundate );
 
@@ -102,7 +102,7 @@ bool BankAccount::TransferMoney ( char *source_ip, char *source_accno,
 		target_acc->balance += amount;
 
 		// Log on the source account
-		AccessLog *source_log = new AccessLog ();
+		auto *source_log = new AccessLog ();
 		source_log->SetProperties ( &(game->GetWorld ()->date), source_ip, person->name, LOG_NOTSUSPICIOUS, LOG_TYPE_TRANSFERTO );
 		source_log->SetData1 ( source_data );
 		source_log->SetData2 ( s_amount );
@@ -110,7 +110,7 @@ bool BankAccount::TransferMoney ( char *source_ip, char *source_accno,
 		source_acc->log.AddLog ( source_log );
 
 		// Log on the target account
-		AccessLog *target_log = new AccessLog ();
+		auto *target_log = new AccessLog ();
 		target_log->SetProperties ( &(game->GetWorld ()->date), source_ip, person->name, LOG_NOTSUSPICIOUS, LOG_TYPE_TRANSFERFROM );
 		target_log->SetData1 ( target_data );
 		target_log->SetData2 ( s_amount );
@@ -169,7 +169,7 @@ void BankAccount::ChangeBalance ( int amount, char *description )
 
 	// Log this action
 
-	AccessLog *source_log = new AccessLog ();
+	auto *source_log = new AccessLog ();
 	source_log->SetProperties ( &(game->GetWorld ()->date), "unknown", name, LOG_NOTSUSPICIOUS, LOG_TYPE_TEXT );
 	
 	if ( description )  source_log->SetData1 ( description );

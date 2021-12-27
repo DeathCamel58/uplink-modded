@@ -142,7 +142,7 @@ void FileCopier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 			// Target memory area selected
 			// If memory index is -1, look for a valid placement
 
-			DataBank *db = (DataBank *) uo;
+			auto *db = (DataBank *) uo;
 			int memoryindex = uoi;
 
 			if ( memoryindex == -1 ) memoryindex = db->FindValidPlacement ( datacopy );
@@ -159,7 +159,7 @@ void FileCopier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 			// Attaching the file to a message
 			
-			Message *m = (Message *) uo;
+			auto *m = (Message *) uo;
 			UplinkAssert ( m );
 
 			m->AttachData ( datacopy );

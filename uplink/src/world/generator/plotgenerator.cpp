@@ -148,7 +148,7 @@ void PlotGenerator::Initialise_ARC ()
 
 	char *companyname = "ARC";
 
-	Company *arc = new Company ();
+	auto *arc = new Company ();
 	arc->SetName ( companyname );
 	arc->SetSize ( 50 );
 	arc->SetTYPE ( COMPANYTYPE_COMMERCIAL );
@@ -161,10 +161,10 @@ void PlotGenerator::Initialise_ARC ()
 	Computer *cm  = WorldGenerator::GenerateCentralMainframe		( companyname );
     Computer *lan = WorldGenerator::GenerateLAN                     ( companyname );
 
-    HighSecurityScreen *hs = (HighSecurityScreen *) cm->GetComputerScreen (0);
+    auto *hs = (HighSecurityScreen *) cm->GetComputerScreen (0);
     hs->AddSystem ( "Elliptic-Curve Encryption Cypher", 7 );
 
-	CypherScreen *cs = new CypherScreen ();
+	auto *cs = new CypherScreen ();
 	cs->SetMainTitle ( "ARC" );
 	cs->SetSubTitle ( "Enter elliptic-curve encryption cypher" );
 	cs->SetDifficulty ( HACKDIFFICULTY_ARCCENTRALMAINFRAME );
@@ -214,7 +214,7 @@ void PlotGenerator::Initialise_Andromeda ()
 
     VLocation *vl = WorldGenerator::GenerateLocation ();
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
     comp->SetName ( NameGenerator::GenerateAccessTerminalName("Andromeda") );
 	comp->SetCompanyName ( "ARC" );
 	comp->SetTraceSpeed ( 20 );
@@ -225,7 +225,7 @@ void PlotGenerator::Initialise_Andromeda ()
 	game->GetWorld ()->CreateComputer ( comp );
 
 
-    MessageScreen *ms = new MessageScreen ();
+    auto *ms = new MessageScreen ();
     ms->SetMainTitle ( "Andromeda" );
     ms->SetSubTitle ( "" );
     ms->SetTextMessage ( "\n\n\n\n\n                            THE TIME IS NEAR" );
@@ -233,7 +233,7 @@ void PlotGenerator::Initialise_Andromeda ()
     ms->SetNextPage ( 1 );
     comp->AddComputerScreen ( ms, 0 );
 
-    MenuScreen *ms1 = new MenuScreen ();
+    auto *ms1 = new MenuScreen ();
     ms1->SetMainTitle ( "Andromeda" );
     ms1->SetSubTitle ( "The time is near" );
     ms1->AddOption ( "Our beliefs", "Our beliefs", 3 );
@@ -241,7 +241,7 @@ void PlotGenerator::Initialise_Andromeda ()
     ms1->AddOption ( "Our support", "Our support", 4 );
     comp->AddComputerScreen ( ms1, 1 );
 
-    MessageScreen *ms2 = new MessageScreen ();
+    auto *ms2 = new MessageScreen ();
     ms2->SetMainTitle ( "Andromeda" );
     ms2->SetSubTitle ( "Our people" );
     ms2->SetTextMessage ( "Removed for security purposes\n"
@@ -250,7 +250,7 @@ void PlotGenerator::Initialise_Andromeda ()
     ms2->SetNextPage ( 1 );
     comp->AddComputerScreen ( ms2, 2 );
 
-    MessageScreen *ms3 = new MessageScreen ();
+    auto *ms3 = new MessageScreen ();
     ms3->SetMainTitle ( "Andromeda" );
     ms3->SetSubTitle ( "Our Beliefs" );
     ms3->SetTextMessage ( "THE ANDROMEDA FOUNDATION IS BUILT ON ITS CORE FIVE BELIEFS\n\n"
@@ -267,7 +267,7 @@ void PlotGenerator::Initialise_Andromeda ()
     ms3->SetNextPage ( 1 );
     comp->AddComputerScreen ( ms3, 3 );
 
-    MessageScreen *ms4 = new MessageScreen ();
+    auto *ms4 = new MessageScreen ();
     ms4->SetMainTitle ( "Andromeda" );
     ms4->SetSubTitle ( "Our Support" );
     ms4->SetTextMessage ( "It is heartening to know that we are not alone in our beliefs.\n\n"
@@ -287,7 +287,7 @@ void PlotGenerator::Initialise_ARUNMOR ()
 
 	char *companyname = "Arunmor";
 
-	Company *company = new Company ();
+	auto *company = new Company ();
 	company->SetName ( companyname );
 	company->SetBoss ( "Unlisted" );
 	company->SetSize ( 50 );
@@ -302,10 +302,10 @@ void PlotGenerator::Initialise_ARUNMOR ()
     Computer *lan = WorldGenerator::GenerateLAN                     ( companyname );
 
 
-    HighSecurityScreen *hs = (HighSecurityScreen *) cm->GetComputerScreen (0);
+    auto *hs = (HighSecurityScreen *) cm->GetComputerScreen (0);
     hs->AddSystem ( "Elliptic-Curve Encryption Cypher", 7 );
 
-	CypherScreen *cs = new CypherScreen ();
+	auto *cs = new CypherScreen ();
 	cs->SetMainTitle ( "Arunmor" );
 	cs->SetSubTitle ( "Enter elliptic-curve encryption cypher" );
 	cs->SetDifficulty ( HACKDIFFICULTY_ARUNMORCENTRALMAINFRAME );
@@ -351,7 +351,7 @@ void PlotGenerator::Initialise_DARWIN ()
 
     char *companyname = "Darwin Research Associates";
 
-    Company *company = new Company ();
+    auto *company = new Company ();
     company->SetName ( companyname );
     company->SetSize ( 20 );
     company->SetTYPE ( COMPANYTYPE_ACADEMIC );
@@ -566,7 +566,7 @@ bool PlotGenerator::RemoveSpecialMission ( int missionID )
 
 	const char *title = SpecialMissionDescription (missionID);
 
-    CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
     UplinkAssert ( cu );
 
     for ( int i = 0; i < cu->missions.Size (); ++i ) {
@@ -603,7 +603,7 @@ bool PlotGenerator::PlayerContactsARC ( Message *msg )
 		revelation->SetTitle ( "Revelation" );
 		revelation->SetDetails ( DATATYPE_PROGRAM, 3, 0, 0, 1.0, SOFTWARETYPE_OTHER );
 
-		Message *msg = new Message ();
+		auto *msg = new Message ();
 		msg->SetFrom ( "internal@ARC.net" );
 		msg->SetTo ( "PLAYER" );
 		msg->SetSubject ( "Welcome to ARC" );
@@ -638,7 +638,7 @@ bool PlotGenerator::PlayerContactsARC ( Message *msg )
 	    rundate.SetDate ( &(game->GetWorld ()->date) );
 	    rundate.AdvanceMinute ( 2 );
 
-	    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	    auto *rns = new RunPlotSceneEvent ();
 	    rns->SetActAndScene ( 2, 3 );
 	    rns->SetRunDate ( &rundate );
 	    game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -712,7 +712,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 			game->GetWorld ()->GetPlayer ()->rating.ChangeUplinkScore ( 10 );
 			game->GetWorld ()->GetPlayer ()->rating.ChangeNeuromancerScore ( 10 );
 
-			Message *msg = new Message ();
+			auto *msg = new Message ();
 			msg->SetTo ( "PLAYER" );
 			msg->SetFrom ( "internal@Arunmor.net" );
 			msg->SetSubject ( "Your recent submission" );
@@ -740,7 +740,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 			rundate.SetDate ( &(game->GetWorld ()->date) );
 			rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-			RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+			auto *rns = new RunPlotSceneEvent ();
 			rns->SetActAndScene ( 3, 1 );
 			rns->SetRunDate ( &rundate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -765,7 +765,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 				game->GetWorld ()->GetPlayer ()->rating.ChangeUplinkScore ( 10 );
 				game->GetWorld ()->GetPlayer ()->rating.ChangeNeuromancerScore ( 10 );
 
-				Message *msg = new Message ();
+				auto *msg = new Message ();
 				msg->SetTo ( "PLAYER" );
 				msg->SetFrom ( "Arunmor" );
 				msg->SetSubject ( "Your recent submission" );
@@ -784,7 +784,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 
 				// He sent us an older version which is no use
 
-				Message *msg = new Message ();
+				auto *msg = new Message ();
 				msg->SetTo ( "PLAYER" );
 				msg->SetFrom ( "Arunmor" );
 				msg->SetSubject ( "Your recent submission" );
@@ -1061,7 +1061,7 @@ void PlotGenerator::Run_Act1Scene1 ()
 	rundate.AdvanceDay ( 1 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 
 #ifdef TESTGAME
 
@@ -1121,7 +1121,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 					   "the last week alone on agent fees.\n\n"
 					   "At the time of writing, ARC was unwilling to comment." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -1188,7 +1188,7 @@ void PlotGenerator::Run_Act1Scene2 ()
     ComputerScreen *existing0 = comp->GetComputerScreen (0);
     if ( existing0 ) delete existing0;
 
-	PasswordScreen *ps0 = new PasswordScreen ();
+	auto *ps0 = new PasswordScreen ();
 	ps0->SetMainTitle ( comp->name );
 	ps0->SetSubTitle ( "Speak friend, and enter" );
 	ps0->SetPassword ( "MySocratesNote" );
@@ -1196,21 +1196,21 @@ void PlotGenerator::Run_Act1Scene2 ()
 	ps0->SetNextPage ( 1 );
 	comp->AddComputerScreen ( ps0, 0 );
 
-	MenuScreen *ms1 = new MenuScreen ();
+	auto *ms1 = new MenuScreen ();
 	ms1->SetMainTitle ( comp->name );
 	ms1->SetSubTitle ( "Menu" );
 	ms1->AddOption ( "Filez", "Mess with my files", 2 );
 	ms1->AddOption ( "eMailz", "Edit my mail settings", 3 );
 	comp->AddComputerScreen ( ms1, 1 );
 
-	GenericScreen *gs2 = new GenericScreen ();
+	auto *gs2 = new GenericScreen ();
 	gs2->SetMainTitle ( comp->name );
 	gs2->SetSubTitle ( "Filez" );
 	gs2->SetScreenType ( SCREEN_FILESERVERSCREEN );
 	gs2->SetNextPage ( 1 );
 	comp->AddComputerScreen ( gs2, 2 );
 
-	DialogScreen *ds3 = new DialogScreen ();
+	auto *ds3 = new DialogScreen ();
 	ds3->SetMainTitle ( comp->name );
 	ds3->SetSubTitle ( "eMailz" );
 	ds3->AddWidget ( "close", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Close", "Click to close this screen", 1, -1, nullptr, nullptr );
@@ -1225,7 +1225,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 	rundate.AdvanceDay ( 4 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 1, 3 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1237,7 +1237,7 @@ void PlotGenerator::Run_Act1Scene3 ()
 
 	if ( UplinkIncompatibleSaveGameAssert ( strcmp ( act1scene3agent, " " ) != 0, __FILE__, __LINE__ ) )
 		return;
-	Agent *agent = (Agent *) game->GetWorld ()->GetPerson ( act1scene3agent );
+	auto *agent = (Agent *) game->GetWorld ()->GetPerson ( act1scene3agent );
 	if ( UplinkIncompatibleSaveGameAssert (agent, __FILE__, __LINE__) )
 		return;
 
@@ -1264,7 +1264,7 @@ void PlotGenerator::Run_Act1Scene3 ()
 	details.rdbuf()->freeze( 0 );
 	//delete [] details.str ();
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -1278,7 +1278,7 @@ void PlotGenerator::Run_Act1Scene3 ()
 	rundate.AdvanceDay ( 2 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 1, 4 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1290,13 +1290,13 @@ void PlotGenerator::Run_Act1Scene4 ()
 
 	if ( UplinkIncompatibleSaveGameAssert ( strcmp ( act1scene4agent, " " ) != 0, __FILE__, __LINE__ ) )
 		return;
-	Agent *agent = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
+	auto *agent = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
 	if ( UplinkIncompatibleSaveGameAssert (agent, __FILE__, __LINE__) )
 		return;
 
 	if ( UplinkIncompatibleSaveGameAssert ( strcmp ( act1scene3agent, " " ) != 0, __FILE__, __LINE__ ) )
 		return;
-	Agent *scene3guy = (Agent *) game->GetWorld ()->GetPerson ( act1scene3agent );
+	auto *scene3guy = (Agent *) game->GetWorld ()->GetPerson ( act1scene3agent );
 	if ( UplinkIncompatibleSaveGameAssert (scene3guy, __FILE__, __LINE__) )
 		return;
 
@@ -1331,7 +1331,7 @@ void PlotGenerator::Run_Act1Scene4 ()
 	details.rdbuf()->freeze( 0 );
 	//delete [] details.str ();
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -1343,17 +1343,17 @@ void PlotGenerator::Run_Act1Scene4 ()
 	if ( UplinkIncompatibleSaveGameAssert (comp, __FILE__, __LINE__) )
 		return;
 
-	AccessLog *al1 = new AccessLog ();
+	auto *al1 = new AccessLog ();
 	al1->SetProperties ( &(game->GetWorld ()->date), WorldGenerator::GetRandomLocation ()->ip, " " );
 	al1->SetData1 ( "Deleted file RevelationCoreV0.7" );
 	comp->logbank.AddLog ( al1 );
 
-	AccessLog *al2 = new AccessLog ();
+	auto *al2 = new AccessLog ();
 	al2->SetProperties ( &(game->GetWorld ()->date), WorldGenerator::GetRandomLocation ()->ip, " " );
 	al2->SetData1 ( "Deleted file RevelationDataV0.7" );
 	comp->logbank.AddLog ( al2 );
 
-	AccessLog *al3 = new AccessLog ();
+	auto *al3 = new AccessLog ();
 	al3->SetProperties ( &(game->GetWorld ()->date), WorldGenerator::GetRandomLocation ()->ip, " " );
 	al3->SetData1 ( "Deleted file RevelationSpecV0.7" );
 	comp->logbank.AddLog ( al3 );
@@ -1367,7 +1367,7 @@ void PlotGenerator::Run_Act1Scene4 ()
 	rundate.AdvanceDay ( 7 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 1, 5 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1379,7 +1379,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 
 	if ( UplinkIncompatibleSaveGameAssert ( strcmp ( act1scene4agent, " " ) != 0, __FILE__, __LINE__ ) )
 		return;
-	Agent *agent = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
+	auto *agent = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
 	if ( UplinkIncompatibleSaveGameAssert (agent, __FILE__, __LINE__) )
 		return;
 
@@ -1395,7 +1395,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 
 	agent->EstablishConnection ( comp->ip );
 
-	AccessLog *al = new AccessLog ();
+	auto *al = new AccessLog ();
 	al->SetProperties ( &(game->GetWorld ()->date), "unknown", "unknown" );
 	al->SetData1 ( "Copied file RevelationCoreV0.7" );
 	comp->logbank.AddLog ( al );
@@ -1411,7 +1411,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 	hiscomp->databank.SetSize ( hiscomp->databank.GetSize () + 5 );
 	hiscomp->databank.PutData ( data );
 
-	DialogScreen *ds = (DialogScreen *) hiscomp->GetComputerScreen (3);
+	auto *ds = (DialogScreen *) hiscomp->GetComputerScreen (3);
 	UplinkAssert ( ds->GetOBJECTID () == OID_DIALOGSCREEN );
 	ds->AddWidget ( "scheduletitle", WIDGET_CAPTION, 50, 150, 200, 20, "Scheduled emails", "" );
 	ds->AddWidget ( "email1", WIDGET_TEXTBOX, 80, 180, 200, 30, "TO: subscriptions@hackers.com\nSUBJECT: continuation of order", "" );
@@ -1447,7 +1447,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 	details.rdbuf()->freeze( 0 );
 	//delete [] details.str ();
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -1462,7 +1462,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 	rundate.AdvanceDay ( 5 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 1, 7 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1476,7 +1476,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 
 		if ( UplinkIncompatibleSaveGameAssert ( strcmp ( act1scene4agent, " " ) != 0, __FILE__, __LINE__ ) )
 			return;
-		Agent *agent = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
+		auto *agent = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
 		if ( UplinkIncompatibleSaveGameAssert (agent, __FILE__, __LINE__) )
 			return;
 
@@ -1510,7 +1510,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 		char code [128];
         Computer::GenerateAccessCode( agent->handle, "MySocratesNote", code, sizeof ( code ) );
 
-		Message *msg = new Message ();
+		auto *msg = new Message ();
 		msg->SetTo ( "PLAYER" );
 		msg->SetFrom ( from );
 		msg->SetSubject ( "Warning about ARC" );
@@ -1529,7 +1529,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 	    if ( UplinkIncompatibleSaveGameAssert (hiscomp, __FILE__, __LINE__) )
 			return;
 
-    	DialogScreen *ds = (DialogScreen *) hiscomp->GetComputerScreen (3);
+    	auto *ds = (DialogScreen *) hiscomp->GetComputerScreen (3);
 	    UplinkAssert ( ds->GetOBJECTID () == OID_DIALOGSCREEN );
 
         ds->RemoveWidget ( "email2" );
@@ -1546,7 +1546,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 	rundate.SetDate ( &(game->GetWorld ()->date) );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) + 2 );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 1, 8 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1582,7 +1582,7 @@ void PlotGenerator::Run_Act1Scene8 ()
 		news->SetHeadline ( "Formal warning issued by Uplink Corporation" );
 		news->SetDetails ( details.str () );
 
-		CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+		auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 		UplinkAssert (cu);
 		cu->CreateNews ( news );
 
@@ -1599,7 +1599,7 @@ void PlotGenerator::Run_Act1Scene8 ()
 	rundate.AdvanceDay ( 3 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 2, 1 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1628,7 +1628,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 	char *ip = hiscomp->ip;
 	game->GetWorld ()->computers.RemoveData ( hiscomputername );
 
-	Computer *comp = new Computer ();
+	auto *comp = new Computer ();
 	comp->SetTYPE ( COMPUTER_TYPE_PERSONALCOMPUTER );
 	comp->SetName ( hiscomputername );
 	comp->SetCompanyName ( act1scene4agent );
@@ -1639,7 +1639,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 
     delete [] hiscomputername;
 
-	MessageScreen *ms0 = new MessageScreen ();
+	auto *ms0 = new MessageScreen ();
 	ms0->SetMainTitle ( "404 error" );
 	ms0->SetSubTitle ( "Computer not found" );
 	ms0->SetTextMessage ( "This IP address is currently unused.\n"
@@ -1672,7 +1672,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 				"Reply to this email (or send one to internal@ARC.net) if you are interested in discussing this further."
 			 << '\x0';
 
-		Message *msg = new Message ();
+		auto *msg = new Message ();
 		msg->SetFrom ( "internal@ARC.net" );
 		msg->SetSubject ( "An offer you can't refuse" );
 		msg->SetTo ( "PLAYER" );
@@ -1685,7 +1685,7 @@ void PlotGenerator::Run_Act2Scene1 ()
     }
 	else if ( playercancelsmail ) {
 
-	    Agent *act1scene4 = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
+	    auto *act1scene4 = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
     	if ( UplinkIncompatibleSaveGameAssert (act1scene4, __FILE__, __LINE__) )
 			return;
 
@@ -1708,7 +1708,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 				"Reply to this email (or send one to internal@ARC.net) if you are interested in discussing this further."
 			 << '\x0';
 
-		Message *msg = new Message ();
+		auto *msg = new Message ();
 		msg->SetFrom ( "internal@ARC.net" );
 		msg->SetSubject ( "An offer you can't refuse" );
 		msg->SetTo ( "PLAYER" );
@@ -1737,7 +1737,7 @@ void PlotGenerator::Run_Act2Scene1 ()
                 "We look forward to hearing from you."
 			 << '\x0';
 
-		Message *msg = new Message ();
+		auto *msg = new Message ();
 		msg->SetFrom ( "internal@ARC.net" );
 		msg->SetSubject ( "An offer you can't refuse" );
 		msg->SetTo ( "PLAYER" );
@@ -1758,7 +1758,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 	rundate.AdvanceDay ( 7 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 2, 2 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1791,7 +1791,7 @@ void PlotGenerator::Run_Act2Scene2 ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 3, 1 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1826,7 +1826,7 @@ void PlotGenerator::Run_Act2Scene3 ()
             "two of their best Uplink Agents?"
          << '\x0';
 
-    Message *msg = new Message ();
+    auto *msg = new Message ();
     msg->SetTo ( "PLAYER" );
     msg->SetFrom ( "internal@Arunmor.net" );
     msg->SetSubject ( "Counter offer from a friend" );
@@ -1850,7 +1850,7 @@ void PlotGenerator::Run_Act3Scene1 ()
 
         // The player betrayed ARC and went over to Arunmor
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@ARC.net" );
         msg->SetSubject ( "Warning" );
@@ -1873,7 +1873,7 @@ void PlotGenerator::Run_Act3Scene1 ()
                            "this company. It is believed they had some kind of inside information.\n\n"
                            "This latest accusation casts Andromeda Research Corporation in an increasingly bad light." );
 
-    	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+    	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert (cu);
 	    cu->CreateNews ( news );
 
@@ -1893,7 +1893,7 @@ void PlotGenerator::Run_Act3Scene1 ()
 					       "Recently a high ranking Uplink Agent contacted us and suggested that Andromeda Research Corporation "
 					       "might be connected to this viral outbreak.  Agents have been assigned the task of investigating." );
 
-    	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+    	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert (cu);
 	    cu->CreateNews ( news );
 
@@ -1905,7 +1905,7 @@ void PlotGenerator::Run_Act3Scene1 ()
 	rundate.AdvanceDay ( 1 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 3, 2 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -1929,7 +1929,7 @@ void PlotGenerator::Run_Act3Scene2 ()
 					   "can help them with their research into Revelation.  Anyone with any data related to this "
 					   "virus should send it to internal@Arunmor.net to claim their reward." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -1948,12 +1948,12 @@ void PlotGenerator::Run_Act3Scene2 ()
 	Computer *comp = game->GetWorld ()->GetComputer ( NAME_UPLINKINTERNALSERVICES );
 	UplinkAssert (comp);
 	UplinkAssert ( comp->screens.ValidIndex ( 1 ) );
-	MenuScreen *menu2 = (MenuScreen *) comp->screens.GetData (1);
+	auto *menu2 = (MenuScreen *) comp->screens.GetData (1);
 	UplinkAssert (menu2);
 	UplinkAssert (menu2->GetOBJECTID () == OID_MENUSCREEN );
 	menu2->AddOption ( "Faith Progress", "Shows the latest known versions of Faith and Revelation", 3, 10, 5 );
 
-	GenericScreen *gs3 = new GenericScreen ();
+	auto *gs3 = new GenericScreen ();
 	gs3->SetScreenType ( SCREEN_FAITHSCREEN );
 	gs3->SetMainTitle ( comp->name );
 	gs3->SetSubTitle ( "Faith V Revelation" );
@@ -1966,7 +1966,7 @@ void PlotGenerator::Run_Act3Scene2 ()
 	rundate.AdvanceDay ( 2 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 3, 3 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2003,7 +2003,7 @@ void PlotGenerator::Run_Act3Scene3 ()
     News *news = new News ();
     news->SetHeadline ( "Arunmor release details on Revelation" );
     news->SetDetails ( details.str () );
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2016,7 +2016,7 @@ void PlotGenerator::Run_Act3Scene3 ()
 	rundate.AdvanceDay ( 2 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 3, 4 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2044,7 +2044,7 @@ void PlotGenerator::Run_Act3Scene4 ()
     News *news = new News ();
     news->SetHeadline ( "Federal Agents release findings on ARC" );
     news->SetDetails ( details.str () );
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2057,7 +2057,7 @@ void PlotGenerator::Run_Act3Scene4 ()
 	rundate.AdvanceDay ( 2 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 4, 1 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2080,7 +2080,7 @@ void PlotGenerator::Run_Act4Scene1 ()
     }
     else {
 
-	    CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert ( cu );
 	    cu->CreateMission ( tracer );
 
@@ -2091,7 +2091,7 @@ void PlotGenerator::Run_Act4Scene1 ()
         rundate.AdvanceDay ( 7 );
 	    rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 2 ) );
 
-	    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	    auto *rns = new RunPlotSceneEvent ();
 	    rns->SetActAndScene ( 4, 13 );
 	    rns->SetRunDate ( &rundate );
 	    game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2103,7 +2103,7 @@ void PlotGenerator::Run_Act4Scene1 ()
     rundate.AdvanceDay ( 4 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 5 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 4, 7 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2126,7 +2126,7 @@ void PlotGenerator::Run_Act4Scene2 ()
     }
     else {
 
-        CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+        auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert ( cu );
 	    cu->CreateMission ( takeme );
 
@@ -2137,7 +2137,7 @@ void PlotGenerator::Run_Act4Scene2 ()
         rundate.AdvanceDay ( 7 );
 	    rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 2 ) );
 
-	    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	    auto *rns = new RunPlotSceneEvent ();
 	    rns->SetActAndScene ( 4, 14 );
 	    rns->SetRunDate ( &rundate );
 	    game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2149,7 +2149,7 @@ void PlotGenerator::Run_Act4Scene2 ()
     rundate.AdvanceDay ( 4 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 5 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 4, 8 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2172,7 +2172,7 @@ void PlotGenerator::Run_Act4Scene3 ()
     }
     else {
 
-	    CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert ( cu );
 	    cu->CreateMission ( mission );
 
@@ -2183,7 +2183,7 @@ void PlotGenerator::Run_Act4Scene3 ()
         rundate.AdvanceDay ( 7 );
 	    rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 2 ) );
 
-	    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	    auto *rns = new RunPlotSceneEvent ();
 	    rns->SetActAndScene ( 4, 15 );
 	    rns->SetRunDate ( &rundate );
 	    game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2195,7 +2195,7 @@ void PlotGenerator::Run_Act4Scene3 ()
     rundate.AdvanceDay ( 4 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 5 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 4, 9 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2216,7 +2216,7 @@ void PlotGenerator::Run_Act4Scene4 ()
                        "It is not known what the hacker did - he was very careful and covered his tracks. ARC are "
                        "launching a full investigation into this incident." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2233,7 +2233,7 @@ void PlotGenerator::Run_Act4Scene5 ()
                        "an opportunity to bring him in.\n\n"
                        "Federal Agents have refused to comment on the results of their questioning at this time." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2257,7 +2257,7 @@ void PlotGenerator::Run_Act4Scene6 ()
                        "for a few minutes.  They must have been working with somebody on the outside to pull this off.'" );
 
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2291,7 +2291,7 @@ void PlotGenerator::Run_Act4Scene7 ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 4, 10 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2307,7 +2307,7 @@ void PlotGenerator::Run_Act4Scene7 ()
 	rundate.AdvanceDay ( 4 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 4, 2 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2340,7 +2340,7 @@ void PlotGenerator::Run_Act4Scene8 ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 3 ) );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 4, 11 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2353,7 +2353,7 @@ void PlotGenerator::Run_Act4Scene8 ()
 	rundate.AdvanceDay ( 4 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 4, 3 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2386,7 +2386,7 @@ void PlotGenerator::Run_Act4Scene9 ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 3 ) );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 4, 12 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2400,7 +2400,7 @@ void PlotGenerator::Run_Act4Scene9 ()
 	rundate.AdvanceDay ( 10 );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 5, 1 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2424,7 +2424,7 @@ void PlotGenerator::Run_Act4Scene10 ()
                        "Once again, ARC was unwilling to comment on the issue, but this latest allegation has fueled speculation as to "
                        "the ultimate motives of the company." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2445,7 +2445,7 @@ void PlotGenerator::Run_Act4Scene11 ()
                        "technical leadership.  Their so called 'Faith Project' will have been set back.\n\n"
                        );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2464,7 +2464,7 @@ void PlotGenerator::Run_Act4Scene12 ()
                        "It is not known what effect this will have on project Faith, but it is known that the Arunmor Local "
                        "Area Network was used to store a great deal of research on that topic.\n\n" );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2483,7 +2483,7 @@ void PlotGenerator::Run_Act4Scene13 ()
 	    rundate.SetDate ( &(game->GetWorld ()->date) );
 	    rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) );
 
-	    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	    auto *rns = new RunPlotSceneEvent ();
 	    rns->SetActAndScene ( 4, 4 );
 	    rns->SetRunDate ( &rundate );
 	    game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2508,7 +2508,7 @@ void PlotGenerator::Run_Act4Scene14 ()
 	    rundate.SetDate ( &(game->GetWorld ()->date) );
 	    rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) );
 
-	    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	    auto *rns = new RunPlotSceneEvent ();
 	    rns->SetActAndScene ( 4, 5 );
 	    rns->SetRunDate ( &rundate );
 	    game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2533,7 +2533,7 @@ void PlotGenerator::Run_Act4Scene15 ()
 	    rundate.SetDate ( &(game->GetWorld ()->date) );
 	    rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) );
 
-	    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	    auto *rns = new RunPlotSceneEvent ();
 	    rns->SetActAndScene ( 4, 6 );
 	    rns->SetRunDate ( &rundate );
 	    game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2560,7 +2560,7 @@ void PlotGenerator::Run_Act5Scene1 ()
                        "Arunmor corporation has been working hard and have a prototype of the counter virus Faith, "
                        "but it is not clear how effective this would be." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2568,7 +2568,7 @@ void PlotGenerator::Run_Act5Scene1 ()
 	rundate.SetDate ( &(game->GetWorld ()->date) );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 5, 2 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2599,7 +2599,7 @@ void PlotGenerator::Run_Act5Scene2 ()
         data->SetTitle ( "Revelation_Tracker" );
         data->SetDetails ( DATATYPE_PROGRAM, 3, 0, 0, 1.0, SOFTWARETYPE_OTHER );
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@ARC.net" );
         msg->SetSubject ( "Revelation Tracker" );
@@ -2616,7 +2616,7 @@ void PlotGenerator::Run_Act5Scene2 ()
         data2->SetTitle ( "Revelation" );
         data2->SetDetails ( DATATYPE_PROGRAM, 3, 0, 0, version_revelation, SOFTWARETYPE_OTHER );
 
-        Message *msg2 = new Message ();
+        auto *msg2 = new Message ();
         msg2->SetTo ( "PLAYER" );
         msg2->SetFrom ( "internal@ARC.net" );
         msg2->SetSubject ( "Revelation" );
@@ -2650,7 +2650,7 @@ void PlotGenerator::Run_Act5Scene2 ()
         rundate.SetDate ( &(game->GetWorld ()->date) );
         rundate.AdvanceMinute ( timebetweenlaunches );
 
-        RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+        auto *rns = new RunPlotSceneEvent ();
         rns->SetActAndScene ( 5, 5 );
         rns->SetRunDate ( &rundate );
         game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2662,7 +2662,7 @@ void PlotGenerator::Run_Act5Scene2 ()
         rundate2.SetDate ( &game->GetWorld ()->date );
         rundate2.AdvanceMinute ( TIME_ARCBUSTED_WITHPLAYER );
 
-        RunPlotSceneEvent *rns2 = new RunPlotSceneEvent ();
+        auto *rns2 = new RunPlotSceneEvent ();
         rns2->SetActAndScene ( 5, 6 );
         rns2->SetRunDate ( &rundate2 );
         game->GetWorld ()->scheduler.ScheduleEvent ( rns2 );
@@ -2705,7 +2705,7 @@ void PlotGenerator::Run_Act5Scene2 ()
         rundate.SetDate ( &(game->GetWorld ()->date) );
         rundate.AdvanceMinute ( timebetweenlaunches );
 
-        RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+        auto *rns = new RunPlotSceneEvent ();
         rns->SetActAndScene ( 5, 5 );
         rns->SetRunDate ( &rundate );
         game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2717,7 +2717,7 @@ void PlotGenerator::Run_Act5Scene2 ()
         rundate2.SetDate ( &game->GetWorld ()->date );
         rundate2.AdvanceMinute ( TIME_ARCBUSTED_WITHOUTPLAYER );
 
-        RunPlotSceneEvent *rns2 = new RunPlotSceneEvent ();
+        auto *rns2 = new RunPlotSceneEvent ();
         rns2->SetActAndScene ( 5, 6 );
         rns2->SetRunDate ( &rundate2 );
         game->GetWorld ()->scheduler.ScheduleEvent ( rns2 );
@@ -2732,7 +2732,7 @@ void PlotGenerator::Run_Act5Scene2 ()
         rundate.SetDate ( &(game->GetWorld ()->date) );
         rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 2 ) );
 
-        RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+        auto *rns = new RunPlotSceneEvent ();
         rns->SetActAndScene ( 5, 4 );
         rns->SetRunDate ( &rundate );
         game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2760,7 +2760,7 @@ void PlotGenerator::Run_Act5Scene3 ()
                        "have come to the end of their career at that company.\n\n"
                        "Federal Agents refused to comment at this time, but did say a statement would be released soon." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2770,7 +2770,7 @@ void PlotGenerator::Run_Act5Scene3 ()
     rundate.AdvanceDay ( 2 );
     rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+    auto *rns = new RunPlotSceneEvent ();
     rns->SetActAndScene ( 6, 1 );
     rns->SetRunDate ( &rundate );
     game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2796,7 +2796,7 @@ void PlotGenerator::Run_Act5Scene4 ()
                        "have come to the end of their career at that company.\n\n"
                        "Federal Agents refused to comment at this time, but did say a statement would be released soon." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2806,7 +2806,7 @@ void PlotGenerator::Run_Act5Scene4 ()
     rundate.AdvanceDay ( 2 );
     rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+    auto *rns = new RunPlotSceneEvent ();
     rns->SetActAndScene ( 6, 1 );
     rns->SetRunDate ( &rundate );
     game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2836,7 +2836,7 @@ void PlotGenerator::Run_Act5Scene5 ()
             rundate.SetDate ( &(game->GetWorld ()->date) );
             rundate.AdvanceMinute ( timebetweenlaunches );
 
-            RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+            auto *rns = new RunPlotSceneEvent ();
             rns->SetActAndScene ( 5, 5 );
             rns->SetRunDate ( &rundate );
             game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2864,7 +2864,7 @@ void PlotGenerator::Run_Act5Scene5 ()
             rundate.SetDate ( &(game->GetWorld ()->date) );
             rundate.AdvanceMinute ( timebetweenlaunches );
 
-            RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+            auto *rns = new RunPlotSceneEvent ();
             rns->SetActAndScene ( 5, 5 );
             rns->SetRunDate ( &rundate );
             game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2900,7 +2900,7 @@ void PlotGenerator::Run_Act5Scene6 ()
 
         // Send him an email about ARC getting busted
 
-         Message *msg = new Message ();
+         auto *msg = new Message ();
          msg->SetTo ( "PLAYER" );
          msg->SetFrom ( "internal@Arunmor.net" );
          msg->SetSubject ( "Arunmor has been busted" );
@@ -2951,7 +2951,7 @@ void PlotGenerator::Run_Act6Scene1 ()
                        "are being destroyed by the Computers you desperately try to defend.'\n\n"
                        "It is believed this man will spend several years in jail for this crime." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2961,7 +2961,7 @@ void PlotGenerator::Run_Act6Scene1 ()
     rundate.AdvanceDay ( 7 );
     rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+    auto *rns = new RunPlotSceneEvent ();
     rns->SetActAndScene ( 6, 2 );
     rns->SetRunDate ( &rundate );
     game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -2978,7 +2978,7 @@ void PlotGenerator::Run_Act6Scene2 ()
                        "He went on to say that he had little sympathy for both the defendants.\n\n"
                        "As punishment for their crimes, both members will serve eight years imprisonment and will be banned from the use of computers for life.\n\n" );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -2988,7 +2988,7 @@ void PlotGenerator::Run_Act6Scene2 ()
     rundate.AdvanceDay ( 4 );
     rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 12 ) );
 
-    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+    auto *rns = new RunPlotSceneEvent ();
     rns->SetActAndScene ( 6, 3 );
     rns->SetRunDate ( &rundate );
     game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -3013,7 +3013,7 @@ void PlotGenerator::Run_Act6Scene3 ()
                        "Revelation, and the makers claim it actively seeks out viruses and eradicates them.  Sales have apparently been 'very promising'.\n\n"
                        "At the time of writing, shares in Arunmor Corporation had risen to a new high." );
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -3053,7 +3053,7 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ) );
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
 	record->AddField ( RECORDBANK_PASSWORD, password );
 	record->AddField ( RECORDBANK_SECURITY, "3" );
@@ -3099,7 +3099,7 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
 			<< '\x0';
 
 
-	Mission *m = new Mission ();
+	auto *m = new Mission ();
 	m->SetTYPE ( MISSION_SPECIAL );
 	m->SetEmployer ( "Arunmor" );
 	m->SetContact ( "internal@Arunmor.net" );
@@ -3161,7 +3161,7 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
 										'a' + NumberGenerator::RandomNumber ( 26 ),
 										'a' + NumberGenerator::RandomNumber ( 26 ) );
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
 	record->AddField ( RECORDBANK_PASSWORD, password );
 	record->AddField ( RECORDBANK_SECURITY, "3" );
@@ -3205,7 +3205,7 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
 			<< "This mission cannot be auto-accepted."
 			<< '\x0';
 
-	Mission *m = new Mission ();
+	auto *m = new Mission ();
 	m->SetTYPE ( MISSION_SPECIAL );
 	m->SetEmployer ( "Arunmor" );
 	m->SetContact ( "internal@Arunmor.net" );
@@ -3261,7 +3261,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ) );
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
 	record->AddField ( RECORDBANK_PASSWORD, password );
 	record->AddField ( RECORDBANK_SECURITY, "3" );
@@ -3339,7 +3339,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 			<< '\x0';
 
 	// Insert the mission
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
 	mission->SetCompletion   ( nullptr, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( "Arunmor" );
@@ -3410,7 +3410,7 @@ Mission *PlotGenerator::GenerateMission_CounterAttack ()
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ) );
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
 	record->AddField ( RECORDBANK_PASSWORD, password );
 	record->AddField ( RECORDBANK_SECURITY, "3" );
@@ -3440,7 +3440,7 @@ Mission *PlotGenerator::GenerateMission_CounterAttack ()
     //
     // Generate the mission
 
-    Mission *m = new Mission ();
+    auto *m = new Mission ();
     m->SetTYPE ( MISSION_SPECIAL );
     m->SetEmployer ( "Arunmor" );
     m->SetContact ( "internal@Arunmor.net" );
@@ -3485,7 +3485,7 @@ Mission *PlotGenerator::GenerateMission_MaidenFlight ()
 				<< '\x0';
 
 
-	Mission *m = new Mission ();
+	auto *m = new Mission ();
 	m->SetTYPE ( MISSION_SPECIAL );
 	m->SetEmployer ( "ARC" );
 	m->SetContact ( "internal@ARC.net" );
@@ -3529,7 +3529,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ) );
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
 	record->AddField ( RECORDBANK_PASSWORD, password );
 	record->AddField ( RECORDBANK_SECURITY, "3" );
@@ -3600,7 +3600,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 
 
 	// Insert the mission
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
 	mission->SetCompletion   ( nullptr, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( "ARC" );
@@ -3643,7 +3643,7 @@ Mission *PlotGenerator::GenerateMission_SaveItForTheJury ()
 
     // Choose a bank that the guy is due to hack
 
-    BankComputer *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
+    auto *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 	UplinkAssert (bank);
 
     UplinkStrncpy ( saveitforthejury_targetbankip, bank->ip, sizeof ( saveitforthejury_targetbankip ) );
@@ -3677,7 +3677,7 @@ Mission *PlotGenerator::GenerateMission_SaveItForTheJury ()
 	// Build the mission
 	//
 
-	Mission *m = new Mission ();
+	auto *m = new Mission ();
 	m->SetTYPE		   ( MISSION_SPECIAL );
 	m->SetEmployer     ( "ARC" );
 	m->SetContact      ( "internal@ARC.net" );
@@ -3746,7 +3746,7 @@ Mission *PlotGenerator::GenerateMission_ShinyHammer ()
                "Be patient...the time is near."
             << '\x0';
 
-    Mission *m = new Mission ();
+    auto *m = new Mission ();
     m->SetTYPE ( MISSION_SPECIAL );
     m->SetEmployer ( "ARC" );
     m->SetContact ( "internal@ARC.net" );
@@ -3787,7 +3787,7 @@ Mission *PlotGenerator::GenerateMission_GrandTour ()
             << '\x0';
 
 
-    Mission *m = new Mission ();
+    auto *m = new Mission ();
     m->SetTYPE ( MISSION_SPECIAL );
     m->SetEmployer ( "ARC" );
     m->SetContact ( "internal@ARC.net" );
@@ -3816,7 +3816,7 @@ bool PlotGenerator::IsMissionComplete_Tracer ()
 
         // Success
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetFrom ( "internal@Arunmor.net" );
         msg->SetTo ( "PLAYER" );
         msg->SetSubject ( "Congratulations" );
@@ -3841,7 +3841,7 @@ bool PlotGenerator::IsMissionComplete_Tracer ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) + 2 );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 4, 4 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -3853,7 +3853,7 @@ bool PlotGenerator::IsMissionComplete_Tracer ()
 
         // Failure
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetFrom ( "internal@Arunmor.net" );
         msg->SetTo ( "PLAYER" );
         msg->SetSubject ( "Failure" );
@@ -3881,7 +3881,7 @@ bool PlotGenerator::IsMissionComplete_TakeMeToYourLeader ()
 
 		// Send him a nice message
 
-		Message *m = new Message ();
+		auto *m = new Message ();
 		m->SetFrom ( "internal@Arunmor.net" ); // Ammended by Ashley Pinner
 		m->SetTo ( "PLAYER" );
 		m->SetSubject ( "Congratulations" );
@@ -3907,7 +3907,7 @@ bool PlotGenerator::IsMissionComplete_TakeMeToYourLeader ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) + 2 );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 4, 5 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -3973,7 +3973,7 @@ bool PlotGenerator::IsMissionComplete_ARCInfiltration ()
 
     if ( foundsize == 0 ) {
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@Arunmor.net" );
         msg->SetSubject ( "No files found" );
@@ -4001,7 +4001,7 @@ bool PlotGenerator::IsMissionComplete_ARCInfiltration ()
                 "to defeat it is to attack it with another virus that it cannot evolve against."
              << '\x0';
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@Arunmor.net" );
         msg->SetSubject ( "Congratulations" );
@@ -4024,7 +4024,7 @@ bool PlotGenerator::IsMissionComplete_ARCInfiltration ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) + 2 );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 4, 6 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -4048,7 +4048,7 @@ bool PlotGenerator::IsMissionComplete_MaidenFlight ()
 
 		// Send him a nice message
 
-		Message *m = new Message ();
+		auto *m = new Message ();
 		m->SetFrom ( "internal@ARC.net" );
 		m->SetTo ( "PLAYER" );
 		m->SetSubject ( "Congratulations" );
@@ -4075,7 +4075,7 @@ bool PlotGenerator::IsMissionComplete_MaidenFlight ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) + 2 );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 3, 1 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -4140,7 +4140,7 @@ bool PlotGenerator::IsMissionComplete_Darwin ()
 
     if ( foundsize == 0 ) {
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@ARC.net" );
         msg->SetSubject ( "No files found" );
@@ -4166,7 +4166,7 @@ bool PlotGenerator::IsMissionComplete_Darwin ()
              "combat any defense systems it comes up against."
              << '\x0';
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@ARC.net" );
         msg->SetSubject ( "Congratulations" );
@@ -4188,7 +4188,7 @@ bool PlotGenerator::IsMissionComplete_Darwin ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) + 2 );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 4, 10 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -4223,7 +4223,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 
     VLocation *vl = game->GetWorld ()->GetVLocation ( saveitforthejury_targetbankip );
     UplinkAssert (vl);
-    BankComputer *comp = (BankComputer *) vl->GetComputer ();
+    auto *comp = (BankComputer *) vl->GetComputer ();
     UplinkAssert (comp);
 
 
@@ -4284,7 +4284,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 
 	if ( success != 2 ) {
 
-		CompanyUplink *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+		auto *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 		UplinkAssert (uplink);
 
 		for ( int i = 0; i < uplink->news.Size (); ++i ) {
@@ -4310,7 +4310,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 
     if ( success == 2 ) {
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@ARC.net" );
         msg->SetSubject ( "Congratulations" );
@@ -4337,7 +4337,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 		rundate.SetDate ( &(game->GetWorld ()->date) );
 		rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 6 ) + 2 );
 
-		RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+		auto *rns = new RunPlotSceneEvent ();
 		rns->SetActAndScene ( 4, 11 );
 		rns->SetRunDate ( &rundate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -4347,7 +4347,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
     }
     else if ( success == 1 ) {
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@ARC.net" );
         msg->SetSubject ( "The wrong person has been framed" );
@@ -4361,7 +4361,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
     }
     else {
 
-        Message *msg = new Message ();
+        auto *msg = new Message ();
         msg->SetTo ( "PLAYER" );
         msg->SetFrom ( "internal@ARC.net" );
         msg->SetSubject ( "Failure to complete mission" );
@@ -4383,7 +4383,7 @@ bool PlotGenerator::IsMissionComplete_ShinyHammer ()
     if ( UplinkIncompatibleSaveGameAssert (computer, __FILE__, __LINE__) )
 		return false;
 
-    Message *msg = new Message ();
+    auto *msg = new Message ();
     msg->SetTo ( "PLAYER" );
     msg->SetFrom ( "internal@ARC.net" );
     msg->SetSubject ( "CONGRATULATIONS" );
@@ -4455,7 +4455,7 @@ bool PlotGenerator::IsMissionComplete_ShinyHammer ()
 	rundate.SetDate ( &(game->GetWorld ()->date) );
 	rundate.AdvanceHour ( NumberGenerator::RandomNumber ( 3 ) + 2 );
 
-	RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+	auto *rns = new RunPlotSceneEvent ();
 	rns->SetActAndScene ( 4, 12 );
 	rns->SetRunDate ( &rundate );
 	game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -4546,7 +4546,7 @@ void PlotGenerator::NewsRevelationUsed ( char *ip, int success )
 	//delete [] part3.str ();
 	//delete [] details.str ();
 
-	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu);
 	cu->CreateNews ( news );
 
@@ -4561,7 +4561,7 @@ void PlotGenerator::Revelation_ReleaseUncontrolled ()
     rundate.SetDate ( &(game->GetWorld ()->date) );
     rundate.AdvanceSecond ( 10 );
 
-    RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+    auto *rns = new RunPlotSceneEvent ();
     rns->SetActAndScene ( 5, 7 );
     rns->SetRunDate ( &rundate );
     game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -4618,7 +4618,7 @@ void PlotGenerator::Disinfected ( char *ip )
          // Player was working for ARC
          // And has now won the game
 
-         Message *msg = new Message ();
+         auto *msg = new Message ();
          msg->SetTo ( "PLAYER" );
          msg->SetFrom ( "internal@Arunmor.net" );
          msg->SetSubject ( "Revelation has been destroyed" );
@@ -4674,7 +4674,7 @@ void PlotGenerator::Disinfected ( char *ip )
          rundate.SetDate ( &(game->GetWorld ()->date) );
          rundate.AdvanceHour ( 3 );
 
-         RunPlotSceneEvent *rns = new RunPlotSceneEvent ();
+         auto *rns = new RunPlotSceneEvent ();
          rns->SetActAndScene ( 5, 3 );
          rns->SetRunDate ( &rundate );
          game->GetWorld ()->scheduler.ScheduleEvent ( rns );
@@ -4742,7 +4742,7 @@ bool PlotGenerator::IsPlotCompany ( const char *companyname )
 void PlotGenerator::MessageIncompatibleSaveGame ( const char *fileassert, int lineassert )
 {
 
-	Message *msg = new Message ();
+	auto *msg = new Message ();
 	msg->SetFrom ( "Problems@UplinkCorporation.net" );
 	msg->SetTo ( "PLAYER" );
 	msg->SetSubject ( "Problems" );

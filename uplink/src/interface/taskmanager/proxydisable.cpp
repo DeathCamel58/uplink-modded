@@ -103,7 +103,7 @@ void ProxyDisable::GoClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
 
-	ProxyDisable *thistask = (ProxyDisable *) SvbGetTask ( pid );
+	auto *thistask = (ProxyDisable *) SvbGetTask ( pid );
 	UplinkAssert (thistask);
 
 	// Set it going

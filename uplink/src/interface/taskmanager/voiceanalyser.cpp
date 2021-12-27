@@ -85,7 +85,7 @@ void VoiceAnalyser::TitleClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	VoiceAnalyser *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
+	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
 	thistask->followmouse = true;
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
@@ -101,7 +101,7 @@ void VoiceAnalyser::PlayDraw ( Button *button, bool highlighted, bool clicked )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	VoiceAnalyser *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
+	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
 	if ( thistask->STATUS == VOICEANALYSER_STATUS_READY )
 		imagebutton_draw ( button, highlighted, clicked );
@@ -117,7 +117,7 @@ void VoiceAnalyser::PlayClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	VoiceAnalyser *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
+	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
 	if ( thistask->STATUS == VOICEANALYSER_STATUS_READY ) {
 
@@ -143,7 +143,7 @@ void VoiceAnalyser::PlayClick ( Button *button )
 
 		if ( game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_VOICEANALYSIS ) {
 			
-			VoiceAnalysisScreenInterface *vas = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+			auto *vas = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 			UplinkAssert (vas);
 
 			vas->StartVoicePlayback ();
@@ -163,7 +163,7 @@ void VoiceAnalyser::PlayMouseMove ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	VoiceAnalyser *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
+	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
 	if ( thistask->STATUS == VOICEANALYSER_STATUS_READY )
 		button_highlight ( button );
@@ -179,7 +179,7 @@ void VoiceAnalyser::PlayMouseDown ( Button *button )
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	VoiceAnalyser *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
+	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
 	if ( thistask->STATUS == VOICEANALYSER_STATUS_READY )
 		button_click ( button );
@@ -195,7 +195,7 @@ void VoiceAnalyser::DrawAnalysis ( Button *button, bool highlighted, bool clicke
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
-	VoiceAnalyser *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
+	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
 	clear_draw ( button->x, button->y, button->width, button->height );
 
@@ -314,7 +314,7 @@ void VoiceAnalyser::SetTarget ( UplinkObject *uo, char *uos, int uoi )
          // Target memory area selected
          // If memory index is -1, look for a valid placement
 
-         DataBank *db = (DataBank *) uo;
+         auto *db = (DataBank *) uo;
          int memoryindex = uoi;
 
          if ( memoryindex == -1 ) memoryindex = db->FindValidPlacement ( datacopy );
@@ -353,7 +353,7 @@ void VoiceAnalyser::Tick ( int n )
 
 				if ( game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_VOICEPHONE ) {
 
-					VoicePhoneScreenInterface *vps = (VoicePhoneScreenInterface *) (game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
+					auto *vps = (VoicePhoneScreenInterface *) (game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
 					UplinkAssert (vps);
 					
 					if ( vps->STATUS == VOICESTATUS_TALKING ) {
@@ -383,7 +383,7 @@ void VoiceAnalyser::Tick ( int n )
 
 				}
 
-				VoicePhoneScreenInterface *vps = (VoicePhoneScreenInterface *) (game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
+				auto *vps = (VoicePhoneScreenInterface *) (game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
 				UplinkAssert (vps);
 
 				if ( vps->STATUS == VOICESTATUS_HUNGUP ) {
@@ -447,7 +447,7 @@ void VoiceAnalyser::Tick ( int n )
 
 					if ( game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_VOICEANALYSIS ) {
 						
-						VoiceAnalysisScreenInterface *vas = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
+						auto *vas = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 						UplinkAssert (vas);
 
 						vas->FinishVoicePlayback ( personname );

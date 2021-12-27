@@ -456,7 +456,7 @@ void LanMonitor::Update ()
 
             // Remove the mission from Uplink's list
 
-            CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
+            auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
             UplinkAssert (cu);
             for ( int i = 0; i < cu->missions.Size(); ++i ) {
                 if ( cu->missions.ValidIndex(i) ) {
@@ -474,7 +474,7 @@ void LanMonitor::Update ()
 		    duedate.SetDate ( &game->GetWorld ()->date );
 		    duedate.AdvanceSecond ( (int) NumberGenerator::RandomNormalNumber ( 30, 10 ) );
 
-		    AttemptMissionEvent *ami = new AttemptMissionEvent ();
+		    auto *ami = new AttemptMissionEvent ();
 		    ami->SetAgentName ( agent->name );
 		    ami->SetRunDate ( &duedate );
 		    game->GetWorld ()->scheduler.ScheduleEvent ( ami );
