@@ -103,7 +103,7 @@ void FileDeleter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				numticksrequired = TICKSREQUIRED_DELETE * data->size;
 				progress = 0;
 
-                remotefile = strstr ( uos, "fileserverscreen" ) ? true : false;
+                remotefile = strstr(uos, "fileserverscreen") != nullptr;
 
 				Button *button = EclGetButton ( uos );
 				UplinkAssert (button);

@@ -95,7 +95,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 	// Create blank LAN
 
 	if ( !game->GetWorld()->VerifyVLocation( ip, x, y ) ) {
-		printf ( "LanGenerator::LoadLAN WARNING: Location is invalid, ip(%s), x(%d), y(%d).(%s)\n", (ip)?ip:"nullptr", x, y, filename );
+		printf ("LanGenerator::LoadLAN WARNING: Location is invalid, ip(%s), x(%d), y(%d).(%s)\n", ip, x, y, filename );
 		thefile.close ();
 		RsArchiveFileClose ( filename );
         return nullptr;

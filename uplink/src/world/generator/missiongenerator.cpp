@@ -3008,7 +3008,7 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 						sscanf ( lastspace, " %d.dat", &thisfileindex );
 
 						if ( thisfileindex >= 0 && thisfileindex < numfiles &&
-							 filefound [thisfileindex] == false ) {
+                             !filefound[thisfileindex]) {
 
 							foundsize += thisfile->size;
 							filefound [thisfileindex] = true;
@@ -3852,7 +3852,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
 				    sscanf ( thisfile->title, "%s %d.dat", unused, &thisfileindex );
 
 				    if ( thisfileindex >= 0 && thisfileindex < numfiles &&
-					     filefound [thisfileindex] == false ) {
+                         !filefound[thisfileindex]) {
 
 					    foundsize += thisfile->size;
 					    filefound [thisfileindex] = true;
@@ -3875,7 +3875,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
         // Respond based on the data size found
         //
 
-        if ( foundsize == 0 && foundprogram == false ) {
+        if ( foundsize == 0 && !foundprogram) {
 
             MissionNotCompleted ( mission, person, message, "We don't see any data on our fileserver that contains "
                                                             "the names of any Uplink Agents.  Did you upload and "
@@ -3883,7 +3883,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
             return false;
 
         }
-        else if ( foundsize == 0 && foundprogram == true ) {
+        else if ( foundsize == 0 && foundprogram) {
 
             MissionNotCompleted ( mission, person, message, "Looks like you've uploaded the Uplink Agent List program, "
                                                             "but we don't see any data on our fileserver that contains "

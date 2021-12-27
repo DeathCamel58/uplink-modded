@@ -388,7 +388,7 @@ void Game::Save ( FILE *file )
 
 		fwrite ( &gamespeed, sizeof(gamespeed), 1, file );
 
-		if ( !(gamespeed == GAMESPEED_GAMEOVER) ) {
+		if (gamespeed != GAMESPEED_GAMEOVER) {
 
 			GetWorld     ()->Save ( file );
 			GetInterface ()->Save ( file );		

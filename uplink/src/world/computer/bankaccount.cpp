@@ -48,7 +48,7 @@ BankAccount *BankAccount::GetAccount ( char *bankip, char *accno )
 
 	Computer *comp = vl->GetComputer ();
 	if ( !comp ) return nullptr;
-	if ( !(comp->GetOBJECTID () == OID_BANKCOMPUTER ) ) return nullptr;
+	if (comp->GetOBJECTID() != OID_BANKCOMPUTER) return nullptr;
 	auto *bank = (BankComputer *) comp;
 
 	BankAccount *account = bank->accounts.GetData ( accno );

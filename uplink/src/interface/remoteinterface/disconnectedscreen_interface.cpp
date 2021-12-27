@@ -34,12 +34,10 @@ void DisconnectedScreenInterface::Click ( Button *button )
 	sscanf ( button->name, "disconnectedscreen_click %d %s", &nextpage, ip );
 
 	Computer *comp = nullptr;
-	if ( ip ) {
-		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
-		if ( loc )
-			comp = loc->GetComputer ();
-	}
-	if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, comp );
+    VLocation *loc = game->GetWorld()->GetVLocation(ip);
+    if (loc)
+        comp = loc->GetComputer();
+    if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, comp );
 
 }
 

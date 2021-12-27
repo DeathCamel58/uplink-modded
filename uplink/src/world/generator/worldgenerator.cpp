@@ -3968,7 +3968,7 @@ Computer *WorldGenerator::GetRandomLowSecurityComputer ( int TYPE )
 	while ( !result ||
 			result->security.IsRunning_Proxy () ||
 			result->security.IsRunning_Firewall () ||
-            !(result->traceaction < COMPUTER_TRACEACTION_LEGAL) ) {
+            result->traceaction >= COMPUTER_TRACEACTION_LEGAL) {
 
 		result = GetRandomComputer ( TYPE );
 

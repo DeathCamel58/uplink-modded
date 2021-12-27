@@ -288,7 +288,7 @@ void App::LoadGame ( char *username )
 
 	}
 	
-	if ( !(game->GameSpeed () == GAMESPEED_GAMEOVER) ) {
+	if (game->GameSpeed() != GAMESPEED_GAMEOVER) {
 
         WorldGenerator::LoadDynamics();
 

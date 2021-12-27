@@ -53,10 +53,7 @@ _br_find_exe (BrInitError *error)
 	FILE *f;
 
 	/* Read from /proc/self/exe (symlink) */
-	if (sizeof (path) > SSIZE_MAX)
-		buf_size = SSIZE_MAX - 1;
-	else
-		buf_size = PATH_MAX - 1;
+    buf_size = PATH_MAX - 1;
 	path = (char *) malloc (buf_size);
 	if (path == nullptr) {
 		/* Cannot allocate memory. */

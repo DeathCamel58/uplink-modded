@@ -132,7 +132,7 @@ bool Security::IsAnythingEnabled ()
 	for ( int i = 0; i < systems.Size (); ++i ) 
 		if ( systems.ValidIndex (i) )
 			if ( systems.GetData (i) )
-				if ( systems.GetData (i)->enabled == true )
+				if (systems.GetData(i)->enabled)
 					return true;
 
 	return false;
@@ -145,7 +145,7 @@ bool Security::IsAnythingDisabled ()
 	for ( int i = 0; i < systems.Size (); ++i ) 
 		if ( systems.ValidIndex (i) )
 			if ( systems.GetData (i) )
-				if ( systems.GetData (i)->enabled == false )
+				if (!systems.GetData(i)->enabled)
 					return true;
 
 	return false;

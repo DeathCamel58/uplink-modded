@@ -44,7 +44,7 @@ void VLocation::SetIP ( char *newip )
 bool VLocation::VerifyIP ( char *newip )
 {
 
-	if ( !newip || !( strlen (newip) < SIZE_VLOCATION_IP ) ) {
+	if (!newip || strlen(newip) >= SIZE_VLOCATION_IP) {
 
 		return false;
 

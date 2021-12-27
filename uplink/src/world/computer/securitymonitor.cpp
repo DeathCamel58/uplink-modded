@@ -67,7 +67,7 @@ bool SecurityMonitor::IsMonitored ( int index )
 
 	if ( status == 2 )
 		if ( currentmonitor.ValidIndex (index) )
-			if ( currentmonitor.GetData (index) == true )
+			if (currentmonitor.GetData(index))
 				return true;
 
 	return false;
@@ -136,7 +136,7 @@ void SecurityMonitor::Update ()
 
 					for ( int i = 0; i < currentmonitor.Size (); ++i ) {
 						if ( currentmonitor.ValidIndex (i) ) {
-							if ( currentmonitor.GetData (i) == true ) {
+							if (currentmonitor.GetData(i)) {
 
 								SecuritySystem *ss = comp->security.GetSystem (i);
 								UplinkAssert (ss);

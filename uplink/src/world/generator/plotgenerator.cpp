@@ -2816,7 +2816,7 @@ void PlotGenerator::Run_Act5Scene4 ()
 void PlotGenerator::Run_Act5Scene5 ()
 {
 
-    if ( revelation_releasefailed == false ) {
+    if (!revelation_releasefailed) {
 
         if ( playerloyalty == 1 ) {
 
@@ -3954,7 +3954,7 @@ bool PlotGenerator::IsMissionComplete_ARCInfiltration ()
 				    sscanf ( thisfile->title, "%s %d.dat", unused, &thisfileindex );
 
 				    if ( thisfileindex >= 0 && thisfileindex < numfiles &&
-					     filefound [thisfileindex] == false ) {
+                         !filefound[thisfileindex]) {
 
 					    foundsize += thisfile->size;
 					    filefound [thisfileindex] = true;
@@ -4121,7 +4121,7 @@ bool PlotGenerator::IsMissionComplete_Darwin ()
 				    sscanf ( thisfile->title, "%s %d.dat", unused, &thisfileindex );
 
 				    if ( thisfileindex >= 0 && thisfileindex < numfiles &&
-					     filefound [thisfileindex] == false ) {
+                         !filefound[thisfileindex]) {
 
 					    foundsize += thisfile->size;
 					    filefound [thisfileindex] = true;
@@ -4611,7 +4611,7 @@ void PlotGenerator::Disinfected ( char *ip )
                 infected.RemoveData (i);
 
      if ( infected.Size () == 0 &&
-          revelation_arcbusted == true &&
+          revelation_arcbusted &&
           playerloyalty == 1 &&
           !PlayerCompletedSpecialMission (SPECIALMISSION_COUNTERATTACK) ) {
 

@@ -194,8 +194,7 @@ void ScriptLibrary::Script10 ()
 
 	// Check the player has filled in the correct values
 	
-	if ( strcmp ( target_accno, "Fill this in" ) == 0 
-	  || strcmp ( target_accno, "Fill this in" ) == 0 
+	if ( strcmp ( target_accno, "Fill this in" ) == 0
 	  || strcmp ( value,		"Fill this in" ) == 0 )
 		return;
 

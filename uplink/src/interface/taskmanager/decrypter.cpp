@@ -102,7 +102,7 @@ void Decrypter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				numticksrequired = data->size * TICKSREQUIRED_DECRYPT;
 				progress = 0;
 
-                remotefile = strstr ( uos, "fileserverscreen" ) ? true : false;
+                remotefile = strstr(uos, "fileserverscreen") != nullptr;
 
 				Button *button = EclGetButton ( uos );
 				UplinkAssert (button);

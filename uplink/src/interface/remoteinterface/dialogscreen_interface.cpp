@@ -86,12 +86,10 @@ void DialogScreenInterface::NextPageClick ( Button *button )
 	int nextpage = data1;
 
 	Computer *comp = nullptr;
-	if ( ip ) {
-		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
-		if ( loc )
-			comp = loc->GetComputer ();
-	}
-	if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, comp );
+    VLocation *loc = game->GetWorld()->GetVLocation(ip);
+    if (loc)
+        comp = loc->GetComputer();
+    if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, comp );
 
 }
 
@@ -111,12 +109,10 @@ void DialogScreenInterface::ScriptButtonClick ( Button *button )
 	if ( scriptindex != -1 ) ScriptLibrary::RunScript ( scriptindex );
 
 	Computer *comp = nullptr;
-	if ( ip ) {
-		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
-		if ( loc )
-			comp = loc->GetComputer ();
-	}
-	if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, comp );
+    VLocation *loc = game->GetWorld()->GetVLocation(ip);
+    if (loc)
+        comp = loc->GetComputer();
+    if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, comp );
 
 }
 

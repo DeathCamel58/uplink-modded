@@ -111,7 +111,7 @@ void FileCopier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				numticksrequired = (int)(TICKSREQUIRED_COPY * ((float) data->size / (float) game->GetWorld ()->GetPlayer ()->gateway.GetBandwidth ()));
 				progress = 0;
 
-                remotefile = strstr ( uos, "fileserverscreen" ) ? true : false;
+                remotefile = strstr(uos, "fileserverscreen") != nullptr;
 
 				Button *button = EclGetButton ( uos );
 				UplinkAssert (button);

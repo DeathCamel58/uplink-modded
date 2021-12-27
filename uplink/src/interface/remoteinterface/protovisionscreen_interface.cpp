@@ -37,12 +37,10 @@ void ProtovisionScreenInterface::Close ( Button *button )
 	sscanf ( button->name, "protovisionscreen_close %d %s", &nextpage, ip );
 
 	Computer *comp = nullptr;
-	if ( ip ) {
-		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
-		if ( loc )
-			comp = loc->GetComputer ();
-	}
-	if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, comp );
+    VLocation *loc = game->GetWorld()->GetVLocation(ip);
+    if (loc)
+        comp = loc->GetComputer();
+    if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, comp );
 
 }
 
@@ -76,11 +74,9 @@ void ProtovisionScreenInterface::NuclearWar ( Button *button )
 	sscanf ( button->name, "protovisionscreen_nuclearwar %s", ip );
 
 	Computer *comp = nullptr;
-	if ( ip ) {
-		VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
-		if ( loc )
-			comp = loc->GetComputer ();
-	}
+    VLocation *loc = game->GetWorld()->GetVLocation(ip);
+    if (loc)
+        comp = loc->GetComputer();
     game->GetInterface ()->GetRemoteInterface ()->RunScreen ( 4, comp );
     
 #endif
