@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "vanbakel.h"
 
@@ -16,13 +16,11 @@
 
 Task::Task()
 {
-	callback = NULL;
+	callback = nullptr;
 }
 
 Task::~Task()
-{
-
-}
+= default;
 
 void Task::SetCallback ( void (*newcallback) () )
 {

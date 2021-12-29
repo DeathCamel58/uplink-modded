@@ -11,7 +11,7 @@
 #ifndef _included_soundgarden_h
 #define _included_soundgarden_h
 
-#include <stdio.h>
+#include <cstdio>
 
 //#ifdef _DEBUG
 //#include "slasher.h"
@@ -27,7 +27,7 @@
 void SgInitialise ();
 void SgShutdown ();
 							
-void SgPlaySound ( char *filename, char *id = NULL, 
+void SgPlaySound ( char *filename, char *id = nullptr,
 				   bool synchronised = true );				// id must be unique to each sample.
 															// If NULL, filename is used.
 

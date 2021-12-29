@@ -68,7 +68,7 @@ SgPlaylist *SgPlaylist_GetPlaylist ( char *pname )
             if ( strcmp ( playlists.GetData (i)->name, pname ) == 0 )
                 return playlists.GetData(i);
 
-    return NULL;
+    return nullptr;
 
 }
 

@@ -9,8 +9,8 @@
 
 #include "tosser.h"
 
-#include <assert.h>
-#include <string.h>
+#include <cassert>
+#include <cstring>
 
 
 template <class T>
@@ -19,7 +19,7 @@ BTree <T> :: BTree ()
 
     ltree = NULL;
     rtree = NULL;
-    id = NULL;
+    id = nullptr;
     //data = NULL;
     data = 0;
 
@@ -58,7 +58,7 @@ void BTree<T> :: Copy( const BTree<T> &copy )
 		strcpy ( id, copy.id );
     }
     else 
-		id = NULL;
+		id = nullptr;
     
     data = copy.data;
 }
@@ -73,12 +73,12 @@ BTree <T> :: ~BTree ()
 template <class T>
 void BTree <T> :: Empty ()
 {
-    if (ltree) delete ltree;
-    if (rtree) delete rtree;
-    if (id)    delete [] id;
+    delete ltree;
+    delete rtree;
+    delete [] id;
     
     ltree = rtree = NULL;
-    id = NULL;
+    id = nullptr;
 }
 
 template <class T>
@@ -161,7 +161,7 @@ void BTree <T> :: RemoveData ( const char *newid )
 			}
 			else {
 			
-				id = NULL;                              // Hopefully this is the root node
+				id = nullptr;                              // Hopefully this is the root node
 			
 			}	    
 			
@@ -232,7 +232,7 @@ void BTree <T> :: RemoveData ( const char *newid, const T &newdata  )
 			}
 			else {
 			
-				id = NULL;                              // Hopefully this is the root node
+				id = nullptr;                              // Hopefully this is the root node
 			
 			}	    
 			

@@ -1,5 +1,5 @@
 
-#include <assert.h>
+#include <cassert>
 
 #include "tosser.h"
 
@@ -105,7 +105,7 @@ bool BglOpenZipFile ( FILE *file, char *apppath, char *id )
 			*(fh->filename + fh->filenamelength) = 0;
 		}
 		else 
-			fh->filename = NULL;
+			fh->filename = nullptr;
 
 		if ( fh->extrafieldlength > 0 ) {
 			fh->extrafield = new char [fh->extrafieldlength+1];
@@ -113,7 +113,7 @@ bool BglOpenZipFile ( FILE *file, char *apppath, char *id )
 			*(fh->extrafield + fh->extrafieldlength) = 0;
 		}
 		else
-			fh->extrafield = NULL;
+			fh->extrafield = nullptr;
 
 		if ( fh->uncompressedsize > 0 ) {
 			fh->data = new char [fh->uncompressedsize+1];
@@ -121,14 +121,14 @@ bool BglOpenZipFile ( FILE *file, char *apppath, char *id )
 			*(fh->data + fh->uncompressedsize) = 0;
 		}
 		else
-			fh->data = NULL;
+			fh->data = nullptr;
 
 		if ( id ) {
 			fh->id = new char [strlen(id) + 1];
 			strcpy ( fh->id, id );
 		}
 		else 
-			fh->id = NULL;
+			fh->id = nullptr;
 
 		if ( fh->compressionmethod == 0 &&
 			 fh->compressedsize == fh->uncompressedsize &&
@@ -143,14 +143,10 @@ bool BglOpenZipFile ( FILE *file, char *apppath, char *id )
 
 		}
 		else {
-			if ( fh->filename )
-				delete [] fh->filename;
-			if ( fh->extrafield )
-				delete [] fh->extrafield;
-			if ( fh->data )
-				delete [] fh->data;
-			if ( fh->id )
-				delete [] fh->id;
+            delete [] fh->filename;
+            delete [] fh->extrafield;
+            delete [] fh->data;
+            delete [] fh->id;
 
 			delete fh;
 		}
@@ -172,7 +168,7 @@ bool BglFileLoaded ( char *filename )
 
 	delete [] filenamecopy;
 
-	return ( lfh != NULL );
+	return ( lfh != nullptr );
 
 }
 
@@ -233,10 +229,10 @@ void BglCloseZipFile ( char *id )
 
 		files.RemoveData ( filename );
 
-		if ( lfi->filename )	delete [] lfi->filename;
-		if ( lfi->extrafield )	delete [] lfi->extrafield;
-		if ( lfi->data )		delete [] lfi->data;
-		if ( lfi->id )			delete [] lfi->id;
+        delete [] lfi->filename;
+        delete [] lfi->extrafield;
+        delete [] lfi->data;
+        delete [] lfi->id;
 
 		delete lfi;
 			
@@ -311,7 +307,7 @@ void BglExtractAllFiles ( char *zipfile )
 			*(fh.filename + fh.filenamelength) = 0;
 		}
 		else 
-			fh.filename = NULL;
+			fh.filename = nullptr;
 
 		if ( fh.extrafieldlength > 0 ) {
 			fh.extrafield = new char [fh.extrafieldlength+1];
@@ -319,7 +315,7 @@ void BglExtractAllFiles ( char *zipfile )
 			*(fh.extrafield + fh.extrafieldlength) = 0;
 		}
 		else
-			fh.extrafield = NULL;
+			fh.extrafield = nullptr;
 
 		if ( fh.uncompressedsize > 0 ) {
 			fh.data = new char [fh.uncompressedsize];
@@ -327,7 +323,7 @@ void BglExtractAllFiles ( char *zipfile )
 			*(fh.data + fh.uncompressedsize) = 0;
 		}
 		else
-			fh.data = NULL;
+			fh.data = nullptr;
 
 
 		if ( fh.compressionmethod == 0 &&
@@ -370,7 +366,7 @@ DArray <char *> *BglListFiles ( char *path, char *directory, char *filter )
             bool removeMe = false;
 
             if ( strcmp ( thisDir, dirCopy ) != 0 )         removeMe = true;                
-            if ( strstr ( fullPath, filter ) == NULL )      removeMe = true;
+            if ( strstr ( fullPath, filter ) == nullptr )      removeMe = true;
 
             if ( removeMe )
                 result->RemoveData( i );
@@ -392,10 +388,10 @@ void BglCloseAllFiles( BTree<LocalFileHeader *> *files )
 
 	LocalFileHeader *lfi = files->data;
 	if ( lfi ) {
-		if ( lfi->filename )	delete [] lfi->filename;
-		if ( lfi->extrafield )	delete [] lfi->extrafield;
-		if ( lfi->data )		delete [] lfi->data;
-		if ( lfi->id )			delete [] lfi->id;
+        delete [] lfi->filename;
+        delete [] lfi->extrafield;
+        delete [] lfi->data;
+        delete [] lfi->id;
 		delete lfi;
 	}
 

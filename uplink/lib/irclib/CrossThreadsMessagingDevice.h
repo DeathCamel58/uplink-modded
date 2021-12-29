@@ -37,7 +37,7 @@ private:
       : ctmd(ctmd), wParam(wParam), lParam(lParam)
     {};
 
-    Msg() : ctmd(0), wParam(0), lParam(0) { };
+    Msg() : ctmd(nullptr), wParam(0), lParam(0) { };
 
     CCrossThreadsMessagingDevice *ctmd;
     WPARAM wParam;

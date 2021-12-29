@@ -1,7 +1,7 @@
 
-#include <string.h>
-#include <stdio.h>
-#include <assert.h>
+#include <cstring>
+#include <cstdio>
+#include <cassert>
 
 #include "vanbakel.h"
 #include "interface.h"
@@ -321,7 +321,7 @@ Task *SvbGetTask ( int pid )
 
 	}
 
-	return NULL;
+	return nullptr;
 
 }
 
@@ -338,7 +338,7 @@ Task *SvbGetTask ( char *name )
 
     }
 
-    return NULL;
+    return nullptr;
 
 }
 
@@ -355,7 +355,7 @@ TaskWrapper *SvbGetTaskWrapper ( int pid )
 
 	}
 
-	return NULL;
+	return nullptr;
 	
 }
 
@@ -366,7 +366,7 @@ TaskWrapper *SvbGetTaskWrapperAtIndex ( int index )
 		return tasklist [index];
 
 	else
-		return NULL;
+		return nullptr;
 
 }
 
@@ -380,15 +380,15 @@ void SvbCreateInterface ( int x, int y )
 
 		// Create a button which covers the scale bar (to ensure it is properly masked when removed)
 		EclRegisterButton ( x - 3, y - 4, 106, 11, "", "svb_mask" );
-		EclRegisterButtonCallbacks ( "svb_mask", NULL, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "svb_mask", nullptr, nullptr, nullptr, nullptr );
 
 		// Create a title bar
 		EclRegisterButton ( x, y - 15, 100, 12, "CPU usage", "", "svb_titlebar" );
-		EclRegisterButtonCallbacks ( "svb_titlebar", Svb_textbutton_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "svb_titlebar", Svb_textbutton_draw, nullptr, nullptr, nullptr );
 
 		// Create the scale bar
 		EclRegisterButton ( x, y, 100, 5, "0...........50...........100", "svb_scalebar" );
-		EclRegisterButtonCallbacks ( "svb_scalebar", Svb_button_draw, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( "svb_scalebar", Svb_button_draw, nullptr, nullptr, nullptr );
 										  
 		// Create the task buttons
 
@@ -521,7 +521,7 @@ void SvbUpdateInterface ()
 bool SvbIsInterfaceVisible ()
 {
 
-	return ( EclGetButton ( "svb_scalebar" ) != NULL );
+	return ( EclGetButton ( "svb_scalebar" ) != nullptr );
 
 }
 

@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
 
 #include "taskwrapper.h"
 
@@ -16,8 +16,8 @@
 TaskWrapper::TaskWrapper()
 {
 
-	task = NULL;
-	name = NULL;
+	task = nullptr;
+	name = nullptr;
 	priority = 0.0;
 	progress = 0.0;
 
@@ -26,8 +26,7 @@ TaskWrapper::TaskWrapper()
 TaskWrapper::~TaskWrapper()
 {
 
-	if ( name )
-		delete [] name;
+	delete [] name;
 
 }
 
@@ -41,7 +40,7 @@ void TaskWrapper::SetPID ( int newpid )
 void TaskWrapper::SetName ( char *newname )
 {
 
-	if ( name ) delete name;
+	delete name;
 	name = new char [strlen(newname)+1];
 	strcpy ( name, newname );
 

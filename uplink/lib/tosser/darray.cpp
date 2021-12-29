@@ -5,9 +5,9 @@
 #ifndef _included_tosser_darray
 #define _included_tosser_darray
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
-#include <assert.h>
+#include <cassert>
 using namespace std;
 
 #include "tosser.h"

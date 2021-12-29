@@ -68,8 +68,7 @@ ThemeInterface::ThemeInterface ()
 = default;
 
 ThemeInterface::~ThemeInterface ()
-{
-}
+= default;
 
 DArray <char *> *ThemeInterface::ListAvailableThemes ()
 {

@@ -1,5 +1,5 @@
 #include "irc.h"
-#include <stdio.h>
+#include <cstdio>
 
 //#include "mmgr.h"
 

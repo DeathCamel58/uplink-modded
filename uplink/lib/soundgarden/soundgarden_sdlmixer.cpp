@@ -7,7 +7,7 @@
 //#ifndef WIN32
 #ifdef USE_SDL
 
-#include <stdio.h>
+#include <cstdio>
 //#include <stdarg.h>
 
 #ifndef WIN32
@@ -22,7 +22,7 @@
 
 #include "mmgr.h"
 
-static Mix_Music *currentmod = NULL;
+static Mix_Music *currentmod = nullptr;
 static BTree <Mix_Chunk *> cache;					// Stores sounds already loaded
 
 //static pthread_t mikmod_update_thread;
@@ -160,7 +160,7 @@ void SgPlaySound ( char *fullfilename, char *id, bool synchronised )
   if (!SgInitialised)
     return;
 
-  Mix_Chunk *sample = NULL;
+  Mix_Chunk *sample = nullptr;
   char *sampleid = id ? id : fullfilename;
 
   if ( cache.LookupTree ( sampleid ) ) {
@@ -217,7 +217,7 @@ void SgPlayMod ( char *fullfilename )
 
   /* didn't work -> exit with errormsg. */
 
-  if(currentmod==NULL){
+  if(currentmod==nullptr){
     SgDebugPrintf("SoundGarden WARNING : Failed to load music file %s\n (%s)\n", 
       fullfilename, Mix_GetError());
     return;
@@ -257,7 +257,7 @@ void SgStopMod ()
   if (currentmod) {
     Mix_HaltMusic();
     Mix_FreeMusic(currentmod);  /* and free the module */
-    currentmod = NULL;
+    currentmod = nullptr;
   }
 }
 

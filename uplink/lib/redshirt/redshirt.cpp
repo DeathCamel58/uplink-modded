@@ -57,7 +57,7 @@ bool filterStream(FILE *input, FILE *output, filterFunc *filterFunc)
 	} while (true);
 
 	return true;
-};
+}
 
 static unsigned int RsFileCheckSum ( FILE *input, unsigned char *hashbuffer, unsigned int hashsize )
 {
@@ -117,7 +117,7 @@ bool RsFileExists  ( char *filename )
 
 	FILE *file = fopen ( filename, "r" );
 
-	bool success = file ? true : false;
+	bool success = file != nullptr;
 
 	if ( success ) fclose ( file );
 
@@ -704,4 +704,3 @@ DArray <char *> *RsListArchive ( char *path, char *filter )
     return result;
 
 }
-

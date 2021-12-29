@@ -12,7 +12,7 @@
 #ifndef _included_redshirt_h
 #define _included_redshirt_h
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "tosser.h"
 
@@ -59,10 +59,10 @@ FILE *RsArchiveFileOpen		( char *filename, char *mode );		      // Looks for fil
 char *RsArchiveFileOpen		( char *filename );					      // Opens from filename first, then from zip file
 bool RsArchiveFileLoaded	( char *filename );
 
-void RsArchiveFileClose		( char *filename, FILE *file = NULL );
+void RsArchiveFileClose		( char *filename, FILE *file = nullptr );
 
 void RsCloseArchive			( char *filename );									// Frees all memory (how nice)
 
-DArray <char *> *RsListArchive ( char *path = NULL, char *filter = NULL );
+DArray <char *> *RsListArchive ( char *path = nullptr, char *filter = nullptr );
 
 #endif

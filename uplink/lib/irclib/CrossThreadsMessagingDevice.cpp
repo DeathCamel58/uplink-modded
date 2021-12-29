@@ -19,13 +19,12 @@ public:
 static InitialiseMutex init;
 
 CCrossThreadsMessagingDevice::CCrossThreadsMessagingDevice()
-  : m_pMonitor(NULL)
+  : m_pMonitor(nullptr)
 {
 }
 
 CCrossThreadsMessagingDevice::~CCrossThreadsMessagingDevice()
-{
-}
+= default;
 
 void CCrossThreadsMessagingDevice::Post(WPARAM wParam, LPARAM lParam)
 {

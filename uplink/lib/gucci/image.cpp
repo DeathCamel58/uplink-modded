@@ -2,9 +2,9 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 #ifdef WIN32
 #include <windows.h>
@@ -27,8 +27,8 @@
 Image::Image()
 {
 
-	pixels = NULL;
-	rgb_pixels = NULL;
+	pixels = nullptr;
+	rgb_pixels = nullptr;
 
 }
 
@@ -39,13 +39,13 @@ Image::Image( const Image& img )
 	height = img.height;
 	alpha = img.alpha;
 
-	pixels = NULL;
+	pixels = nullptr;
 	if ( img.pixels ) {
 		pixels = new unsigned char [ width * height * 4 ];
 		memcpy ( pixels, img.pixels, width * height * 4 );
 	}
 
-	rgb_pixels = NULL;
+	rgb_pixels = nullptr;
 	if ( img.rgb_pixels ) {
 	    rgb_pixels = new unsigned char [ width * height * 3 ];
 		memcpy ( rgb_pixels, img.rgb_pixels, width * height * 3 );
@@ -56,10 +56,8 @@ Image::Image( const Image& img )
 Image::~Image()
 {
 
-	if ( pixels )
-		delete [] pixels;
-	if ( rgb_pixels )
-		delete [] rgb_pixels;
+	delete [] pixels;
+	delete [] rgb_pixels;
 
 }
 
@@ -71,11 +69,10 @@ void Image::LoadRAW ( char *filename, int sizex, int sizey )
 
 	if ( rgb_pixels ) {
 		delete [] rgb_pixels;
-		rgb_pixels = NULL;
+		rgb_pixels = nullptr;
 	}
 
-	if ( pixels )
-		delete [] pixels;
+	delete [] pixels;
 	pixels = new unsigned char [sizex * sizey * 4];
 
 	FILE *file = fopen ( filename, "rb" );
@@ -132,11 +129,10 @@ void Image::LoadTIF ( char *filename )
 
 	if ( rgb_pixels ) {
 		delete [] rgb_pixels;
-		rgb_pixels = NULL;
+		rgb_pixels = nullptr;
 	}
 
-	if ( pixels )
-		delete [] pixels;
+	delete [] pixels;
 	pixels = (unsigned char *) raster;
 
 	// Close down all those horrible TIF structures
@@ -241,7 +237,7 @@ void Image::FlipAroundH ()
 
 		if ( rgb_pixels ) {
 			delete [] rgb_pixels;
-			rgb_pixels = NULL;
+			rgb_pixels = nullptr;
 		}
 
 		delete [] pixels;
@@ -276,7 +272,7 @@ void Image::Scale ( int newwidth, int newheight )
 
 		if ( rgb_pixels ) {
 			delete [] rgb_pixels;
-			rgb_pixels = NULL;
+			rgb_pixels = nullptr;
 		}
 
 		delete [] pixels;
@@ -328,7 +324,7 @@ unsigned char *Image::GetRGBPixels()
 
 	if ( pixels ) {
 
-		if ( rgb_pixels == NULL ) {
+		if ( rgb_pixels == nullptr ) {
 			rgb_pixels = new unsigned char [ width * height * 3 ];
 
 			for ( int x = 0; x < width; ++x ) 
@@ -386,11 +382,10 @@ void Image::CreateErrorBitmap ()
 	
 	if ( rgb_pixels ) {
 		delete [] rgb_pixels;
-		rgb_pixels = NULL;
+		rgb_pixels = nullptr;
 	}
 
-	if ( pixels )
-		delete [] pixels;
+	delete [] pixels;
 	pixels = (unsigned char *) newimage;
 
 }

@@ -12,8 +12,8 @@
 #include <GL/gl.h>
 #include <GL/glu.h> /* GLU extention library */
 
-#include <stdio.h>
-#include <assert.h>
+#include <cstdio>
+#include <cassert>
 
 #include "eclipse.h"
 #include "interface.h"
@@ -199,7 +199,7 @@ void SvbCreateColumn ( int baseX, int baseY, TaskWrapper *tw, int taskindex )
 		char name [32];
 		sprintf ( name, "svb_priority_mask %d", taskindex );
 		EclRegisterButton ( baseX, baseY + 8 + taskindex*15, 100, 10, "", name );
-		EclRegisterButtonCallbacks ( name, NULL, NULL, NULL, NULL );
+		EclRegisterButtonCallbacks ( name, nullptr, nullptr, nullptr, nullptr );
 		
 		// Create the bar
 

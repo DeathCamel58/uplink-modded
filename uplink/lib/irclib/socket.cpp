@@ -4,10 +4,10 @@
 #include <windows.h>
 #else
 #include <stdafx.h>
-#include <stdarg.h>
+#include <cstdarg>
 #endif
 
-#include <stdio.h>
+#include <cstdio>
 #include "socket.h"
 
 //#include "mmgr.h"

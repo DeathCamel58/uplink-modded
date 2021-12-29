@@ -2,7 +2,7 @@
 #include <windows.h>
 #endif
 
-#include <stdio.h>
+#include <cstdio>
 
 #include <GL/gl.h>
 
@@ -42,7 +42,7 @@ static std::map<int, FTGLBitmapFont *> fonts;
 static std::map<int, GLTTBitmapFont *> fonts;
 #endif // USE_GLTT
 
-#include <math.h>
+#include <cmath>
 
 using namespace std;
 
@@ -108,14 +108,14 @@ static FTFace * RegisterFace( const char *familyname, const char *filename )
 	face = new FTFace();
     if (!face->open(filename)) {
         delete face;
-        return NULL;
+        return nullptr;
     }
 #endif // USE_GLTT
 #ifdef USE_FTGL
 	face = new FTFace(filename);
     if (face->Error() != 0) {
         delete face;
-        return NULL;
+        return nullptr;
     }
 #endif // USE_GLTT
     faces.PutData(familyname, face);
@@ -224,7 +224,7 @@ void GciDeleteTrueTypeFont ( int index )
   // FTGL's destructor hangs, for some reason!
     delete fonts[index];
 #endif
-    fonts[index] = NULL;
+    fonts[index] = nullptr;
 }
 
 void GciDeleteAllTrueTypeFonts ()

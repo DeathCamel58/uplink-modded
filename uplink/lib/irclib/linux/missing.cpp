@@ -2,8 +2,8 @@
 #ifndef WIN32
 
 #include "missing.h"
-#include <string.h>
-#include <ctype.h>
+#include <cstring>
+#include <cctype>
 
 char *_strupr(char *p)
 {

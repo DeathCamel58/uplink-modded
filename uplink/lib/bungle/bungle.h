@@ -12,7 +12,7 @@
 #ifndef _included_bungle_h
 #define _included_bungle_h
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "tosser.h"
 
@@ -21,17 +21,17 @@
 //#endif
 
 
-bool BglOpenZipFile ( char *zipfile, char *apppath, char *id = NULL );
-bool BglOpenZipFile ( FILE *zipfile, char *apppath, char *id = NULL );
+bool BglOpenZipFile ( char *zipfile, char *apppath, char *id = nullptr );
+bool BglOpenZipFile ( FILE *zipfile, char *apppath, char *id = nullptr );
 
 bool BglFileLoaded  ( char *filename );
-bool BglExtractFile ( char *filename, char *target = NULL );
+bool BglExtractFile ( char *filename, char *target = nullptr );
 
 void BglCloseZipFile ( char *id );
 
 void BglExtractAllFiles ( char *zipfile );
 
-DArray <char *> *BglListFiles ( char *path, char *directory = NULL, char *filter = NULL );
+DArray <char *> *BglListFiles ( char *path, char *directory = nullptr, char *filter = nullptr );
 
 void BglCloseAllFiles();
 

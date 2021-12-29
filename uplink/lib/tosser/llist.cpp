@@ -2,7 +2,7 @@
 #ifndef _included_tosser_llist
 #define _included_tosser_llist
 
-#include <assert.h>
+#include <cassert>
 
 #include "tosser.h"
 
@@ -304,7 +304,6 @@ LListItem <T>::LListItem ()
 
 template <class T>
 LListItem <T>::~LListItem ()
-{
-}
+= default;
 
 #endif

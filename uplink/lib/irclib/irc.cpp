@@ -4,7 +4,7 @@
 #include <windows.h>
 #else
 #include "stdafx.h"
-#include <stdio.h>
+#include <cstdio>
 #endif
 
 #include "irc.h"
@@ -122,7 +122,7 @@ end_of_prefix :
 			// seek end-of-message
 			while( *p2 )
 				++p2;
-			parameters.push_back(String(p1, p2 - p1));
+			parameters.emplace_back(p1, p2 - p1);
 			break;
 		}
 		else
@@ -130,7 +130,7 @@ end_of_prefix :
 			// seek end of parameter
 			while( *p2 && !isspace(*p2) )
 				++p2;
-			parameters.push_back(String(p1, p2 - p1));
+			parameters.emplace_back(p1, p2 - p1);
 			// see next parameter
 			while( *p2 && isspace(*p2) )
 				++p2;
@@ -169,7 +169,7 @@ String CIrcMessage::AsString() const
 ////////////////////////////////////////////////////////////////////
 
 CIrcSession::CIrcSession(IIrcSessionMonitor* pMonitor)
-	:	m_hThread(NULL)
+	:	m_hThread(nullptr)
 {
 	InitializeCriticalSection(&m_cs);
 }
@@ -200,7 +200,7 @@ bool CIrcSession::Connect(const CIrcSessionInfo& info)
 
 		// start receiving messages from host
 #ifndef WIN32
-		m_hThread = CreateThread(NULL, 0, (void *) ThreadProc, this, 0, NULL);
+		m_hThread = CreateThread(nullptr, 0, (void *) ThreadProc, this, 0, nullptr);
 #else
 		m_hThread = CreateThread(NULL, 0, ThreadProc, this, 0, NULL);
 #endif
@@ -247,7 +247,7 @@ void CIrcSession::Disconnect(const char* lpszMessage)
 		{
 			TerminateThread(m_hThread, 1);
 			CloseHandle(m_hThread);
-			m_hThread = NULL;
+			m_hThread = nullptr;
 			m_info.Reset();
 		}
 	}
@@ -329,7 +329,7 @@ void CIrcSession::DoReceive()
 		m_identServer.Stop();
 
 	// notify monitor objects that the connection has been closed
-	Notify(NULL);
+	Notify(nullptr);
 }
 
 DWORD WINAPI CIrcSession::ThreadProc(LPVOID pparam)
@@ -338,7 +338,7 @@ DWORD WINAPI CIrcSession::ThreadProc(LPVOID pparam)
 	try { pThis->DoReceive(); } catch( ... ) {}
 	pThis->m_info.Reset();
 	CloseHandle(pThis->m_hThread);
-	pThis->m_hThread = NULL;
+	pThis->m_hThread = nullptr;
 	return 0;
 }
 
@@ -367,18 +367,7 @@ CIrcSessionInfo::CIrcSessionInfo()
 }
 
 CIrcSessionInfo::CIrcSessionInfo(const CIrcSessionInfo& si)
-	:	sServer(si.sServer),
-		sServerName(si.sServerName),
-		iPort(si.iPort),
-		sNick(si.sNick),
-		sUserID(si.sUserID),
-		sFullName(si.sFullName),
-		sPassword(si.sPassword),
-		bIdentServer(si.bIdentServer),
-		sIdentServerType(si.sIdentServerType),
-		iIdentServerPort(si.iIdentServerPort)
-{
-}
+= default;
 
 void CIrcSessionInfo::Reset()
 {
@@ -397,7 +386,7 @@ void CIrcSessionInfo::Reset()
 ////////////////////////////////////////////////////////////////////
 
 CIrcIdentServer::CIrcIdentServer()
-	: m_uiPort(0), m_hThread(NULL)
+	: m_uiPort(0), m_hThread(nullptr)
 {
 }
 
@@ -429,7 +418,7 @@ bool CIrcIdentServer::Start(
 	m_uiPort = uiPort;
 
 #ifndef WIN32
-	m_hThread = CreateThread(NULL, 0, (void *) ListenProc, this, 0, NULL);
+	m_hThread = CreateThread(nullptr, 0, (void *) ListenProc, this, 0, nullptr);
 #else
 	m_hThread = CreateThread(NULL, 0, ListenProc, this, 0, NULL);
 #endif
@@ -447,7 +436,7 @@ void CIrcIdentServer::Stop()
 		{
 			TerminateThread(m_hThread, 1);
 			CloseHandle(m_hThread);
-			m_hThread = NULL;
+			m_hThread = nullptr;
 		}
 	}
 }
@@ -498,7 +487,7 @@ DWORD WINAPI CIrcIdentServer::ListenProc(LPVOID pparam)
 	pThis->m_uiPort = 0;
 
 	CloseHandle(pThis->m_hThread);
-	pThis->m_hThread = NULL;
+	pThis->m_hThread = nullptr;
 
 	return 0;
 }
@@ -507,7 +496,7 @@ DWORD WINAPI CIrcIdentServer::ListenProc(LPVOID pparam)
 
 CIrcMonitor::HandlersMap CIrcMonitor::m_handlers;
 CIrcMonitor::IrcCommandsMapsListEntry CIrcMonitor::m_handlersMapsListEntry
-	= { &CIrcMonitor::m_handlers, NULL };
+	= { &CIrcMonitor::m_handlers, nullptr };
 
 
 CIrcMonitor::CIrcMonitor(CIrcSession& session)
@@ -517,12 +506,11 @@ CIrcMonitor::CIrcMonitor(CIrcSession& session)
 }
 
 CIrcMonitor::~CIrcMonitor()
-{
-}
+= default;
 
 void CIrcMonitor::OnIrcMessage(const CIrcMessage* pmsg)
 {
-	CIrcMessage* pMsgCopy = NULL;
+	CIrcMessage* pMsgCopy = nullptr;
 	if( pmsg )
 		pMsgCopy = new CIrcMessage(*pmsg);
 
@@ -567,7 +555,7 @@ CIrcMonitor::PfnIrcMessageHandler CIrcMonitor::FindMethod(IrcCommandsMapsListEnt
 		return it->second; // found !
 	else if( pMapsList->pBaseHandlersMap )
 		return FindMethod(pMapsList->pBaseHandlersMap, lpszName); // try at base class
-	return NULL; // not found in any map
+	return nullptr; // not found in any map
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -585,7 +573,7 @@ CIrcDefaultMonitor::CIrcDefaultMonitor(CIrcSession& session)
 
 bool CIrcDefaultMonitor::OnIrc_NICK(const CIrcMessage* pmsg)
 {
-	if( (m_session.GetInfo().sNick == pmsg->prefix.sNick) && (pmsg->parameters.size() > 0) )
+	if( (m_session.GetInfo().sNick == pmsg->prefix.sNick) && (!pmsg->parameters.empty()) )
 		m_session.m_info.sNick = pmsg->parameters[0];
 	return false;
 }

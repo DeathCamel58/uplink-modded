@@ -124,7 +124,7 @@ public:
 class OptionChange
 {
 public:
-    OptionChange () {};
+    OptionChange () = default;;
 
     char name [SIZE_OPTION_NAME];
     int value;

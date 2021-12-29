@@ -1,6 +1,6 @@
 #if !defined __MISSING_COMPAT_H
 #define __MISSING_COMPAT_H
-#include <string.h>
+#include <cstring>
 
 #define stricmp strcasecmp
 

@@ -89,7 +89,7 @@ class CIrcSession
 public :
 	friend class CIrcDefaultMonitor;
 
-	CIrcSession(IIrcSessionMonitor* pMonitor = NULL);
+	CIrcSession(IIrcSessionMonitor* pMonitor = nullptr);
 	virtual ~CIrcSession();
 
 	void AddMonitor(IIrcSessionMonitor* pMonitor);

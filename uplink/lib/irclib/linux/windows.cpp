@@ -4,14 +4,14 @@
 #include <windows.h>
 #include <pthread.h>
 #include <unistd.h>
-#include <signal.h>
-#include <string.h>
+#include <csignal>
+#include <cstring>
 #include <sys/time.h>
-#include <errno.h>
+#include <cerrno>
 
 void InitializeCriticalSection(CRITICAL_SECTION *c)
 {
-  pthread_mutex_init( c, NULL );
+  pthread_mutex_init( c, nullptr );
 }
 
 void DeleteCriticalSection(CRITICAL_SECTION *c)
@@ -65,9 +65,9 @@ namespace Windows {
   Thread::Thread( void *threadProc, void *arg )
     : threadProc((Thread::StartRoutine *) threadProc), arg(arg), started(false), running(false), id(0)
   {
-    pthread_mutex_init(&mutex, NULL);
-    pthread_cond_init(&cond, NULL);
-    id = pthread_create(&thr, NULL /* Attributes */, Thread::run, this);
+    pthread_mutex_init(&mutex, nullptr);
+    pthread_cond_init(&cond, nullptr);
+    id = pthread_create(&thr, nullptr /* Attributes */, Thread::run, this);
   }
 
   void *Thread::run( void *a )
@@ -96,7 +96,7 @@ namespace Windows {
     struct timespec abstime;
     struct timeval now;
   
-    gettimeofday(&now, NULL);
+    gettimeofday(&now, nullptr);
   
     abstime.tv_sec = now.tv_sec + timeout / 1000;
     abstime.tv_nsec = now.tv_usec * 1000 + (timeout % 1000) * 1000000;
