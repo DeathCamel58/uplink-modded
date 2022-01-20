@@ -120,6 +120,8 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/app/globals_defines.h.in" "${CMAKE_C
 set(OpenGL_GL_PREFERENCE GLVND)
 find_package(OpenGL REQUIRED)
 
+find_package(freetype CONFIG REQUIRED)
+
 # Dependencies for Uplink
 include_directories(${ECLIPSE_INCLUDE_DIR}
         ${GUCCI_INCLUDE_DIR}
