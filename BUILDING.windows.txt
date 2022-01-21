@@ -3,16 +3,17 @@
 1 Install necessary libraries
 
 Bootstrap vcpkg
-% cd uplink/lib/vcpkg
-% .\vcpkg\bootstrap-vcpkg.bat
+% .\uplink\lib\vcpkg\bootstrap-vcpkg.bat
 
 Install libraries
-% vcpkg install freetype
-% vcpkg install harfbuzz
+These libraries should automatically install when CMake configures the project in Visual Studio
+Note: These may require you to append `:x64-windows` to the end of the library name
+% .\uplink\lib\vcpkg\vcpkg install
 
 2.2 Build application
 
 In Visual Studio:
+Note: Below this is not checked/accurate.
 Add the `CMake Tools` extension by pressing `CTRL + P`, then running `ext install ms-vscode.cmake-tools`
 Open the command palette (`CTRL + SHIFT + P`), then run `CMake: Select a Kit`
 Select the compiler to use.
