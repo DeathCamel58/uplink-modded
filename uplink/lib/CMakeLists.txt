@@ -15,7 +15,6 @@ endif()
 if(WIN32)
     find_package(freetype CONFIG REQUIRED)
     find_package(harfbuzz CONFIG REQUIRED)
-    find_package(zlib CONFIG REQUIRED)
     find_package(libxml2 CONFIG REQUIRED)
     find_package(unrar CONFIG REQUIRED)
     find_package(harfbuzz CONFIG REQUIRED)
@@ -37,15 +36,13 @@ else()
             ${PROJECT_SOURCE_DIR}/SDL_mixer/include
             CACHE INTERNAL "SDL_mixer: Include Directories" FORCE)
 
-
-    add_subdirectory(zlib)
-
     find_package(LibXml2 REQUIRED)
     include_directories(${LIBXML2_INCLUDE_DIR})
 
     add_subdirectory(unrar)
 endif()
 
+add_subdirectory(zlib)
 
 # Can't migrate ftgl to use cmake, as it's a submodule, and that change would have to be upstreamed
 # This patches ftgl before compilation
