@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 3.10)
 # Use vcpkg libraries
 if(WIN32)
     include(./uplink/lib/vcpkg/scripts/buildsystems/vcpkg.cmake)
-    set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/src/lib/vcpkg/scripts/buildsystems/vcpkg.cmake
+    set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/uplink/lib/vcpkg/scripts/buildsystems/vcpkg.cmake
             CACHE STRING "Vcpkg toolchain file")
 endif()
 

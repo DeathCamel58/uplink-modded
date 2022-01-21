@@ -15,7 +15,6 @@ endif()
 if(WIN32)
     find_package(freetype CONFIG REQUIRED)
     find_package(harfbuzz CONFIG REQUIRED)
-    find_package(ftgl CONFIG REQUIRED)
     find_package(zlib CONFIG REQUIRED)
     find_package(libxml2 CONFIG REQUIRED)
     find_package(unrar CONFIG REQUIRED)
@@ -23,24 +22,6 @@ if(WIN32)
     find_package(sdl2 CONFIG REQUIRED)
     find_package(sdl2-mixer CONFIG REQUIRED)
 else()
-    # Can't migrate ftgl to use cmake, as it's a submodule, and that change would have to be upstreamed
-    # This patches ftgl before compilation
-    # Reference `uplink/src/data/docs/FTGL.patch` for original patches
-    # Reference FTGL bug #36 <https://sourceforge.net/p/ftgl/bugs/36/> for details
-    file(READ ftgl/src/FTSize.cpp FILE_CONTENTS)
-    string(REPLACE "xResolution, yResolution" "xRes, yRes" FILE_CONTENTS_NEW "${FILE_CONTENTS}")
-    file(WRITE ftgl/src/FTSize.cpp "${FILE_CONTENTS_NEW}")
-    unset(FILE_CONTENTS)
-    unset(FILE_CONTENTS_NEW)
-    add_subdirectory(ftgl)
-    set(FTGL_INCLUDE_DIR
-            ${PROJECT_SOURCE_DIR}/ftgl/src
-            ${PROJECT_SOURCE_DIR}/ftgl/src/FTFont
-            ${PROJECT_SOURCE_DIR}/ftgl/src/FTGL
-            ${PROJECT_SOURCE_DIR}/ftgl/src/FTGlyph
-            ${PROJECT_SOURCE_DIR}/ftgl/src/FTLayout
-            CACHE INTERNAL "ftgl: Include Directories" FORCE)
-
     add_subdirectory(freetype)
     set(FREETYPE_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/freetype/include)
 
@@ -64,6 +45,25 @@ else()
 
     add_subdirectory(unrar)
 endif()
+
+
+# Can't migrate ftgl to use cmake, as it's a submodule, and that change would have to be upstreamed
+# This patches ftgl before compilation
+# Reference `uplink/src/data/docs/FTGL.patch` for original patches
+# Reference FTGL bug #36 <https://sourceforge.net/p/ftgl/bugs/36/> for details
+file(READ ftgl/src/FTSize.cpp FILE_CONTENTS)
+string(REPLACE "xResolution, yResolution" "xRes, yRes" FILE_CONTENTS_NEW "${FILE_CONTENTS}")
+file(WRITE ftgl/src/FTSize.cpp "${FILE_CONTENTS_NEW}")
+unset(FILE_CONTENTS)
+unset(FILE_CONTENTS_NEW)
+add_subdirectory(ftgl)
+set(FTGL_INCLUDE_DIR
+        ${PROJECT_SOURCE_DIR}/ftgl/src
+        ${PROJECT_SOURCE_DIR}/ftgl/src/FTFont
+        ${PROJECT_SOURCE_DIR}/ftgl/src/FTGL
+        ${PROJECT_SOURCE_DIR}/ftgl/src/FTGlyph
+        ${PROJECT_SOURCE_DIR}/ftgl/src/FTLayout
+        CACHE INTERNAL "ftgl: Include Directories" FORCE)
 
 add_subdirectory(irclib)
 
