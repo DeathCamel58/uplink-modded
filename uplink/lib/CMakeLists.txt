@@ -16,7 +16,6 @@ if(WIN32)
     find_package(freetype CONFIG REQUIRED)
     find_package(harfbuzz CONFIG REQUIRED)
     find_package(libxml2 CONFIG REQUIRED)
-    find_package(unrar CONFIG REQUIRED)
     find_package(harfbuzz CONFIG REQUIRED)
     find_package(sdl2 CONFIG REQUIRED)
     find_package(sdl2-mixer CONFIG REQUIRED)
@@ -38,11 +37,11 @@ else()
 
     find_package(LibXml2 REQUIRED)
     include_directories(${LIBXML2_INCLUDE_DIR})
-
-    add_subdirectory(unrar)
 endif()
 
 add_subdirectory(zlib)
+
+add_subdirectory(unrar)
 
 # Can't migrate ftgl to use cmake, as it's a submodule, and that change would have to be upstreamed
 # This patches ftgl before compilation

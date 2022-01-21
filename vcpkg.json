@@ -2,10 +2,7 @@
   "name": "uplink",
   "version-string": "10.0",
   "dependencies": [
-    "ftgl",
-    "zlib",
     "libxml2",
-    "unrar",
     "harfbuzz",
     "freetype",
     "sdl2",
