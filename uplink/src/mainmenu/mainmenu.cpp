@@ -163,7 +163,7 @@ void MainMenu::Update ()
 
 }
 
-char *MainMenu::GetID ()
+string MainMenu::GetID ()
 {
 
 	return "MMI";

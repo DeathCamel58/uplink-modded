@@ -770,7 +770,7 @@ void NotificationEvent::Print ()
 
 }
 
-char *NotificationEvent::GetID ()
+string NotificationEvent::GetID ()
 {
 
 	return "EVT_NOT";

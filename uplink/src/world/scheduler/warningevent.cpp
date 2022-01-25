@@ -118,7 +118,7 @@ void WarningEvent::Print ()
 
 }
 
-char *WarningEvent::GetID ()
+string WarningEvent::GetID ()
 {
 
 	return "EVT_WARN";

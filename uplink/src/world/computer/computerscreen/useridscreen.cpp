@@ -69,7 +69,7 @@ void UserIDScreen::Print ()
 
 }
 
-char *UserIDScreen::GetID ()
+string UserIDScreen::GetID ()
 {
 
 	return "SCR_UID";

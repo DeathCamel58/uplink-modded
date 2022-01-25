@@ -330,7 +330,7 @@ void RecordBank::Update ()
 
 }
 	
-char *RecordBank::GetID ()
+string RecordBank::GetID ()
 {
 
 	return "RECBANK";
@@ -525,7 +525,7 @@ void Record::Update ()
 {
 }
 	
-char *Record::GetID ()
+string Record::GetID ()
 {
 
 	return "RECORD";

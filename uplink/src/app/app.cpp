@@ -650,7 +650,7 @@ void App::Update ()
 
 }
 
-char *App::GetID ()
+string App::GetID ()
 {
 
 	return "APP";

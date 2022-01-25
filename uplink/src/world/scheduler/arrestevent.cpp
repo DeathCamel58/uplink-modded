@@ -164,7 +164,7 @@ void ArrestEvent::Print ()
 
 }
 
-char *ArrestEvent::GetID ()
+string ArrestEvent::GetID ()
 {
 
 	return "EVT_ARR";

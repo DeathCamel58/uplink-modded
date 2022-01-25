@@ -103,7 +103,7 @@ void MessageScreen::Print ()
 
 }
 	
-char *MessageScreen::GetID ()
+string MessageScreen::GetID ()
 {
 
 	return "SCR_MESS";

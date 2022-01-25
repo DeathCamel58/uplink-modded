@@ -48,7 +48,7 @@ public:
 	void Save  ( FILE *file ) override;
 	void Print () override;
 	
-	char *GetID () override;							// You must override this
+	string GetID () override;							// You must override this
 	int   GetOBJECTID () override;					// You must override this
 
 };

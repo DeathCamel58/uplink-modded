@@ -775,7 +775,7 @@ void Gateway::Update ()
 }
 
 
-char *Gateway::GetID ()
+string Gateway::GetID ()
 {
 
 	return "GATEWAY";

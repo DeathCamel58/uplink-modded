@@ -387,7 +387,7 @@ void DataBank::Print ()
 
 }
 	
-char *DataBank::GetID ()
+string DataBank::GetID ()
 {
 
 	return "DATABANK";
@@ -515,7 +515,7 @@ void Data::Update ()
 {
 }
 
-char *Data::GetID ()
+string Data::GetID ()
 {
 	
 	return "DATA";

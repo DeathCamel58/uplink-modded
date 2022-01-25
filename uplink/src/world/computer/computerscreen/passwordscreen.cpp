@@ -104,7 +104,7 @@ void PasswordScreen::Print ()
 
 }
 	
-char *PasswordScreen::GetID ()
+string PasswordScreen::GetID ()
 {
 
 	return "SCR_PASS";

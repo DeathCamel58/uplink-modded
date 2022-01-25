@@ -589,7 +589,7 @@ void ClientConnection::SetIndex ( int newindex )
 
 }
 
-char *ClientConnection::GetID ()
+string ClientConnection::GetID ()
 {
 
 	return "CL_CON";

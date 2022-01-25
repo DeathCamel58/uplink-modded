@@ -372,7 +372,7 @@ void Player::Update ()
 }
 
 
-char *Player::GetID ()
+string Player::GetID ()
 {
 	return "PLAYER";
 }

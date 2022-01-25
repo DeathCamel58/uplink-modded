@@ -529,7 +529,7 @@ void RemoteInterface::Update ()
 
 }
 
-char *RemoteInterface::GetID ()
+string RemoteInterface::GetID ()
 {
 
 	return "RINT";

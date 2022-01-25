@@ -38,7 +38,7 @@ public:
 	void Save  ( FILE *file ) override;
 	void Print () override;
 	
-	char *GetID () override;
+	string GetID () override;
 	int   GetOBJECTID () override;
 
 };

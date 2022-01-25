@@ -112,7 +112,7 @@ void LanComputer::Update ()
 
 }
 
-char *LanComputer::GetID ()
+string LanComputer::GetID ()
 {
     return "LANCOMP";
 }
@@ -214,7 +214,7 @@ void LanComputerSystem::Print ()
 
 }
 
-char *LanComputerSystem::GetID ()
+string LanComputerSystem::GetID ()
 {
     return "LANSYST";
 }
@@ -307,7 +307,7 @@ void LanComputerLink::Print ()
 
 }
 	
-char *LanComputerLink::GetID ()
+string LanComputerLink::GetID ()
 {
     return "LANLINK";
 }

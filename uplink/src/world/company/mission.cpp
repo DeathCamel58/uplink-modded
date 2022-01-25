@@ -459,7 +459,7 @@ void Mission::Print ()
 
 }
 	
-char *Mission::GetID ()
+string Mission::GetID ()
 {
 
 	return "MISSION";

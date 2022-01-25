@@ -105,7 +105,7 @@ void RunPlotSceneEvent::Print ()
 }
 
 	
-char *RunPlotSceneEvent::GetID ()
+string RunPlotSceneEvent::GetID ()
 {
 	
 	return "EVT_PLOT";

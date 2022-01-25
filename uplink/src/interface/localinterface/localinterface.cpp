@@ -314,7 +314,7 @@ void LocalInterface::Update ()
 
 }
 
-char *LocalInterface::GetID ()
+string LocalInterface::GetID ()
 {
 
 	return "LINT";

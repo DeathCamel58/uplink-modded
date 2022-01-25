@@ -234,7 +234,7 @@ void Company::Update ()
 {
 }
 	
-char *Company::GetID ()
+string Company::GetID ()
 {
 
 	return "COMPANY";

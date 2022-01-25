@@ -73,7 +73,7 @@ void GenericScreen::Print ()
 
 }
 	
-char *GenericScreen::GetID ()
+string GenericScreen::GetID ()
 {
 	
 	return "SCR_GEN";

@@ -207,7 +207,7 @@ void SeizeGatewayEvent::Print ()
 
 }
 
-char *SeizeGatewayEvent::GetID ()
+string SeizeGatewayEvent::GetID ()
 {
 
 	return "EVT_SEZ";

@@ -4961,7 +4961,7 @@ void PlotGenerator::Update ()
 }
 
 
-char *PlotGenerator::GetID ()
+string PlotGenerator::GetID ()
 {
 
 	return "PLOTGEN";

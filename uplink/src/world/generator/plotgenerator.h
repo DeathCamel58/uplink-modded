@@ -216,7 +216,7 @@ public:
 	void Print ();
 	void Update ();
 	
-	char *GetID ();
+	string GetID ();
 
 protected:
 

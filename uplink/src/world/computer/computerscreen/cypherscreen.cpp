@@ -70,7 +70,7 @@ void CypherScreen::Print ()
 
 }
 
-char *CypherScreen::GetID ()
+string CypherScreen::GetID ()
 {
 
 	return "SCR_CYPH";

@@ -53,7 +53,7 @@ public:
 	void Save   ( FILE *file ) override;
 	void Print  () override;
 	void Update () override;
-	char *GetID () override;
+	string GetID () override;
 
 };
 

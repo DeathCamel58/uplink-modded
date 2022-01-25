@@ -132,7 +132,7 @@ void ShotByFedsEvent::Print ()
 
 }
 
-char *ShotByFedsEvent::GetID ()
+string ShotByFedsEvent::GetID ()
 {
 
 	return "EVT_SHOT";

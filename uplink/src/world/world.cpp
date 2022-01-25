@@ -451,7 +451,7 @@ void World::Print ()
 
 }
 
-char *World::GetID ()
+string World::GetID ()
 {
 
 	return "WORLD";

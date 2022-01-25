@@ -133,7 +133,7 @@ void News::Print ()
 		
 }
 	
-char *News::GetID ()
+string News::GetID ()
 {
 
 	return "NEWS";

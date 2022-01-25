@@ -31,7 +31,7 @@ public:
 	virtual void Print  ();
 	virtual void Update ();
 	
-	virtual char *GetID ();						// You must provide this
+	virtual string GetID ();						// You must provide this
 	virtual int   GetOBJECTID ();				// Neccisary if this is used in a Tosser structure
 
 	char *GetID_END ();							//

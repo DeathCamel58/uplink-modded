@@ -47,7 +47,7 @@ public:
 	void Print  () override;
 	void Update () override;
 	
-	char *GetID () override;
+	string GetID () override;
 
 };
 

@@ -189,7 +189,7 @@ void NetworkServer::Update ()
 
 }
 
-char *NetworkServer::GetID ()
+string NetworkServer::GetID ()
 {
 
 	return "SERVER";

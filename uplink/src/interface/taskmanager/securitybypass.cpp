@@ -236,7 +236,7 @@ void SecurityBypass::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 	UplinkAssert (uo);
 
-	if ( strcmp ( uo->GetID (), "SECUR" ) == 0 ) {
+	if ( strcmp ( uo->GetID ().c_str(), "SECUR" ) == 0 ) {
 
 		UplinkAssert ( ((Security *) uo)->GetSystem (uoi) );
 

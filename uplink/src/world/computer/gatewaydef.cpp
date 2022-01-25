@@ -444,7 +444,7 @@ void GatewayDef::Save  ( FILE *file )
 
 }
 
-char *GatewayDef::GetID ()
+string GatewayDef::GetID ()
 {
 
 	return "GATEWAYDEF";

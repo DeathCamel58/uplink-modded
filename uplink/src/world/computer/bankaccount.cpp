@@ -400,7 +400,7 @@ void BankAccount::Print ()
 }
 
 	
-char *BankAccount::GetID ()
+string BankAccount::GetID ()
 {
 
 	return "ACCOUNT";

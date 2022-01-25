@@ -198,7 +198,7 @@ void CompanyUplink::Update ()
 {
 }
 
-char *CompanyUplink::GetID ()
+string CompanyUplink::GetID ()
 {
 	
 	return "CPNY_UPL";

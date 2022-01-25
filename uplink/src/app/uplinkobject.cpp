@@ -45,7 +45,7 @@ void UplinkObject::Update ()
 {
 }
 
-char *UplinkObject::GetID ()
+string UplinkObject::GetID ()
 {
 	return "UOBJ";
 }

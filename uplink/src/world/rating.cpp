@@ -425,7 +425,7 @@ void Rating::Update ()
 }
 
 
-char *Rating::GetID ()
+string Rating::GetID ()
 {
 
 	return "RATING";

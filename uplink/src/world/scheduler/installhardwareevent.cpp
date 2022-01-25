@@ -264,7 +264,7 @@ void InstallHardwareEvent::Print ()
 
 }
 
-char *InstallHardwareEvent::GetID ()
+string InstallHardwareEvent::GetID ()
 {
 
 	return "EVT_IHW";

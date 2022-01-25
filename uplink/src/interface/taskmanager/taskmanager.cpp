@@ -260,7 +260,7 @@ void TaskManager::Update ()
 
 }
 
-char *TaskManager::GetID ()
+string TaskManager::GetID ()
 {
 
 	return "TASKMAN";

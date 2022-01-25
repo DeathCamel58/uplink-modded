@@ -119,7 +119,7 @@ void Interface::Print ()
 
 }
 
-char *Interface::GetID ()
+string Interface::GetID ()
 {
 
 	return "INTERFA";

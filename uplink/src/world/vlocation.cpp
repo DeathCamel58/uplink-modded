@@ -215,7 +215,7 @@ void VLocation::Print ()
 
 }
 
-char *VLocation::GetID ()
+string VLocation::GetID ()
 {
 
 	return "VIRTLOC";
@@ -285,7 +285,7 @@ void VLocationSpecial::Print ()
     VLocation::Print ();
 }
 	
-char *VLocationSpecial::GetID ()
+string VLocationSpecial::GetID ()
 {
     return "VLOCSPEC";
 }

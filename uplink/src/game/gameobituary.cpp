@@ -202,7 +202,7 @@ void GameObituary::Update ()
 {
 }
 
-char *GameObituary::GetID ()
+string GameObituary::GetID ()
 {
 
 	return "GOBIT";

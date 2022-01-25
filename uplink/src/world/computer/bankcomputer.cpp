@@ -168,7 +168,7 @@ void BankComputer::Update ()
 
 }
 
-char *BankComputer::GetID ()
+string BankComputer::GetID ()
 {
 
 	return "BCOMP";

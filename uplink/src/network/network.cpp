@@ -283,7 +283,7 @@ void Network::Update ()
 
 }
 
-char *Network::GetID ()
+string Network::GetID ()
 {
 
 	return "NETWORK";

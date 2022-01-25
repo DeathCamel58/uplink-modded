@@ -232,7 +232,7 @@ void Message::Print ()
 
 }
 	
-char *Message::GetID ()
+string Message::GetID ()
 {
 
 	return "MESSAGE";

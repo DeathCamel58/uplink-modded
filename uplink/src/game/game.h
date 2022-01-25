@@ -101,7 +101,7 @@ public:
 	void Save   ( FILE *file ) override;
 	void Print  () override;
 	void Update () override;
-	char *GetID () override;
+	string GetID () override;
 
 	const char *GetLoadedSavefileVer () const;   // Return the savefile version the game is/was loaded from
 

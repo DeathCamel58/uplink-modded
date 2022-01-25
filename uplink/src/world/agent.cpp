@@ -1062,7 +1062,7 @@ void Agent::Print ()
 
 }
 
-char *Agent::GetID ()
+string Agent::GetID ()
 {
 
 	return "AGENT";

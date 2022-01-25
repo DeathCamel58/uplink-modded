@@ -472,7 +472,7 @@ void Person::Update ()
 
 }
 
-char *Person::GetID ()
+string Person::GetID ()
 {
 
 	return "PERSON";

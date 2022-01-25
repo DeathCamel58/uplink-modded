@@ -153,7 +153,7 @@ void LogScreen::Print ()
 
 }
 
-char *LogScreen::GetID ()
+string LogScreen::GetID ()
 {
 
 	return "SCR_LOGS";

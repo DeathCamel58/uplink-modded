@@ -119,7 +119,7 @@ void Sale::Update ()
 {
 }
 	
-char *Sale::GetID ()
+string Sale::GetID ()
 {
 	
 	return "SALE";
@@ -217,7 +217,7 @@ void SaleVersion::Update ()
 {
 }
 	
-char *SaleVersion::GetID ()
+string SaleVersion::GetID ()
 {
 
 	return "SALEVER";

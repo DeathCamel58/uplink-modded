@@ -545,7 +545,7 @@ void Options::Update ()
 {
 }
 
-char *Options::GetID ()
+string Options::GetID ()
 {
 
 	return "OPTIONS";
@@ -664,7 +664,7 @@ void Option::Update ()
 {
 }
 
-char *Option::GetID ()
+string Option::GetID ()
 {
 
 	return "OPTION";

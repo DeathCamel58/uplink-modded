@@ -126,7 +126,7 @@ void MenuScreen::Print ()
 
 }
 
-char *MenuScreen::GetID ()
+string MenuScreen::GetID ()
 {
 
 	return "SCR_MENU";
@@ -234,7 +234,7 @@ void MenuScreenOption::Update ()
 {
 }
 
-char *MenuScreenOption::GetID ()
+string MenuScreenOption::GetID ()
 {
 
 	return "MNUOPT";

@@ -121,7 +121,7 @@ void AttemptMissionEvent::Print ()
 
 }
 
-char *AttemptMissionEvent::GetID ()
+string AttemptMissionEvent::GetID ()
 {
 
 	return "EVT_AME";

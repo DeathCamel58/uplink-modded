@@ -482,7 +482,7 @@ void Connection::Print ()
 
 }
 	
-char *Connection::GetID ()
+string Connection::GetID ()
 {
 	
 	return "CONNECT";

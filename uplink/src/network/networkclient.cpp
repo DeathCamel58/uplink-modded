@@ -366,7 +366,7 @@ void NetworkClient::Update ()
 
 }
 
-char *NetworkClient::GetID ()
+string NetworkClient::GetID ()
 {
 
     return "CLIENT";

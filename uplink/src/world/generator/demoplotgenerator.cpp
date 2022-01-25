@@ -635,7 +635,7 @@ void DemoPlotGenerator::Update ()
 
 }
 
-char *DemoPlotGenerator::GetID ()
+string DemoPlotGenerator::GetID ()
 {
 
     return "DEMOPGEN";

@@ -120,7 +120,7 @@ void SecuritySystem::Update ()
 }
 
 
-char *SecuritySystem::GetID ()
+string SecuritySystem::GetID ()
 {
 
 	return "SECSYST";

@@ -99,7 +99,7 @@ void DisconnectedScreen::Print ()
 
 }
 	
-char *DisconnectedScreen::GetID ()
+string DisconnectedScreen::GetID ()
 {
 
 	return "SCR_DISC";

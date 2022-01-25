@@ -369,7 +369,7 @@ void LogBank::Update ()
 {
 }
 
-char *LogBank::GetID ()
+string LogBank::GetID ()
 {
 
 	return "LOGBANK";
@@ -662,7 +662,7 @@ void AccessLog::Print ()
 
 }
 
-char *AccessLog::GetID ()
+string AccessLog::GetID ()
 {
 
 	return "ACC_LOG";

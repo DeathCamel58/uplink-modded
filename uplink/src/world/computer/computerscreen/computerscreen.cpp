@@ -102,7 +102,7 @@ void ComputerScreen::Update ()
 {
 }
 
-char *ComputerScreen::GetID ()
+string ComputerScreen::GetID ()
 {
 
 	return "COMPSCR";

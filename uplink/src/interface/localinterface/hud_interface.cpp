@@ -829,7 +829,7 @@ void HUDInterface::Print ()
 
 }
 	
-char *HUDInterface::GetID ()
+string HUDInterface::GetID ()
 {
 	
 	return "HUD_INT";

@@ -89,7 +89,7 @@ void HighSecurityScreen::Print ()
 	
 }
 	
-char *HighSecurityScreen::GetID ()
+string HighSecurityScreen::GetID ()
 {
 
 	return "SCR_HI";

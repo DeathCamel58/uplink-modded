@@ -428,7 +428,7 @@ void Date::Update ()
 
 }
 
-char *Date::GetID ()
+string Date::GetID ()
 {
 
 	return "DATE";

@@ -711,7 +711,7 @@ void Computer::GenerateAccessCode( int accNo, char *code, char *result, size_t r
     UplinkSnprintf( result, resultsize, "%s:'%d', %s:'%s'", "NAME", accNo, "CODE", code );
 }
 
-char *Computer::GetID ()
+string Computer::GetID ()
 {
 
 	return "COMPUT";

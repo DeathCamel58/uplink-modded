@@ -68,7 +68,7 @@ void View::Print ()
 
 }
 
-char *View::GetID ()
+string View::GetID ()
 {
 
 	return "VIEW";

@@ -163,7 +163,7 @@ void DialogScreen::Print ()
 
 }
 	
-char *DialogScreen::GetID ()
+string DialogScreen::GetID ()
 {
 	
 	return "SCR_DLG";
@@ -385,7 +385,7 @@ void DialogScreenWidget::Print ()
 
 }
 	
-char *DialogScreenWidget::GetID ()
+string DialogScreenWidget::GetID ()
 {
 
 	return "DLG_WIDG";

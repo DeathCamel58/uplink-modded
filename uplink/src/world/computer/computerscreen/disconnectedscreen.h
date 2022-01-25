@@ -51,7 +51,7 @@ public:
 	void Save  ( FILE *file );			
 	void Print ();						
 	
-	char *GetID ();						
+	string GetID ();
 	int   GetOBJECTID ();				
 
 };

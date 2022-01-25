@@ -267,7 +267,7 @@ void BankRobberyEvent::Print ()
 
 }
 
-char *BankRobberyEvent::GetID ()
+string BankRobberyEvent::GetID ()
 {
 
     return "EVT_BANK";

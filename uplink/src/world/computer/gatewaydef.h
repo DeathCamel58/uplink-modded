@@ -125,7 +125,7 @@ public:
 	bool Load  ( FILE *file );
 	void Save  ( FILE *file );
 	
-	char *GetID ();
+	string GetID ();
 
 };
 

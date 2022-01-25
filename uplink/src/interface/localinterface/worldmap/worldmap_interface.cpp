@@ -1864,7 +1864,7 @@ void WorldMapInterface::Print ()
 
 }
 	
-char *WorldMapInterface::GetID ()
+string WorldMapInterface::GetID ()
 {
 	
 	return "WRLDMAPI";

@@ -430,7 +430,7 @@ void Game::Print ()
 
 }
 
-char *Game::GetID ()
+string Game::GetID ()
 {
 
 	return "GAME";
