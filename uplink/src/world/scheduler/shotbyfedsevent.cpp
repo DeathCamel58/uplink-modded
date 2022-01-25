@@ -36,8 +36,8 @@ ShotByFedsEvent::~ShotByFedsEvent ()
 void ShotByFedsEvent::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen (newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen (newname) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
 
@@ -46,7 +46,7 @@ void ShotByFedsEvent::SetReason ( char *newreason )
 
     delete [] reason;
 	reason = new char [strlen(newreason)+1];
-	UplinkSafeStrcpy ( reason, newreason );
+	UplinkSafeStrcpy ( reason, newreason )
 
 }
 
@@ -54,7 +54,7 @@ void ShotByFedsEvent::Run ()
 {
 
 	Person *person = game->GetWorld ()->GetPerson ( name );
-	UplinkAssert (person);
+	UplinkAssert (person)
 
 	person->SetStatus ( PERSON_STATUS_DEAD );
 
@@ -67,7 +67,7 @@ char *ShotByFedsEvent::GetShortString ()
 
 	size_t shortstringsize = strlen(name) + 32;
 	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "ShotByFeds for %s", name );
+	UplinkSnprintf ( shortstring, shortstringsize, "ShotByFeds for %s", name )
 	return shortstring;
 
 }

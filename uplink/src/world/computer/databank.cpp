@@ -62,7 +62,7 @@ int DataBank::GetDataSize ()
 bool DataBank::PutData ( Data *newdata )
 {
 
-	UplinkAssert (newdata);
+	UplinkAssert (newdata)
 
 	int index = FindValidPlacement ( newdata );
 
@@ -75,7 +75,7 @@ bool DataBank::PutData ( Data *newdata )
 void DataBank::InsertData ( Data *newdata )
 {
 
-    UplinkAssert (newdata);
+    UplinkAssert (newdata)
 
     if ( data.Size () == 0 )
         PutData ( newdata );
@@ -89,7 +89,7 @@ void DataBank::InsertData ( Data *newdata )
         if ( data.ValidIndex (insertindex) ) {
             data.SetSize ( data.Size () + 1 );
             Data *olddata = data.GetData (insertindex);
-            UplinkAssert (olddata);
+            UplinkAssert (olddata)
             int newindex = data.Size () - 1;
             data.PutData (olddata, newindex );
 
@@ -110,7 +110,7 @@ void DataBank::InsertData ( Data *newdata )
             index = FindValidPlacement (newdata);
         }
     
-        UplinkAssert (index != -1);
+        UplinkAssert (index != -1)
 
         for ( int i = 0; i < newdata->size; ++i )
 		    memory.PutData ( insertindex, index + i );
@@ -124,7 +124,7 @@ void DataBank::PutData ( Data *newdata, int memoryindex )
 
 	int pos = data.PutData ( newdata );
 
-	UplinkAssert ( newdata );
+	UplinkAssert ( newdata )
 
 	for ( int i = 0; i < newdata->size; ++i )
 		memory.PutData ( pos, memoryindex + i );
@@ -260,7 +260,7 @@ int DataBank::GetMemoryIndex ( int dataindex )
 int DataBank::IsValidPlacement ( Data *newdata, int memoryindex )
 {
 
-	UplinkAssert (newdata);
+	UplinkAssert (newdata)
 	
 	if ( memoryindex < 0 ) return 2;
 
@@ -281,7 +281,7 @@ int DataBank::IsValidPlacement ( Data *newdata, int memoryindex )
 int DataBank::FindValidPlacement ( Data *newdata )
 {
 
-	UplinkAssert (newdata);
+	UplinkAssert (newdata)
 
 	for ( int i = 0; i < memory.Size (); ++i ) {
 
@@ -415,7 +415,7 @@ void DataBank::Update ()
 Data::Data ()
 {
 
-	UplinkStrncpy ( title, "Empty", sizeof ( title ) );
+	UplinkStrncpy ( title, "Empty", sizeof ( title ) )
 	TYPE = DATATYPE_NONE;
 	size = 0;
 	encrypted = 0;
@@ -428,7 +428,7 @@ Data::Data ()
 Data::Data ( Data *copyme )
 {
 
-	UplinkAssert (copyme);
+	UplinkAssert (copyme)
 
 	SetTitle ( copyme->title );
 	TYPE = copyme->TYPE;
@@ -446,8 +446,8 @@ Data::~Data ()
 void Data::SetTitle ( char *newtitle )
 {
 	
-	UplinkAssert ( strlen (newtitle) < SIZE_DATA_TITLE );
-	UplinkStrncpy ( title, newtitle, sizeof ( title ) );
+	UplinkAssert ( strlen (newtitle) < SIZE_DATA_TITLE )
+	UplinkStrncpy ( title, newtitle, sizeof ( title ) )
 
 }
 

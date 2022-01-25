@@ -21,7 +21,7 @@ GameObituary::GameObituary ()
 {
 
 	gameoverreason = nullptr;
-	UplinkStrncpy ( name, " ", sizeof ( name ) );
+	UplinkStrncpy ( name, " ", sizeof ( name ) )
 	money = 0;
 	uplinkrating = 0;
 	neuromancerrating = 0;
@@ -51,7 +51,7 @@ void GameObituary::SetGameOverReason ( char *newreason )
 
 	delete [] gameoverreason;
 	gameoverreason = new char [strlen(newreason)+1];
-	UplinkSafeStrcpy ( gameoverreason, newreason );
+	UplinkSafeStrcpy ( gameoverreason, newreason )
 
 }
 
@@ -79,7 +79,7 @@ void GameObituary::SetWarezGameOver ( bool newvalue )
 void GameObituary::Evaluate ()
 {
 
-	UplinkStrncpy ( name, game->GetWorld ()->GetPlayer ()->handle, sizeof ( name ) );
+	UplinkStrncpy ( name, game->GetWorld ()->GetPlayer ()->handle, sizeof ( name ) )
 	money = game->GetWorld ()->GetPlayer ()->GetBalance ();
 	uplinkrating = game->GetWorld ()->GetPlayer ()->rating.uplinkrating;	
 	neuromancerrating = game->GetWorld ()->GetPlayer ()->rating.neuromancerrating;
@@ -90,7 +90,7 @@ void GameObituary::Evaluate ()
 	score_highsecurityhacks = game->GetWorld ()->GetPlayer ()->score_highsecurityhacks;
 
     GatewayDef *gatewaydef = game->GetWorld ()->GetPlayer ()->gateway.curgatewaydef;
-    UplinkAssert (gatewaydef);
+    UplinkAssert (gatewaydef)
     int gatewayvalue = gatewaydef->cost;
 
 	if ( money > 10000000 ) money = 10000000;

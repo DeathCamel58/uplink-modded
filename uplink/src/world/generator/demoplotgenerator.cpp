@@ -57,7 +57,7 @@ void DemoPlotGenerator::MoveNewMissionToRandomLocation ( Mission *mission )
 {
 
     auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-    UplinkAssert (cu);
+    UplinkAssert (cu)
 
     // Remove the mission from the list first
 
@@ -74,7 +74,7 @@ void DemoPlotGenerator::MoveNewMissionToRandomLocation ( Mission *mission )
 
     int position = 3 + NumberGenerator::RandomNumber (9);
     Mission *prevmission = cu->missions.GetData (position-1);
-    UplinkAssert (prevmission);
+    UplinkAssert (prevmission)
     mission->SetCreateDate ( &(prevmission->createdate) );
     cu->missions.PutDataAtIndex ( mission, position );
 
@@ -84,7 +84,7 @@ bool DemoPlotGenerator::NumAvailableMissions ( int missiontype )
 {
 
     auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-    UplinkAssert (cu);
+    UplinkAssert (cu)
 
     int found = 0;
 
@@ -94,7 +94,7 @@ bool DemoPlotGenerator::NumAvailableMissions ( int missiontype )
     for ( int i = 0; i < maxmission; ++i ) {
 
         Mission *m = cu->missions.GetData (i);
-        UplinkAssert (m);
+        UplinkAssert (m)
 
         if ( m->TYPE == missiontype &&
             m->minuplinkrating <= game->GetWorld ()->GetPlayer ()->rating.uplinkrating ) {
@@ -122,9 +122,9 @@ Mission *DemoPlotGenerator::Generate_FileCopyMission ()
 		    strcmp ( employer1->name, target1->companyname ) == 0 ) {
 
 		    employer1 = WorldGenerator::GetRandomCompany ();
-		    UplinkAssert (employer1);
+		    UplinkAssert (employer1)
 		    target1 = WorldGenerator::GetRandomLowSecurityComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
-		    UplinkAssert (target1);
+		    UplinkAssert (target1)
 
 	    }
 
@@ -150,9 +150,9 @@ Mission *DemoPlotGenerator::Generate_FileDeleteMission ()
 		    strcmp ( employer2->name, target2->companyname ) == 0 ) {
 
 		    employer2 = WorldGenerator::GetRandomCompany ();
-		    UplinkAssert (employer2);
+		    UplinkAssert (employer2)
 		    target2 = WorldGenerator::GetRandomLowSecurityComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
-		    UplinkAssert (target2);
+		    UplinkAssert (target2)
 
 	    }
 
@@ -173,7 +173,7 @@ Mission *DemoPlotGenerator::Generate_ChangeAcademicMission ()
     while ( !mission ) {
 
         Company *employer = WorldGenerator::GetRandomCompany ();
-	    UplinkAssert (employer);
+	    UplinkAssert (employer)
         mission = MissionGenerator::Generate_ChangeData_AcademicRecord ( employer );
 
     }
@@ -187,7 +187,7 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 {
 
 	Computer *target = game->GetWorld ()->GetComputer ( "International Social Security Database" );
-	UplinkAssert (target);
+	UplinkAssert (target)
 
     //Company *employer = game->GetWorld ()->GetCompany ( "ARC" );
     //UplinkAssert (employer);
@@ -207,13 +207,13 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkStrncpy ( personname, "internal@ARC.net", sizeof ( personname ) );
+	UplinkStrncpy ( personname, "internal@ARC.net", sizeof ( personname ) )
 
 	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
-    UplinkStrncpy ( description, "Modify a protected Social Security document", sizeof ( description ) );
+    UplinkStrncpy ( description, "Modify a protected Social Security document", sizeof ( description ) )
 
 	details << "Payment for this job is " << payment << " credits.\n"
 			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
@@ -245,12 +245,12 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
         if ( record ) {
 
 	        char *personname = record->GetField ( RECORDBANK_NAME );
-	        UplinkAssert (personname);
+	        UplinkAssert (personname)
 
             if ( strcmp ( personname, game->GetWorld ()->GetPlayer ()->handle ) != 0 ) {
 
 		        person = game->GetWorld ()->GetPerson ( personname );
-		        UplinkAssert (person);
+		        UplinkAssert (person)
 		        break;
 
             }
@@ -269,14 +269,14 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
                 << newnumber
                 << ".  We will take care of the rest.\n";
 
-	UplinkStrncpy ( completionC, "Social Security", sizeof ( completionC ) );
-	UplinkSnprintf ( completionD, sizeof ( completionD ), "%d", newnumber );
-	UplinkSnprintf ( completionE, sizeof ( completionE ), "%d", newnumber );
+	UplinkStrncpy ( completionC, "Social Security", sizeof ( completionC ) )
+	UplinkSnprintf ( completionD, sizeof ( completionD ), "%d", newnumber )
+	UplinkSnprintf ( completionE, sizeof ( completionE ), "%d", newnumber )
 
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) );
-	UplinkStrncpy ( completionB, person->name, sizeof ( completionB ) );
+	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
+	UplinkStrncpy ( completionB, person->name, sizeof ( completionB ) )
 
-    UplinkStrncpy ( arcmissiontarget, person->name, sizeof ( arcmissiontarget ) );
+    UplinkStrncpy ( arcmissiontarget, person->name, sizeof ( arcmissiontarget ) )
 
 	fulldetails	<< "\nTARGET INDIVIDUAL :\n"
 				<< "   NAME    : " << person->name << "\n"
@@ -352,7 +352,7 @@ void DemoPlotGenerator::PlayerRatingChange ()
 void DemoPlotGenerator::PlayerCompletedMission ( Mission *mission )
 {
 
-    UplinkAssert (mission);
+    UplinkAssert (mission)
 
     if ( mission->TYPE == MISSION_CHANGEDATA &&
          strcmp ( mission->completionA, IP_ACADEMICDATABASE ) == 0 &&
@@ -470,7 +470,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
         // Send him the mission
 
         Mission *mission = Generate_ChangeSocialRecordARC ();
-        UplinkAssert (mission);
+        UplinkAssert (mission)
         game->GetWorld ()->GetPlayer ()->GiveMission (mission);
 
     }
@@ -508,7 +508,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
 
         std::ostrstream newsdetails;
         char *agenthandle = NameGenerator::GenerateAgentAlias ();
-        UplinkAssert (agenthandle);
+        UplinkAssert (agenthandle)
 
         newsdetails << "An Uplink Agent going by the handle of " << agenthandle <<
                        " has been found dead in his house after an apparent suicide.\n"
@@ -529,7 +529,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
 	    news->SetDetails ( newsdetails.str () );
 
 	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert (cu);
+	    UplinkAssert (cu)
 	    cu->CreateNews ( news );
 
 		newsdetails.rdbuf()->freeze( false );
@@ -565,7 +565,7 @@ void DemoPlotGenerator::RunScene ( int newscene )
 bool DemoPlotGenerator::PlayerContactsARC ( Message *msg )
 {
 
-    UplinkAssert (msg);
+    UplinkAssert (msg)
 
     if ( scene == 1 ) {
 

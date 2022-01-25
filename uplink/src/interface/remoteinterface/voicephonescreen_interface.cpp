@@ -47,12 +47,12 @@ bool VoicePhoneScreenInterface::ReturnKeyPressed ()
 void VoicePhoneScreenInterface::AddToText ( char *newtext )
 {
 		
-	UplinkAssert (newtext);
+	UplinkAssert (newtext)
 	Button *button = EclGetButton ("voicescreen_text");
-	UplinkAssert (button);
+	UplinkAssert (button)
 	size_t newcaptionsize = strlen(button->caption) + strlen(newtext) + 3;
 	char *newcaption = new char [newcaptionsize];
-	UplinkSnprintf ( newcaption, newcaptionsize, "%s%s", button->caption, newtext );
+	UplinkSnprintf ( newcaption, newcaptionsize, "%s%s", button->caption, newtext )
 	button->SetCaption ( newcaption );
 	delete [] newcaption;
 
@@ -61,7 +61,7 @@ void VoicePhoneScreenInterface::AddToText ( char *newtext )
 void VoicePhoneScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -69,9 +69,9 @@ void VoicePhoneScreenInterface::Create ( ComputerScreen *newcs )
         // Look up who this voice screen belongs to
 
         Computer *comp = GetComputerScreen ()->GetComputer ();
-        UplinkAssert (comp);
+        UplinkAssert (comp)
         Person *person = game->GetWorld ()->GetPerson ( comp->companyname );
-        UplinkAssert (person);
+        UplinkAssert (person)
         voiceindex = person->voiceindex;
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "voicescreen_maintitle" );
@@ -167,7 +167,7 @@ void VoicePhoneScreenInterface::Update ()
                     int samplenumber = numwords;
                     if ( samplenumber >= 3 ) samplenumber -= 3;
 //#ifndef DEMOGAME
-                    UplinkSnprintf ( filename, sizeof ( filename ), "sounds/analyser/hello%d_%d.wav", voiceindex, samplenumber ); 
+                    UplinkSnprintf ( filename, sizeof ( filename ), "sounds/analyser/hello%d_%d.wav", voiceindex, samplenumber )
 					SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );
 //#endif
 
@@ -216,7 +216,7 @@ int VoicePhoneScreenInterface::ScreenID ()
 GenericScreen *VoicePhoneScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

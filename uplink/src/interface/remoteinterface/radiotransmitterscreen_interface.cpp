@@ -59,7 +59,7 @@ void RadioTransmitterScreenInterface::FrequencyDraw ( Button *button, bool highl
     border_draw ( button );
 
     char frequency[64];
-    UplinkSnprintf ( frequency, sizeof ( frequency ), "%d.%d Ghz", frequencyGhz, frequencyMhz );
+    UplinkSnprintf ( frequency, sizeof ( frequency ), "%d.%d Ghz", frequencyGhz, frequencyMhz )
 
     GciDrawText ( button->x + 10, button->y + 10, frequency );
 
@@ -157,7 +157,7 @@ void RadioTransmitterScreenInterface::Create ( ComputerScreen *newcs )
 
     if ( !IsVisible () ) {
 
-        UplinkAssert (newcs);
+        UplinkAssert (newcs)
         cs = newcs;
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "radioscreen_maintitle" );
@@ -242,7 +242,7 @@ int RadioTransmitterScreenInterface::ScreenID ()
 
 GenericScreen *RadioTransmitterScreenInterface::GetComputerScreen ()
 {
-    UplinkAssert (cs);
+    UplinkAssert (cs)
     return (GenericScreen *) cs;
 }
 
@@ -254,9 +254,9 @@ void RadioTransmitterScreenInterface::Connect ()
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE == COMPUTER_TYPE_LAN )
     {
@@ -267,7 +267,7 @@ void RadioTransmitterScreenInterface::Connect ()
             if ( lc->systems.ValidIndex(i) ) {
 
                 LanComputerSystem *lcs = lc->systems.GetData(i);
-                UplinkAssert (lcs);
+                UplinkAssert (lcs)
 
                 if ( lcs->TYPE == LANSYSTEM_RADIORECEIVER &&
                      lcs->data1 == frequencyGhz &&

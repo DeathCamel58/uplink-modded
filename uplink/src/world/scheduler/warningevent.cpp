@@ -40,7 +40,7 @@ char *WarningEvent::GetShortString ()
 
 	size_t shortstringsize = 32;
 	char *shortstring = new char [shortstringsize];
-	UplinkStrncpy ( shortstring, "Warning Event", shortstringsize );
+	UplinkStrncpy ( shortstring, "Warning Event", shortstringsize )
 	return shortstring;
 
 }

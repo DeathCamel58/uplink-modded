@@ -57,10 +57,10 @@ void GatewayNuke::YesClick ( Button *button )
 	sscanf ( button->name, "gatenuke_yes %d", &pid );
 
 	auto *task = (GatewayNuke *) SvbGetTask ( pid );
-	UplinkAssert (task);
+	UplinkAssert (task)
 
 	char title [32];
-	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid );
+	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
 
 
 	switch ( task->status ) {
@@ -68,7 +68,7 @@ void GatewayNuke::YesClick ( Button *button )
 		case GATEWAYNUKE_STATUS_NONE:
 		{
 
-			UplinkAbort ( "Status not set correctly" );
+			UplinkAbort ( "Status not set correctly" )
 			break;
 
 		}
@@ -115,7 +115,7 @@ void GatewayNuke::YesClick ( Button *button )
 		}
 
 		default:
-			UplinkAbort ( "Unknown Status" );
+			UplinkAbort ( "Unknown Status" )
 
 	}
 
@@ -205,9 +205,9 @@ void GatewayNuke::CreateInterface ()
 		char yes [32];
 		char no [32];
 
-		UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid );
-		UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid );
-		UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
+		UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid )
+		UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid )
 
 		EclRegisterButton ( 40, 20, 107, 15, "Nuke Gateway?", "Click yes to destroy your gateway, no to abort", title );
 		EclRegisterButton ( 20, 20, 20, 15, "Yes", "Click here to nuke your gateway", yes );
@@ -232,9 +232,9 @@ void GatewayNuke::RemoveInterface ()
 		char yes [32];
 		char no [32];
 
-		UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid );
-		UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid );
-		UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
+		UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid )
+		UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid )
 
 		EclRemoveButton ( title );
 		EclRemoveButton ( yes );
@@ -255,9 +255,9 @@ void GatewayNuke::ShowInterface ()
 	char yes [32];
 	char no [32];
 
-	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid );
-	UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid );
-	UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid );
+	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
+	UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid )
+	UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid )
 
 	EclButtonBringToFront ( title );
 	EclButtonBringToFront ( yes );
@@ -270,7 +270,7 @@ bool GatewayNuke::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char title [32];
-	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid );
+	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
 
 	return ( EclGetButton ( title ) != nullptr );
 

@@ -81,7 +81,7 @@ void HWSalesScreenInterface::ShowSalesMenuClick ( Button *button )
 	sscanf ( button->name, "hwsales_showmenu %d", &newHWType );
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	thisint->RemoveMenu ();
 	thisint->SetHWType ( newHWType );
@@ -105,11 +105,11 @@ void HWSalesScreenInterface::ClickHWButton ( Button *button )
 	// Dirty the old highlighted button
 
 	char oldname [128];
-	UplinkSnprintf ( oldname, sizeof ( oldname ), "HWsale %d", currentselect - baseoffset );
+	UplinkSnprintf ( oldname, sizeof ( oldname ), "HWsale %d", currentselect - baseoffset )
 	EclDirtyButton ( oldname );
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	Sale *sale = thisint->items.GetData (index);
 
@@ -125,7 +125,7 @@ void HWSalesScreenInterface::ClickHWButton ( Button *button )
 void HWSalesScreenInterface::DrawHWButton ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	clear_draw ( button->x, button->y, button->width, button->height );
 
@@ -136,7 +136,7 @@ void HWSalesScreenInterface::DrawHWButton ( Button *button, bool highlighted, bo
 	// Get the text from sale number (index + baseoffset)
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 	Sale *sale = thisint->items.GetData ( index );
 
 	if ( sale ) {
@@ -168,8 +168,8 @@ void HWSalesScreenInterface::DrawHWButton ( Button *button, bool highlighted, bo
 
 		char name [SIZE_SALE_TITLE];		
 		char cost [32];
-		UplinkStrncpy ( name, sale->title, sizeof ( name ) );
-		UplinkSnprintf ( cost, sizeof ( cost ), "%dc", sv->cost );
+		UplinkStrncpy ( name, sale->title, sizeof ( name ) )
+		UplinkSnprintf ( cost, sizeof ( cost ), "%dc", sv->cost )
 		GciDrawText ( button->x + 5, button->y + 10, name );		
 		GciDrawText ( button->x + 330, button->y + 10, cost );
 
@@ -201,7 +201,7 @@ void HWSalesScreenInterface::MousedownHWButton ( Button *button )
 	sscanf ( button->name, "HWsale %d", &index );
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 	Sale *sale = thisint->items.GetData (index + baseoffset);
 
 	if ( sale ) 
@@ -217,7 +217,7 @@ void HWSalesScreenInterface::HighlightHWButton ( Button *button )
 	sscanf ( button->name, "HWsale %d", &index );
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 	Sale *sale = thisint->items.GetData (index + baseoffset);
 
 	if ( sale )
@@ -229,7 +229,7 @@ void HWSalesScreenInterface::ExitClick ( Button *button )
 {
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( thisint->HWType == -1 ) {
 
@@ -237,7 +237,7 @@ void HWSalesScreenInterface::ExitClick ( Button *button )
 		// So exit to the next page
 
 		auto *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-		UplinkAssert (sss);
+		UplinkAssert (sss)
 		game->GetInterface ()->GetRemoteInterface ()->RunScreen ( sss->nextpage, sss->GetComputer () );
 
 	}
@@ -258,7 +258,7 @@ void HWSalesScreenInterface::AcceptClick ( Button *button )
 {
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 	Sale *sale = thisint->items.GetData ( currentselect );
 
 	if ( sale ) {
@@ -283,9 +283,9 @@ void HWSalesScreenInterface::AcceptClick ( Button *button )
 		if ( sale->swhwTYPE == GATEWAYUPGRADETYPE_MEMORY ) {
 
 			Gateway *gateway = &(game->GetWorld ()->GetPlayer ()->gateway);
-			UplinkAssert (gateway);
+			UplinkAssert (gateway)
 			GatewayDef *gd = gateway->curgatewaydef;
-			UplinkAssert (gd);
+			UplinkAssert (gd)
 
 			if ( gateway->memorysize + sv->data > gd->maxmemory * 8 ) {
 				EclRegisterCaptionChange ( "hwsales_details", "You cannot fit this amount of memory in your gateway." );
@@ -300,9 +300,9 @@ void HWSalesScreenInterface::AcceptClick ( Button *button )
         if ( sale->swhwTYPE == GATEWAYUPGRADETYPE_SECURITY ) {
 
 			Gateway *gateway = &(game->GetWorld ()->GetPlayer ()->gateway);
-			UplinkAssert (gateway);
+			UplinkAssert (gateway)
 			GatewayDef *gd = gateway->curgatewaydef;
-			UplinkAssert (gd);
+			UplinkAssert (gd)
 
 			if ( gateway->GetNumSecurity () + 1 > gd->maxsecurity ) {
 				EclRegisterCaptionChange ( "hwsales_details", "You cannot fit this security device in your gateway." );
@@ -333,9 +333,9 @@ void HWSalesScreenInterface::AcceptClick ( Button *button )
         if ( sale->swhwTYPE == GATEWAYUPGRADETYPE_MODEM ) {
 
 			Gateway *gateway = &(game->GetWorld ()->GetPlayer ()->gateway);
-			UplinkAssert (gateway);
+			UplinkAssert (gateway)
 			GatewayDef *gd = gateway->curgatewaydef;
-			UplinkAssert (gd);
+			UplinkAssert (gd)
         
             if ( gd->bandwidth < sv->data ) {
                 EclRegisterCaptionChange ( "hwsales_details", "Your gateway does not have sufficient bandwidth to run a modem of that speed." );
@@ -377,7 +377,7 @@ void HWSalesScreenInterface::AcceptClick ( Button *button )
 		for ( int i = 0; i < 12; ++ i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
 
 			EclDirtyButton ( name );
 
@@ -396,7 +396,7 @@ void HWSalesScreenInterface::ScrollUpClick ( Button *button )
 	for ( int i = 0; i < 12; ++ i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
 
 		EclDirtyButton ( name );
 
@@ -410,7 +410,7 @@ void HWSalesScreenInterface::ScrollDownClick ( Button *button )
 	++baseoffset;
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 	int numitems = thisint->items.Size ();
 
 	if ( baseoffset > numitems - 12 )
@@ -421,7 +421,7 @@ void HWSalesScreenInterface::ScrollDownClick ( Button *button )
 	for ( int i = 0; i < 12; ++ i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
 
 		EclDirtyButton ( name );
 
@@ -442,7 +442,7 @@ void HWSalesScreenInterface::CreateMenu ( ComputerScreen *newcs )
 
 	if ( !IsVisibleMenu () ) {
 
-		UplinkAssert (newcs);
+		UplinkAssert (newcs)
 		cs = newcs;
 
 		// Processors
@@ -512,7 +512,7 @@ void HWSalesScreenInterface::CreateSalesMenu ( ComputerScreen *newcs )
 
 	if ( !IsVisibleSalesMenu () ) {
 
-		UplinkAssert ( newcs );
+		UplinkAssert ( newcs )
 		cs = newcs;
 
 		//
@@ -521,10 +521,10 @@ void HWSalesScreenInterface::CreateSalesMenu ( ComputerScreen *newcs )
 
 		items.Empty ();
 		auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-		UplinkAssert ( cu );
+		UplinkAssert ( cu )
 		for ( int ic = 0; ic < cu->hw_sales.Size (); ++ic ) {
 			Sale *thissale = cu->GetHWSale (ic);
-			UplinkAssert (thissale);
+			UplinkAssert (thissale)
 			if (thissale->swhwTYPE == HWType )
 				items.PutData (thissale);
 		}
@@ -540,7 +540,7 @@ void HWSalesScreenInterface::CreateSalesMenu ( ComputerScreen *newcs )
 		for ( int i = 0; i < 12; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
 			EclRegisterButton ( 20, i * 20 + 50, 390, 17, "", "View details on this item", name );
 			EclRegisterButtonCallbacks ( name, DrawHWButton, ClickHWButton, MousedownHWButton, HighlightHWButton ); 
 						
@@ -608,7 +608,7 @@ void HWSalesScreenInterface::RemoveSalesMenu ()
 	for ( int i = 0; i < 12; ++ i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
 
 		EclRemoveButton ( name );
 
@@ -660,7 +660,7 @@ int HWSalesScreenInterface::ScreenID ()
 GenericScreen *HWSalesScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert ( cs );
+	UplinkAssert ( cs )
 	return (GenericScreen *) cs;
 
 }

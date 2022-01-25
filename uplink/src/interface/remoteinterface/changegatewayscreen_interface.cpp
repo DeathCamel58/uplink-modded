@@ -49,7 +49,7 @@ ChangeGatewayScreenInterface::~ChangeGatewayScreenInterface ()
 void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char unused [64];
 	int index;
@@ -65,7 +65,7 @@ void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool high
 	}
 
 	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	// Fill in the background
 
@@ -129,7 +129,7 @@ void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool high
 	else				SetColour ( "DimmedText" );
 
 	char cost [16];
-	UplinkSnprintf ( cost, sizeof ( cost ), "%dc", price );
+	UplinkSnprintf ( cost, sizeof ( cost ), "%dc", price )
 
 	GciDrawText ( button->x + 5, button->y + 10, gd->name );
 	GciDrawText ( (button->x + button->width - 10 ) - GciTextWidth ( cost ), button->y + 10, cost );
@@ -146,7 +146,7 @@ void ChangeGatewayScreenInterface::InfoTextDraw ( Button *button, bool highlight
 void ChangeGatewayScreenInterface::GatewayButtonClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char unused [64];
 	int index;
@@ -154,7 +154,7 @@ void ChangeGatewayScreenInterface::GatewayButtonClick ( Button *button )
     index += baseOffset;
 
 	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	thisint->ShowGateway ( index );
 
@@ -164,7 +164,7 @@ void ChangeGatewayScreenInterface::CloseClick ( Button *button )
 {
 
 	auto *gs= (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (gs);
+	UplinkAssert (gs)
 
 	if ( gs->nextpage != -1 )
 		game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
@@ -175,7 +175,7 @@ void ChangeGatewayScreenInterface::BuyClick ( Button *button )
 {
 
 	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( !game->GetWorld ()->gatewaydefs.ValidIndex ( thisint->currentselect ) || !game->GetWorld ()->gatewaydefs.GetData ( thisint->currentselect ) )
 		return;
@@ -213,7 +213,7 @@ void ChangeGatewayScreenInterface::BuyConfirmClick ( Button *button )
 {
 
 	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( !game->GetWorld ()->gatewaydefs.ValidIndex ( thisint->currentselect ) || !game->GetWorld ()->gatewaydefs.GetData ( thisint->currentselect ) )
 		return;
@@ -264,7 +264,7 @@ void ChangeGatewayScreenInterface::BuyCancelClick ( Button *button )
 {
 
 	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	thisint->Remove ();
 	thisint->Create ();
@@ -278,7 +278,7 @@ void ChangeGatewayScreenInterface::GatewayPictureDraw ( Button *button, bool hig
     imagebutton_draw ( button, highlighted, clicked );
 
 	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
     glColor3f ( 1.0f, 1.0f, 1.0f );
     border_draw ( button );
@@ -302,7 +302,7 @@ void ChangeGatewayScreenInterface::ScrollChange ( char *scrollname, int newIndex
 	for ( int i = 0; i < numItems; ++i ) {
 
 		char bname [64];
-		UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i );
+		UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i )
 		EclDirtyButton ( bname );
 
 	}
@@ -321,7 +321,7 @@ void ChangeGatewayScreenInterface::ShowGateway ( int index )
 	for ( int i = 0; i < numItems; ++i ) {
 
 		char bname [64];
-		UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i );
+		UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i )
 		EclDirtyButton ( bname );
 
 	}
@@ -337,8 +337,8 @@ void ChangeGatewayScreenInterface::ShowGateway ( int index )
 
 	    char newstats1[128];
 	    char newstats2[128];
-	    UplinkSnprintf ( newstats1, sizeof ( newstats1 ), "Max CPUs : %d\nMax Memory : %dGq", gd->maxcpus, gd->maxmemory * 8 );
-	    UplinkSnprintf ( newstats2, sizeof ( newstats2 ), "Max Security : %d\nBandwidth : %dGqs", gd->maxsecurity, gd->bandwidth );
+	    UplinkSnprintf ( newstats1, sizeof ( newstats1 ), "Max CPUs : %d\nMax Memory : %dGq", gd->maxcpus, gd->maxmemory * 8 )
+	    UplinkSnprintf ( newstats2, sizeof ( newstats2 ), "Max Security : %d\nBandwidth : %dGqs", gd->maxsecurity, gd->bandwidth )
 	    EclRegisterCaptionChange ( "changegateway_stats1", newstats1 );
 	    EclRegisterCaptionChange ( "changegateway_stats2", newstats2 );
 
@@ -363,7 +363,7 @@ int ChangeGatewayScreenInterface::GetGatewayPrice ( int index )
 {
 
 	GatewayDef *oldgateway = game->GetWorld ()->GetPlayer ()->gateway.curgatewaydef;
-	UplinkAssert (oldgateway);
+	UplinkAssert (oldgateway)
 
 	GatewayDef *newgateway = nullptr;
 	if ( game->GetWorld ()->gatewaydefs.ValidIndex ( index ) )
@@ -379,7 +379,7 @@ int ChangeGatewayScreenInterface::GetGatewayPrice ( int index )
 void ChangeGatewayScreenInterface::Create ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	Create ( cs );
 
 }
@@ -409,7 +409,7 @@ void ChangeGatewayScreenInterface::Create ( ComputerScreen *newcs )
 				gd = game->GetWorld ()->gatewaydefs.GetData ( i );
 
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i );
+			UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i )
 
 			if ( gd )
 				EclRegisterButton ( 20, 140 + i * 20, 220, 15, gd->name, "View this gateway", bname );
@@ -458,7 +458,7 @@ void ChangeGatewayScreenInterface::Create ( ComputerScreen *newcs )
 		// Select your gateway
 
         GatewayDef *gd = game->GetWorld ()->GetPlayer ()->gateway.curgatewaydef;
-		UplinkAssert( gd );
+		UplinkAssert( gd )
 
 		int sizegatewaydefs = game->GetWorld ()->gatewaydefs.Size ();
 		for ( int ii = 0; ii < sizegatewaydefs; ii++ )
@@ -499,10 +499,10 @@ void ChangeGatewayScreenInterface::CreateAreYouSure ()
 	EclRegisterButtonCallbacks ( "changegateway_text", textbutton_draw, nullptr, nullptr, nullptr );
 
 	GatewayDef *oldgateway = game->GetWorld ()->GetPlayer ()->gateway.curgatewaydef;
-	UplinkAssert (oldgateway);
+	UplinkAssert (oldgateway)
 
 	GatewayDef *newgateway = game->GetWorld ()->gatewaydefs.GetData ( currentselect );
-	UplinkAssert (newgateway);
+	UplinkAssert (newgateway)
 
 	int price = GetGatewayPrice(currentselect);
 
@@ -545,7 +545,7 @@ void ChangeGatewayScreenInterface::Remove ()
 		for ( int i = 0; i < numRows; ++i ) {
 
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i );
+			UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i )
 			EclRemoveButton ( bname );
 
 		}
@@ -600,7 +600,7 @@ int ChangeGatewayScreenInterface::ScreenID ()
 GenericScreen *ChangeGatewayScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

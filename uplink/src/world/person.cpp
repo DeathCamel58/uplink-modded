@@ -37,10 +37,10 @@ Person::Person()
 	age = -1;
 	photoindex = 0;
     voiceindex = 0;
-	UplinkStrncpy ( name, " ", sizeof ( name ) );
-	UplinkStrncpy ( localhost, " ", sizeof ( localhost ) );
-	UplinkStrncpy ( remotehost, " ", sizeof ( remotehost ) );
-	UplinkStrncpy ( phonenumber, " ", sizeof ( phonenumber ) );
+	UplinkStrncpy ( name, " ", sizeof ( name ) )
+	UplinkStrncpy ( localhost, " ", sizeof ( localhost ) )
+	UplinkStrncpy ( remotehost, " ", sizeof ( remotehost ) )
+	UplinkStrncpy ( phonenumber, " ", sizeof ( phonenumber ) )
 
 	STATUS = PERSON_STATUS_NONE;
 
@@ -59,8 +59,8 @@ Person::~Person()
 void Person::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen (newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen (newname) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 	connection.SetOwner ( name );
 	rating.SetOwner ( name );
@@ -91,30 +91,30 @@ void Person::SetVoiceIndex  ( int newindex )
 void Person::SetLocalHost ( char *newip )
 {
 
-	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP );
-	UplinkStrncpy ( localhost, newip, sizeof ( localhost ) );
+	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
+	UplinkStrncpy ( localhost, newip, sizeof ( localhost ) )
 
-	UplinkAssert ( game->GetWorld ()->GetVLocation ( localhost ) );
+	UplinkAssert ( game->GetWorld ()->GetVLocation ( localhost ) )
 
 }
 
 void Person::SetRemoteHost ( char *newip )
 {
 
-	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP );
-	UplinkStrncpy ( remotehost, newip, sizeof ( remotehost ) );
+	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
+	UplinkStrncpy ( remotehost, newip, sizeof ( remotehost ) )
 
-	UplinkAssert ( game->GetWorld ()->GetVLocation ( remotehost ) );
+	UplinkAssert ( game->GetWorld ()->GetVLocation ( remotehost ) )
 
 }
 
 void Person::SetPhoneNumber ( char *newphone )
 {
 
-	UplinkAssert ( strlen(newphone) < SIZE_VLOCATION_IP );
-	UplinkStrncpy ( phonenumber, newphone, sizeof ( phonenumber ) );
+	UplinkAssert ( strlen(newphone) < SIZE_VLOCATION_IP )
+	UplinkStrncpy ( phonenumber, newphone, sizeof ( phonenumber ) )
 
-	UplinkAssert ( game->GetWorld ()->GetVLocation ( phonenumber ) );
+	UplinkAssert ( game->GetWorld ()->GetVLocation ( phonenumber ) )
 
 }
 
@@ -163,7 +163,7 @@ VLocation *Person::GetLocalHost ()
 {
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( localhost );
-	UplinkAssert ( vl );
+	UplinkAssert ( vl )
 	return vl;
 
 }
@@ -172,7 +172,7 @@ VLocation *Person::GetRemoteHost ()
 {
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert ( vl );
+	UplinkAssert ( vl )
 	return vl;
 
 }
@@ -192,7 +192,7 @@ void Person::ChangeBalance ( int amount, char *description )
 		// Change the current account
 
 		char *fullcurrentaccount = accounts.GetData (currentaccount);
-		UplinkAssert (fullcurrentaccount);
+		UplinkAssert (fullcurrentaccount)
 
 		char ip [SIZE_VLOCATION_IP];
 		char accno [16];
@@ -200,7 +200,7 @@ void Person::ChangeBalance ( int amount, char *description )
 
 		BankAccount *ba = BankAccount::GetAccount ( ip, accno );
 		if ( !ba ) {
-			UplinkAbortArgs( "Cannot find bank account, name='%s', ip='%s', accno='%s'", name, ip, accno );
+			UplinkAbortArgs( "Cannot find bank account, name='%s', ip='%s', accno='%s'", name, ip, accno )
 		}
 		ba->ChangeBalance ( amount, description );
 
@@ -211,11 +211,11 @@ void Person::ChangeBalance ( int amount, char *description )
             if ( this == game->GetWorld ()->GetPlayer () ) {
 
                 VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-                UplinkAssert (vl);
+                UplinkAssert (vl)
                 Computer *comp = vl->GetComputer ();
-                UplinkAssert (comp);
+                UplinkAssert (comp)
                 Company *company = game->GetWorld ()->GetCompany (comp->companyname);
-                UplinkAssert (company);
+                UplinkAssert (company)
 
                 std::ostrstream reason;
                 reason << "It has come to our attention that your bank account below has gone "
@@ -250,9 +250,9 @@ int Person::CreateNewAccount ( char *bankip, char *accname, char *password, int 
 	// Get the bank in question
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( bankip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = game->GetWorld ()->GetComputer ( vl->computer );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 	auto *bank = (BankComputer *) comp;
 
 	// Add the account in
@@ -263,7 +263,7 @@ int Person::CreateNewAccount ( char *bankip, char *accname, char *password, int 
 
 	size_t newaccountsize = 32;
 	char *newaccount = new char [newaccountsize];
-	UplinkSnprintf ( newaccount, newaccountsize, "%s %d", bankip, accountnumber );
+	UplinkSnprintf ( newaccount, newaccountsize, "%s %d", bankip, accountnumber )
 	accounts.PutData ( newaccount );
 
 	// Return the account number
@@ -284,7 +284,7 @@ int Person::GetBalance ()
 		sscanf ( accounts.GetData (i), "%s %s", ip, accno );
 
 		BankAccount *ba = BankAccount::GetAccount ( ip, accno );
-		UplinkAssert (ba);
+		UplinkAssert (ba)
 		result += ba->balance;
 
 	}
@@ -327,12 +327,12 @@ bool Person::Load  ( FILE *file )
 	if ( !LoadDynamicStringStatic ( phonenumber, SIZE_VLOCATION_IP, file ) ) return false;
 
 	if ( !game->GetWorld ()->locations.LookupTree ( localhost ) ) {
-		UplinkPrintAbortArgs ( "WARNING: Person::Load, Localhost IP '%s' already existing", localhost );
+		UplinkPrintAbortArgs ( "WARNING: Person::Load, Localhost IP '%s' already existing", localhost )
 		return false;
 	}
 
 	if ( !game->GetWorld ()->locations.LookupTree ( remotehost ) ) {
-		UplinkPrintAbortArgs ( "WARNING: Person::Load, Remotehost IP '%s' already existing", remotehost );
+		UplinkPrintAbortArgs ( "WARNING: Person::Load, Remotehost IP '%s' already existing", remotehost )
 		return false;
 	}
 
@@ -440,7 +440,7 @@ void Person::Update ()
 					for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->missions.Size (); ++i ) {
 
 						Mission *mis = game->GetWorld ()->GetPlayer ()->missions.GetData (i);
-						UplinkAssert (mis);
+						UplinkAssert (mis)
 
 						if ( strcmp ( mis->contact, name ) == 0 &&
                              strstr ( msg->GetBody (), mis->description ) != nullptr &&                // ie the name of the mission appears in your email

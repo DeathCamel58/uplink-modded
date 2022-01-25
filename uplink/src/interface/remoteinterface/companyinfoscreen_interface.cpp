@@ -36,12 +36,12 @@ void CompanyInfoScreenInterface::MdAddClick ( Button *button )
 {
 
 	auto *thisint = (CompanyInfoScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	char *companyname = thisint->GetComputerScreen ()->GetComputer ()->companyname;
-	UplinkAssert (companyname);
+	UplinkAssert (companyname)
 	Company *company = game->GetWorld ()->GetCompany ( companyname );
-	UplinkAssert (company);
+	UplinkAssert (company)
 
 	Person *boss = game->GetWorld ()->GetPerson ( company->boss );
 	
@@ -56,12 +56,12 @@ void CompanyInfoScreenInterface::AdminAddClick ( Button *button )
 {
 
 	auto *thisint = (CompanyInfoScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	char *companyname = thisint->GetComputerScreen ()->GetComputer ()->companyname;
-	UplinkAssert (companyname);
+	UplinkAssert (companyname)
 	Company *company = game->GetWorld ()->GetCompany ( companyname );
-	UplinkAssert (company);
+	UplinkAssert (company)
 
 	Person *admin = game->GetWorld ()->GetPerson ( company->administrator );
 	
@@ -76,7 +76,7 @@ void CompanyInfoScreenInterface::BackClick ( Button *button )
 {
 
 	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-    UplinkAssert (gs);
+    UplinkAssert (gs)
 
     if ( gs->nextpage != -1 )
         game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
@@ -88,7 +88,7 @@ static char *getNameEmail ( const char *name )
 
 	size_t nameLen = strlen ( name );
 	char *nameEmail = new char [ nameLen + 1 ];
-	UplinkSafeStrcpy ( nameEmail, name );
+	UplinkSafeStrcpy ( nameEmail, name )
 
 	for ( size_t i = 0; i < nameLen; i++ )
 		if ( nameEmail [ i ] == ' ' || nameEmail [ i ] == '.' || nameEmail [ i ] == '\'' )
@@ -108,7 +108,7 @@ void CompanyInfoScreenInterface::Create ()
 void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -119,9 +119,9 @@ void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButtonCallbacks ( "companyscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		char *companyname = GetComputerScreen ()->GetComputer ()->companyname;
-		UplinkAssert (companyname);
+		UplinkAssert (companyname)
 		Company *company = game->GetWorld ()->GetCompany ( companyname );
-		UplinkAssert (company);
+		UplinkAssert (company)
 
 		char mdemail [128];
 		char adminemail [128];
@@ -137,10 +137,10 @@ void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 			char *bossnameEmail = getNameEmail ( company->boss );
 			char *administratornameEmail = getNameEmail ( company->administrator );
 
-			UplinkSnprintf ( mdemail, sizeof ( mdemail ), "%s@%s.net", bossnameEmail, companynameEmail );
-			UplinkSnprintf ( adminemail, sizeof ( adminemail ), "%s@%s.net", administratornameEmail, companynameEmail );
-			UplinkSnprintf ( mdtel, sizeof ( mdtel ), "tel. %s", boss->phonenumber );
-			UplinkSnprintf ( admintel, sizeof ( admintel ), "tel. %s", admin->phonenumber );
+			UplinkSnprintf ( mdemail, sizeof ( mdemail ), "%s@%s.net", bossnameEmail, companynameEmail )
+			UplinkSnprintf ( adminemail, sizeof ( adminemail ), "%s@%s.net", administratornameEmail, companynameEmail )
+			UplinkSnprintf ( mdtel, sizeof ( mdtel ), "tel. %s", boss->phonenumber )
+			UplinkSnprintf ( admintel, sizeof ( admintel ), "tel. %s", admin->phonenumber )
 
 			delete [] administratornameEmail;
 			delete [] bossnameEmail;
@@ -149,10 +149,10 @@ void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 		}
 		else {
 
-			UplinkStrncpy ( mdemail, "Unlisted", sizeof ( mdemail ) );
-			UplinkStrncpy ( adminemail, "Unlisted", sizeof ( adminemail ) );
-			UplinkStrncpy ( mdtel, "Unlisted", sizeof ( mdtel ) );
-			UplinkStrncpy ( admintel, "Unlisted", sizeof ( admintel ) );
+			UplinkStrncpy ( mdemail, "Unlisted", sizeof ( mdemail ) )
+			UplinkStrncpy ( adminemail, "Unlisted", sizeof ( adminemail ) )
+			UplinkStrncpy ( mdtel, "Unlisted", sizeof ( mdtel ) )
+			UplinkStrncpy ( admintel, "Unlisted", sizeof ( admintel ) )
 
 		}
 
@@ -253,7 +253,7 @@ int CompanyInfoScreenInterface::ScreenID ()
 GenericScreen *CompanyInfoScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

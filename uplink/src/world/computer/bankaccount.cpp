@@ -61,18 +61,18 @@ bool BankAccount::TransferMoney ( char *source_ip, char *source_accno,
 								  int amount, Person *person )
 {
 
-	UplinkAssert (person);
+	UplinkAssert (person)
 
 	BankAccount *source_acc = BankAccount::GetAccount ( source_ip, source_accno );
 	BankAccount *target_acc = BankAccount::GetAccount ( target_ip, target_accno );
 
 	char source_data [128];
 	char target_data [128];
-	UplinkSnprintf ( source_data, sizeof ( source_data ), "%s %s", target_ip, target_accno );
-	UplinkSnprintf ( target_data, sizeof ( target_data ), "%s %s", source_ip, source_accno );
+	UplinkSnprintf ( source_data, sizeof ( source_data ), "%s %s", target_ip, target_accno )
+	UplinkSnprintf ( target_data, sizeof ( target_data ), "%s %s", source_ip, source_accno )
 
 	char s_amount [16];
-	UplinkSnprintf ( s_amount, sizeof ( s_amount ), "%d", amount );
+	UplinkSnprintf ( s_amount, sizeof ( s_amount ), "%d", amount )
 
     //
     // If the player is trying to rob money,
@@ -140,16 +140,16 @@ void BankAccount::SetBalance ( int newbalance, int newloan )
 void BankAccount::SetOwner ( char *newname )
 {
 	
-	UplinkAssert ( strlen(newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen(newname) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
 
 void BankAccount::SetSecurity ( char *newpassword, int newsecurity )
 {
 
-	UplinkAssert ( strlen(newpassword) < sizeof(password) );
-	UplinkStrncpy ( password, newpassword, sizeof ( password ) );
+	UplinkAssert ( strlen(newpassword) < sizeof(password) )
+	UplinkStrncpy ( password, newpassword, sizeof ( password ) )
 
 	security = newsecurity;
 
@@ -188,13 +188,13 @@ bool BankAccount::HasTransferOccured ( char *s_ip, char *t_ip, int t_accno, int 
 	//
 
 	char amount_s [16];
-	UplinkSnprintf ( amount_s, sizeof ( amount_s ), "%d", amount );
+	UplinkSnprintf ( amount_s, sizeof ( amount_s ), "%d", amount )
 
 	char s_accno_s [16];
-	UplinkSnprintf ( s_accno_s, sizeof ( s_accno_s ), "%d", accountnumber );
+	UplinkSnprintf ( s_accno_s, sizeof ( s_accno_s ), "%d", accountnumber )
 
 	char t_accno_s [16];
-	UplinkSnprintf ( t_accno_s, sizeof ( t_accno_s ), "%d", t_accno );
+	UplinkSnprintf ( t_accno_s, sizeof ( t_accno_s ), "%d", t_accno )
 
 	bool progress = false;
 	int i;
@@ -207,12 +207,12 @@ bool BankAccount::HasTransferOccured ( char *s_ip, char *t_ip, int t_accno, int 
 		if ( log.internallogs.ValidIndex (i) ) {
 		
 			AccessLog *al = log.internallogs.GetData (i);
-			UplinkAssert ( al );
+			UplinkAssert ( al )
 
             if ( al->TYPE == LOG_TYPE_TRANSFERTO ) {
 
-    			UplinkAssert ( al->data1 );
-	    		UplinkAssert ( al->data2 );
+    			UplinkAssert ( al->data1 )
+	    		UplinkAssert ( al->data2 )
 
 				if ( strstr ( al->data1, t_ip )      != nullptr &&
 				     strstr ( al->data1, t_accno_s ) != nullptr &&
@@ -246,13 +246,13 @@ bool BankAccount::HasTransferOccured ( char *s_ip, char *t_ip, int t_accno, int 
 		if ( target_acc->log.internallogs.ValidIndex (i) ) {
 		
 			AccessLog *al = target_acc->log.internallogs.GetData (i);
-			UplinkAssert ( al );
+			UplinkAssert ( al )
 
 
             if ( al->TYPE == LOG_TYPE_TRANSFERFROM ) {
 
-			    UplinkAssert ( al->data1 );
-			    UplinkAssert ( al->data2 );
+			    UplinkAssert ( al->data1 )
+			    UplinkAssert ( al->data2 )
 
 				if ( strstr ( al->data1, s_ip )      != nullptr &&
 				     strstr ( al->data1, s_accno_s ) != nullptr &&
@@ -278,7 +278,7 @@ bool BankAccount::HasTransferOccured ( char *person, int amount )
 {
 
 	char amount_s [16];
-	UplinkSnprintf ( amount_s, sizeof ( amount_s ), "%d", amount );
+	UplinkSnprintf ( amount_s, sizeof ( amount_s ), "%d", amount )
 
 	//
 	// Go throught each transfer trying to find a match for the amount
@@ -288,12 +288,12 @@ bool BankAccount::HasTransferOccured ( char *person, int amount )
 		if ( log.internallogs.ValidIndex (i) ) {
 		
 			AccessLog *al = log.internallogs.GetData (i);
-			UplinkAssert ( al );
+			UplinkAssert ( al )
 
             if ( al->TYPE == LOG_TYPE_TRANSFERFROM ) {
 
-          	    UplinkAssert ( al->data2 );
-			    UplinkAssert ( al->data3 );
+          	    UplinkAssert ( al->data2 )
+			    UplinkAssert ( al->data3 )
 
                 if ( strcmp ( al->data2, amount_s ) == 0 &&
 				     strcmp ( al->data3, person )   == 0 ) {

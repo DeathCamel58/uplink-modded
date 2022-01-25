@@ -53,12 +53,12 @@ ClientConnection::ClientConnection()
 
 	balance = 0;
 	numaccounts = 0;
-	UplinkStrncpy ( convictions, " ", sizeof ( convictions ) );
+	UplinkStrncpy ( convictions, " ", sizeof ( convictions ) )
 
 	hudupgrades = 0;
 	cpumodemmemory = 0;
 	numhwitems = 0;
-	UplinkStrncpy ( ip, " ", sizeof ( ip ) );
+	UplinkStrncpy ( ip, " ", sizeof ( ip ) )
 
 }
 
@@ -134,7 +134,7 @@ void ClientConnection::Handle_ClientCommsInterface ()
 	    std::ostrstream msgstream;
 
 	    VLocation *vl = game->GetWorld ()->GetVLocation ( IP_LOCALHOST );
-	    UplinkAssert (vl);
+	    UplinkAssert (vl)
 	    msgstream << "CLIENTCOMMS-IPNAME " << vl->ip
 		      << " " << vl->x << " " << vl->y << " " << vl->computer;
 	    msgstream << (char) 10 << (char) 13 << '#' << '\x0';
@@ -167,7 +167,7 @@ void ClientConnection::Handle_ClientCommsInterface ()
 		std::ostrstream msgstream;
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( links->GetData(i) );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 		msgstream << "CLIENTCOMMS-IPNAME " << vl->ip
 			  << " " << vl->x << " " << vl->y << " " << vl->computer;
 		msgstream << (char) 10 << (char) 13 << '#' << '\x0';
@@ -205,7 +205,7 @@ void ClientConnection::Handle_ClientCommsInterface ()
 
 		for ( int i = 0; i < conn->GetSize (); ++i ) {
 			VLocation *vl = game->GetWorld ()->GetVLocation ( conn->vlocations [i] );
-			UplinkAssert (vl);
+			UplinkAssert (vl)
 			msgstream << vl->x << " " << vl->y << " " << vl->ip << " ";
 		}
 
@@ -230,7 +230,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 {
 
 	Player *player = game->GetWorld ()->GetPlayer ();
-	UplinkAssert (player);
+	UplinkAssert (player)
 
 	//
 	// Send latest rating
@@ -272,13 +272,13 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		for ( int i = 0; i < player->accounts.Size (); ++i ) {
 
 			char *account = player->accounts.GetData (i);
-			UplinkAssert (account);
+			UplinkAssert (account)
 
 			char ip [SIZE_VLOCATION_IP];
 			char accno [16];
 			sscanf ( account, "%s %s", ip, accno );
 			BankAccount *ba = BankAccount::GetAccount ( ip, accno );
-			UplinkAssert (ba);
+			UplinkAssert (ba)
 
 			msgstream << "Account: " << accno << " Balance: " << ba->balance << "c\n";
 
@@ -307,7 +307,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 	char *crimrec = nullptr;
 	if ( rec ) {
 		crimrec = rec->GetField ( "Convictions" );
-		UplinkAssert (crimrec);
+		UplinkAssert (crimrec)
 	}
 
 	if ( crimrec && strcmp ( convictions, crimrec ) != 0 ) {
@@ -325,7 +325,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
-		UplinkStrncpy ( convictions, crimrec, sizeof ( convictions ) );
+		UplinkStrncpy ( convictions, crimrec, sizeof ( convictions ) )
 
 	}
 
@@ -422,7 +422,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		msgstream.rdbuf()->freeze( false );
 		//delete [] msgstream.str ();
 
-		UplinkStrncpy ( ip, player->GetRemoteHost ()->ip, sizeof ( ip ) );
+		UplinkStrncpy ( ip, player->GetRemoteHost ()->ip, sizeof ( ip ) )
 
 	}
 
@@ -431,10 +431,10 @@ void ClientConnection::Handle_ClientStatusInterface ()
 	//
 
 	auto *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (uplink);
+	UplinkAssert (uplink)
 
 	News *latest = uplink->GetNews (0);
-	UplinkAssert (latest);
+	UplinkAssert (latest)
 
 	if ( latest->date.After ( &lastnewsdate ) ) {
 
@@ -446,7 +446,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 			if ( uplink->news.ValidIndex (i) ) {
 
 				News *thisnews = uplink->news.GetData (i);
-				UplinkAssert (thisnews);
+				UplinkAssert (thisnews)
 
 				if ( ! (thisnews->date.After ( &lastnewsdate )) ) {
 					indexofnew = i - 1;
@@ -465,7 +465,7 @@ void ClientConnection::Handle_ClientStatusInterface ()
 		for ( int in = indexofnew; in >= 0; --in ) {
 
 			News *thisnews = uplink->news.GetData (in);
-			UplinkAssert (thisnews);
+			UplinkAssert (thisnews)
 
 			std::ostrstream msgstream;
 			msgstream << "CLIENTSTATUS-NEWS - " << thisnews->date.GetShortString () << ": " << thisnews->headline;
@@ -502,7 +502,7 @@ void ClientConnection::Print  ()
 {
 
 	// TODO: This is not right. Time is of type time_t(_cdecl *)(time_t *)
-	printf ( "ClientConnection : Socket:%d, Type:%d, starttime:%d\n", socket, clienttype, time (nullptr) );
+	printf ( "ClientConnection : Socket:%d, Type:%d, starttime:%ld\n", socket, clienttype, time (nullptr) );
 
 }
 
@@ -524,11 +524,11 @@ void ClientConnection::Update ()
 				break;
 
 			case TCP4U_OVERFLOW:
-				UplinkWarning ( "Overflow on incoming data" );
+				UplinkWarning ( "Overflow on incoming data" )
 				break;
 
 			case TCP4U_ERROR:
-				UplinkWarning ( "Error in incoming data" );
+				UplinkWarning ( "Error in incoming data" )
 				break;
 
 		}

@@ -105,7 +105,7 @@ void WorldGenerator::GenerateAll ()
 void WorldGenerator::GenerateValidMapPos ( int &x, int &y )
 {
 
-	UplinkAssert (worldmapmask);
+	UplinkAssert (worldmapmask)
 
 	/********** Start code by François Gagné **********/
 	int retryDiffLoc = 0;
@@ -117,8 +117,8 @@ void WorldGenerator::GenerateValidMapPos ( int &x, int &y )
 		int tX = NumberGenerator::RandomNumber ( VIRTUAL_WIDTH - 1 );
 		int tY = NumberGenerator::RandomNumber ( VIRTUAL_HEIGHT - 1 ) ;
 
-		UplinkAssert ( tX >= 0 && tX < VIRTUAL_WIDTH );
-		UplinkAssert ( tY >= 0 && tY < VIRTUAL_HEIGHT );
+		UplinkAssert ( tX >= 0 && tX < VIRTUAL_WIDTH )
+		UplinkAssert ( tY >= 0 && tY < VIRTUAL_HEIGHT )
 
 		if ( worldmapmask->GetPixelR ( tX, tY ) != 0 ) {
 
@@ -187,14 +187,14 @@ void WorldGenerator::GenerateRandomWorld ()
 	// Generate employment data
 
 	DArray <Company *> *companies = game->GetWorld ()->companies.ConvertToDArray ();
-	UplinkAssert (companies);
+	UplinkAssert (companies)
 
 	for ( i = 0; i < companies->Size (); ++i ) {
 
 		if ( companies->ValidIndex ( i ) ) {
 
 			Company *company = companies->GetData (i);
-			UplinkAssert (company);
+			UplinkAssert (company)
 
 			if ( strcmp ( company->name, "Government" ) != 0 &&
 				 strcmp ( company->name, "Uplink" ) != 0 &&
@@ -203,8 +203,8 @@ void WorldGenerator::GenerateRandomWorld ()
 				Person *ceo = GetRandomPerson ();
 				Person *admin = GetRandomPerson ();
 
-				UplinkAssert (ceo);
-				UplinkAssert (admin);
+				UplinkAssert (ceo)
+				UplinkAssert (admin)
 
 				company->SetBoss ( ceo->name );
 				company->SetAdmin ( admin->name );
@@ -232,9 +232,9 @@ void WorldGenerator::GenerateSimpleStartingMissionA ()
 		strcmp ( employer1->name, target1->companyname ) == 0 ) {
 
 		employer1 = WorldGenerator::GetRandomCompany ();
-		UplinkAssert (employer1);
+		UplinkAssert (employer1)
 		target1 = WorldGenerator::GetRandomLowSecurityComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
-		UplinkAssert (target1);
+		UplinkAssert (target1)
 
 	}
 
@@ -258,9 +258,9 @@ void WorldGenerator::GenerateSimpleStartingMissionB ()
 		strcmp ( employer2->name, target2->companyname ) == 0 ) {
 
 		employer2 = WorldGenerator::GetRandomCompany ();
-		UplinkAssert (employer2);
+		UplinkAssert (employer2)
 		target2 = WorldGenerator::GetRandomLowSecurityComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
-		UplinkAssert (target2);
+		UplinkAssert (target2)
 
 	}
 
@@ -479,7 +479,7 @@ void WorldGenerator::LoadDynamics ()
         if ( files->ValidIndex(k) ) {
 
             char *filename = files->GetData(k);
-            UplinkAssert (filename);
+            UplinkAssert (filename)
             LanGenerator::LoadLAN( filename );
 
         }
@@ -503,7 +503,7 @@ void WorldGenerator::LoadDynamicsGatewayDefs ()
 
             char *gatewayFilename = extraGateways->GetData(j);
 	        char *rsFilename = RsArchiveFileOpen ( gatewayFilename );
-	        UplinkAssert (rsFilename);
+	        UplinkAssert (rsFilename)
 	        idos2unixstream thisFile ( rsFilename );
 
             auto *def = new GatewayDef ();
@@ -511,11 +511,11 @@ void WorldGenerator::LoadDynamicsGatewayDefs ()
 
             char filename [256];
             char thumbnail [256];
-            UplinkSnprintf ( filename, sizeof ( filename ), "gateway/%s", strrchr(gatewayFilename, '/')+1 );
+            UplinkSnprintf ( filename, sizeof ( filename ), "gateway/%s", strrchr(gatewayFilename, '/')+1 )
             *(strchr( filename, '.' )) = '\x0';
-            UplinkStrncpy ( thumbnail, filename, sizeof ( thumbnail ) );
-            UplinkStrncat ( filename, sizeof ( filename ), ".tif" );
-            UplinkStrncat ( thumbnail, sizeof ( thumbnail ), "_t.tif" );
+            UplinkStrncpy ( thumbnail, filename, sizeof ( thumbnail ) )
+            UplinkStrncat ( filename, sizeof ( filename ), ".tif" )
+            UplinkStrncat ( thumbnail, sizeof ( thumbnail ), "_t.tif" )
 
             def->SetFilename ( filename );
             def->SetThumbnail ( thumbnail );
@@ -643,7 +643,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
     game->GetWorld ()->CreateComputer ( computername, "Uplink", IP_UPLINKPUBLICACCESSSERVER );
 
 	Computer *comp = game->GetWorld ()->GetComputer ( computername );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 	comp->SetIsTargetable ( false );
     comp->SetTraceSpeed ( TRACESPEED_UPLINK_PUBLICACCESSSERVER );
 
@@ -810,7 +810,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 	game->GetWorld ()->CreateComputer ( NAME_UPLINKINTERNALSERVICES, "Uplink", IP_UPLINKINTERNALSERVICES );
 
 	Computer *comp = game->GetWorld ()->GetComputer ( NAME_UPLINKINTERNALSERVICES );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	comp->SetTraceSpeed ( TRACESPEED_UPLINK_INTERNALSERVICESMACHINE );
 	comp->SetTraceAction ( COMPUTER_TRACEACTION_DISCONNECT |
@@ -1416,7 +1416,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 	for ( int i = 0; i < 10; ++i ) {
 
 		char datatitle [64];
-		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "Uplink_Agent_Data %d.dat", i );
+		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "Uplink_Agent_Data %d.dat", i )
         int size = 5;
         int encrypted = 7;
 
@@ -1445,7 +1445,7 @@ void WorldGenerator::GenerateUplinkTestMachine ()
 
 	game->GetWorld ()->CreateComputer ( "Uplink Test Machine", "Uplink", IP_UPLINKTESTMACHINE );
 	Computer *comp = game->GetWorld ()->GetComputer ( "Uplink Test Machine" );
-	UplinkAssert ( comp );
+	UplinkAssert ( comp )
 	comp->SetIsTargetable ( false );
 
 	comp->SetTraceSpeed ( TRACESPEED_UPLINK_TESTMACHINE );
@@ -1553,7 +1553,7 @@ void WorldGenerator::GenerateUplinkCreditsMachine ()
 
 	game->GetWorld ()->CreateComputer ( "Uplink Credits Machine", "Uplink", IP_UPLINKCREDITSMACHINE );
 	Computer *comp = game->GetWorld ()->GetComputer ( "Uplink Credits Machine" );
-	UplinkAssert ( comp );
+	UplinkAssert ( comp )
 	comp->SetIsTargetable ( false );
 
 	auto *ms = new MessageScreen ();
@@ -2477,12 +2477,12 @@ void WorldGenerator::GenerateOCP ()
 	// Generate contact addresses for this company
 
 	char contactcomputer [SIZE_COMPUTER_NAME];
-	UplinkStrncpy ( contactcomputer, "OCP remote monitoring system", sizeof ( contactcomputer ) );
+	UplinkStrncpy ( contactcomputer, "OCP remote monitoring system", sizeof ( contactcomputer ) )
 	Computer *contact = game->GetWorld ()->GetComputer ( contactcomputer );
-	UplinkAssert (contact);
+	UplinkAssert (contact)
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkStrncpy ( personname, "internal@OCP.net", sizeof ( personname ) );
+	UplinkStrncpy ( personname, "internal@OCP.net", sizeof ( personname ) )
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, contact->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2534,12 +2534,12 @@ void WorldGenerator::GenerateSJGames ()
 	// Generate contact addresses for this company
 
 	char contactcomputer [SIZE_COMPUTER_NAME];
-	UplinkStrncpy ( contactcomputer, "Steve Jackson Games Server", sizeof ( contactcomputer ) );
+	UplinkStrncpy ( contactcomputer, "Steve Jackson Games Server", sizeof ( contactcomputer ) )
 	Computer *contact = game->GetWorld ()->GetComputer ( contactcomputer );
-	UplinkAssert (contact);
+	UplinkAssert (contact)
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkStrncpy ( personname, "internal@Steve Jackson Games.net", sizeof ( personname ) );
+	UplinkStrncpy ( personname, "internal@Steve Jackson Games.net", sizeof ( personname ) )
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, contact->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2717,12 +2717,12 @@ void WorldGenerator::GenerateIntroversion ()
 	// Generate contact addresses for this company
 
 	char contactcomputer [SIZE_COMPUTER_NAME];
-	UplinkStrncpy ( contactcomputer, "Introversion Software", sizeof ( contactcomputer ) );
+	UplinkStrncpy ( contactcomputer, "Introversion Software", sizeof ( contactcomputer ) )
 	Computer *contact = game->GetWorld ()->GetComputer ( contactcomputer );
-	UplinkAssert (contact);
+	UplinkAssert (contact)
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkStrncpy ( personname, "internal@Introversion Software.net", sizeof ( personname ) );
+	UplinkStrncpy ( personname, "internal@Introversion Software.net", sizeof ( personname ) )
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, contact->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2735,7 +2735,7 @@ VLocation *WorldGenerator::GenerateLocation ()
 	GenerateValidMapPos ( x, y );
 
 	char ip [SIZE_VLOCATION_IP];
-	UplinkSnprintf ( ip, sizeof ( ip ), "%d.%d.%d.%d", NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000) );
+	UplinkSnprintf ( ip, sizeof ( ip ), "%d.%d.%d.%d", NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000) )
 
 	auto *vl = new VLocation ();
 	vl->SetPLocation ( x, y );
@@ -2772,10 +2772,10 @@ Company *WorldGenerator::GenerateCompany ( char *companyname, int size, int TYPE
 
     char *contactcomputer = NameGenerator::GeneratePublicAccessServerName( companyname );
 	Computer *comp = game->GetWorld ()->GetComputer ( contactcomputer );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname );
+	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname )
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, comp->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2792,7 +2792,7 @@ Company *WorldGenerator::GenerateCompany ()
 
 	// Generate the company
 	char companyname [SIZE_COMPANY_NAME];
-	UplinkStrncpy ( companyname, NameGenerator::GenerateCompanyName (), sizeof ( companyname ) );
+	UplinkStrncpy ( companyname, NameGenerator::GenerateCompanyName (), sizeof ( companyname ) )
 
 	int size      = (int) NumberGenerator::RandomNormalNumber ( COMPANYSIZE_AVERAGE,      COMPANYSIZE_RANGE );
 	int growth    = (int) NumberGenerator::RandomNormalNumber ( COMPANYGROWTH_AVERAGE,    COMPANYGROWTH_RANGE );
@@ -2808,7 +2808,7 @@ Company *WorldGenerator::GenerateCompany_Bank ()
 {
 
 	char companyname [SIZE_COMPANY_NAME];
-    UplinkStrncpy ( companyname, NameGenerator::GenerateBankName (), sizeof ( companyname ) );
+    UplinkStrncpy ( companyname, NameGenerator::GenerateBankName (), sizeof ( companyname ) )
 
 	int size      = (int) NumberGenerator::RandomNormalNumber ( 4, 4 );
 	int growth    = (int) NumberGenerator::RandomNormalNumber ( 10, 20 );
@@ -2927,7 +2927,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 	}
 
 	Company *company = game->GetWorld ()->GetCompany ( companyname );
-	UplinkAssert (company);
+	UplinkAssert (company)
 
 	// Create the location
 
@@ -3117,7 +3117,7 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 	}
 
     Company *company = game->GetWorld ()->GetCompany (companyname);
-    UplinkAssert (company);
+    UplinkAssert (company)
 
 	VLocation *vl = GenerateLocation ();
 	vl->SetListed ( false );
@@ -3648,7 +3648,7 @@ Computer *WorldGenerator::GenerateVoicePhoneSystem ( char *personname )
 	GenerateValidMapPos ( x, y );
 	char ip [SIZE_VLOCATION_IP];
 	UplinkSnprintf ( ip, sizeof ( ip ), "(0%d%d%d%d)%d%d%d%d%d%d", NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10),
-																	NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10) );
+																	NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10) )
 	auto *vl = new VLocation ();
 	vl->SetPLocation ( x, y );
 	vl->SetIP ( ip );
@@ -3690,10 +3690,10 @@ Person *WorldGenerator::GeneratePerson ()
 	}
 
 	Computer *comp = GeneratePersonalComputer ( name );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	Computer *phone = GenerateVoicePhoneSystem ( name );
-	UplinkAssert (phone);
+	UplinkAssert (phone)
 
 	int age = (int) NumberGenerator::RandomNormalNumber ( 30, 20 );						// 10 - 50
 	int photo = NumberGenerator::RandomNumber ( NUM_STARTING_PHOTOS + 1 );
@@ -3732,14 +3732,14 @@ Agent *WorldGenerator::GenerateAgent ()
 	char name [SIZE_PERSON_NAME];
 	char handle [SIZE_AGENT_HANDLE];
 
-    UplinkStrncpy ( name, NameGenerator::GeneratePersonName (), sizeof ( name ) );
-    UplinkStrncpy ( handle, NameGenerator::GenerateAgentAlias (), sizeof ( handle ) );
+    UplinkStrncpy ( name, NameGenerator::GeneratePersonName (), sizeof ( name ) )
+    UplinkStrncpy ( handle, NameGenerator::GenerateAgentAlias (), sizeof ( handle ) )
 
 	Computer *comp = GeneratePersonalComputer ( name );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	Computer *phone = GenerateVoicePhoneSystem ( name );
-	UplinkAssert (phone);
+	UplinkAssert (phone)
 
 	int age = (int) NumberGenerator::RandomNormalNumber ( 30, 10 );						// 20 - 40
 	int photo = NumberGenerator::RandomNumber ( NUM_STARTING_PHOTOS + 1 );
@@ -3831,10 +3831,10 @@ VLocation *WorldGenerator::GetRandomLocation ()
 {
 
 	DArray <char *> *vls = game->GetWorld ()->locations.ConvertIndexToDArray ();
-	UplinkAssert ( vls->Size () > 0 );
+	UplinkAssert ( vls->Size () > 0 )
 
 	int index = NumberGenerator::RandomNumber ( vls->Size () );
-	UplinkAssert ( vls->ValidIndex (index) );
+	UplinkAssert ( vls->ValidIndex (index) )
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( vls->GetData (index) );
 	delete vls;
@@ -3846,15 +3846,15 @@ Company *WorldGenerator::GetRandomCompany ()
 {
 
 	DArray <char *> *comps = game->GetWorld ()->companies.ConvertIndexToDArray ();
-	UplinkAssert ( comps->Size () > 0 );
+	UplinkAssert ( comps->Size () > 0 )
 
 	while (true) {
 
 		int index = NumberGenerator::RandomNumber ( comps->Size () );
-		UplinkAssert ( comps->ValidIndex ( index ) );
+		UplinkAssert ( comps->ValidIndex ( index ) )
 
 		Company *comp = game->GetWorld ()->GetCompany ( comps->GetData (index) );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		// Make sure we haven't picked up the player's computer
 		// Or a persons private company
@@ -3907,7 +3907,7 @@ Computer *WorldGenerator::GetRandomComputer ( int TYPE )
 {
 
 	DArray <char *> *comps = game->GetWorld ()->computers.ConvertIndexToDArray ();
-	UplinkAssert ( comps->Size () > 0 );
+	UplinkAssert ( comps->Size () > 0 )
 
 	// Create a new array of all valid computers
 
@@ -3918,7 +3918,7 @@ Computer *WorldGenerator::GetRandomComputer ( int TYPE )
 		if ( comps->ValidIndex ( i ) ) {
 
 			Computer *comp = game->GetWorld ()->GetComputer ( comps->GetData (i) );
-			UplinkAssert ( comp );
+			UplinkAssert ( comp )
 
 			if ( (comp->TYPE & TYPE) && comp->istargetable && comp->isrunning &&
 				 strcmp(comp->companyname, "Government" ) != 0 )
@@ -3939,17 +3939,17 @@ Computer *WorldGenerator::GetRandomComputer ( int TYPE )
         printf ( "WorldGenerator WARNING: Couldn't find any computers - generated a new one\n" );
 
         Company *company = GetRandomCompany();
-        UplinkAssert (company);
+        UplinkAssert (company)
         return GenerateComputer ( company->name, TYPE );
 
     }
     else {
 
 	    int index = NumberGenerator::RandomNumber ( typecomps->Size () );
-	    UplinkAssert ( typecomps->ValidIndex ( index ) );
+	    UplinkAssert ( typecomps->ValidIndex ( index ) )
 
 	    Computer *comp = game->GetWorld ()->GetComputer ( typecomps->GetData (index) );
-	    UplinkAssert (comp);
+	    UplinkAssert (comp)
 
 	    delete comps;
 	    delete typecomps;
@@ -4009,16 +4009,16 @@ Person *WorldGenerator::GetRandomPerson ()
     // Build a list of all valid People
 
 	DArray <char *> *people = game->GetWorld ()->people.ConvertIndexToDArray ();
-	UplinkAssert ( people->Size () > 0 );
+	UplinkAssert ( people->Size () > 0 )
 
     DArray <Person *> validPeople;
 
     for ( int i = 0; i < people->Size(); ++i ) {
 
-        UplinkAssert ( people->ValidIndex(i) );
+        UplinkAssert ( people->ValidIndex(i) )
 
 		Person *person = game->GetWorld ()->GetPerson ( people->GetData(i) );
-		UplinkAssert (person);
+		UplinkAssert (person)
 
 		if ( person->istargetable &&
 			 person->GetStatus () == PERSON_STATUS_NONE )
@@ -4042,7 +4042,7 @@ Person *WorldGenerator::GetRandomPerson ()
     else {
 
 	    int index = NumberGenerator::RandomNumber ( validPeople.Size () );
-		UplinkAssert ( validPeople.ValidIndex (index) );
+		UplinkAssert ( validPeople.ValidIndex (index) )
         return (Person *) validPeople.GetData ( index );
 
     }
@@ -4053,7 +4053,7 @@ Agent *WorldGenerator::GetRandomAgent ()
 {
 
 	DArray <char *> *people = game->GetWorld ()->people.ConvertIndexToDArray ();
-	UplinkAssert ( people->Size () > 0 );
+	UplinkAssert ( people->Size () > 0 )
 
 /*
 
@@ -4086,10 +4086,10 @@ Agent *WorldGenerator::GetRandomAgent ()
 
     for ( int i = 0; i < people->Size(); ++i ) {
 
-        UplinkAssert ( people->ValidIndex(i) );
+        UplinkAssert ( people->ValidIndex(i) )
 
 		Person *person = game->GetWorld ()->GetPerson ( people->GetData(i) );
-		UplinkAssert (person);
+		UplinkAssert (person)
 
 		if ( person->istargetable &&
 			 person->rating.uplinkrating > 0 &&
@@ -4114,7 +4114,7 @@ Agent *WorldGenerator::GetRandomAgent ()
     else {
 
 	    int index = NumberGenerator::RandomNumber ( validPeople.Size () );
-		UplinkAssert ( validPeople.ValidIndex (index) );
+		UplinkAssert ( validPeople.ValidIndex (index) )
         return (Agent *) validPeople.GetData ( index );
 
     }
@@ -4125,16 +4125,16 @@ Mission *WorldGenerator::GetRandomMission  ()
 {
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	LList <Mission *> *missions = &(cu->missions);
-	UplinkAssert ( missions->Size () > 0 );
+	UplinkAssert ( missions->Size () > 0 )
 
 	int index = NumberGenerator::RandomNumber ( missions->Size () );
-	UplinkAssert ( missions->ValidIndex (index) );
+	UplinkAssert ( missions->ValidIndex (index) )
 
 	Mission *mission = missions->GetData (index);
-	UplinkAssert ( mission );
+	UplinkAssert ( mission )
 	return mission;
 
 }
@@ -4153,7 +4153,7 @@ void WorldGenerator::ReplaceAdminCompanies ( Person *person )
 			if ( cp->administrator && strcmp( person->name, cp->administrator ) == 0 ) {
 
 				Person *newadmin = WorldGenerator::GetRandomPerson ();
-	            UplinkAssert ( newadmin );
+	            UplinkAssert ( newadmin )
 				cp->SetAdmin ( newadmin->name );
 
 			}
@@ -4187,7 +4187,7 @@ void WorldGenerator::ReplaceInvalidCompanyAdmins ( )
 				if ( admin && admin->GetStatus () != PERSON_STATUS_NONE ) {
 				
 					Person *newadmin = WorldGenerator::GetRandomPerson ();
-					UplinkAssert ( newadmin );
+					UplinkAssert ( newadmin )
 					cp->SetAdmin ( newadmin->name );
 				
 				}

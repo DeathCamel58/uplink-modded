@@ -50,10 +50,10 @@ void PasswordScreenInterface::CursorFlash ()
 void PasswordScreenInterface::PasswordClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (ris);
+	UplinkAssert (ris)
 	auto *ps = (PasswordScreenInterface *) ris;
 
 	game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( ps->GetComputerScreen (), button->name, -1 );
@@ -63,10 +63,10 @@ void PasswordScreenInterface::PasswordClick ( Button *button )
 void PasswordScreenInterface::AccessCodeClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char *fullcode = new char [strlen(button->caption) + 1];
-	UplinkSafeStrcpy ( fullcode, button->caption );
+	UplinkSafeStrcpy ( fullcode, button->caption )
 
 	char *code, *code2;
 
@@ -100,7 +100,7 @@ void PasswordScreenInterface::BypassClick ( Button *button )
 void PasswordScreenInterface::CodeButtonDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	// Draw a background colour
 
@@ -175,7 +175,7 @@ bool PasswordScreenInterface::ReturnKeyPressed ()
 void PasswordScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -194,7 +194,7 @@ void PasswordScreenInterface::Create ( ComputerScreen *newcs )
 		EclMakeButtonEditable ( "passwordscreen_password" );
 
 		// Create the box that will show the currently known codes for this screen
-		UplinkAssert ( cs->GetComputer () );
+		UplinkAssert ( cs->GetComputer () )
 		BTree <char *> *btree = game->GetWorld ()->GetPlayer ()->codes.LookupTree ( cs->GetComputer ()->ip );
 
 		if ( btree ) {
@@ -267,7 +267,7 @@ int PasswordScreenInterface::ScreenID ()
 PasswordScreen *PasswordScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (PasswordScreen *) cs;
 
 }

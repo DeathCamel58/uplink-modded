@@ -62,7 +62,7 @@ void FinanceInterface::TitleClick ( Button *button )
 static void FinanceInterfaceTextDrawSplit ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	if ( !button->caption )
 		return;
@@ -117,7 +117,7 @@ void FinanceInterface::DrawAccountsTitle ( Button *button, bool highlighted, boo
 void FinanceInterface::DrawAccountButton ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int index;
 	sscanf ( button->name, "finance_account %d", &index );
@@ -157,7 +157,7 @@ void FinanceInterface::ClickAccountButton ( Button *button )
 {
 
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int index;
 	sscanf ( button->name, "finance_account %d", &index );
@@ -188,7 +188,7 @@ void FinanceInterface::ClickAccountButton ( Button *button )
 		game->GetWorld ()->GetPlayer ()->SetCurrentAccount ( index );
 
 		char oldaccount_buttonname [32];
-		UplinkSnprintf ( oldaccount_buttonname, sizeof ( oldaccount_buttonname ), "finance_account %d", oldaccount );
+		UplinkSnprintf ( oldaccount_buttonname, sizeof ( oldaccount_buttonname ), "finance_account %d", oldaccount )
 		EclDirtyButton ( oldaccount_buttonname );
 
 	}
@@ -198,8 +198,8 @@ void FinanceInterface::ClickAccountButton ( Button *button )
 void FinanceInterface::AfterPhoneDialler ( char *ip, char *info )
 {
 
-	UplinkAssert ( ip );
-	UplinkAssert ( info );
+	UplinkAssert ( ip )
+	UplinkAssert ( info )
 
 	game->GetWorld ()->GetPlayer ()->GetConnection ()->Disconnect ();
 	game->GetWorld ()->GetPlayer ()->GetConnection ()->Reset ();
@@ -212,16 +212,16 @@ void FinanceInterface::AfterPhoneDialler ( char *ip, char *info )
 	// Lookup the user name and security level
 
 	Computer *bank = game->GetWorld ()->GetVLocation ( ip )->GetComputer ();
-	UplinkAssert (bank);
+	UplinkAssert (bank)
 
 	Record *rec = bank->recordbank.GetRecordFromAccountNumber ( info );
-	UplinkAssert (rec);
+	UplinkAssert (rec)
 	
 	char *name = rec->GetField ( RECORDBANK_NAME );
-	UplinkAssert (name);
+	UplinkAssert (name)
 
 	char *security_string = rec->GetField ( RECORDBANK_SECURITY );
-	UplinkAssert ( security_string );
+	UplinkAssert ( security_string )
 	int security;
 	sscanf ( security_string, "%d", &security );
 
@@ -263,10 +263,10 @@ void FinanceInterface::Create ()
 			sscanf ( accountdetails, "%s %s", ip, accno );
 			
 			char accounttext [128];
-			UplinkStrncpy ( accounttext, "Logging on...", sizeof ( accounttext ) );
+			UplinkStrncpy ( accounttext, "Logging on...", sizeof ( accounttext ) )
 
 			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
 			EclRegisterButton ( screenw - panelwidth, paneltop + 100 + i * 20, panelwidth - 7, 15, accounttext, "Set this to be your current account", name );
 			EclRegisterButtonCallbacks ( name, DrawAccountButton, ClickAccountButton, button_click, button_highlight );
 
@@ -294,13 +294,13 @@ void FinanceInterface::Remove ()
 
 		int i = 0;
 		char name [32];
-		UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
 
 		while ( EclGetButton ( name ) ) {
 
 			EclRemoveButton ( name );
 			++i;
-			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
 
 		}
 
@@ -331,10 +331,10 @@ void FinanceInterface::Update ()
 				sscanf ( accountdetails, "%s %s", ip, accno );
 				
 				char accounttext [128];
-				UplinkStrncpy ( accounttext, "Logging on...", sizeof ( accounttext ) );
+				UplinkStrncpy ( accounttext, "Logging on...", sizeof ( accounttext ) )
 
 				char name [32];
-				UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i );
+				UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
 				EclRegisterButton ( screenw - panelwidth, paneltop + 100 + i * 20, panelwidth - 7, 15, accounttext, "Open this account", name );
 				EclRegisterButtonCallbacks ( name, DrawAccountButton, ClickAccountButton, button_click, button_highlight );
 
@@ -348,7 +348,7 @@ void FinanceInterface::Update ()
 			for ( int i = game->GetWorld ()->GetPlayer ()->accounts.Size (); i < previousnumaccounts; ++i ) {
 
 				char name [32];
-				UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i );
+				UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
 				EclRemoveButton ( name );
 
 			}
@@ -366,8 +366,8 @@ void FinanceInterface::Update ()
 		for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->accounts.Size (); ++i ) {
 
 			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i );
-			UplinkAssert ( EclGetButton ( name ) );
+			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
+			UplinkAssert ( EclGetButton ( name ) )
 
 			// Try to get the old balance
 
@@ -395,11 +395,11 @@ void FinanceInterface::Update ()
 
 			char newcaption [256];
 			if ( newbalance > oldbalance ) {
-				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc     (+%dc)", accno, ip, newbalance, newbalance - oldbalance );
+				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc     (+%dc)", accno, ip, newbalance, newbalance - oldbalance )
 			} else if ( newbalance < oldbalance ) {
-				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc     (%dc)", accno, ip, newbalance, newbalance - oldbalance );
+				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc     (%dc)", accno, ip, newbalance, newbalance - oldbalance )
 			} else {
-				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc", accno, ip, newbalance );
+				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc", accno, ip, newbalance )
 			}
 
 			EclGetButton ( name )->SetCaption ( newcaption );
@@ -412,7 +412,7 @@ void FinanceInterface::Update ()
 		// Update the overall balance
 		
 		char caption [128];
-		UplinkSnprintf ( caption, sizeof ( caption ), "Balance : %d credits", balance );
+		UplinkSnprintf ( caption, sizeof ( caption ), "Balance : %d credits", balance )
 		EclGetButton ( "finance_balance" )->SetCaption ( caption );
 
 		lastupdate = time(nullptr);

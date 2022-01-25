@@ -58,7 +58,7 @@ void CypherScreenInterface::DrawCypher ( Button *button, bool highlighted, bool 
 {
 
 	auto *thisint = (CypherScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -74,7 +74,7 @@ void CypherScreenInterface::DrawCypher ( Button *button, bool highlighted, bool 
 			int ypos = button->y + 12 + (int)(button->height * ( (float) j / (float) CYPHER_HEIGHT ));
 
 			char text [2];
-			UplinkSnprintf ( text, sizeof ( text ), "%c", thisint->cypher[i][j] );
+			UplinkSnprintf ( text, sizeof ( text ), "%c", thisint->cypher[i][j] )
 
 			if ( thisint->cypherlock[i][j] ) {
 				
@@ -114,10 +114,10 @@ void CypherScreenInterface::DrawCypher ( Button *button, bool highlighted, bool 
 void CypherScreenInterface::ClickCypher ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (ris);
+	UplinkAssert (ris)
 	auto *csi = (CypherScreenInterface *) ris;
 
 	game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( csi->GetComputerScreen (), button->name, -1 );
@@ -128,10 +128,10 @@ void CypherScreenInterface::BypassClick ( Button *button )
 {
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (ris);
+	UplinkAssert (ris)
 	auto *csi = (CypherScreenInterface *) ris;
 	CypherScreen *cs = csi->GetComputerScreen ();
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 
 	game->GetInterface ()->GetRemoteInterface ()->SetSecurity ( "Admin", 1 );
 
@@ -144,13 +144,13 @@ void CypherScreenInterface::ProceedClick ( Button *button )
 {
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (ris);
+	UplinkAssert (ris)
 	auto *csi = (CypherScreenInterface *) ris;
 
 	if ( csi->NumUnLocked () == 0 ) {
 	
 		CypherScreen *cs = csi->GetComputerScreen ();
-		UplinkAssert (cs);
+		UplinkAssert (cs)
 
 		game->GetInterface ()->GetRemoteInterface ()->SetSecurity ( "Admin", 1 );
 
@@ -244,7 +244,7 @@ void CypherScreenInterface::Cycle ()
 void CypherScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -317,7 +317,7 @@ int CypherScreenInterface::ScreenID ()
 CypherScreen *CypherScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert ( cs );
+	UplinkAssert ( cs )
 	return (CypherScreen *) cs;
 
 }

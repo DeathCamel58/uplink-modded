@@ -42,8 +42,8 @@ void ConsequenceGenerator::Initialise ()
 void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 {
 
-	UplinkAssert (person);
-	UplinkAssert (comp);
+	UplinkAssert (person)
+	UplinkAssert (comp)
 
 
 	//
@@ -57,7 +57,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 	//
 
 	Company *company = game->GetWorld ()->GetCompany ( comp->companyname );
-	UplinkAssert ( company );
+	UplinkAssert ( company )
 
 	int severity = company->size / 10 + 1;
 
@@ -190,7 +190,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 			char reason [128 + SIZE_COMPUTER_NAME];
 			UplinkSnprintf ( reason, sizeof ( reason ), "Our system security agents have caught you making unauthorised access "
-														  "to our computer system %s.", comp->name );
+														  "to our computer system %s.", comp->name )
 
 			// You have a few days to complete it
 
@@ -336,7 +336,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 void ConsequenceGenerator::ShotByFeds ( Person *person, char *reason )
 {
 
-	UplinkAssert (person);
+	UplinkAssert (person)
 
 	/*
 		Do something here - news stories etc
@@ -348,7 +348,7 @@ void ConsequenceGenerator::ShotByFeds ( Person *person, char *reason )
 void ConsequenceGenerator::Arrested ( Person *person, Computer *comp, char *reason )
 {
 
-	UplinkAssert (person);
+	UplinkAssert (person)
 
 	/*
 		For future versions : generate news stories,
@@ -363,8 +363,8 @@ void ConsequenceGenerator::Arrested ( Person *person, Computer *comp, char *reas
 void ConsequenceGenerator::DidntPayFine ( Person *person, Mission *fine )
 {
 
-	UplinkAssert (person);
-	UplinkAssert (fine);
+	UplinkAssert (person)
+	UplinkAssert (fine)
 
 	//
 	// Schedule an ARREST event for this person
@@ -429,7 +429,7 @@ void ConsequenceGenerator::DidntPayFine ( Person *person, Mission *fine )
 void ConsequenceGenerator::SeizeGateway  ( Person *person, char *reason )
 {
 
-	UplinkAssert (person);
+	UplinkAssert (person)
 
 	/*
 
@@ -446,8 +446,8 @@ void ConsequenceGenerator::SeizeGateway  ( Person *person, char *reason )
 void ConsequenceGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 {
 
-	UplinkAssert (comp);
-	UplinkAssert (al);
+	UplinkAssert (comp)
+	UplinkAssert (al)
 
 	comp->AddToRecentHacks ( 1 );
 
@@ -456,7 +456,7 @@ void ConsequenceGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	if ( comp->traceaction >= COMPUTER_TRACEACTION_LEGAL ) {
 
 		Person *hacker = game->GetWorld ()->GetPerson ( al->fromname );
-		UplinkAssert (hacker);
+		UplinkAssert (hacker)
 
 		if ( hacker == game->GetWorld ()->GetPlayer () ||
 			NumberGenerator::RandomNumber (100) < PROB_GENERATETRACEHACKERMISSION ) {
@@ -466,7 +466,7 @@ void ConsequenceGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 			// are already under investigation
 
 			auto *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-			UplinkAssert (uplink);
+			UplinkAssert (uplink)
 
 			Date testdate;
 			testdate.SetDate ( &(game->GetWorld ()->date) );
@@ -477,7 +477,7 @@ void ConsequenceGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 			for ( int i = 0; i < uplink->missions.Size (); ++i ) {
 
 				Mission *m = uplink->GetMission ( i );
-				UplinkAssert (m);
+				UplinkAssert (m)
 
 				if ( m->TYPE == MISSION_TRACEUSER &&
 					 strcmp ( m->completionA, hacker->name ) == 0 &&
@@ -501,8 +501,8 @@ void ConsequenceGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 void ConsequenceGenerator::MissionCompleted ( Mission *mission, Person *person )
 {
 
-	UplinkAssert ( mission );
-	UplinkAssert ( person );
+	UplinkAssert ( mission )
+	UplinkAssert ( person )
 
 	switch ( mission->TYPE ) {
 
@@ -522,8 +522,8 @@ void ConsequenceGenerator::MissionCompleted ( Mission *mission, Person *person )
 void ConsequenceGenerator::MissionCompleted_StealFile	( Mission *mission, Person *person )
 {
 
-	UplinkAssert ( mission );
-	UplinkAssert ( person );
+	UplinkAssert ( mission )
+	UplinkAssert ( person )
 
 	char *ip = mission->completionA;
 	char *filename = mission->completionB;
@@ -536,9 +536,9 @@ void ConsequenceGenerator::MissionCompleted_StealFile	( Mission *mission, Person
 	if ( strcmp (filename, "ALL") == 0 ) {
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 		Computer *comp = vl->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		NewsGenerator::AllFilesStolen ( comp, filetype, totalfilesize );
 
@@ -556,8 +556,8 @@ void ConsequenceGenerator::MissionCompleted_StealFile	( Mission *mission, Person
 void ConsequenceGenerator::MissionCompleted_DestroyFile ( Mission *mission, Person *person )
 {
 
-	UplinkAssert (mission);
-	UplinkAssert (person);
+	UplinkAssert (mission)
+	UplinkAssert (person)
 
 	char *filename = mission->completionB;
 
@@ -577,8 +577,8 @@ void ConsequenceGenerator::MissionCompleted_DestroyFile ( Mission *mission, Pers
 void ConsequenceGenerator::MissionCompleted_ChangeAccount ( Mission *mission, Person *person )
 {
 
-	UplinkAssert (mission);
-	UplinkAssert (person);
+	UplinkAssert (mission)
+	UplinkAssert (person)
 
 	if ( person == game->GetWorld ()->GetPlayer () ||
 		 NumberGenerator::RandomNumber (100) < PROB_GENERATETRACEHACKERMISSION ) {
@@ -591,7 +591,7 @@ void ConsequenceGenerator::MissionCompleted_ChangeAccount ( Mission *mission, Pe
 		char target_accs [16];
 		int amount;
 
-		UplinkAssert (mission);
+		UplinkAssert (mission)
 
 		sscanf ( mission->completionA, "%s %s", source_ip, source_accs );
 		sscanf ( mission->completionB, "%s %s", target_ip, target_accs );
@@ -600,26 +600,26 @@ void ConsequenceGenerator::MissionCompleted_ChangeAccount ( Mission *mission, Pe
 		// Get the source and target computers
 
 		VLocation *vls = game->GetWorld ()->GetVLocation ( source_ip );
-		UplinkAssert (vls);
+		UplinkAssert (vls)
 		auto *source = (BankComputer *) vls->GetComputer ();
-		UplinkAssert (source);
+		UplinkAssert (source)
 
 		VLocation *vlt = game->GetWorld ()->GetVLocation ( target_ip );
-		UplinkAssert (vlt);
+		UplinkAssert (vlt)
 		auto *target = (BankComputer *) vlt->GetComputer ();
-		UplinkAssert (target);
+		UplinkAssert (target)
 
 		// Get the source and target bank accounts
 
 		BankAccount *source_acc = BankAccount::GetAccount ( source_ip, source_accs );
 		BankAccount *target_acc = BankAccount::GetAccount ( target_ip, target_accs );
-		UplinkAssert (source_acc);
-		UplinkAssert (target_acc);
+		UplinkAssert (source_acc)
+		UplinkAssert (target_acc)
 
 		// Get the employer
 
 		Company *employer = game->GetWorld ()->GetCompany ( source->companyname );
-		UplinkAssert (employer);
+		UplinkAssert (employer)
 
 		MissionGenerator::Generate_TraceUser_MoneyTransfer ( employer, source, target, source_acc, target_acc, amount, person );
 
@@ -630,8 +630,8 @@ void ConsequenceGenerator::MissionCompleted_ChangeAccount ( Mission *mission, Pe
 void ConsequenceGenerator::MissionCompleted_TraceUser ( Mission *mission, Person *person )
 {
 
-	UplinkAssert ( mission );
-	UplinkAssert ( person );
+	UplinkAssert ( mission )
+	UplinkAssert ( person )
 
 	//
 	// Look up the computer that was hacked
@@ -639,9 +639,9 @@ void ConsequenceGenerator::MissionCompleted_TraceUser ( Mission *mission, Person
 
 	char *hackedip = mission->links.GetData (0);
 	VLocation *vl = game->GetWorld ()->GetVLocation ( hackedip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	//
 	// Look up the guilty person
@@ -649,7 +649,7 @@ void ConsequenceGenerator::MissionCompleted_TraceUser ( Mission *mission, Person
 
 	char *personname = mission->completionA;
 	Person *guiltyperson = game->GetWorld ()->GetPerson ( personname );
-	UplinkAssert ( guiltyperson );
+	UplinkAssert ( guiltyperson )
 
 	//
 	// This person is effectivly caught

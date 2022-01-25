@@ -29,15 +29,15 @@ Mission::Mission ()
 	whoisthetarget = nullptr;
 	
 	TYPE = MISSION_NONE;
-	UplinkStrncpy ( description, "", sizeof ( description ) );
-	UplinkStrncpy ( employer, "", sizeof ( employer ) );
-	UplinkStrncpy ( contact, "", sizeof ( contact ) );
+	UplinkStrncpy ( description, "", sizeof ( description ) )
+	UplinkStrncpy ( employer, "", sizeof ( employer ) )
+	UplinkStrncpy ( contact, "", sizeof ( contact ) )
 
-	UplinkStrncpy ( completionA, "", sizeof ( completionA ) );
-	UplinkStrncpy ( completionB, "", sizeof ( completionB ) );
-	UplinkStrncpy ( completionC, "", sizeof ( completionC ) );
-	UplinkStrncpy ( completionD, "", sizeof ( completionD ) );
-	UplinkStrncpy ( completionE, "", sizeof ( completionE ) );
+	UplinkStrncpy ( completionA, "", sizeof ( completionA ) )
+	UplinkStrncpy ( completionB, "", sizeof ( completionB ) )
+	UplinkStrncpy ( completionC, "", sizeof ( completionC ) )
+	UplinkStrncpy ( completionD, "", sizeof ( completionD ) )
+	UplinkStrncpy ( completionE, "", sizeof ( completionE ) )
 
 	payment = 0;
 	maxpayment = 0;
@@ -79,28 +79,28 @@ void Mission::SetCompletion ( char *newA, char *newB, char *newC, char *newD, ch
 	// No need to set them if nullptr is passed in - they will not be examined after all
 
 	if ( newA ) {
-		UplinkAssert ( strlen(newA) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionA, newA, sizeof ( completionA ) );
+		UplinkAssert ( strlen(newA) < SIZE_MISSION_COMPLETION )
+		UplinkStrncpy ( completionA, newA, sizeof ( completionA ) )
 	}
 
 	if ( newB ) {
-		UplinkAssert ( strlen(newB) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionB, newB, sizeof ( completionB ) );
+		UplinkAssert ( strlen(newB) < SIZE_MISSION_COMPLETION )
+		UplinkStrncpy ( completionB, newB, sizeof ( completionB ) )
 	}
 
 	if ( newC ) {
-		UplinkAssert ( strlen(newC) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionC, newC, sizeof ( completionC ) );
+		UplinkAssert ( strlen(newC) < SIZE_MISSION_COMPLETION )
+		UplinkStrncpy ( completionC, newC, sizeof ( completionC ) )
 	}
 
 	if ( newD ) {
-		UplinkAssert ( strlen(newD) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionD, newD, sizeof ( completionD ) );
+		UplinkAssert ( strlen(newD) < SIZE_MISSION_COMPLETION )
+		UplinkStrncpy ( completionD, newD, sizeof ( completionD ) )
 	}
 
 	if ( newE ) {
-		UplinkAssert ( strlen(newE) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionE, newE, sizeof ( completionE ) );
+		UplinkAssert ( strlen(newE) < SIZE_MISSION_COMPLETION )
+		UplinkStrncpy ( completionE, newE, sizeof ( completionE ) )
 	}
 
 }
@@ -108,7 +108,7 @@ void Mission::SetCompletion ( char *newA, char *newB, char *newC, char *newD, ch
 void Mission::SetCreateDate ( Date *date )
 {
 
-	UplinkAssert ( date );
+	UplinkAssert ( date )
 	createdate.SetDate ( date );
 
 }
@@ -123,8 +123,8 @@ void Mission::SetNpcPriority ( bool newpriority )
 void Mission::SetDescription ( char *newdescription )
 {
 
-	UplinkAssert ( strlen ( newdescription ) < SIZE_MISSION_DESCRIPTION );
-	UplinkStrncpy ( description, newdescription, sizeof ( description ) );
+	UplinkAssert ( strlen ( newdescription ) < SIZE_MISSION_DESCRIPTION )
+	UplinkStrncpy ( description, newdescription, sizeof ( description ) )
 
 }
 
@@ -134,7 +134,7 @@ void Mission::SetDetails ( char *newdetails )
 	delete [] details;
 
 	details = new char [strlen(newdetails)+1];
-	UplinkSafeStrcpy ( details, newdetails );
+	UplinkSafeStrcpy ( details, newdetails )
 
 }
 
@@ -144,7 +144,7 @@ void Mission::SetFullDetails ( char *newdetails )
 	delete [] fulldetails;
 
 	fulldetails = new char [strlen(newdetails)+1];
-	UplinkSafeStrcpy ( fulldetails, newdetails );
+	UplinkSafeStrcpy ( fulldetails, newdetails )
 
 }
 
@@ -157,7 +157,7 @@ void Mission::SetWhySoMuchMoney	( char *answer )
 	if ( answer ) {
 
 		whysomuchmoney = new char [strlen(answer)+1];
-		UplinkSafeStrcpy ( whysomuchmoney, answer );
+		UplinkSafeStrcpy ( whysomuchmoney, answer )
 
 	}
 
@@ -172,7 +172,7 @@ void Mission::SetHowSecure ( char *answer )
 	if ( answer ) {
 
 		howsecure = new char [strlen(answer)+1];
-		UplinkSafeStrcpy ( howsecure, answer );
+		UplinkSafeStrcpy ( howsecure, answer )
 
 	}
 
@@ -187,7 +187,7 @@ void Mission::SetWhoIsTheTarget ( char *answer )
 	if ( answer ) {
 
 		whoisthetarget = new char [strlen(answer)+1];
-		UplinkSafeStrcpy ( whoisthetarget, answer );
+		UplinkSafeStrcpy ( whoisthetarget, answer )
 
 	}
 
@@ -196,20 +196,20 @@ void Mission::SetWhoIsTheTarget ( char *answer )
 void Mission::SetEmployer ( char *newemployer )
 {
 
-	UplinkAssert ( strlen (newemployer) < 64 );
-	UplinkAssert ( game->GetWorld ()->GetCompany (newemployer) );
+	UplinkAssert ( strlen (newemployer) < 64 )
+	UplinkAssert ( game->GetWorld ()->GetCompany (newemployer) )
 
-	UplinkStrncpy ( employer, newemployer, sizeof ( employer ) );
+	UplinkStrncpy ( employer, newemployer, sizeof ( employer ) )
 
 }
 
 void Mission::SetContact ( char *newcontact )
 {
 
-	UplinkAssert ( strlen (newcontact) < SIZE_PERSON_NAME );
-	UplinkAssert ( game->GetWorld ()->GetPerson ( newcontact ) );
+	UplinkAssert ( strlen (newcontact) < SIZE_PERSON_NAME )
+	UplinkAssert ( game->GetWorld ()->GetPerson ( newcontact ) )
 
-	UplinkStrncpy ( contact, newcontact, sizeof ( contact ) );
+	UplinkStrncpy ( contact, newcontact, sizeof ( contact ) )
 
 }
 
@@ -250,10 +250,10 @@ void Mission::SetAcceptRating ( int newrating )
 void Mission::GiveLink ( char *ip )
 {
 
-	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP );
+	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP )
 	size_t theipsize = SIZE_VLOCATION_IP;
 	char *theip = new char [theipsize];
-	UplinkStrncpy ( theip, ip, theipsize );
+	UplinkStrncpy ( theip, ip, theipsize )
 	links.PutData ( theip );
 
 }
@@ -261,12 +261,12 @@ void Mission::GiveLink ( char *ip )
 void Mission::GiveCode ( char *ip, char *code )
 {
 
-	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP );
+	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP )
 	char theip [SIZE_VLOCATION_IP];
-	UplinkStrncpy ( theip, ip, sizeof ( theip ) );
+	UplinkStrncpy ( theip, ip, sizeof ( theip ) )
 
 	char *thecode = new char [strlen(code)+1];
-	UplinkSafeStrcpy ( thecode, code );
+	UplinkSafeStrcpy ( thecode, code )
 
 	codes.PutData ( theip, thecode );
 
@@ -292,7 +292,7 @@ Date *Mission::GetDueDate ()
 char *Mission::GetDetails ()
 {
 
-	UplinkAssert ( details );
+	UplinkAssert ( details )
 	return details;
 
 }
@@ -300,7 +300,7 @@ char *Mission::GetDetails ()
 char *Mission::GetFullDetails ()
 {
 
-	UplinkAssert ( fulldetails );
+	UplinkAssert ( fulldetails )
 	return fulldetails;
 
 }

@@ -40,7 +40,7 @@ void MessageScreenInterface::MailMeClick ( Button *button )
 {
 
 	auto *msi = (MessageScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (msi);
+	UplinkAssert (msi)
 
 	auto *m = new Message ();
 	m->SetTo ( "PLAYER" );
@@ -72,7 +72,7 @@ void MessageScreenInterface::Create ()
 void MessageScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -90,7 +90,7 @@ void MessageScreenInterface::Create ( ComputerScreen *newcs )
 
 			int width = (int) ( 20 + strlen (GetComputerScreen ()->buttonmessage) * 10 );
 			char name [128 + SIZE_VLOCATION_IP + 1];
-			UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+			UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 			EclRegisterButton ( 320 - width/2, 370, width, 20, GetComputerScreen ()->buttonmessage, GetComputerScreen ()->buttonmessage, name );
 			EclRegisterButtonCallback ( name, Click );
 
@@ -99,9 +99,9 @@ void MessageScreenInterface::Create ( ComputerScreen *newcs )
 		if ( GetComputerScreen ()->mailthistome ) {
 
 			char name [128 + SIZE_VLOCATION_IP + 1];
-			UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+			UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 			Button *b = EclGetButton ( name );
-			UplinkAssert (b);
+			UplinkAssert (b)
 
 			EclRegisterButton ( b->x - 120, b->y, 100, 20, "Mail this to me", "Click to send this information to yourself in an email", "messagescreen_mailme" );
 			EclRegisterButtonCallback ( "messagescreen_mailme", MailMeClick );
@@ -123,7 +123,7 @@ void MessageScreenInterface::Remove ()
 		EclRemoveButton ( "messagescreen_subtitle" );
 
 		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 		EclRemoveButton ( name );
 
 		EclRemoveButton ( "messagescreen_mailme" );
@@ -142,7 +142,7 @@ bool MessageScreenInterface::IsVisible ()
 MessageScreen *MessageScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (MessageScreen *) cs;
 
 }

@@ -62,7 +62,7 @@ Image *IRCInterface::imgSmileyWink = nullptr;
 void IRCInterface::MainTextDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
     // Clipping
 
@@ -92,7 +92,7 @@ void IRCInterface::MainTextDraw ( Button *button, bool highlighted, bool clicked
 		if ( buffer.ValidIndex (thisRow) ) {
 
 			UplinkIRCMessage *msg = buffer.GetData(thisRow);
-			UplinkAssert (msg);
+			UplinkAssert (msg)
 
 			int xpos = button->x + 10;
 			int ypos = button->y + 10 + i * 15;
@@ -136,7 +136,7 @@ void IRCInterface::AddEmoticons ( int row, char *smiley, Image *imgSmiley )
 	if ( buffer.ValidIndex (thisRow) ) {
 
 		UplinkIRCMessage *msg = buffer.GetData(thisRow);
-		UplinkAssert (msg);
+		UplinkAssert (msg)
 
         Button *button = EclGetButton ( "irc_maintext" );
         if ( !button ) return;
@@ -232,7 +232,7 @@ void IRCInterface::ConnectClick ( Button *button )
 {
 
     auto *thisint = (IRCInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
-    UplinkAssert (thisint);
+    UplinkAssert (thisint)
 
     if ( connected ) {
 		
@@ -308,7 +308,7 @@ void IRCInterface::PostClick ( Button *button )
     if ( !cIrcSession ) return;
 
 	Button *textButton = EclGetButton ( "irc_inputbox" );
-	UplinkAssert (textButton );
+	UplinkAssert (textButton )
 
     char newMessage [512];
 
@@ -360,7 +360,7 @@ void IRCInterface::UserScrollChange ( char *name, int newValue )
 void IRCInterface::AddText ( char *user, const char *text, float r, float g, float b )
 {
 
-	UplinkAssert (text);
+	UplinkAssert (text)
 	
 
 	// Break up the text into word wrapped lines
@@ -383,7 +383,7 @@ void IRCInterface::AddText ( char *user, const char *text, float r, float g, flo
 		
 		for ( int i = 0; i < numLines; ++i ) {
 			char *theLine = wrapped->GetData(i);
-			UplinkAssert (theLine);
+			UplinkAssert (theLine)
 			if ( strlen(theLine) > 0 ) {
 				auto *msg = new UplinkIRCMessage ();
 				char *thisuser = ( i == 0 ? user : nullptr );
@@ -477,7 +477,7 @@ void IRCInterface::AddUser ( char *name )
 
     for ( int i = 0; i < users.Size(); ++i ) {
         UplinkIRCUser *thisUser = users.GetData(i);
-        UplinkAssert (thisUser);
+        UplinkAssert (thisUser)
         char *lowerCaseThisUser = LowerCaseString ( thisUser->name );
         if ( ( user->status == 1 && thisUser->status == 0 )                                                            ||
              (user->status == 1 && thisUser->status == 1 && strcmp ( lowerCaseName, lowerCaseThisUser ) < 0 )          ||
@@ -512,7 +512,7 @@ void IRCInterface::RemoveUser ( char *name )
     
     for ( int i = 0; i < users.Size(); ++i ) {
         UplinkIRCUser *user = users.GetData(i);
-        UplinkAssert (user);
+        UplinkAssert (user)
         if ( strcmp ( user->name, name ) == 0 ) {
             users.RemoveData( i );
             ScrollBox *scrollBox = ScrollBox::GetScrollBox( "irc_userscroll" );
@@ -528,7 +528,7 @@ UplinkIRCUser *IRCInterface::GetUser ( char *name )
 
     for ( int i = 0; i < users.Size(); ++i ) {
         UplinkIRCUser *user = users.GetData(i);
-        UplinkAssert (user);
+        UplinkAssert (user)
         if ( strcmp ( user->name, name ) == 0 )
             return user;        
     }
@@ -557,7 +557,7 @@ void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, flo
 
     if ( newuser ) {
         user = new char [strlen(newuser)+1];
-        UplinkSafeStrcpy ( user, newuser );
+        UplinkSafeStrcpy ( user, newuser )
     }
     
     delete [] text;
@@ -565,7 +565,7 @@ void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, flo
 
 	if ( newtext ) {
 		text = new char [strlen(newtext)+1];
-		UplinkSafeStrcpy ( text, newtext );
+		UplinkSafeStrcpy ( text, newtext )
 	}
 
 	red = r;
@@ -594,7 +594,7 @@ void UplinkIRCUser::Set ( char *newname )
 
     if ( newname ) {
         name = new char [strlen(newname)+1];
-        UplinkSafeStrcpy ( name, newname );
+        UplinkSafeStrcpy ( name, newname )
     }
 
 }
@@ -1012,7 +1012,7 @@ bool UplinkIRCMonitor::Received_RPL_NAMREPLY (const CIrcMessage* pmsg)
 	char *thisParam = GETIRCPARAM ( 3 );
 	int paramlen = (int) strlen( thisParam );
     char *thisParamCopy = new char [ paramlen + 1 ];
-    UplinkSafeStrcpy ( thisParamCopy, thisParam );
+    UplinkSafeStrcpy ( thisParamCopy, thisParam )
 
 	char *currentName = nullptr;
 	for ( int i = 0; i < paramlen; i++ ) {

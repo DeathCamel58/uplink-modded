@@ -43,9 +43,9 @@ void HighSecurityScreenInterface::SystemTitleDraw ( Button *button, bool highlig
 	sscanf ( button->name, "%s %d", unused, &index );
 
 	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (hs);
+	UplinkAssert (hs)
 	MenuScreenOption *mso = hs->systems.GetData (index);
-	UplinkAssert (mso);
+	UplinkAssert (mso)
 
 
 	clear_draw ( button->x + 1, button->y, button->width, button->height );
@@ -84,9 +84,9 @@ void HighSecurityScreenInterface::SystemClick ( Button *button )
 	sscanf ( button->name, "%s %d", unused, &index );
 
 	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (hs);
+	UplinkAssert (hs)
 	MenuScreenOption *mso = hs->systems.GetData (index);
-	UplinkAssert (mso);
+	UplinkAssert (mso)
 
 	int nextpage = mso->nextpage;
 	if ( nextpage != -1 ) game->GetInterface ()->GetRemoteInterface ()->RunScreen ( nextpage, hs->GetComputer () );
@@ -104,7 +104,7 @@ void HighSecurityScreenInterface::BypassClick ( Button *button )
 	// Run the next screen
 
 	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (hs);
+	UplinkAssert (hs)
 
 	if ( hs->nextpage != -1 )
 		game->GetInterface ()->GetRemoteInterface ()->RunScreen ( hs->nextpage, hs->GetComputer () );
@@ -114,10 +114,10 @@ void HighSecurityScreenInterface::BypassClick ( Button *button )
 void HighSecurityScreenInterface::ProceedClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (hs);
+	UplinkAssert (hs)
 
 	int worstlevel = 1;
 
@@ -153,12 +153,12 @@ void HighSecurityScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButtonCallbacks ( "highsecurity_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		HighSecurityScreen *hs = GetComputerScreen ();
-		UplinkAssert (hs);
+		UplinkAssert (hs)
 
 		for ( int i = 0; i < hs->systems.Size (); ++i ) {
 			
 			MenuScreenOption *mso = hs->systems.GetData (i);
-			UplinkAssert (mso);
+			UplinkAssert (mso)
 
 			// Have we just finished bypassing this screen?
 			// If so, store the result of the bypass
@@ -178,7 +178,7 @@ void HighSecurityScreenInterface::Create ( ComputerScreen *newcs )
             if ( mso->security != 10 ) {
 
                 Computer *comp = hs->GetComputer ();
-                UplinkAssert (comp);
+                UplinkAssert (comp)
 
 	            if ( comp->security.IsRunning_Monitor () )
 		            game->GetWorld ()->GetPlayer ()->GetConnection ()->BeginTrace ();
@@ -189,9 +189,9 @@ void HighSecurityScreenInterface::Create ( ComputerScreen *newcs )
 			char button [64];
 			char status [64];
 			
-			UplinkSnprintf ( title, sizeof ( title ), "highsecurity_systemtitle %d", i );
-			UplinkSnprintf ( button, sizeof ( button ), "highsecurity_systembutton %d", i );
-			UplinkSnprintf ( status, sizeof ( status ), "highsecurity_systemstatus %d", i );
+			UplinkSnprintf ( title, sizeof ( title ), "highsecurity_systemtitle %d", i )
+			UplinkSnprintf ( button, sizeof ( button ), "highsecurity_systembutton %d", i )
+			UplinkSnprintf ( status, sizeof ( status ), "highsecurity_systemstatus %d", i )
 
 			EclRegisterButton ( 30, 140 + i * 40, 300, 25, mso->caption, "Click here to access this system", title );
 			EclRegisterButtonCallbacks ( title, SystemTitleDraw, SystemClick, button_click, button_highlight );			
@@ -231,7 +231,7 @@ void HighSecurityScreenInterface::Remove ()
 		EclRemoveButton ( "highsecurity_subtitle" );
 
 		HighSecurityScreen *hs = GetComputerScreen ();
-		UplinkAssert (hs);
+		UplinkAssert (hs)
 
 		for ( int i = 0; i < hs->systems.Size (); ++i ) {
 			
@@ -239,9 +239,9 @@ void HighSecurityScreenInterface::Remove ()
 			char button [64];
 			char status [64];
 			
-			UplinkSnprintf ( title, sizeof ( title ), "highsecurity_systemtitle %d", i );
-			UplinkSnprintf ( button, sizeof ( button ), "highsecurity_systembutton %d", i );
-			UplinkSnprintf ( status, sizeof ( status ), "highsecurity_systemstatus %d", i );
+			UplinkSnprintf ( title, sizeof ( title ), "highsecurity_systemtitle %d", i )
+			UplinkSnprintf ( button, sizeof ( button ), "highsecurity_systembutton %d", i )
+			UplinkSnprintf ( status, sizeof ( status ), "highsecurity_systemstatus %d", i )
 
 			EclRemoveButton ( title );
 			EclRemoveButton ( button );
@@ -284,7 +284,7 @@ bool HighSecurityScreenInterface::ReturnKeyPressed ()
 HighSecurityScreen *HighSecurityScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (HighSecurityScreen *) cs;
 
 }

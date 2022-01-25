@@ -90,7 +90,7 @@ void LogModifier::CommitClick ( Button *button )
 	sscanf ( button->name, "%s %d", bname, &pid );
 
 	auto *thistask = (LogModifier *) SvbGetTask ( pid );
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 	
 	// Stop the existing text buttons from being modified
 
@@ -98,9 +98,9 @@ void LogModifier::CommitClick ( Button *button )
 	char fromip	[64];
 	char data1	[64];
 	
-	UplinkSnprintf ( nexttype, sizeof ( nexttype ), "logmodifier_nexttype %d",	pid );
-	UplinkSnprintf ( fromip, sizeof ( fromip ),	"logmodifier_fromip %d",	pid );
-	UplinkSnprintf ( data1, sizeof ( data1 ),	"logmodifier_data1 %d",		pid );
+	UplinkSnprintf ( nexttype, sizeof ( nexttype ), "logmodifier_nexttype %d",	pid )
+	UplinkSnprintf ( fromip, sizeof ( fromip ),	"logmodifier_fromip %d",	pid )
+	UplinkSnprintf ( data1, sizeof ( data1 ),	"logmodifier_data1 %d",		pid )
 
 	EclRemoveButton ( nexttype );
 	EclRegisterButtonCallbacks ( fromip, textbutton_draw, nullptr, nullptr, nullptr );
@@ -122,7 +122,7 @@ void LogModifier::NextTypeClick ( Button *button )
 	sscanf ( button->name, "%s %d", bname, &pid );
 
 	auto *thistask = (LogModifier *) SvbGetTask ( pid );
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 
 	thistask->logtype ++;
 
@@ -137,14 +137,14 @@ void LogModifier::ChangeLogType ( int pid )
 {
 
 	auto *thistask = (LogModifier *) SvbGetTask ( pid );
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 
 	char ltype	[64];
-	UplinkSnprintf ( ltype, sizeof ( ltype ),	"logmodifier_ltype %d",		pid );
+	UplinkSnprintf ( ltype, sizeof ( ltype ),	"logmodifier_ltype %d",		pid )
 	EclGetButton ( ltype )->SetCaption ( logtypes [thistask->logtype+1] );
 
 	char data1 [64];
-	UplinkSnprintf ( data1, sizeof ( data1 ), "logmodifier_tdata1 %d", pid );
+	UplinkSnprintf ( data1, sizeof ( data1 ), "logmodifier_tdata1 %d", pid )
 	
 	switch ( thistask->logtype ) {
 		
@@ -167,7 +167,7 @@ void LogModifier::ChangeLogType ( int pid )
 
 			EclGetButton ( data1 )->SetCaption ( "NA" );
 
-	};
+	}
 	
 }
 
@@ -210,7 +210,7 @@ void LogModifier::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void LogModifier::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -263,7 +263,7 @@ void LogModifier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		*/
 
-	UplinkAssert (uo);
+	UplinkAssert (uo)
 	
 	if ( uo->GetOBJECTID () == OID_LOGBANK ) {
 
@@ -298,7 +298,7 @@ void LogModifier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				// Move the whole thing
 
 				Button *b = EclGetButton ( uos );
-				UplinkAssert (b);
+				UplinkAssert (b)
 				MoveTo ( b->x, b->y, 1000 );
 
 			}
@@ -320,10 +320,10 @@ void LogModifier::MoveTo ( int x, int y, int time_ms )
 		char sprogress [64];
 		char sclose    [64];
 				
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "logmodifier_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "logmodifier_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "logmodifier_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "logmodifier_close %d", pid )
 				
 		EclRegisterMovement ( stitle, x, y, time_ms );
 		EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -344,17 +344,17 @@ void LogModifier::MoveTo ( int x, int y, int time_ms )
 			char commit		[64];
 			char close		[64];
 
-			UplinkSnprintf ( background, sizeof ( background ), "logmodifier_background %d",	pid );
-			UplinkSnprintf ( t_ltype, sizeof ( t_ltype ),	  "logmodifier_tltype %d",		pid );
-			UplinkSnprintf ( ltype, sizeof ( ltype ),	  "logmodifier_ltype %d",		pid );
-			UplinkSnprintf ( t_fromip, sizeof ( t_fromip ),	  "logmodifier_tfromip %d",		pid );
-			UplinkSnprintf ( fromip, sizeof ( fromip ),  	  "logmodifier_fromip %d",		pid );
-			UplinkSnprintf ( t_data1, sizeof ( t_data1 ),	  "logmodifier_tdata1 %d",		pid );
-			UplinkSnprintf ( data1, sizeof ( data1 ),	  "logmodifier_data1 %d",		pid );
+			UplinkSnprintf ( background, sizeof ( background ), "logmodifier_background %d",	pid )
+			UplinkSnprintf ( t_ltype, sizeof ( t_ltype ),	  "logmodifier_tltype %d",		pid )
+			UplinkSnprintf ( ltype, sizeof ( ltype ),	  "logmodifier_ltype %d",		pid )
+			UplinkSnprintf ( t_fromip, sizeof ( t_fromip ),	  "logmodifier_tfromip %d",		pid )
+			UplinkSnprintf ( fromip, sizeof ( fromip ),  	  "logmodifier_fromip %d",		pid )
+			UplinkSnprintf ( t_data1, sizeof ( t_data1 ),	  "logmodifier_tdata1 %d",		pid )
+			UplinkSnprintf ( data1, sizeof ( data1 ),	  "logmodifier_data1 %d",		pid )
 			
-			UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid );
-			UplinkSnprintf ( commit, sizeof ( commit ),	  "logmodifier_commit %d",		pid );
-			UplinkSnprintf ( close, sizeof ( close ),	  "logmodifier_close2 %d",		pid );
+			UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid )
+			UplinkSnprintf ( commit, sizeof ( commit ),	  "logmodifier_commit %d",		pid )
+			UplinkSnprintf ( close, sizeof ( close ),	  "logmodifier_close2 %d",		pid )
 
 			EclRegisterMovement ( background,	x + 155, y,			time_ms );
 			EclRegisterMovement ( t_ltype,		x + 165, y + 10,	time_ms );
@@ -386,7 +386,7 @@ void LogModifier::Tick ( int n )
 
 		if ( status == LOGMODIFIER_STATUS_MODIFYING ) {
 
-			UplinkAssert (source);
+			UplinkAssert (source)
 
 			int pid = SvbLookupPID ( this );
 
@@ -405,14 +405,14 @@ void LogModifier::Tick ( int n )
 				}
 
 				AccessLog *log = source->logs.GetData (sourceindex);
-				UplinkAssert (log);
+				UplinkAssert (log)
 				
 				char sprogress [64];
-				UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid );
+				UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid )
 
 				// Modify in progress
 				++progress;		
-				UplinkAssert ( EclGetButton ( sprogress ) );
+				UplinkAssert ( EclGetButton ( sprogress ) )
 				EclGetButton ( sprogress )->width = (int) ( 120 * ( (float) progress / (float) numticksrequired ) );
 				EclDirtyButton ( sprogress );
 
@@ -423,14 +423,14 @@ void LogModifier::Tick ( int n )
 					char fromip	  [64];
 					char data1	  [64];
 
-					UplinkSnprintf ( fromip, sizeof ( fromip ),	"logmodifier_fromip %d",	pid );
-					UplinkSnprintf ( data1, sizeof ( data1 ),	"logmodifier_data1 %d",		pid );
+					UplinkSnprintf ( fromip, sizeof ( fromip ),	"logmodifier_fromip %d",	pid )
+					UplinkSnprintf ( data1, sizeof ( data1 ),	"logmodifier_data1 %d",		pid )
 
 					Button *b_fromip = EclGetButton ( fromip );
 					Button *b_data1  = EclGetButton ( data1 );
 
-					UplinkAssert (b_fromip);
-					UplinkAssert (b_data1);
+					UplinkAssert (b_fromip)
+					UplinkAssert (b_data1)
 
 					log->SetTYPE   ( logtype );
 
@@ -477,11 +477,11 @@ void LogModifier::Tick ( int n )
 				int pid = SvbLookupPID ( this );
 
 				char sprogress [64];
-				UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid );
+				UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid )
 
 				// Modify in progress
 				++progress;		
-				UplinkAssert ( EclGetButton ( sprogress ) );
+				UplinkAssert ( EclGetButton ( sprogress ) )
 				EclGetButton ( sprogress )->width = (int) ( 120 * ( (float) progress / (float) numticksrequired ) );
 				EclDirtyButton ( sprogress );
 
@@ -541,11 +541,11 @@ void LogModifier::CreateInterface ()
 		char sclose    [64];
 		char tooltip   [64];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "logmodifier_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "logmodifier_close %d", pid );	
-		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Log Modifier v%1.1f", version );
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "logmodifier_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "logmodifier_close %d", pid )
+		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Log Modifier v%1.1f", version )
 
 		EclRegisterButton ( 265, 450, 20, 15, "", tooltip, stitle );
 		button_assignbitmap ( stitle, "software/log.tif" );
@@ -580,10 +580,10 @@ void LogModifier::RemoveInterface ()
 		char sprogress [64];
 		char sclose    [64];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "logmodifier_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "logmodifier_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "logmodifier_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "logmodifier_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -608,10 +608,10 @@ void LogModifier::ShowInterface ()
 	char sprogress [64];
 	char sclose    [64];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "logmodifier_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "logmodifier_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "logmodifier_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logmodifier_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "logmodifier_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -633,17 +633,17 @@ void LogModifier::ShowInterface ()
 		char commit		[64];
 		char close		[64];
 
-		UplinkSnprintf ( background, sizeof ( background ), "logmodifier_background %d",	pid );
-		UplinkSnprintf ( t_ltype, sizeof ( t_ltype ),	  "logmodifier_tltype %d",		pid );
-		UplinkSnprintf ( ltype, sizeof ( ltype ),	  "logmodifier_ltype %d",		pid );
-		UplinkSnprintf ( t_fromip, sizeof ( t_fromip ),	  "logmodifier_tfromip %d",		pid );
-		UplinkSnprintf ( fromip, sizeof ( fromip ),  	  "logmodifier_fromip %d",		pid );
-		UplinkSnprintf ( t_data1, sizeof ( t_data1 ),	  "logmodifier_tdata1 %d",		pid );
-		UplinkSnprintf ( data1, sizeof ( data1 ),	  "logmodifier_data1 %d",		pid );
+		UplinkSnprintf ( background, sizeof ( background ), "logmodifier_background %d",	pid )
+		UplinkSnprintf ( t_ltype, sizeof ( t_ltype ),	  "logmodifier_tltype %d",		pid )
+		UplinkSnprintf ( ltype, sizeof ( ltype ),	  "logmodifier_ltype %d",		pid )
+		UplinkSnprintf ( t_fromip, sizeof ( t_fromip ),	  "logmodifier_tfromip %d",		pid )
+		UplinkSnprintf ( fromip, sizeof ( fromip ),  	  "logmodifier_fromip %d",		pid )
+		UplinkSnprintf ( t_data1, sizeof ( t_data1 ),	  "logmodifier_tdata1 %d",		pid )
+		UplinkSnprintf ( data1, sizeof ( data1 ),	  "logmodifier_data1 %d",		pid )
 		
-		UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid );
-		UplinkSnprintf ( commit, sizeof ( commit ),	  "logmodifier_commit %d",		pid );
-		UplinkSnprintf ( close, sizeof ( close ),	  "logmodifier_close2 %d",		pid );
+		UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid )
+		UplinkSnprintf ( commit, sizeof ( commit ),	  "logmodifier_commit %d",		pid )
+		UplinkSnprintf ( close, sizeof ( close ),	  "logmodifier_close2 %d",		pid )
 
 		EclButtonBringToFront ( background );
 		EclButtonBringToFront ( t_ltype );
@@ -666,7 +666,7 @@ bool LogModifier::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char stitle    [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "logmodifier_title %d", pid )
 
 	return ( EclGetButton ( stitle ) != nullptr );
 
@@ -685,9 +685,9 @@ void LogModifier::CreateExpandedInterface ()
 			// Find the top left
 
 			char titlename [64];
-			UplinkSnprintf ( titlename, sizeof ( titlename ), "logmodifier_title %d", pid );
+			UplinkSnprintf ( titlename, sizeof ( titlename ), "logmodifier_title %d", pid )
 			Button *btitle = EclGetButton ( titlename );
-			UplinkAssert (btitle);
+			UplinkAssert (btitle)
 
 			// Create the text and buttons
 
@@ -702,16 +702,16 @@ void LogModifier::CreateExpandedInterface ()
 			char close		[64];
 			char nexttype	[64];
 
-			UplinkSnprintf ( background, sizeof ( background ), "logmodifier_background %d",	pid );
-			UplinkSnprintf ( t_ltype, sizeof ( t_ltype ),	  "logmodifier_tltype %d",		pid );
-			UplinkSnprintf ( ltype, sizeof ( ltype ),	  "logmodifier_ltype %d",		pid );
-			UplinkSnprintf ( t_fromip, sizeof ( t_fromip ),	  "logmodifier_tfromip %d",		pid );
-			UplinkSnprintf ( fromip, sizeof ( fromip ),  	  "logmodifier_fromip %d",		pid );
-			UplinkSnprintf ( t_data1, sizeof ( t_data1 ),	  "logmodifier_tdata1 %d",		pid );
-			UplinkSnprintf ( data1, sizeof ( data1 ),	  "logmodifier_data1 %d",		pid );
-			UplinkSnprintf ( commit, sizeof ( commit ),	  "logmodifier_commit %d",		pid );
-			UplinkSnprintf ( close, sizeof ( close ),	  "logmodifier_close2 %d",		pid );
-			UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid );
+			UplinkSnprintf ( background, sizeof ( background ), "logmodifier_background %d",	pid )
+			UplinkSnprintf ( t_ltype, sizeof ( t_ltype ),	  "logmodifier_tltype %d",		pid )
+			UplinkSnprintf ( ltype, sizeof ( ltype ),	  "logmodifier_ltype %d",		pid )
+			UplinkSnprintf ( t_fromip, sizeof ( t_fromip ),	  "logmodifier_tfromip %d",		pid )
+			UplinkSnprintf ( fromip, sizeof ( fromip ),  	  "logmodifier_fromip %d",		pid )
+			UplinkSnprintf ( t_data1, sizeof ( t_data1 ),	  "logmodifier_tdata1 %d",		pid )
+			UplinkSnprintf ( data1, sizeof ( data1 ),	  "logmodifier_data1 %d",		pid )
+			UplinkSnprintf ( commit, sizeof ( commit ),	  "logmodifier_commit %d",		pid )
+			UplinkSnprintf ( close, sizeof ( close ),	  "logmodifier_close2 %d",		pid )
+			UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid )
 			
 			EclRegisterButton ( btitle->x + 155, btitle->y, 180, 110, "", "", background );
 			EclRegisterButtonCallbacks ( background, BackgroundDraw, nullptr, nullptr, nullptr );
@@ -746,7 +746,7 @@ void LogModifier::CreateExpandedInterface ()
 			// Register those caption changes
 
 			AccessLog *log = source->logs.GetData (sourceindex);
-			UplinkAssert (log);		
+			UplinkAssert (log)
 
 			log->Print ();
 
@@ -788,17 +788,17 @@ void LogModifier::RemoveExpandedInterface ()
 		char commit		[64];
 		char close		[64];
 
-		UplinkSnprintf ( background, sizeof ( background ), "logmodifier_background %d",	pid );
-		UplinkSnprintf ( t_ltype, sizeof ( t_ltype ),	  "logmodifier_tltype %d",		pid );
-		UplinkSnprintf ( ltype, sizeof ( ltype ),	  "logmodifier_ltype %d",		pid );
-		UplinkSnprintf ( t_fromip, sizeof ( t_fromip ),	  "logmodifier_tfromip %d",		pid );
-		UplinkSnprintf ( fromip, sizeof ( fromip ),  	  "logmodifier_fromip %d",		pid );
-		UplinkSnprintf ( t_data1, sizeof ( t_data1 ),	  "logmodifier_tdata1 %d",		pid );
-		UplinkSnprintf ( data1, sizeof ( data1 ),	  "logmodifier_data1 %d",		pid );
+		UplinkSnprintf ( background, sizeof ( background ), "logmodifier_background %d",	pid )
+		UplinkSnprintf ( t_ltype, sizeof ( t_ltype ),	  "logmodifier_tltype %d",		pid )
+		UplinkSnprintf ( ltype, sizeof ( ltype ),	  "logmodifier_ltype %d",		pid )
+		UplinkSnprintf ( t_fromip, sizeof ( t_fromip ),	  "logmodifier_tfromip %d",		pid )
+		UplinkSnprintf ( fromip, sizeof ( fromip ),  	  "logmodifier_fromip %d",		pid )
+		UplinkSnprintf ( t_data1, sizeof ( t_data1 ),	  "logmodifier_tdata1 %d",		pid )
+		UplinkSnprintf ( data1, sizeof ( data1 ),	  "logmodifier_data1 %d",		pid )
 		
-		UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid );
-		UplinkSnprintf ( commit, sizeof ( commit ),	  "logmodifier_commit %d",		pid );
-		UplinkSnprintf ( close, sizeof ( close ),	  "logmodifier_close2 %d",		pid );
+		UplinkSnprintf ( nexttype, sizeof ( nexttype ),	  "logmodifier_nexttype %d",	pid )
+		UplinkSnprintf ( commit, sizeof ( commit ),	  "logmodifier_commit %d",		pid )
+		UplinkSnprintf ( close, sizeof ( close ),	  "logmodifier_close2 %d",		pid )
 
 		EclRemoveButton ( background );
 		EclRemoveButton ( t_ltype );
@@ -821,7 +821,7 @@ bool LogModifier::IsExpandedInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char fromip_title [64];
-	UplinkSnprintf ( fromip_title, sizeof ( fromip_title ), "logmodifier_background %d", pid );
+	UplinkSnprintf ( fromip_title, sizeof ( fromip_title ), "logmodifier_background %d", pid )
 
 	return ( EclGetButton ( fromip_title ) != nullptr );
 

@@ -113,8 +113,8 @@ LocalInterfaceScreen *LocalInterfaceScreen::GetInterfaceScreen ( int screenID )
 {
 	
 	LocalInterfaceScreen *result = game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
-	UplinkAssert ( result );
-	UplinkAssert ( result->ScreenID () == screenID );
+	UplinkAssert ( result )
+	UplinkAssert ( result->ScreenID () == screenID )
 	return result;
 }
 

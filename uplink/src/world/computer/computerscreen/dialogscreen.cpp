@@ -82,7 +82,7 @@ void DialogScreen::RemoveWidget ( char *name )
 	for ( int i = 0; i < widgets.Size (); ++i ) {
 		
 		DialogScreenWidget *dsw = widgets.GetData (i);
-		UplinkAssert (dsw);
+		UplinkAssert (dsw)
 
 		if ( strcmp ( dsw->GetName (), name ) == 0 ) {
 
@@ -105,7 +105,7 @@ void DialogScreen::SetReturnKeyButton ( char *name )
 
 	delete [] returnkeybutton;
 	returnkeybutton = new char [strlen(name)+1];
-	UplinkSafeStrcpy ( returnkeybutton, name );
+	UplinkSafeStrcpy ( returnkeybutton, name )
 	
 }
 
@@ -114,7 +114,7 @@ void DialogScreen::SetEscapeKeyButton ( char *name )
 
     delete [] escapekeybutton;
     escapekeybutton = new char [strlen(name)+1];
-    UplinkSafeStrcpy ( escapekeybutton, name );
+    UplinkSafeStrcpy ( escapekeybutton, name )
 
 }
 
@@ -211,7 +211,7 @@ void DialogScreenWidget::SetName ( char *newname )
 
 	delete [] name;
 	name = new char [strlen(newname)+1];
-	UplinkSafeStrcpy ( name, newname );
+	UplinkSafeStrcpy ( name, newname )
 
 }
 
@@ -243,7 +243,7 @@ void DialogScreenWidget::SetTooltip ( char *newtooltip )
 
 	delete [] tooltip;
 	tooltip = new char [strlen(newtooltip) + 1];
-	UplinkSafeStrcpy ( tooltip, newtooltip );
+	UplinkSafeStrcpy ( tooltip, newtooltip )
 
 }
 
@@ -252,7 +252,7 @@ void DialogScreenWidget::SetCaption ( char *newcaption )
 
 	delete [] caption;
 	caption = new char [strlen(newcaption) + 1];
-	UplinkSafeStrcpy ( caption, newcaption );
+	UplinkSafeStrcpy ( caption, newcaption )
 
 }
 	
@@ -294,7 +294,7 @@ void DialogScreenWidget::SetStringData ( char *newstringdata1, char *newstringda
 	
 	if ( newstringdata1 ) {
 		stringdata1 = new char [strlen(newstringdata1) + 1];
-		UplinkSafeStrcpy ( stringdata1, newstringdata1 );
+		UplinkSafeStrcpy ( stringdata1, newstringdata1 )
 	}
 	
 	delete [] stringdata2;
@@ -302,7 +302,7 @@ void DialogScreenWidget::SetStringData ( char *newstringdata1, char *newstringda
 
 	if ( newstringdata2 ) {
 		stringdata2 = new char [strlen(newstringdata2) + 1];
-		UplinkSafeStrcpy ( stringdata2, newstringdata2 );
+		UplinkSafeStrcpy ( stringdata2, newstringdata2 )
 	}
 
 }

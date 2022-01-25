@@ -88,19 +88,19 @@ void HWInterface::CreateHWInterface ()
 		// Total CPU speed
 
 		char cpustats [64];
-		UplinkSnprintf ( cpustats, sizeof ( cpustats ), "Total CPU speed: %d Ghz", gateway->GetCPUSpeed () );
+		UplinkSnprintf ( cpustats, sizeof ( cpustats ), "Total CPU speed: %d Ghz", gateway->GetCPUSpeed () )
 		EclRegisterCaptionChange ( "hw_cpu",   cpustats );
 	
 		// Bandwidth
 
 		char bandwidthstats [64];
-		UplinkSnprintf ( bandwidthstats, sizeof ( bandwidthstats ), "Bandwidth: %d Gq/s", gateway->GetBandwidth () );
+		UplinkSnprintf ( bandwidthstats, sizeof ( bandwidthstats ), "Bandwidth: %d Gq/s", gateway->GetBandwidth () )
 		EclRegisterCaptionChange ( "hw_modem", bandwidthstats );
 
 		// Memory
 
 		char memory [128];
-		UplinkSnprintf ( memory, sizeof ( memory ), "Memory Capacity: %d Gq", gateway->memorysize );
+		UplinkSnprintf ( memory, sizeof ( memory ), "Memory Capacity: %d Gq", gateway->memorysize )
 		EclRegisterCaptionChange ( "hw_memory", memory );
 
 		// Hardware devices

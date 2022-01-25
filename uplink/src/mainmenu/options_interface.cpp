@@ -27,7 +27,7 @@ void OptionsInterface::GameOptionsClick ( Button *button )
 {
 
 	app->GetMainMenu ()->RunScreen ( MAINMENU_GENERICOPTIONS );
-	UplinkAssert ( app->GetMainMenu ()->GetMenuScreen ()->ScreenID () == MAINMENU_GENERICOPTIONS );
+	UplinkAssert ( app->GetMainMenu ()->GetMenuScreen ()->ScreenID () == MAINMENU_GENERICOPTIONS )
 	((GenericOptionsInterface *) app->GetMainMenu ()->GetMenuScreen ())->SetOptionTYPE ( "game" );
 
 }
@@ -47,7 +47,7 @@ void OptionsInterface::SoundOptionsClick ( Button *button )
 {
 
 	app->GetMainMenu ()->RunScreen ( MAINMENU_GENERICOPTIONS );
-	UplinkAssert ( app->GetMainMenu ()->GetMenuScreen ()->ScreenID () == MAINMENU_GENERICOPTIONS );
+	UplinkAssert ( app->GetMainMenu ()->GetMenuScreen ()->ScreenID () == MAINMENU_GENERICOPTIONS )
 	((GenericOptionsInterface *) app->GetMainMenu ()->GetMenuScreen ())->SetOptionTYPE ( "sound" );
 
 }

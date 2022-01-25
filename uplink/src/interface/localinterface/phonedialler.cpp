@@ -120,11 +120,11 @@ void PhoneDialler::Remove ()
 void PhoneDialler::DialNumber ( int x, int y, char *number, int scenario, char *info /* = nullptr */ )
 {
 
-	UplinkAssert ( number );
+	UplinkAssert ( number )
 
 	delete [] ip;
 	ip = new char [ strlen ( number ) + 1 ];
-	UplinkSafeStrcpy ( ip, number );
+	UplinkSafeStrcpy ( ip, number )
 
 	if ( infosup ) {
 		delete [] infosup;
@@ -132,7 +132,7 @@ void PhoneDialler::DialNumber ( int x, int y, char *number, int scenario, char *
 	}
 	if ( info ) {
 		infosup = new char [ strlen ( info ) + 1 ];
-		UplinkSafeStrcpy ( infosup, info );
+		UplinkSafeStrcpy ( infosup, info )
 	}
 
 	nextscene = scenario;
@@ -173,12 +173,12 @@ void PhoneDialler::UpdateDisplay ()
 				EclHighlightButton ( buttonnames [ ch - '1' ] );
 				
 				char caption [64];
-				UplinkStrncpy ( caption, ip, sizeof ( caption ) );
+				UplinkStrncpy ( caption, ip, sizeof ( caption ) )
 				caption [curnumber] = 0;
 				buttonDiallerNumber->SetCaption ( caption );
 
 				char filename [256];
-				UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", ch - '0' );
+				UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", ch - '0' )
 				SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );
 
 			}
@@ -213,8 +213,8 @@ void PhoneDialler::UpdateDisplay ()
 			}
 			else {
 				char message[ 64 ];
-				UplinkSnprintf ( message, sizeof ( message ), "Unrecognised nextscene=%d", nextscene );
-				UplinkAbort ( message );
+				UplinkSnprintf ( message, sizeof ( message ), "Unrecognised nextscene=%d", nextscene )
+				UplinkAbort ( message )
 			}
 
 			curnumber = -1;

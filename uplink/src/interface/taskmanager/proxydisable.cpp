@@ -67,7 +67,7 @@ void ProxyDisable::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void ProxyDisable::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -104,20 +104,20 @@ void ProxyDisable::GoClick ( Button *button )
 	sscanf ( button->name, "%s %d", bname, &pid );
 
 	auto *thistask = (ProxyDisable *) SvbGetTask ( pid );
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 
 	// Set it going
 
 	thistask->progress = 1;
 
-	UplinkStrncpy ( thistask->ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( thistask->ip ) );
+	UplinkStrncpy ( thistask->ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( thistask->ip ) )
 	
 	// Look up the target
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( thistask->ip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	thistask->ticksrequired = TICKSREQUIRED_ANALYSEPROXY * comp->security.NumSystems ();
 	thistask->ticksdone = 0;
@@ -191,7 +191,7 @@ void ProxyDisable::Tick ( int n )
 		char sprogress [128];
 		//char sborder   [128];
 		
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", SvbLookupPID ( this ) );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", SvbLookupPID ( this ) )
 
 		if ( progress == 0 ) {												// Do nothing - waiting for user to click GO			
 
@@ -213,9 +213,9 @@ void ProxyDisable::Tick ( int n )
 				// Look up the target
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-				UplinkAssert (vl);
+				UplinkAssert (vl)
 				Computer *comp = vl->GetComputer ();
-				UplinkAssert (comp);
+				UplinkAssert (comp)
 
 				// Update the display
 
@@ -245,9 +245,9 @@ void ProxyDisable::Tick ( int n )
 				// First Look up the target
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-				UplinkAssert (vl);
+				UplinkAssert (vl)
 				Computer *comp = vl->GetComputer ();
-				UplinkAssert (comp);
+				UplinkAssert (comp)
 
 				bool failed = false;
 
@@ -315,10 +315,10 @@ void ProxyDisable::CreateInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid )
 
 		EclRegisterButton ( 265, 422, 20, 15, "", "Disable any proxy servers running on this machine", stitle );
 		button_assignbitmap ( stitle, "software/go.tif" );
@@ -350,10 +350,10 @@ void ProxyDisable::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid );			
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -376,10 +376,10 @@ void ProxyDisable::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid );			
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -393,7 +393,7 @@ bool ProxyDisable::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid )
 
 	return ( EclGetButton ( stitle ) != nullptr );
 

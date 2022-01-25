@@ -54,7 +54,7 @@ Tutorial::~Tutorial ()
 void Tutorial::CloseClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -67,7 +67,7 @@ void Tutorial::CloseClick ( Button *button )
 void Tutorial::TitleClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -83,7 +83,7 @@ void Tutorial::TitleClick ( Button *button )
 void Tutorial::SkipClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -98,7 +98,7 @@ void Tutorial::SkipClick ( Button *button )
 void Tutorial::NextDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -117,7 +117,7 @@ void Tutorial::NextDraw ( Button *button, bool highlighted, bool clicked )
 void Tutorial::NextMouseMove ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -136,7 +136,7 @@ void Tutorial::NextMouseMove ( Button *button )
 void Tutorial::NextMouseDown ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -155,7 +155,7 @@ void Tutorial::NextMouseDown ( Button *button )
 void Tutorial::NextClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -184,7 +184,7 @@ void Tutorial::MenuButtonClick ( Button *button )
 	// Run that part of the tutorial
 
 	auto *thistask = (Tutorial *) SvbGetTask (pid);
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 	thistask->RemoveMenuInterface ();
 	thistask->menu = false;
 	thistask->RunTutorial ( buttonindex, 1 );
@@ -237,11 +237,11 @@ void Tutorial::MoveTo ( int x, int y, int time_ms )
 		char text [64];
 		char next [64];
 
-		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid );
-		UplinkSnprintf ( skip, sizeof ( skip ), "tutorial_skip %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "tutorial_close %d", pid );
-		UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
-		UplinkSnprintf ( next, sizeof ( next ), "tutorial_next %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid )
+		UplinkSnprintf ( skip, sizeof ( skip ), "tutorial_skip %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "tutorial_close %d", pid )
+		UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
+		UplinkSnprintf ( next, sizeof ( next ), "tutorial_next %d", pid )
 
 		EclRegisterMovement ( title, x + 1, y + 1, time_ms );
 		EclRegisterMovement ( skip, x + 236, y + 1, time_ms );
@@ -277,11 +277,11 @@ void Tutorial::CreateInterface ()
 		char text [64];
 		char next [64];
 
-		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid );
-		UplinkSnprintf ( skip, sizeof ( skip ), "tutorial_skip %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "tutorial_close %d", pid );
-		UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
-		UplinkSnprintf ( next, sizeof ( next ), "tutorial_next %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid )
+		UplinkSnprintf ( skip, sizeof ( skip ), "tutorial_skip %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "tutorial_close %d", pid )
+		UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
+		UplinkSnprintf ( next, sizeof ( next ), "tutorial_next %d", pid )
 
 		EclRegisterButton ( 200, 400, 235, 13, "Tutorial Daemon", "The tutorial software", title );
 		EclRegisterButtonCallback ( title, TitleClick );
@@ -321,11 +321,11 @@ void Tutorial::RemoveInterface ()
 		char text [64];
 		char next [64];
 
-		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid );
-		UplinkSnprintf ( skip, sizeof ( skip ), "tutorial_skip %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "tutorial_close %d", pid );
-		UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
-		UplinkSnprintf ( next, sizeof ( next ), "tutorial_next %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid )
+		UplinkSnprintf ( skip, sizeof ( skip ), "tutorial_skip %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "tutorial_close %d", pid )
+		UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
+		UplinkSnprintf ( next, sizeof ( next ), "tutorial_next %d", pid )
 
 		EclRemoveButton ( title );
 		EclRemoveButton ( skip );
@@ -356,11 +356,11 @@ void Tutorial::ShowInterface ()
 		char text [64];
 		char next [64];
 
-		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid );
-		UplinkSnprintf ( skip, sizeof ( skip ), "tutorial_skip %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "tutorial_close %d", pid );
-		UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
-		UplinkSnprintf ( next, sizeof ( next ), "tutorial_next %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid )
+		UplinkSnprintf ( skip, sizeof ( skip ), "tutorial_skip %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "tutorial_close %d", pid )
+		UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
+		UplinkSnprintf ( next, sizeof ( next ), "tutorial_next %d", pid )
 
 		EclButtonBringToFront ( title );
 		EclButtonBringToFront ( skip );
@@ -383,7 +383,7 @@ bool Tutorial::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char title [64];
-	UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid );
+	UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid )
 
 	return ( EclGetButton ( title ) != nullptr );
 
@@ -403,12 +403,12 @@ void Tutorial::MoveMenuTo ( int x, int y, int time_ms )
 		char part2button [64];
 		char part3button [64];
 
-		UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid );
-		UplinkSnprintf ( part2, sizeof ( part2 ), "tutorial_part2 2 %d", pid );
-		UplinkSnprintf ( part3, sizeof ( part3 ), "tutorial_part3 3 %d", pid );
-		UplinkSnprintf ( part1button, sizeof ( part1button ), "tutorial_part1button 1 %d", pid );
-		UplinkSnprintf ( part2button, sizeof ( part2button ), "tutorial_part2button 2 %d", pid );
-		UplinkSnprintf ( part3button, sizeof ( part3button ), "tutorial_part3button 3 %d", pid );
+		UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid )
+		UplinkSnprintf ( part2, sizeof ( part2 ), "tutorial_part2 2 %d", pid )
+		UplinkSnprintf ( part3, sizeof ( part3 ), "tutorial_part3 3 %d", pid )
+		UplinkSnprintf ( part1button, sizeof ( part1button ), "tutorial_part1button 1 %d", pid )
+		UplinkSnprintf ( part2button, sizeof ( part2button ), "tutorial_part2button 2 %d", pid )
+		UplinkSnprintf ( part3button, sizeof ( part3button ), "tutorial_part3button 3 %d", pid )
 
 		EclRegisterMovement ( part1button, x + 10, y + 15 + 0, time_ms );
 		EclRegisterMovement ( part2button, x + 10, y + 15 + 16, time_ms );
@@ -437,9 +437,9 @@ void Tutorial::CreateMenuInterface ()
 		int pid = SvbLookupPID ( this );
 
 		char title [64];
-		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "tutorial_title %d", pid )
 		Button *titlebutton = EclGetButton ( title );
-		UplinkAssert (titlebutton);
+		UplinkAssert (titlebutton)
 
 		//
 		// Add the new buttons in
@@ -452,12 +452,12 @@ void Tutorial::CreateMenuInterface ()
 		char part2button [64];
 		char part3button [64];
 
-		UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid );
-		UplinkSnprintf ( part2, sizeof ( part2 ), "tutorial_part2 2 %d", pid );
-		UplinkSnprintf ( part3, sizeof ( part3 ), "tutorial_part3 3 %d", pid );
-		UplinkSnprintf ( part1button, sizeof ( part1button ), "tutorial_part1button 1 %d", pid );
-		UplinkSnprintf ( part2button, sizeof ( part2button ), "tutorial_part2button 2 %d", pid );
-		UplinkSnprintf ( part3button, sizeof ( part3button ), "tutorial_part3button 3 %d", pid );
+		UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid )
+		UplinkSnprintf ( part2, sizeof ( part2 ), "tutorial_part2 2 %d", pid )
+		UplinkSnprintf ( part3, sizeof ( part3 ), "tutorial_part3 3 %d", pid )
+		UplinkSnprintf ( part1button, sizeof ( part1button ), "tutorial_part1button 1 %d", pid )
+		UplinkSnprintf ( part2button, sizeof ( part2button ), "tutorial_part2button 2 %d", pid )
+		UplinkSnprintf ( part3button, sizeof ( part3button ), "tutorial_part3button 3 %d", pid )
 
 		EclRegisterButton ( titlebutton->x + 10, titlebutton->y + 15 + 0, 80, 14, "Tutorial One", "Run the first tutorial", part1button );
 		EclRegisterButton ( titlebutton->x + 10, titlebutton->y + 15 + 16, 80, 14, "Tutorial Two", "Run the second tutorial", part2button );
@@ -493,12 +493,12 @@ void Tutorial::RemoveMenuInterface ()
 		char part2button [64];
 		char part3button [64];
 
-		UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid );
-		UplinkSnprintf ( part2, sizeof ( part2 ), "tutorial_part2 2 %d", pid );
-		UplinkSnprintf ( part3, sizeof ( part3 ), "tutorial_part3 3 %d", pid );
-		UplinkSnprintf ( part1button, sizeof ( part1button ), "tutorial_part1button 1 %d", pid );
-		UplinkSnprintf ( part2button, sizeof ( part2button ), "tutorial_part2button 2 %d", pid );
-		UplinkSnprintf ( part3button, sizeof ( part3button ), "tutorial_part3button 3 %d", pid );
+		UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid )
+		UplinkSnprintf ( part2, sizeof ( part2 ), "tutorial_part2 2 %d", pid )
+		UplinkSnprintf ( part3, sizeof ( part3 ), "tutorial_part3 3 %d", pid )
+		UplinkSnprintf ( part1button, sizeof ( part1button ), "tutorial_part1button 1 %d", pid )
+		UplinkSnprintf ( part2button, sizeof ( part2button ), "tutorial_part2button 2 %d", pid )
+		UplinkSnprintf ( part3button, sizeof ( part3button ), "tutorial_part3button 3 %d", pid )
 
 		EclRemoveButton ( part1 );
 		EclRemoveButton ( part2 );
@@ -525,12 +525,12 @@ void Tutorial::ShowMenuInterface ()
 		char part2button [64];
 		char part3button [64];
 
-		UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid );
-		UplinkSnprintf ( part2, sizeof ( part2 ), "tutorial_part2 2 %d", pid );
-		UplinkSnprintf ( part3, sizeof ( part3 ), "tutorial_part3 3 %d", pid );
-		UplinkSnprintf ( part1button, sizeof ( part1button ), "tutorial_part1button 1 %d", pid );
-		UplinkSnprintf ( part2button, sizeof ( part2button ), "tutorial_part2button 2 %d", pid );
-		UplinkSnprintf ( part3button, sizeof ( part3button ), "tutorial_part3button 3 %d", pid );
+		UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid )
+		UplinkSnprintf ( part2, sizeof ( part2 ), "tutorial_part2 2 %d", pid )
+		UplinkSnprintf ( part3, sizeof ( part3 ), "tutorial_part3 3 %d", pid )
+		UplinkSnprintf ( part1button, sizeof ( part1button ), "tutorial_part1button 1 %d", pid )
+		UplinkSnprintf ( part2button, sizeof ( part2button ), "tutorial_part2button 2 %d", pid )
+		UplinkSnprintf ( part3button, sizeof ( part3button ), "tutorial_part3button 3 %d", pid )
 
 		EclButtonBringToFront ( part1 );
 		EclButtonBringToFront ( part2 );
@@ -548,7 +548,7 @@ bool Tutorial::IsMenuInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char part1 [64];
-	UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid );
+	UplinkSnprintf ( part1, sizeof ( part1 ), "tutorial_part1 1 %d", pid )
 	return ( EclGetButton ( part1 ) != nullptr );
 
 }
@@ -567,7 +567,7 @@ void Tutorial::RunMenu ()
 
 	int pid = SvbLookupPID ( this );
 	char text [64];
-	UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
+	UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
 
 	EclRegisterCaptionChange ( text, " " );
 
@@ -594,7 +594,7 @@ void Tutorial::RunTutorial ( int tutorial, int part )
 
         int pid = SvbLookupPID ( this );
         char text [64];
-        UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
+        UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
 
         EclRegisterCaptionChange ( text, "[To be completed]" );
 		printf ( "Tutorial::RunTutorial, unrecognised tutorial number %d\n", tutorial );
@@ -608,7 +608,7 @@ void Tutorial::RunTutorial1 ( int part )
 
 	int pid = SvbLookupPID ( this );
 	char text [64];
-	UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
+	UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
 	int time_ms = 3000;
 
 
@@ -962,7 +962,7 @@ void Tutorial::RunTutorial2 ( int part )
 
 	int pid = SvbLookupPID ( this );
 	char text [64];
-	UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
+	UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
 	int time_ms = 3000;
 
     
@@ -1754,7 +1754,7 @@ void Tutorial::RunTutorial3 ( int part )
 
 	int pid = SvbLookupPID ( this );
 	char text [64];
-	UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid );
+	UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
 	int time_ms = 3000;
 
     

@@ -28,10 +28,10 @@
 BankRobberyEvent::BankRobberyEvent ()
 {
 
-    UplinkStrncpy ( source_ip, " ", sizeof ( source_ip ) );
-    UplinkStrncpy ( source_accno, " ", sizeof ( source_accno ) );
-    UplinkStrncpy ( target_ip, " ", sizeof ( target_ip ) );
-    UplinkStrncpy ( target_accno, " ", sizeof ( target_accno ) );
+    UplinkStrncpy ( source_ip, " ", sizeof ( source_ip ) )
+    UplinkStrncpy ( source_accno, " ", sizeof ( source_accno ) )
+    UplinkStrncpy ( target_ip, " ", sizeof ( target_ip ) )
+    UplinkStrncpy ( target_accno, " ", sizeof ( target_accno ) )
     amount = 0;
 
 }
@@ -43,7 +43,7 @@ void BankRobberyEvent::Run ()
 {
 
     char amount_s [64];
-    UplinkSnprintf ( amount_s, sizeof ( amount_s ), "%d", amount );
+    UplinkSnprintf ( amount_s, sizeof ( amount_s ), "%d", amount )
 
     bool rumbled = false;
 
@@ -130,9 +130,9 @@ void BankRobberyEvent::Run ()
     if ( rumbled ) {
 
         VLocation *vl = game->GetWorld ()->GetVLocation ( source_ip );
-        UplinkAssert (vl);
+        UplinkAssert (vl)
         Computer *comp = vl->GetComputer ();
-        UplinkAssert (comp);
+        UplinkAssert (comp)
 
 		std::ostrstream deathmsg;
 		deathmsg << "Disavowed by Uplink Corporation at " << game->GetWorld ()->date.GetLongString ()
@@ -156,7 +156,7 @@ char *BankRobberyEvent::GetShortString ()
 {
 	size_t stringsize = 64;
     char *string = new char [stringsize];
-    UplinkStrncpy ( string, "Bank Robbery Event", stringsize );
+    UplinkStrncpy ( string, "Bank Robbery Event", stringsize )
     return string;
 }
 
@@ -180,10 +180,10 @@ void BankRobberyEvent::SetDetails ( char *newsourceip, char *newsourceaccno,
                                     int newamount, Date *newhackdate )
 {
 
-    UplinkStrncpy ( source_ip, newsourceip, sizeof ( source_ip ) );
-    UplinkStrncpy ( source_accno, newsourceaccno, sizeof ( source_accno ) );
-    UplinkStrncpy ( target_ip, newtargetip, sizeof ( target_ip ) );
-    UplinkStrncpy ( target_accno, newtargetaccno, sizeof ( target_accno ) );
+    UplinkStrncpy ( source_ip, newsourceip, sizeof ( source_ip ) )
+    UplinkStrncpy ( source_accno, newsourceaccno, sizeof ( source_accno ) )
+    UplinkStrncpy ( target_ip, newtargetip, sizeof ( target_ip ) )
+    UplinkStrncpy ( target_accno, newtargetaccno, sizeof ( target_accno ) )
 
     amount = newamount;
     hackdate.SetDate ( newhackdate );

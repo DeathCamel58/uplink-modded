@@ -91,7 +91,7 @@ void opengl_initialise (int argc, char **argv)
 
 	char *errorMessageInitLib = GciInitGraphicsLibrary ( graphics_flags );
 	if ( errorMessageInitLib ) {
-		UplinkAbort ( errorMessageInitLib );
+		UplinkAbort ( errorMessageInitLib )
 	}
 
 	GciScreenMode *mode = GciGetClosestScreenMode ( screenWidth, screenHeight );
@@ -109,7 +109,7 @@ void opengl_initialise (int argc, char **argv)
 			 screenDepth, screenRefresh,
 			 argc, argv );
 	if ( errorMessageInit ) {
-		UplinkAbort ( errorMessageInit );
+		UplinkAbort ( errorMessageInit )
 	}
 
 	if ( debugging ) printf ( "Initialising OpenGL...\n" );
@@ -442,7 +442,7 @@ void keyboard(unsigned char key, int x, int y)
 	else if ( key == 96 ) { // backtick (`)
 
 	    char screenpath [256];
-	    UplinkSnprintf ( screenpath, sizeof ( screenpath ), "%sscreenshot.bmp", app->userpath );
+	    UplinkSnprintf ( screenpath, sizeof ( screenpath ), "%sscreenshot.bmp", app->userpath )
 
 		GciSaveScreenshot( screenpath );
 
@@ -483,7 +483,7 @@ void specialkeyboard (int key, int x, int y)
 		case GCI_KEY_F9:
 
 			char screenpath [256];
-			UplinkSnprintf ( screenpath, sizeof ( screenpath ), "%sscreenshot.bmp", app->userpath );
+			UplinkSnprintf ( screenpath, sizeof ( screenpath ), "%sscreenshot.bmp", app->userpath )
 
 			GciSaveScreenshot( screenpath );
 
@@ -601,7 +601,7 @@ void mouse ( int button, int state, int x, int y )
 local void mousedraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
@@ -642,7 +642,7 @@ void passivemouse ( int x, int y )
 
 		EclButtonBringToFront ( "mouse" );
 		Button *mouse = EclGetButton ( "mouse" );
-		UplinkAssert (mouse);
+		UplinkAssert (mouse)
 		EclDirtyRectangle ( mouse->x, mouse->y, mouse->width, mouse->height );
 		EclGetButton ( "mouse" )->x = x + 1;
 		EclGetButton ( "mouse" )->y = y + 1;
@@ -695,7 +695,7 @@ void mousemove(int x, int y)
 
 		EclButtonBringToFront ( "mouse" );
 		Button *mouse = EclGetButton ( "mouse" );
-		UplinkAssert (mouse);
+		UplinkAssert (mouse)
 		EclDirtyRectangle ( mouse->x, mouse->y, mouse->width, mouse->height );
 		EclGetButton ( "mouse" )->x = x + 1;
 		EclGetButton ( "mouse" )->y = y + 1;

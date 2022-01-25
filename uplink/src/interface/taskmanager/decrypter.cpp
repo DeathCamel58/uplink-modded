@@ -57,10 +57,10 @@ void Decrypter::MoveTo ( int x, int y, int time_ms )
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid )
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -97,7 +97,7 @@ void Decrypter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				sourceindex = uoi;
 
 				Data *data = source->GetData (sourceindex);
-				UplinkAssert (data);
+				UplinkAssert (data)
 
 				numticksrequired = data->size * TICKSREQUIRED_DECRYPT;
 				progress = 0;
@@ -105,7 +105,7 @@ void Decrypter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
                 remotefile = strstr(uos, "fileserverscreen") != nullptr;
 
 				Button *button = EclGetButton ( uos );
-				UplinkAssert (button);
+				UplinkAssert (button)
 
 				MoveTo ( button->x, button->y + button->height + 1, 1000 );
 
@@ -156,7 +156,7 @@ void Decrypter::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void Decrypter::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -222,10 +222,10 @@ static bool Decrypter_ReSetTargetProgram ( int pid )
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid )
 
 		int animationid;
 		if ( ( animationid = EclIsNoCaptionChangeActive( stitle ) ) != -1 )
@@ -256,7 +256,7 @@ void Decrypter::Tick ( int n )
 
 		int pid = SvbLookupPID ( this );
 		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid )
 
 		if ( status == DECRYPTER_OFF ) {
 
@@ -279,7 +279,7 @@ void Decrypter::Tick ( int n )
 		}
 		else if ( status == DECRYPTER_INPROGRESS ) {
 
-			UplinkAssert (source);
+			UplinkAssert (source)
 
             // Check we are still connected
             if ( remotefile && !game->GetWorld ()->GetPlayer ()->IsConnected () ) {
@@ -310,7 +310,7 @@ void Decrypter::Tick ( int n )
 					if ( version <= data->encrypted )		++progress;		
 					else									progress += (int) (version - data->encrypted);
 
-					UplinkAssert ( EclGetButton ( sprogress ) );
+					UplinkAssert ( EclGetButton ( sprogress ) )
 					EclGetButton ( sprogress )->width = (int) ( 120 * ( (float) progress / (float) numticksrequired ) );
 					EclDirtyButton ( sprogress );
 
@@ -370,10 +370,10 @@ void Decrypter::CreateInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid )
 
 		EclRegisterButton ( 265, 450, 20, 15, "", "Decrypter", stitle );
 		button_assignbitmap ( stitle, "software/dec.tif" );
@@ -404,10 +404,10 @@ void Decrypter::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -430,10 +430,10 @@ void Decrypter::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "decrypter_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decrypter_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "decrypter_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -448,7 +448,7 @@ bool Decrypter::IsInterfaceVisible ()
 	int pid = SvbLookupPID ( this );
 
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_border %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "decrypter_border %d", pid )
 	
 	return ( EclGetButton (stitle) != nullptr );
 

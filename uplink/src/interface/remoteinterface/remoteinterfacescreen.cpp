@@ -113,7 +113,7 @@ bool RemoteInterfaceScreen::IsVisible ()
 ComputerScreen *RemoteInterfaceScreen::GetComputerScreen ()
 {
 
-	UplinkAssert ( cs );
+	UplinkAssert ( cs )
 	return cs;
 
 }
@@ -129,8 +129,8 @@ RemoteInterfaceScreen *RemoteInterfaceScreen::GetInterfaceScreen ( int screenID 
 {
 
 	RemoteInterfaceScreen *result = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert ( result );
-	UplinkAssert ( screenID == result->ScreenID () );
+	UplinkAssert ( result )
+	UplinkAssert ( screenID == result->ScreenID () )
 	return result;
 
 }

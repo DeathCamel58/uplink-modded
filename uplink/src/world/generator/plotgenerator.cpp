@@ -82,9 +82,9 @@ PlotGenerator::PlotGenerator ()
 	act = 0;
 	scene = 0;
 
-	UplinkStrncpy ( act1scene3agent, " ", sizeof ( act1scene3agent ) );
-	UplinkStrncpy ( act1scene4agent, " ", sizeof ( act1scene4agent ) );
-	UplinkStrncpy ( act2scene1agent, " ", sizeof ( act2scene1agent ) );
+	UplinkStrncpy ( act1scene3agent, " ", sizeof ( act1scene3agent ) )
+	UplinkStrncpy ( act1scene4agent, " ", sizeof ( act1scene4agent ) )
+	UplinkStrncpy ( act2scene1agent, " ", sizeof ( act2scene1agent ) )
 
     playervisitsplotsites = false;
     playercancelsmail = false;
@@ -99,9 +99,9 @@ PlotGenerator::PlotGenerator ()
 
 	specialmissionscompleted = 0;
 
-    UplinkStrncpy ( saveitforthejury_guytobeframed, "None", sizeof ( saveitforthejury_guytobeframed ) );
-    UplinkStrncpy ( saveitforthejury_targetbankip, "None", sizeof ( saveitforthejury_targetbankip ) );
-    UplinkStrncpy ( tracer_lastknownip, "None ", sizeof ( tracer_lastknownip ));
+    UplinkStrncpy ( saveitforthejury_guytobeframed, "None", sizeof ( saveitforthejury_guytobeframed ) )
+    UplinkStrncpy ( saveitforthejury_targetbankip, "None", sizeof ( saveitforthejury_targetbankip ) )
+    UplinkStrncpy ( tracer_lastknownip, "None ", sizeof ( tracer_lastknownip ))
 
 	numuses_revelation = 0;
     revelation_releaseuncontrolled = false;
@@ -172,12 +172,12 @@ void PlotGenerator::Initialise_ARC ()
 	cm->AddComputerScreen ( cs, 7 );
 
     Person *ceo = WorldGenerator::GetRandomPerson ();
-    UplinkAssert (ceo);
+    UplinkAssert (ceo)
     ceo->SetIsTargetable ( false );
     arc->SetBoss ( ceo->name );
 
     Person *admin = WorldGenerator::GetRandomPerson ();
-    UplinkAssert (admin);
+    UplinkAssert (admin)
     admin->SetIsTargetable ( false );
     arc->SetAdmin ( admin->name );
 
@@ -195,7 +195,7 @@ void PlotGenerator::Initialise_ARC ()
 	// Generate contact addresses for this company
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname );
+	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname )
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, pas->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -313,12 +313,12 @@ void PlotGenerator::Initialise_ARUNMOR ()
 	cm->AddComputerScreen ( cs, 7 );
 
     Person *ceo = WorldGenerator::GetRandomPerson ();
-    UplinkAssert (ceo);
+    UplinkAssert (ceo)
     ceo->SetIsTargetable ( false );
     company->SetBoss ( ceo->name );
 
     Person *admin = WorldGenerator::GetRandomPerson ();
-    UplinkAssert (admin);
+    UplinkAssert (admin)
     admin->SetIsTargetable ( false );
     company->SetAdmin ( admin->name );
 
@@ -336,7 +336,7 @@ void PlotGenerator::Initialise_ARUNMOR ()
 	// Generate contact addresses for this company
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname );
+	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname )
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, pas->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -378,15 +378,15 @@ void PlotGenerator::Initialise_DARWIN ()
 
     Person *ceo = WorldGenerator::GetRandomPerson ();
     Person *admin = WorldGenerator::GetRandomPerson ();
-    UplinkAssert (ceo);
-    UplinkAssert (admin);
+    UplinkAssert (ceo)
+    UplinkAssert (admin)
 	company->SetBoss ( ceo->name );
 	company->SetAdmin ( admin->name );
 
  	// Generate contact addresses for this company
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname );
+	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname )
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, pas->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -511,7 +511,7 @@ void PlotGenerator::PlayerCompletesSpecialMission ( int missionID )
 	for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->missions.Size (); ++i ) {
 
 		Mission *mis = game->GetWorld ()->GetPlayer ()->missions.GetData (i);
-		UplinkAssert (mis);
+		UplinkAssert (mis)
 
 		if ( strcmp ( mis->description, title ) == 0 ) {
 
@@ -547,7 +547,7 @@ void PlotGenerator::PlayerFailsSpecialMission ( int missionID )
 	for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->missions.Size (); ++i ) {
 
 		Mission *mis = game->GetWorld ()->GetPlayer ()->missions.GetData (i);
-		UplinkAssert (mis);
+		UplinkAssert (mis)
 
 		if ( strcmp ( mis->description, title ) == 0 ) {
 
@@ -567,12 +567,12 @@ bool PlotGenerator::RemoveSpecialMission ( int missionID )
 	const char *title = SpecialMissionDescription (missionID);
 
     auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-    UplinkAssert ( cu );
+    UplinkAssert ( cu )
 
     for ( int i = 0; i < cu->missions.Size (); ++i ) {
 
         Mission *m = cu->missions.GetData (i);
-        UplinkAssert (m);
+        UplinkAssert (m)
 
         if ( strcmp ( m->description, title ) == 0 ) {
 
@@ -692,14 +692,14 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 
 #ifndef DEMOGAME
 
-    UplinkAssert (msg);
+    UplinkAssert (msg)
 
     if ( act == 2 && scene == 3 ) {
 
         // Player may have sent us a copy of Revelation
         // In response to our offer
 
-        UplinkAssert (msg);
+        UplinkAssert (msg)
 
 		Data *attached = msg->GetData ();
 
@@ -844,9 +844,9 @@ void PlotGenerator::RunRevelation ( char *ip, float version, bool playerresponsi
 	// Look up the system attacked
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->isinfected_revelation > 0.0 ) return;
 
@@ -904,9 +904,9 @@ void PlotGenerator::RunFaith ( char *ip, float version, bool playerresponsible )
 	//
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->isinfected_revelation &&
         version >= comp->isinfected_revelation ) {
@@ -946,9 +946,9 @@ void PlotGenerator::RunRevelation ( char *ip, float version, bool playerresponsi
 	//
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->isinfected_revelation > 0.0 ) return;
 
@@ -1029,7 +1029,7 @@ void PlotGenerator::RunRevelation ( char *ip, float version, bool playerresponsi
 void PlotGenerator::RunRevelationTracer ( char *ip )
 {
 
-    UplinkStrncpy ( tracer_lastknownip, ip, sizeof ( tracer_lastknownip ) );
+    UplinkStrncpy ( tracer_lastknownip, ip, sizeof ( tracer_lastknownip ) )
 
 }
 
@@ -1122,7 +1122,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 					   "At the time of writing, ARC was unwilling to comment." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 
@@ -1138,7 +1138,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 		if ( allpeople->ValidIndex (ip) ) {
 
 			Person *p = allpeople->GetData (ip);
-			UplinkAssert (p);
+			UplinkAssert (p)
 
 			if ( p->GetOBJECTID () == OID_AGENT &&
 				 p->GetStatus () == PERSON_STATUS_NONE ) {
@@ -1148,7 +1148,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 				for ( int is = 0; is < sorted.Size (); ++is ) {
 
 					Person *s = sorted.GetData (is);
-					UplinkAssert (s);
+					UplinkAssert (s)
 
 					if ( p->rating.uplinkscore >= s->rating.uplinkscore ) {
 
@@ -1169,8 +1169,8 @@ void PlotGenerator::Run_Act1Scene2 ()
 
 	delete allpeople;
 
-	UplinkStrncpy ( act1scene3agent, sorted.GetData (1)->name, sizeof ( act1scene3agent ) );
-	UplinkStrncpy ( act1scene4agent, sorted.GetData (0)->name, sizeof ( act1scene4agent ) );
+	UplinkStrncpy ( act1scene3agent, sorted.GetData (1)->name, sizeof ( act1scene3agent ) )
+	UplinkStrncpy ( act1scene4agent, sorted.GetData (0)->name, sizeof ( act1scene4agent ) )
 
 	//
 	// Set up a log in on scene4 guys computer
@@ -1265,7 +1265,7 @@ void PlotGenerator::Run_Act1Scene3 ()
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 
@@ -1332,7 +1332,7 @@ void PlotGenerator::Run_Act1Scene4 ()
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 	//
@@ -1412,7 +1412,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 	hiscomp->databank.PutData ( data );
 
 	auto *ds = (DialogScreen *) hiscomp->GetComputerScreen (3);
-	UplinkAssert ( ds->GetOBJECTID () == OID_DIALOGSCREEN );
+	UplinkAssert ( ds->GetOBJECTID () == OID_DIALOGSCREEN )
 	ds->AddWidget ( "scheduletitle", WIDGET_CAPTION, 50, 150, 200, 20, "Scheduled emails", "" );
 	ds->AddWidget ( "email1", WIDGET_TEXTBOX, 80, 180, 200, 30, "TO: subscriptions@hackers.com\nSUBJECT: continuation of order", "" );
 	ds->AddWidget ( "email2", WIDGET_TEXTBOX, 80, 220, 200, 30, "TO: all-agents@uplink.com\nSUBJECT: Warning about ARC", "" );
@@ -1448,7 +1448,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 	//
@@ -1503,7 +1503,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 				<< '\x0';
 
 		char from [32];
-		UplinkSnprintf ( from, sizeof ( from ), "Agent %s", agent->handle );
+		UplinkSnprintf ( from, sizeof ( from ), "Agent %s", agent->handle )
 
 		// Include an access code, but it shouldn't work (they've disabled it by now, of course)
 
@@ -1530,7 +1530,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 			return;
 
     	auto *ds = (DialogScreen *) hiscomp->GetComputerScreen (3);
-	    UplinkAssert ( ds->GetOBJECTID () == OID_DIALOGSCREEN );
+	    UplinkAssert ( ds->GetOBJECTID () == OID_DIALOGSCREEN )
 
         ds->RemoveWidget ( "email2" );
         ds->RemoveWidget ( "view2" );
@@ -1583,7 +1583,7 @@ void PlotGenerator::Run_Act1Scene8 ()
 		news->SetDetails ( details.str () );
 
 		auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-		UplinkAssert (cu);
+		UplinkAssert (cu)
 		cu->CreateNews ( news );
 
 	}
@@ -1620,7 +1620,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 	{
 		char * temp = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
 		hiscomputername = new char[ strlen( temp ) + 1 ];
-		UplinkSafeStrcpy( hiscomputername, temp );
+		UplinkSafeStrcpy( hiscomputername, temp )
 	}
 	Computer *hiscomp = game->GetWorld ()->GetComputer ( hiscomputername );
     if ( UplinkIncompatibleSaveGameAssert (hiscomp, __FILE__, __LINE__) )
@@ -1874,7 +1874,7 @@ void PlotGenerator::Run_Act3Scene1 ()
                            "This latest accusation casts Andromeda Research Corporation in an increasingly bad light." );
 
     	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert (cu);
+	    UplinkAssert (cu)
 	    cu->CreateNews ( news );
 
     }
@@ -1894,7 +1894,7 @@ void PlotGenerator::Run_Act3Scene1 ()
 					       "might be connected to this viral outbreak.  Agents have been assigned the task of investigating." );
 
     	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert (cu);
+	    UplinkAssert (cu)
 	    cu->CreateNews ( news );
 
     }
@@ -1930,7 +1930,7 @@ void PlotGenerator::Run_Act3Scene2 ()
 					   "virus should send it to internal@Arunmor.net to claim their reward." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 	// Version info now becomes available at Uplink
@@ -1946,11 +1946,11 @@ void PlotGenerator::Run_Act3Scene2 ()
 	cu->CreateNews ( news2 );
 
 	Computer *comp = game->GetWorld ()->GetComputer ( NAME_UPLINKINTERNALSERVICES );
-	UplinkAssert (comp);
-	UplinkAssert ( comp->screens.ValidIndex ( 1 ) );
+	UplinkAssert (comp)
+	UplinkAssert ( comp->screens.ValidIndex ( 1 ) )
 	auto *menu2 = (MenuScreen *) comp->screens.GetData (1);
-	UplinkAssert (menu2);
-	UplinkAssert (menu2->GetOBJECTID () == OID_MENUSCREEN );
+	UplinkAssert (menu2)
+	UplinkAssert (menu2->GetOBJECTID () == OID_MENUSCREEN )
 	menu2->AddOption ( "Faith Progress", "Shows the latest known versions of Faith and Revelation", 3, 10, 5 );
 
 	auto *gs3 = new GenericScreen ();
@@ -2004,7 +2004,7 @@ void PlotGenerator::Run_Act3Scene3 ()
     news->SetHeadline ( "Arunmor release details on Revelation" );
     news->SetDetails ( details.str () );
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 	details.rdbuf()->freeze( false );
@@ -2045,7 +2045,7 @@ void PlotGenerator::Run_Act3Scene4 ()
     news->SetHeadline ( "Federal Agents release findings on ARC" );
     news->SetDetails ( details.str () );
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 	details.rdbuf()->freeze( false );
@@ -2081,7 +2081,7 @@ void PlotGenerator::Run_Act4Scene1 ()
     else {
 
 	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert ( cu );
+	    UplinkAssert ( cu )
 	    cu->CreateMission ( tracer );
 
         // Make sure somebody does it eventually
@@ -2127,7 +2127,7 @@ void PlotGenerator::Run_Act4Scene2 ()
     else {
 
         auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert ( cu );
+	    UplinkAssert ( cu )
 	    cu->CreateMission ( takeme );
 
         // Make sure somebody does it eventually
@@ -2173,7 +2173,7 @@ void PlotGenerator::Run_Act4Scene3 ()
     else {
 
 	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert ( cu );
+	    UplinkAssert ( cu )
 	    cu->CreateMission ( mission );
 
         // Make sure somebody does it eventually
@@ -2217,7 +2217,7 @@ void PlotGenerator::Run_Act4Scene4 ()
                        "launching a full investigation into this incident." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -2234,7 +2234,7 @@ void PlotGenerator::Run_Act4Scene5 ()
                        "Federal Agents have refused to comment on the results of their questioning at this time." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -2258,7 +2258,7 @@ void PlotGenerator::Run_Act4Scene6 ()
 
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -2425,7 +2425,7 @@ void PlotGenerator::Run_Act4Scene10 ()
                        "the ultimate motives of the company." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -2446,7 +2446,7 @@ void PlotGenerator::Run_Act4Scene11 ()
                        );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -2465,7 +2465,7 @@ void PlotGenerator::Run_Act4Scene12 ()
                        "Area Network was used to store a great deal of research on that topic.\n\n" );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -2561,7 +2561,7 @@ void PlotGenerator::Run_Act5Scene1 ()
                        "but it is not clear how effective this would be." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 	Date rundate;
@@ -2694,7 +2694,7 @@ void PlotGenerator::Run_Act5Scene2 ()
 
             Computer *comp = WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE |
                                                                  COMPUTER_TYPE_CENTRALMAINFRAME        );
-            UplinkAssert (comp);
+            UplinkAssert (comp)
             RunRevelation ( comp->ip, version_revelation, false, 2 );
 
         }
@@ -2761,7 +2761,7 @@ void PlotGenerator::Run_Act5Scene3 ()
                        "Federal Agents refused to comment at this time, but did say a statement would be released soon." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 
@@ -2797,7 +2797,7 @@ void PlotGenerator::Run_Act5Scene4 ()
                        "Federal Agents refused to comment at this time, but did say a statement would be released soon." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 
@@ -2824,7 +2824,7 @@ void PlotGenerator::Run_Act5Scene5 ()
 
             Computer *comp = WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE |
                                                                  COMPUTER_TYPE_CENTRALMAINFRAME        );
-            UplinkAssert (comp);
+            UplinkAssert (comp)
 
             RunRevelation ( comp->ip, version_revelation, false, 2 );
 
@@ -2850,7 +2850,7 @@ void PlotGenerator::Run_Act5Scene5 ()
 
                 int pos = NumberGenerator::RandomNumber ( infected.Size () );
                 char *ip = infected.GetData (pos);
-                UplinkAssert (ip);
+                UplinkAssert (ip)
 
                 RunFaith ( ip, version_faith, false );
 
@@ -2952,7 +2952,7 @@ void PlotGenerator::Run_Act6Scene1 ()
                        "It is believed this man will spend several years in jail for this crime." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 
@@ -2979,7 +2979,7 @@ void PlotGenerator::Run_Act6Scene2 ()
                        "As punishment for their crimes, both members will serve eight years imprisonment and will be banned from the use of computers for life.\n\n" );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 
@@ -3014,7 +3014,7 @@ void PlotGenerator::Run_Act6Scene3 ()
                        "At the time of writing, shares in Arunmor Corporation had risen to a new high." );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 
@@ -3051,7 +3051,7 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) );
+																	'a' + NumberGenerator::RandomNumber ( 26 ) )
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3159,7 +3159,7 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 										'a' + NumberGenerator::RandomNumber ( 26 ),
 										'a' + NumberGenerator::RandomNumber ( 26 ),
-										'a' + NumberGenerator::RandomNumber ( 26 ) );
+										'a' + NumberGenerator::RandomNumber ( 26 ) )
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3259,7 +3259,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) );
+																	'a' + NumberGenerator::RandomNumber ( 26 ) )
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3282,7 +3282,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	for ( int i = 0; i < numfiles; ++i ) {
 
 		char datatitle [64];
-		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "ARC-REVELATION %d.dat", i );
+		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "ARC-REVELATION %d.dat", i )
 
 		Data *file = new Data ();
 		file->SetTitle ( datatitle );
@@ -3302,7 +3302,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream fulldetails;
 
-	UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_ARCINFILTRATION), sizeof ( description ) );
+	UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_ARCINFILTRATION), sizeof ( description ) )
 
 	fulldetails << "As you may be aware, ARC are storing most of their Research on their Local Area Network system. "
                    "However, what is not commonly known is that the critical data (ie the research files themselves) "
@@ -3408,7 +3408,7 @@ Mission *PlotGenerator::GenerateMission_CounterAttack ()
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) );
+																	'a' + NumberGenerator::RandomNumber ( 26 ) )
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3527,7 +3527,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) );
+																	'a' + NumberGenerator::RandomNumber ( 26 ) )
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3551,7 +3551,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 
 		char datatitle [64];
 		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%c%c%c%c-DARWIN %d.dat", target->companyname [0], target->companyname [1],
-												       target->companyname [2], target->companyname [3], i );
+												       target->companyname [2], target->companyname [3], i )
 
 		Data *file = new Data ();
 		file->SetTitle ( datatitle );
@@ -3571,7 +3571,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream fulldetails;
 
-	UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_DARWIN), sizeof ( description ) );
+	UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_DARWIN), sizeof ( description ) )
 
 	fulldetails << "The results of our recent test have been extremely encouraging.  Revelation is easily "
                    "destructive enough to take out most of the Internet when it is finally released.  Unfortunately, "
@@ -3626,9 +3626,9 @@ Mission *PlotGenerator::GenerateMission_SaveItForTheJury ()
     // Find the person who is to be jailed
 
     Person *poorsod = WorldGenerator::GetRandomPerson ();
-    UplinkAssert (poorsod);
+    UplinkAssert (poorsod)
 
-    UplinkStrncpy ( saveitforthejury_guytobeframed, poorsod->name, sizeof ( saveitforthejury_guytobeframed ) );
+    UplinkStrncpy ( saveitforthejury_guytobeframed, poorsod->name, sizeof ( saveitforthejury_guytobeframed ) )
 
     //char *personalcomputername = strdup( NameGenerator::GeneratePersonalComputerName(poorsod->name) );
 	char personalcomputername[MAX_COMPUTERNAME];
@@ -3639,19 +3639,19 @@ Mission *PlotGenerator::GenerateMission_SaveItForTheJury ()
 	}
 
     Computer *personalComputer = game->GetWorld ()->GetComputer ( personalcomputername );
-    UplinkAssert (personalComputer);
+    UplinkAssert (personalComputer)
 
     // Choose a bank that the guy is due to hack
 
     auto *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
-	UplinkAssert (bank);
+	UplinkAssert (bank)
 
-    UplinkStrncpy ( saveitforthejury_targetbankip, bank->ip, sizeof ( saveitforthejury_targetbankip ) );
+    UplinkStrncpy ( saveitforthejury_targetbankip, bank->ip, sizeof ( saveitforthejury_targetbankip ) )
 
 	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream fulldetails;
 
-    UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_SAVEITFORTHEJURY), sizeof ( description ) );
+    UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_SAVEITFORTHEJURY), sizeof ( description ) )
 
     fulldetails << "We have decided that it is time to get personal.  The chief technical director of "
                    "Arunmor Corporation, Mr " << poorsod->name << ", has recently excelled in his line of work.\n"
@@ -3707,7 +3707,7 @@ Mission *PlotGenerator::GenerateMission_ShinyHammer ()
 
 		char datatitle [64];
 		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%c%c%c%c-FAITH %d.dat", target->companyname [0], target->companyname [1],
-												       target->companyname [2], target->companyname [3], i );
+												       target->companyname [2], target->companyname [3], i )
 
         int size = NumberGenerator::RandomNumber ( 10 ) + 1;
         int encrypted = NumberGenerator::RandomNumber ( 5 );
@@ -3941,7 +3941,7 @@ bool PlotGenerator::IsMissionComplete_ARCInfiltration ()
 		if ( ourcomp->databank.GetDataFile (i) ) {
 
 			Data *thisfile = ourcomp->databank.GetDataFile (i);
-			UplinkAssert (thisfile);
+			UplinkAssert (thisfile)
 
             if ( !thisfile->encrypted ) {
 
@@ -4108,7 +4108,7 @@ bool PlotGenerator::IsMissionComplete_Darwin ()
 		if ( ourcomp->databank.GetDataFile (i) ) {
 
 			Data *thisfile = ourcomp->databank.GetDataFile (i);
-			UplinkAssert (thisfile);
+			UplinkAssert (thisfile)
 
             if ( !thisfile->encrypted ) {
 
@@ -4217,14 +4217,14 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 	}
 
     Computer *personalComputer = game->GetWorld ()->GetComputer ( personalcomputername );
-    UplinkAssert (personalComputer);
+    UplinkAssert (personalComputer)
 
     // Lookup the bank he was supposed to be framed for
 
     VLocation *vl = game->GetWorld ()->GetVLocation ( saveitforthejury_targetbankip );
-    UplinkAssert (vl);
+    UplinkAssert (vl)
     auto *comp = (BankComputer *) vl->GetComputer ();
-    UplinkAssert (comp);
+    UplinkAssert (comp)
 
 
     // Look through logs on that system
@@ -4236,7 +4236,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 		if ( comp->logbank.logs.ValidIndex (il) ) {
 
 			AccessLog *al = comp->logbank.logs.GetData (il);
-			UplinkAssert (al);
+			UplinkAssert (al)
 
 			if ( al->SUSPICIOUS != LOG_NOTSUSPICIOUS &&
 				 al->TYPE == LOG_TYPE_CONNECTIONOPENED ) {
@@ -4285,12 +4285,12 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 	if ( success != 2 ) {
 
 		auto *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-		UplinkAssert (uplink);
+		UplinkAssert (uplink)
 
 		for ( int i = 0; i < uplink->news.Size (); ++i ) {
 
 			News *news = uplink->news.GetData (i);
-			UplinkAssert (news);
+			UplinkAssert (news)
 
 			if ( news->NEWSTYPE == NEWS_TYPE_ARREST && news->data1 && strcmp ( news->data1, poorsod->name ) == 0 ) {
 
@@ -4470,9 +4470,9 @@ void PlotGenerator::NewsRevelationUsed ( char *ip, int success )
 	// Look up the system attacked
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	/*
 		Headline
@@ -4496,7 +4496,7 @@ void PlotGenerator::NewsRevelationUsed ( char *ip, int success )
 		case 2:		part2 << "The " << comp->name << " was totally destroyed and the virus spread to many neighbouring systems, causing a great deal of damage.";				break;
 		case 3:		part2 << "It appears that the entire corporate computer network owned by " << comp->companyname << " was severely damaged by the virus.";					break;
 
-	};
+	}
 
 	switch ( numuses_revelation ) {
 
@@ -4515,7 +4515,7 @@ void PlotGenerator::NewsRevelationUsed ( char *ip, int success )
 					headline << "Revelation outbreak yet again";
 					break;
 
-	};
+	}
 
 	//
 	// Concatenate each part together and post it
@@ -4547,7 +4547,7 @@ void PlotGenerator::NewsRevelationUsed ( char *ip, int success )
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -4582,10 +4582,10 @@ void PlotGenerator::Infected ( char *ip )
 
 #ifndef DEMOGAME
 
-    UplinkAssert (ip);
+    UplinkAssert (ip)
 
     char *ipcopy = new char [strlen(ip)+1];
-    UplinkSafeStrcpy ( ipcopy, ip );
+    UplinkSafeStrcpy ( ipcopy, ip )
 
     infected.PutDataAtEnd ( ipcopy );
 
@@ -4709,8 +4709,8 @@ int PlotGenerator::GetSpecialMissionsCompleted ()
 char *PlotGenerator::SpecialMissionTitle ( int missionID )
 {
 
-    UplinkAssert (missionID >= 0);
-    UplinkAssert (missionID < 16);
+    UplinkAssert (missionID >= 0)
+    UplinkAssert (missionID < 16)
 
     return MISSION_TITLE [missionID];
 
@@ -4719,8 +4719,8 @@ char *PlotGenerator::SpecialMissionTitle ( int missionID )
 char *PlotGenerator::SpecialMissionDescription ( int missionID )
 {
 
-    UplinkAssert (missionID >= 0);
-    UplinkAssert (missionID < 16);
+    UplinkAssert (missionID >= 0)
+    UplinkAssert (missionID < 16)
 
     return MISSION_DESCRIPTION [missionID];
 

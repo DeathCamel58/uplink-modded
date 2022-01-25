@@ -51,11 +51,11 @@ void LanMonitor::BeginAttack ()
 {
 
     Player *player = game->GetWorld ()->GetPlayer ();
-    UplinkAssert (player);
+    UplinkAssert (player)
 	VLocation *tvl = game->GetWorld ()->GetVLocation ( player->remotehost );
-	UplinkAssert (tvl);
+	UplinkAssert (tvl)
 	Computer *comp = tvl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
     
 	currentSystem = -1;
 	currentSelected = -1;
@@ -84,7 +84,7 @@ void LanMonitor::BeginAttack ()
             for ( int k = 0; k < lanComputer->systems.Size(); ++k ) {
                 if ( lanComputer->systems.ValidIndex(k) ) {
                     LanComputerSystem *system = lanComputer->systems.GetData(k);
-				    UplinkAssert (system);
+				    UplinkAssert (system)
 				    if ( system->TYPE == LANSYSTEM_ROUTER ) {
                         ourFirstLink = k;
                         break;
@@ -93,8 +93,8 @@ void LanMonitor::BeginAttack ()
 		    }
         }
 
-        UplinkAssert ( ourFirstLink != -1 );
-        UplinkAssert ( lanComputer->systems.ValidIndex ( ourFirstLink ) );
+        UplinkAssert ( ourFirstLink != -1 )
+        UplinkAssert ( lanComputer->systems.ValidIndex ( ourFirstLink ) )
 
   		connection.PutDataAtStart( ourFirstLink );
         currentSystem = ourFirstLink;
@@ -175,7 +175,7 @@ void LanMonitor::ExtendConnection ( int newNode )
 		if ( lanComputer->links.ValidIndex(i) ) {
 		
 			LanComputerLink *link = lanComputer->links.GetData(i);
-			UplinkAssert(link);
+			UplinkAssert(link)
 
 			if ( ( (link->from == linkHead && link->to == newNode) ||
                    (link->to == linkHead && link->from == newNode) ) &&
@@ -201,7 +201,7 @@ void LanMonitor::ForceExtendConnection ( int newNode )
     //
     // Look up the new system
 
-	UplinkAssert ( lanComputer );
+	UplinkAssert ( lanComputer )
 
 	if ( !lanComputer->systems.ValidIndex(newNode) ) 
 		return;
@@ -255,13 +255,13 @@ bool LanMonitor::IsAccessable ( int newNode )
 	if ( !currentlyActive ) 
 		return false;
 
-	UplinkAssert ( lanComputer );
+	UplinkAssert ( lanComputer )
 
 	if ( !lanComputer->systems.ValidIndex(newNode) ) 
 		return false;
 
 	LanComputerSystem *newSystem = lanComputer->systems.GetData(newNode);
-	UplinkAssert (newSystem);
+	UplinkAssert (newSystem)
 
 	
 	// 
@@ -280,7 +280,7 @@ bool LanMonitor::IsAccessable ( int newNode )
         for ( int i = 0; i < lanComputer->links.Size(); ++i ) {
             if ( lanComputer->links.ValidIndex(i) ) {
                 LanComputerLink *link = lanComputer->links.GetData(i);
-                UplinkAssert (link);
+                UplinkAssert (link)
                 
                 if ( (link->to == newNode && link->visible == LANLINKVISIBLE_TOAWARE) ||
                      (link->from == newNode && link->visible == LANLINKVISIBLE_FROMAWARE) ) {
@@ -449,7 +449,7 @@ void LanMonitor::Update ()
             // in a few seconds
 
             Agent *agent = WorldGenerator::GetRandomAgent ();
-            UplinkAssert (agent);
+            UplinkAssert (agent)
 
             Mission *mission = MissionGenerator::Generate_TraceHacker( lanComputer, game->GetWorld ()->GetPlayer () );
             agent->missions.PutDataAtStart( mission );	
@@ -457,7 +457,7 @@ void LanMonitor::Update ()
             // Remove the mission from Uplink's list
 
             auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-            UplinkAssert (cu);
+            UplinkAssert (cu)
             for ( int i = 0; i < cu->missions.Size(); ++i ) {
                 if ( cu->missions.ValidIndex(i) ) {
                     if ( cu->missions.GetData(i) == mission ) {

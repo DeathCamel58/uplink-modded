@@ -122,14 +122,14 @@ void MotionSensor::Tick ( int n )
 		oldnumpeople = numpeople;
 
 		char caption [16];
-		UplinkSnprintf ( caption, sizeof ( caption ), "%d", numpeople);
+		UplinkSnprintf ( caption, sizeof ( caption ), "%d", numpeople)
 
 		int pid = SvbLookupPID ( this );
 
 		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid );
+		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
 
-		UplinkAssert ( EclGetButton ( bname ) );
+		UplinkAssert ( EclGetButton ( bname ) )
 		EclGetButton ( bname )->SetCaption ( caption );
 
 		if		( numpeople == 0 ) EclGetButton ( bname )->SetTooltip ( "There is nobody near your Gateway" );
@@ -149,7 +149,7 @@ void MotionSensor::CreateInterface ()
 		int pid = SvbLookupPID ( this );
 
 		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid );
+		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
 
 		EclRegisterButton ( 280, 20, 40, 5, "0", "Shows the status of the Motion sensor on your Gateway", bname );
 		EclRegisterButtonCallbacks ( bname, SensorDraw, SensorClose, button_click, button_highlight );
@@ -166,7 +166,7 @@ void MotionSensor::RemoveInterface ()
 		int pid = SvbLookupPID ( this );
 
 		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid );
+		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
 
 		EclRemoveButton ( bname );
 
@@ -182,7 +182,7 @@ void MotionSensor::ShowInterface ()
 	int pid = SvbLookupPID ( this );
 
 	char bname [32];
-	UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid );
+	UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
 
 	EclButtonBringToFront ( bname );
 
@@ -193,7 +193,7 @@ bool MotionSensor::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char bname [32];
-	UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid );
+	UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
 
 	return ( EclGetButton ( bname ) != nullptr );
 

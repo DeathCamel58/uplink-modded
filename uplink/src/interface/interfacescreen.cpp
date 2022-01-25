@@ -58,7 +58,7 @@ void InterfaceScreen::RegisterButton ( int x, int y, int width, int height,
 									   char *caption, char *tooltip, char *newname ) {
 	EclRegisterButton ( x, y, width, height, caption, tooltip, newname );
 	char *name = new char [strlen (newname) + 1];
-	UplinkSafeStrcpy( name, newname );
+	UplinkSafeStrcpy( name, newname )
 	this->interface_buttons->PutData( name );
 }
 
@@ -66,6 +66,6 @@ void InterfaceScreen::RegisterButton ( int x, int y, int width, int height,
 									   char *caption, char *newname ) {
 	EclRegisterButton ( x, y, width, height, caption, newname );
 	char *name = new char [strlen (newname) + 1];
-	UplinkSafeStrcpy( name, newname );
+	UplinkSafeStrcpy( name, newname )
 	this->interface_buttons->PutData( name );
 }

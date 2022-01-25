@@ -19,7 +19,7 @@ void FaithScreenInterface::CloseClick ( Button *button )
 {
 
     auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-    UplinkAssert (gs);
+    UplinkAssert (gs)
 
 	if ( gs->nextpage != -1 ) 
         game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
@@ -51,7 +51,7 @@ void FaithScreenInterface::Create ()
 void FaithScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -69,8 +69,8 @@ void FaithScreenInterface::Create ( ComputerScreen *newcs )
 		char faith [128];
 		char revelation [128];
 		
-		UplinkSnprintf ( faith, sizeof ( faith ), "Version %1.1f", game->GetWorld ()->plotgenerator.GetVersion_Faith () );
-		UplinkSnprintf ( revelation, sizeof ( revelation ), "Version %1.1f", game->GetWorld ()->plotgenerator.GetVersion_Revelation () );
+		UplinkSnprintf ( faith, sizeof ( faith ), "Version %1.1f", game->GetWorld ()->plotgenerator.GetVersion_Faith () )
+		UplinkSnprintf ( revelation, sizeof ( revelation ), "Version %1.1f", game->GetWorld ()->plotgenerator.GetVersion_Revelation () )
 
 		EclRegisterButton ( 100, 150, 100, 30, "Faith", "", "faithscreen_faithtitle" );
 		EclRegisterButton ( 100, 200, 100, 30, "Revelation", "", "faithscreen_revelationtitle" );
@@ -141,7 +141,7 @@ int FaithScreenInterface::ScreenID ()
 GenericScreen *FaithScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

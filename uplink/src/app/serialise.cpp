@@ -62,7 +62,7 @@
 void SaveBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 {
 
-	UplinkAssert ( btree );
+	UplinkAssert ( btree )
 
 	DArray <UplinkObject *> *uo = btree->ConvertToDArray ();
 	DArray <char *> *uo_id = btree->ConvertIndexToDArray ();
@@ -76,7 +76,7 @@ void SaveBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 
 	if ( nbitem > MAX_ITEMS_DATA_STRUCTURE ) {
 		UplinkPrintAbortArgs ( "WARNING: SaveBTree, number of items appears to be too big, size=%d, maxsize=%d",
-		                       nbitem, MAX_ITEMS_DATA_STRUCTURE );
+		                       nbitem, MAX_ITEMS_DATA_STRUCTURE )
 		nbitem = MAX_ITEMS_DATA_STRUCTURE;
 	}
 
@@ -86,13 +86,13 @@ void SaveBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 	for ( int i = 0; i < size && nbitem < MAX_ITEMS_DATA_STRUCTURE; ++i ) {
 		if ( uo->ValidIndex (i) ) {
 
-			UplinkAssert ( uo_id->ValidIndex (i) );
-			UplinkAssert ( uo->GetData (i) );
+			UplinkAssert ( uo_id->ValidIndex (i) )
+			UplinkAssert ( uo->GetData (i) )
 
 			SaveDynamicString ( uo_id->GetData (i), file );
 
 			int OBJECTID = uo->GetData (i)->GetOBJECTID ();
-			UplinkAssert ( OBJECTID != 0 );
+			UplinkAssert ( OBJECTID != 0 )
 			fwrite ( &OBJECTID, sizeof(int), 1, file );			
 
 			uo->GetData (i)->Save ( file );
@@ -111,7 +111,7 @@ bool LoadBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 {
 
 	if ( !btree ) {
-		UplinkPrintAssert ( btree );
+		UplinkPrintAssert ( btree )
 		return false;
 	}
 
@@ -119,7 +119,7 @@ bool LoadBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
     if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
-		UplinkPrintAbortArgs ( "WARNING: LoadBTree, number of items appears to be wrong, size=%d", size );
+		UplinkPrintAbortArgs ( "WARNING: LoadBTree, number of items appears to be wrong, size=%d", size )
 		return false;
     }
 
@@ -128,7 +128,7 @@ bool LoadBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 		char *id = nullptr;
 		if ( !LoadDynamicStringPtr ( &id, file ) ) return false;
 		if ( !id ) {
-			UplinkPrintAbort ( "WARNING: LoadBTree nullptr id" );
+			UplinkPrintAbort ( "WARNING: LoadBTree nullptr id" )
 			return false;
 		}
 
@@ -155,7 +155,7 @@ bool LoadBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 void PrintBTree ( BTree <UplinkObject *> *btree )
 {
 
-	UplinkAssert ( btree );
+	UplinkAssert ( btree )
 
 	DArray <UplinkObject *> *uo = btree->ConvertToDArray ();
 	DArray <char *> *uo_id = btree->ConvertIndexToDArray ();
@@ -163,7 +163,7 @@ void PrintBTree ( BTree <UplinkObject *> *btree )
 	for ( int i = 0; i < uo->Size (); ++i ) {
 		if ( uo->ValidIndex (i) ) {
 			
-			UplinkAssert ( uo_id->ValidIndex (i) );
+			UplinkAssert ( uo_id->ValidIndex (i) )
 			printf ( "Index = %s\n", uo_id->GetData (i) );
 
 			if ( uo->GetData (i) )
@@ -183,7 +183,7 @@ void PrintBTree ( BTree <UplinkObject *> *btree )
 void UpdateBTree ( BTree <UplinkObject *> *btree )
 {
 
-	UplinkAssert ( btree );
+	UplinkAssert ( btree )
 
 	DArray <UplinkObject *> *uo = btree->ConvertToDArray ();
 
@@ -200,7 +200,7 @@ void UpdateBTree ( BTree <UplinkObject *> *btree )
 void DeleteBTreeData ( BTree <UplinkObject *> *btree )
 {
 
-	UplinkAssert ( btree );
+	UplinkAssert ( btree )
 
 	DArray <UplinkObject *> *uo = btree->ConvertToDArray ();
 
@@ -216,7 +216,7 @@ void DeleteBTreeData ( BTree <UplinkObject *> *btree )
 void SaveBTree ( BTree <char *> *btree, FILE *file )
 {
 
-	UplinkAssert ( btree );
+	UplinkAssert ( btree )
 
 	DArray <char *> *uo = btree->ConvertToDArray ();
 	DArray <char *> *uo_id = btree->ConvertIndexToDArray ();
@@ -230,7 +230,7 @@ void SaveBTree ( BTree <char *> *btree, FILE *file )
 
 	if ( nbitem > MAX_ITEMS_DATA_STRUCTURE ) {
 		UplinkPrintAbortArgs ( "WARNING: SaveBTree, number of items appears to be too big, size=%d, maxsize=%d",
-		                       nbitem, MAX_ITEMS_DATA_STRUCTURE );
+		                       nbitem, MAX_ITEMS_DATA_STRUCTURE )
 		nbitem = MAX_ITEMS_DATA_STRUCTURE;
 	}
 
@@ -240,7 +240,7 @@ void SaveBTree ( BTree <char *> *btree, FILE *file )
 	for ( int i = 0; i < size && nbitem < MAX_ITEMS_DATA_STRUCTURE; ++i ) {
 		if ( uo->ValidIndex (i) ) {
 
-			UplinkAssert ( uo_id->ValidIndex (i) );
+			UplinkAssert ( uo_id->ValidIndex (i) )
 
 			SaveDynamicString ( uo_id->GetData (i), file );
 			SaveDynamicString ( uo->GetData (i), file );
@@ -259,7 +259,7 @@ bool LoadBTree ( BTree <char *> *btree, FILE *file )
 {
 
 	if ( !btree ) {
-		UplinkPrintAssert ( btree );
+		UplinkPrintAssert ( btree )
 		return false;
 	}
 
@@ -267,7 +267,7 @@ bool LoadBTree ( BTree <char *> *btree, FILE *file )
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
     if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
-		UplinkPrintAbortArgs ( "WARNING: LoadBTree, number of items appears to be wrong, size=%d", size );
+		UplinkPrintAbortArgs ( "WARNING: LoadBTree, number of items appears to be wrong, size=%d", size )
 		return false;
     }
 
@@ -276,7 +276,7 @@ bool LoadBTree ( BTree <char *> *btree, FILE *file )
 		char *id = nullptr;
 		if ( !LoadDynamicStringPtr ( &id, file ) ) return false;
 		if ( !id ) {
-			UplinkPrintAbort ( "WARNING: LoadBTree nullptr id" );
+			UplinkPrintAbort ( "WARNING: LoadBTree nullptr id" )
 			return false;
 		}
 
@@ -298,7 +298,7 @@ bool LoadBTree ( BTree <char *> *btree, FILE *file )
 void PrintBTree	( BTree <char *> *btree )
 {
 
-	UplinkAssert ( btree );
+	UplinkAssert ( btree )
 
 	DArray <char *> *uo = btree->ConvertToDArray ();
 	DArray <char *> *uo_id = btree->ConvertIndexToDArray ();
@@ -306,7 +306,7 @@ void PrintBTree	( BTree <char *> *btree )
 	for ( int i = 0; i < uo->Size (); ++i ) {
 		if ( uo->ValidIndex (i) ) {
 			
-			UplinkAssert ( uo_id->ValidIndex (i) );
+			UplinkAssert ( uo_id->ValidIndex (i) )
 			printf ( "Index = %s\n", uo_id->GetData (i) );
 
 			if ( uo->GetData (i) )
@@ -326,7 +326,7 @@ void PrintBTree	( BTree <char *> *btree )
 void DeleteBTreeData ( BTree <char *> *btree )
 {
 
-	UplinkAssert ( btree );
+	UplinkAssert ( btree )
 
 	DArray <char *> *uo = btree->ConvertToDArray ();
 
@@ -345,7 +345,7 @@ void DeleteBTreeData ( BTree <char *> *btree )
 void SaveLList ( LList <UplinkObject *> *llist, FILE *file )
 {
 
-	UplinkAssert ( llist );
+	UplinkAssert ( llist )
 
 	int size = llist->Size ();
 	int nbitem = 0;
@@ -355,7 +355,7 @@ void SaveLList ( LList <UplinkObject *> *llist, FILE *file )
 
 	if ( nbitem > MAX_ITEMS_DATA_STRUCTURE ) {
 		UplinkPrintAbortArgs ( "WARNING: SaveLList, number of items appears to be too big, size=%d, maxsize=%d",
-		                       nbitem, MAX_ITEMS_DATA_STRUCTURE );
+		                       nbitem, MAX_ITEMS_DATA_STRUCTURE )
 		nbitem = MAX_ITEMS_DATA_STRUCTURE;
 	}
 
@@ -365,7 +365,7 @@ void SaveLList ( LList <UplinkObject *> *llist, FILE *file )
 	for ( int i = 0; i < size && nbitem < MAX_ITEMS_DATA_STRUCTURE; ++i ) {
 		if ( llist->GetData (i) ) {
 			int OBJECTID = llist->GetData (i)->GetOBJECTID ();
-			UplinkAssert ( OBJECTID != 0 );
+			UplinkAssert ( OBJECTID != 0 )
 			fwrite ( &OBJECTID, sizeof(int), 1, file );
 			llist->GetData (i)->Save ( file );
 			nbitem++;
@@ -378,7 +378,7 @@ bool LoadLList ( LList <UplinkObject *> *llist, FILE *file )
 {
 
 	if ( !llist ) {
-		UplinkPrintAssert ( llist );
+		UplinkPrintAssert ( llist )
 		return false;
 	}
 
@@ -386,7 +386,7 @@ bool LoadLList ( LList <UplinkObject *> *llist, FILE *file )
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
     if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
-		UplinkPrintAbortArgs ( "WARNING: LoadLList, number of items appears to be wrong, size=%d", size );
+		UplinkPrintAbortArgs ( "WARNING: LoadLList, number of items appears to be wrong, size=%d", size )
 		return false;
     }
 
@@ -411,7 +411,7 @@ bool LoadLList ( LList <UplinkObject *> *llist, FILE *file )
 void PrintLList ( LList <UplinkObject *> *llist )
 {
 
-	UplinkAssert ( llist );
+	UplinkAssert ( llist )
 
 	for ( int i = 0; i < llist->Size (); ++i ) {
 
@@ -430,7 +430,7 @@ void PrintLList ( LList <UplinkObject *> *llist )
 void UpdateLList ( LList <UplinkObject *> *llist )
 {
 
-	UplinkAssert ( llist );
+	UplinkAssert ( llist )
 
 	for ( int i = 0; i < llist->Size (); ++i )
 		if ( llist->GetData (i) )
@@ -441,7 +441,7 @@ void UpdateLList ( LList <UplinkObject *> *llist )
 void DeleteLListData ( LList <UplinkObject *> *llist )
 {
 
-	UplinkAssert ( llist );
+	UplinkAssert ( llist )
 
 	for ( int i = 0; i < llist->Size (); ++i )
 		if ( llist->GetData (i) )
@@ -452,13 +452,13 @@ void DeleteLListData ( LList <UplinkObject *> *llist )
 void SaveLList ( LList <char *> *llist, FILE *file )
 {
 
-	UplinkAssert ( llist );
+	UplinkAssert ( llist )
 
 	int size = llist->Size ();
 
 	if ( size > MAX_ITEMS_DATA_STRUCTURE ) {
 		UplinkPrintAbortArgs ( "WARNING: SaveLList, number of items appears to be too big, size=%d, maxsize=%d",
-		                       size, MAX_ITEMS_DATA_STRUCTURE );
+		                       size, MAX_ITEMS_DATA_STRUCTURE )
 		size = MAX_ITEMS_DATA_STRUCTURE;
 	}
 
@@ -473,7 +473,7 @@ bool LoadLList ( LList <char *> *llist, FILE *file )
 {
 
 	if ( !llist ) {
-		UplinkAssert ( llist );
+		UplinkAssert ( llist )
 		return false;
 	}
 
@@ -481,7 +481,7 @@ bool LoadLList ( LList <char *> *llist, FILE *file )
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
     if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
-		UplinkPrintAbortArgs ( "WARNING: LoadLList, number of items appears to be wrong, size=%d", size );
+		UplinkPrintAbortArgs ( "WARNING: LoadLList, number of items appears to be wrong, size=%d", size )
 		return false;
     }
 
@@ -500,7 +500,7 @@ bool LoadLList ( LList <char *> *llist, FILE *file )
 void PrintLList	( LList <char *> *llist )
 {
 	
-	UplinkAssert ( llist );
+	UplinkAssert ( llist )
 
 	for ( int i = 0; i < llist->Size (); ++i ) {
 		if ( llist->GetData (i) )
@@ -514,7 +514,7 @@ void PrintLList	( LList <char *> *llist )
 void DeleteLListData ( LList <char *> *llist )
 {
 
-	UplinkAssert ( llist );
+	UplinkAssert ( llist )
 
 	for ( int i = 0; i < llist->Size (); ++i ) 
 		if ( llist->GetData (i) )
@@ -529,13 +529,13 @@ void DeleteLListData ( LList <char *> *llist )
 void SaveDArray ( DArray <UplinkObject *> *darray, FILE *file )
 {
 
-	UplinkAssert ( darray );
+	UplinkAssert ( darray )
 
 	int size = darray->Size ();
 
 	if ( size > MAX_ITEMS_DATA_STRUCTURE ) {
 		UplinkPrintAbortArgs ( "WARNING: SaveDArray, number of items appears to be too big, size=%d, maxsize=%d",
-		                       size, MAX_ITEMS_DATA_STRUCTURE );
+		                       size, MAX_ITEMS_DATA_STRUCTURE )
 		size = MAX_ITEMS_DATA_STRUCTURE;
 	}
 
@@ -547,7 +547,7 @@ void SaveDArray ( DArray <UplinkObject *> *darray, FILE *file )
 			fwrite ( &i, sizeof(i), 1, file );
 
 			int OBJECTID = darray->GetData (i)->GetOBJECTID ();
-			UplinkAssert ( OBJECTID != 0 );
+			UplinkAssert ( OBJECTID != 0 )
 			fwrite ( &OBJECTID, sizeof(int), 1, file );
 
 			darray->GetData (i)->Save ( file );
@@ -567,7 +567,7 @@ bool LoadDArray ( DArray <UplinkObject *> *darray, FILE *file )
 {
 
 	if ( !darray ) {
-		UplinkPrintAssert ( darray );
+		UplinkPrintAssert ( darray )
 		return false;
 	}
 
@@ -575,7 +575,7 @@ bool LoadDArray ( DArray <UplinkObject *> *darray, FILE *file )
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
     if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
-		UplinkPrintAbortArgs ( "WARNING: LoadDArray, number of items appears to be wrong, size=%d", size );
+		UplinkPrintAbortArgs ( "WARNING: LoadDArray, number of items appears to be wrong, size=%d", size )
 		return false;
     }
 
@@ -593,7 +593,7 @@ bool LoadDArray ( DArray <UplinkObject *> *darray, FILE *file )
 		}
 		else if ( index < 0 || index >= MAX_ITEMS_DATA_STRUCTURE ) {
 
-			UplinkPrintAbortArgs ( "WARNING: LoadDArray, number of items appears to be wrong, index=%d", index );
+			UplinkPrintAbortArgs ( "WARNING: LoadDArray, number of items appears to be wrong, index=%d", index )
 			return false;
 
 		}
@@ -602,7 +602,7 @@ bool LoadDArray ( DArray <UplinkObject *> *darray, FILE *file )
 			int OBJECTID;
 			if ( !FileReadData ( &OBJECTID, sizeof(int), 1, file ) ) return false;
 			if ( OBJECTID == OID_UNKNOWN ) {
-				UplinkPrintAbort ( "LoadDArray WARNING : OID_UNKNOWN as OBJECTID" );
+				UplinkPrintAbort ( "LoadDArray WARNING : OID_UNKNOWN as OBJECTID" )
 				return false;
 			}
 
@@ -625,7 +625,7 @@ bool LoadDArray ( DArray <UplinkObject *> *darray, FILE *file )
 void PrintDArray ( DArray <UplinkObject *> *darray )
 {
 
-	UplinkAssert ( darray );
+	UplinkAssert ( darray )
 
 	for ( int i = 0; i < darray->Size (); ++i ) {
 
@@ -653,7 +653,7 @@ void PrintDArray ( DArray <UplinkObject *> *darray )
 void UpdateDArray ( DArray <UplinkObject *> *darray )
 {
 
-	UplinkAssert ( darray );
+	UplinkAssert ( darray )
 
 	for ( int i = 0; i < darray->Size (); ++i )
 		if ( darray->ValidIndex ( i ) )
@@ -665,7 +665,7 @@ void UpdateDArray ( DArray <UplinkObject *> *darray )
 void DeleteDArrayDataD( DArray <UplinkObject *> *darray, const char * file, int line )
 {
 
-	UplinkAssert ( darray );
+	UplinkAssert ( darray )
 
 	for ( int i = 0; i < darray->Size (); ++i )
 		if ( darray->ValidIndex ( i ) )
@@ -686,7 +686,7 @@ void DeleteDArrayDataD( DArray <UplinkObject *> *darray, const char * file, int 
 void DeleteDArrayDataD( DArray <char *> *darray, const char * file, int line )
 {
 
-	UplinkAssert ( darray );
+	UplinkAssert ( darray )
 
 	for ( int i = 0; i < darray->Size (); ++i ) 
 		if ( darray->ValidIndex (i) )
@@ -706,13 +706,13 @@ void DeleteDArrayDataD( DArray <char *> *darray, const char * file, int line )
 void SaveDArray ( DArray <int> *darray, FILE *file )
 {
 
-	UplinkAssert ( darray );
+	UplinkAssert ( darray )
 
 	int size = darray->Size ();
 
 	if ( size > MAX_ITEMS_DATA_STRUCTURE ) {
 		UplinkPrintAbortArgs ( "WARNING: SaveDArray, number of items appears to be too big, size=%d, maxsize=%d",
-		                       size, MAX_ITEMS_DATA_STRUCTURE );
+		                       size, MAX_ITEMS_DATA_STRUCTURE )
 		size = MAX_ITEMS_DATA_STRUCTURE;
 	}
 
@@ -741,7 +741,7 @@ bool LoadDArray ( DArray <int> *darray, FILE *file )
 {
 
 	if ( !darray ) {
-		UplinkPrintAssert ( darray );
+		UplinkPrintAssert ( darray )
 		return false;
 	}
 
@@ -749,7 +749,7 @@ bool LoadDArray ( DArray <int> *darray, FILE *file )
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
     if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
-		UplinkPrintAbortArgs ( "WARNING: LoadDArray, number of items appears to be wrong, size=%d", size );
+		UplinkPrintAbortArgs ( "WARNING: LoadDArray, number of items appears to be wrong, size=%d", size )
 		return false;
     }
 
@@ -767,7 +767,7 @@ bool LoadDArray ( DArray <int> *darray, FILE *file )
 		}
 		else if ( index < 0 || index >= MAX_ITEMS_DATA_STRUCTURE ) {
 
-			UplinkPrintAbortArgs ( "WARNING: LoadDArray, number of items appears to be wrong, index=%d", index );
+			UplinkPrintAbortArgs ( "WARNING: LoadDArray, number of items appears to be wrong, index=%d", index )
 			return false;
 
 		}
@@ -789,7 +789,7 @@ bool LoadDArray ( DArray <int> *darray, FILE *file )
 void PrintDArray ( DArray <int> *darray )
 {
 
-	UplinkAssert ( darray );
+	UplinkAssert ( darray )
 
 	for ( int i = 0; i < darray->Size (); ++i ) {
 
@@ -865,8 +865,8 @@ UplinkObject *CreateUplinkObject ( int OBJECTID )
 		case OID_CHANGEGATEWAYEVENT		: uo = new ChangeGatewayEvent ();	break;
         case OID_BANKROBBERYEVENT       : uo = new BankRobberyEvent ();     break;			
 
-		case OID_UNKNOWN				: UplinkPrintAbort ( "OBJECTID Not assigned" ); break;
-		default							: UplinkPrintAbortArgs ( "Unrecognised OBJECTID=%d", OBJECTID );
+		case OID_UNKNOWN				: UplinkPrintAbort ( "OBJECTID Not assigned" ) break;
+		default							: UplinkPrintAbortArgs ( "Unrecognised OBJECTID=%d", OBJECTID )
 
 	}
 
@@ -889,7 +889,7 @@ bool LoadDynamicStringInt ( char* _file, int _line, char **string, FILE *file )
 	}
     else if ( size < 0 || size > MAX_LENGTH_DYMANIC_STRING ) {
 
-		UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size appears to be wrong, size=%d, %s:%d", size, _file, _line );
+		UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size appears to be wrong, size=%d, %s:%d", size, _file, _line )
 		return false;
 
     }
@@ -912,7 +912,7 @@ bool LoadDynamicStringInt ( char* _file, int _line, char *string, int maxsize, F
 {
 
 	if ( !string ) {
-		UplinkPrintAssert (string);
+		UplinkPrintAssert (string)
 		return false;
 	}
 
@@ -924,13 +924,13 @@ bool LoadDynamicStringInt ( char* _file, int _line, char *string, int maxsize, F
 
 	if ( size == -1 ) {
 
-        UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, empty string, %s:%d", _file, _line );
+        UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, empty string, %s:%d", _file, _line )
 		return false;
 
 	}
 	else if ( size > maxsize ) {
 
-        UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size > maxsize, size=%d, maxsize=%d, %s:%d", size, maxsize, _file, _line );
+        UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size > maxsize, size=%d, maxsize=%d, %s:%d", size, maxsize, _file, _line )
 
 		if ( maxsize > 0 ) {
 
@@ -940,7 +940,7 @@ bool LoadDynamicStringInt ( char* _file, int _line, char *string, int maxsize, F
 			}
 			string [ maxsize - 1 ] = '\0';
 
-			UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, possible string=%s, %s:%d", string, _file, _line );
+			UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, possible string=%s, %s:%d", string, _file, _line )
 
 		}
 
@@ -949,7 +949,7 @@ bool LoadDynamicStringInt ( char* _file, int _line, char *string, int maxsize, F
 	}
     else if ( size < 0 ) {
 
-        UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size appears to be wrong, size=%d, %s:%d", size, _file, _line );
+        UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size appears to be wrong, size=%d, %s:%d", size, _file, _line )
 		return false;
 
     }
@@ -994,7 +994,7 @@ void SaveDynamicString ( char *string, int maxsize, FILE *file )
 		else {
 
 			UplinkPrintAbortArgs ( "WARNING: SaveDynamicString, size appears to be too long, size=%d, maxsize=%d, absolute maxsize=%d",
-			                       size, maxsize, MAX_LENGTH_DYMANIC_STRING );
+			                       size, maxsize, MAX_LENGTH_DYMANIC_STRING )
 
 			fwrite ( &realmaxsize, sizeof(realmaxsize), 1, file );
 			if ( realmaxsize > 1 )
@@ -1018,8 +1018,8 @@ bool FileReadDataInt ( char* _file, int _line, void * _DstBuf, size_t _ElementSi
 {
 	size_t sizeRead = fread ( _DstBuf, _ElementSize, _Count, _File );
 	if ( sizeRead != _Count ) {
-		UplinkPrintAbortArgs ( "WARNING: FileReadDataInt, request read count is different then the readed count, request=%d, readed=%d, errno=%d, %s:%d",
-		                       _Count, sizeRead, errno, _file, _line );
+		UplinkPrintAbortArgs ( "WARNING: FileReadDataInt, request read count is different then the readed count, request=%zu, readed=%zu, errno=%d, %s:%d",
+		                       _Count, sizeRead, errno, _file, _line )
 		return false;
 	}
 	return true;

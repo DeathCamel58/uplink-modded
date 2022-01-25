@@ -14,7 +14,7 @@
 Sale::Sale ()
 {
 
-	UplinkStrncpy ( title, "", sizeof ( title ) );
+	UplinkStrncpy ( title, "", sizeof ( title ) )
 	saleTYPE = SALETYPE_NONE;
 	swhwTYPE = SOFTWARETYPE_NONE;
 
@@ -30,8 +30,8 @@ Sale::~Sale ()
 void Sale::SetTitle ( char *newtitle )
 {
 	
-	UplinkAssert ( strlen (newtitle) < SIZE_SALE_TITLE );
-	UplinkStrncpy ( title, newtitle, sizeof ( title ) );
+	UplinkAssert ( strlen (newtitle) < SIZE_SALE_TITLE )
+	UplinkStrncpy ( title, newtitle, sizeof ( title ) )
 
 }
 
@@ -108,7 +108,7 @@ void Sale::Print ()
 {
 
 	printf ( "Sale\n" );
-	printf ( "\tTitle:%s, saleTYPE:%d, swhwTYPE:\n", 
+	printf ( "\tTitle:%s, saleTYPE:%d, swhwTYPE:%d\n",
 				title, saleTYPE, swhwTYPE );
 
 	PrintDArray ( (DArray <UplinkObject *> *) &versions );
@@ -160,7 +160,7 @@ void SaleVersion::Set ( char *newdetails, int newcost, int newsize, int newdata 
 
 	delete [] details;
 	details = new char [strlen(newdetails)+1];
-	UplinkSafeStrcpy ( details, newdetails );
+	UplinkSafeStrcpy ( details, newdetails )
 
 	cost = newcost;
 	size = newsize;

@@ -68,7 +68,7 @@ void MenuScreenInterface::ClickMenuScreenOption ( Button *button )
 void MenuScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -92,8 +92,8 @@ void MenuScreenInterface::Create ( ComputerScreen *newcs )
 				// You have clearance to view this option
 
 				char bname1 [32 + SIZE_VLOCATION_IP + 1], bname2 [32 + SIZE_VLOCATION_IP + 1];
-				UplinkSnprintf ( bname1, sizeof ( bname1 ), "menuscreenimage %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip );
-				UplinkSnprintf ( bname2, sizeof ( bname2 ), "menuscreentext %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip );
+				UplinkSnprintf ( bname1, sizeof ( bname1 ), "menuscreenimage %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip )
+				UplinkSnprintf ( bname2, sizeof ( bname2 ), "menuscreentext %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip )
 
 				EclRegisterButton ( -350, 120 + i * 30, 16, 16, "", GetComputerScreen ()->GetTooltip ( i ), bname1 );
 				button_assignbitmaps ( bname1, "menuscreenoption.tif", "menuscreenoption_h.tif", "menuscreenoption_c.tif" );
@@ -111,8 +111,8 @@ void MenuScreenInterface::Create ( ComputerScreen *newcs )
 				// You don't have clearance to view this option
 
 				char bname1 [32 + SIZE_VLOCATION_IP + 1], bname2 [32 + SIZE_VLOCATION_IP + 1];
-				UplinkSnprintf ( bname1, sizeof ( bname1 ), "menuscreenimage %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip );
-				UplinkSnprintf ( bname2, sizeof ( bname2 ), "menuscreentext %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip );
+				UplinkSnprintf ( bname1, sizeof ( bname1 ), "menuscreenimage %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip )
+				UplinkSnprintf ( bname2, sizeof ( bname2 ), "menuscreentext %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip )
 
 				EclRegisterButton ( -350, 120 + i * 30, 16, 16, "", GetComputerScreen ()->GetTooltip ( i ), bname1 );
 				button_assignbitmap ( bname1, "menuscreenoption.tif" );
@@ -149,8 +149,8 @@ void MenuScreenInterface::Remove ()
 		for ( int i = 0; i < GetComputerScreen ()->NumOptions (); ++i ) {
 
 			char bname1 [32 + SIZE_VLOCATION_IP + 1], bname2 [32 + SIZE_VLOCATION_IP + 1];
-			UplinkSnprintf ( bname1, sizeof ( bname1 ), "menuscreenimage %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip );
-			UplinkSnprintf ( bname2, sizeof ( bname2 ), "menuscreentext %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip );
+			UplinkSnprintf ( bname1, sizeof ( bname1 ), "menuscreenimage %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip )
+			UplinkSnprintf ( bname2, sizeof ( bname2 ), "menuscreentext %d %d %s", i, GetComputerScreen ()->GetNextPage ( i ), comp->ip )
 			
 			EclRemoveButton ( bname1 );
 			EclRemoveButton ( bname2 );
@@ -178,7 +178,7 @@ int MenuScreenInterface::ScreenID ()
 MenuScreen *MenuScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (MenuScreen *) cs;
 
 }

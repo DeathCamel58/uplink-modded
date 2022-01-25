@@ -101,7 +101,7 @@ static void NuclearWarStart ()
 void ProtovisionScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -131,13 +131,13 @@ void ProtovisionScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterCaptionChange   ( "protovisionscreen_message", textmessage, 5000, NuclearWarStart );		
 
 		char namenuclearwar [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( namenuclearwar, sizeof ( namenuclearwar ), "protovisionscreen_nuclearwar %s", GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( namenuclearwar, sizeof ( namenuclearwar ), "protovisionscreen_nuclearwar %s", GetComputerScreen ()->GetComputer ()->ip )
         EclRegisterButton ( 50, 340, 300, 20, "", "", namenuclearwar );
         EclRegisterButtonCallbacks ( namenuclearwar, NuclearWarDraw, NuclearWar, button_click, button_highlight );
 
 		int width = 80;
 		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "protovisionscreen_close %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( name, sizeof ( name ), "protovisionscreen_close %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 		EclRegisterButton ( 320 - width/2, 370, width, 20, "Close", "Close this screen", name );
 		EclRegisterButtonCallback ( name, Close );
 
@@ -156,11 +156,11 @@ void ProtovisionScreenInterface::Remove ()
 		EclRemoveButton ( "protovisionscreen_message" );
 
 		char namenuclearwar [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( namenuclearwar, sizeof ( namenuclearwar ), "protovisionscreen_nuclearwar %s", GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( namenuclearwar, sizeof ( namenuclearwar ), "protovisionscreen_nuclearwar %s", GetComputerScreen ()->GetComputer ()->ip )
 		EclRemoveButton ( namenuclearwar );
 
 		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "protovisionscreen_close %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( name, sizeof ( name ), "protovisionscreen_close %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 		EclRemoveButton ( name );
 
 	}
@@ -182,7 +182,7 @@ bool ProtovisionScreenInterface::IsVisible ()
 GenericScreen *ProtovisionScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

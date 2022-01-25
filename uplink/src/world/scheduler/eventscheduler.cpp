@@ -30,7 +30,7 @@ EventScheduler::~EventScheduler ()
 void EventScheduler::ScheduleEvent ( UplinkEvent *event )
 {
 
-	UplinkAssert (event);
+	UplinkAssert (event)
 
 
 	// Insert this event into the list of events
@@ -40,7 +40,7 @@ void EventScheduler::ScheduleEvent ( UplinkEvent *event )
 	for ( int i = 0; i < events.Size (); ++i ) {
 
 		UplinkEvent *ue = events.GetData (i);
-		UplinkAssert ( ue );
+		UplinkAssert ( ue )
 
 		if ( event->rundate.Before ( &(ue->rundate) ) ) {
 
@@ -64,8 +64,8 @@ void EventScheduler::ScheduleEvent ( UplinkEvent *event )
 void EventScheduler::ScheduleWarning ( UplinkEvent *event, Date *date )
 {
 
-	UplinkAssert (event);
-	UplinkAssert (date);
+	UplinkAssert (event)
+	UplinkAssert (date)
 
 	auto *wevent = new WarningEvent ();
 	wevent->SetEvent ( event );

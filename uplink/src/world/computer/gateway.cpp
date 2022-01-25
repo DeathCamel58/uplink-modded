@@ -29,7 +29,7 @@ Gateway::Gateway ()
 	nuked = false;
 	proximity = 0;
 
-	UplinkStrncpy ( modemtype, " ", sizeof ( modemtype ) );
+	UplinkStrncpy ( modemtype, " ", sizeof ( modemtype ) )
 	modemspeed = 0;
 	memorysize = 0;
 
@@ -120,7 +120,7 @@ void Gateway::SetGatewayStart ()
 				break;
 			}
 
-    UplinkAssert (newgateway);
+    UplinkAssert (newgateway)
 
 	curgatewaydef = new GatewayDef ( *newgateway );
 
@@ -129,7 +129,7 @@ void Gateway::SetGatewayStart ()
 void Gateway::SetGateway ( GatewayDef *newgd )
 {
 
-	UplinkAssert ( newgd );
+	UplinkAssert ( newgd )
 	curgatewaydef = new GatewayDef ( *newgd );
 
 }
@@ -149,7 +149,7 @@ void Gateway::ExchangeGateway ( GatewayDef *newgd )
 void Gateway::ExchangeGatewayComplete ()
 {
 
-	UplinkAssert (curgatewaydef);
+	UplinkAssert (curgatewaydef)
 	auto *oldgateway = new GatewayDef ( *curgatewaydef );
 
 	if ( !newgatewaydef )
@@ -173,7 +173,7 @@ void Gateway::ExchangeGatewayComplete ()
 	//
 
 	GatewayDef *newgateway = curgatewaydef;
-	UplinkAssert (newgateway);
+	UplinkAssert (newgateway)
 
 	LList <char *> removedItems;
 
@@ -190,7 +190,7 @@ void Gateway::ExchangeGatewayComplete ()
 		for ( int i = 0; i < hardware.Size (); ++i ) {
 
 			const ComputerUpgrade *cu = GetHardwareUpgrade ( hardware.GetData (i) );
-			UplinkAssert (cu);
+			UplinkAssert (cu)
 
 			if ( cu->TYPE == GATEWAYUPGRADETYPE_CPU ) {
 				if ( indexSlowest == -1 || upgradeSlowest == nullptr ) {
@@ -206,12 +206,12 @@ void Gateway::ExchangeGatewayComplete ()
 		}
 
 		if ( indexSlowest != -1 ) {
-			UplinkAssert (upgradeSlowest != nullptr);
+			UplinkAssert (upgradeSlowest != nullptr)
 			removedItems.PutData ( upgradeSlowest->name );
 			hardware.RemoveData (indexSlowest);
 		}
 		else {
-			UplinkAbort ( "Gateway::ExchangeGatewayComplete, there should be a slowest CPU" );
+			UplinkAbort ( "Gateway::ExchangeGatewayComplete, there should be a slowest CPU" )
 		}
 
 	}
@@ -228,7 +228,7 @@ void Gateway::ExchangeGatewayComplete ()
 
 		size_t removedMemorysize = 64;
 		char *removedMemory = new char [removedMemorysize];
-		UplinkSnprintf ( removedMemory, removedMemorysize, "%dGq of memory", memorysize - (newgateway->maxmemory*8) );
+		UplinkSnprintf ( removedMemory, removedMemorysize, "%dGq of memory", memorysize - (newgateway->maxmemory*8) )
 		removedItems.PutData (removedMemory);
 
         SetMemorySize ( newgateway->maxmemory * 8 );
@@ -247,7 +247,7 @@ void Gateway::ExchangeGatewayComplete ()
 		for ( int i = 0; i < hardware.Size (); ++i ) {
 
 			const ComputerUpgrade *cu = GetHardwareUpgrade ( hardware.GetData (i) );
-			UplinkAssert (cu);
+			UplinkAssert (cu)
 
 			if ( cu->TYPE == GATEWAYUPGRADETYPE_SECURITY ) {
 				removedItems.PutData ( cu->name );
@@ -295,8 +295,8 @@ void Gateway::ExchangeGatewayComplete ()
 void Gateway::SetModemType ( char *newmodem, int newmodemspeed )
 {
 
-	UplinkAssert ( strlen(newmodem) < 64 );
-	UplinkStrncpy ( modemtype, newmodem, sizeof ( modemtype ) );
+	UplinkAssert ( strlen(newmodem) < 64 )
+	UplinkStrncpy ( modemtype, newmodem, sizeof ( modemtype ) )
 
 	modemspeed = newmodemspeed;
 
@@ -349,10 +349,10 @@ void Gateway::GiveCPU ( char *CPUName )
 {
 
 	GatewayDef *gatewaydef = curgatewaydef;
-	UplinkAssert (gatewaydef);
+	UplinkAssert (gatewaydef)
 
     char *cpucopy = new char [strlen(CPUName)+1];
-    UplinkSafeStrcpy ( cpucopy, CPUName );
+    UplinkSafeStrcpy ( cpucopy, CPUName )
 
 	if ( GetNumCPUs () < gatewaydef->maxcpus ) {
 
@@ -370,7 +370,7 @@ void Gateway::GiveCPU ( char *CPUName )
 		for ( int i = 0; i < hardware.Size (); ++i ) {
 
 			const ComputerUpgrade *cu = GetHardwareUpgrade ( hardware.GetData (i) );
-			UplinkAssert (cu);
+			UplinkAssert (cu)
 
 			if ( cu->TYPE == GATEWAYUPGRADETYPE_CPU ) {
 				if ( indexSlowest == -1 || upgradeSlowest == nullptr ) {
@@ -392,7 +392,7 @@ void Gateway::GiveCPU ( char *CPUName )
 			hardware.PutDataAtIndex ( cpucopy, indexSlowest);
 		}
 		else {
-			UplinkAbort ( "Gateway::GiveCPU, there should be a slowest CPU" );
+			UplinkAbort ( "Gateway::GiveCPU, there should be a slowest CPU" )
 		}
 
 	}
@@ -407,7 +407,7 @@ int Gateway::GetNumCPUs ()
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 
 		const ComputerUpgrade *cu = GetHardwareUpgrade ( hardware.GetData (i) );
-		UplinkAssert (cu);
+		UplinkAssert (cu)
 
 		if ( cu->TYPE == GATEWAYUPGRADETYPE_CPU )
 			++numCPUs;
@@ -425,7 +425,7 @@ int Gateway::GetCPUSpeed ()
 
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 		const ComputerUpgrade *cu = GetHardwareUpgrade ( hardware.GetData (i) );
-		UplinkAssert (cu);
+		UplinkAssert (cu)
 		if ( cu->TYPE == GATEWAYUPGRADETYPE_CPU )
 			speed += cu->data;
 	}
@@ -442,7 +442,7 @@ LList <char *> *Gateway::GetCPUs ()
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 
 		const ComputerUpgrade *cu = GetHardwareUpgrade ( hardware.GetData (i) );
-		UplinkAssert (cu);
+		UplinkAssert (cu)
 
 		if ( cu->TYPE == GATEWAYUPGRADETYPE_CPU )
 			list->PutData ( cu->name );
@@ -457,7 +457,7 @@ int Gateway::GetBandwidth ()
 {
 
 	GatewayDef *gatewaydef = curgatewaydef;
-	UplinkAssert (gatewaydef);
+	UplinkAssert (gatewaydef)
 
 	if ( modemspeed < gatewaydef->bandwidth )
 		return modemspeed;
@@ -475,7 +475,7 @@ int Gateway::GetNumSecurity ()
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 
 		const ComputerUpgrade *cu = GetHardwareUpgrade ( hardware.GetData (i) );
-		UplinkAssert (cu);
+		UplinkAssert (cu)
 
 		if ( cu->TYPE == GATEWAYUPGRADETYPE_SECURITY )
 			++numsec;
@@ -494,7 +494,7 @@ LList <char *> *Gateway::GetSecurity ()
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 
 		const ComputerUpgrade *cu = GetHardwareUpgrade ( hardware.GetData (i) );
-		UplinkAssert (cu);
+		UplinkAssert (cu)
 
 		if ( cu->TYPE == GATEWAYUPGRADETYPE_SECURITY )
 			list->PutData ( cu->name );
@@ -517,7 +517,7 @@ void Gateway::GiveStartingHardware ()
 	// Modem
 
 	char modemname [64];
-	UplinkSnprintf ( modemname, sizeof ( modemname ), "Modem (%d Ghz)", PLAYER_START_MODEMSPEED );
+	UplinkSnprintf ( modemname, sizeof ( modemname ), "Modem (%d Ghz)", PLAYER_START_MODEMSPEED )
 	SetModemType  ( modemname, PLAYER_START_MODEMSPEED );
 
 	// Memory
@@ -530,7 +530,7 @@ void Gateway::GiveHardware ( char *newhardware )
 {
 
 	char *hwtitle = new char [strlen(newhardware)+1];
-	UplinkSafeStrcpy ( hwtitle, newhardware );
+	UplinkSafeStrcpy ( hwtitle, newhardware )
 
 	hardware.PutData ( hwtitle );
 
@@ -587,7 +587,7 @@ void Gateway::GiveAllHardware ()
 			break;
 		}
 
-	UplinkAssert (bestgatewayDef);
+	UplinkAssert (bestgatewayDef)
 	SetGateway ( bestgatewayDef );
 
 
@@ -685,7 +685,7 @@ bool Gateway::Load  ( FILE *file )
 
 			GatewayDef *gd = game->GetWorld ()->GetGatewayDef ( old_name );
 			if ( !gd ) {
-				UplinkPrintAbortArgs ( "WARNING: Gateway::Load, cannot find gateway '%s'", old_name );
+				UplinkPrintAbortArgs ( "WARNING: Gateway::Load, cannot find gateway '%s'", old_name )
 				delete gd;
 				return false;
 			}
@@ -696,7 +696,7 @@ bool Gateway::Load  ( FILE *file )
 				SetGateway ( game->GetWorld ()->gatewaydefs.GetData ( old_type ) );
 			}
 			else {
-				UplinkPrintAbortArgs ( "WARNING: Gateway::Load, cannot find gateway at index %d", old_type );
+				UplinkPrintAbortArgs ( "WARNING: Gateway::Load, cannot find gateway at index %d", old_type )
 				return false;
 			}
 		}
@@ -722,7 +722,7 @@ void Gateway::Save  ( FILE *file )
 
 	SaveLList ( &hardware, file );
 
-	UplinkAssert ( curgatewaydef );
+	UplinkAssert ( curgatewaydef )
 	curgatewaydef->Save ( file );
 
 	int exists;

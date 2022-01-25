@@ -158,18 +158,18 @@ void DictionaryHacker::Tick ( int n )
 
 			int percentage = (int)((float) currentindex / (float) game->GetWorld ()->passwords.Size () * 100);
 			char caption [1024];
-			UplinkSnprintf ( caption, sizeof ( caption ), "\nTrying\nWordlist...%d%%\n-> ", percentage );		
+			UplinkSnprintf ( caption, sizeof ( caption ), "\nTrying\nWordlist...%d%%\n-> ", percentage )
 			for ( int i = currentindex; i < currentindex + 10; ++i ) {
 				if ( game->GetWorld ()->GetPassword (i) ) {
-					UplinkStrncat ( caption, sizeof ( caption ), game->GetWorld ()->GetPassword ( i ) );
-					UplinkStrncat ( caption, sizeof ( caption ), "\n" );
+					UplinkStrncat ( caption, sizeof ( caption ), game->GetWorld ()->GetPassword ( i ) )
+					UplinkStrncat ( caption, sizeof ( caption ), "\n" )
 				}
 			}			
 			char bname [128];
-			UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", SvbLookupPID (this) );
+			UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", SvbLookupPID (this) )
 
 			Button *button = EclGetButton ( bname );
-			UplinkAssert(button);
+			UplinkAssert(button)
 			button->SetCaption ( caption );
 
 		}
@@ -228,7 +228,7 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 	}
 	if ( uos ) {
 		targetstring = new char[ strlen( uos ) + 1 ];
-		UplinkSafeStrcpy( targetstring, uos );
+		UplinkSafeStrcpy( targetstring, uos )
 	}
 	targetint    = uoi;
 
@@ -238,13 +238,13 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		auto *ps = (PasswordScreen *) uo;
         comp = ps->GetComputer ();
-	    UplinkAssert (comp);
+	    UplinkAssert (comp)
 
 		delete [] password;
 		size_t length = strlen ( ps->password );
 		size_t passwordsize = length+1;
 		password = new char [passwordsize];
-		UplinkStrncpy ( password, ps->password, passwordsize );
+		UplinkStrncpy ( password, ps->password, passwordsize )
 		status = DICTIONARYHACKER_INPROGRESS;
 
 		delete [] username;
@@ -261,19 +261,19 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		auto *uid = (UserIDScreen *) uo;
         comp = uid->GetComputer ();
-	    UplinkAssert (comp);
+	    UplinkAssert (comp)
 
 		// If the player has not entered a UserID then do this for admin
 		// Then grab the target name from the useridscreen box
 
-		UplinkAssert ( EclGetButton ( "useridscreen_name" ) );
+		UplinkAssert ( EclGetButton ( "useridscreen_name" ) )
 		if ( strcmp ( EclGetButton ( "useridscreen_name" )->caption, "" ) == 0 ) 
 			EclGetButton ( "useridscreen_name" )->SetCaption ( "admin" );
 		char *name = EclGetButton ( "useridscreen_name" )->caption;
 
 		delete [] username;
 		username = new char [strlen(name)+1];
-		UplinkSafeStrcpy ( username, name );
+		UplinkSafeStrcpy ( username, name )
 
 		// Look up this user name in this computer's records
 			
@@ -293,7 +293,7 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 			size_t length = strlen ( passwd );
 			size_t passwordsize = length+1;
 			password = new char [passwordsize];
-			UplinkStrncpy ( password, passwd, passwordsize );
+			UplinkStrncpy ( password, passwd, passwordsize )
 
 			numticksrequired = TICKSREQUIRED_DICTIONARYHACKER;
 			progress = 0;
@@ -336,15 +336,15 @@ void DictionaryHacker::CreateInterface ()
 		int pid = SvbLookupPID ( this );
 
 		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", pid );
+		UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", pid )
 	
 		char border1 [32];
 		char border2 [32];
 		char border3 [32];
 
-		UplinkSnprintf ( border1, sizeof ( border1 ), "dictionaryhacker_b1 %d", pid );
-		UplinkSnprintf ( border2, sizeof ( border2 ), "dictionaryhacker_b2 %d", pid );
-		UplinkSnprintf ( border3, sizeof ( border3 ), "dictionaryhacker_b3 %d", pid );
+		UplinkSnprintf ( border1, sizeof ( border1 ), "dictionaryhacker_b1 %d", pid )
+		UplinkSnprintf ( border2, sizeof ( border2 ), "dictionaryhacker_b2 %d", pid )
+		UplinkSnprintf ( border3, sizeof ( border3 ), "dictionaryhacker_b3 %d", pid )
 
 		EclRegisterButton ( 0, 50, 100, 200, "", "", bname );
 		EclRegisterButtonCallbacks ( bname, DictionaryHackerDraw, DictionaryHackerClick, button_click, button_highlight );
@@ -362,7 +362,7 @@ void DictionaryHacker::CreateInterface ()
 
 
 		char closename [64];
-		UplinkSnprintf ( closename, sizeof ( closename ), "dictionaryhacker_close %d", pid );
+		UplinkSnprintf ( closename, sizeof ( closename ), "dictionaryhacker_close %d", pid )
 
 		EclRegisterButton ( 85, 51, 13, 13, "X", "Close the dictionary hacker", closename );
 		button_assignbitmaps ( closename, "close.tif", "close_h.tif", "close_c.tif" );
@@ -380,15 +380,15 @@ void DictionaryHacker::RemoveInterface ()
 		int pid = SvbLookupPID ( this );
 
 		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", pid );
+		UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", pid )
 
 		char border1 [32];
 		char border2 [32];
 		char border3 [32];
 
-		UplinkSnprintf ( border1, sizeof ( border1 ), "dictionaryhacker_b1 %d", pid );
-		UplinkSnprintf ( border2, sizeof ( border2 ), "dictionaryhacker_b2 %d", pid );
-		UplinkSnprintf ( border3, sizeof ( border3 ), "dictionaryhacker_b3 %d", pid );
+		UplinkSnprintf ( border1, sizeof ( border1 ), "dictionaryhacker_b1 %d", pid )
+		UplinkSnprintf ( border2, sizeof ( border2 ), "dictionaryhacker_b2 %d", pid )
+		UplinkSnprintf ( border3, sizeof ( border3 ), "dictionaryhacker_b3 %d", pid )
 
 		EclRemoveButton ( bname );
 		EclRemoveButton ( border1 );
@@ -397,7 +397,7 @@ void DictionaryHacker::RemoveInterface ()
 
 
 		char closename [64];
-		UplinkSnprintf ( closename, sizeof ( closename ), "dictionaryhacker_close %d", pid );
+		UplinkSnprintf ( closename, sizeof ( closename ), "dictionaryhacker_close %d", pid )
 		EclRemoveButton ( closename );
 
 	}
@@ -412,15 +412,15 @@ void DictionaryHacker::ShowInterface ()
 	int pid = SvbLookupPID ( this );
 
 	char bname [128];
-	UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", pid );
+	UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", pid )
 
 	char border1 [32];
 	char border2 [32];
 	char border3 [32];
 
-	UplinkSnprintf ( border1, sizeof ( border1 ), "dictionaryhacker_b1 %d", pid );
-	UplinkSnprintf ( border2, sizeof ( border2 ), "dictionaryhacker_b2 %d", pid );
-	UplinkSnprintf ( border3, sizeof ( border3 ), "dictionaryhacker_b3 %d", pid );
+	UplinkSnprintf ( border1, sizeof ( border1 ), "dictionaryhacker_b1 %d", pid )
+	UplinkSnprintf ( border2, sizeof ( border2 ), "dictionaryhacker_b2 %d", pid )
+	UplinkSnprintf ( border3, sizeof ( border3 ), "dictionaryhacker_b3 %d", pid )
 
 	EclButtonBringToFront ( bname );
 	EclButtonBringToFront ( border1 );
@@ -428,7 +428,7 @@ void DictionaryHacker::ShowInterface ()
 	EclButtonBringToFront ( border3 );
 
 	char closename [64];
-	UplinkSnprintf ( closename, sizeof ( closename ), "dictionaryhacker_close %d", pid );
+	UplinkSnprintf ( closename, sizeof ( closename ), "dictionaryhacker_close %d", pid )
 	EclButtonBringToFront ( closename );
 
 }
@@ -437,7 +437,7 @@ bool DictionaryHacker::IsInterfaceVisible ()
 {
 
 	char bname [128];
-	UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", SvbLookupPID (this) );
+	UplinkSnprintf ( bname, sizeof ( bname ), "dictionaryhacker %d", SvbLookupPID (this) )
 
 	return ( EclGetButton ( bname ) != nullptr );
 

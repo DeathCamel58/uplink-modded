@@ -57,7 +57,7 @@ void LoadingInterface::Create ()
 		// Decide which graphic to load up
         char *filename = app->GetOptions ()->ThemeFilename ( "loading/filenames.txt" );
 		FILE *file = RsArchiveFileOpen ( filename, "rt" );		
-		UplinkAssert (file);
+		UplinkAssert (file)
 
         LList <char *> filenames;
 		while ( !feof (file) ) {

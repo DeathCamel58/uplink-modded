@@ -50,16 +50,16 @@ Message::~Message()
 void Message::SetTo	( char *newto )
 {
 
-	UplinkAssert ( strlen (newto) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( to, newto, sizeof ( to ) );
+	UplinkAssert ( strlen (newto) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( to, newto, sizeof ( to ) )
 
 }
 
 void Message::SetFrom ( char *newfrom )
 {
 
-	UplinkAssert ( strlen (newfrom) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( from, newfrom, sizeof ( from ) );
+	UplinkAssert ( strlen (newfrom) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( from, newfrom, sizeof ( from ) )
 
 }
 
@@ -68,7 +68,7 @@ void Message::SetSubject ( char *newsubject )
 
 	delete [] subject;
 	subject = new char [ strlen(newsubject) + 1 ];
-	UplinkSafeStrcpy ( subject, newsubject );
+	UplinkSafeStrcpy ( subject, newsubject )
 
 }
 
@@ -77,7 +77,7 @@ void Message::SetBody ( char *newbody )
 
 	delete [] body;
 	body = new char [ strlen (newbody) + 1 ];
-	UplinkSafeStrcpy ( body, newbody );
+	UplinkSafeStrcpy ( body, newbody )
 
 }
 
@@ -93,8 +93,8 @@ void Message::GiveLink ( char *ip )
 
 	size_t theipsize = SIZE_VLOCATION_IP;
 	char *theip = new char [theipsize];
-	UplinkAssert (strlen(ip) < SIZE_VLOCATION_IP );
-	UplinkStrncpy ( theip, ip, theipsize );
+	UplinkAssert (strlen(ip) < SIZE_VLOCATION_IP )
+	UplinkStrncpy ( theip, ip, theipsize )
 	links.PutData (theip);
 
 }
@@ -103,7 +103,7 @@ void Message::GiveCode ( char *ip, char *code )
 {
 
 	char *thecode = new char [strlen(code)+1];
-	UplinkSafeStrcpy ( thecode, code );
+	UplinkSafeStrcpy ( thecode, code )
     codes.PutData ( ip, thecode );
 
 }
@@ -127,7 +127,7 @@ Data *Message::GetData ()
 char *Message::GetSubject ()
 {
 
-	UplinkAssert ( subject );
+	UplinkAssert ( subject )
 	return subject;
 
 }
@@ -135,7 +135,7 @@ char *Message::GetSubject ()
 char *Message::GetBody ()
 {
 
-	UplinkAssert ( body );
+	UplinkAssert ( body )
 	return body;
 
 }

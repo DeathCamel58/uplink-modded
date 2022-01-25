@@ -58,11 +58,11 @@ void BBSScreenInterface::ClickBBSButton ( Button *button )
 
 	// Dirty the old button
 	char oldname [128];
-	UplinkSnprintf ( oldname, sizeof ( oldname ), "BBmessage %d", currentselect - baseoffset );
+	UplinkSnprintf ( oldname, sizeof ( oldname ), "BBmessage %d", currentselect - baseoffset )
 	EclDirtyButton ( oldname );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetMission ( index ) ) {
 
@@ -94,7 +94,7 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 	// Get the text from mission number (index + baseoffset)
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	Mission *mission = cu->GetMission ( index );
 
@@ -126,8 +126,8 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 			auto ratingdif = (float)(game->GetWorld ()->GetPlayer ()->rating.uplinkrating - mission->minuplinkrating);
 			if ( ratingdif > 5.0f ) ratingdif = 5.0f;
 			
-			UplinkStrncpy ( subject, mission->description, sizeof ( subject ) );
-			UplinkStrncpy ( date, mission->createdate.GetShortString (), sizeof ( date ) );
+			UplinkStrncpy ( subject, mission->description, sizeof ( subject ) )
+			UplinkStrncpy ( date, mission->createdate.GetShortString (), sizeof ( date ) )
 
 #ifdef DEMOGAME
             glColor4f ( 1.0f - ratingdif * 0.2f, 1.0f - ratingdif * 0.2f, 1.0f - ratingdif * 0.2f, 1.0f );
@@ -138,8 +138,8 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 		}
 		else {
 
-			UplinkStrncpy ( subject, "Encrypted (Insufficient Uplink Rating)", sizeof ( subject ) );
-			UplinkStrncpy ( date, "Unknown", sizeof ( date ) );
+			UplinkStrncpy ( subject, "Encrypted (Insufficient Uplink Rating)", sizeof ( subject ) )
+			UplinkStrncpy ( date, "Unknown", sizeof ( date ) )
 
 			glColor4f ( 0.2f, 0.2f, 0.2f, 1.0f );		
 
@@ -178,7 +178,7 @@ void BBSScreenInterface::MousedownBBSButton ( Button *button )
 	sscanf ( button->name, "BBmessage %d", &index );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetMission ( index + baseoffset ) ) 
 		button_click ( button );
@@ -193,7 +193,7 @@ void BBSScreenInterface::HighlightBBSButton ( Button *button )
 	sscanf ( button->name, "BBmessage %d", &index );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetMission ( index + baseoffset ) )
 		button_highlight ( button );
@@ -204,7 +204,7 @@ void BBSScreenInterface::ExitClick ( Button *button )
 {
 
 	auto *bbs = (BBSScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (bbs);
+	UplinkAssert (bbs)
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( bbs->nextpage, bbs->GetComputer () );
 
@@ -214,7 +214,7 @@ void BBSScreenInterface::AcceptClick ( Button *button )
 {
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	Mission *mission = cu->GetMission ( currentselect );
 
@@ -272,14 +272,14 @@ void BBSScreenInterface::ContactClick ( Button *button )
 	// Get the currently selected mission
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	Mission *mission = cu->GetMission ( currentselect );
 
 	// Get the bbs screen
 
 	auto *bbs = (BBSScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (bbs);
+	UplinkAssert (bbs)
 	
 	if ( mission && bbs->contactpage != -1 ) {
 
@@ -303,8 +303,8 @@ void BBSScreenInterface::ContactClick ( Button *button )
 			
 			auto *cs = (ContactScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 			
-			UplinkAssert ( cs );
-			UplinkAssert ( cs->ScreenID () == SCREEN_CONTACTSCREEN );
+			UplinkAssert ( cs )
+			UplinkAssert ( cs->ScreenID () == SCREEN_CONTACTSCREEN )
 
 			cs->SetTYPE ( CONTACT_TYPE_MISSION );
 			cs->SetMission ( mission );
@@ -328,7 +328,7 @@ void BBSScreenInterface::ScrollChange ( char *scrollname, int newValue )
 	for ( int i = 0; i < NumItemsOnScreen(); ++i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i )
 		EclDirtyButton ( name );
 
 	}
@@ -355,7 +355,7 @@ void BBSScreenInterface::Create ( ComputerScreen *newcs )
 
 	if ( !IsVisible () ) {
 
-		UplinkAssert ( newcs );
+		UplinkAssert ( newcs )
 		cs = newcs;
 
 		EclRegisterButton ( 20, 30, 100, 15, "Date", "This column shows the date the message was submitted", "bbs_date" );
@@ -364,7 +364,7 @@ void BBSScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int i = 0; i < NumItemsOnScreen(); ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i )
 			EclRegisterButton ( 20, i * 20 + 50, SY(388), 17, "", "Read this Bulletin Board message", name );
 			EclRegisterButtonCallbacks ( name, DrawBBSButton, ClickBBSButton, MousedownBBSButton, HighlightBBSButton ); 
 						
@@ -386,7 +386,7 @@ void BBSScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButtonCallback ( "bbs_exit", ExitClick );
 
     	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert ( cu );
+	    UplinkAssert ( cu )
         ScrollBox::CreateScrollBox ( "bbs_scroll", 22 + SY(388), 47, 15, NumItemsOnScreen() * 20, cu->missions.Size(), 12, 0, ScrollChange );
 
 		baseoffset = 0;
@@ -405,7 +405,7 @@ void BBSScreenInterface::Remove ()
 		for ( int i = 0; i < NumItemsOnScreen(); ++ i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i )
 
 			EclRemoveButton ( name );
 
@@ -442,7 +442,7 @@ void BBSScreenInterface::Update ()
 {
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	int newnummessages = cu->missions.Size ();
     if ( newnummessages != previousnummessages ) {
@@ -455,7 +455,7 @@ void BBSScreenInterface::Update ()
 		for ( int i = 0; i < NumItemsOnScreen(); ++ i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i )
 			EclDirtyButton ( name );
 
 		}
@@ -476,7 +476,7 @@ int BBSScreenInterface::ScreenID ()
 BBSScreen *BBSScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert ( cs );
+	UplinkAssert ( cs )
 	return (BBSScreen *) cs;
 
 }

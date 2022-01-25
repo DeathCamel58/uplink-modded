@@ -36,17 +36,17 @@ void InstallHardwareEvent::SetHWSale ( Sale *newsale, int newversion )
 	hwsale = newsale;
 	version = newversion;
 
-	UplinkAssert ( hwsale->GetVersion ( version ) );
+	UplinkAssert ( hwsale->GetVersion ( version ) )
 
 }
 
 void InstallHardwareEvent::Run ()
 {
 
-	UplinkAssert ( hwsale );
+	UplinkAssert ( hwsale )
 
 	SaleVersion *sv = hwsale->GetVersion ( version );
-	UplinkAssert ( sv );
+	UplinkAssert ( sv )
 
 	bool success = true;
 	char failure [128];
@@ -72,13 +72,13 @@ void InstallHardwareEvent::Run ()
 	if ( hwsale->swhwTYPE == GATEWAYUPGRADETYPE_MEMORY ) {
 
 		Gateway *gateway = &(game->GetWorld ()->GetPlayer ()->gateway);
-		UplinkAssert (gateway);
+		UplinkAssert (gateway)
 		GatewayDef *gd = gateway->curgatewaydef;
-		UplinkAssert (gd);
+		UplinkAssert (gd)
 
 		if ( gateway->memorysize + sv->data > gd->maxmemory * 8 ) {
 			success = false;
-			UplinkStrncpy ( failure, "There was not enough space to fit the memory into your gateway.", sizeof ( failure ) );
+			UplinkStrncpy ( failure, "There was not enough space to fit the memory into your gateway.", sizeof ( failure ) )
 			game->GetWorld ()->GetPlayer ()->ChangeBalance ( sv->cost, "Refund from Uplink Corporation" );
 		}
 		else
@@ -94,13 +94,13 @@ void InstallHardwareEvent::Run ()
     if ( hwsale->swhwTYPE == GATEWAYUPGRADETYPE_SECURITY ) {
 
 		Gateway *gateway = &(game->GetWorld ()->GetPlayer ()->gateway);
-		UplinkAssert (gateway);
+		UplinkAssert (gateway)
 		GatewayDef *gd = gateway->curgatewaydef;
-		UplinkAssert (gd);
+		UplinkAssert (gd)
 
 		if ( gateway->GetNumSecurity () + 1 > gd->maxsecurity ) {
             success = false;
-			UplinkStrncpy ( failure, "There was not enough space to fit the security device into your gateway.", sizeof ( failure ) );
+			UplinkStrncpy ( failure, "There was not enough space to fit the security device into your gateway.", sizeof ( failure ) )
 			game->GetWorld ()->GetPlayer ()->ChangeBalance ( sv->cost, "Refund from Uplink Corporation" );
 		}
         else {
@@ -196,7 +196,7 @@ char *InstallHardwareEvent::GetShortString ()
 
 	size_t shortstringsize = strlen(hwsale->title) + 32;
 	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "HW Install of %s, version %d", hwsale->title, version );
+	UplinkSnprintf ( shortstring, shortstringsize, "HW Install of %s, version %d", hwsale->title, version )
 	return shortstring;
 
 }

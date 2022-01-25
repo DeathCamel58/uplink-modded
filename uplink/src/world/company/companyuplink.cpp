@@ -41,7 +41,7 @@ CompanyUplink::~CompanyUplink()
 void CompanyUplink::CreateMission ( Mission *mission )
 {
 
-	UplinkAssert (mission);
+	UplinkAssert (mission)
 
 	if ( mission->createdate.GetYear () == 1000 )
 		mission->SetCreateDate ( &(game->GetWorld ()->date) );
@@ -123,7 +123,7 @@ News *CompanyUplink::GetNews ( int index )
 void CompanyUplink::CreateHWSale ( Sale *newsale )
 {
 	
-	UplinkAssert (newsale);
+	UplinkAssert (newsale)
 	hw_sales.PutData ( newsale );
 
 }
@@ -131,7 +131,7 @@ void CompanyUplink::CreateHWSale ( Sale *newsale )
 void CompanyUplink::CreateSWSale ( Sale *newsale )
 {
 	
-	UplinkAssert (newsale);
+	UplinkAssert (newsale)
 	sw_sales.PutData ( newsale );
 
 }
@@ -139,7 +139,7 @@ void CompanyUplink::CreateSWSale ( Sale *newsale )
 void CompanyUplink::CreateNews ( News *newnews )
 {
 
-	UplinkAssert ( newnews );
+	UplinkAssert ( newnews )
 
 	if ( newnews->date.GetYear () == 1000 )
 		newnews->SetDate ( &(game->GetWorld ()->date) );

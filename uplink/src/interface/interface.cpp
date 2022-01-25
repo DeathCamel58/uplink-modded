@@ -57,7 +57,7 @@ void Interface::Create ()
 LocalInterface *Interface::GetLocalInterface ()
 {
 
-	UplinkAssert ( li );
+	UplinkAssert ( li )
 	return li;
 
 }
@@ -65,7 +65,7 @@ LocalInterface *Interface::GetLocalInterface ()
 RemoteInterface *Interface::GetRemoteInterface ()
 {
 
-	UplinkAssert ( ri );
+	UplinkAssert ( ri )
 	return ri;
 
 }
@@ -73,7 +73,7 @@ RemoteInterface *Interface::GetRemoteInterface ()
 TaskManager *Interface::GetTaskManager ()
 {
 
-	UplinkAssert ( tm );
+	UplinkAssert ( tm )
 	return tm;
 
 }

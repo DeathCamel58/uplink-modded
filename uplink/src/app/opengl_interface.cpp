@@ -110,7 +110,7 @@ void clear_draw ( int x, int y, int w, int h )
 void button_draw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (  button );
+	UplinkAssert (  button )
 
 #ifdef USE_BUTTONBACKDROP
 
@@ -194,7 +194,7 @@ void imagebutton_draw ( Button *button, bool highlighted, bool clicked )
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
 	glEnable ( GL_SCISSOR_TEST );
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 	
 	if ( clicked && button->image_clicked ) {
 		button->image_clicked->Draw ( button->x, button->y );
@@ -203,7 +203,7 @@ void imagebutton_draw ( Button *button, bool highlighted, bool clicked )
 		button->image_highlighted->Draw ( button->x, button->y );
 	}
 	else {
-		UplinkAssert ( button->image_standard );
+		UplinkAssert ( button->image_standard )
 		button->image_standard->Draw ( button->x, button->y );
 	}
 
@@ -218,7 +218,7 @@ void imagebutton_draw ( Button *button, bool highlighted, bool clicked, Image *s
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
 	glEnable ( GL_SCISSOR_TEST );
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 	
 	if ( clicked && clicked_i_ref ) {
 		clicked_i_ref->Draw ( button->x, button->y );
@@ -241,18 +241,18 @@ void imagebutton_draw_blend ( Button *button, bool highlighted, bool clicked )
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
 	glEnable ( GL_SCISSOR_TEST );
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 	
 	if ( clicked && button->image_clicked ) {
-		UplinkAssert (button->image_clicked);
+		UplinkAssert (button->image_clicked)
 		button->image_clicked->DrawBlend ( button->x, button->y );
 	}
 	else if ( highlighted && button->image_highlighted ) {
-		UplinkAssert (button->image_highlighted);
+		UplinkAssert (button->image_highlighted)
 		button->image_highlighted->DrawBlend ( button->x, button->y );
 	}
 	else {
-		UplinkAssert ( button->image_standard );
+		UplinkAssert ( button->image_standard )
 		button->image_standard->DrawBlend ( button->x, button->y );
 	}
 
@@ -349,23 +349,23 @@ void imagebutton_drawtextured ( Button *button, bool highlighted, bool clicked )
 
 	glEnable ( GL_TEXTURE_2D );
 	
-	UplinkAssert (button);
+	UplinkAssert (button)
 	
 	Image *image = nullptr;
 	if ( clicked && button->image_clicked ) {
-		UplinkAssert (button->image_clicked);
+		UplinkAssert (button->image_clicked)
 		image = button->image_clicked;
 	}
 	else if ( highlighted && button->image_highlighted ) {
-		UplinkAssert (button->image_highlighted);
+		UplinkAssert (button->image_highlighted)
 		image = button->image_highlighted;
 	}
 	else {
-		UplinkAssert ( button->image_standard );
+		UplinkAssert ( button->image_standard )
 		image = button->image_standard;
 	}
 
-	UplinkAssert ( image );
+	UplinkAssert ( image )
 	
 	glBindTexture ( GL_TEXTURE_2D, 1 );
 	glTexImage2D ( GL_TEXTURE_2D, 0, GL_RGB, image->Width(), image->Height(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels );
@@ -438,7 +438,7 @@ LList <char *> *wordwraptext ( const char *string, int linesize )
 
 	size_t newstringsize = strlen(string) + 2;
 	char *newstring = new char [ newstringsize + 1 ];
-	UplinkSnprintf ( newstring, newstringsize, "%s\n", string );
+	UplinkSnprintf ( newstring, newstringsize, "%s\n", string )
 
 	// Build a linked list of pointers into this new string
 	// Each pointer representing another line
@@ -518,7 +518,7 @@ void text_draw	( int x, int y, const char *string, int linesize )
 void text_draw ( Button *button, bool highlighted, bool clicked ) 
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -543,7 +543,7 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 
 			size_t newcaptionsize = strlen(button->caption) + 2;
 			char *newcaption = new char [newcaptionsize];
-			UplinkSnprintf ( newcaption, newcaptionsize, "%s_", button->caption );
+			UplinkSnprintf ( newcaption, newcaptionsize, "%s_", button->caption )
 
 			wrappedtext = wordwraptext ( newcaption, button->width );
 
@@ -589,7 +589,7 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 void textbutton_draw  ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -616,7 +616,7 @@ void textbutton_draw  ( Button *button, bool highlighted, bool clicked )
 void textbutton_keypress ( Button *button, char key )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	if ( key == 8 ) {
 
@@ -637,7 +637,7 @@ void textbutton_keypress ( Button *button, char key )
 		// Enter key
 		size_t newcaptionsize = strlen(button->caption) + 2;
 		char *newcaption = new char [newcaptionsize];
-		UplinkSnprintf ( newcaption, newcaptionsize, "%s\n", button->caption );
+		UplinkSnprintf ( newcaption, newcaptionsize, "%s\n", button->caption )
 		
 		button->SetCaption ( newcaption );
 
@@ -648,7 +648,7 @@ void textbutton_keypress ( Button *button, char key )
 
 		size_t newcaptionsize = strlen(button->caption) + 2;
 		char *newcaption = new char [newcaptionsize];
-		UplinkSnprintf ( newcaption, newcaptionsize, "%s%c", button->caption, key );
+		UplinkSnprintf ( newcaption, newcaptionsize, "%s%c", button->caption, key )
 		button->SetCaption ( newcaption );
 
 		delete [] newcaption;
@@ -664,7 +664,7 @@ void textbox_draw ( Button *button, bool highlighted, bool clicked )
 
 	// A text button with a background
 
-	UplinkAssert (  button );
+	UplinkAssert (  button )
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -791,7 +791,7 @@ void superhighlight_draw ( Button *button, bool highlighted, bool clicked )
 void superhighlight_draw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (  button );
+	UplinkAssert (  button )
 
 	glBegin ( GL_QUADS );
 
@@ -864,7 +864,7 @@ void superhighlight_draw ( Button *button, bool highlighted, bool clicked )
 
 void button_highlight ( Button *button )
 {
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 	
 	EclHighlightButton ( button->name );
 	tooltip_update ( button->tooltip );
@@ -875,7 +875,7 @@ void button_highlight ( Button *button )
 //		UplinkSnprintf ( filename, sizeof ( filename ), "%ssounds/mouseover.wav", app->path );
 //		SgPlaySound ( RsArchiveFileOpen ( filename ) );
 
-		UplinkStrncpy ( currentbuttonname, button->name, sizeof ( currentbuttonname ) );
+		UplinkStrncpy ( currentbuttonname, button->name, sizeof ( currentbuttonname ) )
 
 	}
 
@@ -886,7 +886,7 @@ void button_highlight ( Button *button )
 void button_click ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	EclClickButton ( button->name );
 
@@ -900,7 +900,7 @@ void button_assignbitmap ( char *name, char *standard_f )
 {
 
 	Button *button = EclGetButton ( name );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
     char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *image = new Image ();
@@ -919,7 +919,7 @@ void button_assignbitmap  ( char *name,	Image *standard_i_ref )
 {
 
 	Button *button = EclGetButton ( name );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	Image *image = nullptr;
 	if ( standard_i_ref )
@@ -936,7 +936,7 @@ void button_assignbitmaps ( char *name, char *standard_f, char *highlighted_f, c
 {
 
 	Button *button = EclGetButton ( name );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
     char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *standard_i = new Image ();
@@ -967,7 +967,7 @@ void button_assignbitmaps ( char *name, Image *standard_i_ref, Image *highlighte
 {
 
 	Button *button = EclGetButton ( name );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	Image *standard_i = nullptr;
 	if ( standard_i_ref )
@@ -992,7 +992,7 @@ void button_assignbitmaps_blend ( char *name, char *standard_f, char *highlighte
 {
 
 	Button *button = EclGetButton ( name );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float br = 0.0f, bg = 0.0f, bb = 0.0f;
 	ColourOption *col;
@@ -1037,7 +1037,7 @@ void button_assignbitmap_blend ( char *name, char *standard_f )
 {
 
 	Button *button = EclGetButton ( name );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float br = 0.0f, bg = 0.0f, bb = 0.0f;
 	ColourOption *col;
@@ -1146,7 +1146,7 @@ void create_stextbox ( int x, int y, int width, int height, char *caption, char 
 	//char name_down [128];
 	//char name_bar  [128];
 
-	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box",    name );
+	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box",    name )
 	EclRegisterButton ( x, y, width - 16, height, caption, "", name_box );
 	EclRegisterButtonCallbacks ( name_box, draw_stextbox, nullptr, nullptr, nullptr );
 
@@ -1175,7 +1175,7 @@ void remove_stextbox ( char *name )
 {
 
 	char name_box  [128];
-	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box",    name );
+	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box",    name )
 	EclRemoveButton ( name_box );
 
 	ScrollBox::RemoveScrollBox( name );
@@ -1185,7 +1185,7 @@ void remove_stextbox ( char *name )
 void draw_stextbox ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -1297,7 +1297,7 @@ void stextbox_scroll ( char *name, int newValue )
 {
 
     char name_box [256];
-	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box", name );
+	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box", name )
     EclDirtyButton ( name_box );
   
 }

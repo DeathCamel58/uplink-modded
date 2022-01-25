@@ -38,14 +38,14 @@ int SharesListScreenInterface::baseoffset = 0;
 void SharesListScreenInterface::ShareClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int fileindex;
 	sscanf ( button->name, "shareslistscreen_share %d", &fileindex );
 	fileindex += baseoffset;
 
 	auto *thisint = (SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( thisint->filteredlist.ValidIndex (fileindex) ) {
 
@@ -53,7 +53,7 @@ void SharesListScreenInterface::ShareClick ( Button *button )
 
 		game->GetInterface ()->GetRemoteInterface ()->RunScreen ( thisint->GetComputerScreen ()->viewpage, thisint->GetComputerScreen ()->GetComputer () );
 		auto *newint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-		UplinkAssert (newint);
+		UplinkAssert (newint)
 		newint->SetCompanyName ( companyname );
 
 	}
@@ -63,7 +63,7 @@ void SharesListScreenInterface::ShareClick ( Button *button )
 void SharesListScreenInterface::ShareDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	clear_draw ( button->x, button->y, button->width, button->height );
 
@@ -89,7 +89,7 @@ void SharesListScreenInterface::ShareDraw ( Button *button, bool highlighted, bo
 	if ( companyname ) {
 
 		Company *company = game->GetWorld ()->GetCompany ( companyname );
-		UplinkAssert (company);
+		UplinkAssert (company)
 
 		if ( shareindex % 2 == 0 ) {
 
@@ -115,13 +115,13 @@ void SharesListScreenInterface::ShareDraw ( Button *button, bool highlighted, bo
 		glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
 		char currentprice [16];
-		UplinkSnprintf ( currentprice, sizeof ( currentprice ), "%d c", company->GetSharePrice () );
+		UplinkSnprintf ( currentprice, sizeof ( currentprice ), "%d c", company->GetSharePrice () )
 
 		char changeinprice [16];
 		if ( company->GetShareChange () != 0 ) {
-			UplinkSnprintf ( changeinprice, sizeof ( changeinprice ), "(%d%%)", company->GetShareChange () );
+			UplinkSnprintf ( changeinprice, sizeof ( changeinprice ), "(%d%%)", company->GetShareChange () )
 		} else {
-			UplinkStrncpy ( changeinprice, "-", sizeof ( changeinprice ) );
+			UplinkStrncpy ( changeinprice, "-", sizeof ( changeinprice ) )
 		}
 
         // If we own any, put a * by the name
@@ -154,7 +154,7 @@ void SharesListScreenInterface::ShareDraw ( Button *button, bool highlighted, bo
 void SharesListScreenInterface::ShareMouseDown ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 	
 	int shareindex;
 	sscanf ( button->name, "shareslistscreen_share %d", &shareindex );
@@ -173,7 +173,7 @@ void SharesListScreenInterface::ShareMouseDown ( Button *button )
 void SharesListScreenInterface::ShareMouseMove ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 	
 	int shareindex;
 	sscanf ( button->name, "shareslistscreen_share %d", &shareindex );
@@ -192,7 +192,7 @@ void SharesListScreenInterface::ShareMouseMove ( Button *button )
 void SharesListScreenInterface::FilterDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	textbutton_draw ( button, highlighted, clicked );
 
@@ -204,10 +204,10 @@ void SharesListScreenInterface::FilterDraw ( Button *button, bool highlighted, b
 void SharesListScreenInterface::FilterClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	SharesListScreenInterface *thisinterface = ((SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
-	UplinkAssert (thisinterface);
+	UplinkAssert (thisinterface)
 
 	char *filter = EclGetButton ( "shareslistscreen_filtertext" )->caption;
 
@@ -225,7 +225,7 @@ void SharesListScreenInterface::ScrollUpClick ( Button *button )
 	for ( int i = 0; i < 14; ++i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i )
 		EclDirtyButton ( name );
 
 	}
@@ -240,7 +240,7 @@ void SharesListScreenInterface::ScrollDownClick ( Button *button )
 	for ( int i = 0; i < 14; ++i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i )
 		EclDirtyButton ( name );
 
 	}
@@ -251,7 +251,7 @@ void SharesListScreenInterface::CloseClick ( Button *button )
 {
 
 	auto *lsi = (SharesListScreenInterface *) GetInterfaceScreen ( SCREEN_SHARESLISTSCREEN );
-	UplinkAssert (lsi);
+	UplinkAssert (lsi)
 
 	int nextpage = lsi->GetComputerScreen ()->nextpage;
 
@@ -263,7 +263,7 @@ void SharesListScreenInterface::CloseClick ( Button *button )
 void SharesListScreenInterface::SetFullList ( LList <char *> *newfulllist )
 {
 
-	UplinkAssert (newfulllist);
+	UplinkAssert (newfulllist)
 
 	fulllist.Empty ();
 	filteredlist.Empty ();
@@ -330,7 +330,7 @@ void SharesListScreenInterface::ApplyFilter ( char *filter )
 	for ( int ib = 0; ib < 14; ++ib ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", ib );
+		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", ib )
 		EclDirtyButton ( name );
 
 	}
@@ -363,7 +363,7 @@ void SharesListScreenInterface::Create ()
 void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -385,7 +385,7 @@ void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int li = 0; li < 14; ++li ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", li );
+			UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", li )
 			EclRegisterButton ( 30, 145 + li * 15, 350, 14, "", "View this share in more detail", name );
 			EclRegisterButtonCallbacks ( name, ShareDraw, ShareClick, ShareMouseDown, ShareMouseMove );
 
@@ -409,7 +409,7 @@ void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 			for ( int i = 0; i < allcompanies->Size (); ++i ) {
 				if ( allcompanies->ValidIndex (i) ) {
 					Company *company = allcompanies->GetData (i);
-					UplinkAssert (company);
+					UplinkAssert (company)
 					if ( company->TYPE == COMPANYTYPE_INDUSTRIAL || 
 						 company->TYPE == COMPANYTYPE_COMMERCIAL ||
 						 company->TYPE == COMPANYTYPE_FINANCIAL )
@@ -482,7 +482,7 @@ void SharesListScreenInterface::Remove ()
 		for ( int i = 0; i < 14; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i )
 			EclRemoveButton ( name );
 		
 		}
@@ -516,7 +516,7 @@ void SharesListScreenInterface::Update ()
 SharesListScreen *SharesListScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (SharesListScreen *) cs;
 
 }

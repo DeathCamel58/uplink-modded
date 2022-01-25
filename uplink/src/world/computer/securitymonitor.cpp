@@ -30,9 +30,9 @@ void SecurityMonitor::BeginAttack ()
 	// Look up the computer system the player is connected to
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( game->GetWorld ()->GetPlayer ()->remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	// Enable monitering if there are systems to be monitered
 
@@ -89,9 +89,9 @@ void SecurityMonitor::Update ()
 			if ( game->GetWorld ()->date.After ( &nextmonitor_date ) ) {
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( game->GetWorld ()->GetPlayer ()->remotehost );
-				UplinkAssert (vl);
+				UplinkAssert (vl)
 				Computer *comp = vl->GetComputer ();
-				UplinkAssert (comp);
+				UplinkAssert (comp)
 
 				if ( comp->security.IsRunning_Monitor () ) {
 
@@ -125,9 +125,9 @@ void SecurityMonitor::Update ()
 			if ( game->GetWorld ()->date.After ( &nextmonitor_date ) ) {
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( game->GetWorld ()->GetPlayer ()->remotehost );
-				UplinkAssert (vl);
+				UplinkAssert (vl)
 				Computer *comp = vl->GetComputer ();
-				UplinkAssert (comp);
+				UplinkAssert (comp)
 
 				if ( comp->security.IsRunning_Monitor () ) {
 
@@ -139,7 +139,7 @@ void SecurityMonitor::Update ()
 							if (currentmonitor.GetData(i)) {
 
 								SecuritySystem *ss = comp->security.GetSystem (i);
-								UplinkAssert (ss);
+								UplinkAssert (ss)
 
 								if ( ss->bypassed || !ss->enabled ) 
 									game->GetWorld ()->GetPlayer ()->GetConnection ()->BeginTrace ();
@@ -171,7 +171,7 @@ void SecurityMonitor::Update ()
 
 		default:
 
-			UplinkAbort ( "Unrecognised status\n" );
+			UplinkAbort ( "Unrecognised status\n" )
 			break;
 
 	}

@@ -109,7 +109,7 @@ void GatewayInterface::Create ()
 
 		Gateway *gateway = &(game->GetWorld ()->GetPlayer ()->gateway);
 		GatewayDef *gatewaydef = gateway->curgatewaydef;
-		UplinkAssert (gatewaydef);
+		UplinkAssert (gatewaydef)
 
 		EclRegisterButton ( 20, 50, SX(600), SY(350), "", "", "gateway_background" );
 		EclRegisterButtonCallbacks ( "gateway_background", DrawGatewayBackground, nullptr, nullptr, nullptr );
@@ -147,9 +147,9 @@ void GatewayInterface::Create ()
 			if ( gatewaydef->cpus.ValidIndex ( ic ) ) {
 
 				GatewayDefLocation *gdl = gatewaydef->cpus.GetData (ic);
-				UplinkAssert (gdl);
+				UplinkAssert (gdl)
 				char bname [64];
-				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu %d", ic );
+				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu %d", ic )
 				EclRegisterButton ( gatewayX + gdl->x, gatewayY + gdl->y, 
 									SIZE_GATEWAY_CPU_W, SIZE_GATEWAY_CPU_H, " ", " ", bname );
 
@@ -180,10 +180,10 @@ void GatewayInterface::Create ()
 			if ( gatewaydef->memory.ValidIndex ( im ) ) {
 
 				GatewayDefLocation *gdl = gatewaydef->memory.GetData (im);
-				UplinkAssert (gdl);
+				UplinkAssert (gdl)
 
 				char bname [64];
-				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_memory %d", im );
+				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_memory %d", im )
 
 				EclRegisterButton ( gatewayX + gdl->x, gatewayY + gdl->y, 
 									SIZE_GATEWAY_MEM_W, SIZE_GATEWAY_MEM_H, " ", bname );
@@ -211,10 +211,10 @@ void GatewayInterface::Create ()
 			if ( gatewaydef->security.ValidIndex ( is ) ) {
 
 				GatewayDefLocation *gdl = gatewaydef->security.GetData (is);
-				UplinkAssert (gdl);
+				UplinkAssert (gdl)
 
 				char bname [64];
-				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_security %d", is );
+				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_security %d", is )
 
 				EclRegisterButton ( gatewayX + gdl->x, gatewayY + gdl->y, 
 									SIZE_GATEWAY_SEC_W, SIZE_GATEWAY_SEC_H, " ", bname );
@@ -238,7 +238,7 @@ void GatewayInterface::Create ()
 		// Create the modem
 
 		char modemtooltip [32];
-		UplinkSnprintf ( modemtooltip, sizeof ( modemtooltip ), "Modem (%dGqs)", gateway->GetBandwidth () );
+		UplinkSnprintf ( modemtooltip, sizeof ( modemtooltip ), "Modem (%dGqs)", gateway->GetBandwidth () )
 		EclRegisterButton ( gatewayX + gatewaydef->modemX, gatewayY + gatewaydef->modemY, 
 							SIZE_GATEWAY_MODEM_W, SIZE_GATEWAY_MODEM_H, " ", modemtooltip, "gateway_modem" );
 		button_assignbitmap ( "gateway_modem", "gateway/modem.tif" );
@@ -276,25 +276,25 @@ void GatewayInterface::Remove ()
 
 		Gateway *gateway = &(game->GetWorld ()->GetPlayer ()->gateway);
 		GatewayDef *gatewaydef = gateway->curgatewaydef;
-		UplinkAssert (gatewaydef);
+		UplinkAssert (gatewaydef)
 
 		for ( int ic = 0; ic < gatewaydef->maxcpus; ++ic ) {
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu %d", ic );
+			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu %d", ic )
 			EclRemoveButton ( bname );
-			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu_caption %d", ic );
+			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu_caption %d", ic )
 			EclRemoveButton ( bname );
 		}
 
 		for ( int im = 0; im < gatewaydef->maxmemory; ++im ) {
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_memory %d", im );
+			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_memory %d", im )
 			EclRemoveButton ( bname );
 		}
 
 		for ( int is = 0; is < gatewaydef->maxsecurity; ++is ) {
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_security %d", is );
+			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_security %d", is )
 			EclRemoveButton ( bname );
 		}
 

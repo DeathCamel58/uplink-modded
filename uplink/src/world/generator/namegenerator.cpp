@@ -62,13 +62,13 @@ void NameGenerator::LoadNames ()
 	if ( fornames.Size () == 0 ) {
 
 		FILE *file = RsArchiveFileOpen ( "data/fornames.txt", "rt" );
-		UplinkAssert ( file );
+		UplinkAssert ( file )
 
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
 			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName );
+			UplinkSafeStrcpy ( name, tempName )
 			fornames.PutData ( name );
 
 		}
@@ -88,13 +88,13 @@ void NameGenerator::LoadNames ()
 	if ( surnames.Size () == 0 ) {
 
 		FILE *file = RsArchiveFileOpen ( "data/surnames.txt", "rt" );
-		UplinkAssert ( file );
+		UplinkAssert ( file )
 
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
 			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName );
+			UplinkSafeStrcpy ( name, tempName )
 			surnames.PutData ( name );
 
 		}
@@ -114,13 +114,13 @@ void NameGenerator::LoadNames ()
 	if ( agentaliases.Size () == 0 ) {
 
 		FILE *file = RsArchiveFileOpen ( "data/agentaliases.txt", "rt" );
-		UplinkAssert ( file );
+		UplinkAssert ( file )
 
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
 			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName );
+			UplinkSafeStrcpy ( name, tempName )
 			agentaliases.PutData ( name );
 
 		}
@@ -141,13 +141,13 @@ void NameGenerator::LoadNames ()
 	if ( companynamesA.Size () == 0 ) {
 
 		FILE *file = RsArchiveFileOpen ( "data/companya.txt", "rt" );
-		UplinkAssert ( file );
+		UplinkAssert ( file )
 
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
 			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName );
+			UplinkSafeStrcpy ( name, tempName )
 			companynamesA.PutData ( name );
 
 		}
@@ -167,13 +167,13 @@ void NameGenerator::LoadNames ()
 	if ( companynamesB.Size () == 0 ) {
 
 		FILE *file = RsArchiveFileOpen ( "data/companyb.txt", "rt" );
-		UplinkAssert ( file );
+		UplinkAssert ( file )
 
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
 			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName );
+			UplinkSafeStrcpy ( name, tempName )
 			companynamesB.PutData ( name );
 
 		}
@@ -208,12 +208,12 @@ char *NameGenerator::GenerateCompanyName ()
     char *companynameA = companynamesA.GetData (index1);
     char *companynameB = companynamesB.GetData (index2);
 	char name [SIZE_COMPANY_NAME];
-	UplinkSnprintf ( name, sizeof ( name ), "%s %s", companynameA, companynameB );
+	UplinkSnprintf ( name, sizeof ( name ), "%s %s", companynameA, companynameB )
 
 	delete [] companynameA;
     companynamesA.RemoveData (index1);
 
-    UplinkStrncpy ( tempname, name, sizeof ( tempname ) );
+    UplinkStrncpy ( tempname, name, sizeof ( tempname ) )
 	return tempname;
 
 }
@@ -234,12 +234,12 @@ char *NameGenerator::GeneratePersonName ()
     char *forname = fornames.GetData (index_f);
     char *surname = surnames.GetData (index_s);
 	char name [SIZE_PERSON_NAME];
-	UplinkSnprintf ( name, sizeof ( name ), "%s %s", forname, surname );
+	UplinkSnprintf ( name, sizeof ( name ), "%s %s", forname, surname )
 
     delete [] surname;
 	surnames.RemoveData (index_s);
 
-    UplinkStrncpy ( tempname, name, sizeof ( tempname ) );
+    UplinkStrncpy ( tempname, name, sizeof ( tempname ) )
 	return tempname;
 
 }
@@ -252,7 +252,7 @@ char *NameGenerator::GenerateAgentAlias ()
 	int index = NumberGenerator::RandomNumber ( agentaliases.Size () );
 
 	char *result = agentaliases.GetData (index);
-    UplinkStrncpy ( tempname, result, sizeof ( tempname ) );
+    UplinkStrncpy ( tempname, result, sizeof ( tempname ) )
 
     delete [] result;
 	agentaliases.RemoveData (index);
@@ -294,7 +294,7 @@ char *NameGenerator::GenerateEasyPassword ()
 		case 4		:		return "secure";
 
 		default:	
-			UplinkAbort ( "You've fucked up" );
+			UplinkAbort ( "You've fucked up" )
 
 	}
 
@@ -309,7 +309,7 @@ char *NameGenerator::GenerateComplexPassword ()
 	// change up to half the letters
 
 	char password [9];
-	UplinkStrncpy ( password, GeneratePassword (), sizeof ( password ) );
+	UplinkStrncpy ( password, GeneratePassword (), sizeof ( password ) )
 
 	int numchanges = NumberGenerator::RandomNumber ( 5 );
 
@@ -322,7 +322,7 @@ char *NameGenerator::GenerateComplexPassword ()
 
 	}
 
-    UplinkStrncpy ( tempname, password, sizeof ( tempname ) );
+    UplinkStrncpy ( tempname, password, sizeof ( tempname ) )
 	return tempname;
 
 }
@@ -330,7 +330,7 @@ char *NameGenerator::GenerateComplexPassword ()
 char *NameGenerator::GenerateDataName ( char *companyname, int DATATYPE )
 {
 
-	UplinkAssert (companyname);
+	UplinkAssert (companyname)
 
 	char dataname [SIZE_DATA_TITLE];
 
@@ -340,7 +340,7 @@ char *NameGenerator::GenerateDataName ( char *companyname, int DATATYPE )
 		{
 
 			UplinkSnprintf ( dataname, sizeof ( dataname ), "%c%c%c-file-%d", companyname [0], companyname [1], companyname [2],
-																				NumberGenerator::RandomNumber ( 99999 ) );
+																				NumberGenerator::RandomNumber ( 99999 ) )
 			break;
 
 		}
@@ -348,7 +348,7 @@ char *NameGenerator::GenerateDataName ( char *companyname, int DATATYPE )
 		{
 			
 			UplinkSnprintf ( dataname, sizeof ( dataname ), "%c%c%c-data-%d", companyname [0], companyname [1], companyname [2],
-																				NumberGenerator::RandomNumber ( 99999 ) );
+																				NumberGenerator::RandomNumber ( 99999 ) )
 			break;
 
 		}
@@ -356,69 +356,69 @@ char *NameGenerator::GenerateDataName ( char *companyname, int DATATYPE )
 		{
 
 			UplinkSnprintf ( dataname, sizeof ( dataname ), "%c%c%c-prog-%d", companyname [0], companyname [1], companyname [2],
-																				NumberGenerator::RandomNumber ( 99999 ) );
+																				NumberGenerator::RandomNumber ( 99999 ) )
 			break;
 
 		}
 
 	}
 
-    UplinkStrncpy ( tempname, dataname, sizeof ( tempname ) );
+    UplinkStrncpy ( tempname, dataname, sizeof ( tempname ) )
 	return tempname;
 
 }
 
 char *NameGenerator::GeneratePublicAccessServerName( char *companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Public Access Server", companyname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Public Access Server", companyname )
     return tempname;
 }
 
 char *NameGenerator::GenerateAccessTerminalName( char *companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Access Terminal", companyname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Access Terminal", companyname )
     return tempname;
 }
 
 char *NameGenerator::GenerateInternalServicesServerName ( char *companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Internal Services Machine", companyname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Internal Services Machine", companyname )
     return tempname;  
 }
 
 char *NameGenerator::GenerateCentralMainframeName( char *companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Central Mainframe", companyname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Central Mainframe", companyname )
     return tempname;
 }
 
 char *NameGenerator::GenerateInternationalBankName( char *companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s International Bank", companyname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s International Bank", companyname )
     return tempname;
 }
 
 char *NameGenerator::GenerateFileServerName( char *companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s File Server", companyname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s File Server", companyname )
     return tempname;
 }
 
 char *NameGenerator::GenerateLANName( char *companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Local Area Network", companyname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Local Area Network", companyname )
     return tempname;
 }
 
 char *NameGenerator::GeneratePersonalComputerName( char *personname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Personal Computer", personname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Personal Computer", personname )
     return tempname;
 }
 
 char *NameGenerator::GenerateVoicePhoneSystemName( char *personname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Voice Phone System", personname );
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Voice Phone System", personname )
     return tempname;
 }
 

@@ -18,7 +18,7 @@ UplinkEvent::~UplinkEvent ()
 void UplinkEvent::SetRunDate ( Date *newrundate )
 {
 
-	UplinkAssert (newrundate);
+	UplinkAssert (newrundate)
 	rundate.SetDate ( newrundate );
 
 }
@@ -26,7 +26,7 @@ void UplinkEvent::SetRunDate ( Date *newrundate )
 void UplinkEvent::Run ()
 {
 
-	UplinkAbort ( "This MUST be overridden" );
+	UplinkAbort ( "This MUST be overridden" )
 
 }
 
@@ -39,7 +39,7 @@ char *UplinkEvent::GetShortString ()
 
 	size_t shortstringsize = 32;
 	char *shortstring = new char [shortstringsize];
-	UplinkStrncpy ( shortstring, "Uplink Event", shortstringsize );
+	UplinkStrncpy ( shortstring, "Uplink Event", shortstringsize )
 	return shortstring;
 		
 }
@@ -49,7 +49,7 @@ char *UplinkEvent::GetLongString ()
 
 	size_t longstringsize = 32;
 	char *longstring = new char [longstringsize];
-	UplinkStrncpy ( longstring, "Uplink Event", longstringsize );
+	UplinkStrncpy ( longstring, "Uplink Event", longstringsize )
 	return longstring;
 
 }
@@ -89,7 +89,7 @@ void UplinkEvent::Print ()
 string UplinkEvent::GetID ()
 {
 
-	UplinkAbort ( "This MUST be overridden" );
+	UplinkAbort ( "This MUST be overridden" )
 	return nullptr;
 
 }
@@ -97,7 +97,7 @@ string UplinkEvent::GetID ()
 int UplinkEvent::GetOBJECTID ()
 {
 
-	UplinkAbort ( "This MUST be overridden" );
+	UplinkAbort ( "This MUST be overridden" )
 	return -1;
 
 }

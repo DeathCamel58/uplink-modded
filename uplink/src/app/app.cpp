@@ -48,13 +48,13 @@
 App :: App ()
 {
 
-    UplinkStrncpy ( path, "c:/", sizeof ( path ) );
-    UplinkStrncpy ( userpath, path, sizeof ( userpath ) );
-    UplinkStrncpy ( version, "1.31c", sizeof ( version ) );
-    UplinkStrncpy ( type, "RELEASE", sizeof ( type ) );
-    UplinkStrncpy ( date, "01/01/97", sizeof ( date ) );
-    UplinkStrncpy ( title, "NewApp", sizeof ( title ) );
-    UplinkStrncpy ( release, "Version 1.0 (RELEASE), Compiled on 01/01/97", sizeof ( release ) );
+    UplinkStrncpy ( path, "c:/", sizeof ( path ) )
+    UplinkStrncpy ( userpath, path, sizeof ( userpath ) )
+    UplinkStrncpy ( version, "1.31c", sizeof ( version ) )
+    UplinkStrncpy ( type, "RELEASE", sizeof ( type ) )
+    UplinkStrncpy ( date, "01/01/97", sizeof ( date ) )
+    UplinkStrncpy ( title, "NewApp", sizeof ( title ) )
+    UplinkStrncpy ( release, "Version 1.0 (RELEASE), Compiled on 01/01/97", sizeof ( release ) )
 
     starttime = 0;
 
@@ -106,18 +106,18 @@ void App :: Initialise ()
 void App :: Set ( char *newpath, char *newversion, char *newtype, char *newdate, char *newtitle )
 {
                 
-	UplinkAssert ( strlen ( newpath ) < SIZE_APP_PATH );
-	UplinkAssert ( strlen ( newversion ) < SIZE_APP_VERSION );
-	UplinkAssert ( strlen ( newtype ) < SIZE_APP_TYPE );
-	UplinkAssert ( strlen ( newdate ) < SIZE_APP_DATE );
-	UplinkAssert ( strlen ( newtitle ) < SIZE_APP_TITLE );
+	UplinkAssert ( strlen ( newpath ) < SIZE_APP_PATH )
+	UplinkAssert ( strlen ( newversion ) < SIZE_APP_VERSION )
+	UplinkAssert ( strlen ( newtype ) < SIZE_APP_TYPE )
+	UplinkAssert ( strlen ( newdate ) < SIZE_APP_DATE )
+	UplinkAssert ( strlen ( newtitle ) < SIZE_APP_TITLE )
 
-    UplinkStrncpy ( path, newpath, sizeof ( path ) );
-    UplinkStrncpy ( version, newversion, sizeof ( version ) );
-    UplinkStrncpy ( type, newtype, sizeof ( type ) );
-    UplinkStrncpy ( date, newdate, sizeof ( date ) );
-    UplinkStrncpy ( title, newtitle, sizeof ( title ) );
-    UplinkSnprintf ( release, sizeof ( release ), "Version %s (%s)\nCompiled on %s\n", version, type, date );    
+    UplinkStrncpy ( path, newpath, sizeof ( path ) )
+    UplinkStrncpy ( version, newversion, sizeof ( version ) )
+    UplinkStrncpy ( type, newtype, sizeof ( type ) )
+    UplinkStrncpy ( date, newdate, sizeof ( date ) )
+    UplinkStrncpy ( title, newtitle, sizeof ( title ) )
+    UplinkSnprintf ( release, sizeof ( release ), "Version %s (%s)\nCompiled on %s\n", version, type, date )
 
 #ifdef WIN32
 	// Under Windows, the user-path is %app-path%/users
@@ -129,14 +129,14 @@ void App :: Set ( char *newpath, char *newversion, char *newtype, char *newdate,
 	// (or %app-path%/users if no HOME environment variable)
 	char *homedir = getenv("HOME");
 	if (homedir != nullptr) {
-		UplinkSnprintf( userpath, sizeof ( userpath ), "%s/.uplink/", homedir);
-		UplinkSnprintf( usertmppath, sizeof ( usertmppath ), "%s/.uplink/userstmp/", homedir);
-		UplinkSnprintf( userretirepath, sizeof ( userretirepath ), "%s/.uplink/usersold/", homedir);
+		UplinkSnprintf( userpath, sizeof ( userpath ), "%s/.uplink/", homedir)
+		UplinkSnprintf( usertmppath, sizeof ( usertmppath ), "%s/.uplink/userstmp/", homedir)
+		UplinkSnprintf( userretirepath, sizeof ( userretirepath ), "%s/.uplink/usersold/", homedir)
 	}
 	else {
-		UplinkSnprintf( userpath, sizeof ( userpath ), "%susers/", path );
-		UplinkSnprintf( usertmppath, sizeof ( usertmppath ), "%suserstmp/", path );
-		UplinkSnprintf( userretirepath, sizeof ( userretirepath ), "%susersold/", path );
+		UplinkSnprintf( userpath, sizeof ( userpath ), "%susers/", path )
+		UplinkSnprintf( usertmppath, sizeof ( usertmppath ), "%suserstmp/", path )
+		UplinkSnprintf( userretirepath, sizeof ( userretirepath ), "%susersold/", path )
 	}
 #endif // WIN32
 }
@@ -144,7 +144,7 @@ void App :: Set ( char *newpath, char *newversion, char *newtype, char *newdate,
 Options *App::GetOptions ()
 {
 
-	UplinkAssert (options);
+	UplinkAssert (options)
 	return options;
 
 }
@@ -152,7 +152,7 @@ Options *App::GetOptions ()
 Network *App::GetNetwork ()
 {
 
-	UplinkAssert (network);
+	UplinkAssert (network)
 	return network;
 
 }
@@ -160,7 +160,7 @@ Network *App::GetNetwork ()
 MainMenu *App::GetMainMenu ()
 {
 
-	UplinkAssert (mainmenu);
+	UplinkAssert (mainmenu)
 	return mainmenu;
 
 }
@@ -168,8 +168,8 @@ MainMenu *App::GetMainMenu ()
 void App::RegisterPhoneDialler ( PhoneDialler *phoneDiallerScreen )
 {
 
-	UplinkAssert ( phoneDiallerScreen );
-	UplinkAssert ( phoneDial != phoneDiallerScreen );
+	UplinkAssert ( phoneDiallerScreen )
+	UplinkAssert ( phoneDial != phoneDiallerScreen )
 
 	if ( phoneDial )
 		UnRegisterPhoneDialler ( phoneDial );
@@ -195,7 +195,7 @@ void CopyGame ( char *username, char *filename )
 {
 
 	char filenametmp [256];
-	UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%scuragent.usr", app->usertmppath);
+	UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%scuragent.usr", app->usertmppath)
 
 	//char filenametmpUplink [256];
 	//UplinkSnprintf ( filenametmpUplink, sizeof ( filenametmpUplink ), "%scuragent_clear.bin", app->usertmppath );
@@ -209,19 +209,19 @@ void CopyGame ( char *username, char *filename )
 void App::SetNextLoadGame ( const char *username )
 {
 
-	UplinkAssert ( username );
+	UplinkAssert ( username )
 
     delete [] nextLoadGame;
 
 	nextLoadGame = new char [ strlen ( username ) + 1 ];
-	UplinkSafeStrcpy ( nextLoadGame, username );
+	UplinkSafeStrcpy ( nextLoadGame, username )
 
 }
 
 void App::LoadGame ( )
 {
 
-	UplinkAssert ( nextLoadGame );
+	UplinkAssert ( nextLoadGame )
 
 	LoadGame ( nextLoadGame );
 
@@ -233,18 +233,18 @@ void App::LoadGame ( )
 void App::LoadGame ( char *username )
 {
 
-	UplinkAssert ( game );
+	UplinkAssert ( game )
 
 	// Try to load from the local dir
 
 	char filename [256];
-	UplinkSnprintf ( filename, sizeof ( filename ), "%s%s.usr", app->userpath, username );
+	UplinkSnprintf ( filename, sizeof ( filename ), "%s%s.usr", app->userpath, username )
 
 	if ( !RsFileEncrypted ( filename ) ) {
 		char filenametmp [256];
-		UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%s%s.tmp", app->userpath, username );
+		UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%s%s.tmp", app->userpath, username )
 		if ( RsFileEncrypted ( filenametmp ) ) {
-			UplinkSafeStrcpy ( filename, filenametmp );
+			UplinkSafeStrcpy ( filename, filenametmp )
 		}
 	}
 
@@ -354,7 +354,7 @@ void App::SaveGame ( char *username )
 
 	if ( strcmp ( username, "NEWAGENT" ) == 0 ) return;
 
-	UplinkAssert ( game );
+	UplinkAssert ( game )
 
 	// Try to save to the local dir
 
@@ -362,9 +362,9 @@ void App::SaveGame ( char *username )
 
 	char filename [256];
 	//UplinkSnprintf ( filename, sizeof ( filename ), "%s%s.usr", userpath, username );
-	UplinkSnprintf ( filename, sizeof ( filename ), "%s%s.tmp", userpath, username );
+	UplinkSnprintf ( filename, sizeof ( filename ), "%s%s.tmp", userpath, username )
 	char filenamereal [256];
-	UplinkSnprintf ( filenamereal, sizeof ( filenamereal ), "%s%s.usr", userpath, username );
+	UplinkSnprintf ( filenamereal, sizeof ( filenamereal ), "%s%s.usr", userpath, username )
 
 	printf ( "Saving profile to %s...", filename );
 
@@ -373,7 +373,7 @@ void App::SaveGame ( char *username )
 	if ( file ) {
 
 	
-		UplinkAssert ( file );
+		UplinkAssert ( file )
 
 		game->Save ( file );
 		fclose ( file );
@@ -407,14 +407,14 @@ void App::RetireGame ( char *username )
 {
 
 	char filenamereal [256];
-	UplinkSnprintf ( filenamereal, sizeof ( filenamereal ), "%s%s.usr", userpath, username );
+	UplinkSnprintf ( filenamereal, sizeof ( filenamereal ), "%s%s.usr", userpath, username )
 	char filenametmp [256];
-	UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%s%s.tmp", userpath, username );
+	UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%s%s.tmp", userpath, username )
 
 	char filenameretirereal [256];
-	UplinkSnprintf ( filenameretirereal, sizeof ( filenameretirereal ), "%s%s.usr", userretirepath, username );
+	UplinkSnprintf ( filenameretirereal, sizeof ( filenameretirereal ), "%s%s.usr", userretirepath, username )
 	char filenameretiretmp [256];
-	UplinkSnprintf ( filenameretiretmp, sizeof ( filenameretiretmp ), "%s%s.tmp", userretirepath, username );
+	UplinkSnprintf ( filenameretiretmp, sizeof ( filenameretiretmp ), "%s%s.tmp", userretirepath, username )
 
 	printf ( "Retire profile %s ...", username );
 
@@ -464,7 +464,7 @@ DArray <char *> *App::ListExistingGames ()
 
 #else
 	char userdir [256];
-	UplinkStrncpy ( userdir, app->userpath, sizeof ( userdir ) );
+	UplinkStrncpy ( userdir, app->userpath, sizeof ( userdir ) )
 	DIR *dir = opendir( userdir );
 	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
@@ -477,7 +477,7 @@ DArray <char *> *App::ListExistingGames ()
 	      
 		    size_t newnamesize = 256;
 			char *newname = new char [newnamesize];
-		    UplinkStrncpy ( newname, entry->d_name, newnamesize );
+		    UplinkStrncpy ( newname, entry->d_name, newnamesize )
 		    existing->PutData ( newname );
 		}
 	    
@@ -496,7 +496,7 @@ DArray <char *> *App::ListExistingGames ()
 void App::Close ()
 {
 
-	UplinkAssert ( !closed );
+	UplinkAssert ( !closed )
 
     closed = true;
 
@@ -594,7 +594,7 @@ void App::Print ()
 void App::Update ()
 {
 
-	UplinkAssert ( game );
+	UplinkAssert ( game )
 
 	if ( game->GameSpeed () == GAMESPEED_GAMEOVER || 
 		( game->IsRunning () &&

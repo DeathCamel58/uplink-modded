@@ -115,16 +115,16 @@ void LanInterface::LanBackgroundDraw ( Button *button, bool highlighted, bool cl
 
 
     Button *background = EclGetButton ( "lan_background" );
-    UplinkAssert (background);
+    UplinkAssert (background)
 
 	//
 	// Lookup computer details
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) {
 
@@ -146,10 +146,10 @@ void LanInterface::LanBackgroundDraw ( Button *button, bool highlighted, bool cl
 	if ( lanComp->systems.ValidIndex( currentSelected ) ) {
 
 		LanComputerSystem *system = lanComp->systems.GetData( currentSelected );
-		UplinkAssert (system);
+		UplinkAssert (system)
 
 		LanInterfaceObject *intObj = &lanInterfaceObjects[system->TYPE];
-		UplinkAssert (intObj);
+		UplinkAssert (intObj)
         int x = background->x + (system->x) + offsetX;
         int y = background->y + (system->y) + offsetY;
 		int width = intObj->width;
@@ -179,10 +179,10 @@ void LanInterface::LanBackgroundDraw ( Button *button, bool highlighted, bool cl
 	if ( lanComp->systems.ValidIndex( currentSystem ) ) {
 
 		LanComputerSystem *system = lanComp->systems.GetData( currentSystem );
-		UplinkAssert (system);
+		UplinkAssert (system)
 
 		LanInterfaceObject *intObj = &lanInterfaceObjects[system->TYPE];
-		UplinkAssert (intObj);
+		UplinkAssert (intObj)
         int x = background->x + (system->x) + offsetX;
         int y = background->y + (system->y) + offsetY;
 		int width = intObj->width;
@@ -218,21 +218,21 @@ void LanInterface::LanBackgroundDraw ( Button *button, bool highlighted, bool cl
         if ( lanComp->links.ValidIndex(i) ) {
 
             LanComputerLink *link = lanComp->links.GetData(i);
-            UplinkAssert (link);
+            UplinkAssert (link)
 
             if ( link->visible > LANLINKVISIBLE_NONE ) {
 
-				UplinkAssert (lanComp->systems.ValidIndex(link->from));
-				UplinkAssert (lanComp->systems.ValidIndex(link->to));
+				UplinkAssert (lanComp->systems.ValidIndex(link->from))
+				UplinkAssert (lanComp->systems.ValidIndex(link->to))
                 LanComputerSystem *from = lanComp->systems.GetData( link->from );
                 LanComputerSystem *to = lanComp->systems.GetData( link->to );
-                UplinkAssert (from);
-                UplinkAssert (to);
+                UplinkAssert (from)
+                UplinkAssert (to)
 
                 LanInterfaceObject *fromSystem = &lanInterfaceObjects[from->TYPE];
                 LanInterfaceObject *toSystem = &lanInterfaceObjects[to->TYPE];
-                UplinkAssert (fromSystem);
-                UplinkAssert (toSystem);
+                UplinkAssert (fromSystem)
+                UplinkAssert (toSystem)
 
 				//
 				// Work out connecting points for link
@@ -324,20 +324,20 @@ void LanInterface::LanBackgroundDraw ( Button *button, bool highlighted, bool cl
     // Draw highlights
 
     auto *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
-    UplinkAssert (thisInt);
+    UplinkAssert (thisInt)
 
     for ( int h = 0; h < thisInt->highlights.Size(); ++h ) {
 
         LanInterfaceHighlight *lih = thisInt->highlights.GetData(h);
-        UplinkAssert (lih);
+        UplinkAssert (lih)
 
         if ( lanComp->systems.ValidIndex( lih->systemIndex ) ) {
 
             LanComputerSystem *system = lanComp->systems.GetData( lih->systemIndex );
-            UplinkAssert (system);
+            UplinkAssert (system)
 
 		    LanInterfaceObject *intObj = &lanInterfaceObjects[system->TYPE];
-		    UplinkAssert (intObj);
+		    UplinkAssert (intObj)
             int x = background->x + (system->x) + offsetX;
             int y = background->y + (system->y) + offsetY;
 		    int width = intObj->width;
@@ -388,10 +388,10 @@ void LanInterface::LanBackgroundDraw ( Button *button, bool highlighted, bool cl
 	if ( lanComp->systems.ValidIndex( sysAdminCurrentSystem ) ) {
 
 		LanComputerSystem *system = lanComp->systems.GetData( sysAdminCurrentSystem );
-		UplinkAssert (system);
+		UplinkAssert (system)
 
 		LanInterfaceObject *intObj = &lanInterfaceObjects[system->TYPE];
-		UplinkAssert (intObj);
+		UplinkAssert (intObj)
         int x = background->x + (system->x) + offsetX;
         int y = background->y + (system->y) + offsetY;
 		int width = intObj->width;
@@ -503,7 +503,7 @@ void LanInterface::LanSystemDraw ( Button *button, bool highlighted, bool clicke
     // Only draw within the LAN background box
 
     Button *background = EclGetButton ( "lan_background" );
-    UplinkAssert (background);
+    UplinkAssert (background)
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( background->x, screenheight - (background->y + background->height), background->width - 2, background->height );	
 	glEnable ( GL_SCISSOR_TEST );
@@ -514,9 +514,9 @@ void LanInterface::LanSystemDraw ( Button *button, bool highlighted, bool clicke
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
     auto *lancomp = (LanComputer *) comp;
 
@@ -547,7 +547,7 @@ void LanInterface::LanSystemDraw ( Button *button, bool highlighted, bool clicke
         case LANSYSTEMVISIBLE_TYPE:
         case LANSYSTEMVISIBLE_FULL:
 
-		    UplinkAssert ( button->image_standard );
+		    UplinkAssert ( button->image_standard )
 		    button->image_standard->Draw ( button->x, button->y );
             break;
 
@@ -568,7 +568,7 @@ void LanInterface::LanSystemClick ( Button *button )
     sscanf ( button->name, "%s %d", unused, &systemIndex );
 
     auto *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
-    UplinkAssert (thisInt);
+    UplinkAssert (thisInt)
 
     thisInt->SelectSystem ( systemIndex );
 
@@ -577,9 +577,9 @@ void LanInterface::LanSystemClick ( Button *button )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
     auto *lancomp = (LanComputer *) comp;
 
@@ -598,9 +598,9 @@ void LanInterface::LanSystemMouseMove ( Button *button )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
     auto *lancomp = (LanComputer *) comp;
 
@@ -638,9 +638,9 @@ void LanInterface::ConnectDraw ( Button *button, bool highlighted, bool clicked 
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE == COMPUTER_TYPE_LAN &&
 		LanMonitor::currentSystem != LanMonitor::currentSelected &&
@@ -657,9 +657,9 @@ void LanInterface::ConnectClick ( Button *button )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE == COMPUTER_TYPE_LAN &&
 		LanMonitor::currentSystem != LanMonitor::currentSelected &&
@@ -707,9 +707,9 @@ void LanInterface::ConnectMouseMove	( Button *button )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE == COMPUTER_TYPE_LAN &&
 		LanMonitor::currentSystem != LanMonitor::currentSelected &&
@@ -730,9 +730,9 @@ void LanInterface::CancelClick ( Button *button )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE == COMPUTER_TYPE_LAN )
     {
@@ -755,9 +755,9 @@ void LanInterface::BackDraw ( Button *button, bool highlighted, bool clicked )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE == COMPUTER_TYPE_LAN &&
         LanMonitor::connection.Size() > 1 ) {
@@ -773,9 +773,9 @@ void LanInterface::BackMouseMove ( Button *button )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE == COMPUTER_TYPE_LAN &&
         LanMonitor::connection.Size() > 1 ) {
@@ -802,9 +802,9 @@ void LanInterface::GenerateClick ( Button *button )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
     if ( comp->TYPE == COMPUTER_TYPE_LAN ) {
 
@@ -820,7 +820,7 @@ void LanInterface::GenerateClick ( Button *button )
             case 2  :   LanGenerator::GenerateLANCluster(lanComp,2);  break;
             case 3  :   LanGenerator::GenerateLANCluster(lanComp,3);  break;
             case 4  :   LanGenerator::GenerateLANCluster(lanComp,4);  break;
-        };
+        }
 
         CheatInterface::ShowLANClick( nullptr );
         LanMonitor::ResetAll ();
@@ -858,7 +858,7 @@ void LanInterface::PanelBackgroundDraw ( Button *button, bool highlighted, bool 
 void LanInterface::ScrollClick ( Button *button )
 {
 
-    UplinkAssert (button );
+    UplinkAssert (button )
 
     char unused[64];
     int direction;
@@ -872,14 +872,14 @@ void LanInterface::ScrollClick ( Button *button )
     else if ( direction == 4 ) offsetX -= scrollSpeed;
 
     auto *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
-    UplinkAssert (thisInt);
+    UplinkAssert (thisInt)
     thisInt->PositionLayout ();
 
 }
 
 LanInterface::LanInterface ()
 {
-    UplinkStrncpy ( ip, "None", sizeof ( ip ) );
+    UplinkStrncpy ( ip, "None", sizeof ( ip ) )
 }
 
 LanInterface::~LanInterface ()
@@ -890,9 +890,9 @@ void LanInterface::SelectSystem ( int systemIndex )
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
     auto *lancomp = (LanComputer *) comp;
 
@@ -927,7 +927,7 @@ void LanInterface::SelectSystem ( int systemIndex )
 	int panelwidth = (int) ( screenw * PANELSIZE );
 
     LanInterfaceObject *intObj = &lanInterfaceObjects[system->TYPE];
-    UplinkAssert (intObj);
+    UplinkAssert (intObj)
 
     EclRemoveButton ( "lan_preview" );
     EclRegisterButton ( screenw - 90, paneltop + 60, intObj->width, intObj->height, " ", "Shows the currently selected system", "lan_preview" );
@@ -989,15 +989,15 @@ void LanInterface::CreateLayout ()
 
         char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	    VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	    UplinkAssert (vl);
+	    UplinkAssert (vl)
 	    Computer *comp = vl->GetComputer ();
-	    UplinkAssert (comp);
+	    UplinkAssert (comp)
 
         if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
 
         auto *lancomp = (LanComputer *) comp;
         Button *background = EclGetButton ( "lan_background" );
-        UplinkAssert (background);
+        UplinkAssert (background)
 
         //
         // Create icons for each system
@@ -1006,15 +1006,15 @@ void LanInterface::CreateLayout ()
             if ( lancomp->systems.ValidIndex(i) ) {
 
                 LanComputerSystem *lanSystem = lancomp->systems.GetData(i);
-                UplinkAssert (lanSystem);
+                UplinkAssert (lanSystem)
 
                 char name [64];
-                UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i );
+                UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i )
                 int x = background->x + (lanSystem->x);
                 int y = background->y + (lanSystem->y);
 
                 LanInterfaceObject *intObj = &lanInterfaceObjects[lanSystem->TYPE];
-                UplinkAssert (intObj);
+                UplinkAssert (intObj)
 
                 EclRegisterButton ( x, y, intObj->width, intObj->height, " ", "Access this system", name );
                 button_assignbitmap ( name, intObj->filename );
@@ -1032,7 +1032,7 @@ void LanInterface::CreateLayout ()
 		    LanComputerSystem *system = lancomp->systems.GetData(LanMonitor::currentSystem);
 
             Button *background = EclGetButton ( "lan_background" );
-            UplinkAssert (background);
+            UplinkAssert (background)
             offsetX = (background->width / 2) - (system->x);
             offsetY = (background->height / 2) - (system->y);
 
@@ -1058,13 +1058,13 @@ void LanInterface::RemoveLayout ()
 
     int i = 0;
     char name [64];
-    UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i );
+    UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i )
 
     while ( EclGetButton ( name ) ) {
 
         EclRemoveButton ( name );
         ++i;
-        UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i );
+        UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i )
 
     }
     
@@ -1080,15 +1080,15 @@ void LanInterface::PositionLayout ()
 
         char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	    VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	    UplinkAssert (vl);
+	    UplinkAssert (vl)
 	    Computer *comp = vl->GetComputer ();
-	    UplinkAssert (comp);
+	    UplinkAssert (comp)
 
         if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
 
         auto *lancomp = (LanComputer *) comp;
         Button *background = EclGetButton ( "lan_background" );
-        UplinkAssert (background);
+        UplinkAssert (background)
 
         //
         // Create icons for each system
@@ -1097,15 +1097,15 @@ void LanInterface::PositionLayout ()
             if ( lancomp->systems.ValidIndex(i) ) {
 
                 LanComputerSystem *lanSystem = lancomp->systems.GetData(i);
-                UplinkAssert (lanSystem);
+                UplinkAssert (lanSystem)
 
                 char name [64];
-                UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i );
+                UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i )
                 int x = background->x + (lanSystem->x) + offsetX;
                 int y = background->y + (lanSystem->y) + offsetY;
 
                 LanInterfaceObject *intObj = &lanInterfaceObjects[lanSystem->TYPE];
-                UplinkAssert (intObj);
+                UplinkAssert (intObj)
 
                 Button *button = EclGetButton ( name );
                 button->x = x;
@@ -1169,7 +1169,7 @@ void LanInterface::Create ()
         EclRegisterButton ( 5, 30, SX(440), SY(370), " ", " ", "lan_background" );
         EclRegisterButtonCallbacks ( "lan_background", LanBackgroundDraw, nullptr, nullptr, nullptr );
 
-        UplinkStrncpy ( ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( ip ) );
+        UplinkStrncpy ( ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( ip ) )
 
 #ifdef TESTGAME
         EclRegisterButton ( 10, 35, 15, 15, "L0", "Generate a new Level 0 Gateway", "lan_generate 0" );

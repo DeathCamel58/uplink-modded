@@ -113,10 +113,10 @@ void MainMenu::RunScreen ( int SCREENCODE )
 		case MAINMENU_GRAPHICOPTIONS:	screen = new GraphicOptionsInterface ();		break;
 
 		case MAINMENU_UNKNOWN:
-			UplinkAbort ( "Tried to create a local screen with MAINMENU_UNKNOWN SCREENCODE" );
+			UplinkAbort ( "Tried to create a local screen with MAINMENU_UNKNOWN SCREENCODE" )
 
 		default:
-			UplinkAbort( "Tried to create a local screen with unknown SCREENCODE" );
+			UplinkAbort( "Tried to create a local screen with unknown SCREENCODE" )
 
 	}
 
@@ -138,7 +138,7 @@ int MainMenu::InScreen ()
 MainMenuScreen *MainMenu::GetMenuScreen ()
 {
 
-	UplinkAssert ( screen );
+	UplinkAssert ( screen )
 	return screen;
 
 }

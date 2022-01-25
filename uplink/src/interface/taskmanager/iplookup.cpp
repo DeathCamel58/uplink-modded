@@ -104,10 +104,10 @@ void IPLookup::Tick ( int n )
 
 			int pid = SvbLookupPID ( this );
 			char name_display [64];
-			UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid );
+			UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
 			
 			Button *button = EclGetButton ( name_display );
-			UplinkAssert ( button );
+			UplinkAssert ( button )
 			char *ip = StripCarriageReturns (button->caption);
 
 			VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
@@ -140,7 +140,7 @@ void IPLookup::Tick ( int n )
 
 				int pid = SvbLookupPID ( this );
 				char name_display [64];
-				UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid );
+				UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
 
 				EclRegisterCaptionChange ( name_display, "Enter IP" );
 				status = IPLOOKUP_IDLE;
@@ -150,7 +150,7 @@ void IPLookup::Tick ( int n )
 		}
 		else {
 
-			UplinkAbort ( "Unkown Status" );
+			UplinkAbort ( "Unkown Status" )
 
 		}
 
@@ -169,9 +169,9 @@ void IPLookup::CreateInterface ()
 		char name_display [64];
 		char name_close [64];
 
-		UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid );
-		UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid );
-		UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid );
+		UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid )
+		UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
+		UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid )
 
 		EclRegisterButton ( 305, 444, 20, 15, "", "Perform the lookup", name_go );
 		EclRegisterButton ( 325, 444, 185, 14, "Enter IP", "Type your IP here", name_display );
@@ -200,9 +200,9 @@ void IPLookup::RemoveInterface ()
 		char name_display [64];
 		char name_close [64];
 
-		UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid );
-		UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid );
-		UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid );
+		UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid )
+		UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
+		UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid )
 
 		EclRemoveButton ( name_go );
 		EclRemoveButton ( name_display );
@@ -223,9 +223,9 @@ void IPLookup::ShowInterface ()
 	char name_display [64];
 	char name_close [64];
 
-	UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid );
-	UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid );
-	UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid );
+	UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid )
+	UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
+	UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid )
 
 	EclButtonBringToFront ( name_go );
 	EclButtonBringToFront ( name_display );
@@ -239,7 +239,7 @@ bool IPLookup::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char name_display [64];
-	UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid );
+	UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
 
 	return ( EclGetButton ( name_display ) != nullptr );
 

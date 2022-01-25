@@ -43,10 +43,10 @@ void LogScreenInterface::CloseClick ( Button *button )
 {
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
-	UplinkAssert( compscreen );
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
+	UplinkAssert( compscreen )
+	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
 	auto *ls = (LogScreen *) compscreen;
-    UplinkAssert (ls);
+    UplinkAssert (ls)
     
 	if ( ls->nextpage != -1 ) 
         game->GetInterface ()->GetRemoteInterface ()->RunScreen ( ls->nextpage, ls->GetComputer () );
@@ -64,20 +64,20 @@ bool LogScreenInterface::EscapeKeyPressed ()
 void LogScreenInterface::LogClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int logindex;
 	sscanf ( button->name, "logscreen_log %d", &logindex );
 	logindex = baseoffset - logindex;
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
-	UplinkAssert( compscreen );
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
+	UplinkAssert( compscreen )
+	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
 	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( comp->security.IsRunning_Proxy () ) {
 		create_msgbox ( "Error", "Denied access by Proxy Server" );
@@ -175,8 +175,8 @@ void LogScreenInterface::ScrollChange ( char *scrollname, int newValue )
 {
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
-	UplinkAssert( compscreen );
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
+	UplinkAssert( compscreen )
+	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
 	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
@@ -185,7 +185,7 @@ void LogScreenInterface::ScrollChange ( char *scrollname, int newValue )
 	for ( int i = 0; i < 15; ++i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i )
 		EclDirtyButton ( name );
 
 	}
@@ -195,7 +195,7 @@ void LogScreenInterface::ScrollChange ( char *scrollname, int newValue )
 void LogScreenInterface::LogDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -206,8 +206,8 @@ void LogScreenInterface::LogDraw ( Button *button, bool highlighted, bool clicke
 	logindex = baseoffset - logindex;
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
-	UplinkAssert( compscreen );
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
+	UplinkAssert( compscreen )
+	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
 	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
@@ -273,13 +273,13 @@ void LogScreenInterface::Create ()
 void LogScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
 
 		LogBank *logbank = GetComputerScreen ()->GetTargetLogBank ();		
-		UplinkAssert (logbank);
+		UplinkAssert (logbank)
 
 		EclRegisterButton ( 80, 60, 350, 25, GetComputerScreen ()->maintitle, "", "logscreen_maintitle" );
 		EclRegisterButtonCallbacks ( "logscreen_maintitle", DrawMainTitle, nullptr, nullptr, nullptr );
@@ -294,7 +294,7 @@ void LogScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int i = 0; i < 15; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i )
 			EclRegisterButton ( 15, 140 + i * 15, 400, 14, "", "Select this log", name );
 			EclRegisterButtonCallbacks ( name, LogDraw, LogClick, button_click, button_highlight );
 
@@ -364,7 +364,7 @@ void LogScreenInterface::Remove ()
 		for ( int i = 0; i < 15; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i )
 			EclRemoveButton ( name );
 
 		}
@@ -394,8 +394,8 @@ void LogScreenInterface::Update ()
 {
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
-	UplinkAssert( compscreen );
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
+	UplinkAssert( compscreen )
+	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
 	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
@@ -409,7 +409,7 @@ void LogScreenInterface::Update ()
 		for ( int i = 0; i < 15; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i )
 			EclDirtyButton ( name );
 
 		}
@@ -455,7 +455,7 @@ void LogScreenInterface::Update ()
 LogScreen *LogScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (LogScreen *) cs;
 
 }

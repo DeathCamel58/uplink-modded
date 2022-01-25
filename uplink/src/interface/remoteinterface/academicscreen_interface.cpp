@@ -54,12 +54,12 @@ void AcademicScreenInterface::CommitClick ( Button *button )
 {
 
 	auto *asi = (AcademicScreenInterface *) GetInterfaceScreen ( SCREEN_ACADEMICSCREEN );
-	UplinkAssert (asi);
+	UplinkAssert (asi)
 
 	if ( asi->recordindex != -1 ) {
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "International Academic Database" );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->security.IsRunning_Proxy () ) {
 			create_msgbox ( "Error", "Denied access by Proxy Server" );
@@ -67,7 +67,7 @@ void AcademicScreenInterface::CommitClick ( Button *button )
 		}
 
 		Record *rec = comp->recordbank.GetRecord ( asi->recordindex );
-		UplinkAssert (rec);
+		UplinkAssert (rec)
 
 		rec->ChangeField ( "College", EclGetButton ( "academic_collegequals" )->caption );
 		rec->ChangeField ( "University", EclGetButton ( "academic_uniquals" )->caption );
@@ -83,7 +83,7 @@ void AcademicScreenInterface::CloseClick ( Button *button )
 {
 
 	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (gs);
+	UplinkAssert (gs)
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
 
@@ -99,7 +99,7 @@ void AcademicScreenInterface::DetailsDraw ( Button *button, bool highlighted, bo
 void AcademicScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -182,7 +182,7 @@ void AcademicScreenInterface::SetSearchName ( char *newsearchname )
 {
 
 	Computer *comp = game->GetWorld ()->GetComputer ( "International Academic Database" );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	recordindex = comp->recordbank.FindNextRecordIndexNameNotSystemAccount ();
 
@@ -201,7 +201,7 @@ void AcademicScreenInterface::UpdateScreen ()
 	if ( IsVisible () ) {
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "International Academic Database" );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		Record *rec = comp->recordbank.GetRecord ( recordindex );
 		char *thisname = rec->GetField ( RECORDBANK_NAME );
@@ -213,7 +213,7 @@ void AcademicScreenInterface::UpdateScreen ()
 		if ( person ) {
 
 			char filename [256];
-			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex );
+			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex )
 			button_assignbitmap ( "academic_photo", filename );
 
 		}
@@ -265,7 +265,7 @@ void AcademicScreenInterface::Update ()
 			// Is this one it?
 
 			Computer *comp = game->GetWorld ()->GetComputer ( "International Academic Database" );
-			UplinkAssert (comp);
+			UplinkAssert (comp)
 
 			// Have we searched all records?
 
@@ -281,7 +281,7 @@ void AcademicScreenInterface::Update ()
 
 			Record *rec = comp->recordbank.GetRecord ( recordindex );
 			char *thisname = rec->GetField ( RECORDBANK_NAME );
-			UplinkAssert (thisname);
+			UplinkAssert (thisname)
 			char *lowercasethisname = LowerCaseString ( thisname );
 
 			// Update display with the current record

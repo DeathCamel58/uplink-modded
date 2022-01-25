@@ -68,11 +68,11 @@ void NotificationEvent::Run ()
         case NOTIFICATIONEVENT_TYPE_WAREZGAMEOVER:              WarezGameOver ();                       break;
 
 		case NOTIFICATIONEVENT_TYPE_NONE:
-			UplinkWarning ( "Notification event type not specified" );
+			UplinkWarning ( "Notification event type not specified" )
 			break;
 
 		default:
-			UplinkAbortArgs ( "Unrecognised notification type: %d", TYPE );
+			UplinkAbortArgs ( "Unrecognised notification type: %d", TYPE )
 
 	}
 
@@ -102,12 +102,12 @@ char *NotificationEvent::GetShortString ()
 
 
 		case NOTIFICATIONEVENT_TYPE_NONE:
-			UplinkWarning ( "Notification event type not specified" );
+			UplinkWarning ( "Notification event type not specified" )
 			shortstring << "Unknown notification";
 			break;
 
 		default:
-			UplinkAbortArgs ( "Unrecognised notification type: %d", TYPE );
+			UplinkAbortArgs ( "Unrecognised notification type: %d", TYPE )
 
 	}
 
@@ -249,7 +249,7 @@ void NotificationEvent::ExpireOldStuff ()
 	//
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 
 	for ( int in = cu->news.Size () - 1; in >= 1; --in ) {
 		News *news = cu->news.GetData (in);
@@ -312,7 +312,7 @@ void NotificationEvent::AddInterestOnLoans ()
 	for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->accounts.Size (); ++i ) {
 
 		char *fullacc = game->GetWorld ()->GetPlayer ()->accounts.GetData (i);
-		UplinkAssert (fullacc);
+		UplinkAssert (fullacc)
 
 		char ip [SIZE_VLOCATION_IP];
 		char accno [16];
@@ -341,9 +341,9 @@ void NotificationEvent::AddInterestOnLoans ()
 
 
 			    VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-			    UplinkAssert (vl);
+			    UplinkAssert (vl)
 			    Computer *comp = vl->GetComputer ();
-			    UplinkAssert (comp);
+			    UplinkAssert (comp)
 
 			    std::ostrstream body;
 			    body << "You have been charged interest on the following account:\n"
@@ -445,7 +445,7 @@ void NotificationEvent::GiveMissionToNPC ()
 	//
 
 	Agent *agent = WorldGenerator::GetRandomAgent ();
-	UplinkAssert (agent);
+	UplinkAssert (agent)
 
 
 	//
@@ -455,7 +455,7 @@ void NotificationEvent::GiveMissionToNPC ()
 	//
 
 	auto *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (uplink);
+	UplinkAssert (uplink)
 	LList <Mission *> *fullist = &(uplink->missions);
 	LList <Mission *> missions;
 	LList <int>		  missions_index;											// Indexes of each mission
@@ -466,7 +466,7 @@ void NotificationEvent::GiveMissionToNPC ()
 	for ( int i = 0; i < fullist->Size (); ++i ) {
 
 		Mission *mission = fullist->GetData (i);
-		UplinkAssert (mission);
+		UplinkAssert (mission)
 
 		if ( agent->rating.uplinkrating >= mission->minuplinkrating && mission->TYPE != MISSION_SPECIAL &&
 			 !( mission->TYPE == MISSION_TRACEUSER && strcmp ( mission->completionA, agent->name ) == 0 ) ) {
@@ -547,7 +547,7 @@ void NotificationEvent::GiveMissionToNPC ()
 			if ( missionindex < 0 ) missionindex = 0;
 
 			Mission *targetmission = missions.GetData (missionindex);
-			UplinkAssert (targetmission);
+			UplinkAssert (targetmission)
 
 			//
 			// Give this mission to the agent
@@ -602,7 +602,7 @@ void NotificationEvent::PayUplinkMonthlyFee ()
 		if ( people->ValidIndex (i) ) {
 
 			Person *person = people->GetData (i);
-			UplinkAssert (person);
+			UplinkAssert (person)
 
 			if ( person->rating.uplinkrating > 0 ) {
 

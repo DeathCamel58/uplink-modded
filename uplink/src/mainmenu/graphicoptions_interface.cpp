@@ -45,11 +45,11 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 {
 
 	auto *thisint = (GraphicOptionsInterface *) app->GetMainMenu ()->GetMenuScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	int index = 0;
 	char name1 [64];
-	UplinkSnprintf ( name1, sizeof ( name1 ), "graphic_option %d", index );
+	UplinkSnprintf ( name1, sizeof ( name1 ), "graphic_option %d", index )
 
     bool shutdownRequired = false;
 
@@ -58,19 +58,19 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 		// Look up the next option button
 
 		char name2 [64];
-		UplinkSnprintf ( name2, sizeof ( name2 ), "graphic_value %d", index );
+		UplinkSnprintf ( name2, sizeof ( name2 ), "graphic_value %d", index )
 
 		Button *namebutton = EclGetButton ( name1 );
 		Button *valuebutton = EclGetButton ( name2 );
 
-		UplinkAssert (namebutton);
-		UplinkAssert (valuebutton);
+		UplinkAssert (namebutton)
+		UplinkAssert (valuebutton)
 
 		// Extract the values
 
 		char optionname [64];
 		int newvalue;
-		UplinkSnprintf ( optionname, sizeof ( optionname ), "%s_%s", thisint->optionTYPE, namebutton->caption );
+		UplinkSnprintf ( optionname, sizeof ( optionname ), "%s_%s", thisint->optionTYPE, namebutton->caption )
 		sscanf ( valuebutton->caption, "%d", &newvalue );
 		
 		// If they've changed, update them
@@ -86,7 +86,7 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 		// Next button
 
 		++index;
-		UplinkSnprintf ( name1, sizeof ( name1 ), "graphic_option %d", index );
+		UplinkSnprintf ( name1, sizeof ( name1 ), "graphic_option %d", index )
 
 	}
 
@@ -113,7 +113,7 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 void GraphicOptionsInterface::ToggleBoxDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	if ( button->caption [0] == '0' )
 		imagebutton_draw ( button, false, false );
@@ -126,7 +126,7 @@ void GraphicOptionsInterface::ToggleBoxDraw ( Button *button, bool highlighted, 
 void GraphicOptionsInterface::ToggleBoxClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	// Get the button index
 
@@ -137,9 +137,9 @@ void GraphicOptionsInterface::ToggleBoxClick ( Button *button )
 	// Grab the appropriate button
 
 	char name2 [64];
-	UplinkSnprintf ( name2, sizeof ( name2 ), "graphic_value %d", buttonindex );
+	UplinkSnprintf ( name2, sizeof ( name2 ), "graphic_value %d", buttonindex )
 	Button *button2 = EclGetButton ( name2 );
-	UplinkAssert (button2);
+	UplinkAssert (button2)
 
 	// Read the value from the button
 	
@@ -232,7 +232,7 @@ bool GraphicOptionsInterface::ChangeOptionValue ( char *option, int newvalue )
 void GraphicOptionsInterface::ScreenOptionDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-    UplinkAssert (button);
+    UplinkAssert (button)
    
     char unused [128];
     int type;
@@ -304,7 +304,7 @@ void GraphicOptionsInterface::ScreenOptionClick ( Button *button )
     // 
     // Change new button
 
-    UplinkAssert (button);
+    UplinkAssert (button)
 
     char unused [128];
     int type;
@@ -348,7 +348,7 @@ void GraphicOptionsInterface::ExitGameClick ( Button *button )
 void GraphicOptionsInterface::SetOptionTYPE ( char *newtype )
 {
 
-	UplinkStrncpy ( optionTYPE, newtype, sizeof ( optionTYPE ) );
+	UplinkStrncpy ( optionTYPE, newtype, sizeof ( optionTYPE ) )
 
 	//
 	// Build a list of all options of this type
@@ -364,7 +364,7 @@ void GraphicOptionsInterface::SetOptionTYPE ( char *newtype )
 	int screenh = app->GetOptions ()->GetOptionValue ("graphics_screenheight");
 
 	char title [64];
-	UplinkSnprintf ( title, sizeof ( title ), "%s options", optionTYPE );
+	UplinkSnprintf ( title, sizeof ( title ), "%s options", optionTYPE )
 	RegisterButton ( screenw - 210, screenh - 40, 200, 15, title, "Close this options screen", "graphic_title" );
 	EclRegisterButtonCallback ( "graphic_title", ReturnToMainMenuClick );
 	EclRegisterMovement ( "graphic_title", screenw - 210, screenh - 100 - options->Size () * 20, 500 );
@@ -376,18 +376,18 @@ void GraphicOptionsInterface::SetOptionTYPE ( char *newtype )
 	for ( int i = 0; i < options->Size (); ++i ) {
 	
 		Option *option = options->GetData (i);
-		UplinkAssert (option);
+		UplinkAssert (option)
 
 		char name1 [64];
 		char name2 [64];
 
-		UplinkSnprintf ( name1, sizeof ( name1 ), "graphic_option %d", i );
-		UplinkSnprintf ( name2, sizeof ( name2 ), "graphic_value %d", i );
+		UplinkSnprintf ( name1, sizeof ( name1 ), "graphic_option %d", i )
+		UplinkSnprintf ( name2, sizeof ( name2 ), "graphic_value %d", i )
 
 		char *optionname = strchr ( option->name, '_' ) + 1;
 		
 		char value [8];
-		UplinkSnprintf ( value, sizeof ( value ), "%d", option->value );
+		UplinkSnprintf ( value, sizeof ( value ), "%d", option->value )
 
 		RegisterButton ( screenw - 210, screenh - 40, 150, 15, optionname, option->tooltip, name1 );
 		EclRegisterButtonCallbacks ( name1, button_draw, ToggleBoxClick, button_click, button_highlight );
@@ -466,8 +466,8 @@ void GraphicOptionsInterface::Create ()
 				if ( modes->ValidIndex( i ) ) {
 					GciScreenMode *mode = modes->GetData( i );
 					if ( mode != nullptr ) {
-						UplinkSnprintf( cap, sizeof ( cap ), "%dx%d", mode->w, mode->h );
-						UplinkSnprintf( nm, sizeof ( nm ), "graphic 1 %d %d", mode->w, mode->h );
+						UplinkSnprintf( cap, sizeof ( cap ), "%dx%d", mode->w, mode->h )
+						UplinkSnprintf( nm, sizeof ( nm ), "graphic 1 %d %d", mode->w, mode->h )
 						RegisterButton ( 50, startY + vert_offset, 100, 15, cap, "Choose this resolution", nm);
 						EclRegisterButtonCallbacks ( nm, ScreenOptionDraw, ScreenOptionClick, button_click, button_highlight );
 						vert_offset += 20;

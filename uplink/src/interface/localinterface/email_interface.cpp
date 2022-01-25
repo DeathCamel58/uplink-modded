@@ -51,8 +51,8 @@ void EmailInterface::EmailReply ( Button *button )
 {
 
 	auto *em = (EmailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
-	UplinkAssert (em);
-	UplinkAssert (em->message);
+	UplinkAssert (em)
+	UplinkAssert (em->message)
 
 	// Get the mission at the supposed index
 
@@ -65,7 +65,7 @@ void EmailInterface::EmailReply ( Button *button )
 
 
 	char contact [SIZE_PERSON_NAME];
-	UplinkStrncpy ( contact, em->message->from, sizeof ( contact ) );
+	UplinkStrncpy ( contact, em->message->from, sizeof ( contact ) )
 
 	std::ostrstream body;
 	body << "RE your email\n"
@@ -91,8 +91,8 @@ void EmailInterface::EmailDelete ( Button *button )
 {
 
 	auto *em = (EmailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
-	UplinkAssert (em);
-	UplinkAssert (em->message);
+	UplinkAssert (em)
+	UplinkAssert (em->message)
 
 	// Get the mission at the supposed index
 
@@ -131,14 +131,14 @@ void EmailInterface::SetMessage ( int newindex )
 
 	index = newindex;
 	message = game->GetWorld ()->GetPlayer ()->messages.GetData (index);
-	UplinkAssert (message);
+	UplinkAssert (message)
 
 }
 
 void EmailInterface::Create ()
 {	
 
-	UplinkAssert ( message );
+	UplinkAssert ( message )
 
 	if ( !IsVisible () ) {
 
@@ -161,9 +161,9 @@ void EmailInterface::Create ()
 		char *subject = new char [subjectsize];
 		std::ostrstream body;
 
-		UplinkSnprintf ( from, sizeof ( from ), "From : %s", message->from );
-		UplinkSnprintf ( date, sizeof ( date ), "Date : %s", message->date.GetShortString () );
-		UplinkSnprintf ( subject, subjectsize, "Subject : %s", message->GetSubject () );
+		UplinkSnprintf ( from, sizeof ( from ), "From : %s", message->from )
+		UplinkSnprintf ( date, sizeof ( date ), "Date : %s", message->date.GetShortString () )
+		UplinkSnprintf ( subject, subjectsize, "Subject : %s", message->GetSubject () )
 
 		body << message->GetBody ();
 
@@ -209,7 +209,7 @@ void EmailInterface::Create ()
 
 			for ( int i = 0; i < darray->Size (); ++i ) {
 				
-				UplinkAssert ( darray->ValidIndex ( i ) );
+				UplinkAssert ( darray->ValidIndex ( i ) )
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( darray_index->GetData (i) );				
 

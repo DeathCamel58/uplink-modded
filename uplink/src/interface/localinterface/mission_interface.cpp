@@ -60,7 +60,7 @@ void MissionInterface::TitleClick ( Button *button )
 void MissionInterface::AbandonClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	if ( strcmp(button->caption, "Abandon") == 0 ) {
 		button->SetCaption( "! ABANDON !");
@@ -76,7 +76,7 @@ void MissionInterface::AbandonClick ( Button *button )
 			game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 			return;
 		}
-		UplinkAssert (mi->mission);
+		UplinkAssert (mi->mission)
 
 		// Get the mission at the supposed indexd
 
@@ -114,7 +114,7 @@ void MissionInterface::ReplyClick ( Button *button )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 		return;
 	}
-	UplinkAssert (mi->mission);
+	UplinkAssert (mi->mission)
 
 	// Get the mission at the supposed indexd
 
@@ -129,7 +129,7 @@ void MissionInterface::ReplyClick ( Button *button )
 	}
 
 	char contact [SIZE_PERSON_NAME];
-	UplinkStrncpy ( contact, mi->mission->contact, sizeof ( contact ) );
+	UplinkStrncpy ( contact, mi->mission->contact, sizeof ( contact ) )
 
 	std::ostrstream body;
 	body << "I have completed the following mission:\n"
@@ -155,14 +155,14 @@ void MissionInterface::SetMission ( int newindex )
 
 	index = newindex;
 	mission = game->GetWorld ()->GetPlayer ()->missions.GetData ( index );
-	UplinkAssert (mission);
+	UplinkAssert (mission)
 
 }
 
 void MissionInterface::Create ()
 {
 
-	UplinkAssert ( mission );
+	UplinkAssert ( mission )
 
 	if ( !IsVisible () ) {
 
@@ -184,9 +184,9 @@ void MissionInterface::Create ()
 		char description [SIZE_MISSION_DESCRIPTION + 16];		
 		std::ostrstream details;
 
-		UplinkSnprintf ( employer, sizeof ( employer ), "Employer : %s", mission->employer );
-		UplinkSnprintf ( payment, sizeof ( payment ), "Payment : %d credits", mission->payment );
-		UplinkStrncpy ( description, mission->description, sizeof ( description ) );
+		UplinkSnprintf ( employer, sizeof ( employer ), "Employer : %s", mission->employer )
+		UplinkSnprintf ( payment, sizeof ( payment ), "Payment : %d credits", mission->payment )
+		UplinkStrncpy ( description, mission->description, sizeof ( description ) )
 		details << mission->GetFullDetails ();
 
 		// Concatenate any links onto the end of the mission
@@ -231,7 +231,7 @@ void MissionInterface::Create ()
 
 			for ( int i = 0; i < darray->Size (); ++i ) {
 				
-				UplinkAssert ( darray->ValidIndex ( i ) );
+				UplinkAssert ( darray->ValidIndex ( i ) )
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( darray_index->GetData (i) );				
 

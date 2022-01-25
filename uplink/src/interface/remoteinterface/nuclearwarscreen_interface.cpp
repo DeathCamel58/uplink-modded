@@ -44,7 +44,7 @@ NuclearWarScreenInterface::~NuclearWarScreenInterface ()
 void NuclearWarScreenInterface::DrawBlack ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 	clear_draw ( button->x, button->y, button->width, button->height );
 
 }
@@ -52,7 +52,7 @@ void NuclearWarScreenInterface::DrawBlack ( Button *button, bool highlighted, bo
 void NuclearWarScreenInterface::DrawLocation ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
     glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
@@ -71,14 +71,14 @@ void NuclearWarScreenInterface::DrawLocation ( Button *button, bool highlighted,
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON);
+		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON)
 		pgl = &(PHYSICALGATEWAYLOCATIONS_DEFCON[index]);
 	}
 	else {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS);
+		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS)
 		pgl = &(PHYSICALGATEWAYLOCATIONS[index]);
 	}
-	UplinkAssert (pgl);
+	UplinkAssert (pgl)
 
 	GciDrawText ( button->x - 10, button->y + 20, pgl->city );
 //	GciDrawText ( button->x - 10, button->y + 30, pgl->country );
@@ -88,7 +88,7 @@ void NuclearWarScreenInterface::DrawLocation ( Button *button, bool highlighted,
 void NuclearWarScreenInterface::DrawMainMap ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
     imagebutton_drawtextured ( button, highlighted, clicked );
 
@@ -96,7 +96,7 @@ void NuclearWarScreenInterface::DrawMainMap ( Button *button, bool highlighted, 
 	border_draw ( button );
     
     auto *nwsi = (NuclearWarScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen();
-    UplinkAssert (nwsi);
+    UplinkAssert (nwsi)
 
     for ( int i = 0; i < nwsi->nukes.Size (); ++i ) {
 
@@ -153,7 +153,7 @@ void NuclearWarScreenInterface::DrawMainMap ( Button *button, bool highlighted, 
 
             if ( !nuke->sound ) {
                 char explosion [128];
-                UplinkSnprintf ( explosion, sizeof ( explosion ), "sounds/explosion%d.wav", NumberGenerator::RandomNumber(3)+1 );
+                UplinkSnprintf ( explosion, sizeof ( explosion ), "sounds/explosion%d.wav", NumberGenerator::RandomNumber(3)+1 )
                 SgPlaySound ( RsArchiveFileOpen ( explosion ), explosion, false );
                 nuke->sound = true;
             }
@@ -189,17 +189,17 @@ void NuclearWarScreenInterface::ClickLocation ( Button *button )
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON);
+		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON)
 		pgl = &(PHYSICALGATEWAYLOCATIONS_DEFCON[index]);
 	}
 	else {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS);
+		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS)
 		pgl = &(PHYSICALGATEWAYLOCATIONS[index]);
 	}
-	UplinkAssert (pgl);
+	UplinkAssert (pgl)
 
     auto *nwsi = (NuclearWarScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen();
-    UplinkAssert (nwsi);
+    UplinkAssert (nwsi)
 
     auto *nuke = new NuclearWar_Nuke ();
     nuke->sx = NumberGenerator::RandomNumber ( 640 );
@@ -240,7 +240,7 @@ void NuclearWarScreenInterface::CloseClick ( Button *button )
                           );
 
 	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert (cu);
+	    UplinkAssert (cu)
 	    cu->CreateNews ( news );
         
     }
@@ -302,13 +302,13 @@ void NuclearWarScreenInterface::Create ( ComputerScreen *newcs )
 				pgl = &(PHYSICALGATEWAYLOCATIONS_DEFCON[i]);
 			else
 				pgl = &(PHYSICALGATEWAYLOCATIONS[i]);
-			UplinkAssert (pgl);
+			UplinkAssert (pgl)
 
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "nuclearwar_location %d", i );
+			UplinkSnprintf ( bname, sizeof ( bname ), "nuclearwar_location %d", i )
 
 			char tooltip [128];
-			UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Simulate attack on this site", pgl->city );
+			UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Simulate attack on this site", pgl->city )
 
 			EclRegisterButton ( x1 + SX(pgl->x), y1 + SY(pgl->y), 7, 7, pgl->city, tooltip, bname );
 			EclRegisterButtonCallbacks ( bname, DrawLocation, ClickLocation, button_click, button_highlight );
@@ -353,7 +353,7 @@ void NuclearWarScreenInterface::Remove ()
 		for ( int i = 0; i < numPhysicalGatewayLocations; ++i ) {
 
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "nuclearwar_location %d", i );
+			UplinkSnprintf ( bname, sizeof ( bname ), "nuclearwar_location %d", i )
 			EclRemoveButton ( bname );
 
 		}
@@ -389,7 +389,7 @@ int NuclearWarScreenInterface::ScreenID ()
 GenericScreen *NuclearWarScreenInterface::GetComputerScreen ()
 {
 	
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

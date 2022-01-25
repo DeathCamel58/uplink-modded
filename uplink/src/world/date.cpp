@@ -64,7 +64,7 @@ Date::~Date()
 void Date::SetDate ( Date *copydate )
 {
 
-	UplinkAssert (copydate);
+	UplinkAssert (copydate)
 	SetDate ( copydate->GetSecond (), copydate->GetMinute (), copydate->GetHour (), copydate->GetDay (), copydate->GetMonth (), copydate->GetYear () );
 
 }
@@ -268,7 +268,7 @@ int Date::GetYear ()
 char *Date::GetMonthName ( int month )
 {
 
-	UplinkAssert ( month > 0 && month < 13 );
+	UplinkAssert ( month > 0 && month < 13 )
 	return monthname [month-1];
 
 }
@@ -277,8 +277,8 @@ char *Date::GetShortString ()
 {
 
 	char result [SIZE_DATE_SHORT];
-	UplinkSnprintf ( result, sizeof ( result ), "%.2d:%.2d, %d-%d-%d", hour, minute, day, month, year ); 
-	UplinkStrncpy ( tempdate, result, sizeof ( tempdate ) );
+	UplinkSnprintf ( result, sizeof ( result ), "%.2d:%.2d, %d-%d-%d", hour, minute, day, month, year )
+	UplinkStrncpy ( tempdate, result, sizeof ( tempdate ) )
     return tempdate;
 
 }
@@ -287,8 +287,8 @@ char *Date::GetLongString ()
 {
 
 	char result [SIZE_DATE_LONG];
-	UplinkSnprintf ( result, sizeof ( result ), "%.2d:%.2d.%.2d, %d %s %d", hour, minute, second, day, GetMonthName (month), year ); 
-    UplinkStrncpy ( tempdate, result, sizeof ( tempdate ) );
+	UplinkSnprintf ( result, sizeof ( result ), "%.2d:%.2d.%.2d, %d %s %d", hour, minute, second, day, GetMonthName (month), year )
+    UplinkStrncpy ( tempdate, result, sizeof ( tempdate ) )
 	return tempdate;
 
 }
@@ -390,7 +390,7 @@ void Date::Update ()
 
 					default:
 
-						UplinkAbort ( "Unrecognised Game Speed" );
+						UplinkAbort ( "Unrecognised Game Speed" )
 
 				}
 

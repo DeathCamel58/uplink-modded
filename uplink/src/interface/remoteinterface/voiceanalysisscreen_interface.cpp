@@ -47,7 +47,7 @@ void VoiceAnalysisScreenInterface::ClickAccess ( Button *button )
 {
 
 	auto *thisint = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 	
 	if ( thisint->STATUS == VOICEANALYSISSCREEN_PASSED ) {
 
@@ -74,7 +74,7 @@ void VoiceAnalysisScreenInterface::FinishVoicePlayback ( char *voicename )
 	STATUS = VOICEANALYSISSCREEN_ANALYSING;
 
 	Company *company = game->GetWorld ()->GetCompany (GetComputerScreen ()->GetComputer ()->companyname);
-	UplinkAssert (company);
+	UplinkAssert (company)
 	
 	if ( strcmp ( voicename, company->administrator ) == 0 ) {
 
@@ -95,7 +95,7 @@ void VoiceAnalysisScreenInterface::DrawAnalysis ( Button *button, bool highlight
 {
 
 	auto *thisint = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	clear_draw ( button->x, button->y, button->width, button->height );
 
@@ -144,7 +144,7 @@ bool VoiceAnalysisScreenInterface::ReturnKeyPressed ()
 void VoiceAnalysisScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -264,7 +264,7 @@ int VoiceAnalysisScreenInterface::ScreenID ()
 GenericScreen *VoiceAnalysisScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

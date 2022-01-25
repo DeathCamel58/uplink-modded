@@ -54,7 +54,7 @@ void UserIDScreenInterface::BypassClick ( Button *button )
 	log->SetData1 ( "User [Admin] logged on (level 1)" );
 
 	auto *uid = (UserIDScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (uid);
+	UplinkAssert (uid)
 	uid->GetComputer ()->logbank.AddLog ( log );
 
 	// Start tracing
@@ -71,10 +71,10 @@ void UserIDScreenInterface::BypassClick ( Button *button )
 void UserIDScreenInterface::AccessCodeClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char *fullcode = new char [strlen(button->caption) + 1];
-	UplinkSafeStrcpy ( fullcode, button->caption );
+	UplinkSafeStrcpy ( fullcode, button->caption )
 
 	/*
 		Access Codes
@@ -131,7 +131,7 @@ void UserIDScreenInterface::AccessCodeClick ( Button *button )
 	}
 	else {
 
-		UplinkWarning ( "Tried to use an invalid code" );
+		UplinkWarning ( "Tried to use an invalid code" )
 
 	}
 
@@ -159,9 +159,9 @@ void UserIDScreenInterface::ProceedClick ( Button *button )
 	// Look up that code in this computer's records
 
 	auto *uid = (UserIDScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (uid);
+	UplinkAssert (uid)
 	Computer *comp = uid->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	Record *rec = comp->recordbank.GetRecordFromNamePassword ( name, code );
 
@@ -184,7 +184,7 @@ void UserIDScreenInterface::ProceedClick ( Button *button )
 
 		auto *log = new AccessLog ();
 		char logdetails [256];
-		UplinkSnprintf ( logdetails, sizeof ( logdetails ), "User [%s] logged on (level %d)", name, security );
+		UplinkSnprintf ( logdetails, sizeof ( logdetails ), "User [%s] logged on (level %d)", name, security )
 		log->SetProperties ( &(game->GetWorld ()->date),
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER" );
 		log->SetData1 ( logdetails );
@@ -210,7 +210,7 @@ void UserIDScreenInterface::ProceedClick ( Button *button )
 void UserIDScreenInterface::UserIDButtonDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );
@@ -246,7 +246,7 @@ void UserIDScreenInterface::UserIDButtonDraw ( Button *button, bool highlighted,
 void UserIDScreenInterface::CodeButtonDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );
@@ -290,10 +290,10 @@ void UserIDScreenInterface::CodeButtonDraw ( Button *button, bool highlighted, b
 void UserIDScreenInterface::CodeButtonClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (ris);
+	UplinkAssert (ris)
 	auto *uid = (UserIDScreenInterface *) ris;
 
 	game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( uid->GetComputerScreen (), "useridscreen_code", -1 );
@@ -311,7 +311,7 @@ bool UserIDScreenInterface::ReturnKeyPressed ()
 void UserIDScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -343,7 +343,7 @@ void UserIDScreenInterface::Create ( ComputerScreen *newcs )
 
 		// Create the box that will show the currently known codes for this screen
 
-		UplinkAssert ( cs->GetComputer () );
+		UplinkAssert ( cs->GetComputer () )
 
 		if ( game->GetWorld ()->GetPlayer ()->codes.LookupTree ( cs->GetComputer ()->ip ) ) {
 
@@ -360,7 +360,7 @@ void UserIDScreenInterface::Create ( ComputerScreen *newcs )
 					if ( strcmp ( ips->GetData (i), cs->GetComputer ()->ip ) == 0 ) {
 
 						char name [64];
-						UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode );
+						UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode )
 						EclRegisterButton ( 200, 330 + currentcode*15, 250, 15, codes->GetData (i), "Use this code", name );
 						EclRegisterButtonCallbacks ( name, textbutton_draw, AccessCodeClick, button_click, button_highlight );
 						++currentcode;
@@ -403,13 +403,13 @@ void UserIDScreenInterface::Remove ()
 
 		int currentcode = 0;
 		char name [64];
-		UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode );
+		UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode )
 
 		while ( EclGetButton ( name ) ) {
 
 			EclRemoveButton ( name );
 			++currentcode;
-			UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode );
+			UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode )
 
 		}
 
@@ -443,7 +443,7 @@ int UserIDScreenInterface::ScreenID ()
 UserIDScreen *UserIDScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (UserIDScreen *) cs;
 
 }

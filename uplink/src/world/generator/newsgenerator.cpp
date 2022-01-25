@@ -31,8 +31,8 @@ void NewsGenerator::Initialise ()
 void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 {
 
-	UplinkAssert (comp);
-	UplinkAssert (al);
+	UplinkAssert (comp)
+	UplinkAssert (al)
 
 		/* ==========================================================
 			Structure:
@@ -386,7 +386,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -394,7 +394,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 {
 
-	UplinkAssert ( comp );
+	UplinkAssert ( comp )
 
 		/* ==========================================================
 			Structure
@@ -537,7 +537,7 @@ void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -545,7 +545,7 @@ void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfilesize )
 {
 
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	// Filetype is SCIENTIFIC, CORPORATE, CUSTOMER or SOFTWARE
 
@@ -585,7 +585,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 									"that a massive quantity of private data was stolen from their central mainframe.  This system has "
 									"been targetted repeatedly in recent times.";
 
-	};
+	}
 
 	if ( strcmp ( filetype, "SCIENTIFIC" ) == 0 ) {
 
@@ -663,7 +663,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -673,7 +673,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 
 	// Filetype is SCIENTIFIC, CORPORATE, CUSTOMER or SOFTWARE
 
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 		/* ===========================================================
 			Structure:
@@ -707,7 +707,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 								  "occasions in the last month by hackers who have yet to be identified.";
 							break;
 
-	};
+	}
 
 	if ( strcmp ( filetype, "SCIENTIFIC" ) == 0 ) {
 
@@ -784,7 +784,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -792,8 +792,8 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 void NewsGenerator::Arrested ( Person *person, Computer *comp, char *reason )
 {
 
-	UplinkAssert ( person );
-	UplinkAssert ( reason );
+	UplinkAssert ( person )
+	UplinkAssert ( reason )
 	// comp can be nullptr
 
 
@@ -940,7 +940,7 @@ void NewsGenerator::Arrested ( Person *person, Computer *comp, char *reason )
 	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }

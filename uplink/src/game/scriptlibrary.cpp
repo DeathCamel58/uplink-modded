@@ -167,7 +167,7 @@ void ScriptLibrary::Script10 ()
 	// Get the source bank computer
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	// Get the source and target values
 
@@ -268,7 +268,7 @@ void ScriptLibrary::Script11 ()
 	// Get the bank computer
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 	auto *bank = (BankComputer *) comp;
 
 	// Verify the name is unique
@@ -293,7 +293,7 @@ void ScriptLibrary::Script11 ()
 	// Log the player in as this person
 
 	char saccno [16];
-	UplinkSnprintf( saccno, sizeof ( saccno ), "%d", accno );
+	UplinkSnprintf( saccno, sizeof ( saccno ), "%d", accno )
 	game->GetInterface ()->GetRemoteInterface ()->SetSecurity ( saccno, 3 );
 
 	
@@ -328,7 +328,7 @@ void ScriptLibrary::Script12 ()
 	// Get the stock market
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 	
 	// Create the account
 
@@ -367,23 +367,23 @@ void ScriptLibrary::Script13 ()
 
 	// Look up the BankAccount object and store it
 	VLocation *vl = game->GetWorld ()->GetPlayer ()->GetRemoteHost ();
-    UplinkAssert (vl);
+    UplinkAssert (vl)
     Computer *comp = vl->GetComputer ();
-    UplinkAssert (comp);
-	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER );
+    UplinkAssert (comp)
+	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER )
 	auto *bank = (BankComputer *) comp;
 
 	// Look up the account number based on the log in name
 	Record *rec = bank->recordbank.GetRecordFromName (game->GetInterface ()->GetRemoteInterface ()->security_name);
-    UplinkAssert (rec);
+    UplinkAssert (rec)
 
 	char *accno = rec->GetField ( RECORDBANK_ACCNO );
-    UplinkAssert (accno);
+    UplinkAssert (accno)
 
 	// Now look up the account based on that account number
 	
     BankAccount *account = bank->accounts.GetData ( accno );
-    UplinkAssert (account);
+    UplinkAssert (account)
 
     // Only allow close if empty
     // TODO finish this
@@ -435,7 +435,7 @@ void ScriptLibrary::Script15 ()
 
 	char name [SIZE_PERSON_NAME];
 	Button *button = EclGetButton ( "name 0 0" );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 	strncpy ( name, button->caption, sizeof ( name ) );
 	name [ sizeof ( name ) - 1 ] = '\0';
 
@@ -446,8 +446,8 @@ void ScriptLibrary::Script15 ()
 	// Start the search going
 
 	auto *csi = (CriminalScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert ( csi );
-	UplinkAssert ( csi->ScreenID () == SCREEN_CRIMINALSCREEN );
+	UplinkAssert ( csi )
+	UplinkAssert ( csi->ScreenID () == SCREEN_CRIMINALSCREEN )
 	csi->SetSearchName ( name );
 
 }
@@ -468,7 +468,7 @@ void ScriptLibrary::Script16 ()
 
 	char name [SIZE_PERSON_NAME];
 	Button *button = EclGetButton ( "name 0 0" );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 	strncpy ( name, button->caption, sizeof ( name ) );
 	name [ sizeof ( name ) - 1 ] = '\0';
 
@@ -479,8 +479,8 @@ void ScriptLibrary::Script16 ()
 	// Start the search going
 
 	auto *asi = (AcademicScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert ( asi );
-	UplinkAssert ( asi->ScreenID () == SCREEN_ACADEMICSCREEN );
+	UplinkAssert ( asi )
+	UplinkAssert ( asi->ScreenID () == SCREEN_ACADEMICSCREEN )
 	asi->SetSearchName ( name );
 
 }
@@ -501,7 +501,7 @@ void ScriptLibrary::Script17 ()
 
 	char name [SIZE_PERSON_NAME];
 	Button *button = EclGetButton ( "name 0 0" );
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 	strncpy ( name, button->caption, sizeof ( name ) );
 	name [ sizeof ( name ) - 1 ] = '\0';
 
@@ -512,8 +512,8 @@ void ScriptLibrary::Script17 ()
 	// Start the search going
 
 	auto *sssi = (SocialSecurityScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert ( sssi );
-	UplinkAssert ( sssi->ScreenID () == SCREEN_SOCSECSCREEN );
+	UplinkAssert ( sssi )
+	UplinkAssert ( sssi->ScreenID () == SCREEN_SOCSECSCREEN )
 	sssi->SetSearchName ( name );
 
 }
@@ -553,7 +553,7 @@ void ScriptLibrary::Script31 ()
 		button_assignbitmap ( "start_key", "analyser/nonsecure.tif" );
 
 		Button *key = EclGetButton ( "start_key" );
-		UplinkAssert (key);
+		UplinkAssert (key)
 
 		EclRegisterButton ( key->x - 43, key->y + key->height/2 - 1, 42, 4, " ", " ", "start_keylink" );
 		EclRegisterButtonCallbacks ( "start_keylink", DrawConnection, nullptr, nullptr, nullptr );
@@ -572,7 +572,7 @@ void ScriptLibrary::Script31 ()
 		button_assignbitmap ( "start_lock", "analyser/secure.tif" );
 
 		Button *lock = EclGetButton ( "start_lock" );
-		UplinkAssert (lock);
+		UplinkAssert (lock)
 
 		int lockX = 450 + lock->width;
 		int lockY = 340 + lock->height/2 - 1;
@@ -747,7 +747,7 @@ void ScriptLibrary::Script33 ()
 	// Open a new account with Uplink International Bank
 
     Computer *bank = game->GetWorld ()->GetComputer ( NameGenerator::GenerateInternationalBankName("Uplink") );
-	UplinkAssert (bank);
+	UplinkAssert (bank)
 	int accno = game->GetWorld ()->GetPlayer ()->CreateNewAccount ( bank->ip, name, password, 
 																	0, PLAYER_START_BALANCE );
 	game->GetWorld ()->GetPlayer ()->GiveLink ( bank->ip );
@@ -839,7 +839,7 @@ void ScriptLibrary::Script34 ()
 		button_assignbitmap ( "start_key", "analyser/nonsecure.tif" );
 
 		Button *key = EclGetButton ( "start_key" );
-		UplinkAssert (key);
+		UplinkAssert (key)
 
 		EclRegisterButton ( key->x - 43, key->y + key->height/2 - 1, 42, 4, " ", " ", "start_keylink" );
 		EclRegisterButtonCallbacks ( "start_keylink", DrawConnection, nullptr, nullptr, nullptr );
@@ -848,7 +848,7 @@ void ScriptLibrary::Script34 ()
 		button_assignbitmap ( "start_lock", "analyser/secure.tif" );
 
 		Button *lock = EclGetButton ( "start_lock" );
-		UplinkAssert (lock);
+		UplinkAssert (lock)
 
 		int lockX = lock->x + lock->width;
 		int lockY = lock->y + lock->height/2 - 1;
@@ -887,7 +887,7 @@ void ScriptLibrary::Script35 ()
 		// First time through - scroll target off screen
 
 		Button *lock = EclGetButton ( "start_lock" );
-		UplinkAssert (lock);
+		UplinkAssert (lock)
 
 		int lockX = lock->x + lock->width;
 		int lockY = lock->y + lock->height/2 - 1;
@@ -914,7 +914,7 @@ void ScriptLibrary::Script35 ()
 		EclButtonSendToBack ( "start_target2" );
 
 		Button *lock = EclGetButton ( "start_lock" );
-		UplinkAssert (lock);
+		UplinkAssert (lock)
 		int lockX = 450 + lock->width;
 		int lockY = 340 + lock->height/2 - 1;
 		
@@ -1008,21 +1008,21 @@ void ScriptLibrary::Script40 ()
 		// Set the percentage done so far
 
 		Button *button = EclGetButton ( "downloadingUOS" );
-		UplinkAssert (button);
+		UplinkAssert (button)
 
 		int progress = (int) (100.0 * (float) button->width / 200.0);
 
 		char caption [16];
-		UplinkSnprintf ( caption, sizeof ( caption ), "%d %%", progress );
+		UplinkSnprintf ( caption, sizeof ( caption ), "%d %%", progress )
 		
 		Button *prog = EclGetButton ( "downloadingUOS_prog" );
-		UplinkAssert (prog);
+		UplinkAssert (prog)
 		prog->SetCaption ( caption );
 
 		// Put down some description of what we're downloading...
 
 		Button *current = EclGetButton ( "downloadingUOS_current" );
-		UplinkAssert (current);
+		UplinkAssert (current)
 
 		if      ( progress < 5  )		current->SetCaption ( "Downloading Core services" );
 		else if ( progress < 10 )		current->SetCaption ( "Downloading Kernel" );
@@ -1076,7 +1076,7 @@ void ScriptLibrary::Script41 ()
 		for ( int i = 0; i < 14; ++i ) {
 
 			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "syscheckUOS_%d", i );
+			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "syscheckUOS_%d", i )
 
 			if ( !EclGetButton ( buttonname ) ) {
 
@@ -1096,7 +1096,7 @@ void ScriptLibrary::Script41 ()
 
 					// Not first time round - create 'OK' button
 					char okname [32];
-					UplinkSnprintf ( okname, sizeof ( okname ), "syscheckUOS_OK_%d", (i-1) );
+					UplinkSnprintf ( okname, sizeof ( okname ), "syscheckUOS_OK_%d", (i-1) )
 					EclRegisterButton ( 450, 130 + 20 * (i-1), 30, 15, "[OK]", "", okname );
 					EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
@@ -1107,20 +1107,20 @@ void ScriptLibrary::Script41 ()
 				char caption [128];
 				
 				switch ( i ) {
-					case 0		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : Trinity Ax086 2GQs cpu...", sizeof ( caption ) );			break;
-					case 1		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : K256 512KQds modem...", sizeof ( caption ) );				break;
-					case 2		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : 24 GQds DR-RAM memory...", sizeof ( caption ) );			break;
-					case 3		:		UplinkStrncpy ( caption, "Verifying integrity of Uplink Operating System...", sizeof ( caption ) );				break;
-					case 4		:		UplinkStrncpy ( caption, "Verifying security of Uplink Operating System...", sizeof ( caption ) );				break;
-					case 5		:		UplinkStrncpy ( caption, "Installing UPLINK Operating system files...", sizeof ( caption ) );						break;
-					case 6		:		UplinkStrncpy ( caption, "Initialising TSR programs in memory...", sizeof ( caption ) );							break;
-					case 7		:		UplinkStrncpy ( caption, "Sending RUN signal to core Uplink Kernel...", sizeof ( caption ) );						break;
-					case 8		:		UplinkStrncpy ( caption, "Checking Kernel Initilisation...", sizeof ( caption ) );								break;
-					case 9		:		UplinkStrncpy ( caption, "Establishing Network communications protocols...", sizeof ( caption ) );				break;
-					case 10		:		UplinkStrncpy ( caption, "Installing File-Copier...", sizeof ( caption ) );										break;
-					case 11		:		UplinkStrncpy ( caption, "Installing File-Deleter...", sizeof ( caption ) );										break;
-					case 12		:		UplinkStrncpy ( caption, "Installing Task-Manager you can read fast...", sizeof ( caption ) );					break;
-					case 13		:		UplinkStrncpy ( caption, "Running Graphical User Interface...", sizeof ( caption ) );								break;
+					case 0		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : Trinity Ax086 2GQs cpu...", sizeof ( caption ) )			break;
+					case 1		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : K256 512KQds modem...", sizeof ( caption ) )				break;
+					case 2		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : 24 GQds DR-RAM memory...", sizeof ( caption ) )			break;
+					case 3		:		UplinkStrncpy ( caption, "Verifying integrity of Uplink Operating System...", sizeof ( caption ) )				break;
+					case 4		:		UplinkStrncpy ( caption, "Verifying security of Uplink Operating System...", sizeof ( caption ) )				break;
+					case 5		:		UplinkStrncpy ( caption, "Installing UPLINK Operating system files...", sizeof ( caption ) )						break;
+					case 6		:		UplinkStrncpy ( caption, "Initialising TSR programs in memory...", sizeof ( caption ) )							break;
+					case 7		:		UplinkStrncpy ( caption, "Sending RUN signal to core Uplink Kernel...", sizeof ( caption ) )						break;
+					case 8		:		UplinkStrncpy ( caption, "Checking Kernel Initilisation...", sizeof ( caption ) )								break;
+					case 9		:		UplinkStrncpy ( caption, "Establishing Network communications protocols...", sizeof ( caption ) )				break;
+					case 10		:		UplinkStrncpy ( caption, "Installing File-Copier...", sizeof ( caption ) )										break;
+					case 11		:		UplinkStrncpy ( caption, "Installing File-Deleter...", sizeof ( caption ) )										break;
+					case 12		:		UplinkStrncpy ( caption, "Installing Task-Manager you can read fast...", sizeof ( caption ) )					break;
+					case 13		:		UplinkStrncpy ( caption, "Running Graphical User Interface...", sizeof ( caption ) )								break;
 				}
 
 				EclRegisterButton ( 20, 130 + 20 * i, 400, 15, caption, "", buttonname );
@@ -1157,10 +1157,10 @@ void ScriptLibrary::Script42 ()
 			
 			// Remove existing start-up sequence
 			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "syscheckUOS_%d", i );
+			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "syscheckUOS_%d", i )
 			EclRemoveButton ( buttonname );
 			char okname [32];
-			UplinkSnprintf ( okname, sizeof ( okname ), "syscheckUOS_OK_%d", i );
+			UplinkSnprintf ( okname, sizeof ( okname ), "syscheckUOS_OK_%d", i )
 			EclRemoveButton ( okname );
 
 		}
@@ -1220,7 +1220,7 @@ void ScriptLibrary::Script45 ()
 		for ( int i = 0; i < 4; ++i ) {
 
 			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "newpatch_%d", i );
+			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "newpatch_%d", i )
 
 			if ( !EclGetButton ( buttonname ) ) {
 
@@ -1236,7 +1236,7 @@ void ScriptLibrary::Script45 ()
                 else {
 
 				    char okname [32];
-				    UplinkSnprintf ( okname, sizeof ( okname ), "newpatch_OK_%d", (i-1) );
+				    UplinkSnprintf ( okname, sizeof ( okname ), "newpatch_OK_%d", (i-1) )
 				    EclRegisterButton ( 500, 140 + 20 * (i-1), 30, 15, "[OK]", "", okname );
 				    EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
@@ -1247,10 +1247,10 @@ void ScriptLibrary::Script45 ()
 				char caption [128];
 				
 				switch ( i ) {
-					case 0		:		UplinkStrncpy ( caption, "Reading new patch data...", sizeof ( caption ) );			break;
-					case 1		:		UplinkStrncpy ( caption, "Modifying Uplink executable...", sizeof ( caption ) );				break;
-					case 2		:		UplinkStrncpy ( caption, "Modifying Uplink runtime data...", sizeof ( caption ) );			break;
-					case 3		:		UplinkStrncpy ( caption, "Validating patch authorisation with Uplink Corporation...", sizeof ( caption ) );				break;
+					case 0		:		UplinkStrncpy ( caption, "Reading new patch data...", sizeof ( caption ) )			break;
+					case 1		:		UplinkStrncpy ( caption, "Modifying Uplink executable...", sizeof ( caption ) )				break;
+					case 2		:		UplinkStrncpy ( caption, "Modifying Uplink runtime data...", sizeof ( caption ) )			break;
+					case 3		:		UplinkStrncpy ( caption, "Validating patch authorisation with Uplink Corporation...", sizeof ( caption ) )				break;
 				}
 
 				EclRegisterButton ( 100, 140 + 20 * i, 400, 15, caption, "", buttonname );
@@ -1328,7 +1328,7 @@ void ScriptLibrary::Script46 ()
 {
 
 	char okname [32];
-	UplinkSnprintf ( okname, sizeof ( okname ), "newpatch_OK_%d", 3 );
+	UplinkSnprintf ( okname, sizeof ( okname ), "newpatch_OK_%d", 3 )
 	EclRegisterButton ( 500, 140 + 20 * 3, 30, 15, "[OK]", "", okname );
 	EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
@@ -1359,7 +1359,7 @@ void DrawMainTitle ( Button *button, bool highlighted, bool clicked )
 void ToggleBoxDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	if ( button->caption [0] == '0' )
 		imagebutton_draw ( button, false, false );
@@ -1372,7 +1372,7 @@ void ToggleBoxDraw ( Button *button, bool highlighted, bool clicked )
 void ToggleBoxClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	// Read the value from the button
 	
@@ -1408,7 +1408,7 @@ void ScriptLibrary::Script47 ()
 
 	GciScreenMode *mode = GciGetClosestScreenMode ( 1024, 768 );
 	char messagesetresolution [ 256 ];
-	UplinkSnprintf ( messagesetresolution, sizeof ( messagesetresolution ), "Set the in-game screen resolution to %dx%d", mode->w, mode->h );
+	UplinkSnprintf ( messagesetresolution, sizeof ( messagesetresolution ), "Set the in-game screen resolution to %dx%d", mode->w, mode->h )
 	delete mode;
 
     EclRegisterButton ( 150, 250, 300, 15, messagesetresolution, "This is now the recommended in-game resolution.", "newpatch_screenres" );
@@ -1493,8 +1493,8 @@ void ScriptLibrary::Script60 ()
 		*/
 
 	auto *ds = (DialogScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (ds);
-	UplinkAssert (ds->GetOBJECTID () == OID_DIALOGSCREEN );
+	UplinkAssert (ds)
+	UplinkAssert (ds->GetOBJECTID () == OID_DIALOGSCREEN )
 
 	ds->RemoveWidget ( "email1" );
 	ds->RemoveWidget ( "view1" );
@@ -1520,8 +1520,8 @@ void ScriptLibrary::Script61 ()
 		*/
 
 	auto *ds = (DialogScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (ds);
-	UplinkAssert (ds->GetOBJECTID () == OID_DIALOGSCREEN );
+	UplinkAssert (ds)
+	UplinkAssert (ds->GetOBJECTID () == OID_DIALOGSCREEN )
 
 	ds->RemoveWidget ( "email2" );
 	ds->RemoveWidget ( "view2" );
@@ -1568,7 +1568,7 @@ void ScriptLibrary::Script63 ()
 		*/
 
 	Button *b = EclGetButton ( "mailtext 0 0" );
-	UplinkAssert (b);
+	UplinkAssert (b)
 
 	b->y = 150;
 	b->height = 220;
@@ -1633,7 +1633,7 @@ void ScriptLibrary::Script71 ()
     for ( int i = 0; i < game->GetWorld ()->GetPlayer()->missions.Size(); ++i ) {
 
         Mission *m = game->GetWorld ()->GetPlayer ()->missions.GetData(i);
-        UplinkAssert (m);
+        UplinkAssert (m)
 
         if ( strcmp ( m->description, PlotGenerator::SpecialMissionDescription ( SPECIALMISSION_MOLE ) ) == 0 ) 
             return;       
@@ -1648,14 +1648,14 @@ void ScriptLibrary::Script71 ()
 	// Infer the internal services contact address
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name );	
+	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
 
 	// 
 	// Generate a new computer to dump the files to
 	//
 
 	Computer *ourcomp = WorldGenerator::GenerateEmptyFileServer ( employer->name );
-	UplinkAssert (ourcomp);
+	UplinkAssert (ourcomp)
 
 	//
 	// Add in a new account for the player to use
@@ -1666,7 +1666,7 @@ void ScriptLibrary::Script71 ()
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 															'a' + NumberGenerator::RandomNumber ( 26 ),
 															'a' + NumberGenerator::RandomNumber ( 26 ),
-															'a' + NumberGenerator::RandomNumber ( 26 ) );
+															'a' + NumberGenerator::RandomNumber ( 26 ) )
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -1739,7 +1739,7 @@ void ScriptLibrary::Script72 ()
     for ( int a = 0; a < 5; ++a ) {
 
         Agent *agent = WorldGenerator::GetRandomAgent();
-        UplinkAssert (agent);
+        UplinkAssert (agent)
 
         agent->SetStatus (PERSON_STATUS_DEAD);
 
@@ -1761,7 +1761,7 @@ void ScriptLibrary::Script72 ()
                        );
    
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert (cu);
+	UplinkAssert (cu)
 	cu->CreateNews ( news );
 
 }
@@ -1773,9 +1773,9 @@ void ScriptLibrary::Script80 ()
 	// Are we on a LAN?
 
 	VLocation *vl = game->GetWorld()->GetPlayer()->GetRemoteHost();
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
@@ -1792,28 +1792,28 @@ void ScriptLibrary::Script80 ()
 	if ( lan->systems.ValidIndex(currentIndex) ) {
 
 		LanComputerSystem *system = lan->systems.GetData(currentIndex);
-		UplinkAssert (system);
+		UplinkAssert (system)
 
 		if ( system->TYPE == LANSYSTEM_AUTHENTICATION ) {
 
 			int unlockIndex1 = system->data1;
 			if ( lan->systems.ValidIndex(unlockIndex1) ) {
 				LanComputerSystem *lock1 = lan->systems.GetData(unlockIndex1);
-				UplinkAssert (lock1);
+				UplinkAssert (lock1)
 				lock1->data1 = 1;
 			}
 
 			int unlockIndex2 = system->data2;
 			if ( lan->systems.ValidIndex(unlockIndex2) ) {
 				LanComputerSystem *lock2 = lan->systems.GetData(unlockIndex2);
-				UplinkAssert (lock2);
+				UplinkAssert (lock2)
 				lock2->data1 = 1;
 			}
 
 			int unlockIndex3 = system->data3;
 			if ( lan->systems.ValidIndex(unlockIndex3) ) {
 				LanComputerSystem *lock3 = lan->systems.GetData(unlockIndex3);
-				UplinkAssert (lock3);
+				UplinkAssert (lock3)
 				lock3->data3 = 1;
 			}
 
@@ -1825,9 +1825,9 @@ void ScriptLibrary::Script80 ()
 
                 char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	            VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	            UplinkAssert (vl);
+	            UplinkAssert (vl)
 	            Computer *comp = vl->GetComputer ();
-	            UplinkAssert (comp);
+	            UplinkAssert (comp)
 
                 if ( comp->TYPE == COMPUTER_TYPE_LAN )
                 {
@@ -1864,9 +1864,9 @@ void ScriptLibrary::Script81 ()
 	// Are we on a LAN?
 
 	VLocation *vl = game->GetWorld()->GetPlayer()->GetRemoteHost();
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
@@ -1883,28 +1883,28 @@ void ScriptLibrary::Script81 ()
 	if ( lan->systems.ValidIndex(currentIndex) ) {
 
 		LanComputerSystem *system = lan->systems.GetData(currentIndex);
-		UplinkAssert (system);
+		UplinkAssert (system)
 
 		if ( system->TYPE == LANSYSTEM_AUTHENTICATION ) {
 
 			int unlockIndex1 = system->data1;
 			if ( lan->systems.ValidIndex(unlockIndex1) ) {
 				LanComputerSystem *lock1 = lan->systems.GetData(unlockIndex1);
-				UplinkAssert (lock1);
+				UplinkAssert (lock1)
 				lock1->data1 = 0;
 			}
 
 			int unlockIndex2 = system->data2;
 			if ( lan->systems.ValidIndex(unlockIndex2) ) {
 				LanComputerSystem *lock2 = lan->systems.GetData(unlockIndex2);
-				UplinkAssert (lock2);
+				UplinkAssert (lock2)
 				lock2->data1 = 0;
 			}
 
 			int unlockIndex3 = system->data3;
 			if ( lan->systems.ValidIndex(unlockIndex3) ) {
 				LanComputerSystem *lock3 = lan->systems.GetData(unlockIndex3);
-				UplinkAssert (lock3);
+				UplinkAssert (lock3)
 				lock3->data1 = 0;
 			}
 		
@@ -1928,9 +1928,9 @@ void ScriptLibrary::Script82 ()
 	// Are we on a LAN?
 
 	VLocation *vl = game->GetWorld()->GetPlayer()->GetRemoteHost();
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
@@ -1947,21 +1947,21 @@ void ScriptLibrary::Script82 ()
 	if ( lan->systems.ValidIndex(currentIndex) ) {
 
 		LanComputerSystem *system = lan->systems.GetData(currentIndex);
-		UplinkAssert (system);
+		UplinkAssert (system)
 
 		if ( system->TYPE == LANSYSTEM_ISOLATIONBRIDGE ) {
 
 			int unlockIndex1 = system->data1;
 			if ( lan->systems.ValidIndex(unlockIndex1) ) {
 				LanComputerSystem *lock1 = lan->systems.GetData(unlockIndex1);
-				UplinkAssert (lock1);
+				UplinkAssert (lock1)
 				lock1->data1 = 1;
 			}
 
 			int unlockIndex2 = system->data2;
 			if ( lan->systems.ValidIndex(unlockIndex2) ) {
 				LanComputerSystem *lock2 = lan->systems.GetData(unlockIndex2);
-				UplinkAssert (lock2);
+				UplinkAssert (lock2)
 				lock2->data1 = 0;
 			}
 			
@@ -1976,9 +1976,9 @@ void ScriptLibrary::Script82 ()
 
                 char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	            VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	            UplinkAssert (vl);
+	            UplinkAssert (vl)
 	            Computer *comp = vl->GetComputer ();
-	            UplinkAssert (comp);
+	            UplinkAssert (comp)
 
                 if ( comp->TYPE == COMPUTER_TYPE_LAN )
                 {
@@ -2017,9 +2017,9 @@ void ScriptLibrary::Script83 ()
 	// Are we on a LAN?
 
 	VLocation *vl = game->GetWorld()->GetPlayer()->GetRemoteHost();
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
@@ -2036,21 +2036,21 @@ void ScriptLibrary::Script83 ()
 	if ( lan->systems.ValidIndex(currentIndex) ) {
 
 		LanComputerSystem *system = lan->systems.GetData(currentIndex);
-		UplinkAssert (system);
+		UplinkAssert (system)
 
 		if ( system->TYPE == LANSYSTEM_ISOLATIONBRIDGE ) {
 
 			int unlockIndex1 = system->data1;
 			if ( lan->systems.ValidIndex(unlockIndex1) ) {
 				LanComputerSystem *lock1 = lan->systems.GetData(unlockIndex1);
-				UplinkAssert (lock1);
+				UplinkAssert (lock1)
 				lock1->data1 = 0;
 			}
 
 			int unlockIndex2 = system->data2;
 			if ( lan->systems.ValidIndex(unlockIndex2) ) {
 				LanComputerSystem *lock2 = lan->systems.GetData(unlockIndex2);
-				UplinkAssert (lock2);
+				UplinkAssert (lock2)
 				lock2->data1 = 1;
 			}
 			
@@ -2065,9 +2065,9 @@ void ScriptLibrary::Script83 ()
 
                 char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	            VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	            UplinkAssert (vl);
+	            UplinkAssert (vl)
 	            Computer *comp = vl->GetComputer ();
-	            UplinkAssert (comp);
+	            UplinkAssert (comp)
 
                 if ( comp->TYPE == COMPUTER_TYPE_LAN )
                 {
@@ -2195,8 +2195,8 @@ void ScriptLibrary::Script92 ()
 
 	Button *key = EclGetButton ( "start_key" );
 	Button *lock = EclGetButton ( "start_lock" );
-	UplinkAssert (key);
-	UplinkAssert (lock);
+	UplinkAssert (key)
+	UplinkAssert (lock)
 	
 	EclRegisterButton ( key->x + key->width/2 + 8, key->y + key->height/2 + 8, lock->x - key->x - 16, lock->x - key->x - 16, " ", " ", "start_link" );
 	EclRegisterButtonCallbacks ( "start_link", DrawConnection, nullptr, nullptr, nullptr );
@@ -2214,8 +2214,8 @@ void ScriptLibrary::Script93 ()
 
 	Button *key = EclGetButton ( "start_key" );
 	Button *lock = EclGetButton ( "start_lock" );
-	UplinkAssert (key);
-	UplinkAssert (lock);
+	UplinkAssert (key)
+	UplinkAssert (lock)
 	
 	EclRegisterButton ( key->x + key->width/2 + 8, key->y + key->height/2 + 8, lock->x - key->x - 16, lock->x - key->x - 16, " ", " ", "start_link" );
 	EclRegisterButtonCallbacks ( "start_link", DrawConnection, nullptr, nullptr, nullptr );

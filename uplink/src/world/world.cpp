@@ -71,7 +71,7 @@ World::World()
 
 	passwords.SetStepSize ( 100 );
 	FILE *file = RsArchiveFileOpen ( "data/wordlist.txt", "rt" );
-	UplinkAssert ( file );
+	UplinkAssert ( file )
 	
 	while ( !feof (file) ) {
 
@@ -88,7 +88,7 @@ World::World()
 	//
 
 	char *filename = RsArchiveFileOpen ( "data/gatewaydefs.txt" );
-	UplinkAssert (filename);
+	UplinkAssert (filename)
 	idos2unixstream thefile ( filename );
 	
 	char unused [256];
@@ -103,8 +103,8 @@ World::World()
 
         char filename[256];
         char thumbnail[256];
-        UplinkSnprintf ( filename, sizeof ( filename ), "gateway/gateway%d.tif", i );
-        UplinkSnprintf ( thumbnail, sizeof ( thumbnail ), "gateway/gateway_t%d.tif", i );
+        UplinkSnprintf ( filename, sizeof ( filename ), "gateway/gateway%d.tif", i )
+        UplinkSnprintf ( thumbnail, sizeof ( thumbnail ), "gateway/gateway_t%d.tif", i )
         def->SetFilename ( filename );
         def->SetThumbnail ( thumbnail );
         
@@ -144,8 +144,8 @@ VLocation *World::CreateVLocation ( char *ip, int phys_x, int phys_y )
 	if ( locations.LookupTree ( ip ) != nullptr ) {
 
 		char warning [128];
-		UplinkSnprintf ( warning, sizeof ( warning ), "Duplicate IP created : %s", ip );
-		UplinkWarning ( warning );
+		UplinkSnprintf ( warning, sizeof ( warning ), "Duplicate IP created : %s", ip )
+		UplinkWarning ( warning )
 
 	}
 
@@ -194,7 +194,7 @@ Computer *World::CreateComputer ( char *name, char *companyname, char *ip )
 	computer->SetCompanyName ( companyname );
 	computer->SetIP ( ip );
 
-	UplinkAssert ( GetVLocation ( ip ) );
+	UplinkAssert ( GetVLocation ( ip ) )
 	GetVLocation ( ip )->SetComputer ( name );
 
 	return computer;
@@ -218,8 +218,8 @@ Person *World::CreatePerson ( char *name, char *localhost )
 void World::CreateVLocation ( VLocation *vlocation )
 {
 	
-	UplinkAssert (vlocation);
-	UplinkAssert (vlocation->ip);
+	UplinkAssert (vlocation)
+	UplinkAssert (vlocation->ip)
 
 	locations.PutData ( vlocation->ip, vlocation );
 
@@ -228,8 +228,8 @@ void World::CreateVLocation ( VLocation *vlocation )
 void World::CreateCompany ( Company *company )
 {
 
-	UplinkAssert ( company );
-	UplinkAssert ( company->name );
+	UplinkAssert ( company )
+	UplinkAssert ( company->name )
 
 	companies.PutData ( company->name, company );
 
@@ -238,12 +238,12 @@ void World::CreateCompany ( Company *company )
 void World::CreateComputer ( Computer *computer )
 {
 
-	UplinkAssert (computer);
-	UplinkAssert (computer->name);
+	UplinkAssert (computer)
+	UplinkAssert (computer->name)
 
 	computers.PutData ( computer->name, computer );	
 
-	UplinkAssert ( GetVLocation ( computer->ip ) );
+	UplinkAssert ( GetVLocation ( computer->ip ) )
 	GetVLocation ( computer->ip )->SetComputer ( computer->name );
 
 }
@@ -251,8 +251,8 @@ void World::CreateComputer ( Computer *computer )
 void World::CreatePerson ( Person *person )
 {
 
-	UplinkAssert (person);
-	UplinkAssert (person->name);
+	UplinkAssert (person)
+	UplinkAssert (person->name)
 
 	people.PutData ( person->name, person );
 
@@ -262,7 +262,7 @@ void World::CreatePassword  ( char *password )
 {
 
 	char *newpassword = new char [ strlen ( password ) + 1 ];
-	UplinkSafeStrcpy ( newpassword, password );
+	UplinkSafeStrcpy ( newpassword, password )
 	passwords.PutData ( newpassword );
 
 }
@@ -270,7 +270,7 @@ void World::CreatePassword  ( char *password )
 void World::CreateGatewayDef ( GatewayDef *newdef )
 {
 
-	UplinkAssert (newdef);
+	UplinkAssert (newdef)
 
 	if ( !newdef->VerifyCorrectness () )
 		return;
@@ -376,7 +376,7 @@ Player *World::GetPlayer ()
 
 	BTree <Person *> *player = people.LookupTree ( "PLAYER" );
 
-	UplinkAssert ( player );
+	UplinkAssert ( player )
 
 	return (Player *) player->data;
 

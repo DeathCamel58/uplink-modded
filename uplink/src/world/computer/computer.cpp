@@ -39,9 +39,9 @@ Computer::Computer()
 {
 
 	TYPE = COMPUTER_TYPE_UNKNOWN;
-	UplinkStrncpy ( name, "", sizeof ( name ) );
-	UplinkStrncpy ( companyname, "", sizeof ( companyname ) );
-	UplinkStrncpy ( ip, "", sizeof ( ip ) );
+	UplinkStrncpy ( name, "", sizeof ( name ) )
+	UplinkStrncpy ( companyname, "", sizeof ( companyname ) )
+	UplinkStrncpy ( ip, "", sizeof ( ip ) )
 	tracespeed = 0;
 	traceaction = COMPUTER_TRACEACTION_NONE;
 
@@ -73,8 +73,8 @@ void Computer::SetTYPE ( int newTYPE )
 void Computer::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen ( newname ) < SIZE_COMPUTER_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen ( newname ) < SIZE_COMPUTER_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
 
@@ -83,9 +83,9 @@ void Computer::SetCompanyName ( char *newname )
 
 	if ( newname ) {
 
-		UplinkAssert ( strlen ( newname ) < SIZE_COMPANY_NAME );
-		UplinkAssert ( game->GetWorld ()->GetCompany ( newname ) );
-		UplinkStrncpy ( companyname, newname, sizeof ( companyname ) );
+		UplinkAssert ( strlen ( newname ) < SIZE_COMPANY_NAME )
+		UplinkAssert ( game->GetWorld ()->GetCompany ( newname ) )
+		UplinkStrncpy ( companyname, newname, sizeof ( companyname ) )
 
 	}
 
@@ -94,9 +94,9 @@ void Computer::SetCompanyName ( char *newname )
 void Computer::SetIP ( char *newip )
 {
 
-	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP );
-	UplinkAssert ( game->GetWorld ()->GetVLocation ( newip ) );
-	UplinkStrncpy ( ip, newip, sizeof ( ip ) );
+	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
+	UplinkAssert ( game->GetWorld ()->GetVLocation ( newip ) )
+	UplinkStrncpy ( ip, newip, sizeof ( ip ) )
 
 }
 
@@ -168,7 +168,7 @@ int  Computer::AddComputerScreen ( ComputerScreen *cs, int index )
 {
 
 	// Give the computer a pointer to this computer screen
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	cs->SetComputer ( name );
 
 	if ( index == -1 ) {
@@ -252,7 +252,7 @@ void Computer::CheckForSecurityBreaches ()
 
 					for ( int l = 0; l < game->GetWorld ()->GetPlayer ()->missions.Size (); ++l ) {
 						Mission *m = game->GetWorld ()->GetPlayer ()->missions.GetData (l);
-						UplinkAssert (m);
+						UplinkAssert (m)
 
 						if ( m->TYPE == MISSION_TRACEUSER && strcmp ( m->completionB, ip ) == 0 ) 
 							ignoreme = true;
@@ -330,7 +330,7 @@ bool Computer::ChangeSecurityCodes ()
 		case COMPUTER_TYPE_INTERNALSERVICESMACHINE :		
 		{
 			Record *admin = recordbank.GetRecordFromName ( RECORDBANK_ADMIN );
-			UplinkAssert (admin);
+			UplinkAssert (admin)
 			admin->ChangeField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );		
             changed = true;
 			break;
@@ -339,7 +339,7 @@ bool Computer::ChangeSecurityCodes ()
         case COMPUTER_TYPE_CENTRALMAINFRAME :
         {
 			Record *admin = recordbank.GetRecordFromName ( RECORDBANK_ADMIN );
-			UplinkAssert (admin);
+			UplinkAssert (admin)
 			admin->ChangeField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );		
             changed = true;
 			break;
@@ -353,15 +353,15 @@ bool Computer::ChangeSecurityCodes ()
                  strcmp ( ip, IP_ACADEMICDATABASE ) == 0 ) {
 
 			    Record *admin = recordbank.GetRecordFromName ( RECORDBANK_ADMIN );
-			    UplinkAssert (admin);
+			    UplinkAssert (admin)
 			    admin->ChangeField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );		
                 
 			    Record *readwrite = recordbank.GetRecordFromName ( RECORDBANK_READWRITE );
-			    UplinkAssert (readwrite);
+			    UplinkAssert (readwrite)
 			    readwrite->ChangeField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );		
 
   			    Record *readonly = recordbank.GetRecordFromName ( RECORDBANK_READONLY );
-			    UplinkAssert (readonly);
+			    UplinkAssert (readonly)
 			    readonly->ChangeField ( RECORDBANK_PASSWORD, NameGenerator::GenerateComplexPassword () );		
 
                 changed = true;
@@ -635,8 +635,8 @@ void Computer::Update ()
             Computer *comp2 = WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE |
                                                                   COMPUTER_TYPE_CENTRALMAINFRAME        );
 
-            UplinkAssert (comp1);
-            UplinkAssert (comp2);
+            UplinkAssert (comp1)
+            UplinkAssert (comp2)
 
             game->GetWorld ()->plotgenerator.RunRevelation ( comp1->ip, isinfected_revelation, false );
             game->GetWorld ()->plotgenerator.RunRevelation ( comp2->ip, isinfected_revelation, false );
@@ -698,17 +698,17 @@ void Computer::Update ()
 
 void Computer::GenerateAccessCode( char *code, char *result, size_t resultsize )
 {
-    UplinkSnprintf( result, resultsize, "%s:'%s'", "CODE", code );
+    UplinkSnprintf( result, resultsize, "%s:'%s'", "CODE", code )
 }
 
 void Computer::GenerateAccessCode( char *name, char *code, char *result, size_t resultsize )
 {
-    UplinkSnprintf( result, resultsize, "%s:'%s', %s:'%s'", "NAME", name, "CODE", code );
+    UplinkSnprintf( result, resultsize, "%s:'%s', %s:'%s'", "NAME", name, "CODE", code )
 }
 
 void Computer::GenerateAccessCode( int accNo, char *code, char *result, size_t resultsize )
 {
-    UplinkSnprintf( result, resultsize, "%s:'%d', %s:'%s'", "NAME", accNo, "CODE", code );
+    UplinkSnprintf( result, resultsize, "%s:'%d', %s:'%s'", "NAME", accNo, "CODE", code )
 }
 
 string Computer::GetID ()

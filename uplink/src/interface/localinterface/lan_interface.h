@@ -40,7 +40,7 @@ public:
     LanInterfaceHighlight ( int _systemIndex, char *_text ) 
         : systemIndex(_systemIndex) 
         {
-            UplinkStrncpy ( text, _text, sizeof ( text ) );
+            UplinkStrncpy ( text, _text, sizeof ( text ) )
         }
     
     int systemIndex;

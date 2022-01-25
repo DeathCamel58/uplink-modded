@@ -20,9 +20,9 @@
 Company::Company()
 {
 
-	UplinkStrncpy ( name, " ", sizeof ( name ) );
-	UplinkStrncpy ( boss, "Unlisted", sizeof ( boss ) );
-	UplinkStrncpy ( administrator, "Unlisted", sizeof ( administrator ) );
+	UplinkStrncpy ( name, " ", sizeof ( name ) )
+	UplinkStrncpy ( boss, "Unlisted", sizeof ( boss ) )
+	UplinkStrncpy ( administrator, "Unlisted", sizeof ( administrator ) )
 	size=0;
 	TYPE=0;
 	growth=0;
@@ -41,24 +41,24 @@ Company::~Company()
 void Company::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen (newname) < SIZE_COMPANY_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen (newname) < SIZE_COMPANY_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
 
 void Company::SetBoss ( char *bossname )
 {
 
-	UplinkAssert ( strlen (bossname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( boss, bossname, sizeof ( boss ) );
+	UplinkAssert ( strlen (bossname) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( boss, bossname, sizeof ( boss ) )
 
 }
 
 void Company::SetAdmin ( char *adminname )
 {
 
-	UplinkAssert ( strlen(adminname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( administrator, adminname, sizeof ( administrator ) );
+	UplinkAssert ( strlen(adminname) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( administrator, adminname, sizeof ( administrator ) )
 
 }
 
@@ -102,7 +102,7 @@ void Company::Grow ( int dayspast )
 	// Put our new price into our share history
 
 	int month = game->GetWorld ()->date.GetMonth () - 1;
-	UplinkAssert ( month >= 0 && month < 12 );
+	UplinkAssert ( month >= 0 && month < 12 )
     sharehistory [month] = NumberGenerator::ApplyVariance ( size, 30 );
     if ( sharehistory [month] < 1 ) sharehistory [month] = 1;
 	
@@ -135,7 +135,7 @@ int Company::GetSharePrice ( int month )
 	if ( month == -1 ) 
 		month = lastmonthset;
 
-	UplinkAssert ( month >= 0 && month < 12 );
+	UplinkAssert ( month >= 0 && month < 12 )
 
 	return ( sharehistory [ month ] );
 
@@ -145,7 +145,7 @@ int Company::GetShareChange ()
 {
 
 	int month = lastmonthset;
-	UplinkAssert ( month >= 0 && month < 12 );
+	UplinkAssert ( month >= 0 && month < 12 )
 	int currentprice = sharehistory [month];
 
 	--month;

@@ -38,7 +38,7 @@ NearestGatewayScreenInterface::~NearestGatewayScreenInterface ()
 void NearestGatewayScreenInterface::DrawBlack ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 	clear_draw ( button->x, button->y, button->width, button->height );
 
 }
@@ -46,7 +46,7 @@ void NearestGatewayScreenInterface::DrawBlack ( Button *button, bool highlighted
 void NearestGatewayScreenInterface::DrawLocation ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
     glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
@@ -65,14 +65,14 @@ void NearestGatewayScreenInterface::DrawLocation ( Button *button, bool highligh
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON);
+		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON)
 		pgl = &(PHYSICALGATEWAYLOCATIONS_DEFCON[index]);
 	}
 	else {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS);
+		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS)
 		pgl = &(PHYSICALGATEWAYLOCATIONS[index]);
 	}
-	UplinkAssert (pgl);
+	UplinkAssert (pgl)
 
 	GciDrawText ( button->x - 10, button->y + 20, pgl->city );
 //	GciDrawText ( button->x - 10, button->y + 30, pgl->country );
@@ -82,7 +82,7 @@ void NearestGatewayScreenInterface::DrawLocation ( Button *button, bool highligh
 void NearestGatewayScreenInterface::DrawMainMap ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	imagebutton_drawtextured ( button, highlighted, clicked );
 
@@ -102,14 +102,14 @@ void NearestGatewayScreenInterface::ClickLocation ( Button *button )
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON);
+		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON)
 		pgl = &(PHYSICALGATEWAYLOCATIONS_DEFCON[index]);
 	}
 	else {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS);
+		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS)
 		pgl = &(PHYSICALGATEWAYLOCATIONS[index]);
 	}
-	UplinkAssert (pgl);
+	UplinkAssert (pgl)
 
 	game->GetWorld ()->GetPlayer ()->GetLocalHost ()->SetPLocation ( pgl->x, pgl->y );
 
@@ -117,9 +117,9 @@ void NearestGatewayScreenInterface::ClickLocation ( Button *button )
 	// Go on to the next screen
 
 	auto *thisint = (NearestGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 	GenericScreen *gs = thisint->GetComputerScreen ();
-	UplinkAssert(gs);
+	UplinkAssert(gs)
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
 
@@ -180,13 +180,13 @@ void NearestGatewayScreenInterface::Create ( ComputerScreen *newcs )
 				pgl = &(PHYSICALGATEWAYLOCATIONS_DEFCON[i]);
 			else
 				pgl = &(PHYSICALGATEWAYLOCATIONS[i]);
-			UplinkAssert (pgl);
+			UplinkAssert (pgl)
 
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "nearestgateway_location %d", i );
+			UplinkSnprintf ( bname, sizeof ( bname ), "nearestgateway_location %d", i )
 
 			char tooltip [128];
-			UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Select %s as your local Gateway", pgl->city );
+			UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Select %s as your local Gateway", pgl->city )
 
 			//EclRegisterButton ( x1 + SX(pgl->x), y1 + SY(pgl->y), 7, 7, pgl->city, tooltip, bname );
 			EclRegisterButton ( x1 + (int) ( ( (float) pgl->x / (float) VIRTUAL_WIDTH ) * fullsizeX ), y1 + (int) ( ( (float) pgl->y / (float) VIRTUAL_HEIGHT ) * fullsizeY ), 7, 7, pgl->city, tooltip, bname );
@@ -224,7 +224,7 @@ void NearestGatewayScreenInterface::Remove ()
 		for ( int i = 0; i < numPhysicalGatewayLocations; ++i ) {
 
 			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "nearestgateway_location %d", i );
+			UplinkSnprintf ( bname, sizeof ( bname ), "nearestgateway_location %d", i )
 			EclRemoveButton ( bname );
 
 		}
@@ -252,7 +252,7 @@ int NearestGatewayScreenInterface::ScreenID ()
 GenericScreen *NearestGatewayScreenInterface::GetComputerScreen ()
 {
 	
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

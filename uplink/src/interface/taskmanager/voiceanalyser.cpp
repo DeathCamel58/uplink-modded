@@ -47,8 +47,8 @@ VoiceAnalyser::VoiceAnalyser ()
 		sample [i] = 0;
 
 	STATUS = VOICEANALYSER_STATUS_NONE;
-	UplinkStrncpy ( personname, " ", sizeof ( personname ) );
-	UplinkStrncpy ( personip, " ", sizeof ( personip ) );
+	UplinkStrncpy ( personname, " ", sizeof ( personname ) )
+	UplinkStrncpy ( personip, " ", sizeof ( personip ) )
 	timesync = 0;
 	animsync = 0;
 
@@ -66,7 +66,7 @@ VoiceAnalyser::~VoiceAnalyser ()
 void VoiceAnalyser::CloseClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -79,7 +79,7 @@ void VoiceAnalyser::CloseClick ( Button *button )
 void VoiceAnalyser::TitleClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -95,7 +95,7 @@ void VoiceAnalyser::TitleClick ( Button *button )
 void VoiceAnalyser::PlayDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -111,7 +111,7 @@ void VoiceAnalyser::PlayDraw ( Button *button, bool highlighted, bool clicked )
 void VoiceAnalyser::PlayClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -124,9 +124,9 @@ void VoiceAnalyser::PlayClick ( Button *button )
 //#ifndef DEMOGAME
 
         Person *person = game->GetWorld ()->GetPerson ( thistask->personname );
-        UplinkAssert (person);
+        UplinkAssert (person)
         char filename [256];
-        UplinkSnprintf ( filename, sizeof ( filename ), "sounds/analyser/verifyme%d.wav", person->voiceindex );
+        UplinkSnprintf ( filename, sizeof ( filename ), "sounds/analyser/verifyme%d.wav", person->voiceindex )
 		SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );
 
 //#endif
@@ -135,7 +135,7 @@ void VoiceAnalyser::PlayClick ( Button *button )
 		thistask->timesync = (int) ( EclGetAccurateTime () + 8000 );
 
 		char textbutton [64];
-		UplinkSnprintf ( textbutton, sizeof ( textbutton ), "analyser_text %d", pid );
+		UplinkSnprintf ( textbutton, sizeof ( textbutton ), "analyser_text %d", pid )
 		EclRegisterCaptionChange ( textbutton, "Reproducing voice sample..." );
 
 		// IF we're looking at a voice analysis screen,
@@ -144,7 +144,7 @@ void VoiceAnalyser::PlayClick ( Button *button )
 		if ( game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_VOICEANALYSIS ) {
 			
 			auto *vas = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-			UplinkAssert (vas);
+			UplinkAssert (vas)
 
 			vas->StartVoicePlayback ();
 
@@ -157,7 +157,7 @@ void VoiceAnalyser::PlayClick ( Button *button )
 void VoiceAnalyser::PlayMouseMove ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -173,7 +173,7 @@ void VoiceAnalyser::PlayMouseMove ( Button *button )
 void VoiceAnalyser::PlayMouseDown ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -189,7 +189,7 @@ void VoiceAnalyser::PlayMouseDown ( Button *button )
 void VoiceAnalyser::DrawAnalysis ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [64];
 	int pid;
@@ -266,7 +266,7 @@ void VoiceAnalyser::SetTarget ( UplinkObject *uo, char *uos, int uoi )
             sourceindex = uoi;
 
             Data *data = source->GetData (sourceindex);
-            UplinkAssert (data);
+            UplinkAssert (data)
 
             char ip[ SIZE_DATA_TITLE + 1 ];
             sscanf( data->title, "%s", ip );
@@ -279,8 +279,8 @@ void VoiceAnalyser::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
                   STATUS = VOICEANALYSER_STATUS_NOTDOWNLOADING;
 
-                  UplinkStrncpy ( personname, comp->companyname, sizeof ( personname ) );
-                  UplinkStrncpy ( personip, comp->ip, sizeof ( personip ) );
+                  UplinkStrncpy ( personname, comp->companyname, sizeof ( personname ) )
+                  UplinkStrncpy ( personip, comp->ip, sizeof ( personip ) )
 
                   numticksrequired = (int) ( TICKSREQUIRED_COPY * ((float) data->size / (float) game->GetWorld ()->GetPlayer ()->gateway.GetBandwidth ()) );
                   progress = 0;
@@ -288,7 +288,7 @@ void VoiceAnalyser::SetTarget ( UplinkObject *uo, char *uos, int uoi )
                   remotefile = strstr(uos, "fileserverscreen") != nullptr;
 
                   Button *button = EclGetButton ( uos );
-                  UplinkAssert (button);
+                  UplinkAssert (button)
 
                   MoveTo ( button->x, button->y, 1000 );
 
@@ -304,7 +304,7 @@ void VoiceAnalyser::SetTarget ( UplinkObject *uo, char *uos, int uoi )
          Data *datacopy = new Data ();
 
          char datatitle[ max ( SIZE_VLOCATION_IP + 1 + SIZE_PERSON_NAME, SIZE_DATA_TITLE ) + 1 ];
-         UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%s %s", personip, personname );
+         UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%s %s", personip, personname )
          datatitle[ SIZE_DATA_TITLE - 1 ] = '\0';
 
          datacopy->SetTitle ( datatitle );
@@ -338,7 +338,7 @@ void VoiceAnalyser::Tick ( int n )
 	
 		int pid = SvbLookupPID ( this );
 		char textbutton [64];
-		UplinkSnprintf ( textbutton, sizeof ( textbutton ), "analyser_text %d", pid );
+		UplinkSnprintf ( textbutton, sizeof ( textbutton ), "analyser_text %d", pid )
 
 
 		switch ( STATUS ) {
@@ -354,13 +354,13 @@ void VoiceAnalyser::Tick ( int n )
 				if ( game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_VOICEPHONE ) {
 
 					auto *vps = (VoicePhoneScreenInterface *) (game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
-					UplinkAssert (vps);
+					UplinkAssert (vps)
 					
 					if ( vps->STATUS == VOICESTATUS_TALKING ) {
 						EclRegisterCaptionChange ( textbutton, "Recording voice pattern..." );
 						STATUS = VOICEANALYSER_STATUS_RECORDING;
-						UplinkStrncpy ( personname, vps->GetComputerScreen ()->GetComputer ()->companyname, sizeof ( personname ) );
-						UplinkStrncpy ( personip, vps->GetComputerScreen ()->GetComputer ()->ip, sizeof ( personip ) );
+						UplinkStrncpy ( personname, vps->GetComputerScreen ()->GetComputer ()->companyname, sizeof ( personname ) )
+						UplinkStrncpy ( personip, vps->GetComputerScreen ()->GetComputer ()->ip, sizeof ( personip ) )
 					}
 
 				}
@@ -384,7 +384,7 @@ void VoiceAnalyser::Tick ( int n )
 				}
 
 				auto *vps = (VoicePhoneScreenInterface *) (game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
-				UplinkAssert (vps);
+				UplinkAssert (vps)
 
 				if ( vps->STATUS == VOICESTATUS_HUNGUP ) {
 					EclRegisterCaptionChange ( textbutton, "Analysing voice recording..." );
@@ -408,7 +408,7 @@ void VoiceAnalyser::Tick ( int n )
 					timesync = 0;
 
 					char play [64];
-					UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid );				
+					UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
 					EclDirtyButton ( play );
 
 				}
@@ -439,7 +439,7 @@ void VoiceAnalyser::Tick ( int n )
 					timesync = 0;
 
 					char play [64];
-					UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid );				
+					UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
 					EclDirtyButton ( play );
 
 					// IF we're looking at a voice analyser screen,
@@ -448,7 +448,7 @@ void VoiceAnalyser::Tick ( int n )
 					if ( game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ScreenID () == SCREEN_VOICEANALYSIS ) {
 						
 						auto *vas = (VoiceAnalysisScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-						UplinkAssert (vas);
+						UplinkAssert (vas)
 
 						vas->FinishVoicePlayback ( personname );
 
@@ -496,7 +496,7 @@ void VoiceAnalyser::Tick ( int n )
 
 				++progress;      
 				char caption [64];
-				UplinkSnprintf ( caption, sizeof ( caption ), "Downloading %d%% ...", (int)( ( (float) progress / (float) numticksrequired ) * 100 ) );
+				UplinkSnprintf ( caption, sizeof ( caption ), "Downloading %d%% ...", (int)( ( (float) progress / (float) numticksrequired ) * 100 ) )
 				EclRegisterCaptionChange ( textbutton, caption );
 
 				if ( progress >= numticksrequired ) {
@@ -508,7 +508,7 @@ void VoiceAnalyser::Tick ( int n )
 				   timesync = 0;
 
 				   char play [64];
-				   UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid );            
+				   UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
 				   EclDirtyButton ( play );
 
 				   break;
@@ -545,7 +545,7 @@ void VoiceAnalyser::Tick ( int n )
 			}
 			
 			char analyser [64];
-			UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid );
+			UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
 			EclDirtyButton ( analyser );
 
 			animsync = (int) EclGetAccurateTime ();
@@ -572,11 +572,11 @@ void VoiceAnalyser::MoveTo ( int x, int y, int time_ms )
 		char analyser [64];
 		char play [64];
 
-		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid );
-		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid );
-		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid );
-		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid )
+		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid )
+		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
+		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
 
 		EclRegisterMovement ( title, x + 1, y + 1, time_ms );
 		EclRegisterMovement ( close, x + 276, y + 1, time_ms );
@@ -607,11 +607,11 @@ void VoiceAnalyser::CreateInterface ()
 		char analyser [64];
 		char play [64];
 
-		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid );
-		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid );
-		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid );
-		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid )
+		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid )
+		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
+		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
 
 		EclRegisterButton ( 200, 400, 275, 13, "Voice Analyser", "Click to move this application", title );
 		EclRegisterButtonCallback ( title, TitleClick );
@@ -652,11 +652,11 @@ void VoiceAnalyser::RemoveInterface ()
 		char analyser [64];
 		char play [64];
 
-		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid );
-		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid );
-		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid );
-		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid )
+		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid )
+		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
+		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
 
 		EclRemoveButton ( title );
 		EclRemoveButton ( close );
@@ -681,11 +681,11 @@ void VoiceAnalyser::ShowInterface ()
 		char analyser [64];
 		char play [64];
 
-		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid );
-		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid );
-		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid );
-		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid );
+		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid )
+		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid )
+		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
+		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
 
 		EclButtonBringToFront ( title );
 		EclButtonBringToFront ( close );
@@ -702,7 +702,7 @@ bool VoiceAnalyser::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char title [64];
-	UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid );
+	UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
 
 	return ( EclGetButton ( title ) != nullptr );
 

@@ -60,10 +60,10 @@ void Decypher::MoveTo ( int x, int y, int time_ms )
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "decypher_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "decypher_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "decypher_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "decypher_close %d", pid )
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -93,12 +93,12 @@ void Decypher::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 		if ( uo->GetOBJECTID () == OID_CYPHERSCREEN ) {
 
 			auto *cs = (CypherScreen *) uo;
-			UplinkAssert (cs);
+			UplinkAssert (cs)
 			Computer *comp = cs->GetComputer ();
-			UplinkAssert (comp);
+			UplinkAssert (comp)
 
 			Button *button = EclGetButton ( uos );
-			UplinkAssert (button);
+			UplinkAssert (button)
 
 			MoveTo ( button->x + button->width - 300, button->y + button->height, 1000 );
 
@@ -112,7 +112,7 @@ void Decypher::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 			int pid = SvbLookupPID ( this );
 			char sprogress [128];
-			UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid );
+			UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid )
 			EclRegisterCaptionChange ( sprogress, "Decyphering..." );
 
 			status = DECYPHER_INPROGRESS;
@@ -162,7 +162,7 @@ void Decypher::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void Decypher::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -224,7 +224,7 @@ void Decypher::Tick ( int n )
 
 		int pid = SvbLookupPID ( this );
 		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid )
 
 		if ( status == DECYPHER_OFF ) {
 
@@ -238,7 +238,7 @@ void Decypher::Tick ( int n )
 			// same interface screen
 
 			RemoteInterfaceScreen *ris = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-			UplinkAssert (ris);
+			UplinkAssert (ris)
 
 			if ( ris->ScreenID () != SCREEN_CYPHERSCREEN ) {
 				SvbRemoveTask ( this );
@@ -250,7 +250,7 @@ void Decypher::Tick ( int n )
 				
 			progress += (int)(n * version);
 
-			UplinkAssert ( EclGetButton ( sprogress ) );
+			UplinkAssert ( EclGetButton ( sprogress ) )
 			EclGetButton ( sprogress )->width = (int)(120 * ( (float) progress / (float) numticksrequired ));
 			EclDirtyButton ( sprogress );
 
@@ -297,10 +297,10 @@ void Decypher::CreateInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "decypher_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "decypher_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "decypher_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "decypher_close %d", pid )
 
 		EclRegisterButton ( 265, 450, 20, 15, "", "Decypher", stitle );
 		button_assignbitmap ( stitle, "software/dec.tif" );
@@ -333,10 +333,10 @@ void Decypher::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "decypher_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "decypher_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "decypher_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "decypher_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -359,10 +359,10 @@ void Decypher::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "decypher_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "decypher_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "decypher_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "decypher_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "decypher_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -377,7 +377,7 @@ bool Decypher::IsInterfaceVisible ()
 	int pid = SvbLookupPID ( this );
 
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_border %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "decypher_border %d", pid )
 	
 	return ( EclGetButton (stitle) != nullptr );
 

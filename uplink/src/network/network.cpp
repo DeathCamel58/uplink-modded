@@ -86,7 +86,7 @@ Network::~Network()
 NetworkServer *Network::GetServer ()
 {
 
-	UplinkAssert ( STATUS == NETWORK_SERVER );
+	UplinkAssert ( STATUS == NETWORK_SERVER )
 	return &server;
 
 }
@@ -94,7 +94,7 @@ NetworkServer *Network::GetServer ()
 NetworkClient *Network::GetClient ()
 {
 
-	UplinkAssert ( STATUS == NETWORK_CLIENT );
+	UplinkAssert ( STATUS == NETWORK_CLIENT )
 	return &client;
 
 }
@@ -133,7 +133,7 @@ char *Network::GetLocalIP ()
 
 	size_t fullipsize = 64;
 	char *fullip = new char [fullipsize];
-	UplinkSnprintf ( fullip, fullipsize, "%u.%u.%u.%u", sip [0], sip [1], sip [2], sip [3] );
+	UplinkSnprintf ( fullip, fullipsize, "%u.%u.%u.%u", sip [0], sip [1], sip [2], sip [3] )
 
 	delete [] host;
 

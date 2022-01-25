@@ -29,7 +29,7 @@ ChangeGatewayEvent::~ChangeGatewayEvent ()
 void ChangeGatewayEvent::SetNewGateway ( GatewayDef *value )
 {
 
-	UplinkAssert ( value );
+	UplinkAssert ( value )
 
 	delete newgatewaydef;
 
@@ -76,7 +76,7 @@ char *ChangeGatewayEvent::GetShortString ()
 
 	size_t shortstringsize = 128 + ( (newgatewaydef)? strlen ( newgatewaydef->name ) : 4 );
 	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Exchanging gateway for '%s'", (newgatewaydef)? newgatewaydef->name : "nullptr" );
+	UplinkSnprintf ( shortstring, shortstringsize, "Exchanging gateway for '%s'", (newgatewaydef)? newgatewaydef->name : "nullptr" )
 	return shortstring;
 		
 }

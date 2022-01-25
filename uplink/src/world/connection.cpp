@@ -29,7 +29,7 @@
 Connection::Connection()
 {
 
-	UplinkStrncpy ( owner, "", sizeof ( owner ) );
+	UplinkStrncpy ( owner, "", sizeof ( owner ) )
 	traceinprogress = false;
 	traceprogress = 0;
 
@@ -45,8 +45,8 @@ Connection::~Connection()
 void Connection::SetOwner ( char *newowner )
 {
 
-	UplinkAssert ( strlen (newowner) < 64 );
-	UplinkStrncpy ( owner, newowner, sizeof ( owner ) );
+	UplinkAssert ( strlen (newowner) < 64 )
+	UplinkStrncpy ( owner, newowner, sizeof ( owner ) )
 
 }
 
@@ -59,8 +59,8 @@ void Connection::AddVLocation ( char *ip )
 
 	size_t newipsize = SIZE_VLOCATION_IP;
 	char *newip = new char [newipsize];
-	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP );
-	UplinkStrncpy ( newip, ip, newipsize );
+	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP )
+	UplinkStrncpy ( newip, ip, newipsize )
 
 	vlocations.PutDataAtEnd ( newip );
 
@@ -142,7 +142,7 @@ Person *Connection::GetOwner ()
 {
 
 	Person *person = game->GetWorld ()->GetPerson ( owner );
-	UplinkAssert ( person );
+	UplinkAssert ( person )
 
 	return person;
 
@@ -164,9 +164,9 @@ void Connection::BeginTrace ()
 		// Check the trace action
 	
 		VLocation *vl = game->GetWorld ()->GetVLocation ( GetTarget () );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 		Computer *comp = vl->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->traceaction > 0 ) {
 
@@ -199,9 +199,9 @@ void Connection::Connect ()
 	//
 
 	VLocation *tvl = game->GetWorld ()->GetVLocation ( GetTarget () );
-	UplinkAssert (tvl);
+	UplinkAssert (tvl)
 	Computer *comp = tvl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( comp->security.IsAnythingDisabled () ) BeginTrace ();
 
@@ -227,7 +227,7 @@ void Connection::Connect ()
 	for ( int i = 0; i < vlocations.Size (); ++i ) {
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( vlocations.GetData (i) );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 
 		Computer *bouncecomp = vl->GetComputer ();
 
@@ -276,9 +276,9 @@ void Connection::Disconnect ()
 	   */
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( GetTarget () );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert ( comp );
+	UplinkAssert ( comp )
 
 	int suspicious = ( TraceInProgress () && !Traced () ) ?
 						LOG_SUSPICIOUS	 :
@@ -311,7 +311,7 @@ void Connection::Disconnect ()
 			if ( comp->logbank.logs.ValidIndex (i) ) {
 
 				AccessLog *al = comp->logbank.logs.GetData (i);
-				UplinkAssert (al);
+				UplinkAssert (al)
 
 				Date testdate;
 				testdate.SetDate ( &al->date );
@@ -371,14 +371,14 @@ void Connection::Disconnect ()
             for ( int i = rumbledindex; i >= 0; --i ) {
 
                 char *rumbledIP = vlocations.GetData (GetSize () - i - 1);
-                UplinkAssert (rumbledIP);
+                UplinkAssert (rumbledIP)
 
                 if ( game->GetWorld ()->GetPlayer ()->HasAccount (rumbledIP) != -1 ) {
 
                     VLocation *vl = game->GetWorld ()->GetVLocation (rumbledIP);
-                    UplinkAssert (vl);
+                    UplinkAssert (vl)
                     Computer *comp = vl->GetComputer ();
-                    UplinkAssert (comp);
+                    UplinkAssert (comp)
 
                     bool changed = comp->ChangeSecurityCodes ();
 

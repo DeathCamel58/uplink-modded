@@ -57,11 +57,11 @@ void NewsScreenInterface::ClickNewsButton ( Button *button )
 	// Dirty the old button
 
 	char oldname [128];
-	UplinkSnprintf ( oldname, sizeof ( oldname ), "news_story %d", currentselect - baseoffset );
+	UplinkSnprintf ( oldname, sizeof ( oldname ), "news_story %d", currentselect - baseoffset )
 	EclDirtyButton ( oldname );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetNews (index) ) {
 
@@ -74,7 +74,7 @@ void NewsScreenInterface::ClickNewsButton ( Button *button )
 
             char *newDetails = cu->GetNews (index)->GetDetails();
             Button *detailsButton = EclGetButton ( "news_details box" );
-            UplinkAssert (detailsButton);
+            UplinkAssert (detailsButton)
         	LList <char *> *wrappedtext = wordwraptext ( newDetails, detailsButton->width );
 			if ( wrappedtext ) {
 				scrollBox->SetNumItems( wrappedtext->Size() );
@@ -105,7 +105,7 @@ void NewsScreenInterface::DrawNewsButton ( Button *button, bool highlighted, boo
 	// Get the text from news item (index + baseoffset)
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	News *news = cu->GetNews (index);
 
@@ -161,8 +161,8 @@ void NewsScreenInterface::DrawNewsButton ( Button *button, bool highlighted, boo
 
 		char date [64];
         char subject [256];        
-		UplinkStrncpy ( subject, news->headline, sizeof ( subject ) );
-		UplinkStrncpy ( date, news->date.GetShortString (), sizeof ( date ) );
+		UplinkStrncpy ( subject, news->headline, sizeof ( subject ) )
+		UplinkStrncpy ( date, news->date.GetShortString (), sizeof ( date ) )
 
         // Get the first line of the news story
 
@@ -176,7 +176,7 @@ void NewsScreenInterface::DrawNewsButton ( Button *button, bool highlighted, boo
             details[firstendline - fulldetails] = '\x0';                            // Added by Contraband
         }
         else
-            UplinkStrncpy ( details, " ", sizeof ( details ) );
+            UplinkStrncpy ( details, " ", sizeof ( details ) )
 
         // Draw the text items
 
@@ -196,7 +196,7 @@ void NewsScreenInterface::DrawNewsButton ( Button *button, bool highlighted, boo
 void NewsScreenInterface::DrawDetails ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -263,7 +263,7 @@ void NewsScreenInterface::MousedownNewsButton ( Button *button )
 	sscanf ( button->name, "news_story %d", &index );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetNews ( index + baseoffset ) ) 
 		button_click ( button );
@@ -278,7 +278,7 @@ void NewsScreenInterface::HighlightNewsButton ( Button *button )
 	sscanf ( button->name, "news_story %d", &index );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetNews ( index + baseoffset ) )
 		button_highlight ( button );
@@ -289,7 +289,7 @@ void NewsScreenInterface::ExitClick ( Button *button )
 {
 
 	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (gs);
+	UplinkAssert (gs)
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
 
 }
@@ -313,7 +313,7 @@ void NewsScreenInterface::ScrollChange ( char *scrollname, int newValue )
 	for ( int i = 0; i < numRows; ++i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i )
 		EclDirtyButton ( name );
 
 	}
@@ -325,7 +325,7 @@ void NewsScreenInterface::Create ( ComputerScreen *newcs )
 
 	if ( !IsVisible () ) {
 
-		UplinkAssert ( newcs );
+		UplinkAssert ( newcs )
 		cs = newcs;
 
         int numRows = SY(260) / 40;
@@ -337,7 +337,7 @@ void NewsScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int i = 0; i < numRows; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i )
 			EclRegisterButton ( 20, i * 40 + 50, itemWidth, 39, "", "Read this News story", name );
 			EclRegisterButtonCallbacks ( name, DrawNewsButton, ClickNewsButton, MousedownNewsButton, HighlightNewsButton ); 
 						
@@ -350,7 +350,7 @@ void NewsScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButtonCallback ( "news_exit", ExitClick );
 
     	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert ( cu );
+	    UplinkAssert ( cu )
         ScrollBox::CreateScrollBox( "news_scroll", itemWidth + 21, 50, 15, numRows * 40, cu->news.Size(), numRows, 0, ScrollChange );
 
 		baseoffset = 0;
@@ -370,7 +370,7 @@ void NewsScreenInterface::Remove ()
 		for ( int i = 0; i < numRows; ++ i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i )
 
 			EclRemoveButton ( name );
 
@@ -400,7 +400,7 @@ void NewsScreenInterface::Update ()
 {
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	int newnummessages = cu->news.Size ();
 
@@ -411,7 +411,7 @@ void NewsScreenInterface::Update ()
 		for ( int i = 0; i < numRows; ++ i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i )
 			EclDirtyButton ( name );
 
 		}
@@ -433,7 +433,7 @@ int NewsScreenInterface::ScreenID ()
 GenericScreen *NewsScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert ( cs );
+	UplinkAssert ( cs )
 	return (GenericScreen *) cs;
 
 }

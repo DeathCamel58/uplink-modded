@@ -75,7 +75,7 @@ void ConsoleScreenInterface::PostClick ( Button *button )
 {
 
 	Button *b = EclGetButton ( "console_typehere" );
-	UplinkAssert (b);
+	UplinkAssert (b)
 
 	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
 
@@ -83,13 +83,13 @@ void ConsoleScreenInterface::PostClick ( Button *button )
 
 	if ( actualcommand ) {													// Copy actual command here
 		actualcommand = new char [strlen(b->caption)+1];					// For use below as the button caption
-		UplinkSafeStrcpy ( actualcommand, strchr (b->caption, '>')+1);		// Will be set to '' by the caption change
+		UplinkSafeStrcpy ( actualcommand, strchr (b->caption, '>')+1)		// Will be set to '' by the caption change
 	}
 
 	thisint->PutText ( 1, actualcommand );
 
 	char newcaption [16];
-	UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", thisint->currentdir );
+	UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", thisint->currentdir )
 	EclRegisterCaptionChange ( "console_typehere", newcaption, 1 );
 
 	if ( actualcommand )	thisint->RunCommand ( actualcommand );
@@ -129,7 +129,7 @@ void ConsoleScreenInterface::AddUser ( char *name )
 	else {
 
 		char message [128];
-		UplinkSnprintf ( message, sizeof ( message ), "User '%s' logged on", name );
+		UplinkSnprintf ( message, sizeof ( message ), "User '%s' logged on", name )
 
 		PutText ( 0, message );
 
@@ -140,7 +140,7 @@ void ConsoleScreenInterface::AddUser ( char *name )
 void ConsoleScreenInterface::SetCurrentDir ( char *newcurrentdir )
 {
 
-	UplinkAssert (newcurrentdir);
+	UplinkAssert (newcurrentdir)
 
 	char *lcdir = LowerCaseString ( newcurrentdir );
 
@@ -151,12 +151,12 @@ void ConsoleScreenInterface::SetCurrentDir ( char *newcurrentdir )
 		 strcmp ( lcdir, "sys" ) == 0 ||
 		 strcmp ( lcdir, "/"   ) == 0 ) {
 
-		UplinkStrncpy ( currentdir, lcdir, sizeof ( currentdir ) );
+		UplinkStrncpy ( currentdir, lcdir, sizeof ( currentdir ) )
 
 	} else if ( strcmp ( lcdir, "." ) == 0 ||
 		strcmp ( lcdir, ".." ) == 0 ) {
 
-		UplinkStrncpy ( currentdir, "/", sizeof ( currentdir ) );
+		UplinkStrncpy ( currentdir, "/", sizeof ( currentdir ) )
 
 	} else {
 
@@ -168,7 +168,7 @@ void ConsoleScreenInterface::SetCurrentDir ( char *newcurrentdir )
 	delete [] lcdir;
 
 	char newcaption [16];
-	UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", currentdir );
+	UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", currentdir )
 	EclRegisterCaptionChange ( "console_typehere", newcaption );
 
 }
@@ -184,7 +184,7 @@ void ConsoleScreenInterface::PutText ( int userid, char *text )
 	else if ( userid == 1 ) {
 
 		char msg [256];
-		UplinkSnprintf ( msg, sizeof ( msg ), "%s:>%s", currentdir, text );
+		UplinkSnprintf ( msg, sizeof ( msg ), "%s:>%s", currentdir, text )
 		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_TEXT, msg, 0 ) );
 
 	}
@@ -202,7 +202,7 @@ void ConsoleScreenInterface::PutTextAtStart ( int userid, char *text )
 	else if ( userid == 1 ) {
 
 		char msg [256];
-		UplinkSnprintf ( msg, sizeof ( msg ), "%s:>%s", currentdir, text );
+		UplinkSnprintf ( msg, sizeof ( msg ), "%s:>%s", currentdir, text )
 		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, msg, 0 ) );
 
 	}
@@ -212,7 +212,7 @@ void ConsoleScreenInterface::PutTextAtStart ( int userid, char *text )
 void ConsoleScreenInterface::RunCommand ( char *command )
 {
 
-	UplinkAssert (command);
+	UplinkAssert (command)
 
 	char *lccommand = LowerCaseString ( command );
 
@@ -238,7 +238,7 @@ void ConsoleScreenInterface::RunCommand ( char *command )
 void ConsoleScreenInterface::RunCommand ( ConsoleCommand *cc )
 {
 
-	UplinkAssert ( cc );
+	UplinkAssert ( cc )
 
 	// Deal with any pauses
 
@@ -265,9 +265,9 @@ void ConsoleScreenInterface::RunCommand ( ConsoleCommand *cc )
 			case CMDTYPE_DISCONNECT:			RunCommand_DISCONNECT ();						break;
 
 			default:
-				UplinkAbort ( "Unrecognised ConsoleCommand TYPE" );
+				UplinkAbort ( "Unrecognised ConsoleCommand TYPE" )
 
-		};
+		}
 
 		delete cc;
 
@@ -282,14 +282,14 @@ void ConsoleScreenInterface::RunCommand_TEXT ( char *text )
 
 		char name1 [32];
 		char name2 [32];
-		UplinkSnprintf ( name1, sizeof ( name1 ), "console_text %d", i );
-		UplinkSnprintf ( name2, sizeof ( name2 ), "console_text %d", i + 1 );
+		UplinkSnprintf ( name1, sizeof ( name1 ), "console_text %d", i )
+		UplinkSnprintf ( name2, sizeof ( name2 ), "console_text %d", i + 1 )
 
 		Button *b1 = EclGetButton ( name1 );
-		UplinkAssert ( b1 );
+		UplinkAssert ( b1 )
 
 		Button *b2 = EclGetButton ( name2 );
-		UplinkAssert ( b2 );
+		UplinkAssert ( b2 )
 
 		b1->SetCaption ( b2->caption );
 
@@ -304,7 +304,7 @@ void ConsoleScreenInterface::RunCommand_TEXT ( char *text )
     int time = 200;
 
 	char name1 [32];
-	UplinkSnprintf ( name1, sizeof ( name1 ), "console_text %d", NUMLINES-1 );
+	UplinkSnprintf ( name1, sizeof ( name1 ), "console_text %d", NUMLINES-1 )
 
 	EclRegisterCaptionChange ( name1, text, time, WaitingCallback );
 	waiting = true;
@@ -343,7 +343,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 	else if ( strcmp ( currentdir, "usr" ) == 0 ) {
 
 		Computer *comp = GetComputerScreen ()->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->databank.GetDataSize () == 0 ) {
 
@@ -359,7 +359,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 				if ( data ) {
 
 					char filesummary [128];
-					UplinkSnprintf ( filesummary, sizeof ( filesummary ), "%s    %dGq", data->title, data->size );
+					UplinkSnprintf ( filesummary, sizeof ( filesummary ), "%s    %dGq", data->title, data->size )
 					PutTextAtStart ( 0, filesummary );
 
 				}
@@ -374,7 +374,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 	else if ( strcmp ( currentdir, "log" ) == 0 ) {
 
 		Computer *comp = GetComputerScreen ()->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->logbank.logs.NumUsed () == 0 ) {
 
@@ -387,7 +387,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 				if ( comp->logbank.logs.ValidIndex (i) ) {
 
 					AccessLog *al = comp->logbank.logs.GetData (i);
-					UplinkAssert (al);
+					UplinkAssert (al)
 
 					PutTextAtStart ( 0, al->GetDescription () );
 
@@ -440,10 +440,10 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 {
 
 	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	Computer *comp = GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( dir ) {
 
@@ -526,7 +526,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 					AccessLog *al = comp->logbank.logs.GetData (i);
                     if ( al ) {
                         char caption [256];
-                        UplinkSnprintf ( caption, sizeof ( caption ), "Deleting log %s...", al->GetDescription() );
+                        UplinkSnprintf ( caption, sizeof ( caption ), "Deleting log %s...", al->GetDescription() )
 					    queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, caption, TIMEREQUIRED_DELETEONELOG ) );
                     }
 
@@ -551,7 +551,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
                 Data *file = comp->databank.GetDataFile(i);
                 if ( file ) {
                     char caption [256];
-                    UplinkSnprintf ( caption, sizeof ( caption ), "Deleting %s...", file->title );
+                    UplinkSnprintf ( caption, sizeof ( caption ), "Deleting %s...", file->title )
                     queue.PutDataAtStart( new ConsoleCommand ( CMDTYPE_TEXT, caption, TIMEREQUIRED_DELETEONEGIGAQUAD * file->size ) );
                 }
             }
@@ -586,10 +586,10 @@ void ConsoleScreenInterface::RunCommand_RUN	( char *program, bool actuallyrun )
 {
 
 	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	Computer *comp = GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( actuallyrun ) {
 
@@ -677,7 +677,7 @@ void ConsoleScreenInterface::RunCommand_RUN	( char *program, bool actuallyrun )
 					if ( data->TYPE == DATATYPE_PROGRAM ) {
 
 						char text [64];
-						UplinkSnprintf ( text, sizeof ( text ), "Starting program %s...", data->title );
+						UplinkSnprintf ( text, sizeof ( text ), "Starting program %s...", data->title )
 
 						queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_RUNPROGRAM, program, 1000 ) );
 						queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Started.", 0 ) );
@@ -715,7 +715,7 @@ void ConsoleScreenInterface::RunCommand_SHUTDOWN ()
 {
 
 	Computer *comp = GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( comp->security.IsRunning_Proxy () ) {
 		create_msgbox ( "Error", "Denied access by Proxy Server" );
@@ -788,7 +788,7 @@ void ConsoleScreenInterface::RunCommand_DISCONNECT ()
 void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -802,7 +802,7 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 
 			int y = 50 + ( i * 15 );
 			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "console_text %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "console_text %d", i )
 
 			EclRegisterButton ( 22, y, 390, 15, "", "", name );
 			EclRegisterButtonCallbacks ( name, MessageDraw, nullptr, nullptr, nullptr );
@@ -812,7 +812,7 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 		SetCurrentDir ( "/" );
 
 		char newcaption [16];
-		UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", currentdir );
+		UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", currentdir )
 
 		int ybottom = 50 + NUMLINES * 15 + 6;
 
@@ -839,9 +839,9 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 		log->SetData1 ( "Accessed console" );
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( game->GetWorld ()->GetPlayer ()->remotehost );
-		UplinkAssert ( vl );
+		UplinkAssert ( vl )
 		Computer *comp = game->GetWorld ()->GetComputer ( vl->computer );
-		UplinkAssert ( comp );
+		UplinkAssert ( comp )
 		comp->logbank.AddLog ( log );
 
 	}
@@ -859,7 +859,7 @@ void ConsoleScreenInterface::Remove ()
 		for ( int ti = 0; ti < NUMLINES; ++ti ) {
 
 			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "console_text %d", ti );
+			UplinkSnprintf ( name, sizeof ( name ), "console_text %d", ti )
 			EclRemoveButton ( name );
 
 		}
@@ -893,7 +893,7 @@ void ConsoleScreenInterface::Update ()
 
 		// Execute next command
 		ConsoleCommand *cc = queue.GetData (0);
-		UplinkAssert (cc);
+		UplinkAssert (cc)
 		queue.RemoveData (0);
 
 		RunCommand ( cc );
@@ -907,7 +907,7 @@ void ConsoleScreenInterface::Update ()
 
 			// Execute next command
 			ConsoleCommand *cc = queue.GetData (0);
-			UplinkAssert (cc);
+			UplinkAssert (cc)
 			queue.RemoveData (0);
 
 			RunCommand ( cc );
@@ -954,7 +954,7 @@ ConsoleCommand::ConsoleCommand ( int newTYPE, char *newdata1, int newtime )
 
 	if ( newdata1 ) {
 		data1 = new char [strlen(newdata1)+1];
-		UplinkSafeStrcpy ( data1, newdata1 );
+		UplinkSafeStrcpy ( data1, newdata1 )
 	}
 	else
 		data1 = nullptr;

@@ -83,7 +83,7 @@ DArray <char *> *ThemeInterface::ListAvailableThemes ()
 				// Is there a theme in here?
 
 				char themeFilename[256];
-				UplinkSnprintf ( themeFilename, sizeof ( themeFilename ), "%s/theme.txt", themes->GetData(i) );
+				UplinkSnprintf ( themeFilename, sizeof ( themeFilename ), "%s/theme.txt", themes->GetData(i) )
 				
                 if ( !RsArchiveFileLoaded (themeFilename) ) {
 					delete [] themes->GetData (i);
@@ -112,7 +112,7 @@ DArray <char *> *ThemeInterface::ListAvailableThemes ()
 void ThemeInterface::ThemeNameDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-    UplinkAssert (button);
+    UplinkAssert (button)
 
     char unused [64];
     int index;
@@ -163,7 +163,7 @@ void ThemeInterface::ThemeNameDraw ( Button *button, bool highlighted, bool clic
 void ThemeInterface::ThemeNameClick ( Button *button )
 {
 
-    UplinkAssert (button);
+    UplinkAssert (button)
 
     char unused [64];
     int index;
@@ -176,7 +176,7 @@ void ThemeInterface::ThemeNameClick ( Button *button )
         if ( themes->ValidIndex (i) ) {
 
             char bname [64];
-            UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i );
+            UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i )
             EclDirtyButton ( bname );
 
         }
@@ -218,7 +218,7 @@ void ThemeInterface::Create ()
 
                 char *themeName = themes->GetData(i);
                 char bname [64];
-                UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i );
+                UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i )
                 EclRegisterButton ( screenw - 210, screenh - 40, 200, 15, themeName, "Select this theme", bname );
                 EclRegisterButtonCallbacks ( bname, ThemeNameDraw, ThemeNameClick, button_click, button_highlight );
                 EclRegisterMovement ( bname, screenw - 210, ypos, 500 );
@@ -288,7 +288,7 @@ void ThemeInterface::Remove ()
                 if ( themes->ValidIndex(i) ) {
             
                     char bname [64];
-                    UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i );
+                    UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i )
                     EclRemoveButton ( bname );
 
                 }

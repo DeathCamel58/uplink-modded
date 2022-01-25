@@ -33,11 +33,11 @@
 char *GetFilePath ( const char *filename )
 {
 
-	UplinkAssert (filename);
+	UplinkAssert (filename)
 
 	size_t newstringsize = strlen (filename) + 1;
     char *newstring = new char [newstringsize];
-    UplinkStrncpy ( newstring, filename, newstringsize );
+    UplinkStrncpy ( newstring, filename, newstringsize )
 /*    
     char *p = newstring;
     
@@ -51,7 +51,7 @@ char *GetFilePath ( const char *filename )
     if ( !p ) p = strrchr ( newstring, '\\' );
 
     if ( p ) *(p+1) = '\x0';
-    else     UplinkStrncpy ( newstring, "./", newstringsize );
+    else     UplinkStrncpy ( newstring, "./", newstringsize )
 
     return newstring;    
     
@@ -60,10 +60,10 @@ char *GetFilePath ( const char *filename )
 char *LowerCaseString ( const char *thestring )
 {
 
-	UplinkAssert (thestring);
+	UplinkAssert (thestring)
 	
 	char *thecopy = new char [strlen(thestring)+1];
-	UplinkSafeStrcpy ( thecopy, thestring );
+	UplinkSafeStrcpy ( thecopy, thestring )
 
 	for ( char *p = thecopy; *p != '\x0'; ++p )
 		if ( *p >= 'A' && *p <= 'Z' )
@@ -76,7 +76,7 @@ char *LowerCaseString ( const char *thestring )
 char *StripCarriageReturns ( const char *thestring )
 {
 
-    UplinkAssert (thestring);
+    UplinkAssert (thestring)
 
     // Is there a cr?
 
@@ -87,7 +87,7 @@ char *StripCarriageReturns ( const char *thestring )
         // No cr found - copy string and return it
      
         char *result = new char [strlen(thestring)+1];
-        UplinkSafeStrcpy ( result, thestring );
+        UplinkSafeStrcpy ( result, thestring )
         return result;
 
     }
@@ -108,7 +108,7 @@ char *StripCarriageReturns ( const char *thestring )
 char *TrimSpaces ( const char *thestring )
 {
 
-    UplinkAssert (thestring);
+    UplinkAssert (thestring)
 
 	char *retstring;
 
@@ -186,7 +186,7 @@ void EmptyDirectory ( const char *directory )
 #else
 
 	char userdir [256];
-	UplinkStrncpy ( userdir, directory, sizeof ( userdir ) );
+	UplinkStrncpy ( userdir, directory, sizeof ( userdir ) )
 	DIR *dir = opendir( userdir );
 	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
@@ -195,7 +195,7 @@ void EmptyDirectory ( const char *directory )
 	    
 			if ( strcmp ( entry->d_name, "." ) != 0 && strcmp ( entry->d_name, ".." ) != 0 ) {
 				char newname [256];
-				UplinkSnprintf ( newname, sizeof ( newname ), "%s%s", directory, entry->d_name );      
+				UplinkSnprintf ( newname, sizeof ( newname ), "%s%s", directory, entry->d_name )
 				unlink ( newname );
 			}
 		    entry = readdir ( dir );
@@ -311,7 +311,7 @@ DArray <char *> *ListDirectory  ( char *directory, char *filter )
 
 	char userdir [256];
 	//UplinkStrncpy ( userdir, directory, sizeof ( userdir ) );
-	UplinkSnprintf ( userdir, sizeof ( userdir ), "%s%s", app->path, directory ); 
+	UplinkSnprintf ( userdir, sizeof ( userdir ), "%s%s", app->path, directory )
 	DIR *dir = opendir( userdir );
 	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
@@ -322,7 +322,7 @@ DArray <char *> *ListDirectory  ( char *directory, char *filter )
 		    if ( p ) {
 				size_t newnamesize = 256;
 		        char *newname = new char [newnamesize];
-		        UplinkSnprintf ( newname, newnamesize, "%s%s", directory, entry->d_name );
+		        UplinkSnprintf ( newname, newnamesize, "%s%s", directory, entry->d_name )
 		        result->PutData ( newname );
 		    }
 	        
@@ -406,13 +406,13 @@ DArray <char *> *ListSubdirs ( char *directory )
 			char fullfilename[256];
 			struct stat info;
 
-			UplinkSnprintf(fullfilename, sizeof ( fullfilename ), "%s/%s", directory, d->d_name);
+			UplinkSnprintf(fullfilename, sizeof ( fullfilename ), "%s/%s", directory, d->d_name)
 			
 			if (stat(fullfilename, &info) == 0 
 				&& S_ISDIR(info.st_mode) 
 				&& d->d_name[0] != '.') { 
 					char *newname = new char [strlen(d->d_name) + 1];
-					UplinkSafeStrcpy(newname, d->d_name);
+					UplinkSafeStrcpy(newname, d->d_name)
 					result->PutData( newname );
 			}
 		}
@@ -438,7 +438,7 @@ void SetColour ( char *colourName )
     }
 
     ColourOption *col = app->GetOptions ()->GetColour ( colourName );
-    UplinkAssert (col);
+    UplinkAssert (col)
     glColor3f ( col->r, col->g, col->b );
 
 }

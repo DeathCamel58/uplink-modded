@@ -34,7 +34,7 @@ Rating::Rating ()
 
 	creditrating = 0;
 
-	UplinkStrncpy ( owner, "", sizeof ( owner ) );
+	UplinkStrncpy ( owner, "", sizeof ( owner ) )
 
 }
 
@@ -44,7 +44,7 @@ Rating::~Rating ()
 char *Rating::GetUplinkRatingString ( int urating )
 {
 
-	UplinkAssert ( urating >= 0 && urating < NUM_UPLINKRATINGS );
+	UplinkAssert ( urating >= 0 && urating < NUM_UPLINKRATINGS )
 	return UPLINKRATING [urating].name;
 
 }
@@ -52,7 +52,7 @@ char *Rating::GetUplinkRatingString ( int urating )
 char *Rating::GetNeuromancerRatingString ( int nrating )
 {
 
-	UplinkAssert ( nrating >= 0 && nrating < NUM_NEUROMANCERRATINGS );
+	UplinkAssert ( nrating >= 0 && nrating < NUM_NEUROMANCERRATINGS )
 	return NEUROMANCERRATING [nrating].name;
 
 }
@@ -60,15 +60,15 @@ char *Rating::GetNeuromancerRatingString ( int nrating )
 void Rating::SetOwner ( char *newowner )
 {
 
-	UplinkAssert (strlen(newowner) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( owner, newowner, sizeof ( owner ) );
+	UplinkAssert (strlen(newowner) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( owner, newowner, sizeof ( owner ) )
 
 }
 
 void Rating::SetUplinkRating ( int rating )
 {
 
-	UplinkAssert ( rating >= 0 && rating < NUM_UPLINKRATINGS );
+	UplinkAssert ( rating >= 0 && rating < NUM_UPLINKRATINGS )
 	uplinkrating = rating;
 	uplinkscore = UPLINKRATING [rating].score;
 
@@ -87,7 +87,7 @@ char *Rating::GetUplinkRating ()
 void Rating::SetNeuromancerRating ( int rating )
 {
 
-	UplinkAssert ( rating >= 0 && rating < NUM_NEUROMANCERRATINGS );
+	UplinkAssert ( rating >= 0 && rating < NUM_NEUROMANCERRATINGS )
 	neuromancerrating = rating;
 	neuromancerscore = NEUROMANCERRATING [rating].score;
 
@@ -319,7 +319,7 @@ void Rating::ChangeNeuromancerScore ( int amount )
 			UplinkSnprintf ( body, sizeof ( body ), "Agent %s - your Neuromancer rating appears to have changed.\n\n"
 													"Your rating is now %s.",
 													strcmp ( owner, "PLAYER" ) != 0 ? owner : game->GetWorld ()->GetPlayer ()->handle,
-													GetNeuromancerRating () );
+													GetNeuromancerRating () )
 
 			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );
@@ -340,7 +340,7 @@ void Rating::ChangeNeuromancerScore ( int amount )
 			char body [256];
 			UplinkSnprintf ( body, sizeof ( body ), "It appears your neuromancer rating has changed, in view of your recent actions.\n\n"
 													"Your new rating is %s.",
-													GetNeuromancerRating () );
+													GetNeuromancerRating () )
 
 			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );

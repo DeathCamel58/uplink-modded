@@ -27,7 +27,7 @@ int RecordScreenInterface::recordindex = 0;
 void RecordScreenInterface::CloseClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int nextpage;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
@@ -48,10 +48,10 @@ void RecordScreenInterface::CommitClick ( Button *button )
 	// (Get the title from the left box and the value from the right)
 
 	ComputerScreen *cs = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 
 	Computer *comp = cs->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	if ( comp->security.IsRunning_Proxy () ) {
 		create_msgbox ( "Error", "Denied access by Proxy Server" );
@@ -59,7 +59,7 @@ void RecordScreenInterface::CommitClick ( Button *button )
 	}
 
 	Record *rec = comp->recordbank.GetRecord (recordindex);	
-	UplinkAssert (rec);
+	UplinkAssert (rec)
 
 	int i = 0;
 
@@ -68,8 +68,8 @@ void RecordScreenInterface::CommitClick ( Button *button )
 		char bname_title [64];
 		char bname_value [128];
 
-		UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", i );
-		UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", i );
+		UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", i )
+		UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", i )
 
 		Button *title = EclGetButton ( bname_title );
 		Button *value = EclGetButton ( bname_value );
@@ -87,7 +87,7 @@ void RecordScreenInterface::CommitClick ( Button *button )
 	// Log this change
 
 	char logcaption [32];
-	UplinkSnprintf ( logcaption, sizeof ( logcaption ), "Changed Record #%d", recordindex );
+	UplinkSnprintf ( logcaption, sizeof ( logcaption ), "Changed Record #%d", recordindex )
 
 	auto *log = new AccessLog ();
 	log->SetProperties ( &(game->GetWorld ()->date), 
@@ -108,7 +108,7 @@ void RecordScreenInterface::ScrollRightClick ( Button *button )
 {
 
 	ComputerScreen *cs = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	Record *rec = cs->GetComputer ()->recordbank.GetRecord (recordindex+1);	
 
 	if ( rec ) CreateRecord ( recordindex + 1 );
@@ -118,7 +118,7 @@ void RecordScreenInterface::ScrollRightClick ( Button *button )
 void RecordScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -148,7 +148,7 @@ void RecordScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButtonCallback ( "recordscreen_commit", CommitClick );
 
 		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "recordscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( name, sizeof ( name ), "recordscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 		EclRegisterButton ( 320, 370, 80, 20, "Close", "Close the records screen", name );
 		EclRegisterButtonCallback ( name, CloseClick );
 
@@ -176,8 +176,8 @@ void RecordScreenInterface::CreateRecord ( int index )
 		char bname_title [64];
 		char bname_value [128];
 
-		UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", i );
-		UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", i );
+		UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", i )
+		UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", i )
 
 		if ( EclGetButton ( bname_title ) && EclGetButton ( bname_value ) ) {
 
@@ -198,7 +198,7 @@ void RecordScreenInterface::CreateRecord ( int index )
 	recordindex = index;
 
 	ComputerScreen *cs = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	Record *rec = cs->GetComputer ()->recordbank.GetRecord (recordindex);		
 
 	if ( rec ) {
@@ -210,14 +210,14 @@ void RecordScreenInterface::CreateRecord ( int index )
 
 		for ( int j = 0; j < field_titles->Size (); ++j ) {
 
-			UplinkAssert ( field_titles->ValidIndex (j) );
-			UplinkAssert ( field_values->ValidIndex (j) );
+			UplinkAssert ( field_titles->ValidIndex (j) )
+			UplinkAssert ( field_values->ValidIndex (j) )
 		
 			char bname_title [64];
 			char bname_value [128];
 
-			UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", j );
-			UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", j );
+			UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", j )
+			UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", j )
 
 			// Count the number of newlines
 			int numnewlines = 1;			// (the last one)
@@ -279,7 +279,7 @@ void RecordScreenInterface::Remove ()
 		EclRemoveButton ( "recordscreen_commit" );
 
 		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "recordscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( name, sizeof ( name ), "recordscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 		EclRemoveButton ( name );
 
 	}
@@ -307,7 +307,7 @@ int  RecordScreenInterface::ScreenID ()
 GenericScreen *RecordScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

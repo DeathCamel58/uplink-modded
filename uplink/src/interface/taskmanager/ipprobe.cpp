@@ -69,7 +69,7 @@ void IPProbe::GoClick ( Button *button )
 	int pid;
 	sscanf ( button->name, "probe_go %d", &pid );
 	char name_display [64];
-	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
+	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid )
 
 	auto *task = (IPProbe *) SvbGetTask ( pid );
 
@@ -117,10 +117,10 @@ void IPProbe::Tick ( int n )
 
 				int pid = SvbLookupPID ( this );
 				char name_display [64];
-				UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
+				UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid )
 
 				Button *button = EclGetButton ( name_display );
-				UplinkAssert ( button );
+				UplinkAssert ( button )
 				char *ip = StripCarriageReturns ( button->caption );
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
@@ -128,7 +128,7 @@ void IPProbe::Tick ( int n )
 				if ( vl ) {
 
 					Computer *comp = vl->GetComputer ();
-					UplinkAssert (comp);
+					UplinkAssert (comp)
 
 					std::ostrstream body;
 					body << "Results of IP Probe\n\n"
@@ -190,7 +190,7 @@ void IPProbe::Tick ( int n )
 
 				int pid = SvbLookupPID ( this );
 				char name_display [64];
-				UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
+				UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid )
 
 				EclRegisterCaptionChange ( name_display, "Enter IP" );
 				status = PROBE_IDLE;
@@ -200,7 +200,7 @@ void IPProbe::Tick ( int n )
 		}
 		else {
 
-			UplinkAbort ( "Unkown Status" );
+			UplinkAbort ( "Unkown Status" )
 
 		}
 
@@ -219,9 +219,9 @@ void IPProbe::CreateInterface ()
 		char name_display [64];
 		char name_close [64];
 
-		UplinkSnprintf ( name_go, sizeof ( name_go ), "probe_go %d", pid );
-		UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
-		UplinkSnprintf ( name_close, sizeof ( name_close ), "probe_close %d", pid );
+		UplinkSnprintf ( name_go, sizeof ( name_go ), "probe_go %d", pid )
+		UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid )
+		UplinkSnprintf ( name_close, sizeof ( name_close ), "probe_close %d", pid )
 
 		EclRegisterButton ( 305, 444, 20, 15, "", "Perform the lookup", name_go );
 		EclRegisterButton ( 325, 444, 185, 14, "Enter IP", "Type your IP here", name_display );
@@ -250,9 +250,9 @@ void IPProbe::RemoveInterface ()
 		char name_display [64];
 		char name_close [64];
 
-		UplinkSnprintf ( name_go, sizeof ( name_go ), "probe_go %d", pid );
-		UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
-		UplinkSnprintf ( name_close, sizeof ( name_close ), "probe_close %d", pid );
+		UplinkSnprintf ( name_go, sizeof ( name_go ), "probe_go %d", pid )
+		UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid )
+		UplinkSnprintf ( name_close, sizeof ( name_close ), "probe_close %d", pid )
 
 		EclRemoveButton ( name_go );
 		EclRemoveButton ( name_display );
@@ -273,9 +273,9 @@ void IPProbe::ShowInterface ()
 	char name_display [64];
 	char name_close [64];
 
-	UplinkSnprintf ( name_go, sizeof ( name_go ), "probe_go %d", pid );
-	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
-	UplinkSnprintf ( name_close, sizeof ( name_close ), "probe_close %d", pid );
+	UplinkSnprintf ( name_go, sizeof ( name_go ), "probe_go %d", pid )
+	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid )
+	UplinkSnprintf ( name_close, sizeof ( name_close ), "probe_close %d", pid )
 
 	EclButtonBringToFront ( name_go );
 	EclButtonBringToFront ( name_display );
@@ -288,7 +288,7 @@ bool IPProbe::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char name_display [64];
-	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid );
+	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid )
 
 	return ( EclGetButton ( name_display ) != nullptr );
 

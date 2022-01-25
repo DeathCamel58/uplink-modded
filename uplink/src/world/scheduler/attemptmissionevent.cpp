@@ -31,7 +31,7 @@ void AttemptMissionEvent::Run ()
 {
 
 	auto *agent = (Agent *) game->GetWorld ()->GetPerson ( agentname );
-	UplinkAssert (agent);
+	UplinkAssert (agent)
 
 	agent->AttemptMission ();
 
@@ -40,8 +40,8 @@ void AttemptMissionEvent::Run ()
 void AttemptMissionEvent::SetAgentName ( char *newagentname )
 {
 
-	UplinkAssert ( strlen (newagentname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( agentname, newagentname, sizeof ( agentname ) );
+	UplinkAssert ( strlen (newagentname) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( agentname, newagentname, sizeof ( agentname ) )
 
 }
 
@@ -50,7 +50,7 @@ char *AttemptMissionEvent::GetShortString ()
 
 	size_t shortstringsize = strlen(agentname) + 32;
 	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Attempt Mission for %s", agentname );
+	UplinkSnprintf ( shortstring, shortstringsize, "Attempt Mission for %s", agentname )
 	return shortstring;
 
 }
@@ -59,10 +59,10 @@ char *AttemptMissionEvent::GetLongString ()
 {
 
 	auto *agent = (Agent *) game->GetWorld ()->GetPerson ( agentname );
-	UplinkAssert (agent);
+	UplinkAssert (agent)
 
 	Mission *m = agent->missions.GetData (0);
-	UplinkAssert (m);
+	UplinkAssert (m)
 
 	std::ostrstream longstring;
 	longstring << "Attempt Mission Event:\n"

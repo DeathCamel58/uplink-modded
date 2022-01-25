@@ -213,7 +213,7 @@ void HUDInterface::ToolbarButtonDraw ( Button *button, bool highlighted, bool cl
 void HUDInterface::EmailClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int index;
 	sscanf ( button->name, "hud_message %d", &index );
@@ -235,7 +235,7 @@ void HUDInterface::EmailClick ( Button *button )
 void HUDInterface::EmailHighlight ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int index;
 	sscanf ( button->name, "hud_message %d", &index );
@@ -245,7 +245,7 @@ void HUDInterface::EmailHighlight ( Button *button )
 	if ( message ) {
 
 		char tooltip [512];
-		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "'%s', From '%s'", message->GetSubject (), message->from );
+		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "'%s', From '%s'", message->GetSubject (), message->from )
 
 		button->SetTooltip ( tooltip );
 		button_highlight ( button );
@@ -257,7 +257,7 @@ void HUDInterface::EmailHighlight ( Button *button )
 void HUDInterface::MissionClick	( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int index;
 	sscanf ( button->name, "hud_mission %d", &index );
@@ -279,7 +279,7 @@ void HUDInterface::MissionClick	( Button *button )
 void HUDInterface::MissionHighlight ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int index;
 	sscanf ( button->name, "hud_mission %d", &index );
@@ -289,7 +289,7 @@ void HUDInterface::MissionHighlight ( Button *button )
 	if ( mission ) {
 
 		char tooltip [512];
-		UplinkStrncpy ( tooltip, mission->description, sizeof ( tooltip ) );
+		UplinkStrncpy ( tooltip, mission->description, sizeof ( tooltip ) )
 
 		button->SetTooltip ( tooltip );
 		button_highlight ( button );
@@ -403,7 +403,7 @@ void HUDInterface::MoveSelecter ( int screenID, int screenindex )
 		case SCREEN_EMAIL:
 		{
 			char bname [32];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", screenindex );
+			UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", screenindex )
 			HighlightToolbarButton ( bname );
 			break;
 		}
@@ -411,13 +411,13 @@ void HUDInterface::MoveSelecter ( int screenID, int screenindex )
 		case SCREEN_MISSION:
 		{
 			char bname [32];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", screenindex );
+			UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", screenindex )
 			HighlightToolbarButton ( bname );
 			break;
 		}
 
 		default:
-			UplinkAbort ( "Unknown screenID" );
+			UplinkAbort ( "Unknown screenID" )
 
 	}
 
@@ -449,7 +449,7 @@ void HUDInterface::HighlightToolbarButton   ( char *bname )
 
 		delete [] GetHUD ()->previoushighlight;
 		GetHUD ()->previoushighlight = new char [strlen(bname)+1];
-		UplinkSafeStrcpy ( GetHUD ()->previoushighlight, bname );
+		UplinkSafeStrcpy ( GetHUD ()->previoushighlight, bname )
 
 	}
 	else {
@@ -647,7 +647,7 @@ void HUDInterface::AddUpgrade ( char upgrade )
 void HUDInterface::RemoveUpgrade ( char upgrade )
 {
 
-    UplinkAbort ( "You said this was never needed!" );
+    UplinkAbort ( "You said this was never needed!" )
 
 }
 
@@ -679,7 +679,7 @@ void HUDInterface::Update ()
 		char caption [128];
 		char *date = game->GetWorld ()->date.GetLongString ();
 
-        UplinkStrncpy ( caption, game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, sizeof ( caption ) );
+        UplinkStrncpy ( caption, game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, sizeof ( caption ) )
 
 		EclGetButton ( "hud_location" )->SetCaption ( caption );
 		EclGetButton ( "hud_date" )->SetCaption ( date );
@@ -689,7 +689,7 @@ void HUDInterface::Update ()
 		for ( int mi = 0; mi < game->GetWorld ()->GetPlayer ()->messages.Size (); ++mi ) {
 
 			char bname [128];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", mi );
+			UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", mi )
 			if ( !EclGetButton ( bname ) ) {
 				EclRegisterButton ( 222, screenh - 41, 24, 24, "", "Read this message", bname );
 				button_assignbitmaps ( bname, "hud/email.tif", "hud/email_h.tif", "hud/email_c.tif" );
@@ -706,11 +706,11 @@ void HUDInterface::Update ()
 
         int removeMessageIndex = game->GetWorld ()->GetPlayer ()->messages.Size ();
 		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", removeMessageIndex );
+		UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", removeMessageIndex )
         while ( EclGetButton ( bname ) ) {
 			EclRemoveButton ( bname );
             ++removeMessageIndex;
-            UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", removeMessageIndex );
+            UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", removeMessageIndex )
         }
 
 
@@ -721,7 +721,7 @@ void HUDInterface::Update ()
 		for ( int msi = 0; msi < game->GetWorld ()->GetPlayer ()->missions.Size (); ++msi ) {
 
 			char bname [128];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", msi );
+			UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", msi )
 
 			if ( !EclGetButton ( bname ) ) {
 				EclRegisterButton ( 222, screenh - 41, 24, 24, "", "View this mission", bname );
@@ -741,11 +741,11 @@ void HUDInterface::Update ()
 		
 		// Remove any mission buttons that shouldn't be here
         int removeMissionIndex = game->GetWorld ()->GetPlayer ()->missions.Size ();
-        UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", removeMissionIndex );
+        UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", removeMissionIndex )
         while ( EclGetButton ( bname ) ) {
 			EclRemoveButton ( bname );
             ++removeMissionIndex;
-            UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", removeMissionIndex );
+            UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", removeMissionIndex )
         }
 
         // Add / remove any upgrade buttons

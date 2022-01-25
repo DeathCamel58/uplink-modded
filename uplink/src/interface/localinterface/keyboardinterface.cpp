@@ -46,9 +46,9 @@ void KeyboardInterface::RemoveKeyboardInterface ( Button *button )
 			if ( dy != 2 || dx != 8 ) {
 
 				char letter [2];
-				UplinkSnprintf ( letter, sizeof ( letter ), "%c", (char) ('a' + ( dy * 9 + dx )) );
+				UplinkSnprintf ( letter, sizeof ( letter ), "%c", (char) ('a' + ( dy * 9 + dx )) )
 				char name [64];
-				UplinkSnprintf ( name, sizeof ( name ), "keyboard %s", letter );
+				UplinkSnprintf ( name, sizeof ( name ), "keyboard %s", letter )
 
 				EclRemoveButton ( name );
 
@@ -86,19 +86,19 @@ void KeyboardInterface::Keypress ( Button *button )
 		}
 		else if ( strcmp ( letter, "clear" ) == 0 ) {
 
-			UplinkStrncpy ( newcaption, "", sizeof ( newcaption ) );
+			UplinkStrncpy ( newcaption, "", sizeof ( newcaption ) )
 
 		}
 		else if ( strcmp ( letter, "space" ) == 0 ) {
 
 			if ( ( newcaptionsize + 1 ) <= sizeof ( newcaption ) )
-				UplinkSafeStrcat ( newcaption, " " );
+				UplinkSafeStrcat ( newcaption, " " )
 			
 		}
 		else {
 
 			if ( ( newcaptionsize + strlen ( letter ) ) <= sizeof ( newcaption ) )
-				UplinkSafeStrcat ( newcaption, letter );
+				UplinkSafeStrcat ( newcaption, letter )
 
 		}
 
@@ -113,7 +113,7 @@ void KeyboardInterface::SetTargetButton ( char *bname )
 
 	delete [] targetbuttonname;
 	targetbuttonname = new char [ strlen (bname) + 1 ];
-	UplinkSafeStrcpy ( targetbuttonname, bname );
+	UplinkSafeStrcpy ( targetbuttonname, bname )
 
 }
 
@@ -122,7 +122,7 @@ void KeyboardInterface::Create ( int x, int y )
 	
 	if ( !IsVisible () ) {
 
-		UplinkAssert ( targetbuttonname );
+		UplinkAssert ( targetbuttonname )
 
 		for ( int dy = 0; dy < 3; ++dy ) {
 			for ( int dx = 0; dx < 9; ++dx ) {
@@ -130,9 +130,9 @@ void KeyboardInterface::Create ( int x, int y )
 				if ( dy != 2 || dx != 8 ) {
 
 					char letter [2];
-					UplinkSnprintf ( letter, sizeof ( letter ), "%c", (char) ('a' + ( dy * 9 + dx )) );
+					UplinkSnprintf ( letter, sizeof ( letter ), "%c", (char) ('a' + ( dy * 9 + dx )) )
 					char name [64];
-					UplinkSnprintf ( name, sizeof ( name ), "keyboard %s", letter );
+					UplinkSnprintf ( name, sizeof ( name ), "keyboard %s", letter )
 
 					EclRegisterButton ( x + dx * 20, y + dy * 20, 18, 18, letter, "Press this key", name );
 					EclRegisterButtonCallback ( name, Keypress );

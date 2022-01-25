@@ -41,9 +41,9 @@ void SecurityScreenInterface::SystemTitleDraw ( Button *button, bool highlighted
 	sscanf ( button->name, "%s %d", unused, &index );
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 	SecuritySystem *ss = comp->security.GetSystem (index);
-	UplinkAssert (ss);
+	UplinkAssert (ss)
 
 	// Draw 2 background lines
 
@@ -79,9 +79,9 @@ void SecurityScreenInterface::StatusClick ( Button *button )
 	sscanf ( button->name, "%s %d", unused, &index );
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 	SecuritySystem *ss = comp->security.GetSystem (index);
-	UplinkAssert (ss);
+	UplinkAssert (ss)
 
 	if ( comp->security.IsRunning_Proxy () ) {
 		create_msgbox ( "Error", "Denied access by Proxy" );
@@ -102,7 +102,7 @@ void SecurityScreenInterface::CloseClick ( Button *button )
 {
 
     auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-    UplinkAssert (gs);
+    UplinkAssert (gs)
 
 	if ( gs->nextpage != -1 ) 
         game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
@@ -120,7 +120,7 @@ bool SecurityScreenInterface::EscapeKeyPressed ()
 void SecurityScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -131,7 +131,7 @@ void SecurityScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButtonCallbacks ( "securityscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
 		Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->security.NumSystems () == 0 ) {
 
@@ -151,12 +151,12 @@ void SecurityScreenInterface::Create ( ComputerScreen *newcs )
 					char level [64];
 					char status [64];
 					
-					UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i );
-					UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i );
-					UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i );
+					UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i )
+					UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i )
+					UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i )
 
 					char leveltext [8];
-					UplinkSnprintf ( leveltext, sizeof ( leveltext ), "level %d", ss->level );
+					UplinkSnprintf ( leveltext, sizeof ( leveltext ), "level %d", ss->level )
 
 					EclRegisterButton ( 50, 140 + i * 40, 150, 25, ss->GetName (), "Click here to toggle its status", title );
 					EclRegisterButton ( 200, 140 + i * 40, 100, 25, leveltext, "Click here to toggle its status", level );
@@ -191,7 +191,7 @@ void SecurityScreenInterface::Remove ()
 		EclRemoveButton ( "securityscreen_none" );
 
 		Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		for ( int i = 0; i < comp->security.NumSystems (); ++i ) {
 			
@@ -199,9 +199,9 @@ void SecurityScreenInterface::Remove ()
 			char level [64];
 			char status [64];
 			
-			UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i );
-			UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i );
-			UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i );
+			UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i )
+			UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i )
+			UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i )
 
 			EclRemoveButton ( title );
 			EclRemoveButton ( level );
@@ -223,7 +223,7 @@ void SecurityScreenInterface::Update ()
 		if ( IsVisible () ) {
 
 			Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-			UplinkAssert (comp);
+			UplinkAssert (comp)
 
 			for ( int i = 0; i < comp->security.NumSystems (); ++i ) {
 				
@@ -232,7 +232,7 @@ void SecurityScreenInterface::Update ()
 				if ( ss ) {
 
 					char status [64];
-					UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i );
+					UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i )
 
 					if ( EclGetButton ( status ) ) {
 				
@@ -246,9 +246,9 @@ void SecurityScreenInterface::Update ()
 				char level [64];
 				char status [64];
 				
-				UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i );
-				UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i );
-				UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i );
+				UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i )
+				UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i )
+				UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i )
 
 				EclDirtyButton ( title );
 				EclDirtyButton ( level );
@@ -282,7 +282,7 @@ int SecurityScreenInterface::ScreenID ()
 GenericScreen *SecurityScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 
 	return (GenericScreen *) cs;
 

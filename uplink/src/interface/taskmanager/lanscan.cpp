@@ -38,7 +38,7 @@ LanScan::LanScan() : UplinkTask()
 	status = LANSCAN_UNUSED;
 	progress = 0;
 	numticksrequired = 0;
-	UplinkStrncpy ( ip, "N", sizeof ( ip ) );
+	UplinkStrncpy ( ip, "N", sizeof ( ip ) )
 }
 
 LanScan::~LanScan()
@@ -83,7 +83,7 @@ void LanScan::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void LanScan::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -120,17 +120,17 @@ void LanScan::GoClick ( Button *button )
 	sscanf ( button->name, "%s %d", bname, &pid );
 
 	LanScan *thistask = (LanScan *) SvbGetTask ( pid );
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 		
 	// Set it going
 
-	UplinkStrncpy ( thistask->ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( thistask->ip ) );
+	UplinkStrncpy ( thistask->ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( thistask->ip ) )
 	thistask->numticksrequired = TICKSREQUIRED_LANSCAN;
 	thistask->progress = 0;
 	thistask->status = LANSCAN_SCANNING;
 
 	char sprogress [128];
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid );
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid )
 	EclRegisterCaptionChange ( sprogress, "Scanning...", 0 );	
 
 }
@@ -181,15 +181,15 @@ void LanScan::Tick ( int n )
 		}	
 
 		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", SvbLookupPID ( this ) );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", SvbLookupPID ( this ) )
 
 		if ( status == LANSCAN_SCANNING ) {
 
 
 			VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-			UplinkAssert (vl);
+			UplinkAssert (vl)
 			Computer *comp = vl->GetComputer ();
-			UplinkAssert (comp);
+			UplinkAssert (comp)
 
 			if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) {
 				status = LANSCAN_FINISHED;
@@ -212,7 +212,7 @@ void LanScan::Tick ( int n )
 				if ( lanComp->systems.ValidIndex( i ) ) {
 
 					LanComputerSystem *system = lanComp->systems.GetData(i);
-					UplinkAssert (system);
+					UplinkAssert (system)
 
 					if ( system->subnet <= numSubnetsScanned &&
 						system->visible < LANSYSTEMVISIBLE_TYPE ) {
@@ -265,10 +265,10 @@ void LanScan::CreateInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid )
 
 		EclRegisterButton ( 265, 422, 20, 15, "", "Scan the Local Area Network for systems", stitle );
 		button_assignbitmap ( stitle, "software/go.tif" );
@@ -300,10 +300,10 @@ void LanScan::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid );			
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -326,10 +326,10 @@ void LanScan::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid );			
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -343,7 +343,7 @@ bool LanScan::IsInterfaceVisible ()
 	
 	int pid = SvbLookupPID ( this );
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid )
 
 	return ( EclGetButton ( stitle ) != nullptr );
 

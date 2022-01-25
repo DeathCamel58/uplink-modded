@@ -31,12 +31,12 @@ int BankComputer::GenerateUniqueAccountNumber ()
 	previousaccno += NumberGenerator::RandomNumber ( 999999 );
 	
 	char previousaccno_s [12];
-	UplinkSnprintf ( previousaccno_s, sizeof ( previousaccno_s ), "%d", previousaccno );
+	UplinkSnprintf ( previousaccno_s, sizeof ( previousaccno_s ), "%d", previousaccno )
 
 	while ( accounts.LookupTree ( previousaccno_s ) ) {
 
 		previousaccno += NumberGenerator::RandomNumber ( 999999 );	
-		UplinkSnprintf ( previousaccno_s, sizeof ( previousaccno_s ), "%d", previousaccno );
+		UplinkSnprintf ( previousaccno_s, sizeof ( previousaccno_s ), "%d", previousaccno )
 
 	}
 
@@ -47,15 +47,15 @@ int BankComputer::GenerateUniqueAccountNumber ()
 int BankComputer::CreateBankAccount ( BankAccount *newaccount )
 {
 
-	UplinkAssert ( newaccount );
+	UplinkAssert ( newaccount )
 
 	if ( newaccount->accountnumber == 0 )
 		printf ( "BankComputer::CreateBankAccount WARNING : AccountNumber = 0\n" );
 
 	char s_account [16];
-	UplinkSnprintf ( s_account, sizeof ( s_account ), "%d", newaccount->accountnumber );
+	UplinkSnprintf ( s_account, sizeof ( s_account ), "%d", newaccount->accountnumber )
 
-	UplinkAssert ( !(accounts.LookupTree ( s_account )) );
+	UplinkAssert ( !(accounts.LookupTree ( s_account )) )
 
 	accounts.PutData ( s_account, newaccount );
 
@@ -92,7 +92,7 @@ void BankComputer::CloseAccount ( int accno )
 {
 
     char s_accno [64];
-    UplinkSnprintf ( s_accno, sizeof ( s_accno ), "%d", accno );
+    UplinkSnprintf ( s_accno, sizeof ( s_accno ), "%d", accno )
 
     // TODO 
 
@@ -111,7 +111,7 @@ BankAccount *BankComputer::GetRandomAccount ()
     }
 
 	int index = NumberGenerator::RandomNumber ( tempaccounts->Size () );
-	UplinkAssert (tempaccounts->ValidIndex (index) );
+	UplinkAssert (tempaccounts->ValidIndex (index) )
 	BankAccount *account = tempaccounts->GetData (index);
 
 	delete tempaccounts;

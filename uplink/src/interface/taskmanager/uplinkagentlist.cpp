@@ -78,7 +78,7 @@ void UplinkAgentList::UplinkAgentListDraw ( Button *button, bool highlighted, bo
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
-    UplinkAssert (ual);
+    UplinkAssert (ual)
 
     //
     // Draw the background
@@ -94,7 +94,7 @@ void UplinkAgentList::UplinkAgentListDraw ( Button *button, bool highlighted, bo
 	border_draw ( button );
 
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -114,8 +114,8 @@ void UplinkAgentList::UplinkAgentListDraw ( Button *button, bool highlighted, bo
             char *handle = ual->handles.GetData (index);
             char *name = ual->names.GetData (index);
 
-            UplinkAssert (handle);
-            UplinkAssert (name);
+            UplinkAssert (handle)
+            UplinkAssert (name)
             
             glColor3f ( 1.0f, 1.0f, 1.0f );
             GciDrawText ( button->x + 10, button->y + 15 + i * 20, handle );
@@ -157,7 +157,7 @@ void UplinkAgentList::TitleClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
-    UplinkAssert (ual);
+    UplinkAssert (ual)
 
 	ual->followmouse = true;
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
@@ -175,10 +175,10 @@ void UplinkAgentList::ScrollUpClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
-    UplinkAssert (ual);
+    UplinkAssert (ual)
 
 	char listname [32];
-	UplinkSnprintf ( listname, sizeof ( listname ), "uplinkagentlist %d", pid );
+	UplinkSnprintf ( listname, sizeof ( listname ), "uplinkagentlist %d", pid )
     EclDirtyButton ( listname );
 
 }
@@ -192,10 +192,10 @@ void UplinkAgentList::ScrollDownClick ( Button *button )
 	char bname [64];
 	sscanf ( button->name, "%s %d", bname, &pid );
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
-    UplinkAssert (ual);
+    UplinkAssert (ual)
 
 	char listname [32];
-	UplinkSnprintf ( listname, sizeof ( listname ), "uplinkagentlist %d", pid );
+	UplinkSnprintf ( listname, sizeof ( listname ), "uplinkagentlist %d", pid )
     EclDirtyButton ( listname );
     
 }
@@ -213,7 +213,7 @@ void UplinkAgentList::UpdateLists ()
 		if ( allpeople->ValidIndex (ip) ) {
 
 			Person *p = allpeople->GetData (ip);
-			UplinkAssert (p);
+			UplinkAssert (p)
 
 			if ( p->GetOBJECTID () == OID_AGENT ||
 				 p->GetOBJECTID () == OID_PLAYER ) {
@@ -223,7 +223,7 @@ void UplinkAgentList::UpdateLists ()
 				for ( int is = 0; is < sorted.Size (); ++is ) {
 
 					Person *s = sorted.GetData (is);
-					UplinkAssert (s);
+					UplinkAssert (s)
 
 					if ( strcmp ( ((Agent *) p)->handle, ((Agent *)s)->handle ) <= 0 ) {
 
@@ -255,13 +255,13 @@ void UplinkAgentList::UpdateLists ()
 		filefound [fi] = 0;
 
     DataBank *databank = &game->GetWorld ()->GetPlayer ()->gateway.databank;
-    UplinkAssert (databank);
+    UplinkAssert (databank)
 
 	for ( int i = 0; i < databank->GetDataSize (); ++i ) {
 		if ( databank->GetDataFile (i) ) {
 
 			Data *thisfile = databank->GetDataFile (i);
-			UplinkAssert (thisfile);
+			UplinkAssert (thisfile)
 			
             if ( strstr ( thisfile->title, datatitle ) != nullptr ) {
 
@@ -295,18 +295,18 @@ void UplinkAgentList::UpdateLists ()
     for ( int j = 0; j < sorted.Size (); ++j ) {
 
         Person *person = sorted.GetData (j);
-        UplinkAssert (person);
+        UplinkAssert (person)
 
 		size_t handlesize = SIZE_PERSON_NAME;
         char *handle = new char [handlesize];
 		size_t namesize = SIZE_PERSON_NAME;
         char *name = new char [namesize];
 
-        UplinkStrncpy ( handle, ((Agent *) person)->handle, handlesize );
+        UplinkStrncpy ( handle, ((Agent *) person)->handle, handlesize )
 
         if ( person == game->GetWorld ()->GetPlayer () ) {
 
-            UplinkStrncpy ( name, "Unknown", namesize );
+            UplinkStrncpy ( name, "Unknown", namesize )
 
         }
         else { 
@@ -315,9 +315,9 @@ void UplinkAgentList::UpdateLists ()
 
             if ( fileindex >= 0 && fileindex < numfiles ) {
 
-				if      ( filefound [fileindex] == 0 ) {      UplinkStrncpy ( name, "Unknown", namesize );
-				} else if ( filefound [fileindex] == -1 ) {   UplinkStrncpy ( name, "Encrypted", namesize );
-				} else if ( filefound [fileindex] == 1 ) {    UplinkStrncpy ( name, person->name, namesize );
+				if      ( filefound [fileindex] == 0 ) {      UplinkStrncpy ( name, "Unknown", namesize )
+				} else if ( filefound [fileindex] == -1 ) {   UplinkStrncpy ( name, "Encrypted", namesize )
+				} else if ( filefound [fileindex] == 1 ) {    UplinkStrncpy ( name, person->name, namesize )
 				}
 
             }
@@ -347,7 +347,7 @@ void UplinkAgentList::CreateInterface ()
         // Create the list
 
 		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid );
+		UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid )
 	
 		EclRegisterButton ( x, y, width, height, "", "", bname );
 		EclRegisterButtonCallbacks ( bname, UplinkAgentListDraw, nullptr, button_click, button_highlight );
@@ -357,7 +357,7 @@ void UplinkAgentList::CreateInterface ()
         // Title bar
 
         char titlename [64];
-        UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid );
+        UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid )
         EclRegisterButton ( x, y - 14, width, 14, "Uplink Agent List", "Click to move this tool", titlename );
         EclRegisterButtonCallback ( titlename, TitleClick );
 
@@ -366,7 +366,7 @@ void UplinkAgentList::CreateInterface ()
         // Create the close button
 
 		char closename [64];
-		UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid );
+		UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid )
 
 		EclRegisterButton ( width + x + 1, y - 14, 13, 13, "X", "Close the Uplink Agent List", closename );
 		button_assignbitmaps ( closename, "close.tif", "close_h.tif", "close_c.tif" );
@@ -379,9 +379,9 @@ void UplinkAgentList::CreateInterface ()
 	    char name_down [128];
 	    char name_bar  [128];
 
-	    UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid );
-	    UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid );
-	    UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid );
+	    UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid )
+	    UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid )
+	    UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid )
         
 	    EclRegisterButton ( width + x, y, 15, 15, "^", "Scroll up", name_up );
 	    EclRegisterButton ( width + x, y + height - 15, 15, 15, "v", "Scroll down", name_down );
@@ -418,23 +418,23 @@ void UplinkAgentList::MoveTo ( int x, int y, int time_ms )
     int height = 150;
 
 	char bname [128];
-	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid );
+	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid )
 	EclRegisterMovement ( bname, x, y, time_ms );
 
 	char closename [64];
-	UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid );
+	UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid )
     EclRegisterMovement ( closename, x + width + 1, y - 14, time_ms );
 	
     char titlename [64];
-    UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid );
+    UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid )
     EclRegisterMovement ( titlename, x, y - 14, time_ms );
 
     char name_up [64];
     char name_down [64];
     char name_bar [64];
-	UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid );
-	UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid );
-	UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid );
+	UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid )
+	UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid )
+	UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid )
     
     EclRegisterMovement ( name_up, x + width, y, time_ms );
     EclRegisterMovement ( name_down, x + width, y + height - 15, time_ms );
@@ -450,23 +450,23 @@ void UplinkAgentList::RemoveInterface ()
 		int pid = SvbLookupPID ( this );
 
 		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid );
+		UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid )
 		EclRemoveButton ( bname );
 
 		char closename [64];
-		UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid );
+		UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid )
 		EclRemoveButton ( closename );
 
         char titlename [64];
-        UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid );
+        UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid )
         EclRemoveButton ( titlename );
 
         char name_up [64];
         char name_down [64];
         char name_bar [64];
-	    UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid );
-	    UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid );
-	    UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid );
+	    UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid )
+	    UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid )
+	    UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid )
                 
         EclRemoveButton ( name_up );
         EclRemoveButton ( name_down );
@@ -484,23 +484,23 @@ void UplinkAgentList::ShowInterface ()
 	int pid = SvbLookupPID ( this );
 
 	char bname [128];
-	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid );
+	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid )
 	EclButtonBringToFront ( bname );
 
 	char closename [64];
-	UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid );
+	UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid )
 	EclButtonBringToFront ( closename );
 
     char titlename [64];
-    UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid );
+    UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid )
     EclButtonBringToFront ( titlename );
 
     char name_up [64];
     char name_down [64];
     char name_bar [64];
-	UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid );
-	UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid );
-	UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid );
+	UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid )
+	UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid )
+	UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid )
 
     EclButtonBringToFront ( name_up );
    	EclButtonBringToFront ( name_down );
@@ -512,7 +512,7 @@ bool UplinkAgentList::IsInterfaceVisible ()
 {
 
 	char bname [128];
-	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", SvbLookupPID (this) );
+	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", SvbLookupPID (this) )
 
 	return ( EclGetButton ( bname ) != nullptr );
 

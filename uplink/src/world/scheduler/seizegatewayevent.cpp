@@ -45,8 +45,8 @@ SeizeGatewayEvent::~SeizeGatewayEvent ()
 void SeizeGatewayEvent::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen(newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen(newname) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
 
@@ -55,7 +55,7 @@ void SeizeGatewayEvent::SetReason ( char *newreason )
 
     delete [] reason;
 	reason = new char [strlen(newreason)+1];
-	UplinkSafeStrcpy ( reason, newreason );
+	UplinkSafeStrcpy ( reason, newreason )
 
 }
 
@@ -70,7 +70,7 @@ void SeizeGatewayEvent::Run ()
 {
 
 	Person *person = game->GetWorld ()->GetPerson ( name );
-	UplinkAssert (person);
+	UplinkAssert (person)
 
 	ConsequenceGenerator::SeizeGateway ( person, reason );
 
@@ -137,7 +137,7 @@ char *SeizeGatewayEvent::GetShortString ()
 
 	size_t shortstringsize = strlen(name) + 32;
 	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Seize Gateway of %s", name );
+	UplinkSnprintf ( shortstring, shortstringsize, "Seize Gateway of %s", name )
 	return shortstring;
 
 }

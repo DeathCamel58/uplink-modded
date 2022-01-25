@@ -193,7 +193,7 @@ char *TaskManager::GetTargetProgramName ()
     if ( targetprogram != -1 ) {
         
         TaskWrapper *tw = SvbGetTaskWrapper ( targetprogram );
-        UplinkAssert (tw);
+        UplinkAssert (tw)
 
         return tw->name;
 

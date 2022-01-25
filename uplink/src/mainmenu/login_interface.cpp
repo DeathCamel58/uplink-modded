@@ -56,7 +56,7 @@ void LoginInterface::CreateExistingGames ()
 			char *curAgent = existing->GetData ( i );
 
 			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "username %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "username %d", i )
 			EclRegisterButton ( SX(35), SY(300) + i * 18, SX(170), 15, curAgent, "Log in as this Agent", name );
 			EclRegisterButtonCallbacks ( name, textbutton_draw, UserNameClick, button_click, button_highlight );
 
@@ -74,11 +74,11 @@ void LoginInterface::RemoveExistingGames ()
 	// Remove all username buttons
 	int usernameindex = 0;
 	char name [32];
-	UplinkSnprintf ( name, sizeof ( name ), "username %d", usernameindex );
+	UplinkSnprintf ( name, sizeof ( name ), "username %d", usernameindex )
 	while ( EclGetButton ( name ) ) {
 		EclRemoveButton ( name );
 		++usernameindex;
-		UplinkSnprintf ( name, sizeof ( name ), "username %d", usernameindex );			
+		UplinkSnprintf ( name, sizeof ( name ), "username %d", usernameindex )
 	} 
 
 }
@@ -119,7 +119,7 @@ void LoginInterface::RetireAgentMsgboxClick ( Button *button )
 
 	remove_msgbox ();
 
-	UplinkAssert ( EclGetButton ( "userid_name" ) );
+	UplinkAssert ( EclGetButton ( "userid_name" ) )
 	char *agentfile = EclGetButton ( "userid_name" )->caption;
 
 	if ( strlen ( agentfile ) > 0 ) {
@@ -133,7 +133,7 @@ void LoginInterface::RetireAgentMsgboxClick ( Button *button )
 void LoginInterface::RetireAgentClick ( Button *button )
 {
 
-	UplinkAssert ( EclGetButton ( "userid_name" ) );
+	UplinkAssert ( EclGetButton ( "userid_name" ) )
 	char agentfile [256];
 	strncpy ( agentfile, EclGetButton ( "userid_name" )->caption, sizeof ( agentfile ) );
 	agentfile [ sizeof ( agentfile ) - 1 ] = '\0';
@@ -157,11 +157,11 @@ void LoginInterface::RetireAgentClick ( Button *button )
 
 	char caption [384];
 	if ( found ) {
-		UplinkSnprintf ( caption, sizeof ( caption ), "Are you sure you want to remove '%s' from the roster?", agentfile );
+		UplinkSnprintf ( caption, sizeof ( caption ), "Are you sure you want to remove '%s' from the roster?", agentfile )
 		create_yesnomsgbox ( "Retire", caption, RetireAgentMsgboxClick );
 	}
 	else {
-		UplinkSnprintf ( caption, sizeof ( caption ), "Impossible to remove '%s' from the roster.", agentfile );
+		UplinkSnprintf ( caption, sizeof ( caption ), "Impossible to remove '%s' from the roster.", agentfile )
 		create_msgbox ( "Retire", caption );
 	}
 
@@ -170,9 +170,9 @@ void LoginInterface::RetireAgentClick ( Button *button )
 void LoginInterface::ProceedClick ( Button *button )
 {
 
-	UplinkAssert ( EclGetButton ( "userid_name" ) );	
+	UplinkAssert ( EclGetButton ( "userid_name" ) )
 	char username [256];
-	UplinkStrncpy ( username, EclGetButton ( "userid_name" )->caption, sizeof ( username ) );
+	UplinkStrncpy ( username, EclGetButton ( "userid_name" )->caption, sizeof ( username ) )
 
 	app->GetMainMenu ()->RunScreen ( MAINMENU_LOADING );
 
@@ -223,7 +223,7 @@ void LoginInterface::LargeTextBoxDraw ( Button *button, bool highlighted, bool c
 void LoginInterface::UserIDButtonDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -259,7 +259,7 @@ void LoginInterface::UserIDButtonDraw ( Button *button, bool highlighted, bool c
 void LoginInterface::CodeButtonDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -311,7 +311,7 @@ void LoginInterface::UserNameClick ( Button *button )
 void LoginInterface::CommsClick ( Button *button )
 {
 
-	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT );
+	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT )
 
     EclReset ( app->GetOptions ()->GetOptionValue ("graphics_screenwidth"),
 			   app->GetOptions ()->GetOptionValue ("graphics_screenheight") );
@@ -323,7 +323,7 @@ void LoginInterface::CommsClick ( Button *button )
 void LoginInterface::StatusClick	( Button *button )
 {
 
-	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT );
+	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT )
 
     EclReset ( app->GetOptions ()->GetOptionValue ("graphics_screenwidth"),
 			   app->GetOptions ()->GetOptionValue ("graphics_screenheight") );

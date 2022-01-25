@@ -67,10 +67,10 @@ void FileCopier::MoveTo ( int x, int y, int time_ms )
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid )
 		
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -106,7 +106,7 @@ void FileCopier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				sourceindex = uoi;
 
 				Data *data = source->GetData (sourceindex);
-				UplinkAssert (data);
+				UplinkAssert (data)
 
 				numticksrequired = (int)(TICKSREQUIRED_COPY * ((float) data->size / (float) game->GetWorld ()->GetPlayer ()->gateway.GetBandwidth ()));
 				progress = 0;
@@ -114,7 +114,7 @@ void FileCopier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
                 remotefile = strstr(uos, "fileserverscreen") != nullptr;
 
 				Button *button = EclGetButton ( uos );
-				UplinkAssert (button);
+				UplinkAssert (button)
 
 				MoveTo ( button->x, button->y, 1000 );
 
@@ -125,7 +125,7 @@ void FileCopier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 	}
 	else if ( downloading == FILECOPIER_WAITINGFORTARGET ) {
 
-		UplinkAssert ( source );
+		UplinkAssert ( source )
 
 		// Copy the data
 		Data *data = source->GetData (sourceindex);	
@@ -160,7 +160,7 @@ void FileCopier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 			// Attaching the file to a message
 			
 			auto *m = (Message *) uo;
-			UplinkAssert ( m );
+			UplinkAssert ( m )
 
 			m->AttachData ( datacopy );
 	
@@ -211,7 +211,7 @@ void FileCopier::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void FileCopier::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -277,10 +277,10 @@ static bool FileCopier_ReSetTargetProgram ( int pid )
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid )
 
 		int animationid;
 		if ( ( animationid = EclIsNoCaptionChangeActive( stitle ) ) != -1 )
@@ -311,7 +311,7 @@ void FileCopier::Tick ( int n )
 
 		int pid = SvbLookupPID ( this );
 		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid )
 
 		if ( downloading == FILECOPIER_NOTDOWNLOADING ) {
 
@@ -350,7 +350,7 @@ void FileCopier::Tick ( int n )
 			for ( int count = 0; count < n; ++count ) {
 
 				++progress;		
-				UplinkAssert ( EclGetButton ( sprogress ) );
+				UplinkAssert ( EclGetButton ( sprogress ) )
 				EclGetButton ( sprogress )->width = (int)(120 * ( (float) progress / (float) numticksrequired ));
 				EclDirtyButton ( sprogress );
 
@@ -397,7 +397,7 @@ void FileCopier::Tick ( int n )
 			progress = 0;
 			remotefile = false;
 
-			UplinkAssert ( EclGetButton ( sprogress ) );
+			UplinkAssert ( EclGetButton ( sprogress ) )
 			EclGetButton ( sprogress )->width = 120;
 			EclRegisterCaptionChange ( sprogress, "Select source" );
 			EclDirtyButton ( sprogress );
@@ -422,10 +422,10 @@ void FileCopier::CreateInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid )
 
 		EclRegisterButton ( 265, 432, 20, 15, "", "File Copier", stitle );
 		button_assignbitmap ( stitle, "software/cpy.tif" );
@@ -456,10 +456,10 @@ void FileCopier::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -482,10 +482,10 @@ void FileCopier::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "filecopier_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filecopier_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "filecopier_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -500,7 +500,7 @@ bool FileCopier::IsInterfaceVisible ()
 	int pid = SvbLookupPID ( this );
 
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_border %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "filecopier_border %d", pid )
 	
 	return ( EclGetButton (stitle) != nullptr );
 

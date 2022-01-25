@@ -75,7 +75,7 @@ void CriminalScreenInterface::CloseClick ( Button *button )
 {
 
 	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (gs);
+	UplinkAssert (gs)
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
 
@@ -85,14 +85,14 @@ void CriminalScreenInterface::AddConvictionClick ( Button *button )
 {
 
 	auto *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
-	UplinkAssert (csi);
+	UplinkAssert (csi)
 
 	if ( csi->recordindex != -1 ) {
 
 		char *newconviction = EclGetButton ( "criminal_newconvictiontext" )->caption;
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->security.IsRunning_Proxy () ) {
 			create_msgbox ( "Error", "Denied access by Proxy Server" );
@@ -100,7 +100,7 @@ void CriminalScreenInterface::AddConvictionClick ( Button *button )
 		}
 
 		Record *rec = comp->recordbank.GetRecord ( csi->recordindex );
-		UplinkAssert (rec);
+		UplinkAssert (rec)
 
 		char *existing = rec->GetField ( "Convictions" );
 		//UplinkAssert (existing);
@@ -134,12 +134,12 @@ void CriminalScreenInterface::ClearClick ( Button *button )
 {
 
 	auto *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
-	UplinkAssert (csi);
+	UplinkAssert (csi)
 
 	if ( csi->recordindex != -1 ) {
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->security.IsRunning_Proxy () ) {
 			create_msgbox ( "Error", "Denied access by Proxy Server" );
@@ -147,7 +147,7 @@ void CriminalScreenInterface::ClearClick ( Button *button )
 		}
 
 		Record *rec = comp->recordbank.GetRecord ( csi->recordindex );
-		UplinkAssert (rec);
+		UplinkAssert (rec)
 		rec->ChangeField ( "Convictions", "None" );
 
 		csi->UpdateScreen ();
@@ -160,12 +160,12 @@ void CriminalScreenInterface::ArrestClick ( Button *button )
 {
 
 	auto *csi = (CriminalScreenInterface *) GetInterfaceScreen ( SCREEN_CRIMINALSCREEN );
-	UplinkAssert (csi);
+	UplinkAssert (csi)
 
 	if ( csi->recordindex != -1 ) {
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->security.IsRunning_Proxy () ) {
 			create_msgbox ( "Error", "Denied access by Proxy Server" );
@@ -173,10 +173,10 @@ void CriminalScreenInterface::ArrestClick ( Button *button )
 		}
 
 		Record *rec = comp->recordbank.GetRecord ( csi->recordindex );
-		UplinkAssert (rec);
+		UplinkAssert (rec)
 
 		char *name = rec->GetField ( RECORDBANK_NAME );
-		UplinkAssert (name);
+		UplinkAssert (name)
 
 		char *convictions = rec->GetField ( "Convictions" );
 		//UplinkAssert (convictions);
@@ -217,7 +217,7 @@ void CriminalScreenInterface::ArrestClick ( Button *button )
 			game->GetWorld ()->scheduler.ScheduleWarning ( ae, &rundate );
 
 			char message [128];
-			UplinkSnprintf ( message, sizeof ( message ), "Authorisation Accepted\nThis man will be arrested in %d hours.", TIME_LEGALACTION / 60 );
+			UplinkSnprintf ( message, sizeof ( message ), "Authorisation Accepted\nThis man will be arrested in %d hours.", TIME_LEGALACTION / 60 )
 
 			create_msgbox ( "Arrest Authorised", message );
 
@@ -236,7 +236,7 @@ void CriminalScreenInterface::ArrestClick ( Button *button )
 void CriminalScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -326,7 +326,7 @@ void CriminalScreenInterface::SetSearchName ( char *newsearchname )
 {
 
 	Computer *comp = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	recordindex = comp->recordbank.FindNextRecordIndexNameNotSystemAccount ();
 
@@ -345,7 +345,7 @@ void CriminalScreenInterface::UpdateScreen ()
 	if ( IsVisible () ) {
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		Record *rec = comp->recordbank.GetRecord ( recordindex );
 		char *thisname = rec->GetField ( RECORDBANK_NAME );
@@ -363,7 +363,7 @@ void CriminalScreenInterface::UpdateScreen ()
 		if ( person ) {
 
 			char filename [256];
-			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex );
+			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex )
 			button_assignbitmap ( "criminal_photo", filename );
 
 		}
@@ -391,7 +391,7 @@ void CriminalScreenInterface::Update ()
 			// Is this one it?
 
 			Computer *comp = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
-			UplinkAssert (comp);
+			UplinkAssert (comp)
 
 			// Have we searched all records?
 
@@ -407,7 +407,7 @@ void CriminalScreenInterface::Update ()
 
 			Record *rec = comp->recordbank.GetRecord ( recordindex );
 			char *thisname = rec->GetField ( RECORDBANK_NAME );
-			UplinkAssert (thisname);
+			UplinkAssert (thisname)
 			char *lowercasethisname = LowerCaseString (thisname);
 
 			// Update display with the current record

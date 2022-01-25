@@ -80,7 +80,7 @@ ClientCommsInterface::~ClientCommsInterface()
 void ClientCommsInterface::MainMenuClick ( Button *button )
 {
 
-    UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT );
+    UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT )
 
     app->GetNetwork ()->GetClient ()->SetClientType ( CLIENT_NONE );
     app->GetMainMenu ()->RunScreen ( MAINMENU_LOGIN );
@@ -112,7 +112,7 @@ void ClientCommsInterface::LargeMapDraw ( Button *button, bool highlighted, bool
     for ( int li = 0; li < connection.Size (); ++li ) {
 
 	char *ip = connection.GetData (li);
-	UplinkAssert (ip);
+	UplinkAssert (ip)
 	VLocation *vl = locations.GetData (ip);
 		
 	if ( vl ) {
@@ -200,8 +200,8 @@ void ClientCommsInterface::DrawAllObjects ()
 	WorldMapInterfaceLabel *label = labels.GetData (i);
 	WorldMapInterfaceObject *point = locations.GetData (i);
 	    
-	UplinkAssert (label);
-	UplinkAssert (point);
+	UplinkAssert (label)
+	UplinkAssert (point)
 	    
 	if (InConnection(label->GetCaption())) {
 		
@@ -218,7 +218,7 @@ bool ClientCommsInterface::InConnection( const char *computerName )
     for (int i = 0; i < connection.Size(); i++) {
 	
 	VLocation *vl = locations.GetData ( connection.GetData (i) );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	
 	if ( strcmp ( vl->computer, computerName ) == 0 )
 	    return true;

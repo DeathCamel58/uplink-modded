@@ -71,7 +71,7 @@ void Defrag::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void Defrag::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -108,7 +108,7 @@ void Defrag::GoClick ( Button *button )
 	sscanf ( button->name, "%s %d", bname, &pid );
 
 	auto *thistask = (Defrag *) SvbGetTask ( pid );
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 
 	// Set it going
 
@@ -131,7 +131,7 @@ void Defrag::CloseClick ( Button *button )
 	sscanf ( button->name, "%s %d", bname, &pid );
 
 	auto *thistask = (Defrag *) SvbGetTask ( pid );
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 
 	thistask->StopDefrag ();
 
@@ -152,10 +152,10 @@ void Defrag::StopDefrag ( )
 	for ( int i = 0; i < transitData.Size(); ++i ) {
 	
 		DataBank *databank = &(game->GetWorld ()->GetPlayer ()->gateway.databank);
-		UplinkAssert (databank);
+		UplinkAssert (databank)
 
 		Data *data = transitData.GetData (i);
-		UplinkAssert (data);
+		UplinkAssert (data)
 
 		databank->PutData ( data );
 
@@ -172,7 +172,7 @@ void Defrag::StopDefrag ( )
 	if ( currentScreen == SCREEN_MEMORY ) {
 
 		LocalInterfaceScreen *lis = game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();   
-		UplinkAssert (lis);
+		UplinkAssert (lis)
 		auto *mi = (MemoryInterface *) lis;
 		mi->SpecialHighlight ( -1 ); // No highlight
 		mi->ForceUpdateAll ();
@@ -201,7 +201,7 @@ void Defrag::HandleNewMemorySlot ( int index )
 {
 
 	DataBank *databank = &(game->GetWorld ()->GetPlayer ()->gateway.databank);
-	UplinkAssert (databank);
+	UplinkAssert (databank)
 	Data *file = databank->GetData( index );
 
 	//
@@ -237,7 +237,7 @@ void Defrag::HandleNewMemorySlot ( int index )
 	if ( transitData.Size () > 0 ) {
 
 		Data *theTransitData = transitData.GetData(0);
-		UplinkAssert (theTransitData);
+		UplinkAssert (theTransitData)
 		if ( theTransitData->size <= freeSpace ) {
 
 			databank->PutData( theTransitData, firstFreeMemorySlot );
@@ -261,7 +261,7 @@ void Defrag::HandleNewMemorySlot ( int index )
     if ( currentScreen == SCREEN_MEMORY ) {
 
         LocalInterfaceScreen *lis = game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();    
-        UplinkAssert (lis);
+        UplinkAssert (lis)
         auto *mi = (MemoryInterface *) lis;
         mi->SpecialHighlight ( index );
         mi->ForceUpdateAll ();
@@ -277,7 +277,7 @@ void Defrag::Tick ( int n )
 		
 		char sprogress [128];
 		
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", SvbLookupPID ( this ) );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", SvbLookupPID ( this ) )
 
 		if ( progress == 0 ) {												// Do nothing - waiting for user to click GO			
 
@@ -353,10 +353,10 @@ void Defrag::CreateInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid )
 
 		EclRegisterButton ( 265, 422, 20, 15, "", "Defrag the files on your computer", stitle );
 		button_assignbitmap ( stitle, "software/go.tif" );
@@ -388,10 +388,10 @@ void Defrag::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid );			
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -414,10 +414,10 @@ void Defrag::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid );			
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -431,7 +431,7 @@ bool Defrag::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid )
 
 	return ( EclGetButton ( stitle ) != nullptr );
 

@@ -77,20 +77,20 @@ bool LogBank::LogModified ( int index )
 char *LogBank::TraceLog ( char *to_ip, char *logbank_ip, Date *date, int uplinkrating )
 {
 
-	UplinkAssert ( to_ip );
-	UplinkAssert ( logbank_ip );
-	UplinkAssert ( date );
+	UplinkAssert ( to_ip )
+	UplinkAssert ( logbank_ip )
+	UplinkAssert ( date )
 
 	//
 	// Get some information regarding the local machine
 	//
 
 	VLocation *vl_local = game->GetWorld ()->GetVLocation ( logbank_ip );
-	UplinkAssert (vl_local);
+	UplinkAssert (vl_local)
 	Computer *comp_local = vl_local->GetComputer ();
-	UplinkAssert (comp_local);
+	UplinkAssert (comp_local)
 	Company *company_local = game->GetWorld ()->GetCompany ( comp_local->companyname );
-	UplinkAssert (company_local);
+	UplinkAssert (company_local)
 
 	// Try to find a log that showed a user bouncing from this machine
 	// to to_ip.
@@ -229,7 +229,7 @@ bool LogBank::Load ( FILE *file )
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
     if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
-		UplinkPrintAbortArgs ( "WARNING: LogBank::Load, number of items appears to be wrong, size=%d", size );
+		UplinkPrintAbortArgs ( "WARNING: LogBank::Load, number of items appears to be wrong, size=%d", size )
 		return false;
     }
 
@@ -250,7 +250,7 @@ bool LogBank::Load ( FILE *file )
 		}
 		else if ( index < 0 || index >= MAX_ITEMS_DATA_STRUCTURE ) {
 
-			UplinkPrintAbortArgs ( "WARNING: LogBank::Load, number of items appears to be wrong, index=%d", index );
+			UplinkPrintAbortArgs ( "WARNING: LogBank::Load, number of items appears to be wrong, index=%d", index )
 			return false;
 
 		}
@@ -287,7 +287,7 @@ bool LogBank::Load ( FILE *file )
 			    auto *al = new AccessLog ();
 				if ( al ) {
 					if ( !logs.ValidIndex ( index ) ) {
-						UplinkPrintAssert ( logs.ValidIndex ( index ) );
+						UplinkPrintAssert ( logs.ValidIndex ( index ) )
 						delete al;
 						return false;
 					}
@@ -345,7 +345,7 @@ void LogBank::Save ( FILE *file )
 
 		if ( modified ) {
 
-			UplinkAssert ( internallogs.ValidIndex (i) );
+			UplinkAssert ( internallogs.ValidIndex (i) )
 			internallogs.GetData (i)->Save ( file );
 
 		}
@@ -392,7 +392,7 @@ AccessLog::AccessLog()
 
 	TYPE = LOG_TYPE_NONE;
 
-	UplinkStrncpy ( fromip, " ", sizeof ( fromip ) );
+	UplinkStrncpy ( fromip, " ", sizeof ( fromip ) )
 
 	SUSPICIOUS = false;
 
@@ -413,13 +413,13 @@ void AccessLog::SetProperties ( Date *newdate, char *newfromip, char *newfromnam
 							    int newSUSPICIOUS, int newTYPE )
 {
 
-	UplinkAssert (newdate);
+	UplinkAssert (newdate)
 	date.SetDate ( newdate );
 
 	SetTYPE ( newTYPE );
 	SetFromIP ( newfromip );
 
-	UplinkStrncpy( fromname, newfromname, sizeof ( fromname ) );
+	UplinkStrncpy( fromname, newfromname, sizeof ( fromname ) )
 
 	SetSuspicious ( newSUSPICIOUS );
 
@@ -428,7 +428,7 @@ void AccessLog::SetProperties ( Date *newdate, char *newfromip, char *newfromnam
 void AccessLog::SetProperties ( AccessLog *copyme )
 {
 
-	UplinkAssert (copyme);
+	UplinkAssert (copyme)
 
 	SetProperties ( &(copyme->date), copyme->fromip, copyme->fromname, copyme->SUSPICIOUS, copyme->TYPE );
 	SetData1 ( copyme->data1 );
@@ -447,8 +447,8 @@ void AccessLog::SetTYPE ( int newTYPE )
 void AccessLog::SetFromIP ( char *newfromip )
 {
 
-	UplinkAssert (strlen(newfromip) < SIZE_VLOCATION_IP );
-	UplinkStrncpy ( fromip, newfromip, sizeof ( fromip ) );
+	UplinkAssert (strlen(newfromip) < SIZE_VLOCATION_IP )
+	UplinkStrncpy ( fromip, newfromip, sizeof ( fromip ) )
 
 }
 
@@ -467,7 +467,7 @@ void AccessLog::SetData1 ( char *newdata )
 
 	if ( newdata ) {
 		data1 = new char [strlen(newdata)+1];
-		UplinkSafeStrcpy ( data1, newdata );
+		UplinkSafeStrcpy ( data1, newdata )
 	}
 
 }
@@ -480,7 +480,7 @@ void AccessLog::SetData2 ( char *newdata )
 
 	if ( newdata ) {
 		data2 = new char [strlen(newdata)+1];
-		UplinkSafeStrcpy ( data2, newdata );
+		UplinkSafeStrcpy ( data2, newdata )
 	}
 
 }
@@ -493,7 +493,7 @@ void AccessLog::SetData3 ( char *newdata )
 
 	if ( newdata ) {
 		data3 = new char [strlen(newdata)+1];
-		UplinkSafeStrcpy ( data3, newdata );
+		UplinkSafeStrcpy ( data3, newdata )
 	}
 
 }
@@ -527,12 +527,12 @@ char *AccessLog::GetDescription ()
 			break;
 
 		case LOG_TYPE_BOUNCEBEGIN:
-			UplinkAssert (data1);
+			UplinkAssert (data1)
 			fullcaption << "Connection opened to " << data1 << '\x0';
 			break;
 
 		case LOG_TYPE_BOUNCE:
-			UplinkAssert (data1);
+			UplinkAssert (data1)
 			fullcaption << "Connection from " << fromip << " routed to " << data1 << '\x0';
 			break;
 
@@ -581,16 +581,16 @@ char *AccessLog::GetDescription ()
 		}
 
 		default:
-			UplinkAssert (data1);
+			UplinkAssert (data1)
 			fullcaption << "From " << fromip << " : " << data1 << '\x0';
 			break;
 
-	};
+	}
 
 	//return fullcaption.str ();
 	char * ans = fullcaption.str();
     char * anscpy = new char[ strlen(ans) + 1 ];
-	UplinkSafeStrcpy( anscpy, ans );
+	UplinkSafeStrcpy( anscpy, ans )
 	ans = nullptr;
 	fullcaption.rdbuf()->freeze( false );
 	return anscpy;

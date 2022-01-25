@@ -20,9 +20,9 @@
 ComputerScreen::ComputerScreen()
 {
 
-	UplinkStrncpy ( maintitle, " ", sizeof ( maintitle ) );
-	UplinkStrncpy ( subtitle, " ", sizeof ( subtitle ) );
-	UplinkStrncpy ( computer, " ", sizeof ( computer ) );
+	UplinkStrncpy ( maintitle, " ", sizeof ( maintitle ) )
+	UplinkStrncpy ( subtitle, " ", sizeof ( subtitle ) )
+	UplinkStrncpy ( computer, " ", sizeof ( computer ) )
 
 }
 
@@ -32,24 +32,24 @@ ComputerScreen::~ComputerScreen()
 void ComputerScreen::SetMainTitle ( char *newmaintitle )
 {
 
-	UplinkAssert ( strlen(newmaintitle) < SIZE_COMPUTERSCREEN_MAINTITLE );
-	UplinkStrncpy ( maintitle, newmaintitle, sizeof ( maintitle ) );
+	UplinkAssert ( strlen(newmaintitle) < SIZE_COMPUTERSCREEN_MAINTITLE )
+	UplinkStrncpy ( maintitle, newmaintitle, sizeof ( maintitle ) )
 
 }
 
 void ComputerScreen::SetSubTitle ( char *newsubtitle )
 {
 
-	UplinkAssert ( strlen(newsubtitle) < SIZE_COMPUTERSCREEN_SUBTITLE );
-	UplinkStrncpy ( subtitle, newsubtitle, sizeof ( subtitle ) );
+	UplinkAssert ( strlen(newsubtitle) < SIZE_COMPUTERSCREEN_SUBTITLE )
+	UplinkStrncpy ( subtitle, newsubtitle, sizeof ( subtitle ) )
 
 }
 
 void ComputerScreen::SetComputer ( char *newcomputer )
 {
 
-	UplinkAssert ( strlen(newcomputer) < SIZE_COMPUTER_NAME );
-	UplinkStrncpy ( computer, newcomputer, sizeof ( computer ) );
+	UplinkAssert ( strlen(newcomputer) < SIZE_COMPUTER_NAME )
+	UplinkStrncpy ( computer, newcomputer, sizeof ( computer ) )
 
 }
 

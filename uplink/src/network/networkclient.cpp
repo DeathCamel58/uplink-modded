@@ -83,7 +83,7 @@ void NetworkClient::SetClientType ( int newtype )
     // Request this mode from the server
 
     char message [32];
-    UplinkSnprintf ( message, sizeof ( message ), "SETCLIENTTYPE %d#", newtype );
+    UplinkSnprintf ( message, sizeof ( message ), "SETCLIENTTYPE %d#", newtype )
 
     int result = TcpSend ( socket, message, sizeof(message), false, HFILE_ERROR );
 
@@ -125,7 +125,7 @@ void NetworkClient::RunScreen ( int SCREENCODE )
 
 	case CLIENT_NONE:			return;
 	default:
-	    UplinkAbort ("Tried to create a screen with unknown SCREENCODE");
+	    UplinkAbort ("Tried to create a screen with unknown SCREENCODE")
 
     }
 
@@ -136,7 +136,7 @@ void NetworkClient::RunScreen ( int SCREENCODE )
 NetworkScreen *NetworkClient::GetNetworkScreen ()
 {
 
-    UplinkAssert (screen);
+    UplinkAssert (screen)
     return screen;
 
 }
@@ -172,8 +172,8 @@ void NetworkClient::Handle_ClientCommsData ( char *buffer )
 
 	// This is a list of IP's making up the players connection
 
-	UplinkAssert ( screen );
-	UplinkAssert ( screen->ScreenID () == CLIENT_COMMS );
+	UplinkAssert ( screen )
+	UplinkAssert ( screen->ScreenID () == CLIENT_COMMS )
 
 	((ClientCommsInterface *) screen)->connection.Empty ();
 
@@ -199,7 +199,7 @@ void NetworkClient::Handle_ClientCommsData ( char *buffer )
 
 	    }
 */
-	    UplinkAssert ( ((ClientCommsInterface *) screen)->locations.LookupTree (ip) );
+	    UplinkAssert ( ((ClientCommsInterface *) screen)->locations.LookupTree (ip) )
 
 	    ((ClientCommsInterface *) screen)->connection.PutData ( ip );
 	}
@@ -255,7 +255,7 @@ void NetworkClient::Handle_ClientCommsData ( char *buffer )
     }
     else {
 
-	UplinkWarning ( "NetworkClient::Handle_ClientCommsData, received data but did not recognise it" );
+	UplinkWarning ( "NetworkClient::Handle_ClientCommsData, received data but did not recognise it" )
 
     }
 
@@ -309,7 +309,7 @@ void NetworkClient::Handle_ClientStatusData ( char *buffer )
     }
     else {
 
-	UplinkWarning ( "NetworkClient::Handle_ClientStatusData, received data but did not recognise it" );
+	UplinkWarning ( "NetworkClient::Handle_ClientStatusData, received data but did not recognise it" )
 
     }
 
@@ -338,12 +338,12 @@ void NetworkClient::Update ()
 		return;
 
 	    case TCP4U_OVERFLOW:
-		UplinkAbort ("buffer overflow" );
+		UplinkAbort ("buffer overflow" )
 
 	    case TCP4U_ERROR:
-		UplinkAbort ( "Tcp4u Error occured" );
+		UplinkAbort ( "Tcp4u Error occured" )
 
-	};
+	}
 
 	if ( strcmp ( buffer, "" ) != 0 ) {
 

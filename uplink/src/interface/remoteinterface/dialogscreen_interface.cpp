@@ -43,7 +43,7 @@
 void DialogScreenInterface::PasswordBoxDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 	glScissor ( button->x, screenheight - (button->y + button->height), button->width, button->height );	
@@ -76,7 +76,7 @@ void DialogScreenInterface::PasswordBoxDraw ( Button *button, bool highlighted, 
 void DialogScreenInterface::NextPageClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	char bname [64 + SIZE_VLOCATION_IP + 1];
 	int data1, data2;
@@ -96,7 +96,7 @@ void DialogScreenInterface::NextPageClick ( Button *button )
 void DialogScreenInterface::ScriptButtonClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	char bname [64 + SIZE_VLOCATION_IP + 1];
 	int data1, data2;
@@ -120,7 +120,7 @@ bool DialogScreenInterface::ReturnKeyPressed ()
 {
 
 	DialogScreen *ds = GetComputerScreen ();
-	UplinkAssert (ds);
+	UplinkAssert (ds)
 	char *returnkeybutton = ds->returnkeybutton;
 
 	if ( returnkeybutton ) {
@@ -128,15 +128,15 @@ bool DialogScreenInterface::ReturnKeyPressed ()
 		for ( int i = 0; i < ds->widgets.Size (); ++i ) {
 
 			DialogScreenWidget *dsw = ds->widgets.GetData (i);
-			UplinkAssert (dsw);
+			UplinkAssert (dsw)
 
 			if ( strcmp ( dsw->GetName (), returnkeybutton ) == 0 ) {
 
 				char name [64 + SIZE_VLOCATION_IP + 1];
-				UplinkSnprintf ( name, sizeof ( name ), "%s %d %d", dsw->GetName (), dsw->data1, dsw->data2 );		
+				UplinkSnprintf ( name, sizeof ( name ), "%s %d %d", dsw->GetName (), dsw->data1, dsw->data2 )
 				Button *button = EclGetButton (name);
 				if ( !button ) {
-					UplinkSnprintf ( name, sizeof ( name ), "%s %d %d %s", dsw->GetName (), dsw->data1, dsw->data2, ds->GetComputer ()->ip );		
+					UplinkSnprintf ( name, sizeof ( name ), "%s %d %d %s", dsw->GetName (), dsw->data1, dsw->data2, ds->GetComputer ()->ip )
 					button = EclGetButton (name);
 				}
 				if ( button ) button->MouseUp ();
@@ -156,7 +156,7 @@ bool DialogScreenInterface::EscapeKeyPressed ()
 {
 
 	DialogScreen *ds = GetComputerScreen ();
-	UplinkAssert (ds);
+	UplinkAssert (ds)
 	char *escapekeybutton = ds->escapekeybutton;
 
 	if ( escapekeybutton ) {
@@ -164,15 +164,15 @@ bool DialogScreenInterface::EscapeKeyPressed ()
 		for ( int i = 0; i < ds->widgets.Size (); ++i ) {
 
 			DialogScreenWidget *dsw = ds->widgets.GetData (i);
-			UplinkAssert (dsw);
+			UplinkAssert (dsw)
 
 			if ( strcmp ( dsw->GetName (), escapekeybutton ) == 0 ) {
 
 				char name [64 + SIZE_VLOCATION_IP + 1];
-				UplinkSnprintf ( name, sizeof ( name ), "%s %d %d", dsw->GetName (), dsw->data1, dsw->data2 );		
+				UplinkSnprintf ( name, sizeof ( name ), "%s %d %d", dsw->GetName (), dsw->data1, dsw->data2 )
 				Button *button = EclGetButton (name);
 				if ( !button ) {
-					UplinkSnprintf ( name, sizeof ( name ), "%s %d %d %s", dsw->GetName (), dsw->data1, dsw->data2, ds->GetComputer ()->ip );		
+					UplinkSnprintf ( name, sizeof ( name ), "%s %d %d %s", dsw->GetName (), dsw->data1, dsw->data2, ds->GetComputer ()->ip )
 					button = EclGetButton (name);
 				}
 				if ( button ) button->MouseUp ();
@@ -197,7 +197,7 @@ DialogScreenInterface::~DialogScreenInterface()
 void DialogScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -219,13 +219,13 @@ void DialogScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int i = 0; i < ds->widgets.Size (); ++i ) {
 
 			DialogScreenWidget *dsw = ds->widgets.GetData (i);
-			UplinkAssert (dsw);
+			UplinkAssert (dsw)
 
 			char name [64];
-			UplinkSnprintf ( name, sizeof ( name ), "%s %d %d", dsw->GetName (), dsw->data1, dsw->data2 );
+			UplinkSnprintf ( name, sizeof ( name ), "%s %d %d", dsw->GetName (), dsw->data1, dsw->data2 )
 
 			char nameip [64 + SIZE_VLOCATION_IP + 1];
-			UplinkSnprintf ( nameip, sizeof ( nameip ), "%s %d %d %s", dsw->GetName (), dsw->data1, dsw->data2, comp->ip );
+			UplinkSnprintf ( nameip, sizeof ( nameip ), "%s %d %d %s", dsw->GetName (), dsw->data1, dsw->data2, comp->ip )
 
 			// Customize the widget depending on its type
 
@@ -295,7 +295,7 @@ void DialogScreenInterface::Remove ()
 	if ( IsVisible () ) {
 
 		DialogScreen *ds = GetComputerScreen ();
-		UplinkAssert (ds);
+		UplinkAssert (ds)
 
 		EclRemoveButton ( "dialogscreen" );
 
@@ -319,16 +319,16 @@ void DialogScreenInterface::Remove ()
 void DialogScreenInterface::RemoveWidget ( DialogScreenWidget *dsw, Computer *comp )
 {
 
-	UplinkAssert (dsw);
-	UplinkAssert (comp);
+	UplinkAssert (dsw)
+	UplinkAssert (comp)
 
 	char name [64];
-	UplinkSnprintf ( name, sizeof ( name ), "%s %d %d", dsw->GetName (), dsw->data1, dsw->data2 );
+	UplinkSnprintf ( name, sizeof ( name ), "%s %d %d", dsw->GetName (), dsw->data1, dsw->data2 )
 
 	EclRemoveButton ( name );
 
 	char nameip [64 + SIZE_VLOCATION_IP + 1];
-	UplinkSnprintf ( nameip, sizeof ( nameip ), "%s %d %d %s", dsw->GetName (), dsw->data1, dsw->data2, comp->ip );
+	UplinkSnprintf ( nameip, sizeof ( nameip ), "%s %d %d %s", dsw->GetName (), dsw->data1, dsw->data2, comp->ip )
 
 	EclRemoveButton ( nameip );
 
@@ -351,7 +351,7 @@ int DialogScreenInterface::ScreenID ()
 DialogScreen *DialogScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (DialogScreen *) cs;
 
 }

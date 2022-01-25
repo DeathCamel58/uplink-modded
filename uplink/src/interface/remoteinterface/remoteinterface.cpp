@@ -89,7 +89,7 @@ RemoteInterface::RemoteInterface ()
 	previousscreenindex = 0;
 	screen = nullptr;
 	security_level = 10;
-	UplinkStrncpy ( security_name, " ", sizeof ( security_name ) );
+	UplinkStrncpy ( security_name, " ", sizeof ( security_name ) )
 
 }
 
@@ -112,7 +112,7 @@ void RemoteInterface::RunNewLocation ()
 
 	previousscreenindex = 0;
 	currentscreenindex = 0;
-	UplinkStrncpy ( security_name, "Guest", sizeof ( security_name ) );
+	UplinkStrncpy ( security_name, "Guest", sizeof ( security_name ) )
 	security_level = 10;
 
     if ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->GetOBJECTID () == OID_VLOCATIONSPECIAL ) {
@@ -171,9 +171,9 @@ void RemoteInterface::RunNewLocation ()
 
 		char *ipfrom = game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost ();
 		VLocation *vlfrom = game->GetWorld ()->GetVLocation ( ipfrom );
-		UplinkAssert (vlfrom);
+		UplinkAssert (vlfrom)
 		Computer *compfrom = vlfrom->GetComputer ();
-		UplinkAssert (compfrom);
+		UplinkAssert (compfrom)
 
 		if ( strcmp ( compfrom->companyname, GetComputerScreen ()->GetComputer ()->companyname ) != 0 ) {
 
@@ -227,9 +227,9 @@ void RemoteInterface::Remove ()
 void RemoteInterface::SetSecurity ( char *newname, int newvalue )
 {
 	
-	UplinkAssert ( strlen (newname) < SIZE_PERSON_NAME );
+	UplinkAssert ( strlen (newname) < SIZE_PERSON_NAME )
 
-	UplinkStrncpy ( security_name, newname, sizeof ( security_name ) );
+	UplinkStrncpy ( security_name, newname, sizeof ( security_name ) )
 	security_level = newvalue;
 
 }
@@ -240,7 +240,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
 	VLocation *vl = game->GetWorld ()->GetPlayer ()->GetRemoteHost ();
 	Computer *comp = vl->GetComputer ();
 
-	UplinkAssert ( comp );
+	UplinkAssert ( comp )
 
 	// Trying to run a screen on a different computer then the one currently connected to.
 
@@ -319,7 +319,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
                     case SCREEN_RADIOTRANSMITTER:   screen = new RadioTransmitterScreenInterface ();break;
 
 					default:
-						UplinkAbortArgs ( "Unrecognised GenericScreen %d, computer '%s' (%s)", ((GenericScreen *) cs)->SCREEN_TYPE, comp->name, comp->ip );
+						UplinkAbortArgs ( "Unrecognised GenericScreen %d, computer '%s' (%s)", ((GenericScreen *) cs)->SCREEN_TYPE, comp->name, comp->ip )
 
 				}
 				break;
@@ -329,11 +329,11 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
 				break;
 
 			default:
-				UplinkAbortArgs ("Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name, comp->ip );
+				UplinkAbortArgs ("Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name, comp->ip )
 
 		}
 
-		UplinkAssert ( screen );
+		UplinkAssert ( screen )
 		screen->Create ( cs );
 
 		// Bring all running tasks to the front
@@ -343,7 +343,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
 	else {
 
 		// There is no interface to this computer system
-		UplinkAbortArgs ( "Tried to run an invalid screenid %d, computer '%s' (%s)", screenindex, comp->name, comp->ip );
+		UplinkAbortArgs ( "Tried to run an invalid screenid %d, computer '%s' (%s)", screenindex, comp->name, comp->ip )
 
 	}
 
@@ -355,14 +355,14 @@ bool RemoteInterface::VerifyScreen ( int screenindex )
 	VLocation *vl = game->GetWorld ()->GetPlayer ()->GetRemoteHost ();
 
 	if ( !vl ) {
-		UplinkPrintAssert ( vl );
+		UplinkPrintAssert ( vl )
 		return false;
 	}
 
 	Computer *comp = vl->GetComputer ();
 
 	if ( !comp ) {
-		UplinkPrintAssert ( comp );
+		UplinkPrintAssert ( comp )
 		return false;
 	}
 
@@ -416,19 +416,19 @@ bool RemoteInterface::VerifyScreen ( int screenindex )
                     case SCREEN_RADIOTRANSMITTER: break;
 
 					default:
-						UplinkPrintAbortArgs ( "Unrecognised GenericScreen %d, computer '%s' (%s)", ((GenericScreen *) cs)->SCREEN_TYPE, comp->name, comp->ip );
+						UplinkPrintAbortArgs ( "Unrecognised GenericScreen %d, computer '%s' (%s)", ((GenericScreen *) cs)->SCREEN_TYPE, comp->name, comp->ip )
 						return false;
 
 				}
 				break;
 
 			case -1:
-				UplinkPrintAbort ( "RemoteInterface warning : Unknown ComputerScreen" );
+				UplinkPrintAbort ( "RemoteInterface warning : Unknown ComputerScreen" )
 				return false;
 				break;
 
 			default:
-				UplinkPrintAbortArgs ( "Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name, comp->ip );
+				UplinkPrintAbortArgs ( "Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name, comp->ip )
 				return false;
 
 		}
@@ -437,7 +437,7 @@ bool RemoteInterface::VerifyScreen ( int screenindex )
 	else {
 
 		// There is no interface to this computer system
-		UplinkPrintAbortArgs ( "Tried to run an invalid screenid %d, computer '%s' (%s)", screenindex, comp->name, comp->ip );
+		UplinkPrintAbortArgs ( "Tried to run an invalid screenid %d, computer '%s' (%s)", screenindex, comp->name, comp->ip )
 		return false;
 
 	}
@@ -456,7 +456,7 @@ bool RemoteInterface::IsVisible ()
 RemoteInterfaceScreen *RemoteInterface::GetInterfaceScreen ()
 {
 
-	UplinkAssert ( screen );
+	UplinkAssert ( screen )
 	return screen;
 
 }
@@ -464,7 +464,7 @@ RemoteInterfaceScreen *RemoteInterface::GetInterfaceScreen ()
 ComputerScreen *RemoteInterface::GetComputerScreen ()
 {
 
-	UplinkAssert ( screen );
+	UplinkAssert ( screen )
 	return screen->GetComputerScreen ();
 
 }

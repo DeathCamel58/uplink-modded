@@ -57,12 +57,12 @@ void AccountScreenInterface::Create ()
 void AccountScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	// Look up the BankAccount object and store it
 	Computer *comp = cs->GetComputer ();
-	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER );
+	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER )
 	auto *bank = (BankComputer *) comp;
 
 	// Look up the account number based on the log in name
@@ -128,7 +128,7 @@ void AccountScreenInterface::Create ( ComputerScreen *newcs )
 
 			// Account number
 			char accno [16];
-			UplinkSnprintf ( accno, sizeof ( accno ), "%d", account->accountnumber );
+			UplinkSnprintf ( accno, sizeof ( accno ), "%d", account->accountnumber )
 			EclGetButton ( "accountscreen_accountnumber" )->SetCaption ( accno );
 
 
@@ -192,22 +192,22 @@ void AccountScreenInterface::Update ()
 			// Update the balance
 
 			char balance [16];
-			UplinkSnprintf ( balance, sizeof ( balance ), "%d", account->balance );
+			UplinkSnprintf ( balance, sizeof ( balance ), "%d", account->balance )
 			EclGetButton ( "accountscreen_balance" )->SetCaption ( balance );
 		
 			// Update the loan
 
 			char loan [16];
-			UplinkSnprintf ( loan, sizeof ( loan ), "%d", account->loan );
+			UplinkSnprintf ( loan, sizeof ( loan ), "%d", account->loan )
 			EclGetButton ( "accountscreen_loan" )->SetCaption ( loan );
 
 			// Update the interest rate 
 
 			char rate [16];
-			if        ( account->loan <= SMALLLOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * SMALLLOAN_INTEREST) );
-			} else if ( account->loan <= MEDIUMLOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * MEDIUMLOAN_INTEREST) );
-			} else if ( account->loan <= LARGELOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * LARGELOAN_INTEREST) );
-			} else {											UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * MAXLOAN_INTEREST) );
+			if        ( account->loan <= SMALLLOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * SMALLLOAN_INTEREST) )
+			} else if ( account->loan <= MEDIUMLOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * MEDIUMLOAN_INTEREST) )
+			} else if ( account->loan <= LARGELOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * LARGELOAN_INTEREST) )
+			} else {											UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * MAXLOAN_INTEREST) )
 			}
 
 			EclGetButton ( "accountscreen_loanrate" )->SetCaption ( rate );
@@ -237,7 +237,7 @@ int AccountScreenInterface::ScreenID ()
 GenericScreen *AccountScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert ( cs );
+	UplinkAssert ( cs )
 	return ( GenericScreen * ) cs;
 
 }

@@ -58,11 +58,11 @@ void SWSalesScreenInterface::ClickSWButton ( Button *button )
 	// Dirty the old highlighted button
 
 	char oldname [128];
-	UplinkSnprintf ( oldname, sizeof ( oldname ), "SWsale %d", currentselect - baseoffset );
+	UplinkSnprintf ( oldname, sizeof ( oldname ), "SWsale %d", currentselect - baseoffset )
 	EclDirtyButton ( oldname );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetSWSale ( index ) && cu->GetSWSale ( index )->GetVersion (1) ) {
 
@@ -78,7 +78,7 @@ void SWSalesScreenInterface::ClickSWButton ( Button *button )
 void SWSalesScreenInterface::DrawSWButton ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	clear_draw ( button->x, button->y, button->width, button->height );
 
@@ -89,7 +89,7 @@ void SWSalesScreenInterface::DrawSWButton ( Button *button, bool highlighted, bo
 	// Get the text from sale number (index + baseoffset)
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	Sale *sale = cu->GetSWSale ( index );
 
@@ -127,14 +127,14 @@ void SWSalesScreenInterface::DrawSWButton ( Button *button, bool highlighted, bo
 		char version [8];
 		char cost [32];
 		char size [32];
-		UplinkStrncpy ( name, sale->title, sizeof ( name ) );
-		UplinkSnprintf ( version, sizeof ( version ), "v%d.0", sv->data );
-		UplinkSnprintf ( cost, sizeof ( cost ), "%dc", sv->cost );
+		UplinkStrncpy ( name, sale->title, sizeof ( name ) )
+		UplinkSnprintf ( version, sizeof ( version ), "v%d.0", sv->data )
+		UplinkSnprintf ( cost, sizeof ( cost ), "%dc", sv->cost )
 		if ( sale->swhwTYPE != SOFTWARETYPE_HUDUPGRADE ) {
-			UplinkSnprintf ( size, sizeof ( size ), "%dGq", sv->size );
+			UplinkSnprintf ( size, sizeof ( size ), "%dGq", sv->size )
 		}
 		else {
-			UplinkStrncpy ( size, "0Gq", sizeof ( size ) );
+			UplinkStrncpy ( size, "0Gq", sizeof ( size ) )
 		}
 		GciDrawText ( button->x + 5, button->y + 10, name );
 		GciDrawText ( button->x + 240, button->y + 10, version );
@@ -169,7 +169,7 @@ void SWSalesScreenInterface::MousedownSWButton ( Button *button )
 	sscanf ( button->name, "SWsale %d", &index );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetSWSale ( index + baseoffset ) ) {
 
@@ -187,7 +187,7 @@ void SWSalesScreenInterface::HighlightSWButton ( Button *button )
 	sscanf ( button->name, "SWsale %d", &index );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	if ( cu->GetSWSale ( index + baseoffset ) )
 		button_highlight ( button );
@@ -198,7 +198,7 @@ void SWSalesScreenInterface::ExitClick ( Button *button )
 {
 
 	auto *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (sss);
+	UplinkAssert (sss)
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( sss->nextpage, sss->GetComputer () );
 
@@ -216,7 +216,7 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 {
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	Sale *sale = cu->GetSWSale ( currentselect );
 
@@ -253,7 +253,7 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
                     game->GetWorld ()->GetPlayer ()->gateway.GiveHUDUpgrade ( HUDUPGRADE_LANVIEW );
 
 				else
-					UplinkAbort ( "Unrecognised HUD upgrade" );
+					UplinkAbort ( "Unrecognised HUD upgrade" )
 
 			}
 			else if ( sale->swhwTYPE == SOFTWARETYPE_BYPASSER ) {
@@ -321,7 +321,7 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 			for ( int i = 0; i < 12; ++ i ) {
 
 				char name [128];
-				UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i );
+				UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i )
 
 				EclDirtyButton ( name );
 
@@ -357,7 +357,7 @@ void SWSalesScreenInterface::NextVersionClick ( Button *button )
 {
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	Sale *sale = cu->GetSWSale ( currentselect );
 
@@ -371,7 +371,7 @@ void SWSalesScreenInterface::NextVersionClick ( Button *button )
 			EclRegisterCaptionChange ( "swsales_details", sv->GetDetails (), 2000 );
 			
 			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "SWsale %d", currentselect - baseoffset );
+			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "SWsale %d", currentselect - baseoffset )
 			EclDirtyButton ( buttonname );
 
 		}
@@ -384,7 +384,7 @@ void SWSalesScreenInterface::PrevVersionClick ( Button *button )
 {
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	UplinkAssert ( cu );
+	UplinkAssert ( cu )
 
 	Sale *sale = cu->GetSWSale ( currentselect );
 
@@ -398,7 +398,7 @@ void SWSalesScreenInterface::PrevVersionClick ( Button *button )
 			EclRegisterCaptionChange ( "swsales_details", sv->GetDetails (), 2000 );
 			
 			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "SWsale %d", currentselect - baseoffset );
+			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "SWsale %d", currentselect - baseoffset )
 			EclDirtyButton ( buttonname );
 
 		}
@@ -415,7 +415,7 @@ void SWSalesScreenInterface::ScrollChange ( char *scrollname, int newValue )
 	for ( int i = 0; i < NumItemsOnScreen(); ++i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i )
 		EclDirtyButton ( name );
 
 	}
@@ -434,7 +434,7 @@ void SWSalesScreenInterface::Create ( ComputerScreen *newcs )
 
 	if ( !IsVisible () ) {
 
-		UplinkAssert ( newcs );
+		UplinkAssert ( newcs )
 		cs = newcs;
 
 		EclRegisterButton ( 20, 30, 237, 15, "Name", "This column shows the name of the item for sale", "swsales_name" );
@@ -446,7 +446,7 @@ void SWSalesScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int i = 0; i < NumItemsOnScreen(); ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i )
 			EclRegisterButton ( 20, i * 20 + 50, SY(390), 17, "", "View details on this item", name );
 			EclRegisterButtonCallbacks ( name, DrawSWButton, ClickSWButton, MousedownSWButton, HighlightSWButton ); 
 						
@@ -471,7 +471,7 @@ void SWSalesScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButtonCallback ( "swsales_exit", ExitClick );
 
     	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-	    UplinkAssert ( cu );
+	    UplinkAssert ( cu )
         ScrollBox::CreateScrollBox ( "swsales_scroll", 22 + SY(390), 47, 15, NumItemsOnScreen() * 20, cu->sw_sales.Size(), NumItemsOnScreen(), 0, ScrollChange );
 
 		baseoffset = 0;
@@ -489,7 +489,7 @@ void SWSalesScreenInterface::Remove ()
 		for ( int i = 0; i < NumItemsOnScreen(); ++ i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i )
 
 			EclRemoveButton ( name );
 
@@ -531,7 +531,7 @@ int SWSalesScreenInterface::ScreenID ()
 GenericScreen *SWSalesScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert ( cs );
+	UplinkAssert ( cs )
 	return (GenericScreen *) cs;
 
 }

@@ -71,7 +71,7 @@ void LanSpoof::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void LanSpoof::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -160,7 +160,7 @@ void LanSpoof::SetTarget ( UplinkObject *uo, char *uos, int uoi )
             LanInterfaceObject *lio = LanInterface::GetLanInterfaceObject( system->TYPE );
 		
 			Button *button = EclGetButton ( uos );
-			UplinkAssert ( button );
+			UplinkAssert ( button )
 			MoveTo ( button->x - 20, button->y + lio->height + 5, 300 );
 
 			progress = 0;
@@ -184,10 +184,10 @@ void LanSpoof::MoveTo ( int x, int y, int time_ms )
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid )
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -212,7 +212,7 @@ void LanSpoof::Tick ( int n )
 
 		int pid = SvbLookupPID ( this );
 		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
 
 		if ( status == LANSPOOF_UNUSED ) {
 
@@ -238,12 +238,12 @@ void LanSpoof::Tick ( int n )
                 return;
             }
 
-			UplinkAssert (comp->systems.ValidIndex(systemIndex));
+			UplinkAssert (comp->systems.ValidIndex(systemIndex))
 			LanComputerSystem *system = comp->systems.GetData( systemIndex );
-			UplinkAssert (system);
+			UplinkAssert (system)
 
 			progress = min ( progress + n, numticksrequired );
-			UplinkAssert ( EclGetButton ( sprogress ) );
+			UplinkAssert ( EclGetButton ( sprogress ) )
 			EclGetButton ( sprogress )->width = (int) ( 120 * ( (float) progress / (float) numticksrequired ) );
 			//EclGetButton ( sprogress )->width = 120 * ( (float) min( progress, numticksrequired ) / (float) numticksrequired );
 			EclDirtyButton ( sprogress );
@@ -315,11 +315,11 @@ void LanSpoof::CreateInterface ()
 		char sclose    [128];
 		char tooltip   [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid );	
-		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "LAN Spoof v%1.1f", version );
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid )
+		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "LAN Spoof v%1.1f", version )
 
 		EclRegisterButton ( 265, 450, 20, 15, "", tooltip, stitle );
 		button_assignbitmap ( stitle, "software/lan.tif" );
@@ -350,10 +350,10 @@ void LanSpoof::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -376,10 +376,10 @@ void LanSpoof::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -394,7 +394,7 @@ bool LanSpoof::IsInterfaceVisible ()
 	int pid = SvbLookupPID ( this );
 
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_border %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_border %d", pid )
 	
 	return ( EclGetButton (stitle) != nullptr );
 

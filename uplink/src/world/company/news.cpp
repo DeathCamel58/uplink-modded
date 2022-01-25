@@ -16,9 +16,9 @@ News::News ()
 	details = nullptr;
 	NEWSTYPE = NEWS_TYPE_NONE;
 
-    UplinkStrncpy ( headline, " ", sizeof ( headline ) );
-    UplinkStrncpy ( data1, " ", sizeof ( data1 ) );
-    UplinkStrncpy ( data2, " ", sizeof ( data2 ) );
+    UplinkStrncpy ( headline, " ", sizeof ( headline ) )
+    UplinkStrncpy ( data1, " ", sizeof ( data1 ) )
+    UplinkStrncpy ( data2, " ", sizeof ( data2 ) )
 
 }
 
@@ -39,8 +39,8 @@ void News::SetDate ( Date *newdate )
 void News::SetHeadline ( char *newheadline )
 {
 
-	UplinkAssert ( strlen ( newheadline ) < SIZE_NEWS_HEADLINE );
-	UplinkStrncpy ( headline, newheadline, sizeof ( headline ) );
+	UplinkAssert ( strlen ( newheadline ) < SIZE_NEWS_HEADLINE )
+	UplinkStrncpy ( headline, newheadline, sizeof ( headline ) )
 
 }
 
@@ -50,7 +50,7 @@ void News::SetDetails ( char *newdetails )
 
 		delete [] details;
 	details = new char [strlen(newdetails)+1];
-	UplinkSafeStrcpy ( details, newdetails );
+	UplinkSafeStrcpy ( details, newdetails )
 
 }
 
@@ -67,18 +67,18 @@ void News::SetData ( int newNEWSTYPE, char *newdata1, char *newdata2 )
 	NEWSTYPE = newNEWSTYPE;
 
 	if ( newdata1 ) {
-		UplinkAssert (strlen(newdata1) < SIZE_NEWS_DATA);
-		UplinkStrncpy ( data1, newdata1, sizeof ( data1 ) );
+		UplinkAssert (strlen(newdata1) < SIZE_NEWS_DATA)
+		UplinkStrncpy ( data1, newdata1, sizeof ( data1 ) )
 	}
 	else
-		UplinkStrncpy ( data1, " ", sizeof ( data1 ) );
+		UplinkStrncpy ( data1, " ", sizeof ( data1 ) )
 
 	if ( newdata2 ) {
-		UplinkAssert (strlen(newdata2) < SIZE_NEWS_DATA);
-		UplinkStrncpy ( data2, newdata2, sizeof ( data2 ) );
+		UplinkAssert (strlen(newdata2) < SIZE_NEWS_DATA)
+		UplinkStrncpy ( data2, newdata2, sizeof ( data2 ) )
 	}
 	else
-		UplinkStrncpy ( data2, " ", sizeof ( data2 ) );
+		UplinkStrncpy ( data2, " ", sizeof ( data2 ) )
 
 }
 

@@ -54,7 +54,7 @@ int MenuScreen::NumOptions  ()
 char *MenuScreen::GetCaption ( int index )
 {
 
-	UplinkAssert ( options.ValidIndex ( index ) );
+	UplinkAssert ( options.ValidIndex ( index ) )
 
 	return options.GetData (index)->caption;
 
@@ -63,7 +63,7 @@ char *MenuScreen::GetCaption ( int index )
 char *MenuScreen::GetTooltip ( int index )
 {
 
-	UplinkAssert ( options.ValidIndex ( index ) );
+	UplinkAssert ( options.ValidIndex ( index ) )
 
 	return options.GetData (index)->tooltip;
 	
@@ -72,7 +72,7 @@ char *MenuScreen::GetTooltip ( int index )
 int MenuScreen::GetNextPage ( int index )
 {
 
-	UplinkAssert ( options.ValidIndex ( index ) );
+	UplinkAssert ( options.ValidIndex ( index ) )
 
 	return options.GetData (index)->nextpage;
 
@@ -81,7 +81,7 @@ int MenuScreen::GetNextPage ( int index )
 int MenuScreen::GetSecurity ( int index )
 {
 
-	UplinkAssert ( options.ValidIndex ( index ) );
+	UplinkAssert ( options.ValidIndex ( index ) )
 
 	return options.GetData (index)->security;
 
@@ -149,8 +149,8 @@ int MenuScreen::GetOBJECTID ()
 MenuScreenOption::MenuScreenOption ()
 {
 
-	UplinkStrncpy ( caption, "", sizeof ( caption ) );
-	UplinkStrncpy ( tooltip, "", sizeof ( tooltip ) );
+	UplinkStrncpy ( caption, "", sizeof ( caption ) )
+	UplinkStrncpy ( tooltip, "", sizeof ( tooltip ) )
 	nextpage = -1;
 	security = 10;
 
@@ -162,16 +162,16 @@ MenuScreenOption::~MenuScreenOption ()
 void MenuScreenOption::SetCaption ( char *newcaption )
 {
 
-	UplinkAssert ( strlen(newcaption) < SIZE_MENUSCREENOPTION_CAPTION );
-	UplinkStrncpy ( caption, newcaption, sizeof ( caption ) );
+	UplinkAssert ( strlen(newcaption) < SIZE_MENUSCREENOPTION_CAPTION )
+	UplinkStrncpy ( caption, newcaption, sizeof ( caption ) )
 
 }
 
 void MenuScreenOption::SetTooltip ( char *newtooltip )
 {
 
-	UplinkAssert ( strlen(newtooltip) < SIZE_MENUSCREENOPTION_TOOLTIP );
-	UplinkStrncpy ( tooltip, newtooltip, sizeof ( tooltip ) );
+	UplinkAssert ( strlen(newtooltip) < SIZE_MENUSCREENOPTION_TOOLTIP )
+	UplinkStrncpy ( tooltip, newtooltip, sizeof ( tooltip ) )
 
 }
 

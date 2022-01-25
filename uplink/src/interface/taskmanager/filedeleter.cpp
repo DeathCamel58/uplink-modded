@@ -58,10 +58,10 @@ void FileDeleter::MoveTo ( int x, int y, int time_ms )
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -98,7 +98,7 @@ void FileDeleter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				sourceindex = uoi;
 
 				Data *data = source->GetData (sourceindex);
-				UplinkAssert (data);
+				UplinkAssert (data)
 				
 				numticksrequired = TICKSREQUIRED_DELETE * data->size;
 				progress = 0;
@@ -106,7 +106,7 @@ void FileDeleter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
                 remotefile = strstr(uos, "fileserverscreen") != nullptr;
 
 				Button *button = EclGetButton ( uos );
-				UplinkAssert (button);
+				UplinkAssert (button)
 
 				MoveTo ( button->x, button->y + button->height + 1, 1000 );
 
@@ -158,7 +158,7 @@ void FileDeleter::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void FileDeleter::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -224,10 +224,10 @@ static bool FileDeleter_ReSetTargetProgram ( int pid )
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
 
 		int animationid;
 		if ( ( animationid = EclIsNoCaptionChangeActive( stitle ) ) != -1 )
@@ -258,7 +258,7 @@ void FileDeleter::Tick ( int n )
 
 		int pid = SvbLookupPID ( this );
 		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
 
 		if ( status == FILEDELETER_OFF ) {
 
@@ -281,7 +281,7 @@ void FileDeleter::Tick ( int n )
 		}
 		else if ( status == FILEDELETER_INPROGRESS ) {
 
-			UplinkAssert (source);
+			UplinkAssert (source)
 
             // Check we are still connected
             if ( remotefile && !game->GetWorld ()->GetPlayer ()->IsConnected () ) {
@@ -300,7 +300,7 @@ void FileDeleter::Tick ( int n )
 			for ( int count = 0; count < n; ++count ) {
 
 				++progress;
-				UplinkAssert ( EclGetButton ( sprogress ) );
+				UplinkAssert ( EclGetButton ( sprogress ) )
 				EclGetButton ( sprogress )->width = (int) ( 120 * ( (float) progress / numticksrequired ) );
 				EclDirtyButton ( sprogress );
 
@@ -336,7 +336,7 @@ void FileDeleter::Tick ( int n )
 			progress = 0;
 			remotefile = true;
 
-			UplinkAssert ( EclGetButton ( sprogress ) );
+			UplinkAssert ( EclGetButton ( sprogress ) )
 			EclGetButton ( sprogress )->width = 120;
 			EclRegisterCaptionChange ( sprogress, "Select target" );
 			EclDirtyButton ( sprogress );
@@ -361,10 +361,10 @@ void FileDeleter::CreateInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
 
 		EclRegisterButton ( 265, 450, 20, 15, "", "File Deleter", stitle );
 		button_assignbitmap ( stitle, "software/del.tif" );
@@ -395,10 +395,10 @@ void FileDeleter::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -421,10 +421,10 @@ void FileDeleter::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -439,7 +439,7 @@ bool FileDeleter::IsInterfaceVisible ()
 	int pid = SvbLookupPID ( this );
 
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_border %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_border %d", pid )
 	
 	return ( EclGetButton (stitle) != nullptr );
 

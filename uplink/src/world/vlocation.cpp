@@ -20,8 +20,8 @@
 VLocation::VLocation()
 {
 	
-	UplinkStrncpy ( ip, "0.0.0.0", sizeof ( ip ) );
-	UplinkStrncpy ( computer, "", sizeof ( computer ) );
+	UplinkStrncpy ( ip, "0.0.0.0", sizeof ( ip ) )
+	UplinkStrncpy ( computer, "", sizeof ( computer ) )
 
 	x = y = 0;
 	listed = true;
@@ -36,8 +36,8 @@ VLocation::~VLocation()
 void VLocation::SetIP ( char *newip )
 {
 
-	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP );
-	UplinkStrncpy ( ip, newip, sizeof ( ip ) );
+	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
+	UplinkStrncpy ( ip, newip, sizeof ( ip ) )
 
 }
 
@@ -57,8 +57,8 @@ bool VLocation::VerifyIP ( char *newip )
 void VLocation::SetComputer ( char *newcomputer )
 {
 
-	UplinkAssert ( strlen (newcomputer) < SIZE_COMPUTER_NAME );
-	UplinkStrncpy ( computer, newcomputer, sizeof ( computer ) );
+	UplinkAssert ( strlen (newcomputer) < SIZE_COMPUTER_NAME )
+	UplinkStrncpy ( computer, newcomputer, sizeof ( computer ) )
 
 //	UplinkAssert ( game->GetWorld ()->GetComputer ( computer ) );
 
@@ -67,8 +67,8 @@ void VLocation::SetComputer ( char *newcomputer )
 void VLocation::SetPLocation ( int newx, int newy )
 {
 
-	UplinkAssert ( newx >= 0 && newx < VIRTUAL_WIDTH );
-	UplinkAssert ( newy >= 0 && newy < VIRTUAL_HEIGHT );
+	UplinkAssert ( newx >= 0 && newx < VIRTUAL_WIDTH )
+	UplinkAssert ( newy >= 0 && newy < VIRTUAL_HEIGHT )
 
 	x = newx;
 	y = newy;

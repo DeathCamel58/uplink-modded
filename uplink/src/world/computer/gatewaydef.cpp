@@ -18,10 +18,10 @@
 GatewayDef::GatewayDef ()
 {
 
-	UplinkStrncpy ( name, "UnNamed", sizeof ( name ) );
-	UplinkStrncpy ( description, "UnDescribed ;)", sizeof ( description ) );
-    UplinkStrncpy ( filename, "None", sizeof ( filename ) );
-    UplinkStrncpy ( thumbnail, "None", sizeof ( thumbnail ) );
+	UplinkStrncpy ( name, "UnNamed", sizeof ( name ) )
+	UplinkStrncpy ( description, "UnDescribed ;)", sizeof ( description ) )
+    UplinkStrncpy ( filename, "None", sizeof ( filename ) )
+    UplinkStrncpy ( thumbnail, "None", sizeof ( thumbnail ) )
 	cost = 0;
 	maxcpus = 0;
 	maxmemory = 0;
@@ -113,7 +113,7 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 
 	// Changed so users don't get confused about the 'you cannot be caught with this gateway' part
 	if ( strstr ( description, "An embedded broad-band radio transmitter provides total anonymity for the user - you cannot be caught with this gateway." ) )
-		UplinkStrncpy ( description, "A good small all rounder.", sizeof ( description ) );
+		UplinkStrncpy ( description, "A good small all rounder.", sizeof ( description ) )
 
 	// CPU positions
 
@@ -186,32 +186,32 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 void GatewayDef::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen (newname) < SIZE_GATEWAY_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen (newname) < SIZE_GATEWAY_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 		
 }
 
 void GatewayDef::SetDescription ( char *newdescription )
 {
 
-	UplinkAssert ( strlen (newdescription) < SIZE_GATEWAY_DESCRIPTION );
-	UplinkStrncpy ( description, newdescription, sizeof ( description ) );
+	UplinkAssert ( strlen (newdescription) < SIZE_GATEWAY_DESCRIPTION )
+	UplinkStrncpy ( description, newdescription, sizeof ( description ) )
 
 }
 
 void GatewayDef::SetFilename ( char *newfilename )
 {
 
-    UplinkAssert ( strlen ( newfilename) < SIZE_GATEWAY_FILENAME );
-    UplinkStrncpy ( filename, newfilename, sizeof ( filename ) );
+    UplinkAssert ( strlen ( newfilename) < SIZE_GATEWAY_FILENAME )
+    UplinkStrncpy ( filename, newfilename, sizeof ( filename ) )
 
 }
 
 void GatewayDef::SetThumbnail ( char *newthumbnail )
 {
 
-    UplinkAssert ( strlen ( newthumbnail) < SIZE_GATEWAY_FILENAME );
-    UplinkStrncpy ( thumbnail, newthumbnail, sizeof ( thumbnail ) );
+    UplinkAssert ( strlen ( newthumbnail) < SIZE_GATEWAY_FILENAME )
+    UplinkStrncpy ( thumbnail, newthumbnail, sizeof ( thumbnail ) )
 
 }
 
@@ -300,7 +300,7 @@ bool GatewayDef::VerifyCorrectness ()
 static void SaveDArrayGatewayDefLocation ( DArray <GatewayDefLocation *> *darray, FILE *file )
 {
 
-	UplinkAssert ( darray );
+	UplinkAssert ( darray )
 
 	int size = darray->Size ();
 	fwrite ( &size, sizeof(size), 1, file );
@@ -328,7 +328,7 @@ static bool LoadDArrayGatewayDefLocation ( DArray <GatewayDefLocation *> *darray
 {
 
 	if ( !darray ) {
-		UplinkPrintAssert ( darray );
+		UplinkPrintAssert ( darray )
 		return false;
 	}
 
@@ -336,7 +336,7 @@ static bool LoadDArrayGatewayDefLocation ( DArray <GatewayDefLocation *> *darray
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 
     if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
-		UplinkPrintAbortArgs ( "WARNING: LoadDArrayGatewayDefLocation, number of items appears to be wrong, size=%d", size );
+		UplinkPrintAbortArgs ( "WARNING: LoadDArrayGatewayDefLocation, number of items appears to be wrong, size=%d", size )
 		return false;
     }
 
@@ -354,7 +354,7 @@ static bool LoadDArrayGatewayDefLocation ( DArray <GatewayDefLocation *> *darray
 		}
 		else if ( index < 0 || index >= MAX_ITEMS_DATA_STRUCTURE ) {
 
-			UplinkPrintAbortArgs ( "WARNING: LoadDArrayGatewayDefLocation, number of items appears to be wrong, index=%d", index );
+			UplinkPrintAbortArgs ( "WARNING: LoadDArrayGatewayDefLocation, number of items appears to be wrong, index=%d", index )
 			return false;
 
 		}

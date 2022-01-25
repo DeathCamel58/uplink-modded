@@ -134,7 +134,7 @@ void ContactScreenInterface::PutMessage ( int userid, char *message )
 	// Add the message to the queue
 
 	char * msg = new char[ strlen( fullmessage.str() ) + 1 ];
-	UplinkSafeStrcpy( msg, fullmessage.str() );
+	UplinkSafeStrcpy( msg, fullmessage.str() )
 	fullmessage.rdbuf()->freeze( false );
 	thisint->messagequeue.PutData ( msg );
 
@@ -162,8 +162,8 @@ void ContactScreenInterface::SetTYPE ( int newTYPE )
 void ContactScreenInterface::SetMission ( Mission *newmission )
 {
 
-	UplinkAssert ( newmission );
-	UplinkAssert ( TYPE == CONTACT_TYPE_MISSION );
+	UplinkAssert ( newmission )
+	UplinkAssert ( TYPE == CONTACT_TYPE_MISSION )
 
 	mission = newmission;
 
@@ -183,10 +183,10 @@ void ContactScreenInterface::SetMission ( Mission *newmission )
 	//
 
 	Record *rec = RecordGenerator::GetCriminal ( "PLAYER" );
-	UplinkAssert (rec);
+	UplinkAssert (rec)
 	char *crimrec = nullptr;
 	crimrec = rec->GetField ( "Convictions" );
-	UplinkAssert (crimrec);
+	UplinkAssert (crimrec)
 
 	int numconvictions = 0;
 	char *currentconviction = strchr ( crimrec, '\n' );
@@ -246,7 +246,7 @@ void ContactScreenInterface::AddUser ( char *name )
 	else {
 
 		char message [128];
-		UplinkSnprintf ( message, sizeof ( message ), "User '%s' has entered the conference", name );
+		UplinkSnprintf ( message, sizeof ( message ), "User '%s' has entered the conference", name )
 
 		PutMessage ( 0, message );
 
@@ -268,8 +268,8 @@ void ContactScreenInterface::AddQuestion ( char *question, int index )
 
 	char name1 [32];
 	char name2 [32];
-	UplinkSnprintf ( name1, sizeof ( name1 ), "contact_questionb %d", index );
-	UplinkSnprintf ( name2, sizeof ( name2 ), "contact_question %d", index );
+	UplinkSnprintf ( name1, sizeof ( name1 ), "contact_questionb %d", index )
+	UplinkSnprintf ( name2, sizeof ( name2 ), "contact_question %d", index )
 
 	int x = ( index < 5 ? 20 : 230 );
 	int y = ( index < 5 ? 300 + index * 20 : 300 + (index-5) * 20 );
@@ -288,7 +288,7 @@ void ContactScreenInterface::AskQuestion ( int index )
 
 	auto *thisint = (ContactScreenInterface *) GetInterfaceScreen ( SCREEN_CONTACTSCREEN );
 
-	UplinkAssert (thisint->mission);
+	UplinkAssert (thisint->mission)
 
 	switch ( thisint->TYPE ) {
 
@@ -299,7 +299,7 @@ void ContactScreenInterface::AskQuestion ( int index )
 			{
 
 			auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
-			UplinkAssert ( cu );
+			UplinkAssert ( cu )
 			int indexmission = cu->missions.FindData ( thisint->mission );
 
 			// ??? Mission could have expired or could have been taken by a NPC Agent ???
@@ -367,10 +367,10 @@ void ContactScreenInterface::AskQuestion ( int index )
 							case 10: case 11: case 12: case 13: case 14: case 15: case 16: case 17: case 18: case 19:
 							case 20:	PutMessage ( 2, "Security will be extremely high." );			break;
 
-							default:	UplinkAbortArgs ( "Unrecognised mission difficulty %d", thisint->mission->difficulty );
+							default:	UplinkAbortArgs ( "Unrecognised mission difficulty %d", thisint->mission->difficulty )
 
 
-						};
+						}
 
 						if ( thisint->mission->difficulty > 6 )
 							PutMessage ( 0, "You will certainly encounter Proxy's or Firewalls." );
@@ -411,7 +411,7 @@ void ContactScreenInterface::AskQuestion ( int index )
 							else {
 
 								char message [128];
-								UplinkSnprintf ( message, sizeof ( message ), "OK, we'll give you %dc because of your reputation.", thisint->mission->maxpayment );
+								UplinkSnprintf ( message, sizeof ( message ), "OK, we'll give you %dc because of your reputation.", thisint->mission->maxpayment )
 								PutMessage ( 2, message );
 
 								thisint->mission->payment = thisint->mission->maxpayment;
@@ -535,17 +535,17 @@ void ContactScreenInterface::AskQuestion ( int index )
 					break;
 
 				default:
-					UplinkAbort ( "Unrecognised question index" );
+					UplinkAbort ( "Unrecognised question index" )
 
-			};
+			}
 
 			}
 			break;
 
 		default:
-			UplinkAbort ( "Unrecognised contact TYPE" );
+			UplinkAbort ( "Unrecognised contact TYPE" )
 
-	};
+	}
 
 }
 
@@ -560,7 +560,7 @@ bool ContactScreenInterface::ReturnKeyPressed ()
 void ContactScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -574,7 +574,7 @@ void ContactScreenInterface::Create ( ComputerScreen *newcs )
 
 			int y = 50 + ( i * 15 );
 			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "contact_text %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "contact_text %d", i )
 
 			EclRegisterButton ( 22, y, 400, 15, "", "", name );
 			EclRegisterButtonCallbacks ( name, MessageDraw, nullptr, nullptr, nullptr );
@@ -613,7 +613,7 @@ void ContactScreenInterface::Remove ()
 		for ( int ti = 0; ti < NUMLINES; ++ti ) {
 
 			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "contact_text %d", ti );
+			UplinkSnprintf ( name, sizeof ( name ), "contact_text %d", ti )
 			EclRemoveButton ( name );
 
 		}
@@ -628,10 +628,10 @@ void ContactScreenInterface::Remove ()
 		for ( int qi = 0; qi < numquestions; ++qi ) {
 
 			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "contact_question %d", qi );
+			UplinkSnprintf ( name, sizeof ( name ), "contact_question %d", qi )
 			EclRemoveButton ( name );
 
-			UplinkSnprintf ( name, sizeof ( name ), "contact_questionb %d", qi );
+			UplinkSnprintf ( name, sizeof ( name ), "contact_questionb %d", qi )
 			EclRemoveButton ( name );
 
 		}
@@ -658,14 +658,14 @@ void ContactScreenInterface::Update ()
 
 			char name1 [32];
 			char name2 [32];
-			UplinkSnprintf ( name1, sizeof ( name1 ), "contact_text %d", i );
-			UplinkSnprintf ( name2, sizeof ( name2 ), "contact_text %d", i + 1 );
+			UplinkSnprintf ( name1, sizeof ( name1 ), "contact_text %d", i )
+			UplinkSnprintf ( name2, sizeof ( name2 ), "contact_text %d", i + 1 )
 
 			Button *b1 = EclGetButton ( name1 );
-			UplinkAssert ( b1 );
+			UplinkAssert ( b1 )
 
 			Button *b2 = EclGetButton ( name2 );
-			UplinkAssert ( b2 );
+			UplinkAssert ( b2 )
 
 			b1->SetCaption ( b2->caption );
 
@@ -679,7 +679,7 @@ void ContactScreenInterface::Update ()
 		int time = (int) ( strlen(message) * 5 );
 
 		char name1 [32];
-		UplinkSnprintf ( name1, sizeof ( name1 ), "contact_text %d", NUMLINES-1 );
+		UplinkSnprintf ( name1, sizeof ( name1 ), "contact_text %d", NUMLINES-1 )
 
 		EclRegisterCaptionChange ( name1, message, time, WaitingCallback );
 		waiting = true;

@@ -74,7 +74,7 @@ void NetworkServer::StopServer ()
 char *NetworkServer::GetRemoteHost ( int socketindex )
 {
 
-	UplinkAssert ( clients.ValidIndex (socketindex) );	
+	UplinkAssert ( clients.ValidIndex (socketindex) )
 
 	DWORD ip;
 	char *host = new char [128];
@@ -93,7 +93,7 @@ char *NetworkServer::GetRemoteHost ( int socketindex )
 char *NetworkServer::GetRemoteIP ( int socketindex )
 {
 
-	UplinkAssert ( clients.ValidIndex (socketindex) );
+	UplinkAssert ( clients.ValidIndex (socketindex) )
 
 	DWORD ip;
 	char *sip = (char *) &ip;
@@ -102,7 +102,7 @@ char *NetworkServer::GetRemoteIP ( int socketindex )
 
 	size_t fullipsize = 64;
 	char *fullip = new char [fullipsize];
-	UplinkSnprintf ( fullip, fullipsize, "%u.%u.%u.%u", sip [0], sip [1], sip [2], sip [3] );
+	UplinkSnprintf ( fullip, fullipsize, "%u.%u.%u.%u", sip [0], sip [1], sip [2], sip [3] )
 
 	delete [] host;
 
@@ -144,7 +144,7 @@ void NetworkServer::Save ( FILE *file )
 void NetworkServer::Print ()
 {
 
-	printf ( "NetworkServer : listensocket:%d, lastlisten:%d\n", listensocket, lastlisten );
+	printf ( "NetworkServer : listensocket:%d, lastlisten:%ld\n", listensocket, lastlisten );
 
 	PrintDArray ( (DArray <UplinkObject *> *) &clients );
 

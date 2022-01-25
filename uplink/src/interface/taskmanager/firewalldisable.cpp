@@ -67,7 +67,7 @@ void FirewallDisable::BorderDraw ( Button *button, bool highlighted, bool clicke
 void FirewallDisable::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -104,20 +104,20 @@ void FirewallDisable::GoClick ( Button *button )
 	sscanf ( button->name, "%s %d", bname, &pid );
 
 	auto *thistask = (FirewallDisable *) SvbGetTask ( pid );
-	UplinkAssert (thistask);
+	UplinkAssert (thistask)
 
 	// Set it going
 
 	thistask->progress = 1;
 
-	UplinkStrncpy ( thistask->ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( thistask->ip ) );
+	UplinkStrncpy ( thistask->ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( thistask->ip ) )
 	
 	// Look up the target
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( thistask->ip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	thistask->ticksrequired = TICKSREQUIRED_ANALYSEFIREWALL * comp->security.NumSystems ();
 	thistask->ticksdone = 0;
@@ -190,7 +190,7 @@ void FirewallDisable::Tick ( int n )
 		char sprogress [128];
 		//char sborder   [128];
 		
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", SvbLookupPID ( this ) );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", SvbLookupPID ( this ) )
 
 		if ( progress == 0 ) {												// Do nothing - waiting for user to click GO			
 
@@ -212,9 +212,9 @@ void FirewallDisable::Tick ( int n )
 				// Look up the target
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-				UplinkAssert (vl);
+				UplinkAssert (vl)
 				Computer *comp = vl->GetComputer ();
-				UplinkAssert (comp);
+				UplinkAssert (comp)
 
 				// Update the display
 
@@ -242,9 +242,9 @@ void FirewallDisable::Tick ( int n )
 				// First Look up the target
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-				UplinkAssert (vl);
+				UplinkAssert (vl)
 				Computer *comp = vl->GetComputer ();
-				UplinkAssert (comp);
+				UplinkAssert (comp)
 
 				bool failed = false;
 
@@ -314,10 +314,10 @@ void FirewallDisable::CreateInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid )
 
 		EclRegisterButton ( 265, 442, 20, 15, "", "Disable any firewalls running on this machine", stitle );
 		button_assignbitmap ( stitle, "software/go.tif" );
@@ -349,10 +349,10 @@ void FirewallDisable::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid );			
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -375,10 +375,10 @@ void FirewallDisable::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid );			
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -392,7 +392,7 @@ bool FirewallDisable::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid )
 
 	return ( EclGetButton ( stitle ) != nullptr );
 

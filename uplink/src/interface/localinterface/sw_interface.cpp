@@ -40,7 +40,7 @@ int SWInterface::timesync = -1;
 void SWInterface::SoftwareClick ( Button *button ) 
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char softwarename [128];
 	float version;
@@ -79,7 +79,7 @@ void SWInterface::SoftwareClick ( Button *button )
 void SWInterface::SoftwareDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert (  button );
+	UplinkAssert (  button )
 
 	// Highlight this button anyway if it is the currentprogrambutton
 	
@@ -218,9 +218,9 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 		for ( int si = 0; si < software.Size (); ++si ) {
 	
 			char caption [128], tooltip [128], name [128];
-			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si), versions.GetData (si) );
-			UplinkStrncpy ( tooltip, "Runs this software application", sizeof ( tooltip ) );
-			UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", si );
+			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si), versions.GetData (si) )
+			UplinkStrncpy ( tooltip, "Runs this software application", sizeof ( tooltip ) )
+			UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", si )
 			EclRegisterButton ( x, y, 140, 15, caption, tooltip, name );
 			EclRegisterButtonCallbacks ( name, SoftwareDraw, SoftwareClick, button_click, SoftwareHighlight );
 			EclRegisterMovement ( name, x, y - si * 17, si * timesplit );
@@ -239,20 +239,20 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 
 		int i = 0;
 		char name [32];
-		UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", i )
 
 		while ( EclGetButton ( name ) != nullptr ) {
 
 			EclRemoveButton ( name );
 			++i;
-			UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", i )
 
 		}
 
 		// Redraw the button that was selected
 
 		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "hud_swmenu %d", currentsubmenu );
+		UplinkSnprintf ( bname, sizeof ( bname ), "hud_swmenu %d", currentsubmenu )
 		EclDirtyButton ( bname );
 
 		currentsubmenu = SOFTWARETYPE_NONE;
@@ -280,7 +280,7 @@ void SWInterface::SoftwareHighlight ( Button *button )
         }
 		else {										// Force redraw of previously selected button
 			char bname [32];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_software %d", currentprogrambutton );
+			UplinkSnprintf ( bname, sizeof ( bname ), "hud_software %d", currentprogrambutton )
 			EclDirtyButton ( bname );
 		}
 
@@ -507,9 +507,9 @@ void SWInterface::ToggleVersionMenu ( char *program, int x, int y )
 		for ( int si = 0; si < software.Size (); ++si ) {
 	
 			char caption [128], tooltip [128], name [128];
-			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si), versions.GetData (si) );
-			UplinkStrncpy ( tooltip, "Runs this software application", sizeof ( tooltip ) );
-			UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", si );
+			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si), versions.GetData (si) )
+			UplinkStrncpy ( tooltip, "Runs this software application", sizeof ( tooltip ) )
+			UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", si )
 			EclRegisterButton ( x, y, 120, 15, caption, tooltip, name );
 			EclRegisterButtonCallbacks ( name, SoftwareDraw, SoftwareClick, button_click, button_highlight );
 			EclRegisterMovement ( name, x, y - si * 17, si * timesplit );
@@ -526,20 +526,20 @@ void SWInterface::ToggleVersionMenu ( char *program, int x, int y )
 
 		int i = 0;
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", i )
 
 		while ( EclGetButton ( name ) != nullptr ) {
 
 			EclRemoveButton ( name );
 			++i;
-			UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", i )
 
 		}	
 
 		// Force redraw of the button that fathered this menu
 
 		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "hud_software %d", currentprogrambutton );
+		UplinkSnprintf ( bname, sizeof ( bname ), "hud_software %d", currentprogrambutton )
 		EclDirtyButton ( bname );
 
 		currentprogrambutton = -1;
@@ -595,7 +595,7 @@ void SWInterface::Update ()
 		// Check that the mouse is still over the button in question
 
 		char correctname [32];
-		UplinkSnprintf ( correctname, sizeof ( correctname ), "hud_software %d", currentprogrambutton );
+		UplinkSnprintf ( correctname, sizeof ( correctname ), "hud_software %d", currentprogrambutton )
 
 		Button *currentbutton = getcurrentbutton ();
 

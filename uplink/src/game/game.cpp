@@ -87,7 +87,7 @@ void Game::NewGame ()
 
     delete [] createdSavefileVer;
 	createdSavefileVer = new char [ sizeof( SAVEFILE_VERSION ) + 1 ];
-	UplinkSafeStrcpy ( createdSavefileVer, SAVEFILE_VERSION );
+	UplinkSafeStrcpy ( createdSavefileVer, SAVEFILE_VERSION )
 
 	// Create a unique winning code
 	winningCodeRandom = 0;
@@ -214,7 +214,7 @@ void Game::WarezGameOver ()
 Interface *Game::GetInterface ()
 {
 
-	UplinkAssert ( ui );
+	UplinkAssert ( ui )
 	return ui;
 
 }
@@ -222,7 +222,7 @@ Interface *Game::GetInterface ()
 View *Game::GetView ()
 {
 
-	UplinkAssert ( view );
+	UplinkAssert ( view )
 	return view;
 
 }
@@ -230,7 +230,7 @@ View *Game::GetView ()
 World *Game::GetWorld ()
 {
 
-	UplinkAssert ( world );
+	UplinkAssert ( world )
 	return world;
 
 }
@@ -238,7 +238,7 @@ World *Game::GetWorld ()
 GameObituary *Game::GetObituary ()
 {
 
-	UplinkAssert (gob);
+	UplinkAssert (gob)
 	return gob;
 
 }
@@ -275,7 +275,7 @@ bool Game::LoadGame ( FILE *file )
         UplinkSnprintf ( message, sizeof ( message ), "Failed to load user profile\n"
 													   "The save file is not compatible\n\n"
 													   "Save file is Version [%s]\n"
-													   "Required Version is between [%s] and [%s]", loadedSavefileVer, SAVEFILE_VERSION_MIN, SAVEFILE_VERSION );
+													   "Required Version is between [%s] and [%s]", loadedSavefileVer, SAVEFILE_VERSION_MIN, SAVEFILE_VERSION )
         create_msgbox ( "Error", message );
 
         return false;
@@ -378,9 +378,9 @@ void Game::Save ( FILE *file )
 
 		SaveID ( file );
 
-		UplinkAssert ( ui );
-		UplinkAssert ( view );
-		UplinkAssert ( world );
+		UplinkAssert ( ui )
+		UplinkAssert ( view )
+		UplinkAssert ( world )
 
 		fwrite ( SAVEFILE_VERSION, sizeof (SAVEFILE_VERSION), 1, file );
 
@@ -397,7 +397,7 @@ void Game::Save ( FILE *file )
 		}
 		else {
 	
-			UplinkAssert ( gob );
+			UplinkAssert ( gob )
 			gob->Save ( file );
 
 		}
@@ -478,7 +478,7 @@ const char *Game::GetLoadedSavefileVer () const
 void Game::WinCode ( const char *desc, const char *codeExtra )
 {
 
-	UplinkAssert ( desc );
+	UplinkAssert ( desc )
 
 	if ( createdSavefileVer && strcmp( createdSavefileVer, "SAV58" ) >= 0 )
 		winningCodeWon = 1;
@@ -486,7 +486,7 @@ void Game::WinCode ( const char *desc, const char *codeExtra )
 	delete [] winningCodeDesc;
 
 	winningCodeDesc = new char [ strlen ( desc ) + 1 ];
-	UplinkSafeStrcpy ( winningCodeDesc, desc );
+	UplinkSafeStrcpy ( winningCodeDesc, desc )
 
 	if ( winningCodeExtra ) {
 		delete [] winningCodeExtra;
@@ -495,7 +495,7 @@ void Game::WinCode ( const char *desc, const char *codeExtra )
 
 	if ( codeExtra ) {
 		winningCodeExtra = new char [ strlen ( codeExtra ) + 1 ];
-		UplinkSafeStrcpy ( winningCodeExtra, codeExtra );
+		UplinkSafeStrcpy ( winningCodeExtra, codeExtra )
 	}
 
 }
@@ -513,14 +513,14 @@ char *Game::GetWinningCodeDesc ()
 	if ( winningCodeDesc ) {
 
 		char *retDesc = new char [ strlen ( winningCodeDesc ) + 1 ];
-		UplinkSafeStrcpy ( retDesc, winningCodeDesc );
+		UplinkSafeStrcpy ( retDesc, winningCodeDesc )
 		return retDesc;
 
 	}
 	else {
 
 		char *retDesc = new char [ 1 ];
-		UplinkSafeStrcpy ( retDesc, "" );
+		UplinkSafeStrcpy ( retDesc, "" )
 		return retDesc;
 
 	}
@@ -532,7 +532,7 @@ char *Game::GetWinningCode ()
 
 	if ( !winningCodeWon ) {
 		char *retCode = new char [ 1 ];
-		UplinkSafeStrcpy ( retCode, "" );
+		UplinkSafeStrcpy ( retCode, "" )
 		return retCode;
 	}
 

@@ -40,8 +40,8 @@ void PasswordScreen::SetNextPage ( int newnextpage )
 void PasswordScreen::SetPassword ( char *newpassword )
 {
 
-	UplinkAssert ( strlen (newpassword) < SIZE_PASSWORDSCREEN_PASSWORD );
-	UplinkStrncpy ( password, newpassword, sizeof ( password ) );
+	UplinkAssert ( strlen (newpassword) < SIZE_PASSWORDSCREEN_PASSWORD )
+	UplinkStrncpy ( password, newpassword, sizeof ( password ) )
 
 }
 

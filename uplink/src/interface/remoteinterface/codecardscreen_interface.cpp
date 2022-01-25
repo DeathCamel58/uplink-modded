@@ -197,10 +197,10 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
     // Is the code correct?
 
     Button *answerbutton = EclGetButton ( "codecard_answer" );
-    UplinkAssert (answerbutton);
+    UplinkAssert (answerbutton)
 
     auto *thisint = (CodeCardScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-    UplinkAssert (thisint);
+    UplinkAssert (thisint)
 
     char *lowercasecaption = LowerCaseString (answerbutton->caption);
     bool success = false;
@@ -252,7 +252,7 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
     if ( success ) {
 
 	    auto *gs= (GenericScreen *) thisint->GetComputerScreen ();
-	    UplinkAssert (gs);
+	    UplinkAssert (gs)
 
 	    if ( gs->nextpage != -1 )
 		    game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
@@ -269,7 +269,7 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
 void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-    UplinkAssert (newcs);
+    UplinkAssert (newcs)
     cs = newcs;
 
 
@@ -334,7 +334,7 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
         //delete [] caption.str();
 
         char rowcolcaption [128];
-        UplinkSnprintf ( rowcolcaption, sizeof ( rowcolcaption ), "Enter code from Row %c, Column %d", row + ('A' - 'a'), col );
+        UplinkSnprintf ( rowcolcaption, sizeof ( rowcolcaption ), "Enter code from Row %c, Column %d", row + ('A' - 'a'), col )
         EclRegisterButton ( 100, 250, 200, 15, rowcolcaption, "codecard_rowcol" );
         EclRegisterButtonCallbacks ( "codecard_rowcol", textbutton_draw, nullptr, nullptr, nullptr );
 
@@ -388,7 +388,7 @@ int CodeCardScreenInterface::ScreenID ()
 GenericScreen *CodeCardScreenInterface::GetComputerScreen ()
 {
 
-    UplinkAssert (cs);
+    UplinkAssert (cs)
     return ( GenericScreen * ) cs;
 
 }

@@ -71,8 +71,8 @@ Agent::~Agent()
 void Agent::SetHandle ( char *newhandle )
 {
 
-	UplinkAssert ( strlen(newhandle) < SIZE_AGENT_HANDLE );
-	UplinkStrncpy ( handle, newhandle, sizeof ( handle ) );
+	UplinkAssert ( strlen(newhandle) < SIZE_AGENT_HANDLE )
+	UplinkStrncpy ( handle, newhandle, sizeof ( handle ) )
 
 }
 
@@ -101,8 +101,8 @@ void Agent::GiveMission ( Mission *mission )
 
 	DArray <char *> *darray = mission->codes.ConvertToDArray ();
 	DArray <char *> *darray_index = mission->codes.ConvertIndexToDArray ();
-	UplinkAssert ( darray );
-	UplinkAssert ( darray_index );
+	UplinkAssert ( darray )
+	UplinkAssert ( darray_index )
 
 	for ( int ai = 0; ai < darray->Size (); ++ai )
 		if ( darray->ValidIndex (ai) && darray_index->ValidIndex (ai) )
@@ -132,7 +132,7 @@ bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t userna
 		*/
 
     char fullcode [256];
-    UplinkStrncpy ( fullcode, thecode, sizeof ( fullcode ) );
+    UplinkStrncpy ( fullcode, thecode, sizeof ( fullcode ) )
 
 	//
 	// Count the number of dits
@@ -156,8 +156,8 @@ bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t userna
 		code = strchr ( fullcode, '\'' ) + 1;
 		*( strchr ( code, '\'' ) ) = '\x0';
 
-        UplinkStrncpy ( username, code, usernamesize );
-        UplinkStrncpy ( password, code, passwordsize );
+        UplinkStrncpy ( username, code, usernamesize )
+        UplinkStrncpy ( password, code, passwordsize )
         return true;
 
 	}
@@ -173,15 +173,15 @@ bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t userna
 		*( strchr ( name, '\'' ) ) = '\x0';
 		*( strchr ( code, '\'' ) ) = '\x0';
 
-        UplinkStrncpy ( username, name, usernamesize );
-        UplinkStrncpy ( password, code, passwordsize );
+        UplinkStrncpy ( username, name, usernamesize )
+        UplinkStrncpy ( password, code, passwordsize )
         return true;
 
 	}
 	else {
 
-        UplinkStrncpy ( username, "", usernamesize );
-        UplinkStrncpy ( password, "", passwordsize );
+        UplinkStrncpy ( username, "", usernamesize )
+        UplinkStrncpy ( password, "", passwordsize )
         return false;
 
 	}
@@ -194,10 +194,10 @@ void Agent::GiveLink ( char *newip )
 
 	if ( !HasLink ( newip ) ) {
 
-		UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP );
+		UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
 		size_t theipsize = SIZE_VLOCATION_IP;
 		char *theip = new char [theipsize];
-		UplinkStrncpy ( theip, newip, theipsize );
+		UplinkStrncpy ( theip, newip, theipsize )
 		links.PutDataAtStart ( theip );
 
         // If this was the player and he is looking at his links screen
@@ -217,7 +217,7 @@ void Agent::GiveLink ( char *newip )
     // Make sure it is set to appear on the world map
 
     VLocation *vl = game->GetWorld ()->GetVLocation (newip);
-    UplinkAssert (vl);
+    UplinkAssert (vl)
     vl->SetDisplayed (true);
 
 }
@@ -337,8 +337,8 @@ void Agent::GiveMessage ( Message *message )
 
 	DArray <char *> *darray = message->codes.ConvertToDArray ();
 	DArray <char *> *darray_index = message->codes.ConvertIndexToDArray ();
-	UplinkAssert ( darray );
-	UplinkAssert ( darray_index );
+	UplinkAssert ( darray )
+	UplinkAssert ( darray_index )
 
 	for ( int ai = 0; ai < darray->Size (); ++ai )
 		if ( darray->ValidIndex (ai) && darray_index->ValidIndex (ai) )
@@ -357,8 +357,8 @@ void Agent::GiveCode ( char *newip, char *newcode )
 
     DArray <char *> *ips = codes.ConvertIndexToDArray ();
     DArray <char *> *thecodes = codes.ConvertToDArray ();
-    UplinkAssert (ips);
-    UplinkAssert (thecodes);
+    UplinkAssert (ips)
+    UplinkAssert (thecodes)
 
     bool found = false;
 
@@ -366,12 +366,12 @@ void Agent::GiveCode ( char *newip, char *newcode )
         if ( ips->ValidIndex (i) && thecodes->ValidIndex (i) ) {
 
             char *thisip = ips->GetData (i);
-            UplinkAssert (thisip);
+            UplinkAssert (thisip)
 
             if ( strcmp ( thisip, newip ) == 0 ) {
 
                 char *thiscode = thecodes->GetData (i);
-                UplinkAssert (thiscode);
+                UplinkAssert (thiscode)
 
                 if ( strcmp ( thiscode, newcode ) == 0 ) {
 
@@ -406,7 +406,7 @@ void Agent::GiveCode ( char *newip, char *newcode )
 
 							size_t newcodecopysize = 128;
 							char *newcodecopy = new char [newcodecopysize];
-							UplinkStrncpy ( newcodecopy, newcode, newcodecopysize );
+							UplinkStrncpy ( newcodecopy, newcode, newcodecopysize )
     						codes.PutData ( thisip, newcodecopy );
 
                             found = true;
@@ -429,7 +429,7 @@ void Agent::GiveCode ( char *newip, char *newcode )
 
 		size_t newcodecopysize = 128;
 	    char *newcodecopy = new char [newcodecopysize];
-	    UplinkStrncpy ( newcodecopy, newcode, newcodecopysize );
+	    UplinkStrncpy ( newcodecopy, newcode, newcodecopysize )
     	codes.PutData ( newip, newcodecopy );
 
     }
@@ -473,7 +473,7 @@ void Agent::CheckMissionDueDates ()
 	for ( int i = 0; i < missions.Size (); ++i ) {
 
 		Mission *m = missions.GetData (i);
-		UplinkAssert (m);
+		UplinkAssert (m)
 
 		if ( m->GetDueDate () ) {
 
@@ -555,9 +555,9 @@ void Agent::AttemptMission_StealFile ()
 		EstablishConnection ( targetip );
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( targetip );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 		Computer *comp = vl->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		ConsequenceGenerator::MissionCompleted ( m, this );
 
@@ -586,9 +586,9 @@ void Agent::AttemptMission_DeleteFile ()
 		EstablishConnection ( targetip );
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( targetip );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 		Computer *comp = vl->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		comp->databank.Format ();
 
@@ -624,7 +624,7 @@ void Agent::AttemptMission_ChangeAccount ()
 	EstablishConnection ( sourceip );
 
 	BankAccount *ba = BankAccount::GetAccount ( sourceip, sourceaccno );
-	UplinkAssert (ba);
+	UplinkAssert (ba)
 	ba->TransferMoney ( sourceip, sourceaccno, targetip, targetaccno, amount, this );
 
 	ConsequenceGenerator::MissionCompleted ( m, this );
@@ -643,7 +643,7 @@ void Agent::AttemptMission_TraceUser ()
 
 	char *hackername = m->completionA;
 	Person *hacker = game->GetWorld ()->GetPerson ( hackername );
-	UplinkAssert (hacker);
+	UplinkAssert (hacker)
 
 	//
 	// Get the hacked computer system
@@ -651,9 +651,9 @@ void Agent::AttemptMission_TraceUser ()
 
 	char *compip = m->links.GetData (0);
 	VLocation *vl = game->GetWorld ()->GetVLocation ( compip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	//
 	// Go through each log, try to trace back to the hacker
@@ -663,7 +663,7 @@ void Agent::AttemptMission_TraceUser ()
 		if ( comp->logbank.logs.ValidIndex (il) ) {
 
 			AccessLog *al = comp->logbank.logs.GetData (il);
-			UplinkAssert (al);
+			UplinkAssert (al)
 
 			// If the log was deleted/overwritten we may be able to recover it
 
@@ -783,7 +783,7 @@ void Agent::AttemptMission_TraceUser ()
 								printf ( "Agent %s traced %s (probably framed)\n", name, framed->name );
 	#endif
 
-								UplinkStrncpy ( m->completionA, framed->name, sizeof ( m->completionA ) );
+								UplinkStrncpy ( m->completionA, framed->name, sizeof ( m->completionA ) )
 
 								ConsequenceGenerator::MissionCompleted ( m, this );
 								return;
@@ -830,9 +830,9 @@ void Agent::AttemptMission_RemoveComputer ()
 	char *targetip = m->completionA;
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( targetip );
-	UplinkAssert (targetip);
+	UplinkAssert (targetip)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	EstablishConnection ( targetip );
 
@@ -858,7 +858,7 @@ void Agent::EstablishConnection ( char *ip )
 		Computer *comp = WorldGenerator::GetRandomComputer (	COMPUTER_TYPE_INTERNALSERVICESMACHINE	|
 																COMPUTER_TYPE_CENTRALMAINFRAME			|
 																COMPUTER_TYPE_PUBLICBANKSERVER			);
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( !connection.LocationIncluded ( comp->ip ) &&
 			 strcmp ( comp->ip, ip ) != 0 )
@@ -886,9 +886,9 @@ void Agent::EstablishConnection ( char *ip )
 	char *toip   = connection.vlocations.GetData (coverindex);
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( toip );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	for ( int il = 0; il < comp->logbank.logs.Size (); ++il ) {
 		if ( comp->logbank.logs.ValidIndex (il) ) {

@@ -110,8 +110,8 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 
     Person *ceo = WorldGenerator::GetRandomPerson ();
     Person *admin = WorldGenerator::GetRandomPerson ();
-    UplinkAssert (ceo);
-    UplinkAssert (admin);
+    UplinkAssert (ceo)
+    UplinkAssert (admin)
 	company->SetBoss ( ceo->name );
 	company->SetAdmin ( admin->name );
 
@@ -183,7 +183,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 			printf ( "LanGenerator::LoadLAN WARNING: Unrecognised System TYPE %s.(%s)\n", systemName, filename );
 
 		if ( indexUsed != -1 ) {
-			UplinkAssert ( cluster->systems.ValidIndex ( indexUsed ) );
+			UplinkAssert ( cluster->systems.ValidIndex ( indexUsed ) )
 			LanComputerSystem *system = cluster->systems.GetData(indexUsed);
 			system->data1 = data1;
 			system->data2 = data2;
@@ -450,7 +450,7 @@ void LanGenerator::SanityCheckLAN ( LanComputer *comp )
         if ( comp->screens.ValidIndex (i) ) {
 
             ComputerScreen *cs = comp->screens.GetData(i);
-            UplinkAssert (cs);
+            UplinkAssert (cs)
             if ( cs->GetOBJECTID () == OID_HIGHSECURITYSCREEN ) {
 
                 auto *hss = (HighSecurityScreen *) cs;
@@ -459,7 +459,7 @@ void LanGenerator::SanityCheckLAN ( LanComputer *comp )
                     if ( hss->systems.ValidIndex(j) ) {
 
                         MenuScreenOption *mso = hss->systems.GetData(j);
-                        UplinkAssert (mso);
+                        UplinkAssert (mso)
                         if ( comp->screens.ValidIndex(mso->nextpage) ) {
 
                             ComputerScreen *nextPage = comp->screens.GetData(mso->nextpage);
@@ -498,8 +498,8 @@ void LanGenerator::GenerateLANCluster ( LanComputer *comp, int difficulty )
 
 	}
 
-	UplinkAssert ( cluster->systems.ValidIndex ( cluster->input ) );
-	UplinkAssert ( cluster->systems.ValidIndex ( cluster->output ) );
+	UplinkAssert ( cluster->systems.ValidIndex ( cluster->input ) )
+	UplinkAssert ( cluster->systems.ValidIndex ( cluster->output ) )
     LanComputerSystem *inputSys = cluster->systems.GetData( cluster->input );
     LanComputerSystem *outputSys = cluster->systems.GetData( cluster->output );
 
@@ -548,7 +548,7 @@ void LanGenerator::GenerateLAN_Level0Cluster ( LanComputer *comp, LanCluster *cl
             case 1  :       cluster->SetOutput ( t2Index );             break;
             case 2  :       cluster->SetOutput ( t3Index );             break;
             case 3  :       cluster->SetOutput ( t4Index );             break;
-        };
+        }
 
     }
     else if ( type == 2 ) {
@@ -557,7 +557,7 @@ void LanGenerator::GenerateLAN_Level0Cluster ( LanComputer *comp, LanCluster *cl
         int lockIndex = GenerateLock ( comp, cluster, x + width / 2 - 60, y + height / 2, 2 );
         int authIndex = GenerateAuthentication ( comp, cluster, x + width - 60, y + height / 2, 2 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->data1 = lockIndex;
 
@@ -574,7 +574,7 @@ void LanGenerator::GenerateLAN_Level0Cluster ( LanComputer *comp, LanCluster *cl
         int lockIndex = GenerateLock ( comp, cluster, x + width - 20, y + height - 40, 2 );
         int authIndex = GenerateAuthentication ( comp, cluster, x, y + height - 60, 2 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->data1 = lockIndex;
 
@@ -594,12 +594,12 @@ void LanGenerator::GenerateLAN_Level0Cluster ( LanComputer *comp, LanCluster *cl
         int isolIndex = GenerateIsolationBridge ( comp, cluster, x + width - 13, y + height - 27, 2 );
         int termIndex = GenerateTerminal ( comp, cluster, x, y + height / 2, 1 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( isolIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( isolIndex ) )
         LanComputerSystem *isol = cluster->systems.GetData( isolIndex );
         isol->data1 = lock1Index;
         isol->data2 = lock2Index;
 
-		UplinkAssert ( cluster->systems.ValidIndex ( lock1Index ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( lock1Index ) )
         LanComputerSystem *lock1 = cluster->systems.GetData( lock1Index );
         lock1->data1 = 0;
 
@@ -620,7 +620,7 @@ void LanGenerator::GenerateLAN_Level0Cluster ( LanComputer *comp, LanCluster *cl
         int lockIndex = GenerateLock ( comp, cluster, x + width - 20, y, 2 );
         int termIndex = GenerateTerminal ( comp, cluster, x, y + height - 40, 1 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->data1 = lockIndex;
 
@@ -640,7 +640,7 @@ void LanGenerator::GenerateLAN_Level0Cluster ( LanComputer *comp, LanCluster *cl
         int t3Index = GenerateTerminal ( comp, cluster, x, y + height / 3 * 3, 1 );
         int termIndex = GenerateTerminal ( comp, cluster, x + width - 40, y + height / 2, 1 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( termIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( termIndex ) )
         LanComputerSystem *terminal = cluster->systems.GetData(termIndex);
         terminal->validSubnets.PutData( t1Index );
         terminal->validSubnets.PutData( t2Index );
@@ -662,12 +662,12 @@ void LanGenerator::GenerateLAN_Level0Cluster ( LanComputer *comp, LanCluster *cl
         int lock2Index = GenerateLock ( comp, cluster, x + width - 20, y + height / 2, 2 );
         int modemIndex = GenerateModem ( comp, cluster, x + width/2, y + height - 40, 2 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( isolIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( isolIndex ) )
         LanComputerSystem *isol = cluster->systems.GetData( isolIndex );
         isol->data1 = lock1Index;
         isol->data2 = lock2Index;
 
-		UplinkAssert ( cluster->systems.ValidIndex ( lock1Index ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( lock1Index ) )
         LanComputerSystem *lock1 = cluster->systems.GetData( lock1Index );
         lock1->data1 = 0;
 
@@ -709,7 +709,7 @@ void LanGenerator::GenerateLAN_Level1Cluster ( LanComputer *comp, LanCluster *cl
         int t2Index = GenerateTerminal ( comp, cluster, x2, y2 - 20, 1 );
         int t3Index = GenerateTerminal ( comp, cluster, x2, y2 + 30, 1 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData(authIndex);
         auth->validSubnets.PutData( t1Index );
         auth->validSubnets.PutData( t2Index );
@@ -737,11 +737,11 @@ void LanGenerator::GenerateLAN_Level1Cluster ( LanComputer *comp, LanCluster *cl
         int lock2Index = GenerateLock ( comp, cluster, x + width - 20, y + height - 40, 1 );
         int isoIndex = GenerateIsolationBridge ( comp, cluster, x2, y + height - 40, 2 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->data1 = lock1Index;
 
-		UplinkAssert ( cluster->systems.ValidIndex ( isoIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( isoIndex ) )
         LanComputerSystem *iso = cluster->systems.GetData( isoIndex );
         iso->data1 = lock1Index;
         iso->data2 = lock2Index;
@@ -767,11 +767,11 @@ void LanGenerator::GenerateLAN_Level1Cluster ( LanComputer *comp, LanCluster *cl
         int lock2Index = GenerateLock ( comp, cluster, x2, y3, 2 );
         int term3Index = GenerateTerminal ( comp, cluster, x1, y3, 2 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( auth1Index ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( auth1Index ) )
         LanComputerSystem *auth1 = cluster->systems.GetData( auth1Index );
         auth1->data1 = lock1Index;
 
-		UplinkAssert ( cluster->systems.ValidIndex ( auth2Index ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( auth2Index ) )
         LanComputerSystem *auth2 = cluster->systems.GetData( auth2Index );
         auth2->data1 = lock2Index;
         auth2->validSubnets.PutData( term1Index );
@@ -797,19 +797,19 @@ void LanGenerator::GenerateLAN_Level1Cluster ( LanComputer *comp, LanCluster *cl
         int transIndex = GenerateRadioTransmitter ( comp, cluster, x1, y3, 2 );
         int receiIndex = GenerateRadioReceiver ( comp, cluster, x3, y1, 3 );
 
-		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->data1 = lockIndex;
 
-		UplinkAssert ( cluster->systems.ValidIndex ( receiIndex ) );
+		UplinkAssert ( cluster->systems.ValidIndex ( receiIndex ) )
         LanComputerSystem *recei = cluster->systems.GetData( receiIndex );
         recei->data1 = LanGenerator::GetRadioFrequency ( usedRadioFrenquencies );
         recei->data2 = NumberGenerator::RandomNumber ( 10 );
 
-        UplinkAssert ( cluster->systems.ValidIndex ( termIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( termIndex ) )
         LanComputerSystem *term = cluster->systems.GetData( termIndex );
         char freqData [128];
-        UplinkSnprintf ( freqData, sizeof ( freqData ), "Radio Receiver Frequency : %d.%d Ghz", recei->data1, recei->data2 );
+        UplinkSnprintf ( freqData, sizeof ( freqData ), "Radio Receiver Frequency : %d.%d Ghz", recei->data1, recei->data2 )
         HideData ( comp, term, freqData );
 
         cluster->AddLanLink ( hubIndex, 0.0f, 0.5f, termIndex, 1.0f, 0.5f, 1 );
@@ -833,24 +833,24 @@ void LanGenerator::GenerateLAN_Level1Cluster ( LanComputer *comp, LanCluster *cl
         int t3Index = GenerateTerminal ( comp, cluster, x1, y2 + 0, 3 );
         int receiIndex = GenerateRadioReceiver ( comp, cluster, x2, y + height - 40, 3 );
 
-        UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->data1 = lockIndex;
 
-        UplinkAssert ( cluster->systems.ValidIndex ( receiIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( receiIndex ) )
         LanComputerSystem *recei = cluster->systems.GetData( receiIndex );
         recei->data1 = LanGenerator::GetRadioFrequency ( usedRadioFrenquencies );
         recei->data2 = NumberGenerator::RandomNumber ( 10 );
 
         char freqData [128];
-        UplinkSnprintf ( freqData, sizeof ( freqData ), "Radio Receiver Frequency : %d.%d Ghz", recei->data1, recei->data2 );
+        UplinkSnprintf ( freqData, sizeof ( freqData ), "Radio Receiver Frequency : %d.%d Ghz", recei->data1, recei->data2 )
         LanComputerSystem *term = nullptr;
         switch ( NumberGenerator::RandomNumber(3) )
         {
-            case 0 : UplinkAssert ( cluster->systems.ValidIndex ( t1Index ) ); term = cluster->systems.GetData( t1Index ); break;
-            case 1 : UplinkAssert ( cluster->systems.ValidIndex ( t2Index ) ); term = cluster->systems.GetData( t2Index ); break;
-            case 2 : UplinkAssert ( cluster->systems.ValidIndex ( t3Index ) ); term = cluster->systems.GetData( t3Index ); break;
-            default: UplinkAssert ( cluster->systems.ValidIndex ( t3Index ) ); term = cluster->systems.GetData( t3Index );
+            case 0 : UplinkAssert ( cluster->systems.ValidIndex ( t1Index ) ) term = cluster->systems.GetData( t1Index ); break;
+            case 1 : UplinkAssert ( cluster->systems.ValidIndex ( t2Index ) ) term = cluster->systems.GetData( t2Index ); break;
+            case 2 : UplinkAssert ( cluster->systems.ValidIndex ( t3Index ) ) term = cluster->systems.GetData( t3Index ); break;
+            default: UplinkAssert ( cluster->systems.ValidIndex ( t3Index ) ) term = cluster->systems.GetData( t3Index );
         }
         HideData ( comp, term, freqData );
 
@@ -870,7 +870,7 @@ void LanGenerator::GenerateLAN_Level1Cluster ( LanComputer *comp, LanCluster *cl
     else if ( type == 6 ) {
 
         char phoneNum[32];
-        UplinkStrncpy( phoneNum, "UnInitialised", sizeof ( phoneNum ) );
+        UplinkStrncpy( phoneNum, "UnInitialised", sizeof ( phoneNum ) )
 
         int hubIndex = GenerateHUB ( comp, cluster, x, y, 1 );
         int term1Index = GenerateTerminal ( comp, cluster, x, y3, 1 );
@@ -879,15 +879,15 @@ void LanGenerator::GenerateLAN_Level1Cluster ( LanComputer *comp, LanCluster *cl
         int term2Index = GenerateTerminal ( comp, cluster, x2, y3, 2 );
         int modemIndex = GenerateModem ( comp, cluster, x3, y, 3, phoneNum, sizeof ( phoneNum ) );
 
-        UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->validSubnets.PutData ( term1Index );
         auth->data1 = lockIndex;
 
-        UplinkAssert ( cluster->systems.ValidIndex ( term2Index ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( term2Index ) )
         LanComputerSystem *term2 = cluster->systems.GetData( term2Index );
         char data [128];
-        UplinkSnprintf ( data, sizeof ( data ), "Local Dial-up number : %s", phoneNum );
+        UplinkSnprintf ( data, sizeof ( data ), "Local Dial-up number : %s", phoneNum )
         HideData ( comp, term2, data );
 
         cluster->AddLanLink ( hubIndex, 0.25, 1.0, term1Index, 0.5, 0.0, 1 );
@@ -933,7 +933,7 @@ void LanGenerator::GenerateLAN_Level2Cluster ( LanComputer *comp, LanCluster *cl
         cluster->AddLanLink ( hubIndex, 0.0, 0.5, input1, 0.5, 0.0, 1 );
         cluster->AddLanLink ( hubIndex, 1.0, 0.5, input2, 0.5, 0.0, 1 );
 
-        UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->data1 = lockIndex;
 
@@ -994,7 +994,7 @@ void LanGenerator::GenerateLAN_Level2Cluster ( LanComputer *comp, LanCluster *cl
         int hubIndex = GenerateHUB ( comp, cluster, 350, 0, 1 );
         int msIndex = GenerateMainServer ( comp, cluster, 450, 0, 1 );
 
-        UplinkAssert ( cluster->systems.ValidIndex ( msIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( msIndex ) )
         LanComputerSystem *ms = cluster->systems.GetData( msIndex );
         ms->data1 = l1Index;
         ms->data2 = l2Index;
@@ -1093,7 +1093,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
         int input2 = cluster->input;
         int output2 = cluster->output;
         char phoneNum[64];
-        UplinkStrncpy( phoneNum, "UnInitialised", sizeof ( phoneNum ) );
+        UplinkStrncpy( phoneNum, "UnInitialised", sizeof ( phoneNum ) )
         int modemIndex = GenerateModem ( comp, cluster, 480, 100, 3, phoneNum, sizeof ( phoneNum ) );
         int lockIndex = GenerateLock ( comp, cluster, 480, 200, 3 );
         cluster->AddLanLink ( modemIndex, 0.5, 1.0, lockIndex, 0.5, 0.0, 1 );
@@ -1118,14 +1118,14 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
 
         // Remaining
 
-        UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( authIndex ) )
         LanComputerSystem *auth = cluster->systems.GetData( authIndex );
         auth->data1 = lockIndex;
 
-        UplinkAssert ( cluster->systems.ValidIndex ( termIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( termIndex ) )
         LanComputerSystem *term = cluster->systems.GetData( termIndex );
         char data[256];
-        UplinkSnprintf ( data, sizeof ( data ), "Local Dial up number: %s", phoneNum );
+        UplinkSnprintf ( data, sizeof ( data ), "Local Dial up number: %s", phoneNum )
         HideData ( comp, term, data );
 
         cluster->centreX = 1000 / 2;
@@ -1146,7 +1146,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
         leftCluster->AddLanLink ( rec1Index, 0.5, 1.0, leftCluster->input, 0.5, 0.0, 1 );
         leftCluster->AddLanLink ( leftCluster->output, 1.0, 0.5, auth1Index, 0.0, 0.5, 1 );
         leftCluster->SetOutput( auth1Index );
-        UplinkAssert ( leftCluster->systems.ValidIndex ( rec1Index ) );
+        UplinkAssert ( leftCluster->systems.ValidIndex ( rec1Index ) )
         LanComputerSystem *recei1 = leftCluster->systems.GetData( rec1Index );
         recei1->data1 = LanGenerator::GetRadioFrequency ( usedRadioFrenquencies );
         recei1->data2 = NumberGenerator::RandomNumber ( 10 );
@@ -1164,7 +1164,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
         rightCluster->AddLanLink ( rec2Index, 0.5, 1.0, rightCluster->input, 0.5, 0.0, 1 );
         rightCluster->AddLanLink ( rightCluster->output, 1.0, 0.5, auth2Index, 0.0, 0.5, 1 );
         rightCluster->SetOutput ( auth2Index );
-        UplinkAssert ( rightCluster->systems.ValidIndex ( rec2Index ) );
+        UplinkAssert ( rightCluster->systems.ValidIndex ( rec2Index ) )
         LanComputerSystem *recei2 = rightCluster->systems.GetData( rec2Index );
         recei2->data1 = LanGenerator::GetRadioFrequency ( usedRadioFrenquencies );
         recei2->data2 = NumberGenerator::RandomNumber ( 10 );
@@ -1182,7 +1182,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
         lowerCluster->AddLanLink ( rec3Index, 0.5, 1.0, lowerCluster->input, 0.5, 0.0, 1 );
         lowerCluster->AddLanLink ( lowerCluster->output, 1.0, 0.5, auth3Index, 0.0, 0.5, 1 );
         lowerCluster->SetOutput ( auth3Index );
-        UplinkAssert ( lowerCluster->systems.ValidIndex ( rec3Index ) );
+        UplinkAssert ( lowerCluster->systems.ValidIndex ( rec3Index ) )
         LanComputerSystem *recei3 = lowerCluster->systems.GetData( rec3Index );
         recei3->data1 = LanGenerator::GetRadioFrequency ( usedRadioFrenquencies );
         recei3->data2 = NumberGenerator::RandomNumber ( 10 );
@@ -1206,25 +1206,25 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
         int l3Index = GenerateLock ( comp, cluster, x1 + w / 2, y1 + h - 60, 1 );
         int msIndex = GenerateMainServer ( comp, cluster, x1 + w / 2, y1 + h / 2, 1 );
 
-        UplinkAssert ( cluster->systems.ValidIndex ( msIndex ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( msIndex ) )
         LanComputerSystem *ms = cluster->systems.GetData( msIndex );
         ms->data1 = l1Index;
         ms->data2 = l2Index;
         ms->data3 = l3Index;
 
-        UplinkAssert ( cluster->systems.ValidIndex ( output1 ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( output1 ) )
         LanComputerSystem *auth1 = cluster->systems.GetData( output1 );
         auth1->data1 = l1Index;
 
-        UplinkAssert ( cluster->systems.ValidIndex ( output2 ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( output2 ) )
         LanComputerSystem *auth2 = cluster->systems.GetData( output2 );
         auth2->data1 = l2Index;
 
-        UplinkAssert ( cluster->systems.ValidIndex ( output3 ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( output3 ) )
         LanComputerSystem *auth3 = cluster->systems.GetData( output3 );
         auth3->data1 = l3Index;
 
-        UplinkAssert ( cluster->systems.ValidIndex ( t1Index ) );
+        UplinkAssert ( cluster->systems.ValidIndex ( t1Index ) )
         LanComputerSystem *t1 = cluster->systems.GetData( t1Index );
         char data [512];
         UplinkSnprintf ( data, sizeof ( data ), "Known Radio Receiver Frequencies :\n\n"
@@ -1233,7 +1233,7 @@ void LanGenerator::GenerateLAN_Level4Cluster ( LanComputer *comp, LanCluster *cl
 												"Receiver C : %d.%d Ghz",
 												recei1->data1, recei1->data2,
 												recei2->data1, recei2->data2,
-												recei3->data1, recei3->data2 );
+												recei3->data1, recei3->data2 )
         HideData ( comp, t1, data );
 
         cluster->AddLanLink ( hubIndex, 0.0f, 0.3f, t1Index, 0.5f, 0.0f, 1 );
@@ -1312,8 +1312,8 @@ void LanGenerator::GenerateLAN_BoundingBox ( LanComputer *comp, LanCluster *clus
 int LanGenerator::GenerateRouter( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-	UplinkAssert (comp);
-    UplinkAssert (cluster);
+	UplinkAssert (comp)
+    UplinkAssert (cluster)
 
 	//
 	// Create the screen
@@ -1344,8 +1344,8 @@ int LanGenerator::GenerateRouter( LanComputer *comp, LanCluster *cluster, int x,
 int LanGenerator::GenerateHUB ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-	UplinkAssert (comp);
-    UplinkAssert (cluster);
+	UplinkAssert (comp)
+    UplinkAssert (cluster)
 
 	//
 	// Create the screen
@@ -1376,8 +1376,8 @@ int LanGenerator::GenerateHUB ( LanComputer *comp, LanCluster *cluster, int x, i
 int LanGenerator::GenerateTerminal ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-	UplinkAssert (comp);
-    UplinkAssert (cluster);
+	UplinkAssert (comp)
+    UplinkAssert (cluster)
 
 	// Opening message screen
 
@@ -1435,8 +1435,8 @@ int LanGenerator::GenerateTerminal ( LanComputer *comp, LanCluster *cluster, int
 int LanGenerator::GenerateLock ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-	UplinkAssert (comp);
-    UplinkAssert (cluster);
+	UplinkAssert (comp)
+    UplinkAssert (cluster)
 
 	//
 	// Create the screen
@@ -1458,9 +1458,9 @@ int LanGenerator::GenerateLock ( LanComputer *comp, LanCluster *cluster, int x, 
 
 	int systemIndex = cluster->AddLanSystem( LANSYSTEM_LOCK, x, y, security, screenIndex, screenIndex );
 
-    UplinkAssert ( cluster->systems.ValidIndex ( systemIndex ) );
+    UplinkAssert ( cluster->systems.ValidIndex ( systemIndex ) )
 	LanComputerSystem *lock = cluster->systems.GetData(systemIndex);
-	UplinkAssert (lock);
+	UplinkAssert (lock)
 	lock->data1 = 1;
 
 	return systemIndex;
@@ -1470,8 +1470,8 @@ int LanGenerator::GenerateLock ( LanComputer *comp, LanCluster *cluster, int x, 
 int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-	UplinkAssert (comp);
-    UplinkAssert (cluster);
+	UplinkAssert (comp)
+    UplinkAssert (cluster)
 
 	//
 	// Opening message screen
@@ -1550,8 +1550,8 @@ int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluste
 int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-	UplinkAssert (comp);
-    UplinkAssert (cluster);
+	UplinkAssert (comp)
+    UplinkAssert (cluster)
 
 	//
 	// Opening message screen
@@ -1651,8 +1651,8 @@ int LanGenerator::GenerateMainServer ( LanComputer *comp, LanCluster *cluster, i
 int LanGenerator::GenerateLogServer ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-    UplinkAssert ( comp );
-    UplinkAssert ( cluster );
+    UplinkAssert ( comp )
+    UplinkAssert ( cluster )
 
     // Message screen
 
@@ -1701,8 +1701,8 @@ int LanGenerator::GenerateLogServer ( LanComputer *comp, LanCluster *cluster, in
 int LanGenerator::GenerateIsolationBridge ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-    UplinkAssert (comp);
-    UplinkAssert (cluster);
+    UplinkAssert (comp)
+    UplinkAssert (cluster)
 
     //
     // Main control panel
@@ -1727,8 +1727,8 @@ int LanGenerator::GenerateIsolationBridge ( LanComputer *comp, LanCluster *clust
 int LanGenerator::GenerateSessionKeyServer ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-    UplinkAssert (comp);
-    UplinkAssert (cluster);
+    UplinkAssert (comp)
+    UplinkAssert (cluster)
 
     auto *ms = new MessageScreen ();
     ms->SetMainTitle ( comp->companyname );
@@ -1744,25 +1744,25 @@ int LanGenerator::GenerateSessionKeyServer ( LanComputer *comp, LanCluster *clus
 int LanGenerator::GenerateModem ( LanComputer *comp, LanCluster *cluster, int x, int y, int security, char *phoneNum, size_t phoneNumsize )
 {
 
-    UplinkAssert (comp);
-    UplinkAssert (cluster);
+    UplinkAssert (comp)
+    UplinkAssert (cluster)
 
     //
     // New modem virtual location
 
 	char computername [SIZE_COMPUTER_NAME];
-	UplinkSnprintf ( computername, sizeof ( computername ), "%s LAN Dial Up access", comp->companyname );
+	UplinkSnprintf ( computername, sizeof ( computername ), "%s LAN Dial Up access", comp->companyname )
 
 	int mapx, mapy;
     WorldGenerator::GenerateValidMapPos ( mapx, mapy );
 	char ip [SIZE_VLOCATION_IP];
 
 	if ( phoneNum && phoneNum[0] == '0' ) {
-        UplinkStrncpy ( ip, phoneNum, sizeof ( ip ) );
+        UplinkStrncpy ( ip, phoneNum, sizeof ( ip ) )
 
 	} else {
         UplinkSnprintf ( ip, sizeof ( ip ), "0%d%d%d%d-%d%d%d%d%d%d", NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10),
-		    									NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10) );
+		    									NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10), NumberGenerator::RandomNumber (10) )
 	}
 
 	auto *vl = new VLocationSpecial ();
@@ -1772,7 +1772,7 @@ int LanGenerator::GenerateModem ( LanComputer *comp, LanCluster *cluster, int x,
 	vl->SetListed ( false );
     vl->SetComputer ( comp->name );
 
-    if ( phoneNum ) UplinkStrncpy ( phoneNum, ip, phoneNumsize );
+    if ( phoneNum ) UplinkStrncpy ( phoneNum, ip, phoneNumsize )
 
 	//
 	// Password Screen
@@ -1799,7 +1799,7 @@ int LanGenerator::GenerateModem ( LanComputer *comp, LanCluster *cluster, int x,
 													 "If you are not an authorised user you must disconnect now or risk\n"
 													 "legal action and jail time.\n\n"
 													 "The local dial-up number is %s.",
-													 ip );
+													 ip )
 
 	auto *ms = new MessageScreen ();
 	ms->SetMainTitle ( comp->companyname );
@@ -1821,8 +1821,8 @@ int LanGenerator::GenerateModem ( LanComputer *comp, LanCluster *cluster, int x,
 int LanGenerator::GenerateRadioTransmitter ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-    UplinkAssert (comp);
-    UplinkAssert (cluster);
+    UplinkAssert (comp)
+    UplinkAssert (cluster)
 
     auto *gs = new GenericScreen ();
     gs->SetMainTitle ( comp->companyname );
@@ -1838,8 +1838,8 @@ int LanGenerator::GenerateRadioTransmitter ( LanComputer *comp, LanCluster *clus
 int LanGenerator::GenerateRadioReceiver ( LanComputer *comp, LanCluster *cluster, int x, int y, int security )
 {
 
-    UplinkAssert (comp);
-    UplinkAssert (cluster);
+    UplinkAssert (comp)
+    UplinkAssert (cluster)
 
     auto *ms = new MessageScreen ();
     ms->SetMainTitle ( comp->companyname );
@@ -1861,8 +1861,8 @@ int LanGenerator::GenerateFaxPrinter ( LanComputer *comp, LanCluster *cluster, i
 {
 
 
-    UplinkAssert (comp);
-    UplinkAssert (cluster);
+    UplinkAssert (comp)
+    UplinkAssert (cluster)
 
     auto *ms = new MessageScreen ();
     ms->SetMainTitle ( comp->companyname );
@@ -1878,7 +1878,7 @@ int LanGenerator::GenerateFaxPrinter ( LanComputer *comp, LanCluster *cluster, i
 bool LanGenerator::HideData ( LanComputer *comp, int systemIndex, char *data )
 {
 
-    UplinkAssert (comp);
+    UplinkAssert (comp)
 
     if ( comp->systems.ValidIndex(systemIndex) ) {
         LanComputerSystem *system = comp->systems.GetData( systemIndex );
@@ -1892,9 +1892,9 @@ bool LanGenerator::HideData ( LanComputer *comp, int systemIndex, char *data )
 bool LanGenerator::HideData ( LanComputer *comp, LanComputerSystem *system, char *data )
 {
 
-    UplinkAssert (comp);
-    UplinkAssert (system);
-    UplinkAssert (data);
+    UplinkAssert (comp)
+    UplinkAssert (system)
+    UplinkAssert (data)
 
     //
     // Try to insert the data into a message screen
@@ -1907,7 +1907,7 @@ bool LanGenerator::HideData ( LanComputer *comp, LanComputerSystem *system, char
             auto *ms = (MessageScreen *) cs;
 			size_t newCaptionsize = strlen(ms->textmessage) + strlen(data) + 5;
             char *newCaption = new char [ newCaptionsize ];
-            UplinkSnprintf ( newCaption, newCaptionsize, "%s\n\n%s", ms->textmessage, data );
+            UplinkSnprintf ( newCaption, newCaptionsize, "%s\n\n%s", ms->textmessage, data )
             ms->SetTextMessage ( newCaption );
             delete [] newCaption;
             return true;
@@ -2023,7 +2023,7 @@ void LanCluster::Rotate ( int angle )
             if ( systems.ValidIndex(s) ) {
 
                 LanComputerSystem *system = systems.GetData(s);
-                UplinkAssert (system);
+                UplinkAssert (system)
 
                 int tempX = system->x - centreX;
                 int tempY = system->y - centreY;
@@ -2046,7 +2046,7 @@ void LanCluster::Rotate ( int angle )
             if ( links.ValidIndex(l) ) {
 
                 LanComputerLink *link = links.GetData(l);
-                UplinkAssert (link);
+                UplinkAssert (link)
 
                 float tempX = link->fromX;
                 float tempY = link->fromY;
@@ -2068,7 +2068,7 @@ void LanCluster::Rotate ( int angle )
 void LanCluster::Merge ( LanCluster *target, LanComputer *comp )
 {
 
-    UplinkAssert (target);
+    UplinkAssert (target)
 
     //
     // Make a store for the newly assigned indexes
@@ -2171,7 +2171,7 @@ void LanCluster::Merge ( LanCluster *target, LanComputer *comp )
 void LanCluster::Merge ( LanComputer *target )
 {
 
-    UplinkAssert (target);
+    UplinkAssert (target)
 
     //
     // Make a store for the newly assigned indexes

@@ -460,7 +460,7 @@ void Init_App ( char *argv0 )
     char *apppath = GetFilePath ( argv0 );
 	app = new App ();
 	char currenttime [SIZE_APP_DATE];
-	UplinkSnprintf ( currenttime, sizeof ( currenttime ), "%s at %s", __DATE__, __TIME__ );
+	UplinkSnprintf ( currenttime, sizeof ( currenttime ), "%s at %s", __DATE__, __TIME__ )
 	app->Set ( apppath, VERSION_NUMBER, VERSION_NAME, currenttime, "Uplink" );
     delete [] apppath;
 
@@ -784,12 +784,12 @@ bool VerifyLegitAndCodeCardCheck()
 	// Generate the file CRC
 
 	char realbuffer [9];
-	UplinkStrncpy ( realbuffer, "\xe7\x6b\x7e\x6b\x4c\x4f\x57\x7d", sizeof ( realbuffer ) );
+	UplinkStrncpy ( realbuffer, "\xe7\x6b\x7e\x6b\x4c\x4f\x57\x7d", sizeof ( realbuffer ) )
     
 	// Ensure the world.dat file is in place and has the right CRC
 
 	char worlddatfilename [256];
-	UplinkSnprintf ( worlddatfilename, sizeof ( worlddatfilename ), "%sworld.dat", app->path );
+	UplinkSnprintf ( worlddatfilename, sizeof ( worlddatfilename ), "%sworld.dat", app->path )
 	findGoodFile ( worlddatfilename );
 
 	FILE *file = fopen ( worlddatfilename, "rb" );
@@ -838,7 +838,7 @@ bool VerifyLegitAndCodeCardCheck()
 
 	if ( match && match2 ) {
 
-		UplinkStrncpy ( realbuffer, "\xaa\xab\x15\xdd\xdd\xee\xe9\x2d", sizeof ( realbuffer ) );
+		UplinkStrncpy ( realbuffer, "\xaa\xab\x15\xdd\xdd\xee\xe9\x2d", sizeof ( realbuffer ) )
 
 		file = fopen ( worlddatfilename, "rb" );
 
@@ -859,7 +859,7 @@ bool VerifyLegitAndCodeCardCheck()
 
 		bool match4 = false;
 
-		UplinkStrncpy ( realbuffer, "\xc1\xec\xd6\x8b\x02\x07\x28\xe8", sizeof ( realbuffer ) );
+		UplinkStrncpy ( realbuffer, "\xc1\xec\xd6\x8b\x02\x07\x28\xe8", sizeof ( realbuffer ) )
 
 		file = fopen ( worlddatfilename, "rb" );
 

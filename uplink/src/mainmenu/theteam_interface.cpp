@@ -129,7 +129,7 @@ void TheTeamInterface::NameDraw ( Button *button, bool highlighted, bool clicked
 
 	for ( size_t i = 0; i < strlen(button->caption); ++i ) {
 		char thischar [2];
-		UplinkSnprintf ( thischar, sizeof ( thischar ), "%c", button->caption [i] );
+		UplinkSnprintf ( thischar, sizeof ( thischar ), "%c", button->caption [i] )
 		GciDrawText ( (int) ( button->x + i * 12 ), ypos, thischar, HELVETICA_18 );
 	}
 		
@@ -148,17 +148,17 @@ void TheTeamInterface::TextDraw ( Button *button, bool highlighted, bool clicked
 	glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
 	LList <char *> *wrappedText = wordwraptext ( button->caption, button->width );
-	UplinkAssert (wrappedText);
+	UplinkAssert (wrappedText)
 
 	for ( int line = 0; line < wrappedText->Size (); ++line ) {
 
 		int ypos = button->y + 5 + line * 12;
 		char *thisLine = wrappedText->GetData (line);
-		UplinkAssert (thisLine);
+		UplinkAssert (thisLine)
 
 		for ( size_t i = 0; i < strlen(thisLine); ++i ) {
 			char thischar [2];
-			UplinkSnprintf ( thischar, sizeof ( thischar ), "%c", thisLine [i] );
+			UplinkSnprintf ( thischar, sizeof ( thischar ), "%c", thisLine [i] )
 			GciDrawText ( (int) ( button->x + i * 6 ), ypos, thischar, HELVETICA_10 );
 		}
 
@@ -179,7 +179,7 @@ void TheTeamInterface::TeamMemberHighlight ( Button *button )
 	sscanf ( button->name, "theteam_member %d", &index );
 
 	auto *thisint = (TheTeamInterface *) app->GetMainMenu ()->GetMenuScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( thisint->targetindex != index ) {
 
@@ -276,7 +276,7 @@ void TheTeamInterface::Update ()
 void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 {
 
-	UplinkAssert ( EclGetButton(buttonName) );
+	UplinkAssert ( EclGetButton(buttonName) )
 	char *currentCaption = EclGetButton (buttonName)->caption;
 	char *newCaption = nullptr;
 
@@ -288,7 +288,7 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 
 		size_t newCaptionSize = strlen(currentCaption) + 2;
 		newCaption = new char [newCaptionSize];
-		UplinkStrncpy ( newCaption, currentCaption, newCaptionSize );
+		UplinkStrncpy ( newCaption, currentCaption, newCaptionSize )
 		newCaption [newCaptionSize-2] = 'A' + NumberGenerator::RandomNumber (26);
 		newCaption [newCaptionSize-1] = '\x0';
 
@@ -304,7 +304,7 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 	else {
 
 		newCaption = new char [strlen(currentCaption)+1];
-		UplinkSafeStrcpy ( newCaption, currentCaption );
+		UplinkSafeStrcpy ( newCaption, currentCaption )
 
 	}
 
@@ -313,7 +313,7 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 	// Go through each letter, cycling as neccesary
 	//
 
-	UplinkAssert (newCaption);
+	UplinkAssert (newCaption)
 
 	size_t newCaptionSize = strlen(newCaption);
 	size_t targetCaptionSize = strlen(targetCaption);

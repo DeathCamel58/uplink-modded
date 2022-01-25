@@ -40,8 +40,8 @@ ArrestEvent::~ArrestEvent ()
 void ArrestEvent::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen(newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen(newname) < SIZE_PERSON_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
 
@@ -50,7 +50,7 @@ void ArrestEvent::SetReason ( char *newreason )
 
 	delete [] reason;
 	reason = new char [strlen(newreason)+1];
-	UplinkSafeStrcpy ( reason, newreason );
+	UplinkSafeStrcpy ( reason, newreason )
 
 }
 
@@ -59,7 +59,7 @@ void ArrestEvent::SetIP ( char *newip )
 
 	delete [] ip;
 	ip = new char [strlen(newip)+1];
-	UplinkSafeStrcpy ( ip, newip );
+	UplinkSafeStrcpy ( ip, newip )
 
 }
 
@@ -67,7 +67,7 @@ void ArrestEvent::Run ()
 {
 
 	Person *person = game->GetWorld ()->GetPerson ( name );
-	UplinkAssert (person);
+	UplinkAssert (person)
 
 	person->SetStatus ( PERSON_STATUS_INJAIL );
 
@@ -77,9 +77,9 @@ void ArrestEvent::Run ()
 
 	if ( ip ) {
 		VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 		comp = vl->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 	}
 
 	ConsequenceGenerator::Arrested ( person, comp, reason );
@@ -91,7 +91,7 @@ char *ArrestEvent::GetShortString ()
 
 	size_t shortstringsize = strlen(name) + 16;
 	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Arrest for %s", name );
+	UplinkSnprintf ( shortstring, shortstringsize, "Arrest for %s", name )
 	return shortstring;
 }
 

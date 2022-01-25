@@ -46,12 +46,12 @@ void SocialSecurityScreenInterface::CommitClick ( Button *button )
 {
 
 	auto *sssi = (SocialSecurityScreenInterface *) GetInterfaceScreen ( SCREEN_SOCSECSCREEN );
-	UplinkAssert (sssi);
+	UplinkAssert (sssi)
 
 	if ( sssi->recordindex != -1 ) {
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "International Social Security Database" );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		if ( comp->security.IsRunning_Proxy () ) {
 			create_msgbox ( "Error", "Denied access by Proxy Server" );
@@ -59,7 +59,7 @@ void SocialSecurityScreenInterface::CommitClick ( Button *button )
 		}
 
 		Record *rec = comp->recordbank.GetRecord ( sssi->recordindex );
-		UplinkAssert (rec);
+		UplinkAssert (rec)
 
 		rec->ChangeField ( "Social Security",	EclGetButton ( "ss_num" )->caption );
 		rec->ChangeField ( "D.O.B",				EclGetButton ( "ss_dob" )->caption );
@@ -76,7 +76,7 @@ void SocialSecurityScreenInterface::CloseClick ( Button *button )
 {
 
 	auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (gs);
+	UplinkAssert (gs)
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
 
@@ -100,7 +100,7 @@ void SocialSecurityScreenInterface::DetailsDraw ( Button *button, bool highlight
 void SocialSecurityScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert (newcs);
+	UplinkAssert (newcs)
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -196,7 +196,7 @@ void SocialSecurityScreenInterface::SetSearchName ( char *newsearchname )
 {
 
 	Computer *comp = game->GetWorld ()->GetComputer ( "International Social Security Database" );
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	recordindex = comp->recordbank.FindNextRecordIndexNameNotSystemAccount ();
 
@@ -215,7 +215,7 @@ void SocialSecurityScreenInterface::UpdateScreen ()
 	if ( IsVisible () ) {
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "International Social Security Database" );
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		Record *rec = comp->recordbank.GetRecord ( recordindex );
 		char *thisname = rec->GetField ( RECORDBANK_NAME );
@@ -227,7 +227,7 @@ void SocialSecurityScreenInterface::UpdateScreen ()
 		if ( person ) {
 
 			char filename [256];
-			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex );
+			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex )
 			button_assignbitmap ( "ss_photo", filename );
 
 		}
@@ -284,7 +284,7 @@ void SocialSecurityScreenInterface::Update ()
 			// Is this one it?
 
 			Computer *comp = game->GetWorld ()->GetComputer ( "International Social Security Database" );
-			UplinkAssert (comp);
+			UplinkAssert (comp)
 
 			// Have we searched all records?
 
@@ -300,7 +300,7 @@ void SocialSecurityScreenInterface::Update ()
 
 			Record *rec = comp->recordbank.GetRecord ( recordindex );
 			char *thisname = rec->GetField ( RECORDBANK_NAME );
-			UplinkAssert (thisname);
+			UplinkAssert (thisname)
 			char *lowercasethisname = LowerCaseString (thisname);
 
 			// Update display with the current record

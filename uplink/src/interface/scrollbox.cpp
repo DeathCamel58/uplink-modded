@@ -29,7 +29,7 @@ ScrollBox::ScrollBox()
 {
 
 	interfaceCreated = false;
-    UplinkStrncpy ( name, "NewScrollBox", sizeof ( name ) );
+    UplinkStrncpy ( name, "NewScrollBox", sizeof ( name ) )
     x = y = w = h = 0;
     numItems = windowSize = currentIndex = 0;
     callback = nullptr;
@@ -42,8 +42,8 @@ ScrollBox::~ScrollBox()
 void ScrollBox::SetName ( char *newname )
 {
     
-    UplinkAssert (strlen(newname) < SIZE_SCROLLBOX_NAME );
-    UplinkStrncpy ( name, newname, sizeof ( name ) );
+    UplinkAssert (strlen(newname) < SIZE_SCROLLBOX_NAME )
+    UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
 
@@ -247,13 +247,13 @@ void ScrollBox::MouseMoveScrollBar ( Button *button )
 void ScrollBox::GrabScrollBar ( char *name )
 {
     int mouseY = get_mouseY ();
-    UplinkStrncpy ( currentGrab, name, sizeof ( currentGrab ) );
+    UplinkStrncpy ( currentGrab, name, sizeof ( currentGrab ) )
 }
 
 void ScrollBox::UnGrabScrollBar ()
 {
     if ( strcmp ( currentGrab, "None" ) != 0 ) {
-        UplinkStrncpy ( currentGrab, "None", sizeof ( currentGrab ) );
+        UplinkStrncpy ( currentGrab, "None", sizeof ( currentGrab ) )
     }       
 }
  
@@ -312,9 +312,9 @@ void ScrollBox::CreateInterface ()
     char scrollBarName[256];
     char scrollDownName[256];
 
-    UplinkSnprintf ( scrollUpName, sizeof ( scrollUpName ), "scrollup %s", name );
-    UplinkSnprintf ( scrollDownName, sizeof ( scrollDownName ), "scrolldown %s", name );
-    UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name );
+    UplinkSnprintf ( scrollUpName, sizeof ( scrollUpName ), "scrollup %s", name )
+    UplinkSnprintf ( scrollDownName, sizeof ( scrollDownName ), "scrolldown %s", name )
+    UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name )
 
     EclRegisterButton ( x, y, 15, 15, "^", scrollUpName );
     EclRegisterButton ( x, y + 15, 15, h - 30, " ", scrollBarName );
@@ -339,9 +339,9 @@ void ScrollBox::RemoveInterface ()
     char scrollBarName[256];
     char scrollDownName[256];
 
-    UplinkSnprintf ( scrollUpName, sizeof ( scrollUpName ), "scrollup %s", name );
-    UplinkSnprintf ( scrollDownName, sizeof ( scrollDownName ), "scrolldown %s", name );
-    UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name );
+    UplinkSnprintf ( scrollUpName, sizeof ( scrollUpName ), "scrollup %s", name )
+    UplinkSnprintf ( scrollDownName, sizeof ( scrollDownName ), "scrolldown %s", name )
+    UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name )
 
     EclRemoveButton ( scrollUpName );
     EclRemoveButton ( scrollBarName );
@@ -358,7 +358,7 @@ void ScrollBox::UpdateInterface ()
 
 	if (interfaceCreated) {
 	    char scrollBarName [256];
-		UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name );
+		UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name )
 		EclDirtyButton ( scrollBarName );
 	}
 

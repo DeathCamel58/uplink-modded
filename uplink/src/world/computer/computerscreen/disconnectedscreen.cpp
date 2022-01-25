@@ -37,7 +37,7 @@ void DisconnectedScreen::SetTextMessage ( char *newtextmessage )
 
 	delete [] textmessage;
 	textmessage = new char [strlen(newtextmessage)+1];
-	UplinkSafeStrcpy ( textmessage, newtextmessage );
+	UplinkSafeStrcpy ( textmessage, newtextmessage )
 
 }
 
@@ -46,7 +46,7 @@ void DisconnectedScreen::AddLoginLost ( char *ip )
 
 	size_t ipcopysize = SIZE_VLOCATION_IP;
     char *ipcopy = new char [ipcopysize];
-    UplinkStrncpy ( ipcopy, ip, ipcopysize );
+    UplinkStrncpy ( ipcopy, ip, ipcopysize )
     loginslost.PutData ( ipcopy );
 
 }

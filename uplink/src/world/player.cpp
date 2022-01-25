@@ -72,7 +72,7 @@ bool Player::IsPlayerAccount ( char *bankip, char *accno )
 {
 
 	char searchstring [64];
-	UplinkSnprintf ( searchstring, sizeof ( searchstring ), "%s %s", bankip, accno );
+	UplinkSnprintf ( searchstring, sizeof ( searchstring ), "%s %s", bankip, accno )
 
 	for ( int i = 0; i < accounts.Size (); ++i )
 		if ( accounts.ValidIndex (i) )
@@ -128,7 +128,7 @@ void Player::TradeShares ( char *companyname, int howmany )
 	// and the shares we own in it
 
 	Company *company = game->GetWorld ()->GetCompany ( companyname );
-	UplinkAssert (company);
+	UplinkAssert (company)
 
 	char *stringdata = shares.GetData ( companyname );
 
@@ -143,7 +143,7 @@ void Player::TradeShares ( char *companyname, int howmany )
 
 				size_t newentrysize = 16;
 				char *newentry = new char [newentrysize];
-				UplinkSnprintf ( newentry, newentrysize, "%d %d", howmany, cost );
+				UplinkSnprintf ( newentry, newentrysize, "%d %d", howmany, cost )
 				shares.PutData ( companyname, newentry );
 
 				ChangeBalance ( howmany * company->GetSharePrice () * -1, "International Stock Market" );
@@ -190,7 +190,7 @@ void Player::TradeShares ( char *companyname, int howmany )
 
 		size_t newentrysize = 16;
 		char *newentry = new char [newentrysize];
-		UplinkSnprintf ( newentry, newentrysize, "%d %d", numowned, pricepaid );
+		UplinkSnprintf ( newentry, newentrysize, "%d %d", numowned, pricepaid )
 		shares.PutData ( companyname, newentry );
 
 	}
@@ -260,7 +260,7 @@ int Player::TimeRemaining ()
     for ( int i = numlocations; i >= 0; --i ) {
 
         char *thisip = GetConnection ()->vlocations.GetData ( i );
-        UplinkAssert (thisip);
+        UplinkAssert (thisip)
         timeremaining += TimeToTrace ( GetRemoteHost ()->ip, thisip );
 
     }
@@ -273,9 +273,9 @@ int Player::TimeToTrace ( char *tracerIP, char *routerIP )
 {
 
     VLocation *tracer = game->GetWorld ()->GetVLocation (tracerIP);
-    UplinkAssert (tracer);
+    UplinkAssert (tracer)
     Computer *comp = tracer->GetComputer ();
-    UplinkAssert (comp);
+    UplinkAssert (comp)
 
 	int timetonexttrace = comp->tracespeed;
 
@@ -341,7 +341,7 @@ void Player::Update ()
                 // Work out time to next trace
 
                 char *thisip = GetConnection ()->vlocations.GetData ( GetConnection ()->GetSize () - GetConnection ()->traceprogress - 1 );
-                UplinkAssert (thisip);
+                UplinkAssert (thisip)
 
                 int timetonexttrace = TimeToTrace ( GetRemoteHost ()->ip, thisip );
                 timetonexttrace = NumberGenerator::ApplyVariance ( timetonexttrace, (int) ( TRACESPEED_VARIANCE * 100 ) );

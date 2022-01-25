@@ -95,8 +95,8 @@ void StatusInterface::Create ()
         char urating [256];        
         char nrating [256];
         UplinkSnprintf ( urating, sizeof ( urating ), "GRADE %d UPLINK AGENT\nRating: %s", NUM_UPLINKRATINGS - game->GetWorld ()->GetPlayer ()->rating.uplinkrating,
-													  game->GetWorld ()->GetPlayer ()->rating.GetUplinkRating () );
-        UplinkSnprintf ( nrating, sizeof ( nrating ), "NEUROMANCER (Unofficial)\nRating: %s", game->GetWorld ()->GetPlayer ()->rating.GetNeuromancerRating () );
+													  game->GetWorld ()->GetPlayer ()->rating.GetUplinkRating () )
+        UplinkSnprintf ( nrating, sizeof ( nrating ), "NEUROMANCER (Unofficial)\nRating: %s", game->GetWorld ()->GetPlayer ()->rating.GetNeuromancerRating () )
 		EclRegisterCaptionChange ( "status_uplinkrating", urating );
 		EclRegisterCaptionChange ( "status_neuromancerrating", nrating );
 
@@ -131,9 +131,9 @@ void StatusInterface::Create ()
                 char name [128];
                 char tooltip [128];
                 char filename [256];
-                UplinkSnprintf ( name, sizeof ( name ), "status_award %d", i );
-                UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Completed Special Mission '%s'", game->GetWorld ()->plotgenerator.SpecialMissionTitle (i) );
-                UplinkSnprintf ( filename, sizeof ( filename ), "awards/award%d.tif", i );
+                UplinkSnprintf ( name, sizeof ( name ), "status_award %d", i )
+                UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Completed Special Mission '%s'", game->GetWorld ()->plotgenerator.SpecialMissionTitle (i) )
+                UplinkSnprintf ( filename, sizeof ( filename ), "awards/award%d.tif", i )
 
                 EclRegisterButton ( x, y, 16, 16, " ", tooltip, name );                
                 button_assignbitmaps_blend ( name, filename, filename, filename );
@@ -170,7 +170,7 @@ void StatusInterface::Remove ()
         for ( int i = 0; i < 16; ++i ) {
 
             char name [128];
-            UplinkSnprintf ( name, sizeof ( name ), "status_award %d", i );
+            UplinkSnprintf ( name, sizeof ( name ), "status_award %d", i )
             EclRemoveButton (name);
 
         }

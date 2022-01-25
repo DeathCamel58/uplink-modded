@@ -41,7 +41,7 @@ int FileServerScreenInterface::previousnumfiles = 0;
 void FileServerScreenInterface::CloseClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int nextpage;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
@@ -59,7 +59,7 @@ bool FileServerScreenInterface::EscapeKeyPressed ()
 {
 
 	char name [128 + SIZE_VLOCATION_IP + 1];
-	UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+	UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
     Button *button = EclGetButton (name);
     
 	if ( button )
@@ -71,14 +71,14 @@ bool FileServerScreenInterface::EscapeKeyPressed ()
 void FileServerScreenInterface::FileClick ( Button *button )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int fileindex;
 	sscanf ( button->name, "fileserverscreen_file %d", &fileindex );
 	fileindex += baseoffset;
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert ( comp );
+	UplinkAssert ( comp )
 
 	if ( comp->security.IsRunning_Firewall () ) {
 		create_msgbox ( "Error", "Denied access by Firewall" );
@@ -100,7 +100,7 @@ void FileServerScreenInterface::FileClick ( Button *button )
 		// Log this access
 		char action [64];
 
-		UplinkSnprintf ( action, sizeof ( action ), "Accessed file %s", data->title );
+		UplinkSnprintf ( action, sizeof ( action ), "Accessed file %s", data->title )
 		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date), 
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER",
@@ -127,7 +127,7 @@ void FileServerScreenInterface::FileClick ( Button *button )
 		// Log this access
 		char action [64];
 
-		UplinkSnprintf ( action, sizeof ( action ), "Accessed memory file index %d", fileindex );
+		UplinkSnprintf ( action, sizeof ( action ), "Accessed memory file index %d", fileindex )
 		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date), 
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER",
@@ -268,7 +268,7 @@ void FileServerScreenInterface::ScrollChange ( char *scrollname, int newValue )
 	for ( int i = 0; i < 15; ++i ) {
 
 		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i )
 		EclDirtyButton ( name );
 
 	}
@@ -278,14 +278,14 @@ void FileServerScreenInterface::ScrollChange ( char *scrollname, int newValue )
 void FileServerScreenInterface::FileDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int fileindex;
 	sscanf ( button->name, "fileserverscreen_file %d", &fileindex );
 	fileindex += baseoffset;
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert ( comp );
+	UplinkAssert ( comp )
 
 	/*
 	Data *data = comp->databank.GetDataFile (fileindex);
@@ -324,18 +324,18 @@ void FileServerScreenInterface::FileDraw ( Button *button, bool highlighted, boo
 		GciDrawText ( button->x, button->y + 10, data->title );
 
 		char size [64];
-		UplinkSnprintf ( size, sizeof ( size ), "%d GigaQuads", data->size );
+		UplinkSnprintf ( size, sizeof ( size ), "%d GigaQuads", data->size )
 		GciDrawText ( button->x + 150, button->y + 10, size );
 
 		if ( data->encrypted > 0 ) {
 			char encrypttext [32];
-			UplinkSnprintf ( encrypttext, sizeof ( encrypttext ), "Level %d", data->encrypted );
+			UplinkSnprintf ( encrypttext, sizeof ( encrypttext ), "Level %d", data->encrypted )
 			GciDrawText ( button->x + 250, button->y + 10, encrypttext );
 		}
 
 		if ( data->compressed > 0 ) {
 			char compressedtext [32];
-			UplinkSnprintf ( compressedtext, sizeof ( compressedtext ), "Level %d", data->compressed );
+			UplinkSnprintf ( compressedtext, sizeof ( compressedtext ), "Level %d", data->compressed )
 			GciDrawText ( button->x + 330, button->y + 10, compressedtext );
 		}
 
@@ -349,7 +349,7 @@ void FileServerScreenInterface::FileDraw ( Button *button, bool highlighted, boo
 		GciDrawText ( button->x, button->y + 10, "Free space" );
 
 		char size [64];
-		UplinkSnprintf ( size, sizeof ( size ), "%d GigaQuads", sizeData );
+		UplinkSnprintf ( size, sizeof ( size ), "%d GigaQuads", sizeData )
 		GciDrawText ( button->x + 150, button->y + 10, size );
 
 	}
@@ -384,7 +384,7 @@ void FileServerScreenInterface::Create ()
 void FileServerScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -413,7 +413,7 @@ void FileServerScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int i = 0; i < 15; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i )
 			EclRegisterButton ( 15, 140 + i * 15, 400, 14, "", "Select this file", name );
 			EclRegisterButtonCallbacks ( name, FileDraw, FileClick, button_click, button_highlight );
 
@@ -448,7 +448,7 @@ void FileServerScreenInterface::Create ( ComputerScreen *newcs )
 		// Create the close button
 
 		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 		EclRegisterButton ( 421, 121, 13, 13, "", "Close the File Server Screen", name );
 		button_assignbitmaps ( name, "close.tif", "close_h.tif", "close_c.tif" );
 		EclRegisterButtonCallback ( name, CloseClick );
@@ -487,7 +487,7 @@ void FileServerScreenInterface::Remove ()
 		for ( int i = 0; i < 15; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i )
 			EclRemoveButton ( name );
 
 		}
@@ -501,7 +501,7 @@ void FileServerScreenInterface::Remove ()
             ScrollBox::RemoveScrollBox( "fileserverscreen_scroll" );
 
 		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip );
+		UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
 		EclRemoveButton ( name );
 
 	}
@@ -519,7 +519,7 @@ void FileServerScreenInterface::Update ()
 {
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-	UplinkAssert ( comp );
+	UplinkAssert ( comp )
 
 	/*
 	int newnumfiles = comp->databank.NumDataFiles ();
@@ -532,7 +532,7 @@ void FileServerScreenInterface::Update ()
 		for ( int i = 0; i < 15; ++i ) {
 
 			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i )
 			EclDirtyButton ( name );
 
 		}
@@ -566,7 +566,7 @@ void FileServerScreenInterface::Update ()
 GenericScreen *FileServerScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

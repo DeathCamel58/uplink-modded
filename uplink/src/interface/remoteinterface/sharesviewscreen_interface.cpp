@@ -28,7 +28,7 @@
 SharesViewScreenInterface::SharesViewScreenInterface ()
 {
 
-	UplinkStrncpy ( companyname, " ", sizeof ( companyname ) );
+	UplinkStrncpy ( companyname, " ", sizeof ( companyname ) )
 
 	for ( int i = 0; i < 12; ++i )
 		sharehistory [i] = 0;
@@ -44,9 +44,9 @@ bool SharesViewScreenInterface::EscapeKeyPressed ()
 {
 
 	char closename [32];
-	UplinkSnprintf ( closename, sizeof ( closename ), "sharesviewscreen_close %d", GetComputerScreen ()->nextpage );
+	UplinkSnprintf ( closename, sizeof ( closename ), "sharesviewscreen_close %d", GetComputerScreen ()->nextpage )
     Button *button = EclGetButton (closename);
-    UplinkAssert (closename);
+    UplinkAssert (closename)
 
     CloseClick ( button );
     return true;
@@ -56,12 +56,12 @@ bool SharesViewScreenInterface::EscapeKeyPressed ()
 void SharesViewScreenInterface::DrawPriceGraph ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	clear_draw ( button->x, button->y, button->width, button->height );
 
 	auto *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( thisint->companyname [0] != ' ' ) {
 
@@ -99,7 +99,7 @@ void SharesViewScreenInterface::DrawPriceGraph ( Button *button, bool highlighte
 			if ( month < 0 ) month += 12;
 
 			char date [32];
-			UplinkSnprintf ( date, sizeof ( date ), "%s, %d", Date::GetMonthName ( month + 1 ), month > monthnow ? yearnow - 1 : yearnow );
+			UplinkSnprintf ( date, sizeof ( date ), "%s, %d", Date::GetMonthName ( month + 1 ), month > monthnow ? yearnow - 1 : yearnow )
 
 			int value = thisint->sharehistory [month];			
 			glVertex2d ( button->x + 190 - ( it * 15 ), button->y + button->height - 40 - value );
@@ -118,7 +118,7 @@ void SharesViewScreenInterface::DrawPriceGraph ( Button *button, bool highlighte
 void SharesViewScreenInterface::DrawProfit ( Button *button, bool highlighted, bool clicked )
 {
 
-    UplinkAssert (button);
+    UplinkAssert (button)
     clear_draw ( button->x, button->y, button->width, button->height );
     DrawMainTitle ( button, highlighted, clicked );
 
@@ -128,7 +128,7 @@ void SharesViewScreenInterface::BuyClick ( Button *button )
 {
 
 	auto *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( thisint->companyname [0] != ' ' ) {
 
@@ -144,7 +144,7 @@ void SharesViewScreenInterface::SellClick ( Button *button )
 {
 
 	auto *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( thisint->companyname [0] != ' ' ) {
 
@@ -160,7 +160,7 @@ void SharesViewScreenInterface::CloseClick ( Button *button )
 {
 
     auto *gs = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-    UplinkAssert (gs);
+    UplinkAssert (gs)
 
 	if ( gs->nextpage != -1 ) 
         game->GetInterface ()->GetRemoteInterface ()->RunScreen ( gs->nextpage, gs->GetComputer () );
@@ -171,7 +171,7 @@ void SharesViewScreenInterface::UpdateStatus ()
 {
 
 	auto *thisint = (SharesViewScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	if ( thisint->companyname [0] != ' ' ) {
 
@@ -185,11 +185,11 @@ void SharesViewScreenInterface::UpdateStatus ()
         if ( game->GetInterface ()->GetRemoteInterface ()->security_level < 10 ) {
         
 		    char caption [128];
-		    UplinkSnprintf ( caption, sizeof ( caption ), "You own %d shares\nPaid:%dc Value:%dc", numowned, pricepaid, numowned * currentprice );
+		    UplinkSnprintf ( caption, sizeof ( caption ), "You own %d shares\nPaid:%dc Value:%dc", numowned, pricepaid, numowned * currentprice )
 		    EclGetButton ( "sharesviewscreen_owned" )->SetCaption ( caption );
 
 		    char profits [64];
-		    UplinkSnprintf ( profits, sizeof ( profits ), "Profit:%dc", profit );
+		    UplinkSnprintf ( profits, sizeof ( profits ), "Profit:%dc", profit )
 		    EclGetButton ( "sharesviewscreen_profit" )->SetCaption ( profits );
 
         }
@@ -201,8 +201,8 @@ void SharesViewScreenInterface::UpdateStatus ()
 void SharesViewScreenInterface::SetCompanyName ( char *newcompanyname )
 {
 
-	UplinkAssert ( strlen(newcompanyname) < SIZE_COMPANY_NAME );
-	UplinkStrncpy ( companyname, newcompanyname, sizeof ( companyname ) );
+	UplinkAssert ( strlen(newcompanyname) < SIZE_COMPANY_NAME )
+	UplinkStrncpy ( companyname, newcompanyname, sizeof ( companyname ) )
 
 	//
 	// Look up the company
@@ -210,7 +210,7 @@ void SharesViewScreenInterface::SetCompanyName ( char *newcompanyname )
 	//
 
 	Company *company = game->GetWorld ()->GetCompany ( companyname );
-	UplinkAssert (company);
+	UplinkAssert (company)
 
 	for ( int i = 0; i < 12; ++i )
 		sharehistory [i] = company->GetSharePrice ( i );
@@ -233,13 +233,13 @@ void SharesViewScreenInterface::SetCompanyName ( char *newcompanyname )
 
 		char bdate [32];
 		char bname [32];
-		UplinkSnprintf ( bdate, sizeof ( bdate ), "sharesviewscreen_date %d", it );
-		UplinkSnprintf ( bname, sizeof ( bname ), "sharesviewscreen_numbers %d", it );
+		UplinkSnprintf ( bdate, sizeof ( bdate ), "sharesviewscreen_date %d", it )
+		UplinkSnprintf ( bname, sizeof ( bname ), "sharesviewscreen_numbers %d", it )
 
 		char date [32];
-		UplinkSnprintf ( date, sizeof ( date ), "%s, %d", Date::GetMonthName ( month + 1 ), month > monthnow ? yearnow - 1 : yearnow );
+		UplinkSnprintf ( date, sizeof ( date ), "%s, %d", Date::GetMonthName ( month + 1 ), month > monthnow ? yearnow - 1 : yearnow )
 		char value [16];
-		UplinkSnprintf ( value, sizeof ( value ), "%d c", sharehistory [month] );
+		UplinkSnprintf ( value, sizeof ( value ), "%d c", sharehistory [month] )
 		
 		EclGetButton ( bdate )->SetCaption ( date );
 		EclGetButton ( bname )->SetCaption ( value );
@@ -267,7 +267,7 @@ void SharesViewScreenInterface::Create ()
 void SharesViewScreenInterface::Create ( ComputerScreen *newcs )
 {
 
-	UplinkAssert ( newcs );
+	UplinkAssert ( newcs )
 	cs = newcs;
 
 	if ( !IsVisible () ) {
@@ -294,8 +294,8 @@ void SharesViewScreenInterface::Create ( ComputerScreen *newcs )
 
 			char date [32];
 			char name [32];
-			UplinkSnprintf ( date, sizeof ( date ), "sharesviewscreen_date %d", i );
-			UplinkSnprintf ( name, sizeof ( name ), "sharesviewscreen_numbers %d", i );
+			UplinkSnprintf ( date, sizeof ( date ), "sharesviewscreen_date %d", i )
+			UplinkSnprintf ( name, sizeof ( name ), "sharesviewscreen_numbers %d", i )
 			EclRegisterButton ( 250, 135 + i * 17, 100, 15, "date", "", date );
 			EclRegisterButton ( 350, 135 + i * 17, 50, 15, "bla", "", name );
 			EclRegisterButtonCallbacks ( date, textbutton_draw, nullptr, nullptr, nullptr );
@@ -348,8 +348,8 @@ void SharesViewScreenInterface::Remove ()
 
 			char date [32];
 			char name [32];
-			UplinkSnprintf ( date, sizeof ( date ), "sharesviewscreen_date %d", i );
-			UplinkSnprintf ( name, sizeof ( name ), "sharesviewscreen_numbers %d", i );
+			UplinkSnprintf ( date, sizeof ( date ), "sharesviewscreen_date %d", i )
+			UplinkSnprintf ( name, sizeof ( name ), "sharesviewscreen_numbers %d", i )
 
 			EclRemoveButton ( date );
 			EclRemoveButton ( name );
@@ -389,7 +389,7 @@ int SharesViewScreenInterface::ScreenID ()
 GenericScreen *SharesViewScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

@@ -41,7 +41,7 @@ ClosingInterface::~ClosingInterface ()
 void ClosingInterface::LargeTextDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-    UplinkAssert (button);
+    UplinkAssert (button)
 
     clear_draw ( button->x, button->y, button->width, button->height );
 
@@ -79,7 +79,7 @@ void ClosingInterface::Update ()
     if ( EclGetAccurateTime () > timesync ) {
 
         Button *button = EclGetButton ( "closing_text" );
-        UplinkAssert (button);
+        UplinkAssert (button)
 
         char *captions [] = { "Judgement", "Perception",
                               "Thinking", "Feeling",
@@ -98,7 +98,7 @@ void ClosingInterface::Update ()
                 int captionNumber = count % 7;                       // (int) fmod(count, 7);
                 button->SetCaption ( captions[captionNumber] );
                 char filename [256];
-                UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", NumberGenerator::RandomNumber (9) + 1 );
+                UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", NumberGenerator::RandomNumber (9) + 1 )
                 SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );
                 timesync = (int)EclGetAccurateTime () + 160;
                 count++;
@@ -110,7 +110,7 @@ void ClosingInterface::Update ()
             {
                 button->SetCaption ( "INTROVERSION" );
                 char filename [256];
-                UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", NumberGenerator::RandomNumber (9) + 1 );
+                UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", NumberGenerator::RandomNumber (9) + 1 )
                 SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );       
                 timesync = (int)EclGetAccurateTime () + 1000;
                 status++;
@@ -130,7 +130,7 @@ void ClosingInterface::Update ()
                 EclRegisterButtonCallbacks ( "closing_time", textbutton_draw, nullptr, nullptr, nullptr );
                 int playtime = int( ((float)(EclGetAccurateTime () - app->starttime)/1000.0)/60.0 );
                 char closingtime[128];
-                UplinkSnprintf ( closingtime, sizeof ( closingtime ), "You've been using Uplink for %d minutes. Visit our web site to buy the full product.", playtime );
+                UplinkSnprintf ( closingtime, sizeof ( closingtime ), "You've been using Uplink for %d minutes. Visit our web site to buy the full product.", playtime )
                 EclRegisterCaptionChange ( "closing_time", closingtime, 1500 );
 
                 EclButtonBringToFront ( "closing_text" );
@@ -154,7 +154,7 @@ void ClosingInterface::Update ()
                 app->Close ();
                 break;
 
-        };
+        }
 
     }
 

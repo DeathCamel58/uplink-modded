@@ -36,7 +36,7 @@ void RankingScreenInterface::ExitClick ( Button *button )
 {
 
 	auto *sss = (GenericScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
-	UplinkAssert (sss);
+	UplinkAssert (sss)
 
 	game->GetInterface ()->GetRemoteInterface ()->RunScreen ( sss->nextpage, sss->GetComputer () );
 
@@ -126,7 +126,7 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 			if ( allpeople->ValidIndex (ip) ) {
 
 				Person *p = allpeople->GetData (ip);
-				UplinkAssert (p);
+				UplinkAssert (p)
 
 				if ( p->GetOBJECTID () == OID_AGENT ||
 					 p->GetOBJECTID () == OID_PLAYER ) {
@@ -136,7 +136,7 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 					for ( int is = 0; is < sorted.Size (); ++is ) {
 
 						Person *s = sorted.GetData (is);
-						UplinkAssert (s);
+						UplinkAssert (s)
 
 						if ( p->rating.uplinkscore >= s->rating.uplinkscore ) {
 
@@ -170,7 +170,7 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 			}
 		}
 
-		UplinkAssert ( playerrank != -1 );
+		UplinkAssert ( playerrank != -1 )
 
 		// 
 		// Build the interface
@@ -187,24 +187,24 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 			char name   [24];
 			char status [24];
 
-			UplinkSnprintf ( name, sizeof ( name ), "ranking_name %d", i );
-			UplinkSnprintf ( status, sizeof ( status ), "ranking_status %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "ranking_name %d", i )
+			UplinkSnprintf ( status, sizeof ( status ), "ranking_status %d", i )
 
 			if ( sorted.ValidIndex (i) ) {
 
 				UplinkAssert ( sorted.GetData (i)->GetOBJECTID () == OID_AGENT ||
-							   sorted.GetData (i)->GetOBJECTID () == OID_PLAYER );
+							   sorted.GetData (i)->GetOBJECTID () == OID_PLAYER )
 
 				auto *agent = (Agent *) sorted.GetData (i);
 
 				char cname [128];
-				UplinkSnprintf ( cname, sizeof ( cname ), "%2d  :  Agent %s", i + 1, agent->handle );
+				UplinkSnprintf ( cname, sizeof ( cname ), "%2d  :  Agent %s", i + 1, agent->handle )
 				
 				char cstatus [32];
-				if      ( agent->GetStatus () == PERSON_STATUS_NONE ) {			UplinkStrncpy ( cstatus, "Active", sizeof ( cstatus ) );
-				} else if ( agent->GetStatus () == PERSON_STATUS_INJAIL ) {		UplinkStrncpy ( cstatus, "In Jail", sizeof ( cstatus ) );
-				} else if ( agent->GetStatus () == PERSON_STATUS_DEAD ) {		UplinkStrncpy ( cstatus, "Deceased", sizeof ( cstatus ) );
-				} else {														UplinkStrncpy ( cstatus, "Unknown", sizeof ( cstatus ) );
+				if      ( agent->GetStatus () == PERSON_STATUS_NONE ) {			UplinkStrncpy ( cstatus, "Active", sizeof ( cstatus ) )
+				} else if ( agent->GetStatus () == PERSON_STATUS_INJAIL ) {		UplinkStrncpy ( cstatus, "In Jail", sizeof ( cstatus ) )
+				} else if ( agent->GetStatus () == PERSON_STATUS_DEAD ) {		UplinkStrncpy ( cstatus, "Deceased", sizeof ( cstatus ) )
+				} else {														UplinkStrncpy ( cstatus, "Unknown", sizeof ( cstatus ) )
 				}
 
 				EclRegisterButton ( 30, 120 + 20 * i, 170, 15, cname, "", name );
@@ -253,7 +253,7 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 			}
 
 			char cname [128];
-			UplinkSnprintf ( cname, sizeof ( cname ), "%2d  :  Agent %s", playerrank + 1, game->GetWorld ()->GetPlayer ()->handle );
+			UplinkSnprintf ( cname, sizeof ( cname ), "%2d  :  Agent %s", playerrank + 1, game->GetWorld ()->GetPlayer ()->handle )
 
 			EclRegisterButton ( 60, 340, 170, 15, cname, "", "ranking_playerrank" );
 			EclRegisterButton ( 230, 340, 100, 15, "Active", "", "ranking_playerstatus" );
@@ -287,8 +287,8 @@ void RankingScreenInterface::Remove ()
 			char name   [24];
 			char status [24];
 
-			UplinkSnprintf ( name, sizeof ( name ), "ranking_name %d", i );
-			UplinkSnprintf ( status, sizeof ( status ), "ranking_status %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "ranking_name %d", i )
+			UplinkSnprintf ( status, sizeof ( status ), "ranking_status %d", i )
 
 			EclRemoveButton ( name );
 			EclRemoveButton ( status );
@@ -321,7 +321,7 @@ int RankingScreenInterface::ScreenID ()
 GenericScreen *RankingScreenInterface::GetComputerScreen ()
 {
 
-	UplinkAssert (cs);
+	UplinkAssert (cs)
 	return (GenericScreen *) cs;
 
 }

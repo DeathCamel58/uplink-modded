@@ -68,7 +68,7 @@ void NetworkOptionsInterface::ClientButtonClick ( Button *button )
 
 	if ( app->GetNetwork ()->STATUS == NETWORK_NONE ) {
 		
-		UplinkAssert ( EclGetButton ( "network_clienttarget" ) );
+		UplinkAssert ( EclGetButton ( "network_clienttarget" ) )
 		app->GetNetwork ()->StartClient ( EclGetButton ( "network_clienttarget" )->caption );
 	
 	}
@@ -252,7 +252,7 @@ void NetworkOptionsInterface::Update ()
 	char details [512];
 	UplinkSnprintf ( details, sizeof ( details ), "Localhost : %s\n"
 												   "Local IP  : %s", app->GetNetwork ()->GetLocalHost (), 
-																	 app->GetNetwork ()->GetLocalIP () );
+																	 app->GetNetwork ()->GetLocalIP () )
 
 	EclGetButton ( "network_details" )->SetCaption ( details );
 
@@ -281,7 +281,7 @@ void NetworkOptionsInterface::Update ()
 		int i;
 		
 		char cdetails [512];
-		UplinkSnprintf ( cdetails, sizeof ( cdetails ), "Active connections : %d", app->GetNetwork ()->GetServer ()->clients.NumUsed () );
+		UplinkSnprintf ( cdetails, sizeof ( cdetails ), "Active connections : %d", app->GetNetwork ()->GetServer ()->clients.NumUsed () )
 		
 		for ( i = 0; i < app->GetNetwork ()->GetServer ()->clients.Size (); ++i ) {
 			if ( app->GetNetwork ()->GetServer ()->clients.ValidIndex (i) ) {
@@ -290,8 +290,8 @@ void NetworkOptionsInterface::Update ()
 				UplinkSnprintf ( thisconnection, sizeof ( thisconnection ), "\nFrom %s, ip %s, active %d secs", 
 																			app->GetNetwork ()->GetServer ()->GetRemoteHost (i),
 						  													app->GetNetwork ()->GetServer ()->GetRemoteIP (i),
-																			app->GetNetwork ()->GetServer ()->clients.GetData (i)->TimeActive () );
-				UplinkStrncat ( cdetails, sizeof ( cdetails ), thisconnection );
+																			app->GetNetwork ()->GetServer ()->clients.GetData (i)->TimeActive () )
+				UplinkStrncat ( cdetails, sizeof ( cdetails ), thisconnection )
 
 			}
 		}

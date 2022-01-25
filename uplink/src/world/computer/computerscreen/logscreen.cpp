@@ -63,7 +63,7 @@ LogBank *LogScreen::GetTargetLogBank ()
 		case LOGSCREEN_TARGET_ACCESSLOGS:
 		{
 			Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-			UplinkAssert ( comp );
+			UplinkAssert ( comp )
 			logbank = &(comp->logbank);
 			break;
 		}			
@@ -74,21 +74,21 @@ LogBank *LogScreen::GetTargetLogBank ()
 			// Get the bank computer
 
 			Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-			UplinkAssert ( comp );
-			UplinkAssert ( comp->GetOBJECTID () == OID_BANKCOMPUTER );			
+			UplinkAssert ( comp )
+			UplinkAssert ( comp->GetOBJECTID () == OID_BANKCOMPUTER )
 			auto *bank = (BankComputer *) comp;
 
 			// Get the account number
 
 			Record *rec = bank->recordbank.GetRecordFromName ( game->GetInterface ()->GetRemoteInterface ()->security_name );
-			UplinkAssert (rec);
+			UplinkAssert (rec)
 			char *accno = rec->GetField ( RECORDBANK_ACCNO );
-			UplinkAssert (accno);
+			UplinkAssert (accno)
 
 			// Now look up the account based on that account number
 
 			BankAccount *account = bank->accounts.GetData ( accno );
-			UplinkAssert (account);
+			UplinkAssert (account)
 			
 			logbank = &(account->log);			
 			break;
@@ -97,17 +97,17 @@ LogBank *LogScreen::GetTargetLogBank ()
 
 		case LOGSCREEN_TARGET_UNKNOWN:
 			
-			UplinkAbort ( "Unknown LogScreen Target" );
+			UplinkAbort ( "Unknown LogScreen Target" )
 
 		default:
 
 			char errormsg [64];
-			UplinkSnprintf ( errormsg, sizeof ( errormsg ), "Unrecognised LogScreen Target:%d", TARGET );
-			UplinkAbort ( errormsg );
+			UplinkSnprintf ( errormsg, sizeof ( errormsg ), "Unrecognised LogScreen Target:%d", TARGET )
+			UplinkAbort ( errormsg )
 
 	}
 
-	UplinkAssert (logbank);
+	UplinkAssert (logbank)
 	return logbank;
 
 }

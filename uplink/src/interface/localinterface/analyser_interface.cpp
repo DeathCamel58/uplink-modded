@@ -76,9 +76,9 @@ void AnalyserInterface::SystemClick ( Button *button )
 	sscanf ( button->name, "analyser_system %d", &systemindex );
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( (UplinkObject *) &(comp->security), button->name, systemindex );
 
@@ -97,9 +97,9 @@ void AnalyserInterface::ConnectionDraw ( Button *button, bool highlighted, bool 
 	//
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-	UplinkAssert (vl);
+	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
-	UplinkAssert (comp);
+	UplinkAssert (comp)
 
 	//
 	// Draw the standard shaded background
@@ -144,7 +144,7 @@ void AnalyserInterface::ConnectionDraw ( Button *button, bool highlighted, bool 
 
 	int systemindex = 0;
 	char name [32];
-	UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) );
+	UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) )
 
 	while ( EclGetButton ( name ) ) {
 
@@ -170,7 +170,7 @@ void AnalyserInterface::ConnectionDraw ( Button *button, bool highlighted, bool 
 		}
 		
 		++systemindex;
-		UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex );
+		UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex )
 
 	}
 
@@ -195,7 +195,7 @@ void AnalyserInterface::Create ()
 		LocalInterfaceScreen::Create ();
 		EclRegisterButtonCallbacks ( "localint_background", ConnectionDraw, nullptr, nullptr, nullptr );
 
-		UplinkStrncpy ( remotehost, " ", sizeof ( remotehost ) );
+		UplinkStrncpy ( remotehost, " ", sizeof ( remotehost ) )
 
 		int screenw = app->GetOptions ()->GetOptionValue ("graphics_screenwidth");
 		int screenh = app->GetOptions ()->GetOptionValue ("graphics_screenheight");
@@ -237,17 +237,17 @@ void AnalyserInterface::Remove ()
 
 		int systemindex = 0;
 		char name [32];
-		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) );
+		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) )
 
 		while ( EclGetButton ( name ) ) {
 
 			EclRemoveButton ( name );
 
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex );
+			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex )
 			EclRemoveButton ( name );
 
 			++systemindex;
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex );
+			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex )
 
 		}
 
@@ -266,7 +266,7 @@ void AnalyserInterface::Update ()
 
 		// Yes it has - redo everything
 	
-		UplinkStrncpy ( remotehost, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( remotehost ) );
+		UplinkStrncpy ( remotehost, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( remotehost ) )
 
 		// Remove the old remote host button
 
@@ -280,17 +280,17 @@ void AnalyserInterface::Update ()
 
 		int systemindex = 0;
 		char name [32];
-		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) );
+		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) )
 
 		while ( EclGetButton ( name ) ) {
 
 			EclRemoveButton ( name );
 
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex );
+			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex )
 			EclRemoveButton ( name );
 
 			++systemindex;
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex );
+			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex )
 
 		}
 
@@ -304,9 +304,9 @@ void AnalyserInterface::Update ()
 		// Look up the new remote host
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 		Computer *comp = vl->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		// Create the new remote host buttons
 
@@ -406,13 +406,13 @@ void AnalyserInterface::Update ()
 		//
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
-		UplinkAssert (vl);
+		UplinkAssert (vl)
 		Computer *comp = vl->GetComputer ();
-		UplinkAssert (comp);
+		UplinkAssert (comp)
 
 		int systemindex = 0;
 		char name [32];
-		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) );
+		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) )
 
 		while ( EclGetButton ( name ) ) {
 
@@ -426,11 +426,11 @@ void AnalyserInterface::Update ()
 
 			EclRegisterButtonCallback ( name, SystemClick );
 
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex );
+			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex )
 			EclGetButton ( name )->SetCaption ( ss->GetName () );
 
 			++systemindex;
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex );
+			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex )
 
 		}
 	

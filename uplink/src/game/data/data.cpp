@@ -602,7 +602,7 @@ const ComputerUpgrade *GetSoftwareUpgrade ( char *name )
 
 	for ( int i = 0; i < NUM_STARTINGSOFTWAREUPGRADES; ++i ) {
 		const ComputerUpgrade *cu = &(SOFTWARE_UPGRADES [i]);
-		UplinkAssert (cu);
+		UplinkAssert (cu)
 		if ( strcmp ( cu->name, name ) == 0 )
 			return cu;
 	}
@@ -616,7 +616,7 @@ const ComputerUpgrade *GetHardwareUpgrade ( char *name )
 
 	for ( int i = 0; i < NUM_STARTINGHARDWAREUPGRADES; ++i ) {
 		const ComputerUpgrade *cu = &(HARDWARE_UPGRADES [i]);
-		UplinkAssert (cu);
+		UplinkAssert (cu)
 		if ( strcmp ( cu->name, name ) == 0 )
 			return cu;
 	}

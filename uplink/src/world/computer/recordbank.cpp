@@ -28,7 +28,7 @@ RecordBank::~RecordBank ()
 void RecordBank::AddRecord ( Record *newrecord )
 {
 
-	UplinkAssert (newrecord);
+	UplinkAssert (newrecord)
 	records.PutData ( newrecord );
 
 }
@@ -36,11 +36,11 @@ void RecordBank::AddRecord ( Record *newrecord )
 void RecordBank::AddRecordSorted ( Record *newrecord, char *sortfield )
 {
 
-	UplinkAssert (newrecord);
-	UplinkAssert (sortfield);
+	UplinkAssert (newrecord)
+	UplinkAssert (sortfield)
 
 	char *newvalue = newrecord->GetField ( sortfield );
-	UplinkAssert (newvalue);
+	UplinkAssert (newvalue)
 
 	bool inserted = false;
 
@@ -48,7 +48,7 @@ void RecordBank::AddRecordSorted ( Record *newrecord, char *sortfield )
 		if ( records.GetData (i) ) {
 
 			char *fieldvalue = records.GetData (i)->GetField ( sortfield );
-			UplinkAssert (fieldvalue);
+			UplinkAssert (fieldvalue)
 
 			if ( strcmp ( fieldvalue, newvalue ) > 0 ) {
 				records.PutDataAtIndex ( newrecord, i );
@@ -67,7 +67,7 @@ char * RecordBank::MakeSafeField( char * fieldval )
 {
 	size_t len = strlen( fieldval );
 	char * val = new char[ len + 1 ];
-	UplinkSafeStrcpy( val, fieldval );
+	UplinkSafeStrcpy( val, fieldval )
 	for ( size_t i = 0; i < len; ++i )
 		if ( val[i] == ';' ) val[i] = '.';
 	return val;
@@ -103,7 +103,7 @@ Record *RecordBank::GetRecord ( char *query )
 	else if ( result->Size () > 1 ) {
 
 		printf ( "RecordBank::GetRecord, found more than 1 match, returning the first\n" );
-		UplinkAssert ( result->ValidIndex (0) );
+		UplinkAssert ( result->ValidIndex (0) )
 		Record *record = result->GetData (0);
         delete result;
         return record;
@@ -111,7 +111,7 @@ Record *RecordBank::GetRecord ( char *query )
 	}
 	else {
 
-		UplinkAssert ( result->ValidIndex (0) );
+		UplinkAssert ( result->ValidIndex (0) )
         Record *record = result->GetData (0);
         delete result;
 		return record;
@@ -125,9 +125,9 @@ Record *RecordBank::GetRecordFromName( char *name )
     char query[256];
 	char * tempname = MakeSafeField( name );
 
-	UplinkAssert ( ( sizeof ( "%s = %s" ) + sizeof ( RECORDBANK_NAME ) + strlen ( tempname ) ) < sizeof ( query ) );
+	UplinkAssert ( ( sizeof ( "%s = %s" ) + sizeof ( RECORDBANK_NAME ) + strlen ( tempname ) ) < sizeof ( query ) )
 
-    UplinkSnprintf( query, sizeof ( query ), "%s = %s", RECORDBANK_NAME, tempname );
+    UplinkSnprintf( query, sizeof ( query ), "%s = %s", RECORDBANK_NAME, tempname )
 	delete [] tempname;
     return GetRecord( query );
 }
@@ -139,10 +139,10 @@ Record *RecordBank::GetRecordFromNamePassword ( char *name, char *password )
 	char * passwd = MakeSafeField( password );
 
 	UplinkAssert ( ( sizeof ( "%s = %s ; %s = %s" ) + sizeof ( RECORDBANK_NAME ) + strlen ( tempname ) + 
-	                 sizeof ( RECORDBANK_PASSWORD ) + strlen ( passwd ) ) < sizeof ( query ) );
+	                 sizeof ( RECORDBANK_PASSWORD ) + strlen ( passwd ) ) < sizeof ( query ) )
 
 	UplinkSnprintf( query, sizeof ( query ), "%s = %s ; %s = %s", RECORDBANK_NAME, tempname, 
-																	 RECORDBANK_PASSWORD, passwd );
+																	 RECORDBANK_PASSWORD, passwd )
 	delete [] tempname;
 	delete [] passwd;
     return GetRecord( query );
@@ -153,9 +153,9 @@ Record *RecordBank::GetRecordFromAccountNumber ( char *accNo )
     char query[256];
 	char * tempAccNo = MakeSafeField( accNo );
 
-	UplinkAssert ( ( sizeof ( "%s = %s" ) + sizeof ( RECORDBANK_ACCNO ) + strlen ( tempAccNo ) ) < sizeof ( query ) );
+	UplinkAssert ( ( sizeof ( "%s = %s" ) + sizeof ( RECORDBANK_ACCNO ) + strlen ( tempAccNo ) ) < sizeof ( query ) )
 
-	UplinkSnprintf( query, sizeof ( query ), "%s = %s", RECORDBANK_ACCNO, tempAccNo );
+	UplinkSnprintf( query, sizeof ( query ), "%s = %s", RECORDBANK_ACCNO, tempAccNo )
 	delete [] tempAccNo;
     return GetRecord( query );
 }
@@ -166,7 +166,7 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 	// Make a copy of the query
 	
 	char *localquery = new char [strlen(query)+1];
-	UplinkSafeStrcpy ( localquery, query );
+	UplinkSafeStrcpy ( localquery, query )
 
 	// Calculate the number of conditions 
 
@@ -183,8 +183,8 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 
 	for ( i = 1; i < numconditions; ++i ) {
 		condition [i] = strchr ( condition [i-1], ';' );		
-		UplinkAssert ( *(condition [i]-1) == ' ' );			// Check the ';' is surrounded by spaces
-		UplinkAssert ( *(condition [i]+1) == ' ' );
+		UplinkAssert ( *(condition [i]-1) == ' ' )			// Check the ';' is surrounded by spaces
+		UplinkAssert ( *(condition [i]+1) == ' ' )
 		*(condition [i] - 1) = '\x0';						// Replace the space before the ';' with a '\x0'
 		(condition [i]) += 2;								// Point condition at char after '\x0'
 	}
@@ -205,10 +205,10 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 		else if ( strchr ( condition [i], '!' )	)	oplocation = strchr ( condition [i], '!' );
 		else if ( strchr ( condition [i], '+' )	)	oplocation = strchr ( condition [i], '+' );
 		else if ( strchr ( condition [i], '-' )	)	oplocation = strchr ( condition [i], '-' );
-		else	UplinkAbort ( "RecordBank::GetRecords, invalid query" );
+		else	UplinkAbort ( "RecordBank::GetRecords, invalid query" )
 		
-		UplinkAssert ( *(oplocation - 1) == ' ' );	// Check the op is surrounded by spaces
-		UplinkAssert ( *(oplocation + 1) == ' ' );
+		UplinkAssert ( *(oplocation - 1) == ' ' )	// Check the op is surrounded by spaces
+		UplinkAssert ( *(oplocation + 1) == ' ' )
 
 		*(oplocation - 1) = '\x0';					// Terminate the field string before the op
 		
@@ -241,7 +241,7 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 						case '!':   if ( strcmp ( thisvalue, reqvalue ) != 0 ) ++nummatches;		break;
 						case '+':	if ( strstr ( thisvalue, reqvalue ) )	   ++nummatches;		break;
 						case '-':	if ( !strstr ( thisvalue, reqvalue ) )	   ++nummatches;		break;
-						default:	UplinkAbort ( "RecordBank::GetRecord, unrecognised op code" );
+						default:	UplinkAbort ( "RecordBank::GetRecord, unrecognised op code" )
 					}
 
 				}
@@ -282,7 +282,7 @@ Record *RecordBank::GetRandomRecord ( char *query )
 	if ( records ) {
 
 		int index = NumberGenerator::RandomNumber ( records->Size () );
-		UplinkAssert ( records->ValidIndex (index) );
+		UplinkAssert ( records->ValidIndex (index) )
         Record *result = records->GetData (index);
         delete records;
         return result;
@@ -360,7 +360,7 @@ void Record::AddField ( char *name, char *value )
 {
 
 	char *newvalue = new char [strlen(value) + 1];
-	UplinkSafeStrcpy ( newvalue, value );
+	UplinkSafeStrcpy ( newvalue, value )
 	fields.PutData ( name, newvalue );
 
 }
@@ -370,7 +370,7 @@ void Record::AddField ( char *name, int value )
 
 	size_t newvaluesize = 16;
 	char *newvalue = new char [newvaluesize];
-	UplinkSnprintf ( newvalue, newvaluesize, "%d", value );
+	UplinkSnprintf ( newvalue, newvaluesize, "%d", value )
 	fields.PutData ( name, newvalue );
 
 }
@@ -385,7 +385,7 @@ void Record::ChangeField ( char *name, char *newvalue )
 		delete [] tree->data;
 		size_t tree__datasize = strlen(newvalue) + 1;
 		tree->data = new char [tree__datasize];
-		UplinkStrncpy ( tree->data, newvalue, tree__datasize );
+		UplinkStrncpy ( tree->data, newvalue, tree__datasize )
 
 	}
 	else {
@@ -407,7 +407,7 @@ void Record::ChangeField ( char *name, int newvalue )
 		delete [] tree->data;
 		size_t tree__datasize = 8;
 		tree->data = new char [tree__datasize];
-		UplinkSnprintf ( tree->data, tree__datasize, "%d", newvalue );
+		UplinkSnprintf ( tree->data, tree__datasize, "%d", newvalue )
 
 	}
 	else {
@@ -456,9 +456,9 @@ int RecordBank::FindNextRecordIndexNameNotSystemAccount ( int curindex )
 	while ( recordindex < records.Size () ) {
 
 		Record *rec = GetRecord ( recordindex );
-		UplinkAssert (rec);
+		UplinkAssert (rec)
 		char *thisname = rec->GetField ( RECORDBANK_NAME );
-		UplinkAssert (thisname);
+		UplinkAssert (thisname)
 
 		if ( strcmp ( thisname, RECORDBANK_ADMIN ) != 0 && 
 		     strcmp ( thisname, RECORDBANK_READWRITE ) != 0 &&
@@ -509,8 +509,8 @@ void Record::Print ()
 
 	for ( int i = 0; i < field_names->Size (); ++i ) {
 
-		UplinkAssert ( field_names->ValidIndex (i) );
-		UplinkAssert ( field_values->ValidIndex (i) );
+		UplinkAssert ( field_names->ValidIndex (i) )
+		UplinkAssert ( field_values->ValidIndex (i) )
 
 		printf ( "%s : %s\n", field_names->GetData (i), field_values->GetData (i) );
 

@@ -30,13 +30,13 @@
 ClientStatusInterface::ClientStatusInterface()
 {
 
-	UplinkStrncpy ( hardware, " ", sizeof ( hardware ) );
-	UplinkStrncpy ( hudupgrades, " ", sizeof ( hudupgrades ) );
-	UplinkStrncpy ( connection, " ", sizeof ( connection ) );
+	UplinkStrncpy ( hardware, " ", sizeof ( hardware ) )
+	UplinkStrncpy ( hudupgrades, " ", sizeof ( hudupgrades ) )
+	UplinkStrncpy ( connection, " ", sizeof ( connection ) )
 
-	UplinkStrncpy ( ratings, " ", sizeof ( ratings ) );
-	UplinkStrncpy ( criminal, " ", sizeof ( criminal ) );
-	UplinkStrncpy ( financial, " ", sizeof ( financial ) );
+	UplinkStrncpy ( ratings, " ", sizeof ( ratings ) )
+	UplinkStrncpy ( criminal, " ", sizeof ( criminal ) )
+	UplinkStrncpy ( financial, " ", sizeof ( financial ) )
 
 	news.PutDataAtStart ( " " );
 
@@ -73,7 +73,7 @@ void ClientStatusInterface::GatewayPanelDraw ( Button *button, bool highlighted,
 
 
 	auto *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	BackgroundDraw ( button, highlighted, clicked );
 
@@ -104,7 +104,7 @@ void ClientStatusInterface::PersonalPanelDraw ( Button *button, bool highlighted
 
 
 	auto *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	BackgroundDraw ( button, highlighted, clicked );
 
@@ -135,7 +135,7 @@ void ClientStatusInterface::WorldPanelDraw ( Button *button, bool highlighted, b
 
 
 	auto *thisint = (ClientStatusInterface *) app->GetNetwork ()->GetClient ()->GetNetworkScreen ();
-	UplinkAssert (thisint);
+	UplinkAssert (thisint)
 
 	BackgroundDraw ( button, highlighted, clicked );
 
@@ -150,7 +150,7 @@ void ClientStatusInterface::WorldPanelDraw ( Button *button, bool highlighted, b
 		if ( thisint->news.ValidIndex (i) ) {
 
 			char *newsitem = thisint->news.GetData (i);
-			UplinkAssert (newsitem);
+			UplinkAssert (newsitem)
 
 			text_draw ( x + 10, y + 70 + i * 55, newsitem, button->width + 20 );
 
@@ -164,7 +164,7 @@ void ClientStatusInterface::WorldPanelDraw ( Button *button, bool highlighted, b
 void ClientStatusInterface::MainMenuClick ( Button *button )
 {
 
-	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT );
+	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT )
 
 	app->GetNetwork ()->GetClient ()->SetClientType ( CLIENT_NONE );
 	app->GetMainMenu ()->RunScreen ( MAINMENU_LOGIN );
@@ -174,8 +174,8 @@ void ClientStatusInterface::MainMenuClick ( Button *button )
 void ClientStatusInterface::SetHardware	( char *newhw )
 {
 
-	UplinkAssert ( strlen(newhw) < sizeof(hardware) );
-	UplinkStrncpy ( hardware, newhw, sizeof ( hardware ) );
+	UplinkAssert ( strlen(newhw) < sizeof(hardware) )
+	UplinkStrncpy ( hardware, newhw, sizeof ( hardware ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
 
@@ -184,8 +184,8 @@ void ClientStatusInterface::SetHardware	( char *newhw )
 void ClientStatusInterface::SetHUDUpgrades ( char *newhud )
 {
 	
-	UplinkAssert ( strlen(newhud) < sizeof(hudupgrades) );
-	UplinkStrncpy ( hudupgrades, newhud, sizeof ( hudupgrades ) );
+	UplinkAssert ( strlen(newhud) < sizeof(hudupgrades) )
+	UplinkStrncpy ( hudupgrades, newhud, sizeof ( hudupgrades ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
 
@@ -194,8 +194,8 @@ void ClientStatusInterface::SetHUDUpgrades ( char *newhud )
 void ClientStatusInterface::SetConnection	( char *newconnection )
 {
 
-	UplinkAssert ( strlen(newconnection) < sizeof(connection) );
-	UplinkStrncpy ( connection, newconnection, sizeof ( connection ) );
+	UplinkAssert ( strlen(newconnection) < sizeof(connection) )
+	UplinkStrncpy ( connection, newconnection, sizeof ( connection ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
 
@@ -204,8 +204,8 @@ void ClientStatusInterface::SetConnection	( char *newconnection )
 void ClientStatusInterface::SetRating ( char *newrating )
 {
 	
-	UplinkAssert ( strlen(newrating) < sizeof(ratings) );
-	UplinkStrncpy ( ratings, newrating, sizeof ( ratings ) );
+	UplinkAssert ( strlen(newrating) < sizeof(ratings) )
+	UplinkStrncpy ( ratings, newrating, sizeof ( ratings ) )
 
 	EclDirtyButton ( "status_personalbg" );
 
@@ -214,8 +214,8 @@ void ClientStatusInterface::SetRating ( char *newrating )
 void ClientStatusInterface::SetFinancial ( char *newfinancial )
 {
 
-	UplinkAssert (strlen(newfinancial) < sizeof(financial) );
-	UplinkStrncpy ( financial, newfinancial, sizeof ( financial ) );
+	UplinkAssert (strlen(newfinancial) < sizeof(financial) )
+	UplinkStrncpy ( financial, newfinancial, sizeof ( financial ) )
 
 	EclDirtyButton ( "status_personalbg" );
 
@@ -224,8 +224,8 @@ void ClientStatusInterface::SetFinancial ( char *newfinancial )
 void ClientStatusInterface::SetCriminal  ( char *newcriminal )
 {
 
-	UplinkAssert (strlen(newcriminal) < sizeof(criminal) );
-	UplinkStrncpy ( criminal, newcriminal, sizeof ( criminal ) );
+	UplinkAssert (strlen(newcriminal) < sizeof(criminal) )
+	UplinkStrncpy ( criminal, newcriminal, sizeof ( criminal ) )
 
 	EclDirtyButton ( "status_personalbg" );
 
@@ -235,7 +235,7 @@ void ClientStatusInterface::AddNewsStory ( char *newsstory )
 {
 
 	char *newscopy = new char [strlen(newsstory)+1];
-	UplinkSafeStrcpy ( newscopy, newsstory );
+	UplinkSafeStrcpy ( newscopy, newsstory )
 
 	news.PutDataAtStart ( newscopy );
 

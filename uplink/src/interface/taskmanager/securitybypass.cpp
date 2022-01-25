@@ -27,14 +27,14 @@
 void SecurityBypass::PauseClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [32];
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
 	auto *pb = (SecurityBypass *) SvbGetTask ( pid );
-	UplinkAssert (pb);
+	UplinkAssert (pb)
 
 	if		( pb->status == 1 ) pb->PauseCurrentBypass ();
 	else if ( pb->status == 2 ) pb->ResumeCurrentBypass ();
@@ -44,14 +44,14 @@ void SecurityBypass::PauseClick ( Button *button )
 void SecurityBypass::CloseClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [32];
 	int pid;
 	sscanf ( button->name, "%s %d", name, &pid );
 
 	auto *pb = (SecurityBypass *) SvbGetTask ( pid );
-	UplinkAssert (pb);
+	UplinkAssert (pb)
 	pb->EndCurrentBypass ();
 
 	SvbRemoveTask ( pid );
@@ -61,7 +61,7 @@ void SecurityBypass::CloseClick ( Button *button )
 void SecurityBypass::BypassClick ( Button *button )
 {
 
-	UplinkAssert (button);
+	UplinkAssert (button)
 
 	char name [32];
 	int pid;
@@ -81,13 +81,13 @@ void SecurityBypass::StatusLightDraw ( Button *button, bool highlighted, bool cl
 	if ( ShouldDraw ( pid ) ) {
 
 		auto *pb = (SecurityBypass *) SvbGetTask ( pid );
-		UplinkAssert (pb);
+		UplinkAssert (pb)
 
 		if ( pb->status > 0 ) {
 
-			UplinkAssert ( pb->targetobject );
+			UplinkAssert ( pb->targetobject )
 			SecuritySystem *ss = ((Security *) pb->targetobject)->GetSystem (pb->targetint);
-			UplinkAssert (ss);
+			UplinkAssert (ss)
 
 			if ( ss->bypassed || !ss->enabled )													//
 				button->image_standard->Draw ( button->x, button->y );							//
@@ -172,8 +172,8 @@ void SecurityBypass::PauseCurrentBypass ()
 
 	if ( status == 1 ) {
 
-		UplinkAssert ( targetobject );
-		UplinkAssert ( ((Security *) targetobject)->GetSystem (targetint) );
+		UplinkAssert ( targetobject )
+		UplinkAssert ( ((Security *) targetobject)->GetSystem (targetint) )
 		((Security *) targetobject)->GetSystem (targetint)->EndBypass ();
 		
 		status = 2;
@@ -192,8 +192,8 @@ void SecurityBypass::ResumeCurrentBypass ()
 
 	if ( status == 2 ) {
 
-		UplinkAssert ( targetobject );
-		UplinkAssert ( ((Security *) targetobject)->GetSystem (targetint) );
+		UplinkAssert ( targetobject )
+		UplinkAssert ( ((Security *) targetobject)->GetSystem (targetint) )
 		((Security *) targetobject)->GetSystem (targetint)->Bypass ();
 		
 		status = 1;
@@ -212,8 +212,8 @@ void SecurityBypass::EndCurrentBypass ()
 
 	if ( status > 0 ) {
 
-		UplinkAssert ( targetobject );
-		UplinkAssert ( ((Security *) targetobject)->GetSystem (targetint) );
+		UplinkAssert ( targetobject )
+		UplinkAssert ( ((Security *) targetobject)->GetSystem (targetint) )
 		((Security *) targetobject)->GetSystem (targetint)->EndBypass ();
 		
 		targetobject = nullptr;
@@ -234,11 +234,11 @@ void SecurityBypass::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		*/
 
-	UplinkAssert (uo);
+	UplinkAssert (uo)
 
 	if ( strcmp ( uo->GetID ().c_str(), "SECUR" ) == 0 ) {
 
-		UplinkAssert ( ((Security *) uo)->GetSystem (uoi) );
+		UplinkAssert ( ((Security *) uo)->GetSystem (uoi) )
 
 		if ( ((Security *) uo)->GetSystem (uoi)->TYPE == TYPE ) {
 
@@ -253,7 +253,7 @@ void SecurityBypass::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 			//
 
 			Button *b = EclGetButton ( uos );
-			UplinkAssert (b);
+			UplinkAssert (b)
 			MoveTo ( b->x, b->y + b->height, 1000 );
 
 			//
@@ -263,7 +263,7 @@ void SecurityBypass::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 			targetobject = uo;
 			targetint = uoi;
 
-			UplinkStrncpy ( ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( ip ) );
+			UplinkStrncpy ( ip, game->GetWorld ()->GetPlayer ()->remotehost, sizeof ( ip ) )
 
 
 			//
@@ -303,11 +303,11 @@ void SecurityBypass::MoveTo ( int x, int y, int time_ms )
 		char title [32];
 		char status [32];
 
-		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid );
-		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid );
-		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid );
-		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid );
+		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
+		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid )
+		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid )
+		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid )
 
 		EclButtonBringToFront ( main );
 		EclButtonBringToFront ( pause );
@@ -369,11 +369,11 @@ void SecurityBypass::CreateInterface ()
 		char title [32];
 		char status [32];
 
-		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid );
-		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid );
-		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid );
-		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid );
+		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
+		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid )
+		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid )
+		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid )
 
 
 		/********** Patched by François Gagné **********/
@@ -451,11 +451,11 @@ void SecurityBypass::RemoveInterface ()
 		char title [32];
 		char status [32];
 
-		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid );
-		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid );
-		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid );
-		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid );
-		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid );
+		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
+		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid )
+		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid )
+		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid )
+		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid )
 		
 		EclRemoveButton ( main );
 		EclRemoveButton ( pause );
@@ -480,11 +480,11 @@ void SecurityBypass::ShowInterface ()
 	char title [32];
 	char status [32];
 
-	UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid );
-	UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid );
-	UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid );
-	UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid );
-	UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid );
+	UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
+	UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid )
+	UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid )
+	UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid )
+	UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid )
 	
 	/********** Patched by François Gagné **********/
 	if ( ShouldDraw ( pid ) ) {
@@ -512,7 +512,7 @@ bool SecurityBypass::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 	char main [32];
-	UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid );
+	UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
 
 	return ( EclGetButton ( main ) != nullptr );
 

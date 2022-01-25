@@ -39,7 +39,7 @@ void MessageScreen::SetTextMessage ( char *newtextmessage )
 
 	delete [] textmessage;
 	textmessage = new char [strlen(newtextmessage)+1];
-	UplinkSafeStrcpy ( textmessage, newtextmessage );
+	UplinkSafeStrcpy ( textmessage, newtextmessage )
 
 }
 
@@ -48,7 +48,7 @@ void MessageScreen::SetButtonMessage ( char *newbuttonmessage )
 
 	delete [] buttonmessage;
 	buttonmessage = new char [strlen(newbuttonmessage)+1];
-	UplinkSafeStrcpy ( buttonmessage, newbuttonmessage );
+	UplinkSafeStrcpy ( buttonmessage, newbuttonmessage )
 
 }
 

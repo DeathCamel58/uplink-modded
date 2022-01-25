@@ -122,7 +122,7 @@ void LocalInterface::RunScreen ( int SCREENCODE, int index )
 	currentscreencode = SCREENCODE;
 	screenindex = index;
 
-	UplinkAssert ( hud );
+	UplinkAssert ( hud )
 	hud->MoveSelecter ( currentscreencode, screenindex );	
 	
 	switch ( currentscreencode ) {
@@ -188,7 +188,7 @@ void LocalInterface::RunScreen ( int SCREENCODE, int index )
 			break;
 
 		default:
-			UplinkAbortArgs ("Tried to create a local screen with unknown SCREENCODE %d", SCREENCODE );
+			UplinkAbortArgs ("Tried to create a local screen with unknown SCREENCODE %d", SCREENCODE )
 
 	}
 
@@ -219,7 +219,7 @@ bool LocalInterface::VerifyScreen ( int SCREENCODE, int index )
 		case SCREEN_EVTQUEUE:
 			break;
 		default:
-			UplinkPrintAbortArgs ( "Tried to create a local screen with unknown SCREENCODE %d", SCREENCODE );
+			UplinkPrintAbortArgs ( "Tried to create a local screen with unknown SCREENCODE %d", SCREENCODE )
 			return false;
 
 	}
@@ -242,7 +242,7 @@ int LocalInterface::InScreen ()
 LocalInterfaceScreen *LocalInterface::GetInterfaceScreen ()
 {
 
-	UplinkAssert ( screen );
+	UplinkAssert ( screen )
 	return screen;
 
 }
@@ -250,7 +250,7 @@ LocalInterfaceScreen *LocalInterface::GetInterfaceScreen ()
 HUDInterface *LocalInterface::GetHUD ()
 {
 
-	UplinkAssert ( hud );
+	UplinkAssert ( hud )
 	return hud;
 
 }

@@ -82,7 +82,7 @@ void WorldMapInterfaceObject::SetIP ( const char *newip )
 
 	if ( newip ) {
 		ip = new char [ strlen(newip) + 1 ];
-		UplinkSafeStrcpy ( ip, newip );
+		UplinkSafeStrcpy ( ip, newip )
 
 		CheckIP ();
 	}
@@ -163,7 +163,7 @@ void WorldMapInterfaceObject::Draw ( int xOffset, int yOffset, float zoom )
         default:
             break;
 
-    };
+    }
 
 }
 
@@ -204,7 +204,7 @@ void WorldMapInterfaceLabel::SetCaption ( const char *newcaption )
 {
     if ( caption ) delete [] caption;
     caption = new char [strlen(newcaption)+1];
-    UplinkSafeStrcpy ( caption, newcaption );
+    UplinkSafeStrcpy ( caption, newcaption )
     CalculateWidth();
 }
 
@@ -226,7 +226,7 @@ void WorldMapInterfaceLabel::Draw ( int xOffset, int yOffset, float zoom )
     case WORLDMAPOBJECT_LABEL:
     {
 
-        UplinkAssert (caption);
+        UplinkAssert (caption)
 /*        
          glColor4f ( 1.0f, 0.0f, 0.0f, 1.0f );
          glBegin ( GL_QUADS ); 
@@ -259,7 +259,7 @@ void WorldMapInterfaceLabel::Draw ( int xOffset, int yOffset, float zoom )
     }
     
     default:
-        UplinkAssert(0);
+        UplinkAssert(0)
     }
 }
 
@@ -341,8 +341,8 @@ void WorldMapInterfaceLabel::SetLabelPosition (int n)
         break;
         
     default:
-        UplinkAssert(0);
-    };
+        UplinkAssert(0)
+    }
 }
 
 
@@ -540,7 +540,7 @@ void WorldMapLayout::StartLayout()
     for ( int i = 0; i < labels.Size (); ++i ) {
 	
 	WorldMapInterfaceLabel *l = labels.GetData (i);
-	UplinkAssert (l);
+	UplinkAssert (l)
 	l->SetRandomLabelPosition();
 	objective.AddObject(l);
     }
@@ -548,7 +548,7 @@ void WorldMapLayout::StartLayout()
     for ( int il = 0; il < locations.Size (); ++il ) {
 	
 	WorldMapInterfaceObject *l = locations.GetData (il);
-	UplinkAssert (l);
+	UplinkAssert (l)
 	objective.AddObject(l);
 	
 	// Add in feature-point neighbourhood 

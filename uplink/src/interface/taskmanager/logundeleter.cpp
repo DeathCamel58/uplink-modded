@@ -60,10 +60,10 @@ void LogUnDeleter::MoveTo ( int x, int y, int time_ms )
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid )
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -104,12 +104,12 @@ void LogUnDeleter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				progress = 0;
 
 				Button *button = EclGetButton ( uos );
-				UplinkAssert (button);
+				UplinkAssert (button)
 
 				MoveTo ( button->x, button->y, 1000 );
 
 				Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
-				UplinkAssert (comp);
+				UplinkAssert (comp)
 		
 				if ( comp->security.IsRunning_Monitor () ) 
 					game->GetWorld ()->GetPlayer ()->GetConnection ()->BeginTrace ();
@@ -161,7 +161,7 @@ void LogUnDeleter::BorderDraw ( Button *button, bool highlighted, bool clicked )
 void LogUnDeleter::ProgressDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	float scale = (float) button->width / 100.0f;
 	if ( highlighted ) scale *= 2;
@@ -227,10 +227,10 @@ static bool LogUnDeleter_ReSetTargetProgram ( int pid )
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid )
 
 		int animationid;
 		if ( ( animationid = EclIsNoCaptionChangeActive( stitle ) ) != -1 )
@@ -261,7 +261,7 @@ void LogUnDeleter::Tick ( int n )
 
 		int pid = SvbLookupPID ( this );
 		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid );
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid )
 
 		for ( int tick = 0; tick < n; ++tick ) {
 
@@ -286,7 +286,7 @@ void LogUnDeleter::Tick ( int n )
 			}
 			else if ( status == LOGUNDELETER_INPROGRESS ) {
 
-				UplinkAssert (source);
+				UplinkAssert (source)
 				
 				// Check log is still there
 				if ( !source->logs.ValidIndex (sourceindex) ) status = LOGUNDELETER_FINISHED;
@@ -300,7 +300,7 @@ void LogUnDeleter::Tick ( int n )
 
 				// Delete in progress
 				++progress;		
-				UplinkAssert ( EclGetButton ( sprogress ) );
+				UplinkAssert ( EclGetButton ( sprogress ) )
 				EclGetButton ( sprogress )->width = (int) ( 120 * ( (float) progress / (float) numticksrequired ) );
 				EclDirtyButton ( sprogress );
 
@@ -352,11 +352,11 @@ void LogUnDeleter::CreateInterface ()
 		char sclose    [128];
 		char tooltip   [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid );	
-		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Log Deleter v%1.1f", version );
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid )
+		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Log Deleter v%1.1f", version )
 
 		EclRegisterButton ( 265, 450, 20, 15, "", tooltip, stitle );
 		button_assignbitmap ( stitle, "software/log.tif" );
@@ -387,10 +387,10 @@ void LogUnDeleter::RemoveInterface ()
 		char sprogress [128];
 		char sclose    [128];
 
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid );
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid );
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid );
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid );	
+		UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid )
+		UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid )
+		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid )
+		UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid )
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -413,10 +413,10 @@ void LogUnDeleter::ShowInterface ()
 	char sprogress [128];
 	char sclose    [128];
 
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid );
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid );
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid );
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid );	
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_title %d", pid )
+	UplinkSnprintf ( sborder, sizeof ( sborder ), "logundeleter_border %d", pid )
+	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "logundeleter_progress %d", pid )
+	UplinkSnprintf ( sclose, sizeof ( sclose ), "logundeleter_close %d", pid )
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -432,7 +432,7 @@ bool LogUnDeleter::IsInterfaceVisible ()
 	int pid = SvbLookupPID ( this );
 
 	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_border %d", pid );
+	UplinkSnprintf ( stitle, sizeof ( stitle ), "logundeleter_border %d", pid )
 	
 	return ( EclGetButton (stitle) != nullptr );
 

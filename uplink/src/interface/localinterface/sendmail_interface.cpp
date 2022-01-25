@@ -79,7 +79,7 @@ void SendMailInterface::AttachFileClick ( Button *button )
 
 	// Update m with the captions which may have been changed
 
-	UplinkAssert (m);
+	UplinkAssert (m)
 
 	m->SetTo      ( EclGetButton ( "sendmail_to" )->caption );
 	m->SetFrom    ( "PLAYER" );
@@ -148,9 +148,9 @@ void SendMailInterface::ToggleFileList ( int x, int y )
 			for ( int si = 0; si < numfiles; ++si ) {
 
 				char caption [128], tooltip [128], name [128];
-				UplinkStrncpy ( caption, software.GetData (si), sizeof ( caption ) );
-				UplinkStrncpy ( tooltip, "Attach this file to the mail message", sizeof ( tooltip ) );
-				UplinkSnprintf ( name, sizeof ( name ), "sendmail_file %d", si );
+				UplinkStrncpy ( caption, software.GetData (si), sizeof ( caption ) )
+				UplinkStrncpy ( tooltip, "Attach this file to the mail message", sizeof ( tooltip ) )
+				UplinkSnprintf ( name, sizeof ( name ), "sendmail_file %d", si )
 				EclRegisterButton ( x, y, 120, 15, caption, tooltip, name );
 				EclRegisterButtonCallbacks ( name, button_draw, AttachFileClick, button_click, button_highlight );
 				EclRegisterMovement ( name, x, y - si * 17, si * timesplit );
@@ -169,13 +169,13 @@ void SendMailInterface::ToggleFileList ( int x, int y )
 
 		int index = 0;
 		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_file %d", index );
+		UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_file %d", index )
 
 		while ( EclGetButton ( bname ) ) {
 
 			EclRemoveButton ( bname );
 			++index;
-			UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_file %d", index );
+			UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_file %d", index )
 
 		}
 
@@ -212,7 +212,7 @@ void SendMailInterface::ToggleAddressBook ( int x, int y )
 			for ( int i = 0; i < numcontacts; ++i ) {
 
 				char name [64];
-				UplinkSnprintf ( name, sizeof ( name ), "sendmail_addressbook %d", i );
+				UplinkSnprintf ( name, sizeof ( name ), "sendmail_addressbook %d", i )
 
 				char *contact = game->GetWorld ()->GetPlayer ()->missions.GetData (i)->contact;
 
@@ -236,13 +236,13 @@ void SendMailInterface::ToggleAddressBook ( int x, int y )
 
 		int index = 0;
 		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_addressbook %d", index );
+		UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_addressbook %d", index )
 
 		while ( EclGetButton ( bname ) ) {
 
 			EclRemoveButton ( bname );
 			++index;
-			UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_addressbook %d", index );
+			UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_addressbook %d", index )
 
 		}
 
@@ -275,7 +275,7 @@ void SendMailInterface::ClearClick ( Button *button )
 void SendMailInterface::SendClick ( Button *button )
 {
  
-	UplinkAssert (m);
+	UplinkAssert (m)
 
 	// Update m with the captions which may have been changed
 
@@ -376,7 +376,7 @@ void SendMailInterface::Create ()
 void SendMailInterface::Remove ()
 {
 
-	UplinkAssert (m);
+	UplinkAssert (m)
 
 	if ( IsVisible () ) {
 
@@ -416,15 +416,15 @@ void SendMailInterface::Update ()
 		
 		// Update the interface buttons
 		
-		UplinkAssert (m);
+		UplinkAssert (m)
 
 		EclGetButton ( "sendmail_to" )->SetCaption ( m->to );
 		EclGetButton ( "sendmail_subject" )->SetCaption ( m->GetSubject () );
 		EclGetButton ( "sendmail_body box" )->SetCaption ( m->GetBody () );
 
 		char attached [128];
-		if ( m->GetData () ) {    UplinkSnprintf ( attached, sizeof ( attached ), "File: %s", m->GetData ()->title );
-		} else {                  UplinkStrncpy ( attached, "File: None attached", sizeof ( attached ) );
+		if ( m->GetData () ) {    UplinkSnprintf ( attached, sizeof ( attached ), "File: %s", m->GetData ()->title )
+		} else {                  UplinkStrncpy ( attached, "File: None attached", sizeof ( attached ) )
 		}
 		EclGetButton ( "sendmail_file" )->SetCaption ( attached );
 		

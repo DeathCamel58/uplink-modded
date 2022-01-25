@@ -30,7 +30,7 @@ static ColourOption getColourDefault ( 0.0, 0.0, 0.0 );
 
 Options::Options()
 {
-    UplinkStrncpy ( themeName, "graphics", sizeof ( themeName ) );
+    UplinkStrncpy ( themeName, "graphics", sizeof ( themeName ) )
 }
 
 Options::~Options()
@@ -70,8 +70,8 @@ int Options::GetOptionValue ( char *name )
 
 	if ( !option ) {
 		char msg [256];
-		UplinkSnprintf ( msg, sizeof ( msg ), "Option %s not found", name );
-		UplinkAbort(msg);
+		UplinkSnprintf ( msg, sizeof ( msg ), "Option %s not found", name )
+		UplinkAbort(msg)
 	}
 
 	return option->value;
@@ -98,7 +98,7 @@ void Options::SetOptionValue ( char *name, int newvalue )
 
 	if ( btree ) {
 
-		UplinkAssert ( btree->data );
+		UplinkAssert ( btree->data )
 		Option *option = btree->data;
 		option->SetValue ( newvalue );
 
@@ -118,7 +118,7 @@ void Options::SetOptionValue ( char *name, int newvalue, char *tooltip, bool yes
 
 	if ( btree ) {
 
-		UplinkAssert ( btree->data );
+		UplinkAssert ( btree->data )
 		Option *option = btree->data;
 		option->SetValue ( newvalue );
 		option->SetTooltip ( tooltip );
@@ -153,7 +153,7 @@ LList <Option *> *Options::GetAllOptions ( char *searchstring, bool returnhidden
 		if ( alloptions->ValidIndex (i) ) {
 
 			Option *option = alloptions->GetData (i);
-			UplinkAssert (option);
+			UplinkAssert (option)
 
 			if ( option->visible || returnhidden )
 				if ( !searchstring || strstr ( option->name, searchstring ) != nullptr )
@@ -255,7 +255,7 @@ void Options::CreateDefaultOptions ()
 
 void Options::SetThemeName ( char *newThemeName )
 {
-    UplinkStrncpy ( themeName, newThemeName, sizeof ( themeName ) );
+    UplinkStrncpy ( themeName, newThemeName, sizeof ( themeName ) )
 
     //
     // Parse the theme.txt file
@@ -353,18 +353,18 @@ char *Options::ThemeFilename ( char *filename )
 
     if ( strcmp ( themeName, "graphics" ) == 0 ) {
 
-        UplinkSnprintf ( result, resultsize, "graphics/%s", filename );
+        UplinkSnprintf ( result, resultsize, "graphics/%s", filename )
 
     }
     else {
 
         char fullFilename[256];
-        UplinkSnprintf ( fullFilename, sizeof ( fullFilename ), "%s%s/%s", app->path, themeName, filename );
+        UplinkSnprintf ( fullFilename, sizeof ( fullFilename ), "%s%s/%s", app->path, themeName, filename )
 		if ( DoesFileExist ( fullFilename ) ) {
-            UplinkSnprintf ( result, resultsize, "%s/%s", themeName, filename );
+            UplinkSnprintf ( result, resultsize, "%s/%s", themeName, filename )
 
 		} else {
-            UplinkSnprintf ( result, resultsize, "graphics/%s", filename );
+            UplinkSnprintf ( result, resultsize, "graphics/%s", filename )
 		}
 
     }
@@ -377,7 +377,7 @@ void Options::RequestShutdownChange ( char *optionName, int newValue )
 {
 
     auto *oc = new OptionChange ();
-    UplinkStrncpy ( oc->name, optionName, sizeof ( oc->name ) );
+    UplinkStrncpy ( oc->name, optionName, sizeof ( oc->name ) )
     oc->value = newValue;
 
     shutdownChanges.PutData( oc );
@@ -406,7 +406,7 @@ bool Options::Load ( FILE *file )
 	// Read from our own options file
 
 	char filename [256];
-	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath );
+	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath )
 	printf ( "Loading uplink options from %s...", filename );
 
 	FILE *optionsfile = nullptr;
@@ -463,7 +463,7 @@ bool Options::Load ( FILE *file )
 				if ( 0 <= newThemeLen && newThemeLen + 1 < sizeof(themeName) )
 					if ( fread(newThemeName, newThemeLen, 1, optionsfile) == 1 ) {
 						  newThemeName[newThemeLen] = '\0';
-						  UplinkStrncpy(themeName, newThemeName, sizeof ( themeName ));
+						  UplinkStrncpy(themeName, newThemeName, sizeof ( themeName ))
 					}
 
 		if ( encrypted )
@@ -496,7 +496,7 @@ void Options::Save ( FILE *file )
 	MakeDirectory ( app->userpath );
 
 	char filename [256];
-	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath );
+	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath )
 
 	printf ( "Saving uplink options to %s...", filename );
 
@@ -562,8 +562,8 @@ Options *options;
 Option::Option()
 {
 
-	UplinkStrncpy ( name, "", sizeof ( name ) );
-	UplinkStrncpy ( tooltip, "", sizeof ( tooltip ) );
+	UplinkStrncpy ( name, "", sizeof ( name ) )
+	UplinkStrncpy ( tooltip, "", sizeof ( tooltip ) )
 	yesorno = false;
 	visible = true;
 	value = 0;
@@ -576,16 +576,16 @@ Option::~Option()
 void Option::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen(newname) < SIZE_OPTION_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) );
+	UplinkAssert ( strlen(newname) < SIZE_OPTION_NAME )
+	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
 
 void Option::SetTooltip ( char *newtooltip )
 {
 
-	UplinkAssert ( strlen(newtooltip) < SIZE_OPTION_TOOLTIP );
-	UplinkStrncpy ( tooltip, newtooltip, sizeof ( tooltip ) );
+	UplinkAssert ( strlen(newtooltip) < SIZE_OPTION_TOOLTIP )
+	UplinkStrncpy ( tooltip, newtooltip, sizeof ( tooltip ) )
 
 }
 

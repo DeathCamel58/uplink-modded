@@ -56,7 +56,7 @@ void MemoryInterface::TitleClick ( Button *button )
 void MemoryInterface::MemoryBlockDraw ( Button *button, bool highlighted, bool clicked )
 {
 
-	UplinkAssert ( button );
+	UplinkAssert ( button )
 
 	int index;
 	sscanf ( button->name, "memory_block %d", &index );
@@ -72,7 +72,7 @@ void MemoryInterface::MemoryBlockDraw ( Button *button, bool highlighted, bool c
 		//clear_draw ( button->x, button->y, 30, button->height );
 
 		char caption [64];
-		UplinkSnprintf ( caption, sizeof ( caption ), "%03d", index );
+		UplinkSnprintf ( caption, sizeof ( caption ), "%03d", index )
 		glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 		GciDrawText ( button->x, button->y + button->height - 1, caption );	
 
@@ -151,7 +151,7 @@ void MemoryInterface::MemoryBlockDraw ( Button *button, bool highlighted, bool c
 
 				if ( data->TYPE == DATATYPE_PROGRAM ) {
 					char version [5];
-					UplinkSnprintf ( version, sizeof ( version ), "v%1.1f", data->version );
+					UplinkSnprintf ( version, sizeof ( version ), "v%1.1f", data->version )
 					GciDrawText ( button->x + button->width - 23, button->y + 8, version );
 				}
 
@@ -187,7 +187,7 @@ void MemoryInterface::MemoryBlockHighlight ( Button *button )
 			if ( game->GetWorld ()->GetPlayer ()->gateway.databank.GetDataIndex (i) == currentprogramindex ) {
 				
 				char name [32];
-				UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i - baseoffset );
+				UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i - baseoffset )
 				EclDirtyButton ( name );
 
 			}
@@ -220,7 +220,7 @@ void MemoryInterface::MemoryBlockHighlight ( Button *button )
 			if ( game->GetWorld ()->GetPlayer ()->gateway.databank.GetDataIndex (i) == currentprogramindex ) {
 				
 				char name [32];
-				UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i - baseoffset );
+				UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i - baseoffset )
 				EclDirtyButton ( name );
 
 			}
@@ -255,7 +255,7 @@ void MemoryInterface::ScrollChange ( char *scrollname, int newValue )
 	for ( int i = 0; i < numrows; ++i ) {
 	
 		char name [64];
-		UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i );
+		UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i )
 		EclDirtyButton ( name );
 
 	}
@@ -288,7 +288,7 @@ void MemoryInterface::Create ()
 		for ( int i = 0; i < numrows; ++i ) {
 
 			char name [64];
-			UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i )
 			//EclRegisterButton ( screenw - panelwidth - 3 + 5, paneltop + 50 + i * 10, panelwidth - 25, 10, "", name );
 			EclRegisterButton ( screenw - panelwidth + 5, paneltop + 50 + i * 10, (panelwidth - 7) - 25, 10, "", name );
 			EclRegisterButtonCallbacks ( name, MemoryBlockDraw, MemoryBlockClick, button_click, MemoryBlockHighlight );
@@ -322,7 +322,7 @@ void MemoryInterface::Remove ()
 		for ( int i = 0; i < numrows; ++i ) {
 
 			char name [64];
-			UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i );
+			UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i )
 
 			EclRemoveButton ( name );
 
@@ -353,7 +353,7 @@ void MemoryInterface::Update ()
 	if ( IsVisible () ) {
 
 		char memorycapacity [64];
-		UplinkSnprintf ( memorycapacity, sizeof ( memorycapacity ), "Memory Capacity : %d GigaQuads", game->GetWorld ()->GetPlayer ()->gateway.databank.GetSize () );
+		UplinkSnprintf ( memorycapacity, sizeof ( memorycapacity ), "Memory Capacity : %d GigaQuads", game->GetWorld ()->GetPlayer ()->gateway.databank.GetSize () )
 
 		EclGetButton ( "memory_capacity" )->SetCaption ( memorycapacity );
 
@@ -374,7 +374,7 @@ void MemoryInterface::Update ()
 			for ( int i = 0; i < numrows; ++i ) {
 			
 				char name [64];
-				UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i );
+				UplinkSnprintf ( name, sizeof ( name ), "memory_block %d", i )
 				EclDirtyButton ( name );
 
 			}

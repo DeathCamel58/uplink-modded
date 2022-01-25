@@ -56,10 +56,10 @@ char *RunPlotSceneEvent::GetLongString ()
 	char *result = new char [resultsize];
 
 	if ( act != -1 ) {
-	    UplinkSnprintf ( result, resultsize, "Run Plot Act %d, Scene %d", act, scene );
+	    UplinkSnprintf ( result, resultsize, "Run Plot Act %d, Scene %d", act, scene )
 
 	} else {
-        UplinkSnprintf ( result, resultsize, "Run Demo Plot Scene %d", scene );
+        UplinkSnprintf ( result, resultsize, "Run Demo Plot Scene %d", scene )
 	}
 
 	return result;
