@@ -8,6 +8,7 @@
 #include <GL/glu.h>
 
 #include <cstdio>
+#include <sstream>
 
 #include "eclipse.h"
 #include "soundgarden.h"
@@ -51,7 +52,9 @@ void SWSalesScreenInterface::ClickSWButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "SWsale %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	index += baseoffset;
 
@@ -83,7 +86,9 @@ void SWSalesScreenInterface::DrawSWButton ( Button *button, bool highlighted, bo
 	clear_draw ( button->x, button->y, button->width, button->height );
 
 	int index;
-	sscanf ( button->name, "SWsale %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	// Get the text from sale number (index + baseoffset)
@@ -166,7 +171,9 @@ void SWSalesScreenInterface::MousedownSWButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "SWsale %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )
@@ -184,7 +191,9 @@ void SWSalesScreenInterface::HighlightSWButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "SWsale %d", &index );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )

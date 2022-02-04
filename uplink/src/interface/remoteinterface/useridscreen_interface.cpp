@@ -73,8 +73,8 @@ void UserIDScreenInterface::AccessCodeClick ( Button *button )
 
 	UplinkAssert (button)
 
-	char *fullcode = new char [strlen(button->caption) + 1];
-	UplinkSafeStrcpy ( fullcode, button->caption )
+	char *fullcode = new char [button->caption.length() + 1];
+	UplinkSafeStrcpy ( fullcode, button->caption.c_str() )
 
 	/*
 		Access Codes
@@ -147,8 +147,8 @@ void UserIDScreenInterface::ProceedClick ( Button *button )
 	if ( !game->GetWorld ()->GetPlayer ()->IsConnected () )
 		return;
 	
-	char *name = EclGetButton ( "useridscreen_name" )->caption;
-	char *code = EclGetButton ( "useridscreen_code" )->caption;
+	char *name = (char *) EclGetButton ( "useridscreen_name" )->caption.c_str();
+	char *code = (char *) EclGetButton ( "useridscreen_code" )->caption.c_str();
 
 	if ( strlen ( name ) >= SIZE_PERSON_NAME )
 		name [ SIZE_PERSON_NAME - 1 ] = '\0';
@@ -269,11 +269,11 @@ void UserIDScreenInterface::CodeButtonDraw ( Button *button, bool highlighted, b
 
     SetColour ( "DefaultText" );
 
-	char *caption = new char [strlen(button->caption) + 1];
-	for ( size_t i = 0; i < strlen(button->caption); ++i )
+	char *caption = new char [button->caption.length() + 1];
+	for ( size_t i = 0; i < button->caption.length(); ++i )
 		caption [i] = '*';
 
-	caption [strlen(button->caption)] = '\x0';
+	caption [button->caption.length()] = '\x0';
 	GciDrawText ( button->x + 10, button->y + 10, caption, BITMAP_15 );
 
 	delete [] caption;

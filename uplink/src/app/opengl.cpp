@@ -410,7 +410,7 @@ void keyboard(unsigned char key, int x, int y)
 	    if ( !returned ) {
 
 		    // Pass the key press on to the box under the mouse
-		    char *name = EclGetHighlightedButton ();
+		    string name = EclGetHighlightedButton ();
 		    if ( EclIsButtonEditable (name) ) 
 			    textbutton_keypress ( EclGetButton (name), key );
 
@@ -419,7 +419,7 @@ void keyboard(unsigned char key, int x, int y)
 	}
     else if ( key == 27 ) {                             // ======== Esc key
 
-		char *name = EclGetHighlightedButton ();
+		string name = EclGetHighlightedButton ();
 
         if ( EclIsButtonEditable (name) ) {
 
@@ -449,7 +449,7 @@ void keyboard(unsigned char key, int x, int y)
 	}
     else {
 
-		char *name = EclGetHighlightedButton ();
+		string name = EclGetHighlightedButton ();
 		if ( EclIsButtonEditable (name) ) 
 			textbutton_keypress ( EclGetButton (name), key );
 
@@ -554,9 +554,9 @@ void mouse ( int button, int state, int x, int y )
 
 	if ( button == GCI_LEFT_BUTTON && state == GCI_DOWN ) {
 
-		char *name = EclGetButtonAtCoord ( x, y );
+		string name = EclGetButtonAtCoord ( x, y );
 
-		if ( name ) {
+		if ( !name.empty() ) {
 			Button *button = EclGetButton ( name );
 			if ( button ) button->MouseDown ();			
 		}
@@ -568,9 +568,9 @@ void mouse ( int button, int state, int x, int y )
         ScrollBox::UnGrabScrollBar();
 		//GciPostRedisplay ();
 
-		char *name = EclGetButtonAtCoord ( x, y );
+		string name = EclGetButtonAtCoord ( x, y );
 		
-		if ( name ) {			
+		if ( !name.empty() ) {
 			Button *button = EclGetButton ( name );
 			if ( button ) button->MouseUp ();
 		}
@@ -652,9 +652,9 @@ void passivemouse ( int x, int y )
 
 	// Look for any buttons under the mouse
 
-	char *name = EclGetButtonAtCoord ( x, y );
+	string name = EclGetButtonAtCoord ( x, y );
 
-	if ( name ) {
+	if ( !name.empty() ) {
 		Button *button = EclGetButton ( name );
 		if ( button ) button->MouseMove ();			
 	}

@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 
 #include "eclipse.h"
@@ -74,7 +75,7 @@ void Decrypter::MoveTo ( int x, int y, int time_ms )
 
 }
 
-void Decrypter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void Decrypter::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*
@@ -102,7 +103,7 @@ void Decrypter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				numticksrequired = data->size * TICKSREQUIRED_DECRYPT;
 				progress = 0;
 
-                remotefile = strstr(uos, "fileserverscreen") != nullptr;
+                remotefile = uos.find( "fileserverscreen") != string::npos;
 
 				Button *button = EclGetButton ( uos );
 				UplinkAssert (button)
@@ -190,7 +191,8 @@ void Decrypter::CloseClick ( Button *button )
 
 	int pid;
 	char bname [128];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -201,7 +203,8 @@ void Decrypter::BorderClick ( Button *button )
 
 	int pid;
 	char bname [128];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
 

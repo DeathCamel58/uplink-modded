@@ -8,6 +8,7 @@
 #include <GL/glu.h>
 
 #include <cstdio>
+#include <sstream>
 
 #include "eclipse.h"
 
@@ -50,7 +51,9 @@ void NewsScreenInterface::ClickNewsButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "news_story %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	index += baseoffset;
 
@@ -97,7 +100,9 @@ void NewsScreenInterface::DrawNewsButton ( Button *button, bool highlighted, boo
 {
 
 	int index;
-	sscanf ( button->name, "news_story %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	clear_draw ( button->x, button->y, button->width, button->height );
@@ -205,7 +210,8 @@ void NewsScreenInterface::DrawDetails ( Button *button, bool highlighted, bool c
 	// Get the offset
 
 	char name_base [128];
-	sscanf ( button->name, "%s", name_base );
+    istringstream stream(button->name);
+    stream >> name_base;
     ScrollBox *scrollBox = ScrollBox::GetScrollBox( name_base );
     if ( !scrollBox ) return;
     int offset = scrollBox->currentIndex;
@@ -229,7 +235,7 @@ void NewsScreenInterface::DrawDetails ( Button *button, bool highlighted, bool c
 
 	SetColour ( "DefaultText" );
 
-	LList <char *> *wrappedtext = wordwraptext ( button->caption, button->width );
+	LList <char *> *wrappedtext = wordwraptext ( button->caption.c_str(), button->width );
 
 	if ( wrappedtext ) {
 
@@ -260,7 +266,9 @@ void NewsScreenInterface::MousedownNewsButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "news_story %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )
@@ -275,7 +283,9 @@ void NewsScreenInterface::HighlightNewsButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "news_story %d", &index );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )

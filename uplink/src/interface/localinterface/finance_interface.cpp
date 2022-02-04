@@ -9,6 +9,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "eclipse.h"
 #include "soundgarden.h"
@@ -64,7 +65,7 @@ static void FinanceInterfaceTextDrawSplit ( Button *button, bool highlighted, bo
 
 	UplinkAssert (button)
 
-	if ( !button->caption )
+	if ( button->caption.empty() )
 		return;
 
 	SetColour ( "DefaultText" );
@@ -72,7 +73,7 @@ static void FinanceInterfaceTextDrawSplit ( Button *button, bool highlighted, bo
 	int xdistance[] = {0, 55, 150, 220};
 	char splitString[256];
 	size_t index = 0;
-	size_t len = strlen ( button->caption );
+	size_t len = button->caption.length();
 
 	for ( int i  = 0; i < ( sizeof(xdistance) / sizeof(int) ); i++ )
 	{
@@ -120,7 +121,9 @@ void FinanceInterface::DrawAccountButton ( Button *button, bool highlighted, boo
 	UplinkAssert ( button )
 
 	int index;
-	sscanf ( button->name, "finance_account %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 		
 	// Draw a gray background if this is the player's current account
 
@@ -160,7 +163,9 @@ void FinanceInterface::ClickAccountButton ( Button *button )
 	UplinkAssert ( button )
 
 	int index;
-	sscanf ( button->name, "finance_account %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	if ( index == game->GetWorld ()->GetPlayer ()->currentaccount ) {
 
@@ -373,12 +378,13 @@ void FinanceInterface::Update ()
 
 			int oldbalance = -1;
 
-			if ( strcmp ( EclGetButton (name)->caption, "Logging on..." ) != 0 &&
-				 strcmp ( EclGetButton (name)->caption, "Failed to log on" ) != 0 ) {
+			if ( EclGetButton (name)->caption != "Logging on..." &&
+				 EclGetButton (name)->caption != "Failed to log on" ) {
 
 				char accno [16];
 				char tempip [SIZE_VLOCATION_IP];
-				sscanf ( EclGetButton (name)->caption, "%s    %s    %d", accno, tempip, &oldbalance );
+                istringstream stream( EclGetButton (name)->caption);
+                stream >> accno >> tempip >> oldbalance;
 
 			}
 			

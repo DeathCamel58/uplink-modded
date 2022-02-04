@@ -69,8 +69,8 @@ void stextbox_scroll ( char *name, int newValue );
 // Functions for modal message boxes
 //
 
-void create_msgbox      ( char *title, char *message, void (*closeclick) (Button *) = nullptr );
-void create_yesnomsgbox ( char *title, char *message, void (*yesclick) (Button *) = nullptr, void (*noclick) (Button *) = nullptr );
+void create_msgbox      (const string &title, const string &message, void (*closeclick) (Button *) = nullptr );
+void create_yesnomsgbox (const string &title, const string &message, void (*yesclick) (Button *) = nullptr, void (*noclick) (Button *) = nullptr );
 void remove_msgbox      ();
 bool isvisible_msgbox   ();
 

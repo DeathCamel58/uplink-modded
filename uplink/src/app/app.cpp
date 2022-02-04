@@ -48,8 +48,8 @@
 App :: App ()
 {
 
-    UplinkStrncpy ( path, "c:/", sizeof ( path ) )
-    UplinkStrncpy ( userpath, path, sizeof ( userpath ) )
+    path = "c:/";
+    userpath = path;
     UplinkStrncpy ( version, "1.31c", sizeof ( version ) )
     UplinkStrncpy ( type, "RELEASE", sizeof ( type ) )
     UplinkStrncpy ( date, "01/01/97", sizeof ( date ) )
@@ -63,7 +63,7 @@ App :: App ()
 	mainmenu = nullptr;
 	phoneDial = nullptr;
 
-	nextLoadGame = nullptr;
+	nextLoadGame = "";
 
     closed = false;
 
@@ -112,7 +112,7 @@ void App :: Set ( char *newpath, char *newversion, char *newtype, char *newdate,
 	UplinkAssert ( strlen ( newdate ) < SIZE_APP_DATE )
 	UplinkAssert ( strlen ( newtitle ) < SIZE_APP_TITLE )
 
-    UplinkStrncpy ( path, newpath, sizeof ( path ) )
+    path = newpath;
     UplinkStrncpy ( version, newversion, sizeof ( version ) )
     UplinkStrncpy ( type, newtype, sizeof ( type ) )
     UplinkStrncpy ( date, newdate, sizeof ( date ) )
@@ -127,16 +127,16 @@ void App :: Set ( char *newpath, char *newversion, char *newtype, char *newdate,
 #else
 	// Under Linux, the user-path is ~/.uplink 
 	// (or %app-path%/users if no HOME environment variable)
-	char *homedir = getenv("HOME");
-	if (homedir != nullptr) {
-		UplinkSnprintf( userpath, sizeof ( userpath ), "%s/.uplink/", homedir)
-		UplinkSnprintf( usertmppath, sizeof ( usertmppath ), "%s/.uplink/userstmp/", homedir)
-		UplinkSnprintf( userretirepath, sizeof ( userretirepath ), "%s/.uplink/usersold/", homedir)
+	string homedir = getenv("HOME");
+	if (!homedir.empty()) {
+		userpath = homedir + "/.uplink/";
+		usertmppath = homedir + "/.uplink/userstmp/";
+		userretirepath = homedir + "/.uplink/usersold/";
 	}
 	else {
-		UplinkSnprintf( userpath, sizeof ( userpath ), "%susers/", path )
-		UplinkSnprintf( usertmppath, sizeof ( usertmppath ), "%suserstmp/", path )
-		UplinkSnprintf( userretirepath, sizeof ( userretirepath ), "%susersold/", path )
+		userpath = path + "users/";
+		usertmppath = path + "userstmp/";
+		userretirepath = path + "usersold/";
 	}
 #endif // WIN32
 }
@@ -191,11 +191,10 @@ void App::UnRegisterPhoneDialler ( PhoneDialler *phoneDiallerScreen )
 
 }
 
-void CopyGame ( char *username, char *filename )
+void CopyGame (const string &username, const string &filename )
 {
 
-	char filenametmp [256];
-	UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%scuragent.usr", app->usertmppath)
+	string filenametmp = app->usertmppath + "curagent.usr";
 
 	//char filenametmpUplink [256];
 	//UplinkSnprintf ( filenametmpUplink, sizeof ( filenametmpUplink ), "%scuragent_clear.bin", app->usertmppath );
@@ -206,60 +205,54 @@ void CopyGame ( char *username, char *filename )
 
 }
 
-void App::SetNextLoadGame ( const char *username )
+void App::SetNextLoadGame (const string &username )
 {
 
-	UplinkAssert ( username )
+	assert( !username.empty() );
 
-    delete [] nextLoadGame;
-
-	nextLoadGame = new char [ strlen ( username ) + 1 ];
-	UplinkSafeStrcpy ( nextLoadGame, username )
+	nextLoadGame = username;
 
 }
 
 void App::LoadGame ( )
 {
 
-	UplinkAssert ( nextLoadGame )
+	assert ( !nextLoadGame.empty() );
 
 	LoadGame ( nextLoadGame );
 
-	delete [] nextLoadGame;
-	nextLoadGame = nullptr;
+	nextLoadGame = "";
 
 }
 
-void App::LoadGame ( char *username )
+void App::LoadGame (const string &username )
 {
 
 	UplinkAssert ( game )
 
 	// Try to load from the local dir
 
-	char filename [256];
-	UplinkSnprintf ( filename, sizeof ( filename ), "%s%s.usr", app->userpath, username )
+	string filename = app->userpath + username + ".usr";
 
-	if ( !RsFileEncrypted ( filename ) ) {
-		char filenametmp [256];
-		UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%s%s.tmp", app->userpath, username )
-		if ( RsFileEncrypted ( filenametmp ) ) {
-			UplinkSafeStrcpy ( filename, filenametmp )
+	if ( !RsFileEncrypted ( (char *) filename.c_str() ) ) {
+		string filenametmp = app->userpath + username + ".tmp";
+		if ( RsFileEncrypted ( (char *) filenametmp.c_str() ) ) {
+			filename = filenametmp;
 		}
 	}
 
 	CopyGame ( username, filename );
 
-	printf ( "Loading profile from %s...", filename );
+	cout << "Loading profile from "  << filename  << "...";
 	
-	FILE *file = RsFileOpen ( filename );
+	FILE *file = RsFileOpen ( (char *) filename.c_str() );
 
 	if ( file ) {
 
 		GetMainMenu ()->Remove ();
 
 		bool success = game->LoadGame ( file );
-		RsFileClose ( filename, file );
+		RsFileClose ( (char *) filename.c_str(), file );
 
         if ( !success ) {
 			EmptyDirectory ( app->usertmppath );
@@ -360,15 +353,12 @@ void App::SaveGame ( char *username )
 
 	MakeDirectory ( userpath );
 
-	char filename [256];
-	//UplinkSnprintf ( filename, sizeof ( filename ), "%s%s.usr", userpath, username );
-	UplinkSnprintf ( filename, sizeof ( filename ), "%s%s.tmp", userpath, username )
-	char filenamereal [256];
-	UplinkSnprintf ( filenamereal, sizeof ( filenamereal ), "%s%s.usr", userpath, username )
+	string filename = userpath + username + ".tmp";
+	string filenamereal = userpath + username + ".usr";
 
-	printf ( "Saving profile to %s...", filename );
+	cout << "Saving profile to " << filename << "...";
 
-	FILE *file = fopen ( filename, "wb" );
+	FILE *file = fopen ( filename.c_str(), "wb" );
 
 	if ( file ) {
 
@@ -379,17 +369,17 @@ void App::SaveGame ( char *username )
 		fclose ( file );
 
 #ifndef TESTGAME
-		RsEncryptFile ( filename );
+		RsEncryptFile ( (char *) filename.c_str() );
 #endif
 
-		printf ( "success. Moving profile to %s...", filenamereal );
+		cout << "success. Moving profile to " << filenamereal << "...";
 
 		if ( !CopyFilePlain ( filename, filenamereal ) ) {
-			printf ( "failed\n" );
-			printf ( "App::SaveGame, Failed to copy user profile from %s to %s\n", filename, filenamereal );
+		    cout << "failed" << endl;
+		    cout << "App::SaveGame, Failed to copy user profile from " << filename << " to " << filenamereal << endl;
 		}
 		else {
-			printf ( "success\n" );
+		    cout << "success" << endl;
 			CopyGame ( username, filenamereal );
 		}
 
@@ -406,25 +396,21 @@ void App::SaveGame ( char *username )
 void App::RetireGame ( char *username )
 {
 
-	char filenamereal [256];
-	UplinkSnprintf ( filenamereal, sizeof ( filenamereal ), "%s%s.usr", userpath, username )
-	char filenametmp [256];
-	UplinkSnprintf ( filenametmp, sizeof ( filenametmp ), "%s%s.tmp", userpath, username )
+	string filenamereal = userpath + username + ".usr";
+	string filenametmp = userpath + username + ".tmp";
 
-	char filenameretirereal [256];
-	UplinkSnprintf ( filenameretirereal, sizeof ( filenameretirereal ), "%s%s.usr", userretirepath, username )
-	char filenameretiretmp [256];
-	UplinkSnprintf ( filenameretiretmp, sizeof ( filenameretiretmp ), "%s%s.tmp", userretirepath, username )
+	string filenameretirereal = userretirepath + username + ".usr";
+	string filenameretiretmp = userretirepath + username + ".tmp";
 
-	printf ( "Retire profile %s ...", username );
+	cout << "Retire profile " << username << " ...";
 
 	CopyFilePlain ( filenametmp, filenameretiretmp );
 	if ( !CopyFilePlain ( filenamereal, filenameretirereal ) ) {
-		printf ( "failed\n" );
-		printf ( "App::RetireGame, Failed to copy user profile from %s to %s\n", filenamereal, filenameretirereal );
+	    cout << "failed" << endl;
+	    cout << "App::RetireGame, Failed to copy user profile from " << filenamereal << " to " << filenameretirereal << endl;
 	}
 	else {
-		printf ( "success\n" );
+	    cout << "success" << endl;
 		RemoveFile ( filenametmp );
 		RemoveFile ( filenamereal );
 	}
@@ -463,9 +449,8 @@ DArray <char *> *App::ListExistingGames ()
 		_findclose ( fileindex );
 
 #else
-	char userdir [256];
-	UplinkStrncpy ( userdir, app->userpath, sizeof ( userdir ) )
-	DIR *dir = opendir( userdir );
+	string userdir = app->userpath;
+	DIR *dir = opendir( userdir.c_str() );
 	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
 
@@ -528,9 +513,8 @@ void App::Close ()
 		phoneDial = nullptr;
 	}
 
-	if ( nextLoadGame ) {
-		delete [] nextLoadGame;
-		nextLoadGame = nullptr;
+	if ( !nextLoadGame.empty() ) {
+		nextLoadGame = "";
 	}
 
 #ifdef _DEBUG

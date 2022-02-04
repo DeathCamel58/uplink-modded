@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 
 #include "eclipse.h"
@@ -117,7 +118,8 @@ void LanScan::GoClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	LanScan *thistask = (LanScan *) SvbGetTask ( pid );
 	UplinkAssert (thistask)
@@ -140,13 +142,14 @@ void LanScan::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
 }
 
-void LanScan::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void LanScan::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*

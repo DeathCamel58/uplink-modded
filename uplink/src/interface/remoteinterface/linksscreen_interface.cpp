@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
@@ -107,7 +108,9 @@ void LinksScreenInterface::LinkClick ( Button *button )
 	UplinkAssert ( button )
 
 	int fileindex;
-	sscanf ( button->name, "linksscreen_link %d", &fileindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> fileindex;
 	fileindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -149,7 +152,9 @@ void LinksScreenInterface::LinkDraw ( Button *button, bool highlighted, bool cli
 	clear_draw ( button->x, button->y, button->width, button->height );
 
 	int linkindex;
-	sscanf ( button->name, "linksscreen_link %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;	
@@ -224,7 +229,9 @@ void LinksScreenInterface::LinkMouseDown ( Button *button )
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_link %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -243,7 +250,9 @@ void LinksScreenInterface::LinkMouseMove ( Button *button )
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_link %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -262,7 +271,9 @@ void LinksScreenInterface::DeleteLinkDraw ( Button *button, bool highlighted, bo
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_deletelink %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -292,7 +303,9 @@ void LinksScreenInterface::DeleteLinkClick ( Button *button )
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_deletelink %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -313,9 +326,9 @@ void LinksScreenInterface::DeleteLinkClick ( Button *button )
 		
 		Button *filterbutton = EclGetButton ( "linksscreen_filtertext" );
 		if ( filterbutton ) {
-			char *filter = filterbutton->caption;
+			string filter = filterbutton->caption;
 			if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
-			else						thisinterface->ApplyFilter ( filter );
+			else						thisinterface->ApplyFilter ( (char *) filter.c_str() );
 			baseoffset = currentbaseoffset;
 		}
 		else
@@ -331,7 +344,9 @@ void LinksScreenInterface::AddLinkDraw ( Button *button, bool highlighted, bool 
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_addlink %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -354,7 +369,9 @@ void LinksScreenInterface::AddLinkClick ( Button *button )
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_addlink %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -371,7 +388,9 @@ void LinksScreenInterface::ShowLinkDraw ( Button *button, bool highlighted, bool
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_showlink %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -419,7 +438,9 @@ void LinksScreenInterface::ShowLinkClick ( Button *button )
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_showlink %d", &linkindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -442,7 +463,7 @@ void LinksScreenInterface::ShowLinkClick ( Button *button )
 		}
 
 		UpdateTooltip ( button, vl );
-		tooltip_update ( button->tooltip );
+		tooltip_update ( (char *) button->tooltip.c_str() );
 
     }
 
@@ -454,7 +475,9 @@ void LinksScreenInterface::ShowLinkMouseMove ( Button *button )
 	UplinkAssert ( button )
 	
 	int linkindex;
-	sscanf ( button->name, "linksscreen_showlink %d", &linkindex );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
 	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -493,10 +516,10 @@ void LinksScreenInterface::FilterClick ( Button *button )
 	LinksScreenInterface *thisinterface = ((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
 	UplinkAssert (thisinterface)
 
-	char *filter = EclGetButton ( "linksscreen_filtertext" )->caption;
+	string filter = EclGetButton ( "linksscreen_filtertext" )->caption;
 
 	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
-	else						thisinterface->ApplyFilter ( filter );
+	else						thisinterface->ApplyFilter ( (char *) filter.c_str() );
 
 }
 
@@ -919,9 +942,9 @@ bool LinksScreenInterface::ReturnKeyPressed ()
 	Button *filterbutton = EclGetButton ( "linksscreen_filtertext" );
 	
 	if ( filterbutton ) {
-		char *filter = filterbutton->caption;
+		string filter = filterbutton->caption;
 		if ( filter [0] == '\x0' )  ApplyFilter ( nullptr );
-		else						ApplyFilter ( filter );
+		else						ApplyFilter ( (char *) filter.c_str() );
 		return true;
 	}
 

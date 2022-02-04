@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "gucci.h"
 
@@ -84,7 +85,9 @@ void EventQueueInterface::EventDraw ( Button *button, bool highlighted, bool cli
 {
 
 	int index;
-	sscanf ( button->name, "evtqueue_event %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	if ( index < game->GetWorld ()->scheduler.events.Size () ) {
@@ -126,7 +129,9 @@ void EventQueueInterface::EventClick ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "evtqueue_event %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	if ( index < game->GetWorld ()->scheduler.events.Size () ) {
@@ -158,7 +163,9 @@ void EventQueueInterface::DeleteEventDraw ( Button *button, bool highlighted, bo
 {
 
    	int index;
-	sscanf ( button->name, "evtqueue_deleteevent %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	if ( index < game->GetWorld ()->scheduler.events.Size () ) 
@@ -170,7 +177,9 @@ void EventQueueInterface::DeleteEventClick ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "evtqueue_deleteevent %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
     if ( index < game->GetWorld ()->scheduler.events.Size () ) {

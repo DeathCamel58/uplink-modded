@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 #include "vanbakel.h"
 
@@ -101,7 +102,8 @@ void FirewallDisable::GoClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	auto *thistask = (FirewallDisable *) SvbGetTask ( pid );
 	UplinkAssert (thistask)
@@ -135,7 +137,8 @@ void FirewallDisable::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -152,7 +155,7 @@ FirewallDisable::~FirewallDisable ()
 = default;
 
 
-void FirewallDisable::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void FirewallDisable::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*

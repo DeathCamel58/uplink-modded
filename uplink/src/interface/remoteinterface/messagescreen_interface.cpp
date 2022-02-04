@@ -1,5 +1,6 @@
 
 
+#include <sstream>
 #include "eclipse.h"
 #include "gucci.h"
 
@@ -26,7 +27,9 @@ void MessageScreenInterface::Click ( Button *button )
 
 	int nextpage;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
-	sscanf ( button->name, "messagescreen_click %d %s", &nextpage, ip );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> nextpage >> ip;
 
 	Computer *comp = nullptr;
     VLocation *loc = game->GetWorld()->GetVLocation(ip);

@@ -66,7 +66,7 @@ void DemoGameOverInterface::Update ()
 
 		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
-			if ( strcmp ( EclGetButton ( "demogameover" )->caption, " " ) == 0 ) {
+			if ( EclGetButton ( "demogameover" )->caption == " " ) {
 
 				EclRegisterCaptionChange ( "demogameover", "Uplink Corporation has detected that you are still using\n"
                                                            "the Demo Uplink Client, and that you have reached the highest\n"

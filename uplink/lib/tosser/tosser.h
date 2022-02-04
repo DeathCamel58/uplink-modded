@@ -156,22 +156,22 @@ protected :
     
 public :
 
-    char *id;
+    string id;
     T data;
 
     BTree ();
-    BTree ( const char *newid, const T &newdata );
+    BTree (const string &newid, const T &newdata );
     BTree ( const BTree<T> &copy );
 
     ~BTree ();
     void Copy( const BTree<T> &copy );
 
-    void PutData ( const char *newid, const T &newdata );
-    void RemoveData ( const char *newid );                     // Requires a solid copy constructor in T class
-    void RemoveData ( const char *newid, const T &newdata );   // Requires a solid copy constructor in T class
-    T GetData ( const char *searchid );
+    void PutData (const string &newid, const T &newdata );
+    void RemoveData (const string &newid );                     // Requires a solid copy constructor in T class
+    void RemoveData (const string &newid, const T &newdata );   // Requires a solid copy constructor in T class
+    T GetData (const string &searchid );
 
-    BTree *LookupTree( const char *searchid );
+    BTree *LookupTree(const string &searchid );
     
     void Empty ();
     

@@ -8,6 +8,7 @@
 #include <GL/glu.h>
 
 #include <cstdio>
+#include <sstream>
 
 #include "eclipse.h"
 #include "soundgarden.h"
@@ -78,7 +79,9 @@ void HWSalesScreenInterface::ShowSalesMenuClick ( Button *button )
 {
 
 	int newHWType;
-	sscanf ( button->name, "hwsales_showmenu %d", &newHWType );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> newHWType;
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint)
@@ -98,7 +101,9 @@ void HWSalesScreenInterface::ClickHWButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "HWsale %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	index += baseoffset;
 
@@ -130,7 +135,9 @@ void HWSalesScreenInterface::DrawHWButton ( Button *button, bool highlighted, bo
 	clear_draw ( button->x, button->y, button->width, button->height );
 
 	int index;
-	sscanf ( button->name, "HWsale %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	// Get the text from sale number (index + baseoffset)
@@ -198,7 +205,9 @@ void HWSalesScreenInterface::MousedownHWButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "HWsale %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint)
@@ -214,7 +223,9 @@ void HWSalesScreenInterface::HighlightHWButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "HWsale %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert (thisint)

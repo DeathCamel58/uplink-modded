@@ -79,11 +79,11 @@ void ConsoleScreenInterface::PostClick ( Button *button )
 
 	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
 
-	char *actualcommand = strchr ( b->caption, '>' );
+	char *actualcommand = (char *) strchr ( b->caption.c_str(), '>' );
 
 	if ( actualcommand ) {													// Copy actual command here
-		actualcommand = new char [strlen(b->caption)+1];					// For use below as the button caption
-		UplinkSafeStrcpy ( actualcommand, strchr (b->caption, '>')+1)		// Will be set to '' by the caption change
+		actualcommand = new char [b->caption.length()+1];					// For use below as the button caption
+		UplinkSafeStrcpy ( actualcommand, strchr (b->caption.c_str(), '>')+1)		// Will be set to '' by the caption change
 	}
 
 	thisint->PutText ( 1, actualcommand );

@@ -9,6 +9,7 @@
 
 #include <cstring>
 #include <cstdio>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "gucci.h"
@@ -76,7 +77,8 @@ void UplinkAgentList::UplinkAgentListDraw ( Button *button, bool highlighted, bo
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual)
 
@@ -133,7 +135,7 @@ void UplinkAgentList::UplinkAgentListDraw ( Button *button, bool highlighted, bo
 
 }
 
-void UplinkAgentList::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void UplinkAgentList::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 
@@ -144,7 +146,8 @@ void UplinkAgentList::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -155,7 +158,8 @@ void UplinkAgentList::TitleClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual)
 
@@ -173,7 +177,8 @@ void UplinkAgentList::ScrollUpClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual)
 
@@ -190,7 +195,8 @@ void UplinkAgentList::ScrollDownClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual)
 

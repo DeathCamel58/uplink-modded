@@ -8,6 +8,7 @@
 #include <GL/glu.h>
 
 #include <cstdio>
+#include <sstream>
 
 #include "eclipse.h"
 
@@ -52,7 +53,9 @@ void BBSScreenInterface::ClickBBSButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "BBmessage %d", &index );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	index += baseoffset;
 
@@ -82,7 +85,9 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 {
 
 	int index;
-	sscanf ( button->name, "BBmessage %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	int screenheight = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
@@ -175,7 +180,9 @@ void BBSScreenInterface::MousedownBBSButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "BBmessage %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )
@@ -190,7 +197,9 @@ void BBSScreenInterface::HighlightBBSButton ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "BBmessage %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )

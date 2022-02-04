@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "redshirt.h"
@@ -59,7 +60,9 @@ void GenericOptionsInterface::ApplyClick ( Button *button )
 		char optionname [64];
 		int newvalue;
 		UplinkSnprintf ( optionname, sizeof ( optionname ), "%s_%s", thisint->optionTYPE, namebutton->caption )
-		sscanf ( valuebutton->caption, "%d", &newvalue );
+        string unused;
+        istringstream stream(valuebutton->caption);
+        stream >> newvalue;
 		
 		// If they've changed, update them
 
@@ -97,9 +100,10 @@ void GenericOptionsInterface::ToggleBoxClick ( Button *button )
 
 	// Get the button index
 
-	char unused [64];
 	int buttonindex;
-	sscanf ( button->name, "%s %d", unused, &buttonindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> buttonindex;
 
 	// Grab the appropriate button
 

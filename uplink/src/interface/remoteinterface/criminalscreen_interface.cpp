@@ -89,7 +89,7 @@ void CriminalScreenInterface::AddConvictionClick ( Button *button )
 
 	if ( csi->recordindex != -1 ) {
 
-		char *newconviction = EclGetButton ( "criminal_newconvictiontext" )->caption;
+		char *newconviction = (char *) EclGetButton ( "criminal_newconvictiontext" )->caption.c_str();
 
 		Computer *comp = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
 		UplinkAssert (comp)

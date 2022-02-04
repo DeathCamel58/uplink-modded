@@ -1,26 +1,19 @@
 
-#include "stdio.h"
+#include <cstdio>
 
 #include "animation.h"
 
 #include "mmgr.h"
 
 Animation::Animation()
-    : buttonname(0), button(0), targetC(0)
+    : button(nullptr)
 {
 }
 
 Animation::~Animation()
-{
+= default;
 
-	if ( buttonname )
-		delete [] buttonname;
-	if ( targetC )
-		delete [] targetC;
-
-}
-
-void Animation::DebugPrint ()
+void Animation::DebugPrint () const
 {
 
 	printf ( "ANIMATION : buttonname:'%s'\n", buttonname );

@@ -9,6 +9,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /* glu extention library */
+#include <sstream>
 
 #include "eclipse.h"
 
@@ -55,11 +56,11 @@ void DialogScreenInterface::PasswordBoxDraw ( Button *button, bool highlighted, 
 
 	// Print the text
 
-	char *caption = new char [strlen(button->caption) + 1];
-	for ( unsigned i = 0; i < strlen(button->caption); ++i )
+	char *caption = new char [button->caption.length() + 1];
+	for ( unsigned i = 0; i < button->caption.length(); ++i )
 		caption [i] = '*';
 
-	caption [strlen(button->caption)] = '\x0';
+	caption [button->caption.length()] = '\x0';
 	GciDrawText ( button->x + 10, button->y + 10, caption, BITMAP_15 );
 
 	delete [] caption;
@@ -81,7 +82,8 @@ void DialogScreenInterface::NextPageClick ( Button *button )
 	char bname [64 + SIZE_VLOCATION_IP + 1];
 	int data1, data2;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
-	sscanf ( button->name, "%s %d %d %s", bname, &data1, &data2, ip );
+    istringstream stream(button->name);
+    stream >> bname >> data1 >> data2 >> ip;
 
 	int nextpage = data1;
 
@@ -101,7 +103,8 @@ void DialogScreenInterface::ScriptButtonClick ( Button *button )
 	char bname [64 + SIZE_VLOCATION_IP + 1];
 	int data1, data2;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
-	sscanf ( button->name, "%s %d %d %s", bname, &data1, &data2, ip );
+    istringstream stream(button->name);
+    stream >> bname >> data1 >> data2 >> ip;
 
 	int scriptindex = data1;
 	int nextpage = data2;

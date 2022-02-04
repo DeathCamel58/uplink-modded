@@ -19,7 +19,7 @@ class UplinkTask : public Task
 protected:
 
 	UplinkObject *targetobject;
-	char		 *targetstring;
+	string targetstring;
 	int			  targetint;
 	
 public:
@@ -35,7 +35,7 @@ public:
 	void SetVersion ( float newversion );
 	void SetFollowMouse ( bool newfollowmouse );
 
-	virtual void SetTarget ( UplinkObject *newtargetobject, char *newtargetstring, int targetint );
+	virtual void SetTarget (UplinkObject *newtargetobject, const string &newtargetstring, int targetint );
 	virtual void MoveTo ( int x, int y, int time_ms );	
 	
 };

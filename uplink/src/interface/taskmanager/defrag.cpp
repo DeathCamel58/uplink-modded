@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 #include "vanbakel.h"
 
@@ -105,7 +106,8 @@ void Defrag::GoClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	auto *thistask = (Defrag *) SvbGetTask ( pid );
 	UplinkAssert (thistask)
@@ -128,7 +130,8 @@ void Defrag::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	auto *thistask = (Defrag *) SvbGetTask ( pid );
 	UplinkAssert (thistask)

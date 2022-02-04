@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "redshirt.h"
@@ -116,7 +117,8 @@ void ThemeInterface::ThemeNameDraw ( Button *button, bool highlighted, bool clic
 
     char unused [64];
     int index;
-    sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
     
     if ( highlighted || clicked || index == currentSelect ) {
 
@@ -167,7 +169,8 @@ void ThemeInterface::ThemeNameClick ( Button *button )
 
     char unused [64];
     int index;
-    sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
   
     currentSelect = index;
 

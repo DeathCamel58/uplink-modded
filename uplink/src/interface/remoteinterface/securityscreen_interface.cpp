@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -37,8 +38,9 @@ void SecurityScreenInterface::SystemTitleDraw ( Button *button, bool highlighted
 	// Get the security system in question
 
 	int index;
-	char unused [64];
-	sscanf ( button->name, "%s %d", unused, &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
 	UplinkAssert (comp)
@@ -75,8 +77,9 @@ void SecurityScreenInterface::StatusClick ( Button *button )
 {
 
 	int index;
-	char unused [64];
-	sscanf ( button->name, "%s %d", unused, &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
 	UplinkAssert (comp)

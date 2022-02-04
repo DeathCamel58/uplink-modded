@@ -19,7 +19,7 @@ UplinkTask::UplinkTask() : Task ()
 {
 
 	targetobject = nullptr;
-	targetstring = nullptr;
+	targetstring = "";
 	targetint = -1;
 	version = 1.0;
 	followmouse = false;
@@ -43,7 +43,7 @@ void UplinkTask::SetFollowMouse ( bool newfollowmouse )
 
 }
 
-void UplinkTask::SetTarget ( UplinkObject *newtargetobject, char *newtargetstring, int targetint )
+void UplinkTask::SetTarget (UplinkObject *newtargetobject, const string &newtargetstring, int targetint )
 {
 }
 

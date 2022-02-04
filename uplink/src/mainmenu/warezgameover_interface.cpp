@@ -66,7 +66,7 @@ void WarezGameOverInterface::Update ()
 
 		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
-			if ( strcmp ( EclGetButton ( "warezgameover" )->caption, " " ) == 0 ) {
+			if ( EclGetButton ( "warezgameover" )->caption == " " ) {
 
 				EclRegisterCaptionChange ( "warezgameover", "Uplink Corporation has detected that you are using\n"
                                                             "an illegal copy of this product.\n\n"

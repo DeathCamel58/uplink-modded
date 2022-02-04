@@ -274,7 +274,7 @@ void IRCInterface::ConnectClick ( Button *button )
         cIrcSession->AddMonitor( uplinkIRCMonitor );
 
         int port;
-        sscanf ( EclGetButton("irc_port")->caption, "%d", &port );
+        sscanf ( EclGetButton("irc_port")->caption.c_str(), "%d", &port );
 
         CIrcSessionInfo cIrcSessionInfo;
 
@@ -289,7 +289,7 @@ void IRCInterface::ConnectClick ( Button *button )
 	    cIrcSessionInfo.iIdentServerPort   = 113;
 	    cIrcSessionInfo.sIdentServerType   = "UNIX";
 
-        strncpy ( channelName, EclGetButton("irc_channel")->caption, sizeof ( channelName ) );
+        strncpy ( channelName, EclGetButton("irc_channel")->caption.c_str(), sizeof ( channelName ) );
 		channelName [ sizeof ( channelName ) - 1 ] = '\0';
 
 	    bool success = cIrcSession->Connect( cIrcSessionInfo );
@@ -314,25 +314,29 @@ void IRCInterface::PostClick ( Button *button )
 
     if ( textButton->caption[1] == '�' ) {
 
-        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "%s", (textButton->caption+2) );
+        // TODO: Fix the snprintf
+//        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "%s", (textButton->caption+2) );
 		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
 
     }
-    else if ( strstr(textButton->caption, "/nick" ) ) {
+    else if ( textButton->caption.find( "/nick" ) != string::npos ) {
 
-        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "nick %s: %s", cIrcSession->GetInfo().sNick.c_str(), 
-                                             (textButton->caption+7) );
+        // TODO: Fix the snprintf
+//        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "nick %s: %s", cIrcSession->GetInfo().sNick.c_str(),
+//                                             (textButton->caption+7) );
 		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
     }
-    else if ( strstr(textButton->caption, "/action" ) ) {
+    else if ( textButton->caption.find( "/action" ) != string::npos ) {
 
-        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "privmsg %s: %s :%cACTION %s%c", cIrcSession->GetInfo().sNick.c_str(),
-                                                   channelName, '\x1', (textButton->caption+9), '\x1' );
+        // TODO: Fix the snprintf
+//        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "privmsg %s: %s :%cACTION %s%c", cIrcSession->GetInfo().sNick.c_str(),
+//                                                   channelName, '\x1', (textButton->caption+9), '\x1' );
 		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
     }
     else {
-        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "privmsg %s: %s :%s", cIrcSession->GetInfo().sNick.c_str(),
-                                                    channelName, (textButton->caption+1) );
+        // TODO: Fix the snprintf
+//        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "privmsg %s: %s :%s", cIrcSession->GetInfo().sNick.c_str(),
+//                                                    channelName, (textButton->caption+1) );
  		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
    }
 

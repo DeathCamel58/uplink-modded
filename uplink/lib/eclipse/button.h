@@ -20,9 +20,9 @@ public:
 	int y;
 	int width;
 	int height;
-	char *caption;
-	char *name;
-	char *tooltip;
+	string caption;
+	string name;
+	string tooltip;
 	int userinfo;								// Used to represent other program data about the button.
 
 	bool dirty;
@@ -41,16 +41,16 @@ protected:
 public:
 
 	Button ();
-	Button ( int newx, int newy, int newwidth, int newheight,
-			 char *newcaption, char *newname );
+	Button (int newx, int newy, int newwidth, int newheight,
+            const string &newcaption, const string &newname );
 
 	virtual ~Button ();
 
-	void SetProperties ( int newx, int newy, int newwidth, int newheight,
-					     char *newcaption, char *newname );
+	void SetProperties (int newx, int newy, int newwidth, int newheight,
+                        const string &newcaption, const string &newname );
 
-	void SetCaption ( char *newcaption );
-	void SetTooltip ( char *newtooltip );
+	void SetCaption (const string &newcaption );
+	void SetTooltip (const string &newtooltip );
 	void SetStandardImage ( Image *newimage );
 	void SetImages ( Image *newstandard, Image *newhighlighted, Image *newclicked );	
 
@@ -66,7 +66,7 @@ public:
 	void MouseDown ();
 	void MouseMove ();
 	
-	void DebugPrint ();
+	void DebugPrint () const;
 
 };
 

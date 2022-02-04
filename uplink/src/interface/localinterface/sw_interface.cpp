@@ -8,6 +8,7 @@
 #include <GL/glu.h>
 
 #include <cstring>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "soundgarden.h"
@@ -44,7 +45,7 @@ void SWInterface::SoftwareClick ( Button *button )
 
 	char softwarename [128];
 	float version;
-	sscanf ( button->caption, "%s v%f", softwarename, &version );
+	sscanf ( button->caption.c_str(), "%s v%f", softwarename, &version );
 
 	// Check this is still in memory
 
@@ -87,10 +88,11 @@ void SWInterface::SoftwareDraw ( Button *button, bool highlighted, bool clicked 
 	bool nhighlighted;
 
 	int areyoutheone;
-	sscanf ( button->name, "%s %d", junk, &areyoutheone );
+    istringstream stream(button->name);
+    stream >> junk >> areyoutheone;
 	
 	if ( areyoutheone == currentprogrambutton &&
-		 strstr ( button->name, "version" ) == nullptr )							// Don't auto-highlight buttons from a version menu
+		 button->name.find( "version" ) == string::npos )							// Don't auto-highlight buttons from a version menu
 		nhighlighted = true;
 
 	else
@@ -124,7 +126,7 @@ void SWInterface::SoftwareDraw ( Button *button, bool highlighted, bool clicked 
 	
 	char softwarename [128];
 	float version;
-	sscanf ( button->caption, "%s v%f", softwarename, &version );
+	sscanf ( button->caption.c_str(), "%s v%f", softwarename, &version );
 
 	if ( nhighlighted || clicked )	glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 	else							glColor4f ( 1.0f, 1.0f, 1.0f, ALPHA );    
@@ -133,7 +135,7 @@ void SWInterface::SoftwareDraw ( Button *button, bool highlighted, bool clicked 
 	GciDrawText ( button->x + 5, (button->y + button->height / 2) + 3, softwarename );
 
 	// Write the version number
-	GciDrawText ( button->x + button->width - 30, (button->y + button->height / 2) + 3, button->caption + strlen(softwarename) );
+	GciDrawText ( button->x + button->width - 30, (button->y + button->height / 2) + 3, button->caption.c_str() + strlen(softwarename) );
 		
 }
 
@@ -269,7 +271,9 @@ void SWInterface::SoftwareHighlight ( Button *button )
 	// appear in a new sub menu in a few milliseconds
 
 	int index;
-	sscanf ( button->name, "hud_software %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	if ( currentprogrambutton != index ) {
 
@@ -305,7 +309,9 @@ void SWInterface::StartMenuItemDraw ( Button *button, bool highlighted, bool cli
 {
 
 	int softwareTYPE;
-	sscanf ( button->name, "hud_swmenu %d", &softwareTYPE );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> softwareTYPE;
 
 	if ( softwareTYPE == currentsubmenu )
 		button_draw ( button, true, clicked );
@@ -328,7 +334,9 @@ void SWInterface::StartMenuItemHighlight ( Button *button )
 {
 
 	int softwareTYPE;
-	sscanf ( button->name, "hud_swmenu %d", &softwareTYPE );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> softwareTYPE;
 
 	// Create this menu if it doesn't exist
 
@@ -553,7 +561,7 @@ bool SWInterface::IsVisibleVersionMenu ( char *program )
 
 	if ( program ) 
 		return ( EclGetButton ( "hud_version 0" ) != nullptr &&
-			     strstr ( EclGetButton ( "hud_version 0" )->caption, program ) != nullptr );
+			     EclGetButton ( "hud_version 0" )->caption.find( program ) != string::npos );
 
 	else
 		return ( EclGetButton ( "hud_version 0" ) != nullptr );
@@ -600,13 +608,13 @@ void SWInterface::Update ()
 		Button *currentbutton = getcurrentbutton ();
 
 		if ( currentbutton &&
-			strcmp ( currentbutton->name, correctname ) == 0 ) {
+			currentbutton->name == correctname ) {
 
 			// Get the name of the software item
 
 			char swname [64];
 			int version;
-			sscanf ( currentbutton->caption, "%s v%1.1f", swname, &version );
+			sscanf ( currentbutton->caption.c_str(), "%s v%1.1f", swname, &version );
 
 			// Create a version menu if neccisary
 

@@ -39,10 +39,10 @@
 void PasswordScreenInterface::CursorFlash ()
 {
 
-	if ( strcmp ( EclGetButton ( "passwordscreen_password" )->caption, "_" ) == 0 )
+	if ( EclGetButton ( "passwordscreen_password" )->caption == "_" )
 		EclRegisterCaptionChange ( "passwordscreen_password", " ", 1000, CursorFlash );
 
-	else if ( strcmp ( EclGetButton ( "passwordscreen_password" )->caption, " " ) == 0 )
+	else if ( EclGetButton ( "passwordscreen_password" )->caption == " " )
 		EclRegisterCaptionChange ( "passwordscreen_password", "_", 1000, CursorFlash );
 
 }
@@ -65,8 +65,8 @@ void PasswordScreenInterface::AccessCodeClick ( Button *button )
 
 	UplinkAssert (button)
 
-	char *fullcode = new char [strlen(button->caption) + 1];
-	UplinkSafeStrcpy ( fullcode, button->caption )
+	char *fullcode = new char [button->caption.length() + 1];
+	UplinkSafeStrcpy ( fullcode, button->caption.c_str() )
 
 	char *code, *code2;
 
@@ -119,11 +119,11 @@ void PasswordScreenInterface::CodeButtonDraw ( Button *button, bool highlighted,
 
     SetColour ( "DefaultText" );
 	
-	char *caption = new char [strlen(button->caption) + 1];
-	for ( size_t i = 0; i < strlen(button->caption); ++i )
+	char *caption = new char [button->caption.length() + 1];
+	for ( size_t i = 0; i < button->caption.length(); ++i )
 		caption [i] = '*';
 
-	caption [strlen(button->caption)] = '\x0';
+	caption [button->caption.length()] = '\x0';
 	GciDrawText ( button->x + 10, button->y + 10, caption, BITMAP_15 );
 
 	delete [] caption;
@@ -241,7 +241,7 @@ void PasswordScreenInterface::Update ()
 {
 
 	if ( game->GetWorld ()->GetPlayer ()->IsConnected () && 
-	     strcmp ( EclGetButton ( "passwordscreen_password" )->caption, GetComputerScreen ()->password ) == 0 ) {
+	     EclGetButton ( "passwordscreen_password" )->caption == GetComputerScreen ()->password ) {
 
 		SgPlaySound ( RsArchiveFileOpen ( "sounds/login.wav" ), "sounds/login.wav" );
 		NextPage ();

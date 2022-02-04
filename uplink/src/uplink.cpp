@@ -340,8 +340,8 @@ int RunUplinkExceptionHandling ()
 	if ( file_stdout ) {
 		fprintf ( file_stdout, "\nAn (unrecognised) Uplink Internal Error has occured\n" );
 		fprintf ( file_stdout, "===================================================\n" );
-		if ( app && strncmp ( app->userpath, "c:/", sizeof(app->userpath) ) != 0 ) {
-			fprintf ( file_stdout, "See the %sdebug.log file for more informations on the error\n", app->userpath );
+		if ( app && strncmp ( app->userpath.c_str(), "c:/", sizeof(app->userpath) ) != 0 ) {
+			fprintf ( file_stdout, "See the %sdebug.log file for more informations on the error\n", app->userpath.c_str() );
 		}
 		else {
 			fprintf ( file_stdout, "See the debug.log file for more informations on the error\n" );
@@ -553,7 +553,7 @@ void Init_App ( char *argv0 )
 
 #endif
 
-    RsInitialise ( app->path );
+    RsInitialise ( (char *) app->path.c_str() );
 
 	app->Initialise ();
 
@@ -789,7 +789,7 @@ bool VerifyLegitAndCodeCardCheck()
 	// Ensure the world.dat file is in place and has the right CRC
 
 	char worlddatfilename [256];
-	UplinkSnprintf ( worlddatfilename, sizeof ( worlddatfilename ), "%sworld.dat", app->path )
+	UplinkSnprintf ( worlddatfilename, sizeof ( worlddatfilename ), "%sworld.dat", app->path.c_str() )
 	findGoodFile ( worlddatfilename );
 
 	FILE *file = fopen ( worlddatfilename, "rb" );

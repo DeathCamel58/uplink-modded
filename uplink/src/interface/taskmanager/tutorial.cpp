@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "vanbakel.h"
 
@@ -58,7 +59,8 @@ void Tutorial::CloseClick ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -71,7 +73,8 @@ void Tutorial::TitleClick ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
@@ -87,7 +90,8 @@ void Tutorial::SkipClick ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
@@ -102,7 +106,8 @@ void Tutorial::NextDraw ( Button *button, bool highlighted, bool clicked )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
@@ -121,7 +126,8 @@ void Tutorial::NextMouseMove ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
@@ -140,7 +146,8 @@ void Tutorial::NextMouseDown ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
@@ -159,7 +166,8 @@ void Tutorial::NextClick ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (Tutorial *) SvbGetTask ( pid );
 
@@ -178,7 +186,9 @@ void Tutorial::MenuButtonClick ( Button *button )
 	int buttonindex;
 	int pid;
 
-	sscanf ( button->name, "%s %d %d", name, &buttonindex, &pid );
+    string unused;
+    istringstream stream(button->name);
+    stream >> name >> buttonindex >> pid;
 
 
 	// Run that part of the tutorial

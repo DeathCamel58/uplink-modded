@@ -38,7 +38,7 @@ public:
 
 	virtual ~PasswordBreaker();
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi );				
+	void SetTarget (UplinkObject *uo, const string &uos, int uoi );
 
 	void Initialise ();     // Called at creation time, neccisary
 	void Tick ( int n );           // n ticks occur

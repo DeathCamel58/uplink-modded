@@ -69,7 +69,7 @@ void NetworkOptionsInterface::ClientButtonClick ( Button *button )
 	if ( app->GetNetwork ()->STATUS == NETWORK_NONE ) {
 		
 		UplinkAssert ( EclGetButton ( "network_clienttarget" ) )
-		app->GetNetwork ()->StartClient ( EclGetButton ( "network_clienttarget" )->caption );
+		app->GetNetwork ()->StartClient ( (char *) EclGetButton ( "network_clienttarget" )->caption.c_str() );
 	
 	}
 	else

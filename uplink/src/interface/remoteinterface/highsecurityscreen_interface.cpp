@@ -8,6 +8,7 @@
 
 
 #include <cstdio>
+#include <sstream>
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -39,8 +40,9 @@ void HighSecurityScreenInterface::SystemTitleDraw ( Button *button, bool highlig
 {
 
 	int index;
-	char unused [64];
-	sscanf ( button->name, "%s %d", unused, &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (hs)
@@ -80,8 +82,9 @@ void HighSecurityScreenInterface::SystemClick ( Button *button )
 {
 
 	int index;
-	char unused [64];
-	sscanf ( button->name, "%s %d", unused, &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *hs = (HighSecurityScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (hs)

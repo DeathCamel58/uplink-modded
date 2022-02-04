@@ -63,9 +63,9 @@ static int glutStateToGucci(int state)
   return 0;
 }
 
-void GciInitGraphics( const char *caption,
-		      int graphics_flags, int screenWidth, int screenHeight, 
-		      int screenDepth, int screenRefresh, int argc, char *argv[] )
+void GciInitGraphics(const string &caption,
+                     int graphics_flags, int screenWidth, int screenHeight,
+                     int screenDepth, int screenRefreshRate, int argc, char **argv)
 {
   bool debugging = (graphics_flags & GCI_DEBUGSTART) != 0;
   bool runFullScreen = (graphics_flags & GCI_FULLSCREEN) != 0;
@@ -77,7 +77,7 @@ void GciInitGraphics( const char *caption,
   if ( runFullScreen ) {
 
     if ( debugging ) printf ( "GUCCI is now setting the screen size..." );
-    GciSetScreenSize ( screenWidth, screenHeight, screenDepth, screenRefresh );
+    GciSetScreenSize (screenWidth, screenHeight, screenDepth, screenRefreshRate );
 
     if ( debugging ) printf ( "done\n" );
 
@@ -112,7 +112,7 @@ void GciInitGraphics( const char *caption,
   }
 }
 
-void GciFallbackDrawText ( int x, int y, char *text, int STYLE )
+void GciFallbackDrawText ( int x, int y, const string &text, int STYLE )
 {
   void *glutStyle = gucciStyleToGlut(STYLE);
 
@@ -139,7 +139,7 @@ void GciFallbackDrawText ( int x, int y, char *text, int STYLE )
   }
 }
 
-int GciFallbackTextWidth ( char *text, int STYLE )
+int GciFallbackTextWidth ( const string &text, int STYLE )
 {
   return glutBitmapLength ( (void *) STYLE, (const unsigned char *) text );
 }

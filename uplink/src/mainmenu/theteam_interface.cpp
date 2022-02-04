@@ -8,6 +8,7 @@
 
 
 #include <cstdlib>
+#include <sstream>
 
 #include "gucci.h"
 #include "redshirt.h"
@@ -127,7 +128,7 @@ void TheTeamInterface::NameDraw ( Button *button, bool highlighted, bool clicked
 	glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 	int ypos = (button->y + button->height / 2) + 5;
 
-	for ( size_t i = 0; i < strlen(button->caption); ++i ) {
+	for ( size_t i = 0; i < button->caption.length(); ++i ) {
 		char thischar [2];
 		UplinkSnprintf ( thischar, sizeof ( thischar ), "%c", button->caption [i] )
 		GciDrawText ( (int) ( button->x + i * 12 ), ypos, thischar, HELVETICA_18 );
@@ -147,7 +148,7 @@ void TheTeamInterface::TextDraw ( Button *button, bool highlighted, bool clicked
 
 	glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
-	LList <char *> *wrappedText = wordwraptext ( button->caption, button->width );
+	LList <char *> *wrappedText = wordwraptext ( button->caption.c_str(), button->width );
 	UplinkAssert (wrappedText)
 
 	for ( int line = 0; line < wrappedText->Size (); ++line ) {
@@ -176,7 +177,9 @@ void TheTeamInterface::TeamMemberHighlight ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "theteam_member %d", &index );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	auto *thisint = (TheTeamInterface *) app->GetMainMenu ()->GetMenuScreen ();
 	UplinkAssert (thisint)
@@ -277,34 +280,34 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 {
 
 	UplinkAssert ( EclGetButton(buttonName) )
-	char *currentCaption = EclGetButton (buttonName)->caption;
+	string currentCaption = EclGetButton (buttonName)->caption;
 	char *newCaption = nullptr;
 
 	//
 	// First check - is the current name the right length?
 	//
 
-	if ( strlen(currentCaption)	< strlen(targetCaption) ) {
+	if ( currentCaption.length() < strlen(targetCaption) ) {
 
-		size_t newCaptionSize = strlen(currentCaption) + 2;
+		size_t newCaptionSize = currentCaption.length() + 2;
 		newCaption = new char [newCaptionSize];
-		UplinkStrncpy ( newCaption, currentCaption, newCaptionSize )
+		UplinkStrncpy ( newCaption, currentCaption.c_str(), newCaptionSize )
 		newCaption [newCaptionSize-2] = 'A' + NumberGenerator::RandomNumber (26);
 		newCaption [newCaptionSize-1] = '\x0';
 
 	}
-	else if ( strlen(currentCaption) > strlen(targetCaption) ) {
+	else if ( currentCaption.length() > strlen(targetCaption) ) {
 
-		size_t newCaptionSize = strlen(currentCaption)+1;
+		size_t newCaptionSize = currentCaption.length()+1;
 		newCaption = new char [newCaptionSize];
-		strncpy ( newCaption, currentCaption, newCaptionSize );
+		strncpy ( newCaption, currentCaption.c_str(), newCaptionSize );
 		newCaption [newCaptionSize-1] = '\x0';
 
 	}
 	else {
 
-		newCaption = new char [strlen(currentCaption)+1];
-		UplinkSafeStrcpy ( newCaption, currentCaption )
+		newCaption = new char [currentCaption.length()+1];
+		UplinkSafeStrcpy ( newCaption, currentCaption.c_str() )
 
 	}
 

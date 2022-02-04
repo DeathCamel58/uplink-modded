@@ -48,7 +48,7 @@ public:
 
     int GetState ();                    // Returns variable 'downloading'
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi ) override;
+	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;				// Centred on top-right of title image
 
 	void Initialise () override;     // Called at creation time, neccisary

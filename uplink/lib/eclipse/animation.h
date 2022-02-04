@@ -13,7 +13,7 @@ public:
         Animation();
         ~Animation();
     
-	char *buttonname;
+	string buttonname;
 	Button *button;
 	int sourceX, sourceY;      // Where the button started
 	int targetX, targetY;      // Where the button should end up
@@ -23,7 +23,7 @@ public:
 	int targetW, targetH;      // Target size of button
 	float dW, dH;              // Amount to resize for every time interval
 
-	char *targetC;			   // Target caption
+	string targetC;			   // Target caption
 	float dC;				   // How much of caption to add on every TI
 
 	int time;                  // How long it should take
@@ -33,7 +33,7 @@ public:
 
 	void (*callback) ();       // Called when animation has finished
 
-	void DebugPrint ();		   // Print out all state information
+	void DebugPrint () const;		   // Print out all state information
 
         
 

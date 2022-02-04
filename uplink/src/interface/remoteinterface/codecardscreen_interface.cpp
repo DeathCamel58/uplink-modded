@@ -202,7 +202,7 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
     auto *thisint = (CodeCardScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
     UplinkAssert (thisint)
 
-    char *lowercasecaption = LowerCaseString (answerbutton->caption);
+    char *lowercasecaption = LowerCaseString (answerbutton->caption.c_str());
     bool success = false;
 
 #ifdef CODECARD_TOM

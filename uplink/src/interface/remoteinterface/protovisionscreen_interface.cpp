@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /* glu extention library */
+#include <sstream>
 
 
 #include "eclipse.h"
@@ -34,7 +35,9 @@ void ProtovisionScreenInterface::Close ( Button *button )
 
 	int nextpage;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
-	sscanf ( button->name, "protovisionscreen_close %d %s", &nextpage, ip );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> nextpage >> ip;
 
 	Computer *comp = nullptr;
     VLocation *loc = game->GetWorld()->GetVLocation(ip);
@@ -71,7 +74,9 @@ void ProtovisionScreenInterface::NuclearWar ( Button *button )
 #else
 
 	char ip [ SIZE_VLOCATION_IP ] = {0};
-	sscanf ( button->name, "protovisionscreen_nuclearwar %s", ip );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> ip;
 
 	Computer *comp = nullptr;
     VLocation *loc = game->GetWorld()->GetVLocation(ip);

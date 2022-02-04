@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 
 #include "vanbakel.h"
@@ -52,7 +53,9 @@ void IPLookup::CloseClick ( Button *button )
 {
 
 	int pid;
-	sscanf ( button->name, "iplookup_close %d", &pid );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -62,7 +65,9 @@ void IPLookup::GoClick ( Button *button )
 {
 
 	int pid;
-	sscanf ( button->name, "iplookup_go %d", &pid );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> pid;
 
 	auto *task = (IPLookup *) SvbGetTask ( pid );
 
@@ -108,7 +113,7 @@ void IPLookup::Tick ( int n )
 			
 			Button *button = EclGetButton ( name_display );
 			UplinkAssert ( button )
-			char *ip = StripCarriageReturns (button->caption);
+			char *ip = StripCarriageReturns (button->caption.c_str());
 
 			VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
 

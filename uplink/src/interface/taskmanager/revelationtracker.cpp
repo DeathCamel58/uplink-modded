@@ -8,6 +8,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 
 #include "eclipse.h"
@@ -132,7 +133,8 @@ void RevelationTracker::TitleClick ( Button *button )
 
     char unused [128];
     int pid;
-    sscanf ( button->name, "%s %d", unused, &pid );
+    istringstream stream(button->name);
+    stream >> unused >> pid;
 
     game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
 
@@ -143,7 +145,8 @@ void RevelationTracker::CloseClick ( Button *button )
 
 	int pid;
 	char bname [128];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 

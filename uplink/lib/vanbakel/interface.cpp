@@ -14,6 +14,7 @@
 
 #include <cstdio>
 #include <cassert>
+#include <sstream>
 
 #include "eclipse.h"
 #include "interface.h"
@@ -148,7 +149,8 @@ local void Svb_decrease_click ( Button *button )
 
 	int index;
 	char unused [32];
-	sscanf ( button->name, "%s %d", unused, &index );
+	istringstream stream(button->name);
+	stream >> unused >> index;
 
 	SvbChangePriority ( index, -0.2 );
 	SvbCompensatePriorities ();
@@ -163,7 +165,8 @@ local void Svb_column_click ( Button *button )
 
 	int index;
 	char unused [32];
-	sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	TaskWrapper *tw = SvbGetTaskWrapperAtIndex (index);
 	assert ( tw );
@@ -179,7 +182,8 @@ local void Svb_increase_click ( Button *button )
 
 	int index;
 	char unused [32];
-	sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	SvbChangePriority ( index, 0.2 );
 	SvbCompensatePriorities ();

@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 #include "vanbakel.h"
 
@@ -118,7 +119,8 @@ void LanForce::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -129,13 +131,14 @@ void LanForce::BorderClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
 
 }
 
-void LanForce::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void LanForce::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*

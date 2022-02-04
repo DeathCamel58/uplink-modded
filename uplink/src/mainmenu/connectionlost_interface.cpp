@@ -70,7 +70,7 @@ void ConnectionLostInterface::Update ()
 
 		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
-			if ( strcmp ( EclGetButton ( "connectionlost" )->caption, " " ) == 0 ) {
+			if ( EclGetButton ( "connectionlost" )->caption == " " ) {
 				
 				EclRegisterCaptionChange ( "connectionlost", "Connection to GATEWAY lost" );
 				starttime = time(nullptr);

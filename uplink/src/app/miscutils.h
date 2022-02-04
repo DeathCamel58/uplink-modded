@@ -16,15 +16,15 @@ char *StripCarriageReturns  ( const char *thestring );               // Replaces
 char *TrimSpaces            ( const char *thestring );
 
 char *GetFilePath           ( const char *filename );
-void MakeDirectory          ( const char *directory );
+void MakeDirectory          (const string &dirname );
 bool DoesFileExist          ( const char *filename );
-void EmptyDirectory         ( const char *directory );
-bool CopyFilePlain          ( const char *oldfilename, const char *newfilename );
+void EmptyDirectory         (const string &directory );
+bool CopyFilePlain          (const string &oldfilename, const string &newfilename );
 bool CopyFileUplink         ( const char *oldfilename, const char *newfilename );
-bool RemoveFile             ( const char *filename );
+bool RemoveFile             (const string &filename );
 
 DArray <char *> *ListDirectory  ( char *directory, char *filter );
-DArray <char *> *ListSubdirs ( char *directory );
+DArray <char *> *ListSubdirs (const string &directory );
 
 void SetColour              ( char *colourName );                    // calls glColour3f
 

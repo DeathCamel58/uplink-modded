@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 
 #include "eclipse.h"
@@ -75,7 +76,7 @@ void FileDeleter::MoveTo ( int x, int y, int time_ms )
 
 }
 
-void FileDeleter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void FileDeleter::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*
@@ -103,7 +104,7 @@ void FileDeleter::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 				numticksrequired = TICKSREQUIRED_DELETE * data->size;
 				progress = 0;
 
-                remotefile = strstr(uos, "fileserverscreen") != nullptr;
+                remotefile = uos.find( "fileserverscreen") != string::npos;
 
 				Button *button = EclGetButton ( uos );
 				UplinkAssert (button)
@@ -192,7 +193,8 @@ void FileDeleter::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -203,7 +205,8 @@ void FileDeleter::BorderClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
 	

@@ -8,6 +8,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 
 #include "vanbakel.h"
@@ -57,7 +58,9 @@ void IPProbe::CloseClick ( Button *button )
 {
 
 	int pid;
-	sscanf ( button->name, "probe_close %d", &pid );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -67,7 +70,9 @@ void IPProbe::GoClick ( Button *button )
 {
 
 	int pid;
-	sscanf ( button->name, "probe_go %d", &pid );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> pid;
 	char name_display [64];
 	UplinkSnprintf ( name_display, sizeof ( name_display ), "probe_display %d", pid )
 
@@ -121,7 +126,7 @@ void IPProbe::Tick ( int n )
 
 				Button *button = EclGetButton ( name_display );
 				UplinkAssert ( button )
-				char *ip = StripCarriageReturns ( button->caption );
+				char *ip = StripCarriageReturns ( button->caption.c_str() );
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
 

@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 
 #include "eclipse.h"
@@ -33,7 +34,8 @@ void MotionSensor::SensorDraw ( Button *button, bool highlighted, bool clicked )
 	//
 
 	int numpeople;
-	sscanf ( button->caption, "%d", &numpeople );
+    istringstream stream(button->caption);
+    stream >> numpeople;
 
 	// 
 	// Draw a coloured box depending on the number of people
@@ -72,7 +74,9 @@ void MotionSensor::SensorClose ( Button *button )
 	// Close it down
 
 	int pid;
-	sscanf ( button->name, "motionsensor_main %d", &pid );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -88,7 +92,7 @@ MotionSensor::MotionSensor () : UplinkTask ()
 MotionSensor::~MotionSensor ()
 = default;
 
-void MotionSensor::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void MotionSensor::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 }
 

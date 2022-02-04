@@ -69,9 +69,9 @@ void AcademicScreenInterface::CommitClick ( Button *button )
 		Record *rec = comp->recordbank.GetRecord ( asi->recordindex );
 		UplinkAssert (rec)
 
-		rec->ChangeField ( "College", EclGetButton ( "academic_collegequals" )->caption );
-		rec->ChangeField ( "University", EclGetButton ( "academic_uniquals" )->caption );
-		rec->ChangeField ( "Other", EclGetButton ( "academic_otherquals" )->caption );
+		rec->ChangeField ( "College", (char *) EclGetButton ( "academic_collegequals" )->caption.c_str() );
+		rec->ChangeField ( "University", (char *) EclGetButton ( "academic_uniquals" )->caption.c_str() );
+		rec->ChangeField ( "Other", (char *) EclGetButton ( "academic_otherquals" )->caption.c_str() );
 
 		create_msgbox ( "Success", "Academic record updated" );
 

@@ -38,7 +38,7 @@ public:
 
 	~DictionaryHacker() override;
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi ) override;
+	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 
 	void Initialise () override;     // Called at creation time, neccisary
 	void Tick ( int n ) override;           // n ticks occur

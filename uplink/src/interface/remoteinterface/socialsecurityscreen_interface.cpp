@@ -61,10 +61,10 @@ void SocialSecurityScreenInterface::CommitClick ( Button *button )
 		Record *rec = comp->recordbank.GetRecord ( sssi->recordindex );
 		UplinkAssert (rec)
 
-		rec->ChangeField ( "Social Security",	EclGetButton ( "ss_num" )->caption );
-		rec->ChangeField ( "D.O.B",				EclGetButton ( "ss_dob" )->caption );
-		rec->ChangeField ( "Marital Status",	EclGetButton ( "ss_marital" )->caption );
-		rec->ChangeField ( "Personal Status",	EclGetButton ( "ss_personal" )->caption );
+		rec->ChangeField ( "Social Security",	(char *) EclGetButton ( "ss_num" )->caption.c_str() );
+		rec->ChangeField ( "D.O.B",				(char *) EclGetButton ( "ss_dob" )->caption.c_str() );
+		rec->ChangeField ( "Marital Status",	(char *) EclGetButton ( "ss_marital" )->caption.c_str() );
+		rec->ChangeField ( "Personal Status",	(char *) EclGetButton ( "ss_personal" )->caption.c_str() );
 
 		create_msgbox ( "Success", "Social Security Record updated" );
 

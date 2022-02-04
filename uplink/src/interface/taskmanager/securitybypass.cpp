@@ -1,4 +1,5 @@
 
+#include <sstream>
 #include "vanbakel.h"
 #include "eclipse.h"
 
@@ -31,7 +32,8 @@ void SecurityBypass::PauseClick ( Button *button )
 
 	char name [32];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *pb = (SecurityBypass *) SvbGetTask ( pid );
 	UplinkAssert (pb)
@@ -48,7 +50,8 @@ void SecurityBypass::CloseClick ( Button *button )
 
 	char name [32];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *pb = (SecurityBypass *) SvbGetTask ( pid );
 	UplinkAssert (pb)
@@ -65,7 +68,8 @@ void SecurityBypass::BypassClick ( Button *button )
 
 	char name [32];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
 
@@ -76,7 +80,8 @@ void SecurityBypass::StatusLightDraw ( Button *button, bool highlighted, bool cl
 
 	char name [32];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	if ( ShouldDraw ( pid ) ) {
 
@@ -111,7 +116,8 @@ void SecurityBypass::ImageButtonDraw ( Button *button, bool highlighted, bool cl
 
 	char name [32];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	if ( ShouldDraw ( pid ) ) {
 
@@ -224,7 +230,7 @@ void SecurityBypass::EndCurrentBypass ()
 
 }
 
-void SecurityBypass::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void SecurityBypass::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*

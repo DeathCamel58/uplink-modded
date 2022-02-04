@@ -66,7 +66,7 @@ void RevelationLostInterface::Update ()
 
 		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
-			if ( strcmp ( EclGetButton ( "revelationlost" )->caption, " " ) == 0 ) {
+			if ( EclGetButton ( "revelationlost" )->caption == " " ) {
 				
 				EclRegisterCaptionChange ( "revelationlost", "We have terminated your connection to your Gateway.\n\n"
                                                              "We have been watching your moves for the last few days, \n"

@@ -36,7 +36,7 @@ public:
 
     void UpdateLists ();
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi );				
+	void SetTarget (UplinkObject *uo, const string &uos, int uoi );
 
 	void Initialise ();     
 	void Tick ( int n );    

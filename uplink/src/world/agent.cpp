@@ -278,6 +278,7 @@ int Agent::HasAccount  ( char *ip )
 				char *securitytext = rec->GetField ( RECORDBANK_SECURITY );
 				if ( securitytext ) {
 
+                    // TODO: Check if this could be a stream
 					sscanf ( securitytext, "%d", &security );
 
 					if ( security != -1 && ( securityLevel == -1 || security < securityLevel ) )

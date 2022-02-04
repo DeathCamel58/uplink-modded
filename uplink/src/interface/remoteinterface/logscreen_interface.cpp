@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
@@ -67,7 +68,9 @@ void LogScreenInterface::LogClick ( Button *button )
 	UplinkAssert ( button )
 
 	int logindex;
-	sscanf ( button->name, "logscreen_log %d", &logindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> logindex;
 	logindex = baseoffset - logindex;
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
@@ -202,7 +205,9 @@ void LogScreenInterface::LogDraw ( Button *button, bool highlighted, bool clicke
 	glEnable ( GL_SCISSOR_TEST );
 	
 	int logindex;
-	sscanf ( button->name, "logscreen_log %d", &logindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> logindex;
 	logindex = baseoffset - logindex;
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();

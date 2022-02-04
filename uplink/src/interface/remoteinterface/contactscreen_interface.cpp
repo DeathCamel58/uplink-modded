@@ -8,6 +8,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /* glu extention library */
+#include <sstream>
 
 #include "game/game.h"
 
@@ -76,7 +77,7 @@ void ContactScreenInterface::PostClick ( Button *button )
 
 	if ( b ) {
 
-		PutMessage ( 1, b->caption );
+		PutMessage ( 1, (char *) b->caption.c_str() );
 
 		b->SetCaption ( " " );
 		EclDirtyButton ( b->name );
@@ -106,11 +107,12 @@ void ContactScreenInterface::QuestionClick ( Button *button )
 
 	int index;
 	char name [32];
-	sscanf ( button->name, "%s %d", name, &index );
+    istringstream stream(button->name);
+    stream >> name >> index;
 
 	// Post this message on the board
 
-	PutMessage ( 1, button->caption );
+	PutMessage ( 1, (char *) button->caption.c_str() );
 
 	// Trigger a response
 

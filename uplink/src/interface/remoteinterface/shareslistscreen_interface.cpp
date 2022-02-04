@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
@@ -41,7 +42,9 @@ void SharesListScreenInterface::ShareClick ( Button *button )
 	UplinkAssert ( button )
 
 	int fileindex;
-	sscanf ( button->name, "shareslistscreen_share %d", &fileindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> fileindex;
 	fileindex += baseoffset;
 
 	auto *thisint = (SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
@@ -68,7 +71,9 @@ void SharesListScreenInterface::ShareDraw ( Button *button, bool highlighted, bo
 	clear_draw ( button->x, button->y, button->width, button->height );
 
 	int shareindex;
-	sscanf ( button->name, "shareslistscreen_share %d", &shareindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> shareindex;
 	shareindex += baseoffset;
 
 	LList <char *> *filteredlist = &((SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -157,7 +162,9 @@ void SharesListScreenInterface::ShareMouseDown ( Button *button )
 	UplinkAssert ( button )
 	
 	int shareindex;
-	sscanf ( button->name, "shareslistscreen_share %d", &shareindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> shareindex;
 	shareindex += baseoffset;
 
 	LList <char *> *filteredlist = &((SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -176,7 +183,9 @@ void SharesListScreenInterface::ShareMouseMove ( Button *button )
 	UplinkAssert ( button )
 	
 	int shareindex;
-	sscanf ( button->name, "shareslistscreen_share %d", &shareindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> shareindex;
 	shareindex += baseoffset;
 
 	LList <char *> *filteredlist = &((SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
@@ -209,10 +218,10 @@ void SharesListScreenInterface::FilterClick ( Button *button )
 	SharesListScreenInterface *thisinterface = ((SharesListScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ());
 	UplinkAssert (thisinterface)
 
-	char *filter = EclGetButton ( "shareslistscreen_filtertext" )->caption;
+	string filter = EclGetButton ( "shareslistscreen_filtertext" )->caption;
 
 	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
-	else						thisinterface->ApplyFilter ( filter );
+	else						thisinterface->ApplyFilter ( (char *) filter.c_str() );
 
 }
 
@@ -343,9 +352,9 @@ bool SharesListScreenInterface::ReturnKeyPressed ()
 	Button *filterbutton = EclGetButton ( "shareslistscreen_filtertext" );
 	
 	if ( filterbutton ) {
-		char *filter = filterbutton->caption;
+		string filter = filterbutton->caption;
 		if ( filter [0] == '\x0' )  ApplyFilter ( nullptr );
-		else						ApplyFilter ( filter );
+		else						ApplyFilter ( (char *) filter.c_str() );
 		return true;
 	}
 

@@ -7,6 +7,7 @@
 #include <GL/glu.h>
 
 #include <ctime>
+#include <sstream>
 
 #include "vanbakel.h"
 #include "eclipse.h"
@@ -113,7 +114,7 @@ void HUDInterface::SoftwareClick ( Button *button )
 void HUDInterface::HardwareClick ( Button *button )
 {
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -124,7 +125,7 @@ void HUDInterface::HardwareClick ( Button *button )
 void HUDInterface::MemoryClick ( Button *button )
 {
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -135,7 +136,7 @@ void HUDInterface::MemoryClick ( Button *button )
 void HUDInterface::StatusClick ( Button *button )
 {
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -146,7 +147,7 @@ void HUDInterface::StatusClick ( Button *button )
 void HUDInterface::FinanceClick	( Button *button )
 {
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -157,7 +158,7 @@ void HUDInterface::FinanceClick	( Button *button )
 void HUDInterface::SendMailClick ( Button *button )
 {
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -168,7 +169,7 @@ void HUDInterface::SendMailClick ( Button *button )
 void HUDInterface::AnalyserClick ( Button *button )
 {
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -179,7 +180,7 @@ void HUDInterface::AnalyserClick ( Button *button )
 void HUDInterface::IRCClick ( Button *button )
 {
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -190,7 +191,7 @@ void HUDInterface::IRCClick ( Button *button )
 void HUDInterface::LANClick ( Button *button )
 {
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -216,7 +217,9 @@ void HUDInterface::EmailClick ( Button *button )
 	UplinkAssert ( button )
 
 	int index;
-	sscanf ( button->name, "hud_message %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
     if ( !game->GetWorld()->GetPlayer()->messages.ValidIndex(index) ) {
         printf ( "HUDInterface WARNING: Tried to view an email that didn't exist\n" );
@@ -224,7 +227,7 @@ void HUDInterface::EmailClick ( Button *button )
         return;
     }
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -238,7 +241,9 @@ void HUDInterface::EmailHighlight ( Button *button )
 	UplinkAssert ( button )
 
 	int index;
-	sscanf ( button->name, "hud_message %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	Message *message = game->GetWorld ()->GetPlayer ()->messages [index];
 
@@ -260,7 +265,9 @@ void HUDInterface::MissionClick	( Button *button )
 	UplinkAssert ( button )
 
 	int index;
-	sscanf ( button->name, "hud_mission %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
     if ( !game->GetWorld()->GetPlayer()->missions.ValidIndex(index) ) {
         printf ( "HUDInterface WARNING: Tried to view a mission that didn't exist\n" );
@@ -268,7 +275,7 @@ void HUDInterface::MissionClick	( Button *button )
         return;
     }
 
-	if ( GetHUD ()->previoushighlight && strcmp ( GetHUD ()->previoushighlight, button->name ) == 0 ) 
+	if ( GetHUD ()->previoushighlight && GetHUD ()->previoushighlight == button->name )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 	else
@@ -282,7 +289,9 @@ void HUDInterface::MissionHighlight ( Button *button )
 	UplinkAssert ( button )
 
 	int index;
-	sscanf ( button->name, "hud_mission %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	Mission *mission = game->GetWorld ()->GetPlayer ()->missions [index];
 	
@@ -302,7 +311,9 @@ void HUDInterface::SpeedButtonDraw ( Button *button, bool highlighted, bool clic
 {
 
 	int index;
-	sscanf ( button->name, "hud_speed %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	if ( index == game->GameSpeed () ) 
 		imagebutton_draw ( button, highlighted, true );
@@ -316,7 +327,9 @@ void HUDInterface::SpeedButtonClick ( Button *button )
 {
 
 	int index;
-	sscanf ( button->name, "hud_speed %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
     game->SetGameSpeed ( index );
 

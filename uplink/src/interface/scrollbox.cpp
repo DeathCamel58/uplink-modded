@@ -7,6 +7,7 @@
 
 
 #include <cstdio>
+#include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
@@ -105,7 +106,8 @@ void ScrollBox::DrawScrollBar ( Button *button, bool highlighted, bool clicked )
 
     char unused[64];
     char name[128];
-    sscanf ( button->name, "%s %s", unused, name );
+    istringstream stream(button->name);
+    stream >> unused >> name;
     ScrollBox *thisBox = ScrollBox::GetScrollBox( name );
 
     if ( thisBox ) {
@@ -163,7 +165,8 @@ void ScrollBox::ClickScrollUp   ( Button *button )
 
     char unused[64];
     char name[128];
-    sscanf ( button->name, "%s %s", unused, name );
+    istringstream stream(button->name);
+    stream >> unused >> name;
     ScrollBox *thisBox = ScrollBox::GetScrollBox( name );
 
     if ( thisBox ) thisBox->ScrollUp ();
@@ -178,7 +181,8 @@ void ScrollBox::ClickScrollDown ( Button *button )
 
     char unused[64];
     char name[128];
-    sscanf ( button->name, "%s %s", unused, name );
+    istringstream stream(button->name);
+    stream >> unused >> name;
     ScrollBox *thisBox = ScrollBox::GetScrollBox( name );
 
     if ( thisBox ) thisBox->ScrollDown ();
@@ -193,7 +197,8 @@ void ScrollBox::ClickScrollBar ( Button *button )
 
     char unused[64];
     char name[128];
-    sscanf ( button->name, "%s %s", unused, name );
+    istringstream stream(button->name);
+    stream >> unused >> name;
     ScrollBox *thisBox = ScrollBox::GetScrollBox( name );
 
     if ( thisBox ) {
@@ -234,7 +239,8 @@ void ScrollBox::MouseDownScrollBar ( Button *button )
 
     char unused[64];
     char name[128];
-    sscanf ( button->name, "%s %s", unused, name );
+    istringstream stream(button->name);
+    stream >> unused >> name;
     GrabScrollBar ( name );
     
 }

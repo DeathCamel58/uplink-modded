@@ -56,7 +56,7 @@ public:
 
 	void EndCurrentBypass ();
 
-	void SetTarget ( UplinkObject *uo, char *uos, int uoi ) override;
+	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;
 
 	void Initialise () override;

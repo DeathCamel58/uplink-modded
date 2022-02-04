@@ -5,8 +5,8 @@
 // Part of the Eclipse interface library
 // By Christopher Delay
 
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
 
 #include "eclipse.h"
 #include "button.h"
@@ -18,24 +18,24 @@ Button::Button ()
 {
 
 	x = y = width = height = 0;
-	caption = name = tooltip = NULL;
-	draw = NULL;
-	image_standard = image_highlighted = image_clicked = NULL;
-	mouseup = mousedown = mousemove = NULL;
+	caption = name = tooltip = "";
+	draw = nullptr;
+	image_standard = image_highlighted = image_clicked = nullptr;
+	mouseup = mousedown = mousemove = nullptr;
 	SetTooltip ( " " );
 	userinfo = 0;
 
 }
 
-Button::Button ( int newx, int newy, int newwidth, int newheight,
-				 char *newcaption, char *newname )
+Button::Button (int newx, int newy, int newwidth, int newheight,
+				const string &newcaption, const string &newname )
 {
 
-	caption = name = tooltip = NULL;
+	caption = name = tooltip = "";
 	SetProperties ( newx, newy, newwidth, newheight + FUDGE, newcaption, newname );
-	draw = NULL;
-	image_standard = image_highlighted = image_clicked = NULL;
-	mouseup = mousedown = mousemove = NULL;
+	draw = nullptr;
+	image_standard = image_highlighted = image_clicked = nullptr;
+	mouseup = mousedown = mousemove = nullptr;
 	SetTooltip ( " " );
 	userinfo = 0;
 
@@ -44,17 +44,15 @@ Button::Button ( int newx, int newy, int newwidth, int newheight,
 Button::~Button ()
 {
 
-	if ( caption ) delete [] caption;	
-	if ( tooltip ) delete [] tooltip;
-	if ( name ) delete [] name;
+	caption = tooltip = name = "";
 
 	// There is a possibility that this button may use the 
 	// same image for more than one of these pointers
 	// So don't neccisarily delete all three
 
-	bool delete_standard    = ( image_standard    != NULL );
-	bool delete_highlighted = ( image_highlighted != NULL && image_highlighted != image_standard );
-	bool delete_clicked     = ( image_clicked     != NULL && image_clicked     != image_standard 
+	bool delete_standard    = ( image_standard    != nullptr );
+	bool delete_highlighted = ( image_highlighted != nullptr && image_highlighted != image_standard );
+	bool delete_clicked     = ( image_clicked     != nullptr && image_clicked     != image_standard
 														  && image_clicked	   != image_highlighted );
 
 	if ( delete_standard )    delete image_standard;
@@ -63,48 +61,40 @@ Button::~Button ()
 
 }
 
-void Button::SetProperties ( int newx, int newy, int newwidth, int newheight,
-			   				 char *newcaption, char *newname )
+void Button::SetProperties (int newx, int newy, int newwidth, int newheight,
+							const string &newcaption, const string &newname )
 {
 
 	x = newx;
 	y = newy;
 	width = newwidth;
 	height = newheight;
-	if ( name )
-		delete [] name;
-	name = new char [strlen (newname) + 1];
-	strcpy ( name, newname );
+	name = newname;
 	SetCaption ( newcaption );
 	
 }
 
-void Button::SetCaption ( char *newcaption )
+void Button::SetCaption (const string &newcaption )
 {
 
-	if ( !caption || strcmp ( newcaption, caption ) != 0 ) 
+	if ( caption.empty() || newcaption != caption )
 		Dirty ();
 
-	if ( caption ) delete [] caption;
-	caption = new char [strlen (newcaption) + 1];
-	strcpy ( caption, newcaption );
+	caption = newcaption;
 
 }
 
-void Button::SetTooltip ( char *newtooltip )
+void Button::SetTooltip (const string &newtooltip )
 {
 
-	if ( tooltip ) delete [] tooltip;
-
-	tooltip = new char [strlen (newtooltip) + 1];
-	strcpy ( tooltip, newtooltip );
+	tooltip = newtooltip;
 
 }
 
 void Button::SetStandardImage ( Image *newimage )
 {
 
-	if ( image_standard ) delete image_standard;
+	delete image_standard;
 	image_standard = newimage;
 
 }
@@ -112,9 +102,9 @@ void Button::SetStandardImage ( Image *newimage )
 void Button::SetImages ( Image *newstandard, Image *newhighlighted, Image *newclicked )
 {
 
-	if ( image_standard )    delete image_standard;
-	if ( image_highlighted ) delete image_highlighted;
-	if ( image_clicked )     delete image_clicked;
+	delete image_standard;
+	delete image_highlighted;
+	delete image_clicked;
 
 	image_standard = newstandard;
 	image_highlighted = newhighlighted;
@@ -185,11 +175,11 @@ void Button::MouseMove ()
 
 }
 
-void Button::DebugPrint ()
+void Button::DebugPrint () const
 {
 
-	printf ( "BUTTON : name:'%s', x:%d, y:%d, width:%d, height:%d\n", name, x, y, width, height );
-	printf ( "         caption:'%s', tooltip:'%s'\n", caption, tooltip );
+	printf ( "BUTTON : name:'%s', x:%d, y:%d, width:%d, height:%d\n", name.c_str(), x, y, width, height );
+	printf ( "         caption:'%s', tooltip:'%s'\n", caption.c_str(), tooltip.c_str() );
 
 }
 

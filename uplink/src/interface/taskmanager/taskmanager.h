@@ -45,7 +45,7 @@ public:
 
 	void RunSoftware ( char *name, float version );
 												
-	void SetProgramTarget ( UplinkObject *newprogramtarget, char *targetstring, int targetint );
+	void SetProgramTarget (UplinkObject *newprogramtarget, const string &targetstring, int targetint );
 	void SetTargetProgram ( int newtargetprogram );
 
 	bool IsTargetProgramLast ( int newtargetprogram );

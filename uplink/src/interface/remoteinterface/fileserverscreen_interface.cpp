@@ -8,6 +8,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
@@ -45,7 +46,9 @@ void FileServerScreenInterface::CloseClick ( Button *button )
 
 	int nextpage;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
-	sscanf ( button->name, "fileserverscreen_click %d %s", &nextpage, ip );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> nextpage >> ip;
 
 	Computer *comp = nullptr;
     VLocation *loc = game->GetWorld()->GetVLocation(ip);
@@ -74,7 +77,9 @@ void FileServerScreenInterface::FileClick ( Button *button )
 	UplinkAssert ( button )
 
 	int fileindex;
-	sscanf ( button->name, "fileserverscreen_file %d", &fileindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> fileindex;
 	fileindex += baseoffset;
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();
@@ -281,7 +286,9 @@ void FileServerScreenInterface::FileDraw ( Button *button, bool highlighted, boo
 	UplinkAssert ( button )
 
 	int fileindex;
-	sscanf ( button->name, "fileserverscreen_file %d", &fileindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> fileindex;
 	fileindex += baseoffset;
 
 	Computer *comp = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ()->GetComputer ();

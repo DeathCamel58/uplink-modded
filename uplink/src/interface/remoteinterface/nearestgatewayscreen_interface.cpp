@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 
 #include "app/globals.h"
@@ -61,7 +62,8 @@ void NearestGatewayScreenInterface::DrawLocation ( Button *button, bool highligh
 
 	char unused [64];
 	int index;
-	sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {
@@ -98,7 +100,8 @@ void NearestGatewayScreenInterface::ClickLocation ( Button *button )
 
 	char unused [64];
 	int index;
-	sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {

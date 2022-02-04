@@ -8,6 +8,7 @@
 #include <GL/glu.h>
 
 #include <cmath>
+#include <sstream>
 
 #include "gucci.h"
 #include "vanbakel.h"
@@ -92,14 +93,16 @@ void WorldMapInterface::LocationClick ( Button *button )
         
         char ip [SIZE_VLOCATION_IP];
 
-		if ( strncmp ( button->name, "worldmaptempcon", sizeof("worldmaptempcon") - 1 ) == 0 ) {
-			strncpy ( ip, button->caption, SIZE_VLOCATION_IP );
+		if ( button->name == "worldmaptempcon" ) {
+			strncpy ( ip, button->caption.c_str(), SIZE_VLOCATION_IP );
 			ip [ SIZE_VLOCATION_IP - 1 ] = '\0';
 		}
 		else {
 			//int index;
 			//sscanf ( button->name, "worldmap %s %d", ip, &index );
-			sscanf ( button->name, "worldmap %s", ip );
+			string unused;
+            istringstream stream(button->name);
+            stream >> unused >> ip;
 		}
 
         game->GetWorld ()->GetPlayer ()->GetConnection ()->AddOrRemoveVLocation ( ip );
@@ -641,14 +644,16 @@ void WorldMapInterface::DrawLocation ( Button *button, bool highlighted, bool cl
 
     char ip [ SIZE_VLOCATION_IP ];
 
-	if ( strncmp ( button->name, "worldmaptempcon", sizeof("worldmaptempcon") - 1 ) == 0 ) {
-		strncpy ( ip, button->caption, SIZE_VLOCATION_IP );
+	if ( button->name == "worldmaptempcon" ) {
+		strncpy ( ip, button->caption.c_str(), SIZE_VLOCATION_IP );
 		ip [ SIZE_VLOCATION_IP - 1 ] = '\0';
 	}
 	else {
 	    //int index;
 		//sscanf ( button->name, "worldmap %s %d", ip, &index );
-		sscanf ( button->name, "worldmap %s", ip );
+		string unused;
+        istringstream stream(button->name);
+        stream >> unused >> ip;
 	}
 
     // If the player has an account, draw a surrounding box
@@ -1455,7 +1460,7 @@ void WorldMapInterface::ScrollX ( float x )
 		button = EclGetButton ( name );
 
 		if ( button ) {
-	        VLocation *vl = game->GetWorld ()->GetVLocation ( button->caption );
+	        VLocation *vl = game->GetWorld ()->GetVLocation ( (char *) button->caption.c_str() );
 			if ( vl ) {
 				button->x = GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3;
 				button->y = GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3;
@@ -1518,7 +1523,7 @@ void WorldMapInterface::ScrollY ( float y )
 		button = EclGetButton ( name );
 
 		if ( button ) {
-	        VLocation *vl = game->GetWorld ()->GetVLocation ( button->caption );
+	        VLocation *vl = game->GetWorld ()->GetVLocation ( (char *) button->caption.c_str() );
 			if ( vl ) {
 				button->x = GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3;
 				button->y = GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3;
@@ -1591,7 +1596,7 @@ void WorldMapInterface::SetZoom ( float z )
 		button = EclGetButton ( name );
 
 		if ( button ) {
-	        VLocation *vl = game->GetWorld ()->GetVLocation ( button->caption );
+	        VLocation *vl = game->GetWorld ()->GetVLocation ( (char *) button->caption.c_str() );
 			if ( vl ) {
 				button->x = GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3;
 				button->y = GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3;
@@ -1711,7 +1716,7 @@ void WorldMapInterface::UpdateAccessLevel ()
 		button = EclGetButton ( name );
 
 		if ( button ) {
-	        VLocation *vl = game->GetWorld ()->GetVLocation ( button->caption );
+	        VLocation *vl = game->GetWorld ()->GetVLocation ( (char *) button->caption.c_str() );
 			if ( vl ) {
 				button->userinfo = game->GetWorld ()->GetPlayer ()->HasAccount ( vl->ip );
 			}

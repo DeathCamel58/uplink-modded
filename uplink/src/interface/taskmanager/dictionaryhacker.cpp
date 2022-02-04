@@ -9,6 +9,7 @@
 
 #include <cstring>
 #include <cstdio>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "gucci.h"
@@ -48,7 +49,7 @@ DictionaryHacker::DictionaryHacker () : UplinkTask ()
 	numticksrequired = 0;
 	progress = 0;
 
-	targetstring = nullptr;
+	targetstring = "";
 
 }
 
@@ -57,8 +58,6 @@ DictionaryHacker::~DictionaryHacker()
 
 	delete [] password;
 	delete [] username;
-
-	delete [] targetstring;
 
 }
 
@@ -204,13 +203,14 @@ void DictionaryHacker::DictionaryHackerClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
 
 }
 
-void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void DictionaryHacker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*
@@ -222,13 +222,11 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 		*/
 
 	targetobject = uo;
-	if ( targetstring ) {
-		delete [] targetstring;
-		targetstring = nullptr;
+	if ( !targetstring.empty() ) {
+		targetstring = "";
 	}
-	if ( uos ) {
-		targetstring = new char[ strlen( uos ) + 1 ];
-		UplinkSafeStrcpy( targetstring, uos )
+	if ( !uos.empty() ) {
+		targetstring = uos;
 	}
 	targetint    = uoi;
 
@@ -267,9 +265,9 @@ void DictionaryHacker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 		// Then grab the target name from the useridscreen box
 
 		UplinkAssert ( EclGetButton ( "useridscreen_name" ) )
-		if ( strcmp ( EclGetButton ( "useridscreen_name" )->caption, "" ) == 0 ) 
+		if ( EclGetButton ( "useridscreen_name" )->caption == "" )
 			EclGetButton ( "useridscreen_name" )->SetCaption ( "admin" );
-		char *name = EclGetButton ( "useridscreen_name" )->caption;
+		char *name = (char *) EclGetButton ( "useridscreen_name" )->caption.c_str();
 
 		delete [] username;
 		username = new char [strlen(name)+1];
@@ -321,7 +319,8 @@ void DictionaryHacker::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 

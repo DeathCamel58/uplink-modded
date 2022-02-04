@@ -120,10 +120,10 @@ void LoginInterface::RetireAgentMsgboxClick ( Button *button )
 	remove_msgbox ();
 
 	UplinkAssert ( EclGetButton ( "userid_name" ) )
-	char *agentfile = EclGetButton ( "userid_name" )->caption;
+	string agentfile = EclGetButton ( "userid_name" )->caption;
 
-	if ( strlen ( agentfile ) > 0 ) {
-		app->RetireGame ( agentfile );
+	if ( agentfile.length() > 0 ) {
+		app->RetireGame ( (char *) agentfile.c_str() );
 		RemoveExistingGames ();
 		CreateExistingGames ();
 	}
@@ -134,19 +134,17 @@ void LoginInterface::RetireAgentClick ( Button *button )
 {
 
 	UplinkAssert ( EclGetButton ( "userid_name" ) )
-	char agentfile [256];
-	strncpy ( agentfile, EclGetButton ( "userid_name" )->caption, sizeof ( agentfile ) );
-	agentfile [ sizeof ( agentfile ) - 1 ] = '\0';
+	string agentfile = EclGetButton ( "userid_name" )->caption;
 
 	bool found = false;
-	if ( strlen ( agentfile ) > 0 ) {
+	if ( agentfile.length() > 0 ) {
 		DArray <char *> *existing = App::ListExistingGames ();
 
 		int lenexisting = existing->Size ();
 		for ( int i = 0; i < lenexisting; i++ )
 			if ( existing->ValidIndex ( i ) ) {
 				char *curAgent = existing->GetData ( i );
-				if ( strcmp ( curAgent, agentfile ) == 0 )
+				if ( curAgent == agentfile )
 					found = true;
 
 				delete [] curAgent;
@@ -155,13 +153,13 @@ void LoginInterface::RetireAgentClick ( Button *button )
 		delete existing;
 	}
 
-	char caption [384];
+	string caption;
 	if ( found ) {
-		UplinkSnprintf ( caption, sizeof ( caption ), "Are you sure you want to remove '%s' from the roster?", agentfile )
+		caption = "Are you sure you want to remove '" + agentfile + "' from the roster?";
 		create_yesnomsgbox ( "Retire", caption, RetireAgentMsgboxClick );
 	}
 	else {
-		UplinkSnprintf ( caption, sizeof ( caption ), "Impossible to remove '%s' from the roster.", agentfile )
+		caption = "Impossible to remove '" + agentfile + "' from the roster.";
 		create_msgbox ( "Retire", caption );
 	}
 
@@ -171,8 +169,7 @@ void LoginInterface::ProceedClick ( Button *button )
 {
 
 	UplinkAssert ( EclGetButton ( "userid_name" ) )
-	char username [256];
-	UplinkStrncpy ( username, EclGetButton ( "userid_name" )->caption, sizeof ( username ) )
+	string username = EclGetButton ( "userid_name" )->caption;
 
 	app->GetMainMenu ()->RunScreen ( MAINMENU_LOADING );
 
@@ -282,11 +279,11 @@ void LoginInterface::CodeButtonDraw ( Button *button, bool highlighted, bool cli
 
 	SetColour ( "DefaultText" );
 
-	char *caption = new char [strlen(button->caption) + 1];
-	for ( size_t i = 0; i < strlen(button->caption); ++i )
+	char *caption = new char [button->caption.length() + 1];
+	for ( size_t i = 0; i < button->caption.length(); ++i )
 		caption [i] = '*';
 
-	caption [strlen(button->caption)] = '\x0';
+	caption [button->caption.length()] = '\x0';
 	GciDrawText ( button->x + 10, button->y + 10, caption, BITMAP_15 );
 
 	delete [] caption;

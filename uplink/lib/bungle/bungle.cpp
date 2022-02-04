@@ -187,7 +187,7 @@ void BglCloseZipFile_Recursive ( BTree <LocalFileHeader *> *files,
 	if ( lfh && lfh->id && strcmp ( lfh->id, id ) == 0 ) {
 
 		// This one is a match and should be flagged for removal
-		removableids->PutData ( files->id );		
+		removableids->PutData ( (char *) files->id.c_str() );
 
 	}
 

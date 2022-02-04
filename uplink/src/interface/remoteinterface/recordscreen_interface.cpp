@@ -1,5 +1,6 @@
 
 #include <cstdio>
+#include <sstream>
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -31,7 +32,9 @@ void RecordScreenInterface::CloseClick ( Button *button )
 
 	int nextpage;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
-	sscanf ( button->name, "recordscreen_click %d %s", &nextpage, ip );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> nextpage >> ip;
 
 	Computer *comp = nullptr;
     VLocation *loc = game->GetWorld()->GetVLocation(ip);
@@ -75,7 +78,7 @@ void RecordScreenInterface::CommitClick ( Button *button )
 		Button *value = EclGetButton ( bname_value );
 
 		if ( title && value )						
-			rec->ChangeField ( title->caption, value->caption );
+			rec->ChangeField ( (char *) title->caption.c_str(), (char *) value->caption.c_str() );
 
 		else
 			break;

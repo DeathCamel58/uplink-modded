@@ -10,6 +10,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h" 
@@ -45,7 +46,8 @@ void TraceTracker::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -62,7 +64,8 @@ void TraceTracker::TraceDraw ( Button *button, bool highlighted, bool clicked )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
     auto *thistask = (TraceTracker *) SvbGetTask (pid);
     UplinkAssert (thistask)
 
@@ -131,7 +134,8 @@ void TraceTracker::AudioDraw ( Button *button, bool highlighted, bool clicked )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
     auto *thistask = (TraceTracker *) SvbGetTask (pid);
     UplinkAssert (thistask)
 
@@ -148,7 +152,8 @@ void TraceTracker::AudioClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
     auto *thistask = (TraceTracker *) SvbGetTask (pid);
     UplinkAssert (thistask)
 

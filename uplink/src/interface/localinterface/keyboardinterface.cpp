@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <cstdio>
+#include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
@@ -68,14 +69,16 @@ void KeyboardInterface::Keypress ( Button *button )
 {
 
 	char letter [32];
-	sscanf ( button->name, "keyboard %s", letter );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> letter;
 	Button *tbutton = EclGetButton ( targetbuttonname );
 
 	if ( button ) {
 
 		char newcaption [128];
-		size_t newcaptionsize = min ( strlen ( tbutton->caption ) + 1, sizeof ( newcaption ) );
-		strncpy ( newcaption, tbutton->caption, newcaptionsize );
+		size_t newcaptionsize = min ( tbutton->caption.length() + 1, sizeof ( newcaption ) );
+		strncpy ( newcaption, tbutton->caption.c_str(), newcaptionsize );
 		newcaption [ newcaptionsize - 1 ] = '\0';
 
 		if ( strcmp ( letter, "back" ) == 0 ) {

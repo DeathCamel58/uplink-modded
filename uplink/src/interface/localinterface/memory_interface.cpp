@@ -11,6 +11,7 @@
 #include <GL/glu.h>
 
 #include <cstdio>
+#include <sstream>
 
 #include "eclipse.h"
 #include "soundgarden.h"
@@ -59,7 +60,9 @@ void MemoryInterface::MemoryBlockDraw ( Button *button, bool highlighted, bool c
 	UplinkAssert ( button )
 
 	int index;
-	sscanf ( button->name, "memory_block %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	if ( index < game->GetWorld ()->GetPlayer ()->gateway.databank.GetSize () ) {
@@ -197,7 +200,9 @@ void MemoryInterface::MemoryBlockHighlight ( Button *button )
 	// Work out the new current program index
 
 	int index;
-	sscanf ( button->name, "memory_block %d", &index );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	if ( index < game->GetWorld ()->GetPlayer ()->gateway.databank.GetSize () ) {
@@ -235,7 +240,9 @@ void MemoryInterface::MemoryBlockClick ( Button *button )
 	DataBank *db = &(game->GetWorld ()->GetPlayer ()->gateway.databank);
 
 	int index;
-	sscanf ( button->name, "memory_block %d", &index );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> index;
 	index += baseoffset;
 
 	game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( db, button->name, index );

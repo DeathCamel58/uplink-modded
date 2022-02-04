@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 #include "vanbakel.h"
 
@@ -101,7 +102,8 @@ void ProxyDisable::GoClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	auto *thistask = (ProxyDisable *) SvbGetTask ( pid );
 	UplinkAssert (thistask)
@@ -136,7 +138,8 @@ void ProxyDisable::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -153,7 +156,7 @@ ProxyDisable::~ProxyDisable ()
 = default;
 
 
-void ProxyDisable::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void ProxyDisable::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*

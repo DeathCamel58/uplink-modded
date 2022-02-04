@@ -36,10 +36,10 @@ class App : public UplinkObject
 
 public :
 
-    char path    [SIZE_APP_PATH];
-    char userpath [SIZE_APP_PATH];
-    char usertmppath [SIZE_APP_PATH]; // Used by the crash reporter to store the current .usr
-    char userretirepath [SIZE_APP_PATH]; // Used to store old agents ( .usr / .tmp )
+    string path;
+    string userpath;
+    string usertmppath; // Used by the crash reporter to store the current .usr
+    string userretirepath; // Used to store old agents ( .usr / .tmp )
     char version [SIZE_APP_VERSION];
     char type    [SIZE_APP_TYPE];
     char date    [SIZE_APP_DATE];
@@ -54,7 +54,7 @@ public :
 	MainMenu *mainmenu;
 	PhoneDialler *phoneDial;
 
-	char *nextLoadGame;
+	string nextLoadGame;
 
 	bool askCodeCard;
 
@@ -70,9 +70,9 @@ public:
 	void Close ();			// Shuts down the app	
     bool Closed ();         // True if in the process of shutting down
 
-	void SetNextLoadGame ( const char *username );       // Set the username to load with the next call to LoadGame
+	void SetNextLoadGame (const string &username );       // Set the username to load with the next call to LoadGame
 	void LoadGame ();                                    // Use the username set with SetNextLoadGame
-	void LoadGame ( char *username );
+	void LoadGame (const string &username );
 	void SaveGame ( char *username );
 	void RetireGame ( char *username );
 	static DArray <char *> *ListExistingGames ();

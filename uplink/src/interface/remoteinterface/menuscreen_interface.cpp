@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
@@ -55,7 +56,8 @@ void MenuScreenInterface::ClickMenuScreenOption ( Button *button )
 	char text [32];
 	int nextpage, unused;
 	char ip [ SIZE_VLOCATION_IP ] = {0};
-	sscanf ( button->name, "%s %d %d %s", text, &unused, &nextpage, ip );
+    istringstream stream(button->name);
+    stream >> text >> unused >> nextpage >> ip;
 
 	Computer *comp = nullptr;
     VLocation *loc = game->GetWorld()->GetVLocation(ip);

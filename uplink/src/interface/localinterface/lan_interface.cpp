@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 
 #include "app/app.h"
@@ -520,9 +521,10 @@ void LanInterface::LanSystemDraw ( Button *button, bool highlighted, bool clicke
     if ( comp->TYPE != COMPUTER_TYPE_LAN ) return;
     auto *lancomp = (LanComputer *) comp;
 
-    char unused [64];
     int systemIndex;
-    sscanf ( button->name, "%s %d", unused, &systemIndex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> systemIndex;
 
     if ( !lancomp->systems.ValidIndex(systemIndex) ) return;
     LanComputerSystem *system = lancomp->systems.GetData(systemIndex);
@@ -563,9 +565,10 @@ void LanInterface::LanSystemDraw ( Button *button, bool highlighted, bool clicke
 void LanInterface::LanSystemClick ( Button *button )
 {
 
-    char unused [64];
     int systemIndex;
-    sscanf ( button->name, "%s %d", unused, &systemIndex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> systemIndex;
 
     auto *thisInt = (LanInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();
     UplinkAssert (thisInt)
@@ -605,9 +608,10 @@ void LanInterface::LanSystemMouseMove ( Button *button )
     auto *lancomp = (LanComputer *) comp;
 
 
-    char unused [64];
     int systemIndex;
-    sscanf ( button->name, "%s %d", unused, &systemIndex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> systemIndex;
 	if ( !lancomp->systems.ValidIndex ( systemIndex ) ) return;
     LanComputerSystem *system = lancomp->systems.GetData(systemIndex);
     if ( !system ) return;
@@ -796,9 +800,10 @@ void LanInterface::BackClick ( Button *button )
 void LanInterface::GenerateClick ( Button *button )
 {
 
-    char unused[64];
     int size;
-    sscanf ( button->name, "%s %d", unused, &size );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> size;
 
     char *remotehost = game->GetWorld()->GetPlayer()->remotehost;
   	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
@@ -860,9 +865,10 @@ void LanInterface::ScrollClick ( Button *button )
 
     UplinkAssert (button )
 
-    char unused[64];
     int direction;
-    sscanf ( button->name, "%s %d", unused, &direction );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> direction;
 
     int scrollSpeed = 100;
 

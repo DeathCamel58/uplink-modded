@@ -8,6 +8,7 @@
 #include <GL/glu.h> /* glu extention library */
 
 #include <cstdio>
+#include <sstream>
 
 #include "eclipse.h"
 #include "opengl_interface.h"
@@ -532,7 +533,7 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 	
 	if ( !highlighted || !EclIsButtonEditable (button->name) ) {
 		
-		wrappedtext = wordwraptext ( button->caption, button->width );
+		wrappedtext = wordwraptext ( button->caption.c_str(), button->width );
 		
 	}
 	else {
@@ -541,9 +542,9 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 
 		if ( time(nullptr) >= (curserflash - 1) ) {
 
-			size_t newcaptionsize = strlen(button->caption) + 2;
+			size_t newcaptionsize = button->caption.length() + 2;
 			char *newcaption = new char [newcaptionsize];
-			UplinkSnprintf ( newcaption, newcaptionsize, "%s_", button->caption )
+			UplinkSnprintf ( newcaption, newcaptionsize, "%s_", button->caption.c_str() )
 
 			wrappedtext = wordwraptext ( newcaption, button->width );
 
@@ -555,7 +556,7 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 		}
 		else {
 
-			wrappedtext = wordwraptext ( button->caption, button->width );
+			wrappedtext = wordwraptext ( button->caption.c_str(), button->width );
 
 		}
 
@@ -622,8 +623,9 @@ void textbutton_keypress ( Button *button, char key )
 
 		// Backspace key
 
-		if ( strlen(button->caption) > 0 )
-			*((button->caption) + strlen(button->caption) - 1) = 0;
+		if ( button->caption.length() > 0 ) {
+            button->SetCaption(button->caption.substr(0, button->caption.size() - 1));
+        }
 	
 	}
 	else if ( key == 27 ) {
@@ -635,9 +637,9 @@ void textbutton_keypress ( Button *button, char key )
 	else if ( key == 13 ) {
 
 		// Enter key
-		size_t newcaptionsize = strlen(button->caption) + 2;
+		size_t newcaptionsize = button->caption.length() + 2;
 		char *newcaption = new char [newcaptionsize];
-		UplinkSnprintf ( newcaption, newcaptionsize, "%s\n", button->caption )
+		UplinkSnprintf ( newcaption, newcaptionsize, "%s\n", button->caption.c_str() )
 		
 		button->SetCaption ( newcaption );
 
@@ -646,9 +648,9 @@ void textbutton_keypress ( Button *button, char key )
 	}
 	else {
 
-		size_t newcaptionsize = strlen(button->caption) + 2;
+		size_t newcaptionsize = button->caption.length() + 2;
 		char *newcaption = new char [newcaptionsize];
-		UplinkSnprintf ( newcaption, newcaptionsize, "%s%c", button->caption, key )
+		UplinkSnprintf ( newcaption, newcaptionsize, "%s%c", button->caption.c_str(), key )
 		button->SetCaption ( newcaption );
 
 		delete [] newcaption;
@@ -867,15 +869,15 @@ void button_highlight ( Button *button )
 	UplinkAssert ( button )
 	
 	EclHighlightButton ( button->name );
-	tooltip_update ( button->tooltip );
+	tooltip_update ( (char *) button->tooltip.c_str() );
 	
-	if ( strcmp ( button->name, currentbuttonname ) != 0 ) {
+	if ( button->name != currentbuttonname ) {
 
 //		char filename [256];
 //		UplinkSnprintf ( filename, sizeof ( filename ), "%ssounds/mouseover.wav", app->path );
 //		SgPlaySound ( RsArchiveFileOpen ( filename ) );
 
-		UplinkStrncpy ( currentbuttonname, button->name, sizeof ( currentbuttonname ) )
+		UplinkStrncpy ( currentbuttonname, button->name.c_str(), sizeof ( currentbuttonname ) )
 
 	}
 
@@ -1103,7 +1105,7 @@ void tooltip_update ( char *newtooltip )
 		
 	}
 
-	if ( strcmp ( tooltip->tooltip, newtooltip ) != 0 ) {
+	if ( tooltip->tooltip != newtooltip ) {
 
 		// Moved mouse over a different button
 		tooltip->SetTooltip ( newtooltip );		// Store target here
@@ -1194,7 +1196,8 @@ void draw_stextbox ( Button *button, bool highlighted, bool clicked )
 	// Get the offset
 
 	char name_base [128];
-	sscanf ( button->name, "%s", name_base );
+    istringstream stream(button->name);
+    stream >> name_base;
     ScrollBox *scrollBox = ScrollBox::GetScrollBox( name_base );
     if ( !scrollBox ) return;
 	int offset = scrollBox->currentIndex;
@@ -1237,7 +1240,7 @@ void draw_stextbox ( Button *button, bool highlighted, bool clicked )
 
 	SetColour ( "DefaultText" );    
 
-	LList <char *> *wrappedtext = wordwraptext ( button->caption, button->width );
+	LList <char *> *wrappedtext = wordwraptext ( button->caption.c_str(), button->width );
 
 	if ( wrappedtext ) {
 
@@ -1344,7 +1347,7 @@ void closeclick_msgbox ( Button *button )
 
 }
 
-void create_msgbox ( char *title, char *message, void (*closeclick) (Button *) /* = nullptr */ )
+void create_msgbox (const string &title, const string &message, void (*closeclick) (Button *) /* = nullptr */ )
 {
 
 	if ( !isvisible_msgbox () ) {
@@ -1385,7 +1388,7 @@ void create_msgbox ( char *title, char *message, void (*closeclick) (Button *) /
 
 }
 
-void create_yesnomsgbox ( char *title, char *message, void (*yesclick) (Button *) /* = nullptr */, void (*noclick) (Button *) /* = nullptr */ )
+void create_yesnomsgbox (const string &title, const string &message, void (*yesclick) (Button *) /* = nullptr */, void (*noclick) (Button *) /* = nullptr */ )
 {
 
 	if ( !isvisible_msgbox () ) {

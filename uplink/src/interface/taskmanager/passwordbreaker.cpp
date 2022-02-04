@@ -9,6 +9,7 @@
 
 #include <cstring>
 #include <cstdio>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "gucci.h"
@@ -48,7 +49,7 @@ PasswordBreaker::PasswordBreaker () : UplinkTask ()
 	caption = password = username = nullptr;
 	found = nullptr;
 
-	targetstring = nullptr;
+	targetstring = "";
 
 }
 
@@ -59,8 +60,6 @@ PasswordBreaker::~PasswordBreaker()
 	delete [] username;
 	delete [] password;
 	delete [] found;
-
-	delete [] targetstring;
 
 }
 
@@ -74,7 +73,7 @@ void PasswordBreaker::Initialise ()
 
 }
 
-void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void PasswordBreaker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*
@@ -86,13 +85,11 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 		*/
 
 	targetobject = uo;
-	if ( targetstring ) {
-		delete [] targetstring;
-		targetstring = nullptr;
+	if ( !targetstring.empty() ) {
+		targetstring = "";
 	}
-	if ( uos ) {
-		targetstring = new char[ strlen( uos ) + 1 ];
-		UplinkSafeStrcpy( targetstring, uos )
+	if ( !uos.empty() ) {
+		targetstring = uos;
 	}
 	targetint    = uoi;
 
@@ -124,11 +121,11 @@ void PasswordBreaker::SetTarget ( UplinkObject *uo, char *uos, int uoi )
 
 		// If the player has not entered a UserID then do this for admin
 		UplinkAssert ( EclGetButton ( "useridscreen_name" ) )
-		if ( strcmp ( EclGetButton ( "useridscreen_name" )->caption, "" ) == 0 ) 
+		if ( EclGetButton ( "useridscreen_name" )->caption == "" )
 			EclGetButton ( "useridscreen_name" )->SetCaption ( "admin" );
 				
 		delete [] username;
-		char *name = EclGetButton ( "useridscreen_name" )->caption;
+		char *name = (char *) EclGetButton ( "useridscreen_name" )->caption.c_str();
 		username = new char [strlen(name)+1];
 		UplinkSafeStrcpy ( username, name )
 
@@ -353,9 +350,9 @@ void PasswordBreaker::PasswordDraw ( Button *button, bool highlighted, bool clic
 		
 	glColor4f ( 1.0f, 1.0f, 1.0f, 0.8f );    
     
-	if ( strcmp ( button->caption, "Select target" ) != 0 ) {
+	if ( button->caption != "Select target" ) {
 
-		for ( size_t i = 0; i < strlen (button->caption); ++i ) {
+		for ( size_t i = 0; i < button->caption.length(); ++i ) {
 			char caption [2];
 			UplinkSnprintf ( caption, sizeof ( caption ), "%c", button->caption [i] )
 			GciDrawText ( (int) ( xpos + i * 25 ), ypos, caption, BITMAP_15 );
@@ -375,7 +372,8 @@ void PasswordBreaker::PasswordClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
 
@@ -386,7 +384,8 @@ void PasswordBreaker::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 

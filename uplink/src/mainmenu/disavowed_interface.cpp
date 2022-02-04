@@ -66,7 +66,7 @@ void DisavowedInterface::Update ()
 
 		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
-			if ( strcmp ( EclGetButton ( "disavowed" )->caption, " " ) == 0 ) {
+			if ( EclGetButton ( "disavowed" )->caption == " " ) {
 
 				EclRegisterCaptionChange ( "disavowed", "We have recently been informed by a large corporation that you have \n"
 													 	"been caught hacking into one of their primary computer systems.\n\n"

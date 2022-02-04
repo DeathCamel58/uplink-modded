@@ -16,6 +16,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /* glu extention library */
+#include <fstream>
 
 #include "redshirt.h"
 
@@ -137,13 +138,13 @@ char *TrimSpaces ( const char *thestring )
 
 }
 
-void MakeDirectory ( const char *dirname )
+void MakeDirectory (const string &dirname )
 {
 
 #ifdef WIN32
-  _mkdir ( dirname );
+  _mkdir ( dirname.c_str() );
 #else
-  mkdir ( dirname, 0700 );
+  mkdir ( dirname.c_str(), 0700 );
 #endif
 
 }
@@ -156,47 +157,20 @@ bool DoesFileExist ( const char *filename )
 
 }
 
-void EmptyDirectory ( const char *directory )
+void EmptyDirectory (const string &directory )
 {
 
-#ifdef WIN32
+	string userdir = directory;
 
-	char searchstring [_MAX_PATH + 1];
-	UplinkSnprintf ( searchstring, sizeof ( searchstring ), "%s*", directory ); 
-
-	_finddata_t thisfile;
-	intptr_t fileindex = _findfirst ( searchstring, &thisfile );
-
-	int exitmeplease = 0;
-
-	while ( fileindex != -1 && !exitmeplease ) {
-
-		if ( strcmp ( thisfile.name, "." ) != 0 && strcmp ( thisfile.name, ".." ) != 0 ) {
-			char newname [_MAX_PATH + 1];
-			UplinkSnprintf ( newname, sizeof ( newname ), "%s%s", directory, thisfile.name );      
-			_unlink ( newname );
-		}
-		exitmeplease = _findnext ( fileindex, &thisfile );
-
-	}
-
-	if ( fileindex != -1 )
-		_findclose ( fileindex );
-
-#else
-
-	char userdir [256];
-	UplinkStrncpy ( userdir, directory, sizeof ( userdir ) )
-	DIR *dir = opendir( userdir );
+	DIR *dir = opendir( userdir.c_str() );
 	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
 
 	    while (entry != nullptr) {
 	    
 			if ( strcmp ( entry->d_name, "." ) != 0 && strcmp ( entry->d_name, ".." ) != 0 ) {
-				char newname [256];
-				UplinkSnprintf ( newname, sizeof ( newname ), "%s%s", directory, entry->d_name )
-				unlink ( newname );
+				string newname = directory + entry->d_name;
+				unlink ( newname.c_str() );
 			}
 		    entry = readdir ( dir );
 	    
@@ -204,34 +178,28 @@ void EmptyDirectory ( const char *directory )
 	  
 	    closedir( dir );
 	}
-#endif
 
 }
 
-bool CopyFilePlain ( const char *oldfilename, const char *newfilename )
+bool CopyFilePlain (const string &oldfilename, const string &newfilename )
 {
 
 	bool success = false;
-	FILE *fileread = fopen ( oldfilename, "rb" );
-	FILE *filewrite = fopen ( newfilename, "wb" );
+	ifstream src(oldfilename, ios::binary);
+	ofstream dst(newfilename, ios::binary);
 
-	if ( fileread && filewrite ) {
-		char buffer [256];
-		size_t sizeread;
+	if (!src.is_open() || !src.is_open()) {
+	    src.close();
+	    dst.close();
+        return false;
+    }
 
-		while ( ( sizeread = fread ( buffer, 1, sizeof ( buffer ), fileread ) ) > 0 ) {
-			fwrite ( buffer, 1, sizeread, filewrite );
-		}
+	dst << src.rdbuf();
 
-		success = true;
-	}
+	src.close();
+	dst.close();
 
-	if ( filewrite )
-		fclose ( filewrite );
-	if ( fileread )
-		fclose ( fileread );
-
-	return success;
+	return true;
 
 }
 
@@ -262,13 +230,13 @@ bool CopyFileUplink ( const char *oldfilename, const char *newfilename )
 
 }
 
-bool RemoveFile ( const char *filename )
+bool RemoveFile (const string &filename )
 {
 
 #ifdef WIN32
-	return ( _unlink ( filename ) == 0 );
+	return ( _unlink ( filename.c_str() ) == 0 );
 #else
-	return ( unlink ( filename ) == 0 );
+	return ( unlink ( filename.c_str() ) == 0 );
 #endif
 
 }
@@ -309,10 +277,8 @@ DArray <char *> *ListDirectory  ( char *directory, char *filter )
 
 #else
 
-	char userdir [256];
-	//UplinkStrncpy ( userdir, directory, sizeof ( userdir ) );
-	UplinkSnprintf ( userdir, sizeof ( userdir ), "%s%s", app->path, directory )
-	DIR *dir = opendir( userdir );
+	string userdir = app->path + directory;
+	DIR *dir = opendir( userdir.c_str() );
 	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
 
@@ -364,7 +330,7 @@ DArray <char *> *ListDirectory  ( char *directory, char *filter )
 
 }
 
-DArray <char *> *ListSubdirs ( char *directory )
+DArray <char *> *ListSubdirs (const string &directory )
 {
 
     auto *result = new DArray <char *> ();
@@ -400,13 +366,13 @@ DArray <char *> *ListSubdirs ( char *directory )
 
 #else
 
-	DIR *dir = opendir(directory);
+	DIR *dir = opendir(directory.c_str());
 	if (dir != nullptr) {
 		for (struct dirent *d; (d = readdir(dir)) != nullptr;) {
 			char fullfilename[256];
 			struct stat info;
 
-			UplinkSnprintf(fullfilename, sizeof ( fullfilename ), "%s/%s", directory, d->d_name)
+			UplinkSnprintf(fullfilename, sizeof ( fullfilename ), "%s/%s", directory.c_str(), d->d_name)
 			
 			if (stat(fullfilename, &info) == 0 
 				&& S_ISDIR(info.st_mode) 

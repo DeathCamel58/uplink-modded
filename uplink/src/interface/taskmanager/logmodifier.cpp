@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 
 #include "vanbakel.h"
@@ -50,7 +51,8 @@ void LogModifier::CloseClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -61,7 +63,8 @@ void LogModifier::BorderClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	game->GetInterface ()->GetTaskManager ()->SetTargetProgram ( pid );
 
@@ -87,7 +90,8 @@ void LogModifier::CommitClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	auto *thistask = (LogModifier *) SvbGetTask ( pid );
 	UplinkAssert (thistask)
@@ -119,7 +123,8 @@ void LogModifier::NextTypeClick ( Button *button )
 
 	int pid;
 	char bname [64];
-	sscanf ( button->name, "%s %d", bname, &pid );
+    istringstream stream(button->name);
+    stream >> bname >> pid;
 
 	auto *thistask = (LogModifier *) SvbGetTask ( pid );
 	UplinkAssert (thistask)
@@ -252,7 +257,7 @@ LogModifier::~LogModifier ()
 = default;
 
 
-void LogModifier::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void LogModifier::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	/*
@@ -434,13 +439,13 @@ void LogModifier::Tick ( int n )
 
 					log->SetTYPE   ( logtype );
 
-					char *tempIP = StripCarriageReturns ( b_fromip->caption );
+					char *tempIP = StripCarriageReturns ( b_fromip->caption.c_str() );
 					if ( strlen( tempIP ) >= SIZE_VLOCATION_IP )
 						tempIP[ SIZE_VLOCATION_IP - 1 ] = '\0';
 					log->SetFromIP ( tempIP );
 					delete [] tempIP;
 
-					char *tempData1 = StripCarriageReturns ( b_data1->caption );
+					char *tempData1 = StripCarriageReturns ( b_data1->caption.c_str() );
 					log->SetData1  ( tempData1 );
 					delete [] tempData1;
 

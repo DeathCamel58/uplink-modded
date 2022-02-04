@@ -8,6 +8,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 
 #include "app/app.h"
@@ -53,7 +54,8 @@ void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool high
 
 	char unused [64];
 	int index;
-	sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
     index += baseOffset;
 
 	GatewayDef *gd = nullptr;
@@ -150,7 +152,8 @@ void ChangeGatewayScreenInterface::GatewayButtonClick ( Button *button )
 
 	char unused [64];
 	int index;
-	sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
     index += baseOffset;
 
 	auto *thisint = (ChangeGatewayScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();

@@ -66,7 +66,7 @@ void RevelationWonInterface::Update ()
 
 		if ( starttime != -1 && time(nullptr) > starttime + 4 ) {
 
-			if ( strcmp ( EclGetButton ( "revelationwon" )->caption, " " ) == 0 ) {
+			if ( EclGetButton ( "revelationwon" )->caption == " " ) {
 				
 				EclRegisterCaptionChange ( "revelationwon", "There appears to be a serious problem\n"
                                                             "with our Core network service providers.\n\n"

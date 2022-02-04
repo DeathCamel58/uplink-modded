@@ -136,7 +136,7 @@ void TaskManager::RunSoftware ( char *name, float version )
 }
 
 
-void TaskManager::SetProgramTarget ( UplinkObject *newprogramtarget, char *targetstring, int targetint )
+void TaskManager::SetProgramTarget (UplinkObject *newprogramtarget, const string &targetstring, int targetint )
 {
 
 	programtarget = newprogramtarget;

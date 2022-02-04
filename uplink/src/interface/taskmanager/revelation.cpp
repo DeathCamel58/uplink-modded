@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 
 #include "eclipse.h"
@@ -141,7 +142,8 @@ void Revelation::DrawRevelation ( Button *button, bool highlighted, bool clicked
     int buttonnumber;
     int copynumber;
 
-    sscanf ( button->name, "%s %d %d %d", unused, &pid, &buttonnumber, &copynumber );
+    istringstream stream(button->name);
+    stream >> unused >> pid >> buttonnumber >> copynumber;
 
     auto *thistask = (Revelation *) SvbGetTask (pid);
 

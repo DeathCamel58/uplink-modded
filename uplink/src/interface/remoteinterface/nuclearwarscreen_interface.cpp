@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "redshirt.h"
@@ -67,7 +68,8 @@ void NuclearWarScreenInterface::DrawLocation ( Button *button, bool highlighted,
 
 	char unused [64];
 	int index;
-	sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {
@@ -185,7 +187,8 @@ void NuclearWarScreenInterface::ClickLocation ( Button *button )
 
 	char unused [64];
 	int index;
-	sscanf ( button->name, "%s %d", unused, &index );
+    istringstream stream(button->name);
+    stream >> unused >> index;
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {

@@ -62,7 +62,7 @@ void MissionInterface::AbandonClick ( Button *button )
 
 	UplinkAssert (button)
 
-	if ( strcmp(button->caption, "Abandon") == 0 ) {
+	if ( button->caption == "Abandon" ) {
 		button->SetCaption( "! ABANDON !");
 
 	}

@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "redshirt.h"
@@ -70,8 +71,10 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 
 		char optionname [64];
 		int newvalue;
-		UplinkSnprintf ( optionname, sizeof ( optionname ), "%s_%s", thisint->optionTYPE, namebutton->caption )
-		sscanf ( valuebutton->caption, "%d", &newvalue );
+		UplinkSnprintf ( optionname, sizeof ( optionname ), "%s_%s", thisint->optionTYPE, namebutton->caption.c_str() )
+        string unused;
+        istringstream stream(valuebutton->caption);
+        stream >> newvalue;
 		
 		// If they've changed, update them
 
@@ -130,9 +133,10 @@ void GraphicOptionsInterface::ToggleBoxClick ( Button *button )
 
 	// Get the button index
 
-	char unused [64];
 	int buttonindex;
-	sscanf ( button->name, "%s %d", unused, &buttonindex );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> buttonindex;
 
 	// Grab the appropriate button
 
@@ -233,12 +237,13 @@ void GraphicOptionsInterface::ScreenOptionDraw ( Button *button, bool highlighte
 {
 
     UplinkAssert (button)
-   
-    char unused [128];
+
     int type;
     int valueA;
     int valueB;
-    sscanf ( button->name, "%s %d %d %d", unused, &type, &valueA, &valueB );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> type >> valueA >> valueB;
 
     bool currentValue = false;
     if ( type == 1 && 
@@ -306,11 +311,12 @@ void GraphicOptionsInterface::ScreenOptionClick ( Button *button )
 
     UplinkAssert (button)
 
-    char unused [128];
     int type;
     int valueA;
     int valueB;
-    sscanf ( button->name, "%s %d %d %d", unused, &type, &valueA, &valueB );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> type >> valueA >> valueB;
 
     if ( type == 1 ) {
 

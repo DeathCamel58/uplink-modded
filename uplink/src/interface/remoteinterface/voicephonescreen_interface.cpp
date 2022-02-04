@@ -50,9 +50,9 @@ void VoicePhoneScreenInterface::AddToText ( char *newtext )
 	UplinkAssert (newtext)
 	Button *button = EclGetButton ("voicescreen_text");
 	UplinkAssert (button)
-	size_t newcaptionsize = strlen(button->caption) + strlen(newtext) + 3;
+	size_t newcaptionsize = button->caption.length() + strlen(newtext) + 3;
 	char *newcaption = new char [newcaptionsize];
-	UplinkSnprintf ( newcaption, newcaptionsize, "%s%s", button->caption, newtext )
+	UplinkSnprintf ( newcaption, newcaptionsize, "%s%s", button->caption.c_str(), newtext )
 	button->SetCaption ( newcaption );
 	delete [] newcaption;
 

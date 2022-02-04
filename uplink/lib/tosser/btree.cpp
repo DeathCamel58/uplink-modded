@@ -19,20 +19,19 @@ BTree <T> :: BTree ()
 
     ltree = NULL;
     rtree = NULL;
-    id = nullptr;
+    id = "";
     //data = NULL;
     data = 0;
 
 }
 
 template <class T>
-BTree <T> :: BTree ( const char *newid, const T &newdata )
+BTree <T> :: BTree (const string &newid, const T &newdata )
 {
         
     ltree = NULL;
     rtree = NULL;
-    id = new char [ strlen (newid) + 1 ];
-    strcpy ( id, newid );
+    id = newid;
     data = newdata;
     
 }
@@ -53,12 +52,11 @@ void BTree<T> :: Copy( const BTree<T> &copy )
     if (copy.rtree)	rtree = new BTree( *copy.rtree );
     else rtree = NULL;
     
-    if (copy.id) {
-		id = new char [ strlen (copy.id) + 1 ];
-		strcpy ( id, copy.id );
+    if (!copy.id.empty()) {
+		id = copy.id;
     }
     else 
-		id = nullptr;
+		id = "";
     
     data = copy.data;
 }
@@ -75,27 +73,25 @@ void BTree <T> :: Empty ()
 {
     delete ltree;
     delete rtree;
-    delete [] id;
     
     ltree = rtree = NULL;
-    id = nullptr;
+    id = "";
 }
 
 template <class T>
-void BTree <T> :: PutData ( const char *newid, const T &newdata )
+void BTree <T> :: PutData (const string &newid, const T &newdata )
 {
     
-    if ( !id ) {
+    if ( id.empty() ) {
 
-        id = new char [ strlen ( newid ) + 1 ];
-        strcpy ( id, newid );
+        id = newid;
         data = newdata;
 	 	 
 		return;
 
     }
 
-    if ( strcmp ( newid, id ) <= 0 ) {
+    if ( newid.compare( id ) <= 0 ) {
 
         if (ltree)
             ltree->PutData ( newid, newdata );
@@ -104,7 +100,7 @@ void BTree <T> :: PutData ( const char *newid, const T &newdata )
             ltree = new BTree ( newid, newdata );
 
     }
-    else if ( strcmp ( newid, id ) > 0 ) {
+    else if ( newid.compare( id ) > 0 ) {
 
         if (rtree)
             rtree->PutData ( newid, newdata );
@@ -117,7 +113,7 @@ void BTree <T> :: PutData ( const char *newid, const T &newdata )
 }
 
 template <class T>
-void BTree <T> :: RemoveData ( const char *newid )
+void BTree <T> :: RemoveData (const string &newid )
 {
     
     /*
@@ -127,9 +123,9 @@ void BTree <T> :: RemoveData ( const char *newid )
       
       */
     
-    assert (newid);
+    assert (!newid.empty());
     
-    if ( strcmp ( newid, id ) == 0 ) {
+    if ( newid == id ) {
 	
 		//var tempright : pointer to node := data->right
 		BTree <T> *tempright = Right ();       
@@ -137,8 +133,7 @@ void BTree <T> :: RemoveData ( const char *newid )
 			//data := data->left
 		if ( Left () ) {
 			
-			id = new char [strlen (Left ()->id) + 1];
-			strcpy ( id, Left ()->id );
+			id = Left ()->id;
 			data = Left ()->data;                  // This bit requires a good copy constructor
 			rtree = Left ()->Right ();
 			ltree = Left ()->Left ();	
@@ -152,8 +147,7 @@ void BTree <T> :: RemoveData ( const char *newid )
 			
 			if ( Right () ) {
 			   
-				id = new char [strlen (Right ()->id) + 1];
-				strcpy ( id, Right ()->id );
+				id = Right ()->id;
 				data = Right ()->data;                  // This bit requires a good copy constructor
 				ltree = Right ()->Left ();	
 				rtree = Right ()->Right ();
@@ -161,16 +155,16 @@ void BTree <T> :: RemoveData ( const char *newid )
 			}
 			else {
 			
-				id = nullptr;                              // Hopefully this is the root node
+				id = "";                              // Hopefully this is the root node
 			
 			}	    
 			
 		}
 	    	
     }                                                   //elsif Name < data->name then
-	else if ( strcmp ( newid, id ) < 0 ) {
+	else if ( newid.compare( id ) < 0 ) {
 		if ( Left () ) {
-            if ( strcmp ( Left ()->id, newid ) == 0 && !Left ()->Left () && !Left ()->Right () )
+            if ( Left ()->id == newid && !Left ()->Left () && !Left ()->Right () )
                 ltree = NULL;
             else
 		        Left ()->RemoveData ( newid );
@@ -178,7 +172,7 @@ void BTree <T> :: RemoveData ( const char *newid )
     }
     else {                                              //elsif Name > data->name then
 		if ( Right () ) {
-            if ( strcmp ( Right ()->id, newid ) == 0 && !Right ()->Left () && !Right ()->Right () )
+            if ( Right ()->id == newid && !Right ()->Left () && !Right ()->Right () )
                 rtree = NULL;
             else
 		        Right ()->RemoveData ( newid );
@@ -188,7 +182,7 @@ void BTree <T> :: RemoveData ( const char *newid )
 }
 
 template <class T>
-void BTree <T> :: RemoveData ( const char *newid, const T &newdata  )
+void BTree <T> :: RemoveData (const string &newid, const T &newdata  )
 {
     
     /*
@@ -198,9 +192,9 @@ void BTree <T> :: RemoveData ( const char *newid, const T &newdata  )
       
       */
     
-    assert (newid);
+    assert (!newid.empty());
     
-    if ( strcmp ( newid, id ) == 0 && data == newdata ) {
+    if ( newid.compare( id ) == 0 && data == newdata ) {
 	
 		//var tempright : pointer to node := data->right
 		BTree <T> *tempright = Right ();       
@@ -208,8 +202,7 @@ void BTree <T> :: RemoveData ( const char *newid, const T &newdata  )
 			//data := data->left
 		if ( Left () ) {
 			
-			id = new char [strlen (Left ()->id) + 1];
-			strcpy ( id, Left ()->id );
+			id = Left ()->id;
 			data = Left ()->data;                  // This bit requires a good copy constructor
 			rtree = Left ()->Right ();
 			ltree = Left ()->Left ();	
@@ -223,8 +216,7 @@ void BTree <T> :: RemoveData ( const char *newid, const T &newdata  )
 			
 			if ( Right () ) {
 			   
-				id = new char [strlen (Right ()->id) + 1];
-				strcpy ( id, Right ()->id );
+				id = Right ()->id;
 				data = Right ()->data;                  // This bit requires a good copy constructor
 				ltree = Right ()->Left ();	
 				rtree = Right ()->Right ();
@@ -232,16 +224,16 @@ void BTree <T> :: RemoveData ( const char *newid, const T &newdata  )
 			}
 			else {
 			
-				id = nullptr;                              // Hopefully this is the root node
+				id = "";                              // Hopefully this is the root node
 			
 			}	    
 			
 		}
 	    	
     }                                                   //elsif Name < data->name then
-	else if ( strcmp ( newid, id ) <= 0 ) {
+	else if ( newid.compare( id ) <= 0 ) {
 		if ( Left () ) {
-            if ( strcmp ( Left ()->id, newid ) == 0 && data == newdata && !Left ()->Left () && !Left ()->Right () )
+            if ( Left ()->id == newid && data == newdata && !Left ()->Left () && !Left ()->Right () )
                 ltree = NULL;
             else
 		        Left ()->RemoveData ( newid, newdata );
@@ -249,7 +241,7 @@ void BTree <T> :: RemoveData ( const char *newid, const T &newdata  )
     }
     else {                                              //elsif Name > data->name then
 		if ( Right () ) {
-            if ( strcmp ( Right ()->id, newid ) == 0 && data == newdata && !Right ()->Left () && !Right ()->Right () )
+            if ( Right ()->id == newid && data == newdata && !Right ()->Left () && !Right ()->Right () )
                 rtree = NULL;
             else
 		        Right ()->RemoveData ( newid, newdata );
@@ -259,7 +251,7 @@ void BTree <T> :: RemoveData ( const char *newid, const T &newdata  )
 }
 
 template <class T>
-T BTree <T> :: GetData ( const char *searchid )
+T BTree <T> :: GetData (const string &searchid )
 {
 
 	BTree <T> *btree = LookupTree ( searchid );
@@ -283,19 +275,19 @@ void BTree <T> :: AppendRight ( BTree <T> *tempright )
 }
 
 template <class T>
-BTree<T> *BTree<T> :: LookupTree( const char *searchid )
+BTree<T> *BTree<T> :: LookupTree(const string &searchid )
 {
         
-    if (!id)
+    if (id.empty())
 		return NULL;
     
-    if ( strcmp ( searchid, id ) == 0 )
+    if ( searchid == id )
         return this;
 
-    else if ( ltree && strcmp ( searchid, id ) < 0 )
+    else if ( ltree && searchid.compare( id ) < 0 )
         return ltree->LookupTree ( searchid );
 
-    else if ( rtree && strcmp ( searchid, id ) > 0 )
+    else if ( rtree && searchid.compare( id ) > 0 )
         return rtree->LookupTree ( searchid );
     
     else return NULL;
@@ -307,7 +299,7 @@ template <class T>
 int BTree <T> :: Size () const
 {
 
-    unsigned int subsize = (id) ? 1 : 0;
+    unsigned int subsize = (!id.empty()) ? 1 : 0;
     
     if (ltree) subsize += ltree->Size ();
     if (rtree) subsize += rtree->Size ();
@@ -321,7 +313,7 @@ void BTree <T> :: Print ()
 {
     
     if (ltree) ltree->Print ();
-    if (id) cout << id << " : " << data << "\n";       
+    if (!id.empty()) cout << id << " : " << data << "\n";
     if (rtree) rtree->Print ();
     
 }
@@ -372,7 +364,7 @@ void BTree <T> :: RecursiveConvertToDArray ( DArray <T> *darray, BTree <T> *btre
     
     if ( !btree ) return;            // Base case
     
-    if ( btree->id ) darray->PutData ( btree->data );
+    if ( !btree->id.empty() ) darray->PutData ( btree->data );
     
     RecursiveConvertToDArray ( darray, btree->Left  () );
     RecursiveConvertToDArray ( darray, btree->Right () );
@@ -387,7 +379,7 @@ void BTree <T> :: RecursiveConvertIndexToDArray ( DArray <char *> *darray, BTree
     
     if ( !btree ) return;            // Base case
     
-    if ( btree->id ) darray->PutData ( btree->id );
+    if ( !btree->id.empty() ) darray->PutData ( (char *) btree->id.c_str() );
     
     RecursiveConvertIndexToDArray ( darray, btree->Left  () );
     RecursiveConvertIndexToDArray ( darray, btree->Right () );

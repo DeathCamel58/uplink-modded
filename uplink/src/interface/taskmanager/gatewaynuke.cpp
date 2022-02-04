@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h> /*_glu_extention_library_*/
+#include <sstream>
 
 
 #include "eclipse.h"
@@ -54,7 +55,9 @@ void GatewayNuke::YesClick ( Button *button )
 {
 
 	int pid;
-	sscanf ( button->name, "gatenuke_yes %d", &pid );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> pid;
 
 	auto *task = (GatewayNuke *) SvbGetTask ( pid );
 	UplinkAssert (task)
@@ -127,7 +130,9 @@ void GatewayNuke::NoClick ( Button *button )
 	// Abort gate nuke
 
 	int pid;
-	sscanf ( button->name, "gatenuke_no %d", &pid );
+    string unused;
+    istringstream stream(button->name);
+    stream >> unused >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -164,7 +169,7 @@ GatewayNuke::GatewayNuke () : UplinkTask ()
 GatewayNuke::~GatewayNuke ()
 = default;
 
-void GatewayNuke::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void GatewayNuke::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	// This doesn't need to be called

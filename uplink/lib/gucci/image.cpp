@@ -12,6 +12,7 @@
 
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <string>
 
 #include "tiff.h"
 #include "tiffio.h"
@@ -19,6 +20,8 @@
 #include "image.h"
 
 #include "mmgr.h"
+
+using namespace std;
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -61,7 +64,7 @@ Image::~Image()
 
 }
 
-void Image::LoadRAW ( char *filename, int sizex, int sizey )
+void Image::LoadRAW (const std::string &filename, int sizex, int sizey )
 {
 
 	width = sizex;
@@ -75,10 +78,10 @@ void Image::LoadRAW ( char *filename, int sizex, int sizey )
 	delete [] pixels;
 	pixels = new unsigned char [sizex * sizey * 4];
 
-	FILE *file = fopen ( filename, "rb" );
+	FILE *file = fopen ( filename.c_str(), "rb" );
 
 	if ( !file ) {
-		printf ( "GUCCI Error - failed to load RAW image %s\n", filename );
+		printf ( "GUCCI Error - failed to load RAW image %s\n", filename.c_str() );
 		//exit(255);
 		CreateErrorBitmap ();
 		return;
@@ -103,22 +106,22 @@ void Image::LoadRAW ( char *filename, int sizex, int sizey )
 
 }
 
-void Image::LoadTIF ( char *filename )
+void Image::LoadTIF (const std::string &filename )
 {
 
     char emsg[1024];		
 	TIFFRGBAImage img;
 
-    TIFF *tif = TIFFOpen(filename, "r");
+    TIFF *tif = TIFFOpen(filename.c_str(), "r");
     if ( !tif ) {
-        printf ( "GUCCI Error - failed to load TIF %s\n", filename );
+        printf ( "GUCCI Error - failed to load TIF %s\n", filename.c_str() );
 		CreateErrorBitmap ();
 		return;
 	}
 
     TIFFRGBAImageBegin (&img, tif, 0, emsg);
     int npixels = img.width * img.height;    
-	uint32 *raster = new uint32 [npixels * sizeof(uint32)];
+	auto *raster = new uint32 [npixels * sizeof(uint32)];
     
 	TIFFRGBAImageGet(&img, raster, img.width, img.height);
 
@@ -146,7 +149,7 @@ void Image::SetAlpha ( float newalpha )
 {
 
 	alpha = (unsigned char) ( newalpha * 256.0 );
-	unsigned char a = (unsigned char) ( newalpha * 255.0 );
+	auto a = (unsigned char) ( newalpha * 255.0 );
 	
 	if ( pixels ) {
 
@@ -177,10 +180,10 @@ void Image::SetAlphaBorderRec ( int x, int y, unsigned char a, unsigned char r, 
 void Image::SetAlphaBorder ( float newalpha, float testred, float testgreen, float testblue )
 {
 
-	unsigned char a = (unsigned char) ( newalpha * 255.0 );
-	unsigned char r = (unsigned char) ( testred * 255.0 );
-	unsigned char g = (unsigned char) ( testgreen * 255.0 );
-	unsigned char b = (unsigned char) ( testblue * 255.0 );
+	auto a = (unsigned char) ( newalpha * 255.0 );
+	auto r = (unsigned char) ( testred * 255.0 );
+	auto g = (unsigned char) ( testgreen * 255.0 );
+	auto b = (unsigned char) ( testblue * 255.0 );
 	
 	if ( pixels ) {
 
@@ -198,21 +201,21 @@ void Image::SetAlphaBorder ( float newalpha, float testred, float testgreen, flo
 
 }
 
-float Image::GetAlpha ()
+float Image::GetAlpha () const
 {
 
 	return float ( alpha / 256.0 );
 
 }
 
-int Image::Width ()
+int Image::Width () const
 {
 	
 	return width;
 
 }
 
-int Image::Height ()
+int Image::Height () const
 {
 
 	return height;
@@ -224,7 +227,7 @@ void Image::FlipAroundH ()
 
 	if ( pixels ) {
 
-		unsigned char *newpixels = new unsigned char [width * height * 4];
+		auto *newpixels = new unsigned char [width * height * 4];
 		
 		for ( int y = 0; y < height; ++y ) {
 
@@ -252,7 +255,7 @@ void Image::Scale ( int newwidth, int newheight )
 
 	if ( pixels ) {
 
-		unsigned char *newpixels = new unsigned char [newwidth * newheight * 4];
+		auto *newpixels = new unsigned char [newwidth * newheight * 4];
 
 /*
 		for ( int x = 0; x < newwidth; ++x ) {
@@ -302,7 +305,7 @@ void Image::ScaleToOpenGL ()
 
 }
 
-void Image::Draw ( int x, int y )
+void Image::Draw ( int x, int y ) const
 {
 
 	if ( pixels ) {
@@ -339,7 +342,7 @@ unsigned char *Image::GetRGBPixels()
 
 }
 
-void Image::DrawBlend ( int x, int y )
+void Image::DrawBlend ( int x, int y ) const
 {
 
 	if ( pixels ) {
@@ -363,7 +366,7 @@ void Image::CreateErrorBitmap ()
 
 	width = 32;
 	height = 32;
-	uint32 *newimage = new uint32 [ width * height * sizeof(uint32) ];
+	auto *newimage = new uint32 [ width * height * sizeof(uint32) ];
 
 	uint32 WHITE = 0xFFFFFFFF;
 	uint32 BLACK = 0xFF000000;
@@ -390,7 +393,7 @@ void Image::CreateErrorBitmap ()
 
 }
 
-char Image::GetPixelR ( int x, int y )
+char Image::GetPixelR ( int x, int y ) const
 {
 
 	if ( pixels ) {
@@ -410,7 +413,7 @@ char Image::GetPixelR ( int x, int y )
 
 }
 
-char Image::GetPixelG ( int x, int y )
+char Image::GetPixelG ( int x, int y ) const
 {
 
 	if ( pixels ) {
@@ -430,7 +433,7 @@ char Image::GetPixelG ( int x, int y )
 
 }
 
-char Image::GetPixelB ( int x, int y )
+char Image::GetPixelB ( int x, int y ) const
 {
 
 	if ( pixels ) {

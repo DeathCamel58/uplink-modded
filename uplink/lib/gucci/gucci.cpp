@@ -60,14 +60,14 @@ void GciSetDefaultFont ( int STYLE )
 
 }
 
-void GciDrawText ( int x, int y, char *text )
+void GciDrawText (int x, int y, const string &text )
 {
 
 	GciDrawText ( x, y, text, gci_defaultfont );
 
 }
 
-int GciTextWidth ( char *text )
+int GciTextWidth (const string &text )
 {
 	
 	return GciTextWidth ( text, gci_defaultfont );
@@ -88,12 +88,12 @@ void GciDisableTrueTypeSupport ()
 
 }
 
-bool GciRegisterTrueTypeFont( const char *filename )
+bool GciRegisterTrueTypeFont(const string &filename )
 {
     return true;
 }
 
-bool GciUnregisterTrueTypeFont( const char *filename )
+bool GciUnregisterTrueTypeFont(const string &filename )
 {
     return true;
 }
@@ -132,7 +132,7 @@ static void UnregisterFace( const char *familyname )
 }
 
 
-void GciDrawText ( int x, int y, char *text, int STYLE )
+void GciDrawText (int x, int y, const string &text, int STYLE )
 {
 
     if ( gci_truetypeenabled && fonts[STYLE] ) {
@@ -146,7 +146,7 @@ void GciDrawText ( int x, int y, char *text, int STYLE )
 		FTGLBitmapFont *font = fonts[STYLE];
 		//FTGLPixmapFont *font = fonts[STYLE];
         glRasterPos2i(x, y);
-		font->Render(text);
+		font->Render(text.c_str());
 #endif // USE_FTGL
 
         }
@@ -155,7 +155,7 @@ void GciDrawText ( int x, int y, char *text, int STYLE )
     }
 }
 
-int GciTextWidth ( char *text, int STYLE )
+int GciTextWidth (const string &text, int STYLE )
 {
   if (fonts[STYLE]) {
 #ifdef USE_GLTT
@@ -163,7 +163,7 @@ int GciTextWidth ( char *text, int STYLE )
 #endif
 #ifdef USE_FTGL
     float llx, lly, llz, urx, ury, urz;
-    fonts[STYLE]->BBox( text, llx, lly, llz, urx, ury, urz );
+    fonts[STYLE]->BBox( text.c_str(), llx, lly, llz, urx, ury, urz );
     return (int)(fabs(llx - urx) + 0.5);
 #endif
   }
@@ -171,11 +171,11 @@ int GciTextWidth ( char *text, int STYLE )
     return GciFallbackTextWidth( text, STYLE );
 }
 
-bool GciLoadTrueTypeFont ( int index, char *fontname, char *filename, int size )
+bool GciLoadTrueTypeFont (int index, const string &fontname, const string &filename, int size )
 {
 
     if (gci_truetypeenabled) {
-        FTFace *face = RegisterFace( fontname, filename );
+        FTFace *face = RegisterFace( fontname.c_str(), filename.c_str() );
         
         if (!face)
             return false;
@@ -193,7 +193,7 @@ bool GciLoadTrueTypeFont ( int index, char *fontname, char *filename, int size )
 #ifdef USE_FTGL
         int pointSize = int (size * 72.0 / 96.0 + 0.5);
         
-        FTGLBitmapFont *font = new FTGLBitmapFont(filename);
+        auto *font = new FTGLBitmapFont(filename.c_str());
         //FTGLPixmapFont *font = new FTGLPixmapFont(filename);
         font->GlyphLoadFlags(FT_LOAD_TARGET_MONO);
         if (font->Error() != 0 || !font->FaceSize(pointSize, 96)) {
@@ -234,9 +234,9 @@ void GciDeleteAllTrueTypeFonts ()
     for (map<int, GLTTBitmapFont *>::iterator x = fonts.begin(); x != fonts.end(); x++)
         GciDeleteTrueTypeFont(x->first);
 #else
-    for (map<int, FTGLBitmapFont *>::iterator x = fonts.begin(); x != fonts.end(); x++)
+    for (auto & font : fonts)
     //for (map<int, FTGLPixmapFont *>::iterator x = fonts.begin(); x != fonts.end(); x++)
-        GciDeleteTrueTypeFont(x->first);
+        GciDeleteTrueTypeFont(font.first);
 #endif
     // Delete all the frickin' faces
 

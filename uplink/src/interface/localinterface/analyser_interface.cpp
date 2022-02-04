@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 
 #include "gucci.h"
@@ -73,7 +74,9 @@ void AnalyserInterface::SystemClick ( Button *button )
 {
 
 	int systemindex;
-	sscanf ( button->name, "analyser_system %d", &systemindex );
+	string unused;
+    istringstream stream(button->name);
+    stream >> unused >> systemindex;
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( remotehost );
 	UplinkAssert (vl)

@@ -172,10 +172,10 @@ void ScriptLibrary::Script10 ()
 	// Get the source and target values
 
 	char *source_ip    = comp->ip;
-	char *target_ip    = EclGetButton ( "t_ip_value 0 0" )->caption;
-	char *source_accno = EclGetButton ( "s_accno_value -1 -1" )->caption;	
-	char *target_accno = EclGetButton ( "t_accno_value 0 0" )->caption;
-	char *value        = EclGetButton ( "amount_value 0 0" )->caption;
+	char *target_ip    = (char *) EclGetButton ( "t_ip_value 0 0" )->caption.c_str();
+	char *source_accno = (char *) EclGetButton ( "s_accno_value -1 -1" )->caption.c_str();
+	char *target_accno = (char *) EclGetButton ( "t_accno_value 0 0" )->caption.c_str();
+	char *value        = (char *) EclGetButton ( "amount_value 0 0" )->caption.c_str();
 
 	if ( strlen( target_ip ) >= SIZE_VLOCATION_IP )
 		target_ip [ SIZE_VLOCATION_IP - 1 ] = '\0';
@@ -240,9 +240,9 @@ void ScriptLibrary::Script11 ()
 	
 	// Get the inputted properties of the new account
 
-	char *name    = EclGetButton ( "nametext 0 0" )->caption;
-	char *passwd  = EclGetButton ( "passwordtext 0 0" )->caption;
-	char *passwd2 = EclGetButton ( "passwordtext2 0 0" )->caption;
+	char *name    = (char *) EclGetButton ( "nametext 0 0" )->caption.c_str();
+	char *passwd  = (char *) EclGetButton ( "passwordtext 0 0" )->caption.c_str();
+	char *passwd2 = (char *) EclGetButton ( "passwordtext2 0 0" )->caption.c_str();
 
     if ( strcmp ( name, "Fill this in" ) == 0 || strlen ( name ) == 0 ) {
         create_msgbox ( "Error", "You must enter an username" );
@@ -316,9 +316,9 @@ void ScriptLibrary::Script12 ()
 	
 	// Get the inputted properties of the new account
 
-	char *name    = EclGetButton ( "nametext 0 0" )->caption;
-	char *passwd  = EclGetButton ( "passwordtext 0 0" )->caption;
-	char *passwd2 = EclGetButton ( "passwordtext2 0 0" )->caption;
+	char *name    = (char *) EclGetButton ( "nametext 0 0" )->caption.c_str();
+	char *passwd  = (char *) EclGetButton ( "passwordtext 0 0" )->caption.c_str();
+	char *passwd2 = (char *) EclGetButton ( "passwordtext2 0 0" )->caption.c_str();
 
 	if ( strcmp ( passwd, passwd2 ) != 0 ) {
 		create_msgbox ( "Error", "The two passwords must be identical" );
@@ -436,7 +436,7 @@ void ScriptLibrary::Script15 ()
 	char name [SIZE_PERSON_NAME];
 	Button *button = EclGetButton ( "name 0 0" );
 	UplinkAssert ( button )
-	strncpy ( name, button->caption, sizeof ( name ) );
+	strncpy ( name, button->caption.c_str(), sizeof ( name ) );
 	name [ sizeof ( name ) - 1 ] = '\0';
 
 	// Run the Criminal Record Screen
@@ -469,7 +469,7 @@ void ScriptLibrary::Script16 ()
 	char name [SIZE_PERSON_NAME];
 	Button *button = EclGetButton ( "name 0 0" );
 	UplinkAssert ( button )
-	strncpy ( name, button->caption, sizeof ( name ) );
+	strncpy ( name, button->caption.c_str(), sizeof ( name ) );
 	name [ sizeof ( name ) - 1 ] = '\0';
 
 	// Run the Academic Record Screen
@@ -502,7 +502,7 @@ void ScriptLibrary::Script17 ()
 	char name [SIZE_PERSON_NAME];
 	Button *button = EclGetButton ( "name 0 0" );
 	UplinkAssert ( button )
-	strncpy ( name, button->caption, sizeof ( name ) );
+	strncpy ( name, button->caption.c_str(), sizeof ( name ) );
 	name [ sizeof ( name ) - 1 ] = '\0';
 
 	// Run the Record Screen
@@ -689,13 +689,13 @@ void ScriptLibrary::Script33 ()
 	char password2 [33];
 	char accesscode [SIZE_AGENT_HANDLE + 32 + 32];
 
-	strncpy ( name, EclGetButton ( "nametext 0 0" )->caption, sizeof( name ) );
+	strncpy ( name, EclGetButton ( "nametext 0 0" )->caption.c_str(), sizeof( name ) );
 	name [ sizeof( name ) - 1 ] = '\0';
 
-	strncpy ( password, EclGetButton ( "passwordtext 0 0" )->caption, sizeof( password ) );
+	strncpy ( password, EclGetButton ( "passwordtext 0 0" )->caption.c_str(), sizeof( password ) );
 	password [ sizeof( password ) - 1 ] = '\0';
 
-	strncpy ( password2, EclGetButton ( "passwordtext2 0 0" )->caption, sizeof( password2 ) );
+	strncpy ( password2, EclGetButton ( "passwordtext2 0 0" )->caption.c_str(), sizeof( password2 ) );
 	password2 [ sizeof( password2 ) - 1 ] = '\0';
 	
     Computer::GenerateAccessCode( name, password, accesscode, sizeof ( accesscode ) );
@@ -2143,7 +2143,7 @@ void ScriptLibrary::Script85 ()
 
         int captionIndex = -1;
         for ( int i = 0; i < NUMCAPTIONS; ++i ) {
-            if ( strcmp ( status->caption, TEXT[i] ) == 0 ) {
+            if ( status->caption == TEXT[i] ) {
                 captionIndex = i;
                 break;
             }

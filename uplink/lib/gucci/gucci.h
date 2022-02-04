@@ -44,21 +44,21 @@ void GciRestoreGlut();
 
 void GciSetDefaultFont ( int STYLE );
 
-void GciDrawText ( int x, int y, char *text );								// Uses default
-void GciDrawText ( int x, int y, char *text, int STYLE );					// STYLE can be a ttf index if ttf is enabled
+void GciDrawText (int x, int y, const string &text );								// Uses default
+void GciDrawText (int x, int y, const string &text, int STYLE );					// STYLE can be a ttf index if ttf is enabled
 
-int GciTextWidth ( char *text );                           
-int GciTextWidth ( char *text, int STYLE );
+int GciTextWidth (const string &text );
+int GciTextWidth (const string &text, int STYLE );
 
-bool GciRegisterTrueTypeFont( const char *filename );
-bool GciUnregisterTrueTypeFont( const char *filename );
+bool GciRegisterTrueTypeFont(const string &filename );
+bool GciUnregisterTrueTypeFont(const string &filename );
 
 // Font functions for dealing with true types -------
 
 void GciEnableTrueTypeSupport ();
 void GciDisableTrueTypeSupport ();
 
-bool GciLoadTrueTypeFont ( int index, char *fontname, char *filename, int size );
+bool GciLoadTrueTypeFont (int index, const string &fontname, const string &filename, int size );
 void GciDeleteTrueTypeFont ( int index );
 void GciDeleteAllTrueTypeFonts ();
 
@@ -70,16 +70,16 @@ void GciDeleteAllTrueTypeFonts ();
 #define GCI_DEBUGSTART 0x8
 
 char *GciInitGraphicsLibrary ( int graphics_flags );
-char *GciInitGraphics( const char *caption,
-		      int graphics_flags, 
-		      int screenWidth, int screenHeight, 
-		      int screenDepth, int screenRefreshRate,
-		      int argc, char *argv[] );
+char *GciInitGraphics(const string &caption,
+                      int graphics_flags,
+                      int screenWidth, int screenHeight,
+                      int screenDepth, int screenRefreshRate,
+                      int argc, char **argv);
 
 void GciMainLoop();
 
-typedef void GciDisplayFuncT(void);
-typedef void GciIdleFuncT(void);
+typedef void GciDisplayFuncT();
+typedef void GciIdleFuncT();
 typedef void GciKeyboardFuncT(unsigned char key, int x, int y);
 typedef void GciMouseFuncT(int button, int state, int x, int y);
 typedef void GciMotionFuncT(int x, int y);
@@ -133,7 +133,7 @@ void GciTimerFunc(unsigned int millis, GciCallbackT *callback, int value);
 #define GCI_MIDDLE_BUTTON 3
 
 /* Define for unknown buttons */
-#define GCI_UNKNOWN -1
+#define GCI_UNKNOWN (-1)
 
 
 struct GciScreenMode {
@@ -149,7 +149,7 @@ void GciDeleteScreenModeArrayData(GciScreenModeList *);
 
 GciScreenMode *GciGetClosestScreenMode ( int width, int height );
 
-void GciSaveScreenshot( const char * file );
+void GciSaveScreenshot(const string &file );
 
 bool GciAppVisible ();
 

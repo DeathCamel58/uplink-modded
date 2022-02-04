@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <sstream>
 
 #include "vanbakel.h"
 #include "soundgarden.h"
@@ -70,7 +71,8 @@ void VoiceAnalyser::CloseClick ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	SvbRemoveTask ( pid );
 
@@ -83,7 +85,8 @@ void VoiceAnalyser::TitleClick ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
@@ -99,7 +102,8 @@ void VoiceAnalyser::PlayDraw ( Button *button, bool highlighted, bool clicked )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
@@ -115,7 +119,8 @@ void VoiceAnalyser::PlayClick ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
@@ -161,7 +166,8 @@ void VoiceAnalyser::PlayMouseMove ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
@@ -177,7 +183,8 @@ void VoiceAnalyser::PlayMouseDown ( Button *button )
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
@@ -193,7 +200,8 @@ void VoiceAnalyser::DrawAnalysis ( Button *button, bool highlighted, bool clicke
 
 	char name [64];
 	int pid;
-	sscanf ( button->name, "%s %d", name, &pid );
+    istringstream stream(button->name);
+    stream >> name >> pid;
 
 	auto *thistask = (VoiceAnalyser *) SvbGetTask ( pid );
 
@@ -242,7 +250,7 @@ void VoiceAnalyser::Initialise ()
 {
 }
 
-void VoiceAnalyser::SetTarget ( UplinkObject *uo, char *uos, int uoi )
+void VoiceAnalyser::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
 	if ( version < 2.0 ) return; // This function not available for version 1.0
@@ -285,7 +293,7 @@ void VoiceAnalyser::SetTarget ( UplinkObject *uo, char *uos, int uoi )
                   numticksrequired = (int) ( TICKSREQUIRED_COPY * ((float) data->size / (float) game->GetWorld ()->GetPlayer ()->gateway.GetBandwidth ()) );
                   progress = 0;
 
-                  remotefile = strstr(uos, "fileserverscreen") != nullptr;
+                  remotefile = uos.find( "fileserverscreen") != string::npos;
 
                   Button *button = EclGetButton ( uos );
                   UplinkAssert (button)
