@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -92,10 +93,10 @@ void DisconnectedScreen::Save  ( FILE *file )
 void DisconnectedScreen::Print ()
 {
 
-	printf ( "DisconnectedScreen : \n" );
-	ComputerScreen::Print ();
-	printf ( "NextPage = %d, TextMessage = %s\n", 
-				nextpage, textmessage );
+    cout << "DisconnectedScreen : " << endl;
+    ComputerScreen::Print ();
+    PrintValue("NextPage", nextpage);
+    PrintValue("TextMessage", textmessage);
 
 }
 	

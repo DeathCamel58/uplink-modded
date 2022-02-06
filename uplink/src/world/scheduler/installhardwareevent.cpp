@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -257,10 +258,10 @@ void InstallHardwareEvent::Save  ( FILE *file )
 void InstallHardwareEvent::Print ()
 {
 
-	printf ( "Install Hardware Event : \n" );
+    cout << "Install Hardware Event : " << endl;
 	UplinkEvent::Print ();
 	if ( hwsale ) hwsale->Print ();
-	printf ( "Version: %d\n", version );
+    PrintValue("Version", version);
 
 }
 

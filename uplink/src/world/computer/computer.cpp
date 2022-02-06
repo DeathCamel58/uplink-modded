@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
@@ -599,10 +600,20 @@ void Computer::Save  ( FILE *file )
 void Computer::Print ()
 {
 
-	printf ( "Computer : Name = %s\n", name );
-	printf ( "TYPE = %d, Companyname = %s, ip = %s, tracespeed = %d, traceaction = %d, targetable = %d, externally open = %d, running = %d\n", TYPE, companyname, ip, tracespeed, traceaction, istargetable, isexternallyopen, isrunning );
-	printf ( "numrecenthacks = %d, numhacksthismonth = %d, numhackslastmonth = %d\n", numrecenthacks, numhacksthismonth, numhackslastmonth );
-	printf ( "infected with revelation = %f\n", isinfected_revelation );
+    cout << "Computer : " << endl;
+    PrintValue("Name", name );
+    PrintValue("TYPE", TYPE );
+    PrintValue("Companyname", companyname );
+    PrintValue("ip", ip );
+    PrintValue("tracespeed", tracespeed );
+    PrintValue("traceaction", traceaction );
+    PrintValue("targetable", istargetable );
+    PrintValue("externally open", isexternallyopen );
+    PrintValue("running", isrunning );
+    PrintValue("numrecenthacks", numrecenthacks );
+    PrintValue("numhacksthismonth", numhacksthismonth );
+    PrintValue("numhackslastmonth", numhackslastmonth );
+    PrintValue("infected with revelation", isinfected_revelation );
     
     infectiondate.Print ();
 

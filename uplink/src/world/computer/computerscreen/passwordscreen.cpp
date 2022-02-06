@@ -4,6 +4,7 @@
 
 #include <cstring>
 #include <cstdio>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -98,9 +99,11 @@ void PasswordScreen::Save  ( FILE *file )
 void PasswordScreen::Print ()
 {
 
-	printf ( "PasswordScreen : \n" );
+    cout << "PasswordScreen : " << endl;
 	ComputerScreen::Print ();
-	printf ( "Nextpage = %d, Password = %s, Difficulty = %d\n", nextpage, password, difficulty );
+    PrintValue("NextPage", nextpage);
+    PrintValue("Password", password);
+    PrintValue("Difficulty", difficulty);
 
 }
 	

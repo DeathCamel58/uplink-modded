@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -217,16 +218,20 @@ void Company::Save  ( FILE *file )
 void Company::Print ()
 {
 
-	printf ( "Company : %s\n", name );	
-	printf ( "\tSize=%d, type=%d, Growth=%d, Alignment=%d\n", size, TYPE, growth, alignment );
-	printf ( "Boss    : %s\n", boss );
-	printf ( "Admin   : %s\n", administrator );
+    cout << "Company :" << endl;
+    PrintValue("Name", name);
+    PrintValue("Size", size);
+    PrintValue("Type", TYPE);
+    PrintValue("Growth", growth);
+    PrintValue("Alignment", alignment);
+    PrintValue("Boss", boss);
+    PrintValue("Admin", administrator);
 
-	printf ( "Share history\n" );
-	for ( int i = 0; i < 12; ++i ) 
-		printf ( "%d:%dc  ", i, sharehistory [i] );
+	cout << "Share history : " << endl;
+	for ( int i = 0; i < 12; ++i )
+        PrintValue(i, sharehistory[i]);
 
-	printf ( "Last month set : %d\n", lastmonthset );
+    PrintValue("Last month set", lastmonthset);
 
 }
 

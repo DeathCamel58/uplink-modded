@@ -30,5 +30,14 @@ void SetColour              ( char *colourName );                    // calls gl
 
 void PrintStackTrace();
 
+void PrintValue(const string& valuename, const string& value);
+void PrintValue(const string& valuename, int value);
+void PrintValue(int valuename, int value);
+void PrintValue(const string& valuename, unsigned int value);
+void PrintValue(const string& valuename, float value);
+void PrintValue(const string& valuename, time_t value);
+
+void PrintPadded(const string& name);
+
 #endif
 

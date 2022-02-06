@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -118,7 +119,7 @@ void MenuScreen::Save ( FILE *file )
 void MenuScreen::Print ()
 {
 
-	printf ( "MenuScreen : \n" );
+	cout << "MenuScreen : " << endl;
 	
 	ComputerScreen::Print ();
 	
@@ -224,9 +225,11 @@ void MenuScreenOption::Save ( FILE *file )
 void MenuScreenOption::Print ()
 {
 
-	printf ( "MenuScreenOption : \n" );
-	printf ( "\tNextPage = %d, Caption = %s\n", nextpage, caption );
-	printf ( "\tTooltip = %s, security = %d\n", tooltip, security );
+    cout << "MenuScreenOption : " << endl;
+    PrintValue("NextPage", nextpage);
+    PrintValue("Caption", caption);
+    PrintValue("Tooltip", tooltip);
+    PrintValue("Security", security);
 
 }
 

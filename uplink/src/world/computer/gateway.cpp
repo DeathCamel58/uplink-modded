@@ -1,6 +1,7 @@
 // -*- tab-width:4 c-file-style:"cc-mode" -*-
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -153,7 +154,7 @@ void Gateway::ExchangeGatewayComplete ()
 	auto *oldgateway = new GatewayDef ( *curgatewaydef );
 
 	if ( !newgatewaydef )
-		printf ( "WARNING: Gateway::ExchangeGatewayComplete, cannot find exchange gateway\n" );
+		cout << "WARNING: Gateway::ExchangeGatewayComplete, cannot find exchange gateway" << endl;
 	else
 		SetGateway ( newgatewaydef );
 
@@ -753,16 +754,19 @@ void Gateway::Save  ( FILE *file )
 void Gateway::Print ()
 {
 
-	printf ( "Gateway : name='%s', id=%d\n"
-	         "nuked=%d, proximity=%d\n", (curgatewaydef)? curgatewaydef->name : "nullptr", id, nuked, proximity );
-	printf ( "Upgrades : %c\n", hudupgrades );
+    cout << "Gateway :" << endl;
+    PrintValue("Name", (curgatewaydef)? curgatewaydef->name : "nullptr");
+    PrintValue("Id", id);
+    PrintValue("Nuked", nuked);
+    PrintValue("Proximity", proximity);
+    PrintValue("Upgrades", hudupgrades);
 
-	databank.Print ();
+    databank.Print ();
 
-	PrintLList ( &hardware );
+    PrintLList ( &hardware );
 
-	printf ( "Modem Speed = %d, MemorySize = %d\n",
-			 modemspeed, memorysize );
+    PrintValue("Modem Speed", modemspeed);
+    PrintValue("Memory Size", memorysize);
 
 }
 

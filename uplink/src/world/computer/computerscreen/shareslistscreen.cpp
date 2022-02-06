@@ -1,5 +1,6 @@
 
 
+#include <app/miscutils.h>
 #include "app/serialise.h"
 
 #include "interface/remoteinterface/remoteinterface.h"
@@ -76,10 +77,12 @@ void SharesListScreen::Save ( FILE *file )
 
 void SharesListScreen::Print ()
 {
-	
-	printf ( "SharesListScreen :\n" );
-	ComputerScreen::Print ();
-	printf ( "TYPE=%d, nextpage=%d, viewpage=%d\n", SCREENTYPE, nextpage, viewpage );
+
+    cout << "SharesListScreen :" << endl;
+    ComputerScreen::Print ();
+    PrintValue("Type", SCREENTYPE);
+    PrintValue("NextPage", nextpage);
+    PrintValue("ViewPage", viewpage);
 
 }
 	

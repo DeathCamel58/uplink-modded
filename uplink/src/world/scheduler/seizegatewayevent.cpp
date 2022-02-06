@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "soundgarden.h"
 
@@ -200,9 +201,11 @@ void SeizeGatewayEvent::Save  ( FILE *file )
 void SeizeGatewayEvent::Print ()
 {
 
-	printf ( "Seize Gateway Event for %s, Gateway no. %d:\n", name, gateway_id );
+    cout << "Seize Gateway Event : " << endl;
+    PrintValue("Name", name);
+    PrintValue("Gateway ID", gateway_id);
 	UplinkEvent::Print ();
-	printf ( "%s\n", reason );
+    PrintValue("Reason", reason);
 
 
 }

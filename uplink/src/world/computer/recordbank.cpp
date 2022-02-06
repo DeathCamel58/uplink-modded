@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -102,7 +103,7 @@ Record *RecordBank::GetRecord ( char *query )
     }
 	else if ( result->Size () > 1 ) {
 
-		printf ( "RecordBank::GetRecord, found more than 1 match, returning the first\n" );
+		cout << "RecordBank::GetRecord, found more than 1 match, returning the first" << endl;
 		UplinkAssert ( result->ValidIndex (0) )
 		Record *record = result->GetData (0);
         delete result;
@@ -320,7 +321,7 @@ void RecordBank::Save ( FILE *file )
 void RecordBank::Print ()
 {
 
-	printf ( "RecordBank\n" );
+	cout << "RecordBank" << endl;
 	PrintLList ( (LList <UplinkObject *> *) &records );
 
 }
@@ -390,7 +391,7 @@ void Record::ChangeField ( char *name, char *newvalue )
 	}
 	else {
 
-		printf ( "Record::ChangeField, WARNING : field %s not found (created instead)\n", name );
+		cout << "Record::ChangeField, WARNING : field " << name << " not found (created instead)" << endl;
 		AddField ( name, newvalue );
 
 	}
@@ -412,7 +413,7 @@ void Record::ChangeField ( char *name, int newvalue )
 	}
 	else {
 
-		printf ( "Record::ChangeField, WARNING : field %s not found (created instead)\n", name );
+		cout << "Record::ChangeField, WARNING : field " << name << " not found (created instead)" << endl;
 		AddField ( name, newvalue );
 
 	}
@@ -502,7 +503,7 @@ void Record::Save  ( FILE *file )
 void Record::Print ()
 {
 
-	printf ( "Record :\n" );
+    cout << "Record :" << endl;
 
 	DArray <char *> *field_names = fields.ConvertIndexToDArray ();
 	DArray <char *> *field_values = fields.ConvertToDArray ();
@@ -512,7 +513,7 @@ void Record::Print ()
 		UplinkAssert ( field_names->ValidIndex (i) )
 		UplinkAssert ( field_values->ValidIndex (i) )
 
-		printf ( "%s : %s\n", field_names->GetData (i), field_values->GetData (i) );
+        PrintValue(field_names->GetData(i), field_values->GetData(i));
 
 	}
 

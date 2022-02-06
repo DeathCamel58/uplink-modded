@@ -384,7 +384,7 @@ void FileServerScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "FileServerScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
+	else cout << "FileServerScreenInterface::Create, tried to create when GenericScreen==nullptr" << endl;
 
 }
 

@@ -164,13 +164,13 @@ void PrintBTree ( BTree <UplinkObject *> *btree )
 		if ( uo->ValidIndex (i) ) {
 			
 			UplinkAssert ( uo_id->ValidIndex (i) )
-			printf ( "Index = %s\n", uo_id->GetData (i) );
+            cout << "Index = " << uo_id->GetData (i) << endl;
 
 			if ( uo->GetData (i) )
 				uo->GetData (i)->Print ();
 
 			else
-				printf ( "nullptr\n" );
+                cout << "nullptr" << endl;
 
 		}
 	}
@@ -307,13 +307,13 @@ void PrintBTree	( BTree <char *> *btree )
 		if ( uo->ValidIndex (i) ) {
 			
 			UplinkAssert ( uo_id->ValidIndex (i) )
-			printf ( "Index = %s\n", uo_id->GetData (i) );
+            cout << "Index = " << uo_id->GetData (i) << endl;
 
 			if ( uo->GetData (i) )
-				printf ( "%s\n", uo->GetData (i) );
+                cout << uo->GetData (i) << endl;
 
 			else
-				printf ( "nullptr\n" );
+                cout << "nullptr" << endl;
 
 		}
 	}
@@ -415,13 +415,13 @@ void PrintLList ( LList <UplinkObject *> *llist )
 
 	for ( int i = 0; i < llist->Size (); ++i ) {
 
-		printf ( "Index = %d\n", i );
+        cout << "Index = " << i << endl;
 
 		if ( llist->GetData (i) )
 			llist->GetData (i)->Print ();
 
 		else
-			printf ( "nullptr\n" );
+            cout << "nullptr" << endl;
 
 	}
 
@@ -504,9 +504,9 @@ void PrintLList	( LList <char *> *llist )
 
 	for ( int i = 0; i < llist->Size (); ++i ) {
 		if ( llist->GetData (i) )
-			printf ( "Index = %d : %s\n", i, llist->GetData (i) );
+            cout << "Index = " << i << " : " << llist->GetData (i) << endl;
 		else
-			printf ( "Index = %d : nullptr\n", i );
+        cout << "Index = " << i << " : nullptr" << endl;
 	}
 
 }
@@ -629,7 +629,7 @@ void PrintDArray ( DArray <UplinkObject *> *darray )
 
 	for ( int i = 0; i < darray->Size (); ++i ) {
 
-		printf ( "Index = %d\n", i );
+        cout << "Index = " << i << endl;
 
 		if ( darray->ValidIndex (i) ) {
 
@@ -637,12 +637,12 @@ void PrintDArray ( DArray <UplinkObject *> *darray )
 				darray->GetData (i)->Print ();
 
 			else
-				printf ( "nullptr\n" );
+                cout << "nullptr" << endl;
 
 		}
 		else {
 
-			printf ( "Not a Valid Index\n" );
+            cout << "Not a Valid Index" << endl;
 
 		}
 
@@ -793,13 +793,13 @@ void PrintDArray ( DArray <int> *darray )
 
 	for ( int i = 0; i < darray->Size (); ++i ) {
 
-		printf ( "Index %d : ", i );
+        cout << "Index " << i << " : ";
 
 		if ( darray->ValidIndex (i) )
-			printf ( "%d\n", darray->GetData (i) );
+            cout << darray->GetData (i) << endl;
 
 		else
-			printf ( "Not a valid index\n" );
+            cout << "Not a valid index" << endl;
 
 	}
 

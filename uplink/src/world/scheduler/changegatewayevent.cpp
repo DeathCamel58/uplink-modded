@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -144,9 +145,9 @@ void ChangeGatewayEvent::Save  ( FILE *file )
 void ChangeGatewayEvent::Print ()
 {
 
-	printf ( "ChangeGateway Event\n" );
+	cout << "ChangeGateway Event : " << endl;
 	UplinkEvent::Print ();
-	printf ( "New gateway '%s'\n", (newgatewaydef)? newgatewaydef->name : "nullptr" );
+	PrintValue("New Gateway", (newgatewaydef)? newgatewaydef->name : "nullptr");
 
 }
 	

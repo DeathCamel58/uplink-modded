@@ -316,7 +316,7 @@ void TraceTracker::Tick ( int n )
 				}
 				else {
 
-					printf ( "TraceTracker WARNING : Unrecognised version number\n ");
+					cout << "TraceTracker WARNING : Unrecognised version number" << endl;
 
 				}
 

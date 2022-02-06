@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -209,9 +210,14 @@ void VLocation::Save ( FILE *file )
 void VLocation::Print ()
 {
 
-	printf ( "VLocation : " );
-	printf ( "\tIP = %s, Computer = %s, x = %d, y = %d\n",ip, computer, x, y );
-	printf ( "\tlisted = %d, displayed = %d, colored = %d\n", listed, displayed, colored );
+    cout << "VLocation :" << endl;
+    PrintValue("IP", ip);
+    PrintValue("Computer", computer);
+    PrintValue("X", x);
+    PrintValue("Y", y);
+    PrintValue("Listed", listed);
+    PrintValue("Displayed", displayed);
+    PrintValue("Colored", colored);
 
 }
 
@@ -278,9 +284,9 @@ void VLocationSpecial::Save  ( FILE *file )
 
 void VLocationSpecial::Print ()
 {
-    printf ( "VLocationSpecial:\n" );
-    printf ( "screenIndex = %d\n", screenIndex );
-    printf ( "securitySystemIndex = %d\n", securitySystemIndex );
+    cout << "VLocationSpecial:" << endl;
+    PrintValue("ScreenIndex", screenIndex);
+    PrintValue("SecuritySystemIndex", securitySystemIndex);
 
     VLocation::Print ();
 }

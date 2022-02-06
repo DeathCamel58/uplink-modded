@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -388,12 +389,14 @@ void BankAccount::Save  ( FILE *file )
 
 void BankAccount::Print ()
 {
-	
-	printf ( "Bank Account : " );
-	printf ( "\tOwner    : Name:%s\n", name );
-	printf ( "\tSecurity : Password:%s, level:%d\n", password, security );
-	printf ( "\tAcc No   : %d\n", accountnumber );
-	printf ( "\tBalance  : %d, Loan:%d\n", balance, loan );
+
+    cout << "Bank Account : " << endl;
+    PrintValue("Owner Name", name);
+    PrintValue("Password", password);
+    PrintValue("Security Level", security);
+    PrintValue("Acc No", accountnumber);
+    PrintValue("Balance", balance);
+    PrintValue("Loan", loan);
 
 	log.Print ();
 

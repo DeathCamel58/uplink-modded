@@ -5,6 +5,7 @@
 //#include "stdafx.h"
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -385,20 +386,26 @@ void Person::Save  ( FILE *file )
 void Person::Print ()
 {
 
-	printf ( "Person : " );
-	printf ( "name = %s, Age = %d, photoindex = %d, voiceindex = %d, status = %d\n", name, age, photoindex, voiceindex, STATUS );
-	printf ( "LocalHost : %s, RemoteHost : %s, Phone : %s\n", localhost, remotehost, phonenumber );
+    cout << "Person : "  << endl;
+    PrintValue("Name", name);
+    PrintValue("Age", age);
+    PrintValue("Photoindex", photoindex);
+    PrintValue("Voiceindex", voiceindex);
+    PrintValue("Status", STATUS);
+    PrintValue("Local Host", localhost);
+    PrintValue("Remote Host", remotehost);
+    PrintValue("Phone Number", phonenumber);
 
-	printf ( "Messages : \n" );
-	PrintLList ( (LList <UplinkObject *> *) &messages );
+    cout << "\tMessages: " << endl;
+    PrintLList ( (LList <UplinkObject *> *) &messages );
 
-	PrintLList ( &accounts );
-	printf ( "currentaccount:%d\n", currentaccount );
+    PrintLList ( &accounts );
+    PrintValue("Current Account", currentaccount);
 
-	connection.Print ();
-	rating.Print ();
+    connection.Print ();
+    rating.Print ();
 
-	printf ( "Is Targetable? %d\n", istargetable );
+    PrintValue("Is Targetable", istargetable);
 
 }
 

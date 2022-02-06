@@ -105,7 +105,7 @@ void Options::SetOptionValue ( char *name, int newvalue )
 	}
 	else {
 
-		printf ( "Tried to set unrecognised option: %s\n", name );
+		cout << "Tried to set unrecognised option: " << name << endl;
 
 	}
 
@@ -338,7 +338,7 @@ ColourOption *Options::GetColour ( char *colourName )
     }
     else {
 
-        printf ( "Options::GetColour WARNING : Couldn't find colour %s\n", colourName );
+        cout << "Options::GetColour WARNING : Couldn't find colour " << colourName << endl;
         return &getColourDefault;
 
     }
@@ -359,7 +359,7 @@ char *Options::ThemeFilename ( char *filename )
     else {
 
         char fullFilename[256];
-        UplinkSnprintf ( fullFilename, sizeof ( fullFilename ), "%s%s/%s", app->path, themeName, filename )
+        UplinkSnprintf ( fullFilename, sizeof ( fullFilename ), "%s%s/%s", app->path.c_str(), themeName, filename )
 		if ( DoesFileExist ( fullFilename ) ) {
             UplinkSnprintf ( result, resultsize, "%s/%s", themeName, filename )
 
@@ -406,8 +406,8 @@ bool Options::Load ( FILE *file )
 	// Read from our own options file
 
 	char filename [256];
-	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath )
-	printf ( "Loading uplink options from %s...", filename );
+	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath.c_str() )
+	cout << "Loading uplink options from " << filename << "...";
 
 	FILE *optionsfile = nullptr;
 	bool encrypted = false;
@@ -417,7 +417,7 @@ bool Options::Load ( FILE *file )
 			encrypted = true;
 		}
 		else {
-			printf ( "failed\n" );
+			cout << "failed" << endl;
 			return false;
 		}
 	}
@@ -435,7 +435,7 @@ bool Options::Load ( FILE *file )
 			version [ sizeof(version) - 1 ] = '\0';
 		}
         if ( version[0] == '\0' || strcmp ( version, SAVEFILE_VERSION_MIN ) < 0 || strcmp ( version, SAVEFILE_VERSION ) > 0 ) {
-            printf ( "\nERROR : Could not load options due to incompatible version format\n" );
+            cout << endl << "ERROR : Could not load options due to incompatible version format" << endl;
 			if ( encrypted )
 				RsFileClose ( filename, optionsfile );
 			else
@@ -443,7 +443,7 @@ bool Options::Load ( FILE *file )
             return false;
         }
 
-		printf ( "success\n" );
+		cout << "success" << endl;
 
 		LoadID ( optionsfile );
 		if ( !LoadBTree ( (BTree <UplinkObject *> *) &options, optionsfile ) ) {
@@ -479,7 +479,7 @@ bool Options::Load ( FILE *file )
 //        currentVersion *= 100;
 //        SetOptionValue ( "game_version", currentVersion, "z", false, false );
 
-		printf ( "failed\n" );
+		cout << "failed" << endl;
 		return false;
 
 	}
@@ -496,15 +496,15 @@ void Options::Save ( FILE *file )
 	MakeDirectory ( app->userpath );
 
 	char filename [256];
-	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath )
+	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath.c_str() )
 
-	printf ( "Saving uplink options to %s...", filename );
+	cout << "Saving uplink options to " << filename << "...";
 
 	FILE *optionsfile = fopen ( filename, "wb" );
 
 	if ( optionsfile ) {
 
-		printf ( "success\n" );
+		cout << "success" << endl;
 
 		fwrite ( SAVEFILE_VERSION, sizeof (SAVEFILE_VERSION), 1, optionsfile );
 
@@ -524,7 +524,7 @@ void Options::Save ( FILE *file )
 	}
 	else {
 
-		printf ( "failed\n" );
+		cout << "failed" << endl;
 
 	}
 
@@ -533,11 +533,11 @@ void Options::Save ( FILE *file )
 void Options::Print ()
 {
 
-	printf ( "============== O P T I O N S ===============================\n" );
+    PrintPadded("O P T I O N S");
 
 	PrintBTree ( (BTree <UplinkObject *> *) &options );
 
-	printf ( "============================================================\n" );
+    PrintPadded("E N D  O P T I O N S");
 
 }
 
@@ -655,8 +655,11 @@ void Option::Save ( FILE *file )
 void Option::Print ()
 {
 
-	printf ( "Option : name=%s, value=%d\n", name, value );
-	printf ( "\tYesOrNo=%d, Visible=%d\n", yesorno, visible );
+    cout << "Option :" << endl;
+    PrintValue("Name", name);
+    PrintValue("Value", value);
+    PrintValue("YesOrNo", yesorno);
+    PrintValue("Visible", visible);
 
 }
 

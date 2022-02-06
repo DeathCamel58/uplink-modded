@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 
+#include <app/miscutils.h>
 #include "app/serialise.h"
 #include "world/computer/computerscreen/bbsscreen.h"
 
@@ -69,9 +70,10 @@ void BBSScreen::Save ( FILE *file )
 void BBSScreen::Print ()
 {
 
-	printf ( "BBSScreen\n" );
+    cout << "BBSScreen : " << endl;
 	ComputerScreen::Print ();
-	printf ( "Nextpage:%d, Contactpage:%d\n", nextpage, contactpage );
+    PrintValue("NextPage", nextpage);
+    PrintValue("ContactPage", contactpage);
 
 }
 	

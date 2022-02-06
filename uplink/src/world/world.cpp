@@ -435,7 +435,7 @@ void World::Save ( FILE *file )
 void World::Print ()
 {
 
-	printf ( "============== W O R L D ===================================\n" );
+    PrintPadded("W O R L D");
 
 	date.Print ();
 	scheduler.Print ();
@@ -447,7 +447,7 @@ void World::Print ()
 	PrintBTree ( (BTree <UplinkObject *> *) &computers );
 	PrintBTree ( (BTree <UplinkObject *> *) &people    );
 
-	printf ( "============== E N D  O F  W O R L D =======================\n" );
+	PrintPadded("E N D  O F  W O R L D");
 
 }
 

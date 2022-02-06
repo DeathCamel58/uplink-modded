@@ -260,7 +260,7 @@ void SharesViewScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "SharesViewScreenInterface::Create, tried to create when cs==nullptr\n" );
+	else cout << "SharesViewScreenInterface::Create, tried to create when cs==nullptr" << endl;
 
 }
 

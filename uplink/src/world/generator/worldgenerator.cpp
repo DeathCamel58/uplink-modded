@@ -3936,7 +3936,7 @@ Computer *WorldGenerator::GetRandomComputer ( int TYPE )
         // We couldn't find a valid computer
         // Generate one now
 
-        printf ( "WorldGenerator WARNING: Couldn't find any computers - generated a new one\n" );
+        cout << "WorldGenerator WARNING: Couldn't find any computers - generated a new one" << endl;
 
         Company *company = GetRandomCompany();
         UplinkAssert (company)
@@ -4226,7 +4226,7 @@ bool WorldGenerator::VerifyPlayerGateway ()
 
 		char message [ 256 ];
 		UplinkSnprintf ( message, sizeof ( message ), "This agent is using the following custom gateway '%s', but Uplink cannot find a definition for it.", plgatewaydef->name );
-		printf ( "WARNING : WorldGenerator::VerifyPlayerGateway : %s\n", message );
+		cout << "WARNING : WorldGenerator::VerifyPlayerGateway : " << message << endl;
         //create_msgbox ( "Critical Error", message, WorldGenerator::VerifyPlayerGatewayCloseDialog );
         create_msgbox ( "Critical Error", message );
 		return false;

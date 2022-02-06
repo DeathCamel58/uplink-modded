@@ -71,7 +71,7 @@ static void PrintIndent ()
 {
 
 	for ( int i = 0; i < indent-1; ++i )
-		printf ( "\t" );
+		cout << "\t";
 
 }
 
@@ -81,7 +81,7 @@ void UplinkObject::LoadID ( FILE *file )
 #ifdef SAVEFILE_PRINTPROGRESS
 	++indent;
 	PrintIndent ();
-	printf ( "Started  loading  %s\n", GetID () );
+	cout << "Started  loading  " << GetID () << endl;
 #endif
 
 #ifdef SAVEFILE_VERBOSE
@@ -99,7 +99,7 @@ void UplinkObject::SaveID ( FILE *file )
 #ifdef SAVEFILE_PRINTPROGRESS
 	++indent;
 	PrintIndent ();
-	printf ( "Started  saving  %s\n", GetID () );
+	cout << "Started  saving " << GetID () << endl;
 #endif
 
 #ifdef SAVEFILE_VERBOSE
@@ -113,7 +113,7 @@ void UplinkObject::LoadID_END ( FILE *file )
 
 #ifdef SAVEFILE_PRINTPROGRESS
 	PrintIndent ();
-	printf ( "Finished loading  %s\n", GetID () );
+	cout << "Finished loading  " << GetID () << endl;
 	--indent;
 #endif
 
@@ -131,7 +131,7 @@ void UplinkObject::SaveID_END ( FILE *file )
 
 #ifdef SAVEFILE_PRINTPROGRESS
 	PrintIndent ();
-	printf ( "Finished saving  %s\n", GetID () );
+	cout << "Finished saving " << GetID () << endl;
 	--indent;
 #endif
 	

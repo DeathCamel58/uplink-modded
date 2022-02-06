@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -359,7 +360,7 @@ void LogBank::Save ( FILE *file )
 void LogBank::Print ()
 {
 
-	printf ( "LogBank : \n" );
+	cout << "LogBank : " << endl;
 	PrintDArray ( (DArray <UplinkObject *> *) &logs );
 	PrintDArray ( (DArray <UplinkObject *> *) &internallogs );
 
@@ -644,21 +645,20 @@ void AccessLog::Save ( FILE *file )
 void AccessLog::Print ()
 {
 
-	printf ( "AccessLog : TYPE=%d\n", TYPE );
-	date.Print ();
-	printf ( "fromIP:%s, fromNAME:%s\n", fromip, fromname );
+    cout << "AccessLog :" << endl;
+    PrintValue("Type", TYPE);
+    date.Print ();
+    PrintValue("FromIP", fromip);
+    PrintValue("FromName", fromname);
 
-	if ( SUSPICIOUS == LOG_SUSPICIOUS )			printf ( "This was a suspicious action\n" );
-	else if ( SUSPICIOUS ==
-			  LOG_SUSPICIOUSANDNOTICED )		printf ( "This was suspicious and was noticed\n" );
-	else if ( SUSPICIOUS ==
-			  LOG_UNDERINVESTIGATION )			printf ( "This is under investigation\n" );
-	else
-												printf ( "This was not suspicious\n" );
+    if ( SUSPICIOUS == LOG_SUSPICIOUS ) cout << "This was a suspicious action" << endl;
+    else if ( SUSPICIOUS == LOG_SUSPICIOUSANDNOTICED ) cout << "This was suspicious and was noticed" << endl;
+    else if ( SUSPICIOUS == LOG_UNDERINVESTIGATION ) cout << "This is under investigation" << endl;
+    else cout << "This was not suspicious" << endl;
 
-	if ( data1 ) printf ( "Data1 : %s\n", data1 );
-	if ( data2 ) printf ( "Data2 : %s\n", data2 );
-	if ( data3 ) printf ( "Data3 : %s\n", data3 );
+    if ( data1 ) PrintValue("Data1", data1);
+    if ( data2 ) PrintValue("Data2", data2);
+    if ( data3 ) PrintValue("Data3", data3);
 
 }
 

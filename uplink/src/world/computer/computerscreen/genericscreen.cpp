@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "app/serialise.h"
 
 #include "interface/remoteinterface/remoteinterface.h"
@@ -66,10 +67,11 @@ void GenericScreen::Save ( FILE *file )
 
 void GenericScreen::Print ()
 {
-	
-	printf ( "GenericScreen :\n" );
-	ComputerScreen::Print ();
-	printf ( "TYPE=%d, nextpage=%d\n", SCREEN_TYPE, nextpage );
+
+    cout << "GenericScreen :" << endl;
+    ComputerScreen::Print ();
+    PrintValue("Type", SCREEN_TYPE);
+    PrintValue("NextPage", nextpage);
 
 }
 	

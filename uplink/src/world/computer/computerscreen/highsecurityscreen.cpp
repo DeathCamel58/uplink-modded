@@ -1,5 +1,6 @@
 
 
+#include <app/miscutils.h>
 #include "app/serialise.h"
 
 #include "world/computer/computerscreen/menuscreen.h"
@@ -82,10 +83,10 @@ void HighSecurityScreen::Save  ( FILE *file )
 void HighSecurityScreen::Print ()
 {
 
-	printf ( "HighSecurityScreen : \n" );
-	ComputerScreen::Print ();
-	PrintLList ( (LList <UplinkObject *> *) &systems );
-	printf ( "nextpage = %d\n", nextpage );
+    cout << "HighSecurityScreen : " << endl;
+    ComputerScreen::Print ();
+    PrintLList ( (LList <UplinkObject *> *) &systems );
+    PrintValue("NextPage", nextpage);
 	
 }
 	

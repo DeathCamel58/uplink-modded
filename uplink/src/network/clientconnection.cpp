@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 #include "eclipse.h"
@@ -501,8 +502,11 @@ void ClientConnection::Save ( FILE *file )
 void ClientConnection::Print  ()
 {
 
-	// TODO: This is not right. Time is of type time_t(_cdecl *)(time_t *)
-	printf ( "ClientConnection : Socket:%d, Type:%d, starttime:%ld\n", socket, clienttype, time (nullptr) );
+    cout << "ClientConnection :" << endl;
+    PrintValue("Socket", socket);
+    PrintValue("Type", clienttype);
+    // TODO: This is not right. Time is of type time_t(_cdecl *)(time_t *)
+    PrintValue("StartTime", time(nullptr));
 
 }
 
@@ -545,14 +549,14 @@ void ClientConnection::Update ()
 			if ( strcmp ( instruction, "SETCLIENTTYPE" ) == 0 ) {
 
 				SetClientType ( data1 );
-				printf ( "ClientConnection::Update, Successfully set CLIENTTYPE to %d\n", data1 );
+                cout << "ClientConnection::Update, Successfully set CLIENTTYPE to " << data1 << endl;
 
 			}
 			else {
 
-			    printf ( "ClientConnection::Update, incoming instruction not recognised\n" );
-			    printf ( "Instruction: %s\n", instruction );
-			    printf ( "Data : %d\n", data1 );
+                cout << "ClientConnection::Update, incoming instruction not recognised" << endl;
+                PrintValue("Instruction", instruction);
+                PrintValue("Data", data1);
 
 			}
 

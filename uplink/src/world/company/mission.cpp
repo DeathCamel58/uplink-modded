@@ -1,5 +1,6 @@
 
 #include <cstring>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -431,31 +432,36 @@ void Mission::Save  ( FILE *file )
 void Mission::Print ()
 {
 
-	printf ( "Mission : TYPE=%d\n", TYPE );
-	printf ( "Employer=%s, Payment=%d, Difficulty=%d, MinRating=%d, AcceptRating=%d, Description=%s\n",
-			 employer, payment, difficulty, minuplinkrating, acceptrating, description );
-	printf ( "NPC priority = %d\n", npcpriority );
+	cout <<"Mission : " << endl;
+	PrintValue("TYPE", TYPE);
+    PrintValue("Employer", employer);
+    PrintValue("Payment", payment);
+    PrintValue("Difficulty", difficulty);
+    PrintValue("MinRating", minuplinkrating);
+    PrintValue("AcceptRating", acceptrating);
+    PrintValue("Description", description);
+    PrintValue("NPC priority", npcpriority);
 	createdate.Print ();
-	printf ( "\tCompletionA = %s\n", completionA );
-	printf ( "\tCompletionB = %s\n", completionB );
-	printf ( "\tCompletionC = %s\n", completionC );
-	printf ( "\tCompletionD = %s\n", completionD );
-	printf ( "\tCompletionE = %s\n", completionE );
-	printf ( "\tContact = %s\n", contact );
-	printf ( "\tDetails=%s\n", details );
-	printf ( "\tFullDetails=%s\n", fulldetails );
-	printf ( "\tWhySoMuchMoney=%s\n", whysomuchmoney );
-	printf ( "\tHowSecure=%s\n", howsecure );
+    PrintValue("CompletionA", completionA);
+    PrintValue("CompletionB", completionB);
+    PrintValue("CompletionC", completionC);
+    PrintValue("CompletionD", completionD);
+    PrintValue("CompletionE", completionE);
+    PrintValue("Contact", contact);
+    PrintValue("Details", details);
+    PrintValue("FullDetails", fulldetails);
+    PrintValue("WhySoMuchMoney", whysomuchmoney);
+    PrintValue("HowSecure", howsecure);
 
 	PrintLList ( &links );
 	PrintBTree ( &codes );
 
 	if ( duedate ) {
-		printf ( "Due date :\n" );
+        cout << "\tDue date :" << endl;
 		duedate->Print ();
 	}
-	else 
-		printf ( "No due date\n" );
+	else
+        cout << "\tNo due date" << endl;
 
 }
 	

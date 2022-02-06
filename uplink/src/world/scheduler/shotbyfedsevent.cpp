@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -126,9 +127,10 @@ void ShotByFedsEvent::Save  ( FILE *file )
 void ShotByFedsEvent::Print ()
 {
 
-	printf ( "ShotByFedsEvent : for %s\n", name );
+    cout << "ShotByFedsEvent : " << endl;
+    PrintValue("Name", name);
 	UplinkEvent::Print ();
-	printf ( "Reason : %s\n", reason );
+    PrintValue("Reason", reason);
 
 }
 

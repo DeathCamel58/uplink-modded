@@ -607,7 +607,7 @@ void Tutorial::RunTutorial ( int tutorial, int part )
         UplinkSnprintf ( text, sizeof ( text ), "tutorial_text %d", pid )
 
         EclRegisterCaptionChange ( text, "[To be completed]" );
-		printf ( "Tutorial::RunTutorial, unrecognised tutorial number %d\n", tutorial );
+		cout << "Tutorial::RunTutorial, unrecognised tutorial number " << tutorial << endl;
 
 	}
 

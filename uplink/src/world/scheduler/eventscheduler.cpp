@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -116,8 +117,9 @@ void EventScheduler::Save  ( FILE *file )
 void EventScheduler::Print ()
 {
 
-	printf ( "==== Event Scheduler : ===============================\n" );
+    PrintPadded("Event Scheduler");
 	PrintLList ( (LList <UplinkObject *> *) &events );
+    PrintPadded("End Event Scheduler");
 
 }
 
@@ -155,7 +157,7 @@ void EventScheduler::Update ()
 		while ( event ) {
 
 #ifdef VERBOSESCHEDULER
-			printf ( "Running EVENT : %s\n", event->GetLongString () );
+			cout << "Running EVENT : " << event->GetLongString () << endl;
 #endif
 
 			event->Run ();

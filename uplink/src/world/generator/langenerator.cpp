@@ -82,10 +82,10 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 	thefile.getline( buffer, 256 );
 	sscanf ( buffer, "YPOS %d", &y );
 
-    printf ( "Loading LAN from %s...", filename );
+    cout << "Loading LAN from " << filename << "...";
 
     if ( game->GetWorld ()->GetVLocation (ip) ) {
-        printf ( "[Already Loaded]\n", filename );
+        cout << "[Already Loaded]" << endl;
 		thefile.close ();
 		RsArchiveFileClose ( filename );
         return nullptr;
@@ -95,7 +95,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 	// Create blank LAN
 
 	if ( !game->GetWorld()->VerifyVLocation( ip, x, y ) ) {
-		printf ("LanGenerator::LoadLAN WARNING: Location is invalid, ip(%s), x(%d), y(%d).(%s)\n", ip, x, y, filename );
+		cout << "LanGenerator::LoadLAN WARNING: Location is invalid, ip(" << ip << "), x(" << x << "), y(" << y << ").(" << filename << ")" << endl;
 		thefile.close ();
 		RsArchiveFileClose ( filename );
         return nullptr;
@@ -154,7 +154,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
             thisLine.getline(dataX, 256);
             if ( strlen(dataX) < 3 ) {
 				haveModemPhoneNumber = false;
-                printf ( "LanGenerator::LoadLAN WARNING: Modem found without phone number.(%s)\n", filename );
+                cout << "LanGenerator::LoadLAN WARNING: Modem found without phone number.(" << filename << ")" << endl;
             }
         }
 
@@ -180,7 +180,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
         else if ( strstr(systemName, "LOGSERVER" ) )        indexUsed = GenerateLogServer           (comp, cluster, x, y, security);
 
 		else
-			printf ( "LanGenerator::LoadLAN WARNING: Unrecognised System TYPE %s.(%s)\n", systemName, filename );
+			cout << "LanGenerator::LoadLAN WARNING: Unrecognised System TYPE " << systemName << ".(" << filename << ")" << endl;
 
 		if ( indexUsed != -1 ) {
 			UplinkAssert ( cluster->systems.ValidIndex ( indexUsed ) )
@@ -216,8 +216,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 		linkName[ sizeof(linkName) - 1 ] = '\0';
 
 		if ( !cluster->VerifyLanLink ( from, fromX, fromY, to, toX, toY, security ) ) {
-            printf ( "LanGenerator::LoadLAN WARNING: Invalid link, linkName(%s), from(%d), fromX(%f), fromY(%f), to(%d), toX(%f), toY(%f), security(%d).(%s)\n", 
-			         linkName, from, fromX, fromY, to, toX, toY, security, filename );
+            cout << "LanGenerator::LoadLAN WARNING: Invalid link, linkName(" << linkName << "), from(" << from << "), fromX(" << fromX << "), fromY(" << fromY << "), to(" << to << "), toX(" << toX << "), toY(" << toY << "), security(" << security << ").(" << filename << ")" << endl;
 		}
 		else {
 			cluster->AddLanLink( from, fromX, fromY, to, toX, toY, security );
@@ -337,7 +336,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 	record->AddField ( RECORDBANK_SECURITY, "1" );
 	comp->recordbank.AddRecord ( record );
 
-    printf ( "done\n" );
+    cout << "done" << endl;
 
 	thefile.close ();
 	RsArchiveFileClose ( filename );
@@ -465,7 +464,7 @@ void LanGenerator::SanityCheckLAN ( LanComputer *comp )
                             ComputerScreen *nextPage = comp->screens.GetData(mso->nextpage);
                             if ( nextPage->GetOBJECTID () == OID_MENUSCREEN ) {
 
-                                printf ( "ERROR Screen %d Points to %d at %s", i, mso->nextpage, comp->companyname );
+                                cout << "ERROR Screen " << i << " Points to " << mso->nextpage << " at " << comp->companyname;
 
                             }
 

@@ -1,6 +1,7 @@
 
 //#include "stdafx.h"
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -177,24 +178,26 @@ void GameObituary::Save   ( FILE *file )
 
 void GameObituary::Print  ()
 {
-	
-	printf ( "Game obituary: \n" );
-	printf ( "Name : %s\n", name );
-	printf ( "Money %d, Uplink %d, Neuromancer %d\n", money, uplinkrating, neuromancerrating );
-	printf ( "SpecialMissionsCompleted : %d\n", specialmissionscompleted );
 
-	printf ( "Score : People fucked : %d\n", score_peoplefucked );
-	printf ( "Score : Systems fucked : %d\n", score_systemsfucked );
-	printf ( "Score : High Security Hacks : %d\n", score_highsecurityhacks );
-	printf ( "Score %d\n", score );
+    cout << "Game obituary : " << endl;
+    PrintValue("Name", name);
+    PrintValue("Money", money);
+    PrintValue("Uplink Rating", uplinkrating);
+    PrintValue("Neuromancer Rating", neuromancerrating);
+    PrintValue("SpecialMissionsCompleted", specialmissionscompleted);
 
-    printf ( "DemoGameOver = %d\n", demogameover );
+    PrintValue("Score: People Fucked", score_peoplefucked);
+    PrintValue("Score: Systems Fucked", score_systemsfucked);
+    PrintValue("Score: High security hacks", score_highsecurityhacks);
+    PrintValue("Score", score);
+
+    PrintValue("DemoGameOver", demogameover);
     
-#ifdef WAREZRELEASE    
-    printf ( "WarezGameOver = %d\n", warezgameover );
+#ifdef WAREZRELEASE
+    PrintValue("WarezGameOver", warezgameover);
 #endif
 
-	printf ( "Game over reason = %s\n", gameoverreason );
+    PrintValue("Game over reason", gameoverreason);
 
 }
 

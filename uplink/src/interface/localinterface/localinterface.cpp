@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 #include "vanbakel.h"
 #include "soundgarden.h"
@@ -302,7 +303,9 @@ void LocalInterface::Save ( FILE *file )
 void LocalInterface::Print  ()
 {
 
-	printf ( "Local Interface : Current Screen Code = %d, Screen index = %d\n", currentscreencode, screenindex );
+    cout << "Local Interface : " << endl;
+    PrintValue("Current screen code", currentscreencode);
+    PrintValue("Screen index", screenindex);
 
 }
 

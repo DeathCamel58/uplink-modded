@@ -50,7 +50,7 @@ void AccountScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "AccountScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
+	else cout << "AccountScreenInterface::Create, tried to create when GenericScreen==nullptr" << endl;
 
 }
 

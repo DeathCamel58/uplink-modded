@@ -1,6 +1,7 @@
 
 //#include "stdafx.h"
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -240,12 +241,12 @@ void Player::Save ( FILE *file )
 void Player::Print  ()
 {
 
-	printf ( "Player : \n" );
-	Agent::Print ();
-	gateway.Print ();
-	printf ( "Score : People fucked : %d\n", score_peoplefucked );
-	printf ( "Score : Systems fucked : %d\n", score_systemsfucked );
-	printf ( "Score : High Security Hacks : %d\n", score_highsecurityhacks );
+    cout << "Player: " << endl;
+    Agent::Print ();
+    gateway.Print ();
+    PrintValue("Score : People fucked", score_peoplefucked);
+    PrintValue("Score : Systems fucked", score_systemsfucked);
+    PrintValue("Score : High Security Hacks", score_highsecurityhacks);
 	PrintBTree ( &shares );
 
 }

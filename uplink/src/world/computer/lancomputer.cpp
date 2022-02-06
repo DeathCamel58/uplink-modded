@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "app/uplinkobject.h"
 #include "app/serialise.h"
 
@@ -96,7 +97,7 @@ void LanComputer::Save  ( FILE *file )
 void LanComputer::Print ()
 {
 
-    printf ( "LAN Computer\n" );
+    cout << "LAN Computer : " << endl;
 
     PrintDArray ( (DArray <UplinkObject *> *) &systems );
     PrintDArray ( (DArray <UplinkObject *> *) &links );
@@ -201,14 +202,19 @@ void LanComputerSystem::Save ( FILE *file )
 void LanComputerSystem::Print ()
 {
 
-    printf ( "LanComputerSystem\n" );
-    printf ( "TYPE = %d\n", TYPE );
-    printf ( "Position = %d, %d\n", x, y );
-    printf ( "Visible = %d\n", visible );
-	printf ( "Subnet = %d\n", subnet );
-	printf ( "Security = %d\n", security );
-	printf ( "ScreenIndex = %d, DataScreenIndex = %d\n", screenIndex, dataScreenIndex );
-	printf ( "Data1 = %d, Data2 = %d, Data3 = %d\n", data1, data2, data3 );
+    cout << "LanComputerSystem : " << endl;
+    PrintValue("TYPE", TYPE);
+    PrintValue("X", x);
+    PrintValue("Y", y);
+    PrintValue("Visible", visible);
+    PrintValue("Subnet", subnet);
+    PrintValue("Security", security);
+    PrintValue("ScreenIndex", screenIndex);
+    PrintValue("DataScreenIndex", dataScreenIndex);
+    PrintValue("Data1", data1);
+    PrintValue("Data2", data2);
+    PrintValue("Data3", data3);
+    PrintValue("TYPE", TYPE);
 	
 	PrintDArray ( &validSubnets );
 
@@ -296,14 +302,15 @@ void LanComputerLink::Save  ( FILE *file )
 void LanComputerLink::Print ()
 {
 
-    printf ( "LanComputerLink\n" );
+    cout << "LanComputerLink : " << endl;
 
-    printf ( "visible = %d\n", visible );
-    printf ( "From %d to %d\n", from, to );
-    printf ( "From XY = %f, %f\n", fromX, fromY );
-    printf ( "to XY = %f, %f\n", toX, toY );
-	printf ( "Port %d\n", port );
-	printf ( "Security level %d\n", security );
+    PrintValue("Visible", visible);
+    PrintValue("From", from);
+    PrintValue("To", to);
+    PrintValue("FromX", fromX);
+    PrintValue("FromY", fromY);
+    PrintValue("Port", port);
+    PrintValue("Security Level", security);
 
 }
 	

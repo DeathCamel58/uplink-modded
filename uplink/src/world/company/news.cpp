@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -123,13 +124,14 @@ void News::Save  ( FILE *file )
 void News::Print ()
 {
 
-	printf ( "News: %s\n", headline );
-	date.Print ();
-	printf ( "%s\n", details );
-	
-	printf ( "NEWSTYPE:%d\n", NEWSTYPE );
-	printf ( "data1 = %s\n", data1 );
-	printf ( "data2 = %s\n", data2 );
+    cout << "News:" << endl;
+    PrintValue("Headline", headline);
+    date.Print ();
+    PrintValue("Details", details);
+
+    PrintValue("NEWSTYPE", NEWSTYPE);
+    PrintValue("Data1", data1);
+    PrintValue("Data2", data2);
 		
 }
 	

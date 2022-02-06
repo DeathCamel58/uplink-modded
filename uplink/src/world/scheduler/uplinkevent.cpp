@@ -81,7 +81,7 @@ void UplinkEvent::Save  ( FILE *file )
 void UplinkEvent::Print ()
 {
 
-	printf ( "UplinkEvent:\n" );
+	cout << "UplinkEvent : " << endl;
 	rundate.Print ();
 
 }

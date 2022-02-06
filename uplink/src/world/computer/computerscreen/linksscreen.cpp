@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "app/serialise.h"
 
 #include "interface/remoteinterface/remoteinterface.h"
@@ -66,10 +67,11 @@ void LinksScreen::Save ( FILE *file )
 
 void LinksScreen::Print ()
 {
-	
-	printf ( "LinksScreen :\n" );
-	ComputerScreen::Print ();
-	printf ( "TYPE=%d, nextpage=%d\n", SCREENTYPE, nextpage );
+
+    cout << "LinksScreen :" << endl;
+    ComputerScreen::Print ();
+    PrintValue("Type", SCREENTYPE);
+    PrintValue("NextPage", nextpage);
 
 }
 	

@@ -6,6 +6,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 #include "vanbakel.h"
@@ -245,9 +246,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
 	// Trying to run a screen on a different computer then the one currently connected to.
 
 	if ( compref && comp != compref ) {
-		printf ( "RemoteInterface warning : Trying to run a screen on a different computer ('%s', %s)"
-		         " then the one currently connected to ('%s', %s).\n",
-				 compref->name, compref->ip, comp->name, comp->ip );
+		cout << "RemoteInterface warning : Trying to run a screen on a different computer ('" << compref->name << "', " << compref->ip << ") then the one currently connected to ('" << comp->name << "', " << comp->ip << ")." << endl;
 		return;
 	}
 
@@ -325,7 +324,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
 				break;
 
 			case -1:
-				printf ( "RemoteInterface warning : Unknown ComputerScreen \n" );
+				cout << "RemoteInterface warning : Unknown ComputerScreen" << endl;
 				break;
 
 			default:
@@ -516,9 +515,11 @@ void RemoteInterface::Save ( FILE *file )
 void RemoteInterface::Print ()
 {
 
-	printf ( "RemoteInterface : CurrentScreenIndex = %d\n, PreviousScreenIndex = %d\n, "
-			 "Security_Name = %s, Security_Level = %d\n", 
-			 currentscreenindex, previousscreenindex, security_name, security_level );
+    cout << "RemoteInterface :" << endl;
+    PrintValue("CurrentScreenIndex", currentscreenindex);
+    PrintValue("PreviousScreenIndex", previousscreenindex);
+    PrintValue("Security Name", security_name);
+    PrintValue("Security Level", security_level);
 
 }
 

@@ -13,6 +13,8 @@
 #include <io.h>
 #else
 #include <unistd.h>
+#include <app/miscutils.h>
+
 #endif
 
 
@@ -112,7 +114,7 @@ void Agent::GiveMission ( Mission *mission )
     delete darray_index;
 
 #ifdef	VERBOSEAI_ENABLED
-	printf ( "Gave mission to %s: %s\n", name, mission->description );
+	cout << "Gave mission to " << name << ": " << mission->description;
 #endif
 
 }
@@ -534,7 +536,7 @@ void Agent::AttemptMission ()
 	}
 
 #ifdef	VERBOSEAI_ENABLED
-	printf ( "%s Attempted mission: %s\n", name, m->description );
+	cout << name << " Attempted mission: " << m->description << endl;
 #endif
 
 	delete m;
@@ -745,8 +747,7 @@ void Agent::AttemptMission_TraceUser ()
 							// Mission successful
 
 	#ifdef VERBOSEAI_ENABLED
-							printf ( "Agent %s successfully traced hacker %s (%d V %d)\n", name, hackername,
-										rating.uplinkrating, hacker->rating.uplinkrating );
+							cout << "Agent " << name << " successfully traced hacker " << hackername << " (" << rating.uplinkrating << " V " << hacker->rating.uplinkrating")" << endl;
 	#endif
 
 							ConsequenceGenerator::MissionCompleted ( m, this );
@@ -781,7 +782,7 @@ void Agent::AttemptMission_TraceUser ()
 							if ( framed ) {
 
 	#ifdef VERBOSEAI_ENABLED
-								printf ( "Agent %s traced %s (probably framed)\n", name, framed->name );
+								cout << "Agent " << name << " traced " << framed->name << " (probably framed)" << endl;
 	#endif
 
 								UplinkStrncpy ( m->completionA, framed->name, sizeof ( m->completionA ) )
@@ -793,7 +794,7 @@ void Agent::AttemptMission_TraceUser ()
 							else {
 
 	#ifdef VERBOSEAI_ENABLED
-								printf ( "Agent %s nearly traced a framed person, but not quite ;)\n", name );
+								cout << "Agent " << name << " nearly traced a framed person, but not quite ;)" << endl;
 								return;
 	#endif
 
@@ -816,8 +817,7 @@ void Agent::AttemptMission_TraceUser ()
 	//
 
 #ifdef VERBOSEAI_ENABLED
-	printf ( "Agent %s failed to trace hacker %s (%d V %d)\n", name, hackername,
-				rating.uplinkrating, hacker->rating.uplinkrating );
+	cout << "Agent " << name << " failed to trace hacker " << hackername << " (" << rating.uplinkrating << " V " << hacker->rating.uplinkrating << ")" << endl;
 #endif
 
 }
@@ -1054,7 +1054,8 @@ void Agent::Save ( FILE *file )
 void Agent::Print ()
 {
 
-	printf ( "Uplink Agent : Handle %s\n", handle );
+    cout << "Uplink Agent : " << endl;
+    PrintValue("Handle", handle);
 	Person::Print ();
 
 	PrintLList ( &links );

@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "soundgarden.h"
 
@@ -155,11 +156,12 @@ void ArrestEvent::Save  ( FILE *file )
 void ArrestEvent::Print ()
 {
 
-	printf ( "Arrest Event for %s:\n", name );
+	cout << "Arrest Event : " << endl;
+	PrintValue("Name", name);
 	UplinkEvent::Print ();
 
-	printf ( "%s\n", reason );
-	if ( ip ) printf ( "IP:%s\n", ip );
+	PrintValue("Reason", reason);
+	if ( ip ) PrintValue ( "IP", ip );
 
 
 }

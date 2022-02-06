@@ -166,7 +166,7 @@ void LoansScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "LoansScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
+	else cout << "LoansScreenInterface::Create, tried to create when GenericScreen==nullptr" << endl;
 
 }
 

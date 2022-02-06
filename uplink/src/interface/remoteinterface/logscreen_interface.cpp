@@ -271,7 +271,7 @@ void LogScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "LogScreenInterface::Create, tried to create when LogScreen==nullptr\n" );
+	else cout << "LogScreenInterface::Create, tried to create when LogScreen==nullptr" << endl;
 
 }
 

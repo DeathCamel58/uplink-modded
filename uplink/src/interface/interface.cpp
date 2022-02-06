@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "vanbakel.h"
 #include "gucci.h"
 
@@ -109,13 +110,13 @@ void Interface::Save ( FILE *file )
 void Interface::Print ()
 {
 
-	printf ( "============== I N T E R F A C E ===========================\n" );
+    PrintPadded("I N T E R F A C E");
 	
 	GetRemoteInterface ()->Print ();
 	GetLocalInterface  ()->Print ();
 	GetTaskManager     ()->Print ();
 
-	printf ( "============== E N D  O F  I N T E R F A C E ===============\n" );
+    PrintPadded("E N D  O F  I N T E R F A C E");
 
 }
 

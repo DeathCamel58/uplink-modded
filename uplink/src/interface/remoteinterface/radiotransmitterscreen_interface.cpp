@@ -148,7 +148,7 @@ void RadioTransmitterScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "RadioTransmitterScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
+	else cout << "RadioTransmitterScreenInterface::Create, tried to create when GenericScreen==nullptr" << endl;
 
 }
 

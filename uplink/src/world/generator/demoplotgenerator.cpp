@@ -4,6 +4,7 @@
 #endif
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -606,8 +607,8 @@ void DemoPlotGenerator::Save  ( FILE *file )
 void DemoPlotGenerator::Print ()
 {
 
-    printf ( "Demo Plot Generator\n" );
-    printf ( "Scene %d\n", scene );
+    cout << "Demo Plot Generator :" << endl;
+    PrintValue( "Scene", scene );
 
 }
 

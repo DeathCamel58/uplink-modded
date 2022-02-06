@@ -9,6 +9,7 @@
 #include <GL/gl.h>
 
 #include <GL/glu.h>
+#include <app/miscutils.h>
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -63,8 +64,8 @@ void View::Save ( FILE *file )
 void View::Print ()
 {
 
-	printf ( "============== V I E W =====================================\n" );
-	printf ( "============== E N D  O F  V I E W =========================\n" );
+    PrintPadded("V I E W");
+    PrintPadded("E N D  O F  V I E W");
 
 }
 

@@ -187,7 +187,7 @@ void SecurityBypass::PauseCurrentBypass ()
 	}
 	else {
 
-		printf ( "WARNING : SecurityBypass::PauseCurrentBypass, no bypass in existence!\n" );
+		cout << "WARNING : SecurityBypass::PauseCurrentBypass, no bypass in existence!" << endl;
 
 	}
 
@@ -207,7 +207,7 @@ void SecurityBypass::ResumeCurrentBypass ()
 	}
 	else {
 
-		printf ( "WARNING : SecurityBypass::ResumeCurrentBypass, not paused to begin with!\n" );
+		cout << "WARNING : SecurityBypass::ResumeCurrentBypass, not paused to begin with!" << endl;
 
 	}
 

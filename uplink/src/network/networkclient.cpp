@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "eclipse.h"
 #include "gucci.h"
@@ -94,7 +95,7 @@ void NetworkClient::SetClientType ( int newtype )
 
     }
     else
-	printf ( "NetworkClient::SetClientType, failed to convince server to co-operate\n" );
+	cout << "NetworkClient::SetClientType, failed to convince server to co-operate" << endl;
 
 }
 
@@ -155,8 +156,9 @@ void NetworkClient::Save ( FILE *file )
 void NetworkClient::Print ()
 {
 
-    printf ( "NetworkClient : SOCKET:%d\n", socket );
-    printf ( "\tcurrentscreen:%d\n", currentscreencode );
+    cout << "NetworkClient :" << endl;
+    PrintValue("Socket", (int) socket);
+    PrintValue("CurrentScreen", currentscreencode);
 
 }
 
@@ -213,7 +215,7 @@ void NetworkClient::Handle_ClientCommsData ( char *buffer )
 	msgstream >> traceprogress;
 	((ClientCommsInterface *) screen)->traceprogress = traceprogress;
 
-	printf ( "Traceprogress is now %d\n", traceprogress );
+	cout << "Traceprogress is now " << traceprogress << endl;
 
     }
     else if ( strcmp ( msgtype, "CLIENTCOMMS-IPNAME" ) == 0 ) {
@@ -352,7 +354,7 @@ void NetworkClient::Update ()
 
 	    if		( clienttype == CLIENT_COMMS )			Handle_ClientCommsData ( buffer );
 	    else if ( clienttype == CLIENT_STATUS )			Handle_ClientStatusData ( buffer );
-	    else if ( clienttype == CLIENT_NONE )			printf ( "Client type not set" );
+	    else if ( clienttype == CLIENT_NONE )			cout << "Client type not set";
 	    else
 		UplinkWarning ( "Unrecognised client type" );
 

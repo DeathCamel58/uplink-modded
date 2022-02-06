@@ -123,9 +123,9 @@ static FILE *file_stdout = nullptr;
 void hSignalSIGSEGV ( int n )
 {
 
-	printf ( "\nAn Uplink Internal Error has occured: segmentation violation (SIGSEGV)\n" );
+	cout << endl << "An Uplink Internal Error has occurred: segmentation violation (SIGSEGV)" << endl;
 	if ( file_stdout ) {
-		fprintf ( file_stdout, "\nAn Uplink Internal Error has occured: segmentation violation (SIGSEGV)\n" );
+		fprintf ( file_stdout, "\nAn Uplink Internal Error has occurred: segmentation violation (SIGSEGV)\n" );
 		fflush ( file_stdout );
 	}
 
@@ -136,7 +136,7 @@ void hSignalSIGSEGV ( int n )
 void hSignalSIGFPE ( int n )
 {
 
-	printf ( "\nAn Uplink Internal Error has occured: erroneous arithmetic operation (SIGFPE)\n" );
+	cout << endl << "An Uplink Internal Error has occurred: erroneous arithmetic operation (SIGFPE)" << endl;
 	if ( file_stdout ) {
 		fprintf ( file_stdout, "\nAn Uplink Internal Error has occured: erroneous arithmetic operation (SIGFPE)\n" );
 		fflush ( file_stdout );
@@ -149,9 +149,9 @@ void hSignalSIGFPE ( int n )
 void hSignalSIGPIPE ( int n )
 {
 
-	printf ( "\nAn Uplink Internal Error has occured: write to pipe with no one reading (SIGPIPE)\n" );
+	cout << endl << "An Uplink Internal Error has occurred: write to pipe with no one reading (SIGPIPE)" << endl;
 	if ( file_stdout ) {
-		fprintf ( file_stdout, "\nAn Uplink Internal Error has occured: write to pipe with no one reading (SIGPIPE)\n" );
+		fprintf ( file_stdout, "\nAn Uplink Internal Error has occurred: write to pipe with no one reading (SIGPIPE)\n" );
 		fflush ( file_stdout );
 	}
 
@@ -257,11 +257,11 @@ int APIENTRY WinMain(HINSTANCE hInstance,
     // Run the game
 
 /*
-	printf ( "App path : %s\n", apppath );
-	printf ( "Command line : %s\n", lpCmdLine );
-	printf ( "Num arguments : %d\n", argc );
+	cout << "App path : " << apppath << endl;
+	cout << "Command line : " << lpCmdLine << endl;
+	cout << "Num arguments : " << argc << endl;
 	for ( int i = 0; i < argc; ++i )
-		printf ( "Arg %d : '%s'\n", i, argv [i] );
+		cout << "Arg " << i << " : '" << argv[i] << "'" << endl;
 */
 
 #ifdef CRASH_REPORTS
@@ -303,7 +303,7 @@ int RunUplinkExceptionHandling ()
 	if ( app && app->options && app->GetOptions ()->GetOption ( "crash_graphicsinit" ) ) {
 		int crashInit = app->GetOptions ()->GetOptionValue ( "crash_graphicsinit" );
 		if ( crashInit != 0 ) {
-			printf ( "\nAn Uplink Internal Error has occured during graphics initialization\n" );
+			cout << endl << "An Uplink Internal Error has occurred during graphics initialization" << endl;
 #ifdef WIN32
 			if ( !opengl_isSoftwareRendering () && opengl_setSoftwareRendering ( true ) ) {
 				MessageBox ( nullptr, "A Fatal Error occured in Uplink.\n\n"
@@ -319,7 +319,7 @@ int RunUplinkExceptionHandling ()
 			}
 #else
 			if ( file_stdout ) {
-				fprintf ( file_stdout, "\nAn Uplink Internal Error has occured during graphics initialization\n" );
+				fprintf ( file_stdout, "\nAn Uplink Internal Error has occurred during graphics initialization\n" );
 				fflush ( file_stdout );
 			}
 #endif
@@ -330,9 +330,9 @@ int RunUplinkExceptionHandling ()
 	// Set the screen size back to normal,
 	// then continue with the error - permitting debugging
 
-	printf ( "\n" );
-	printf ( "An (unrecognised) Uplink Internal Error has occured\n" );
-	printf ( "===================================================\n" );
+	cout << endl;
+	cout << "An (unrecognised) Uplink Internal Error has occured" << endl;
+	cout << "===================================================" << endl;
 
 	App::CoreDump ();
 
@@ -387,7 +387,7 @@ void RunUplink ( int argc, char **argv )
 #endif
 
 		if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 'v') {
-			printf("%s\n", VERSION_NUMBER);
+			cout << VERSION_NUMBER << endl;
 			return;
 		}
 
@@ -476,28 +476,27 @@ void Init_App ( char *argv0 )
     #endif
 #endif
 
-	printf ( "=============================\n" );
-	printf ( "=                           =\n" );
-	printf ( "=        U P L I N K        =\n" );
-	printf ( "=                           =\n" );		
-	printf ( "=        Version %-10s =\n", app->version );
+	cout << "=============================" << endl;
+	cout << "=                           =" << endl;
+	cout << "=        U P L I N K        =" << endl;
+	cout << "=                           =" << endl;
+	cout << "=        Version " << app->version << " =" << endl;
 
 #ifdef FULLGAME
-    printf ( "=     - R E L E A S E -     =\n" );
+    cout << "=     - R E L E A S E -     =" << endl;
 #endif
 
 #ifdef DEMOGAME	
-	printf ( "=        - D E M O -        =\n" );
+	cout << "=        - D E M O -        =" << endl;
 #endif
     
 #ifdef TESTGAME
-    printf ( "=    - I N T E R N A L -    =\n" );
+    cout << "=    - I N T E R N A L -    =" << endl;
 #endif
 
-	printf ( "=                           =\n" );
-	printf ( "=============================\n" );
-	printf ( "\n" );
-	printf ( "%s\n", app->release );
+	cout << "=                           =" << endl;
+	cout << "=============================" << endl;
+	cout << endl << app->release << endl;
 
 #ifdef DEBUGLOG_ENABLED
 
@@ -518,38 +517,38 @@ void Init_App ( char *argv0 )
 #endif
 
     FILE *stdoutfile = freopen ( debugpath, "a", stdout );
-    if ( !stdoutfile ) printf ( "WARNING : Failed to open %s for writing stdout\n", debugpath );
+    if ( !stdoutfile ) cout << "WARNING : Failed to open " << debugpath << " for writing stdout" << endl;
 
     FILE *stderrfile = freopen ( debugpath, "a", stderr );
-    if ( !stderrfile ) printf ( "WARNING : Failed to open %s for writing stderr\n", debugpath );
+    if ( !stderrfile ) cout << "WARNING : Failed to open " << debugpath << " for writing stderr" << endl;
 
     // Print some basic info to the file
 
     time_t timet = time(nullptr);
     tm *thetime = localtime(&timet);
 
-    printf ( "\n\n" );
-    printf ( "===============================================\n" );
-    printf ( "NEW GAME     %d:%d, %d/%d/%d\n", thetime->tm_hour, thetime->tm_min, thetime->tm_mday, thetime->tm_mon+1, thetime->tm_year+1900 );
-    printf ( "===============================================\n" );
+    cout << endl << endl;
+    cout << "===============================================" << endl;
+    cout << "NEW GAME     " << thetime->tm_hour << ":" << thetime->tm_min << ", " <<  thetime->tm_mday << "/" << thetime->tm_mon+1 << "/" << thetime->tm_year+1900 << endl;
+    cout << "===============================================" << endl;
         
-    printf ( "Version : %s\n", app->version );
+    cout << "Version : " << app->version << endl;
 
 #ifdef FULLGAME
-    printf ( "RELEASE\n" );
+    cout << "RELEASE\" << endl;
 #endif
 #ifdef DEMOGAME	
-	printf ( "DEMO\n" );
+	cout << "DEMO" << endl;
 #endif
 #ifdef TESTGAME
-    printf ( "INTERNAL\n" );
+    cout << "INTERNAL" << endl;
 #endif
 #ifdef WIN32
-    printf ( "Win32 Build\n" );
+    cout << "Win32 Build" << endl;
 #else
-    printf ( "Linux Build\n" );
+    cout << "Linux Build" << endl;
 #endif
-    printf ( "%s\n", app->release );
+    cout << app->release << endl;
 
 #endif
 
@@ -574,7 +573,7 @@ bool Init_Steam ()
 	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) )
 		debugging = true;
 
-	if ( debugging ) printf ( "Initialising Steam..." );
+	if ( debugging ) cout << "Initialising Steam..." << endl;
 
     HINSTANCE hinstLib; 
     InitSteamDLL ProcInitSteam; 
@@ -616,7 +615,7 @@ bool Init_Steam ()
 
 				app->askCodeCard = false;
 
-				if ( debugging ) printf ( "done.\n" );
+				if ( debugging ) cout << "done." << endl;
 
 				errorSteam = false;
 			}
@@ -631,8 +630,8 @@ bool Init_Steam ()
 			if ( errorSteam ) {
 				fFreeResult = FreeLibrary(hinstLib);
 
-				printf ( "\nAn error occured in Uplink\n" );
-				printf ( "%s\n", errorMsg );
+				cout << endl << "An error occured in Uplink" << endl;
+				cout << errorMsg << endl;
 
 				char message[1024];
 				UplinkIntSnprintf ( message, sizeof(message), "An error occured in Uplink.\n\n"
@@ -646,7 +645,7 @@ bool Init_Steam ()
 			if ( errorSteam ) {
 				fFreeResult = FreeLibrary(hinstLib);
 
-				printf ( "%s\n", errorMsg );
+				cout << errorMsg << endl;
 			}
 			return true;
 #endif
@@ -658,15 +657,15 @@ bool Init_Steam ()
     }
 
 #ifdef STEAM_AUTH
-	printf ( "\nAn error occured in Uplink\n" );
-	printf ( "Could not initialize Steam: Function not found.\n" );
+	cout << endl << "An error occured in Uplink" << endl;
+	cout << "Could not initialize Steam: Function not found." << endl;
 
 	MessageBox ( nullptr, "An error occured in Uplink.\n\n"
 	                   "Could not initialize Steam: Function not found.\n", 
 	                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 	return false;
 #else
-	if ( debugging ) printf ( "Could not initialize Steam: Function not found.\n" );
+	if ( debugging ) cout << "Could not initialize Steam: Function not found." << endl;
 	return true;
 #endif
 
@@ -705,10 +704,10 @@ bool Cleanup_Steam ()
 
 			if ( !(ProcCleanupSteam) ( errorMsg, sizeof(errorMsg) ) ) {
 				if ( errorMsg[0] != '\0' ) {
-					printf ( "%s\n", errorMsg );
+					cout << errorMsg << endl;
 				}
 				else {
-					printf ( "Could not clean up Steam: Unknown Error.\n" );
+					cout << "Could not clean up Steam: Unknown Error." << endl;
 				}
 
 		        fFreeResult = FreeLibrary(hinstLib); 
@@ -727,7 +726,7 @@ bool Cleanup_Steam ()
         fFreeResult = FreeLibrary(hinstLib); 
     }
 
-	printf ( "Could not clean up Steam: Function not found.\n" );
+	cout << "Could not clean up Steam: Function not found." << endl;
 	return false;
 
 }
@@ -886,8 +885,8 @@ bool VerifyLegitAndCodeCardCheck()
 
 #ifdef VERIFY_UPLINK_LEGIT
 
-	printf ( "\nAn error occured in Uplink\n" );
-	printf ( "Files integrity is not verified\n" );
+    cout << endl << "An error occured in Uplink" << endl;
+    cout << "Files integrity is not verified" << endl;
 
 #ifdef WIN32
 	MessageBox ( nullptr, "An error occured in Uplink.\n\n"
@@ -895,8 +894,8 @@ bool VerifyLegitAndCodeCardCheck()
 	                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 #else
 	if ( file_stdout ) {
-		printf ( "\nAn Uplink Error has occured\n" );
-		printf ( "Files integrity is not verified\n" );
+        cout << endl << "An Uplink Error has occured" << endl;
+        cout << "Files integrity is not verified" << endl;
 	}
 #endif
 
@@ -934,13 +933,13 @@ void Init_Options ( int argc, char **argv )
 		if ( type == '+' ) {													// Turn option ON  (1)
 			app->GetOptions ()->SetOptionValue ( optionname, true );
 #ifdef _DEBUG
-			printf ( "Parsed command line option : %s\n", argv [i] );
+            cout << "Parsed command line option : " << argv [i] << endl;
 #endif
 		}
 		else if ( type == '-' ) {												// Turn option OFF (0)
 			app->GetOptions ()->SetOptionValue ( optionname, false );
 #ifdef _DEBUG
-			printf ( "Parsed command line option : %s\n", argv [i] );
+            cout << "Parsed command line option : " << argv [i] << endl;
 #endif
 		}
 		else if ( type == '!' ) {												// Set option value
@@ -950,18 +949,18 @@ void Init_Options ( int argc, char **argv )
 				sscanf ( argv [i], "%d", &newvalue );
 				app->GetOptions ()->SetOptionValue ( optionname, newvalue );
 #ifdef _DEBUG
-				printf ( "Parsed command line option : %s %d\n", optionname, newvalue ); 
+                cout << "Parsed command line option : " << optionname << newvalue << endl;
 #endif
 			}
 			else {
-				printf ( "Error parsing command line option : %s\n", argv [i-1] );
+                cout << "Error parsing command line option : " << argv [i-1] << endl;
 			}
 		}
 		else {
 			//char msg [256];
 			//UplinkSnprintf ( msg, sizeof ( msg ), "Error parsing command line option : %s", argv [i] );
 			//UplinkAbort ( msg );
-			printf ( "Error parsing command line option : %s\n", argv [i] );
+            cout << "Error parsing command line option : " << argv [i] << endl;
 		}
 
 	}
@@ -978,13 +977,13 @@ void Init_Options ( int argc, char **argv )
         app->GetOptions ()->SetOptionValue ( "graphics_softwaremouse", true );
     }
 
-	printf ( "\n" );
+	cout << endl;
 	
     SetWindowScaleFactor ( app->GetOptions ()->GetOptionValue("graphics_screenwidth") / 640.0f,
                            app->GetOptions ()->GetOptionValue("graphics_screenheight") / 480.0f );
 
-	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) ) 	
-		printf ( "=====DEBUGGING INFORMATION ENABLED=====\n" );
+	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) )
+        PrintPadded("DEBUGGING INFORMATION ENABLED");
 
 }
 
@@ -992,9 +991,9 @@ static bool TestRsLoadArchive ( char *filename )
 {
 
 	if ( !RsLoadArchive ( filename ) ) {
-		printf ( "\nAn error occured in Uplink\n" );
-		printf ( "Files integrity is not verified\n" );
-		printf ( "Failed loading '%s'\n", filename );
+        cout << endl << "An error occurred in Uplink" << endl;
+        cout << "Files integrity is not verified" << endl;
+        cout << "Failed loading '" << filename << "'" << endl;
 
 #ifdef WIN32
 		char message[512];
@@ -1006,9 +1005,9 @@ static bool TestRsLoadArchive ( char *filename )
 						   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 #else
 		if ( file_stdout ) {
-			printf ( "\nAn Uplink Error has occured\n" );
-			printf ( "Files integrity is not verified\n" );
-			printf ( "Failed loading '%s'\n", filename );
+            cout << endl << "An Uplink Error has occured" << endl;
+            cout << "Files integrity is not verified" << endl;
+            cout << "Failed loading '" << filename << "'" << endl;
 		}
 #endif
 
@@ -1026,7 +1025,7 @@ bool Load_Data ()
 	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) )
 		debugging = true;
 
-	if ( debugging ) printf ( "Loading application data\n" );
+	if ( debugging ) cout << "Loading application data" << endl;
 
     // TODO: `.dat` files are not exported into the build directory, leading to the game closing. Export `.dat`s to build dir
 	if ( !TestRsLoadArchive ( "data/data.dat" ) ) return false;
@@ -1043,12 +1042,12 @@ bool Load_Data ()
 	//DArray<char *> *fnames = RsListArchive("","");
 	//int fnames_size = fnames->Size();
 	//for ( int i = 0; i < fnames_size; ++i ) {
-	//	printf( "File: %s\n", (*fnames)[i] );
+	//	cout << "File: " << (*fnames)[i] << endl;
 	//}
 	//delete fnames;
 #endif
 
-	if ( debugging ) printf ( "Finished loading application data\n" );
+	if ( debugging ) cout << "Finished loading application data" << endl;
 
 	return true;
 
@@ -1061,7 +1060,7 @@ void Init_Game ()
 	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) )
 		debugging = true;
 
-	if ( debugging ) printf ( "Init_Game called...creating game object\n" );
+	if ( debugging ) cout << "Init_Game called...creating game object" << endl;
 
 	// Initialise the random number generator
 	srand( (unsigned int) time( nullptr ) );
@@ -1069,7 +1068,7 @@ void Init_Game ()
 	// Set up Game object
 	game = new Game ();	
 	
-	if ( debugging ) printf ( "Finished with Init_Game\n" );
+	if ( debugging ) cout << "Finished with Init_Game" << endl;
 
 }
 
@@ -1080,11 +1079,11 @@ void Init_Sound ()
 	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) )
 		debugging = true;
 
-	if ( debugging ) printf ( "Init_Sound called...setting up sound system\n" );
+	if ( debugging ) cout << "Init_Sound called...setting up sound system" << endl;
 
 	SgInitialise ();
 
-	if ( debugging ) printf ( "Finished with Init_Sound\n" );
+	if ( debugging ) cout << "Finished with Init_Sound" << endl;
 
 }
 
@@ -1095,7 +1094,7 @@ void Init_Music ()
 	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) )
 		debugging = true;
 
-    if ( debugging ) printf ( "Init_Music called...loading modules\n" );
+    if ( debugging ) cout << "Init_Music called...loading modules" << endl;
 
     SgPlaylist_Initialise ();
 
@@ -1137,7 +1136,7 @@ void Init_Music ()
 #endif
 */
 
-    if ( debugging ) printf ( "Finished with Init_Music\n" );
+    if ( debugging ) cout << "Finished with Init_Music" << endl;
 
 }
 
@@ -1155,7 +1154,7 @@ void Init_Fonts	()
 	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) )
 		debugging = true;
 
-	if ( debugging ) printf ( "Init_Fonts called...setting up system fonts\n" );
+	if ( debugging ) cout << "Init_Fonts called...setting up system fonts" << endl;
 
 	// Set up Gucci graphics library	
 
@@ -1164,36 +1163,36 @@ void Init_Fonts	()
 	bool success = false;
 	char *dungeonFontFilename = RsArchiveFileOpen ( "fonts/dungeon.ttf" );
 	if ( !dungeonFontFilename ) {
-		printf ( "Unable to open font : %s\n", "fonts/dungeon.ttf" );
+        cout << "Unable to open font : fonts/dungeon.ttf" << endl;
 	}
 	else {
-		if ( debugging ) printf ( "Registering fonts..." );
+		if ( debugging ) cout << "Registering fonts...";
 
 		bool dungeonFontAdded = GciRegisterTrueTypeFont( dungeonFontFilename );
 	        
-		if ( debugging ) printf ( "done\n ");
-		if ( debugging ) printf ( "Loading system fonts into memory...\n" );
+		if ( debugging ) cout << "done" << endl;
+		if ( debugging ) cout << "Loading system fonts into memory..." << endl;
 
 		success =
 		  (GciLoadTrueTypeFont ( HELVETICA_10, "Dungeon", dungeonFontFilename, 9  ) &
 		   GciLoadTrueTypeFont ( HELVETICA_12, "Dungeon", dungeonFontFilename, 11 ) &
 		   GciLoadTrueTypeFont ( HELVETICA_18, "Dungeon", dungeonFontFilename, 16 ));
 
-		if ( debugging ) printf ( "done\n" );
+		if ( debugging ) cout << "done" << endl;
 
-		if ( debugging ) printf ( "Unregistering fonts..." );
+		if ( debugging ) cout << "Unregistering fonts...";
 		if ( dungeonFontAdded ) GciUnregisterTrueTypeFont( dungeonFontFilename );
-		if ( debugging ) printf ( "done\n ");
+		if ( debugging ) cout << "done" << endl;
 	}
 
 	if ( !success ) {
 		GciDisableTrueTypeSupport ();
-		printf ( "True type font support is DISABLED\n" );
+        cout << "True type font support is DISABLED" << endl;
 	}
 	
 	GciSetDefaultFont ( HELVETICA_10 );
 
-	if ( debugging ) printf ( "Finished with Init_Fonts\n ");
+	if ( debugging ) cout << "Finished with Init_Fonts" << endl;
 
 }
 
@@ -1231,8 +1230,8 @@ void Run_MainMenu ()
 {
 
 	if ( app->GetOptions ()->IsOptionEqualTo ( "game_debugstart", 1 ) ) {
-		printf ( "Creating main menu.\n" );
-		printf ( "====== END OF DEBUGGING INFORMATION ====\n" );
+        cout << "Creating main menu." << endl;
+        PrintPadded("END OF DEBUGGING INFORMATION");
 	}
 	
 
@@ -1247,9 +1246,9 @@ void Run_MainMenu ()
     if ( (int) currentVersion != oldVersion ) {
 
         // A new patch has been installed
-        printf ( "New patch Detected!\n" );
-        printf ( "Old version = %d\n", oldVersion );
-        printf ( "New version = %d\n\n", (int) currentVersion );
+        cout << "New patch Detected!" << endl;
+        cout << "Old version = " << oldVersion << endl;
+        cout << "New version = " << currentVersion << endl << endl;
 
         app->GetOptions()->SetOptionValue ( "game_version", (int) currentVersion, "z", false, false );
 

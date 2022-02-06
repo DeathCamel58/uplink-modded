@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -145,11 +146,12 @@ void LogScreen::Save ( FILE *file )
 void LogScreen::Print ()
 {
 
-	printf ( "LogScreen : \n" );
+    cout << "LogScreen : " << endl;
 	
 	ComputerScreen::Print ();
-	
-	printf ( "\tNextPage = %d, TARGET = %d\n", nextpage, TARGET );
+
+    PrintValue("NextPage", nextpage);
+    PrintValue("TARGET", TARGET);
 
 }
 

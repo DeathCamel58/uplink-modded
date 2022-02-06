@@ -281,7 +281,7 @@ void DialogScreenInterface::Create ( ComputerScreen *newcs )
 												}
 												break;
 
-				case WIDGET_NONE		:		printf ( "Error : DialogScreenInterface::Create, WIDGETTYPE==NONE\n" );
+				case WIDGET_NONE		:		cout << "Error : DialogScreenInterface::Create, WIDGETTYPE==NONE" << endl;
 												break;
 
 			}

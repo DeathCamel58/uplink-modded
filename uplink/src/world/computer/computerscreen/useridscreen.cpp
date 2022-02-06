@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "app/serialise.h"
 
 #include "world/computer/computerscreen/useridscreen.h"
@@ -62,10 +63,11 @@ void UserIDScreen::Save  ( FILE *file )
 
 void UserIDScreen::Print ()
 {
-	
-	printf ( "UserIDScreen : \n" );
-	ComputerScreen::Print ();
-	printf ( "\tNextPage:%d, Difficulty:%d\n", nextpage, difficulty );
+
+    cout << "UserIDScreen : " << endl;
+    ComputerScreen::Print ();
+    PrintValue("NextPage", nextpage);
+    PrintValue("Difficulty", difficulty);
 
 }
 

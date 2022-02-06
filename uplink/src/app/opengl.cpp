@@ -112,14 +112,14 @@ void opengl_initialise (int argc, char **argv)
 		UplinkAbort ( errorMessageInit )
 	}
 
-	if ( debugging ) printf ( "Initialising OpenGL...\n" );
+	if ( debugging ) cout << "Initialising OpenGL..." << endl;
 	init();
-	if ( debugging ) printf ( "Finished initialising OpenGL.\n" );
+	if ( debugging ) cout << "Finished initialising OpenGL." << endl;
 	
 
-	if ( debugging ) printf ( "Now registering callback functions..." );
+	if ( debugging ) cout << "Now registering callback functions...";
     setcallbacks ();
-    if ( debugging ) printf ( "done\n ");
+    if ( debugging ) cout << "done" << endl;
 
 }
 
@@ -201,13 +201,13 @@ local void init(void)
 
 /*
 	// First things first - show the OpenGL version in use
-	printf ( "\n" );
-	printf ( "OpenGL Driver Information\n" );
-	printf ( "Vendor   : %s\n", glGetString ( GL_VENDOR ) );
-	printf ( "Renderer : %s\n", glGetString ( GL_RENDERER ) );
-	printf ( "Version  : %s\n", glGetString ( GL_VERSION ) );
-	printf ( "GL Utils : %s\n", gluGetString ( (GLenum) GLU_VERSION ) );
-	printf ( "\n" );
+	cout << endl;
+	cout << "OpenGL Driver Information" << endl;
+	cout << "Vendor   : " << glGetString ( GL_VENDOR ) << endl;
+	cout << "Renderer : " << glGetString ( GL_RENDERER ) << endl;
+	cout << "Version  : " << glGetString ( GL_VERSION ) << endl;
+	cout << "GL Utils : " << gluGetString ( (GLenum) GLU_VERSION ) << endl;
+	cout << endl;
 */
 
 	glClearColor(0.0, 0.0, 0.0, 0.0);

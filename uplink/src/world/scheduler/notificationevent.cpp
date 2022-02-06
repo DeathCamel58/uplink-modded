@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -765,7 +766,8 @@ void NotificationEvent::Save  ( FILE *file )
 void NotificationEvent::Print ()
 {
 
-	printf ( "NotificationEvent : TYPE = %d\n", TYPE );
+    cout << "NotificationEvent :" << endl;
+    PrintValue("Type", TYPE);
 	UplinkEvent::Print ();
 
 }

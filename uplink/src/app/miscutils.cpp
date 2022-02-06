@@ -397,7 +397,7 @@ void SetColour ( char *colourName )
          !app->GetOptions () || 
          !app->GetOptions()->GetColour( colourName ) ) {
 
-        printf ( "SetColour WARNING : Failed to find colour %s\n", colourName );
+        cout << "SetColour WARNING : Failed to find colour " << colourName << endl;
         glColor3f ( 0.0f, 0.0f, 0.0f );
         return;
 
@@ -448,7 +448,7 @@ void PrintStackTrace()
 //#endif
 	while(framePtr) {
 		                
-		printf("retAddress = %p\n", getRetAddress(framePtr));
+		cout <<"retAddress = " << getRetAddress(framePtr) << endl;
 		framePtr = *(unsigned **)framePtr;
 
 	    // Frame pointer must be aligned on a
@@ -473,3 +473,45 @@ void PrintStackTrace()
 
 }
 
+void PrintValue(const string& valuename, const string& value) {
+    cout << "=== USED THE PRINTVALUE FUNCTION ===" << endl;
+    cout << "\t" << valuename << ": " << value << endl;
+}
+
+void PrintValue(const string& valuename, int value) {
+    cout << "=== USED THE PRINTVALUE FUNCTION ===" << endl;
+    cout << "\t" << valuename << ": " << value << endl;
+}
+
+void PrintValue(int valuename, int value) {
+    cout << "=== USED THE PRINTVALUE FUNCTION ===" << endl;
+    cout << "\t" << valuename << ": " << value << endl;
+}
+
+void PrintValue(const string& valuename, unsigned int value) {
+    cout << "=== USED THE PRINTVALUE FUNCTION ===" << endl;
+    cout << "\t" << valuename << ": " << value << endl;
+}
+
+void PrintValue(const string& valuename, float value) {
+    cout << "=== USED THE PRINTVALUE FUNCTION ===" << endl;
+    cout << "\t" << valuename << ": " << value << endl;
+}
+
+void PrintValue(const string& valuename, time_t value) {
+    cout << "=== USED THE PRINTVALUE FUNCTION ===" << endl;
+    cout << "\t" << valuename << ": " << value << endl;
+}
+
+void PrintPadded(const string& name) {
+    int pad = (60 - name.length()) / 2 - 1;
+    string out;
+    for (int i; i<pad; i++) {
+        out += "=";
+    }
+    out += " " + name + " ";
+    for (int i; i<pad; i++) {
+        out += "=";
+    }
+    cout << out << endl;
+}

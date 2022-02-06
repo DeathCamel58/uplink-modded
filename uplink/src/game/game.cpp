@@ -1,6 +1,7 @@
 
 //#include "stdafx.h"
 
+#include <app/miscutils.h>
 #include "eclipse.h"
 #include "gucci.h"
 #include "soundgarden.h"
@@ -418,15 +419,15 @@ void Game::Save ( FILE *file )
 void Game::Print ()
 {
 
-	printf ( "============== G A M E =====================================\n" );
+    PrintPadded("G A M E");
 
-	printf ( "Game speed = %d\n", gamespeed );
+    PrintValue("Game speed", gamespeed);
 
-	if ( ui )      ui     ->Print ();		else printf ( "UI is nullptr\n" );
-	if ( view )    view   ->Print ();		else printf ( "View is nullptr\n" );
-	if ( world )   world  ->Print ();		else printf ( "World is nullptr\n" );
-	
-	printf ( "============== E N D  O F  G A M E =========================\n" );
+	if ( ui )      ui     ->Print ();		else cout << "UI is nullptr" << endl;
+	if ( view )    view   ->Print ();		else cout << "View is nullptr" << endl;
+	if ( world )   world  ->Print ();		else cout << "World is nullptr" << endl;
+
+    PrintPadded("E N D  O F  G A M E");
 
 }
 

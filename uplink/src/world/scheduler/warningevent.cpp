@@ -110,7 +110,7 @@ void WarningEvent::Save  ( FILE *file )
 void WarningEvent::Print ()
 {
 
-	printf ( "Warning Event : \n" );
+	cout << "Warning Event : " << endl;
 
 	UplinkEvent::Print ();
 

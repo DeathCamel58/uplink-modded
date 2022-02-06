@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -155,11 +156,11 @@ void DialogScreen::Save ( FILE *file )
 void DialogScreen::Print ()
 {
 
-	printf ( "DialogScreen\n" );
+	cout << "DialogScreen : " << endl;
 	ComputerScreen::Print ();
 	PrintLList ( (LList <UplinkObject *> *) &widgets );
-	printf ( "ReturnKeyButton = %s\n", returnkeybutton );
-    printf ( "EscapeKeyButton = %s\n", escapekeybutton );
+	PrintValue( "ReturnKeyButton", returnkeybutton );
+    PrintValue( "EscapeKeyButton", escapekeybutton );
 
 }
 	
@@ -378,10 +379,19 @@ void DialogScreenWidget::Save ( FILE *file )
 void DialogScreenWidget::Print ()
 {
 
-	printf ( "DialogScreenWidget : Name:%s\n", name );
-	printf ( "\tTYPE:%d, x:%d, y:%d, width:%d, height:%d\n", WIDGETTYPE, x, y, width, height );
-	printf ( "\tcaption:%s, tooltip:%s\n", caption, tooltip );
-	printf ( "\tdata1:%d, data2:%d, stringdata1:%s, stringdata2:%s\n", data1, data2, stringdata1, stringdata2 );
+	cout << "DialogScreenWidget : " << endl;
+    PrintValue("Name", name );
+    PrintValue("TYPE", WIDGETTYPE );
+    PrintValue("X", x );
+    PrintValue("Y", y );
+    PrintValue("Width", width );
+    PrintValue("Height", height );
+    PrintValue("Caption", caption );
+    PrintValue("Tooltip", tooltip );
+    PrintValue("Data1", data1 );
+    PrintValue("Data2", data2 );
+    PrintValue("Stringdata1", stringdata1 );
+    PrintValue("Stringdata2", stringdata2 );
 
 }
 	

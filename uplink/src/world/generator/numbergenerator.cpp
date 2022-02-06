@@ -50,7 +50,7 @@ float NumberGenerator::RandomNormalNumber ( float mean, float range )
 
 	// Test for random normal generator ========================================
 
-	printf ( "\n\n" );
+	cout << endl << endl;
 
 	int results [21];
 	int outside = 0;
@@ -66,15 +66,15 @@ float NumberGenerator::RandomNormalNumber ( float mean, float range )
 	}
 
 	for ( i = 0; i < 21; ++i ) {
-		printf ( "%2.0d : ", i );
+		cout << i << " : ";
 		for ( int j = 0; j < results [i]; j+=10 )
-			printf ( "#" );
-		printf ( "\n" );
+			cout << "#";
+		cout << endl;
 	}	
 
-	printf ( "Outside : %d\n", outside );
+	cout << "Outside : " << outside << endl;
 
-	printf ( "\n\n" );
+	cout << endl << endl;
 
 	// Test for random normal generator ========================================
 

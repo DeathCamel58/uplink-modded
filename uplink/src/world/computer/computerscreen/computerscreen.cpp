@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "game/game.h"
@@ -91,10 +92,10 @@ void ComputerScreen::Save  ( FILE *file )
 void ComputerScreen::Print ()
 {
 
-	printf ( "MainTitle : %s\n", maintitle );
-	printf ( "SubTitle  : %s\n", subtitle );
-
-	printf ( "Computer  : %s\n", computer );
+    cout << "Computer Screen :" << endl;
+    PrintValue("MainTitle", maintitle);
+    PrintValue("Subtitle", subtitle);
+    PrintValue("Computer", computer);
 
 }
 

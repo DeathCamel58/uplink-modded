@@ -123,7 +123,7 @@ void TaskManager::RunSoftware ( char *name, float version )
 
 	
 	else {
-		printf ( "Task Manager warning : Called RunSoftware, name not recognised '%s'\n", name );
+		cout << "Task Manager warning : Called RunSoftware, name not recognised '" << name << "'" << endl;
 		return;
 	}
 
@@ -224,7 +224,7 @@ void TaskManager::Save ( FILE *file )
 void TaskManager::Print ()
 {
 
-	printf ( "Task Manager \n" );
+	cout << "Task Manager" << endl;
 
 }
 

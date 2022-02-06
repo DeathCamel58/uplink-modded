@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "app/serialise.h"
 
 #include "world/computer/computerscreen/cypherscreen.h"
@@ -63,10 +64,11 @@ void CypherScreen::Save  ( FILE *file )
 
 void CypherScreen::Print ()
 {
-	
-	printf ( "CypherScreen : \n" );
+
+    cout << "CypherScreen : " << endl;
 	ComputerScreen::Print ();
-	printf ( "\tNextPage:%d, Difficulty:%d\n", nextpage, difficulty );
+    PrintValue("NextPage", nextpage);
+    PrintValue("Difficulty", difficulty);
 
 }
 

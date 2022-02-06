@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "app/serialise.h"
 
 #include "world/computer/securitysystem.h"
@@ -110,8 +111,11 @@ void SecuritySystem::Save  ( FILE *file )
 void SecuritySystem::Print ()
 {
 
-	printf ( "SecuritySystem : TYPE=%d, enabled=%d, bypassed=%d, level=%d\n", 
-								TYPE, enabled, bypassed, level );
+    cout <<  "SecuritySystem :" << endl;
+    PrintValue("Type", TYPE);
+    PrintValue("Enabled", enabled);
+    PrintValue("Bypassed", bypassed);
+    PrintValue("Level", level);
 
 }
 

@@ -711,7 +711,7 @@ void LinksScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "LinksScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
+	else cout << "LinksScreenInterface::Create, tried to create when GenericScreen==nullptr" << endl;
 
 }
 

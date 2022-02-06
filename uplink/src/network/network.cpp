@@ -4,6 +4,7 @@
 
 #include <tcp4u.h>
 #include <smtp4u.h>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -31,7 +32,7 @@ Network::Network()
 
 	if ( initresult != TCP4U_SUCCESS ) {
 
-		printf ( "Network error : failed to initialise TCP\n" );
+		cout << "Network error : failed to initialise TCP" << endl;
 		return;
 
 	}
@@ -117,7 +118,7 @@ char *Network::GetLocalHost ()
 		return host;
 
 	else {
-		printf ( "Network::GetLocalHost, failed to get local host\n" );
+		cout << "Network::GetLocalHost, failed to get local host" << endl;
 		return nullptr;
 	}
 
@@ -141,7 +142,7 @@ char *Network::GetLocalIP ()
 		return fullip;
 
 	else {
-		printf ( "Network::GetLocalIP, failed to get local ip\n" );
+		cout << "Network::GetLocalIP, failed to get local ip" << endl;
 		return nullptr;
 	}
 
@@ -158,17 +159,17 @@ void Network::StartServer ()
 			STATUS = NETWORK_SERVER;
 
 		else
-			printf ( "Network::StartServer, failed to start server\n" );
+			cout << "Network::StartServer, failed to start server" << endl;
 
 	}
 	else if ( STATUS == NETWORK_CLIENT ) {
 
-		printf ( "Network::StartServer, Cannot start server when running as a client\n" );
+		cout << "Network::StartServer, Cannot start server when running as a client" << endl;
 
 	}
 	else if ( STATUS == NETWORK_SERVER ) {
 
-		printf ( "Network::StartServer, Cannot start server when server is already running\n" );
+		cout << "Network::StartServer, Cannot start server when server is already running" << endl;
 	
 	}
 
@@ -197,17 +198,17 @@ void Network::StartClient ( char *ip )
 			STATUS = NETWORK_CLIENT;
 
 		else
-			printf ( "Network::StartClient, failed to start client\n" );
+			cout << "Network::StartClient, failed to start client" << endl;
 
 	}
 	else if ( STATUS == NETWORK_CLIENT ) {
 
-		printf ( "Network::StartClient, Cannot start client when running as a client\n" );
+		cout << "Network::StartClient, Cannot start client when running as a client" << endl;
 
 	}
 	else if ( STATUS == NETWORK_SERVER ) {
 
-		printf ( "Network::StartClient, Cannot start client when server is already running\n" );
+		cout << "Network::StartClient, Cannot start client when server is already running" << endl;
 	
 	}
 
@@ -221,7 +222,7 @@ void Network::StopClient ()
 		int result = GetClient ()->StopClient ();
 
 		if ( !result )
-			printf ( "Network::StopClient, failed to stop client\n" );
+			cout << "Network::StopClient, failed to stop client" << endl;
 
 		else
 			STATUS = NETWORK_NONE;
@@ -253,9 +254,9 @@ void Network::Save ( FILE *file )
 void Network::Print ()
 {
 
-	printf ( "============== N E T W O R K ===============================\n" );
-	
-	printf ( "Status:%d\n", STATUS );
+	cout << "============== N E T W O R K ===============================" << endl;
+
+	PrintValue("Status", STATUS);
 
 	if ( STATUS == NETWORK_SERVER )
 		GetServer ()->Print ();
@@ -263,7 +264,7 @@ void Network::Print ()
 	else if ( STATUS == NETWORK_CLIENT ) 
 		GetClient ()->Print ();
 
-	printf ( "============== E N D  O F  N E T W O R K ===================\n" );
+	cout << "============== E N D  O F  N E T W O R K ===================" << endl;
 
 }
 

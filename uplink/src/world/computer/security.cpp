@@ -179,7 +179,7 @@ void Security::Save  ( FILE *file )
 void Security::Print ()
 {
 
-	printf ( "Security : \n" );
+	cout << "Security : " << endl;
 	PrintDArray ( (DArray <UplinkObject *> *) &systems );
 
 }

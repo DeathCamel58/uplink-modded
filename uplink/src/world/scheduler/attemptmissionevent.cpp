@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -115,7 +116,8 @@ void AttemptMissionEvent::Save ( FILE *file )
 void AttemptMissionEvent::Print ()
 {
 
-	printf ( "AttemptMissionEvent : agentname=%s\n", agentname );
+    cout << "AttemptMissionEvent :" << endl;
+    PrintValue("agentname", agentname);
 
 	UplinkEvent::Print ();
 

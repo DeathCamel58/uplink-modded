@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -107,9 +108,10 @@ void Sale::Save ( FILE *file )
 void Sale::Print ()
 {
 
-	printf ( "Sale\n" );
-	printf ( "\tTitle:%s, saleTYPE:%d, swhwTYPE:%d\n",
-				title, saleTYPE, swhwTYPE );
+    cout << "Sale :" << endl;
+    PrintValue("Title", title);
+    PrintValue("Sale Type", saleTYPE);
+    PrintValue("Swhw Type", swhwTYPE);
 
 	PrintDArray ( (DArray <UplinkObject *> *) &versions );
 
@@ -208,8 +210,10 @@ void SaleVersion::Save  ( FILE *file )
 void SaleVersion::Print ()
 {
 
-	printf ( "SaleVersion: %s\n", details );
-	printf ( "Cost: %d, Size: %d, Data: %d\n", cost, size, data );
+    cout << "SaleVersion :" << details << endl;
+    PrintValue("Cost", cost);
+    PrintValue("Size", size);
+    PrintValue("Data", data);
 
 }
 

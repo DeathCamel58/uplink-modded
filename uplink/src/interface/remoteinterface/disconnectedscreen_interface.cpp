@@ -58,7 +58,7 @@ void DisconnectedScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "DisconnectedScreenInterface::Create, tried to create when MessageScreen==nullptr\n" );
+	else cout << "DisconnectedScreenInterface::Create, tried to create when MessageScreen==nullptr" << endl;
 
 }
 

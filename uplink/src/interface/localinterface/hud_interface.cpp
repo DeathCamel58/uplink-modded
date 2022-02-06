@@ -222,7 +222,7 @@ void HUDInterface::EmailClick ( Button *button )
     stream >> unused >> index;
 
     if ( !game->GetWorld()->GetPlayer()->messages.ValidIndex(index) ) {
-        printf ( "HUDInterface WARNING: Tried to view an email that didn't exist\n" );
+        cout << "HUDInterface WARNING: Tried to view an email that didn't exist" << endl;
         EclRemoveButton ( button->name );
         return;
     }
@@ -270,7 +270,7 @@ void HUDInterface::MissionClick	( Button *button )
     stream >> unused >> index;
 
     if ( !game->GetWorld()->GetPlayer()->missions.ValidIndex(index) ) {
-        printf ( "HUDInterface WARNING: Tried to view a mission that didn't exist\n" );
+        cout << "HUDInterface WARNING: Tried to view a mission that didn't exist" << endl;
         EclRemoveButton ( button->name );
         return;
     }
@@ -467,7 +467,7 @@ void HUDInterface::HighlightToolbarButton   ( char *bname )
 	}
 	else {
 
-		printf ( "HUDInterface::HighlightToolbarButton, invalid button : %s\n", bname );	
+		cout << "HUDInterface::HighlightToolbarButton, invalid button : " << bname << endl;
 
 	}
 

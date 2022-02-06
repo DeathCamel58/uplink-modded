@@ -460,7 +460,7 @@ void GraphicOptionsInterface::Create ()
 
 		int numModes = modes->NumUsed();
 		if (modes->NumUsed() > 0) {
-			printf( "Using gathered resolutions.\n" );
+			cout << "Using gathered resolutions." << endl;
 	        startY = screenh - (numModes * 20) - 50;
 			RegisterButton ( 50, startY, 100, 15, "RESOLUTION", "Select your screen resolution", "graphic_screenrestitle" );        
 
@@ -481,7 +481,7 @@ void GraphicOptionsInterface::Create ()
 				}
 			}
 		} else {
-			printf( "Using predefined resolutions.\n" );
+			cout << "Using predefined resolutions." << endl;
 			RegisterButton ( 50, startY, 100, 15, "RESOLUTION", "Select your screen resolution", "graphic_screenrestitle" );        
 			RegisterButton ( 50, startY + 30, 100, 15, "640x480", "Choose this resolution", "graphic 1 640 480" );
 			RegisterButton ( 50, startY + 50, 100, 15, "800x600", "Choose this resolution", "graphic 1 800 600" );

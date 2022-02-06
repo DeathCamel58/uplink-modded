@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 #include "eclipse.h"
 
@@ -335,10 +336,10 @@ void Date::Save ( FILE *file )
 void Date::Print ()
 {
 
-	printf ( "Date: " );
-	printf ( "%d:%d:%d, %d/%d/%d\n", hour, minute, second, day, month, year ); 
-	if ( updateme ) printf ( "Syncronised with real world time\n" );
-	else			printf ( "Not Syncronised with real world time\n" );
+	cout << "Date : " << endl;
+    PrintValue("Date", to_string(hour) + ":" + to_string(minute) + ":" + to_string(second) + ", " + to_string(day) + "/" + to_string(month) + "/" + to_string(year));
+    if ( updateme ) cout << "\tSyncronised with real world time" << endl;
+    else			cout << "\tNot Syncronised with real world time" << endl;
 
 }
 

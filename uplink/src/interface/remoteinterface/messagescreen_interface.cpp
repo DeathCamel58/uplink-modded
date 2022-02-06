@@ -68,7 +68,7 @@ void MessageScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "MessageScreenInterface::Create, tried to create when MessageScreen==nullptr\n" );
+	else cout << "MessageScreenInterface::Create, tried to create when MessageScreen==nullptr" << endl;
 
 }
 

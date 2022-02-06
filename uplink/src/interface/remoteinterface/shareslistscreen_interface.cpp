@@ -365,7 +365,7 @@ void SharesListScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "SharesListScreenInterface::Create, tried to create when cs==nullptr\n" );
+	else cout << "SharesListScreenInterface::Create, tried to create when cs==nullptr" << endl;
 
 }
 

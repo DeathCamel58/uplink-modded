@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -415,7 +416,7 @@ void PlotGenerator::Run_Scene ( int newact, int newscene )
 			else if ( scene == 7 )				Run_Act1Scene7 ();
 			else if ( scene == 8 )				Run_Act1Scene8 ();
 
-			else printf ( "Invalid Scene number: Act1 Scene%d\n", newscene );
+			else cout << "Invalid Scene number: Act1 Scene" << newscene << endl;
 
 			break;
 
@@ -428,7 +429,7 @@ void PlotGenerator::Run_Scene ( int newact, int newscene )
 			else if ( scene == 2 )				Run_Act2Scene2 ();
 			else if ( scene == 3 )				Run_Act2Scene3 ();
 
-			else printf ( "Invalid Scene number: Act2 Scene%d\n", newscene );
+			else cout << "Invalid Scene number: Act2 Scene" <<  newscene << endl;
 			break;
 
 		case 3:
@@ -438,7 +439,7 @@ void PlotGenerator::Run_Scene ( int newact, int newscene )
 			else if ( scene == 3 )				Run_Act3Scene3 ();
             else if ( scene == 4 )              Run_Act3Scene4 ();
 
-			else printf ( "Invalid Scene number: Act3 Scene%d\n", newscene );
+			else cout << "Invalid Scene number: Act3 Scene" << newscene << endl;
 			break;
 
         case 4:
@@ -459,7 +460,7 @@ void PlotGenerator::Run_Scene ( int newact, int newscene )
             else if ( scene == 14 )             Run_Act4Scene14 ();
             else if ( scene == 15 )             Run_Act4Scene15 ();
 
-            else printf ( "Invalid scene number: Act4 scene%d\n", newscene );
+            else cout << "Invalid scene number: Act4 scene" << newscene << endl;
             break;
 
         case 5:
@@ -472,7 +473,7 @@ void PlotGenerator::Run_Scene ( int newact, int newscene )
             else if ( scene == 6 )              Run_Act5Scene6 ();
             else if ( scene == 7 )              Run_Act5Scene7 ();
 
-			else printf ( "Invalid Scene number: Act5 Scene%d\n", newscene );
+			else cout << "Invalid Scene number: Act5 Scene" << newscene << endl;
 			break;
 
         case 6:
@@ -481,13 +482,13 @@ void PlotGenerator::Run_Scene ( int newact, int newscene )
             else if ( scene == 2 )              Run_Act6Scene2 ();
             else if ( scene == 3 )              Run_Act6Scene3 ();
 
-            else printf ( "Invalid Scene number: Act6 Scene%d\n", newscene );
+            else cout << "Invalid Scene number: Act6 Scene" << newscene << endl;
 			break;
 
 #endif
 
 		default:
-				printf ( "Invalid Act number: Act%d Scene%d\n", newact, newscene );
+				cout << "Invalid Act number: Act" << newact << " Scene" << newscene << endl;
 
 	}
 
@@ -4777,11 +4778,10 @@ bool PlotGenerator::UplinkIncompatibleSaveGameAssert ( const bool &condition, co
 {
 
     if (!(condition)) {
-	    printf ( "\n"
-			     "An Uplink Assertion Failure has occured in the plot\n"
-			     "===================================================\n"
-			     " Location  : %s, line %d\n\n",
-			     fileassert, lineassert );
+	    cout << endl;
+		cout << "An Uplink Assertion Failure has occurred in the plot" << endl;
+		cout << "====================================================" << endl;
+		cout << " Location  : " << fileassert << ", line " << lineassert << endl << endl;
 
 		MessageIncompatibleSaveGame ( fileassert, lineassert );
 		return true;
@@ -4921,37 +4921,38 @@ void PlotGenerator::Save  ( FILE *file )
 void PlotGenerator::Print ()
 {
 
-	printf ( "Plot Generator\n" );
-	printf ( "Act=%d, Scene=%d\n", act, scene );
-	printf ( "Act1Scene3Agent = %s\n", act1scene3agent );
-	printf ( "Act1Scene4Agent = %s\n", act1scene4agent );
-	printf ( "Act2Scene1Agent = %s\n", act2scene1agent );
+    cout << "Plot Generator:" << endl;
+    PrintValue("Act", act);
+    PrintValue("Scene", scene);
+    PrintValue("Act1Scene3Agent", act1scene3agent);
+    PrintValue("Act1Scene4Agent", act1scene4agent);
+    PrintValue("Act2Scene1Agent", act2scene1agent);
 
-	printf ( "PlayerVisitsPlotSites = %d\n", playervisitsplotsites );
-    printf ( "PlayerCancelsMail = %d\n", playercancelsmail );
-    printf ( "PlayerLoyalty = %d\n", playerloyalty );
-	printf ( "NumUses_Revelation = %d\n", numuses_revelation );
-	printf ( "Version Revelation = %f\n", version_revelation );
-	printf ( "Version Faith = %f\n", version_faith );
+    PrintValue("PlayerVisitsPlotSites", playervisitsplotsites);
+    PrintValue("PlayerCancelsMail", playercancelsmail);
+    PrintValue("PlayerLoyalty", playerloyalty);
+    PrintValue("NumUses_Revelation", numuses_revelation);
+    PrintValue("Version Revelation", version_revelation);
+    PrintValue("Version Faith", version_faith);
 
-    printf ( "Completed Tracer : %d\n", completed_tracer );
-    printf ( "Completed TakeMeToYourLeader : %d\n", completed_takemetoyourleader );
-    printf ( "Completed ARC Infiltration : %d\n", completed_arcinfiltration );
-    printf ( "Completed Darwin : %d\n", completed_darwin );
-    printf ( "Completed SaveItForTheJury : %d\n", completed_saveitforthejury );
-    printf ( "Completed ShinyHammer : %d\n", completed_shinyhammer );
+    PrintValue("Completed Tracer", completed_tracer);
+    PrintValue("Completed TakeMeToYourLeader", completed_takemetoyourleader);
+    PrintValue("Completed ARC Infiltration", completed_arcinfiltration);
+    PrintValue("Completed Darwin", completed_darwin);
+    PrintValue("Completed SaveItForTheJury", completed_saveitforthejury);
+    PrintValue("Completed ShinyHammer", completed_shinyhammer);
 
-	printf ( "specialmissionscompleted : %d\n", specialmissionscompleted );
+    PrintValue("SpecialMissionsCompleted", specialmissionscompleted);
 
-    printf ( "saveitforthejury_targetbankip : %s\n", saveitforthejury_targetbankip );
-    printf ( "saveitforthejury_guytobeframed : %s\n", saveitforthejury_guytobeframed );
-    printf ( "tracer_lastknownip : %s\n", tracer_lastknownip );
+    PrintValue("saveitforthejury_targetbankip", saveitforthejury_targetbankip);
+    PrintValue("saveitforthejury_guytobeframed", saveitforthejury_guytobeframed);
+    PrintValue("tracer_lastknownip", tracer_lastknownip);
 
-    printf ( "revelation_releaseuncontrolled : %d\n", revelation_releaseuncontrolled );
-    printf ( "revelation_releasefailed : %d\n", revelation_releasefailed );
-    printf ( "revelation_arcbusted : %d\n", revelation_arcbusted );
+    PrintValue("revelation_releaseuncontrolled", revelation_releaseuncontrolled);
+    PrintValue("revelation_releasefailed", revelation_releasefailed);
+    PrintValue("revelation_arcbusted", revelation_arcbusted);
 
-    printf ( "Infected IP addresses:\n" );
+    cout << "\tInfected IP addresses:" << endl;
     PrintLList ( &infected );
 
 }

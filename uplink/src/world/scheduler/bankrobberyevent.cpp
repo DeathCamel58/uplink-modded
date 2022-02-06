@@ -4,6 +4,7 @@
 #endif
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -257,12 +258,14 @@ void BankRobberyEvent::Save  ( FILE *file )
 void BankRobberyEvent::Print ()
 {
 
-    printf ( "Bank Robbery Event\n" );
+    cout << "Bank Robbery Event" << endl;
     UplinkEvent::Print ();
-    printf ( "Source: %s %s\n", source_ip, source_accno );
-    printf ( "Target: %s %s\n", target_ip, target_accno );
-    printf ( "Amount: %d\n", amount );
-    printf ( "Date:\n" );
+    PrintValue("Source IP", source_ip);
+    PrintValue("Souce Acc No", source_accno);
+    PrintValue("Target IP", target_ip);
+    PrintValue("Target Acc No", target_accno);
+    PrintValue("Amount", amount);
+    cout << "Date:" << endl;
     hackdate.Print ();
 
 }

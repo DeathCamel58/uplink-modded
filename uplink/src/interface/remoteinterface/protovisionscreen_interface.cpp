@@ -92,7 +92,7 @@ void ProtovisionScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "ProtovisionScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
+	else cout << "ProtovisionScreenInterface::Create, tried to create when GenericScreen==nullptr" << endl;
 
 }
 

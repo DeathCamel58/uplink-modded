@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -380,10 +381,10 @@ void DataBank::Save ( FILE *file )
 void DataBank::Print ()
 {
 
-	printf ( "DataBank\n" );
+    cout << "DataBank :" << endl;
 	PrintDArray ( (DArray <UplinkObject *> *) &data );
 	PrintDArray ( &memory );
-	printf ( "Formatted: %d\n", formatted );
+    PrintValue("Formatted", formatted);
 
 }
 	
@@ -504,10 +505,14 @@ void Data::Save ( FILE *file )
 
 void Data::Print ()
 {
-	
-	printf ( "Data: %s\n", title );
-	printf ( "type = %d, size = %d, encrypted = %d, compressed = %d\nversion = %f, softwareTYPE = %d\n", 
-				TYPE, size, encrypted, compressed, version, softwareTYPE );
+
+    cout << "Data: " << title << endl;
+    PrintValue("Type", TYPE);
+    PrintValue("Size", size);
+    PrintValue("Encrypted", encrypted);
+    PrintValue("Compressed", compressed);
+    PrintValue("Version", version);
+    PrintValue("SoftwareType", softwareTYPE);
 
 }
 

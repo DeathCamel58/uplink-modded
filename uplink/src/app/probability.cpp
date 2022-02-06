@@ -46,7 +46,7 @@ void Probability::ChangeProbability ( int value, int percentagechance )
 		chances.ChangeData ( percentagechance, value );
 
 	else
-		printf ( "WARNING: Probability::ChangeProbability, invalid value passed\n" );
+		cout << "WARNING: Probability::ChangeProbability, invalid value passed" << endl;
 
 }
 

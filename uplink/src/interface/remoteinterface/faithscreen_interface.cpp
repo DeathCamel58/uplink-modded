@@ -44,7 +44,7 @@ void FaithScreenInterface::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "FaithScreenInterface::Create, tried to create when GenericScreen==nullptr\n" );
+	else cout << "FaithScreenInterface::Create, tried to create when GenericScreen==nullptr" << endl;
 
 }
 

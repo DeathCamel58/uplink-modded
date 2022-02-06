@@ -2,6 +2,7 @@
 //#include "stdafx.h"
 
 #include <strstream>
+#include <app/miscutils.h>
 
 #include "gucci.h"
 
@@ -413,10 +414,13 @@ void Rating::Save  ( FILE *file )
 void Rating::Print ()
 {
 
-	printf ( "Rating : Owner:%s\n", owner );
-	printf ( "\tUplink Score      = %d (%s)\n", uplinkscore, GetUplinkRating () );
-	printf ( "\tNeuromancer Score = %d (%s)\n", neuromancerscore, GetNeuromancerRating () );
-	printf ( "\tCredit rating     = %d\n", creditrating );
+    cout << "Rating :" << endl;
+    PrintValue("Owner", owner);
+    PrintValue("Uplink Score", uplinkscore);
+    PrintValue("Uplink Rating", GetUplinkRating());
+    PrintValue("Neuromancer Score", neuromancerrating);
+    PrintValue("Neuromancer Rating", GetNeuromancerRating());
+    PrintValue("Credit Rating", creditrating);
 
 }
 

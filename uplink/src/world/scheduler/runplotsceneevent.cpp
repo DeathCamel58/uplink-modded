@@ -100,7 +100,7 @@ void RunPlotSceneEvent::Print ()
 {
 
     UplinkEvent::Print ();
-	printf ( "%s\n", GetLongString () );
+	cout << "\t" << GetLongString () << endl;
 
 }
 

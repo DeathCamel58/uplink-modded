@@ -467,7 +467,7 @@ void LogDeleter::Tick ( int n )
 					}
 					else {
 
-						printf ( "LogDeleter WARNING : Unrecognised version number\n" );
+						cout << "LogDeleter WARNING : Unrecognised version number" << endl;
 
 					}
 

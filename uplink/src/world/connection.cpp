@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "game/game.h"
@@ -477,7 +478,10 @@ void Connection::Save ( FILE *file )
 void Connection::Print ()
 {
 
-	printf ( "Connection : Owner = %s, TraceInProgress = %d, TraceProgress = %d\n", owner, traceinprogress, traceprogress );
+    cout << "Connection :" << endl;
+    PrintValue("Owner", owner);
+    PrintValue("TraceInProgress", traceinprogress);
+    PrintValue("TractProgress", traceprogress);
 	PrintLList ( &vlocations );
 
 }

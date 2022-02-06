@@ -256,7 +256,7 @@ void App::LoadGame (const string &username )
 
         if ( !success ) {
 			EmptyDirectory ( app->usertmppath );
-            printf ( "App::LoadGame, Failed to load user profile\n" );
+            cout << "App::LoadGame, Failed to load user profile" << endl;
 
 			delete game;
 			game = new Game();
@@ -264,14 +264,14 @@ void App::LoadGame (const string &username )
 			return;
         }
 
-		printf ( "success\n" );
+		cout << "success" << endl;
 
 	}
 	else {
 
 		EmptyDirectory ( app->usertmppath );
-		printf ( "failed\n" );
-		printf ( "App::LoadGame, Failed to load user profile\n" );
+		cout << "failed" << endl;
+		cout << "App::LoadGame, Failed to load user profile" << endl;
 
 		EclReset ( GetOptions ()->GetOptionValue ("graphics_screenwidth"),
 		           GetOptions ()->GetOptionValue ("graphics_screenheight") );
@@ -386,8 +386,8 @@ void App::SaveGame ( char *username )
 	}
 	else {
 
-		printf ( "failed\n" );
-		printf ( "App::SaveGame, Failed to save user profile\n" );
+		cout << "failed" << endl;
+		cout << "App::SaveGame, Failed to save user profile" << endl;
 	
 	}
 
@@ -554,24 +554,24 @@ void App::CoreDump ()
                        "Uplink Error", MB_ICONEXCLAMATION | MB_OK );    
 
 #endif
-    
-  	printf ( "============== B E G I N  C O R E  D U M P =================\n" );
+
+    PrintPadded("B E G I N  C O R E  D U M P");
     PrintStackTrace ();
-   	printf ( "============== E N D  C O R E  D U M P =====================\n" );
+    PrintPadded("E N D  C O R E  D U M P");
 
 }
 
 void App::Print ()
 {
-    
-  	printf ( "============== A P P =======================================\n" );
 
-	if ( game )     game->Print ();     else printf ( "game == nullptr\n" );
-    if ( mainmenu ) mainmenu->Print (); else printf ( "mainmenu == nullptr\n" );
-	if ( options )  options->Print ();  else printf ( "options == nullptr\n" );
-	if ( network )  network->Print ();  else printf ( "network == nullptr\n" );
+    PrintPadded("A P P");
 
-    printf ( "============== E N D  O F  A P P ===========================\n" );
+	if ( game )     game->Print ();     else cout << "game == nullptr" << endl;
+    if ( mainmenu ) mainmenu->Print (); else cout <<"mainmenu == nullptr" << endl;
+	if ( options )  options->Print ();  else cout << "options == nullptr" << endl;
+	if ( network )  network->Print ();  else cout << "network == nullptr" << endl;
+
+    PrintPadded("E N D  O F  A P P");
 
 }
 

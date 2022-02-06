@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "game/game.h"
@@ -219,11 +220,11 @@ void Message::Save ( FILE *file )
 void Message::Print ()
 {
 
-	printf ( "Message : \n" );
-	printf ( "\tTo   = %s\n", to );
-	printf ( "\tFrom = %s\n", from );
-	printf ( "\tSubject = %s\n", subject );
-	printf ( "\tbody = %s\n", body );
+    cout << "Message : " << endl;
+    PrintValue("To", to);
+    PrintValue("From", from);
+    PrintValue("Subject", subject);
+    PrintValue("Body", body);
 
 	PrintLList ( &links );
 	PrintBTree ( &codes );

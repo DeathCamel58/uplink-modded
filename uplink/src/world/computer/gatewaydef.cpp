@@ -290,7 +290,7 @@ bool GatewayDef::VerifyCorrectness ()
 {
 
 	if ( maxcpus <= 0 || maxmemory <= 0 || bandwidth <= 0 ) {
-		printf ( "WARNING : GatewayDef::VerifyCorrectness, Gateway '%s' loaded from '%s' as invald values, ( maxcpus <= %d || maxmemory <= %d || bandwidth <= %d )\n", name, filename, maxcpus, maxmemory, bandwidth );
+		cout << "WARNING : GatewayDef::VerifyCorrectness, Gateway '" << name << "' loaded from '" << filename << "' as invald values, ( maxcpus <= " << maxcpus << " || maxmemory <= " << maxmemory << " || bandwidth <= " << bandwidth << " )" << endl;
 		return false;
 	}
 	return true;

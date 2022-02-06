@@ -1,4 +1,5 @@
 
+#include <app/miscutils.h>
 #include "gucci.h"
 
 #include "app/app.h"
@@ -50,7 +51,7 @@ int BankComputer::CreateBankAccount ( BankAccount *newaccount )
 	UplinkAssert ( newaccount )
 
 	if ( newaccount->accountnumber == 0 )
-		printf ( "BankComputer::CreateBankAccount WARNING : AccountNumber = 0\n" );
+		cout << "BankComputer::CreateBankAccount WARNING : AccountNumber = 0" << endl;
 
 	char s_account [16];
 	UplinkSnprintf ( s_account, sizeof ( s_account ), "%d", newaccount->accountnumber )
@@ -154,9 +155,9 @@ void BankComputer::Save ( FILE *file )
 void BankComputer::Print ()
 {
 
-	printf ( "Bank Computer : \n" );
-	Computer::Print ();
-	printf ( "PreviousAccountNumber = %d\n", previousaccno );
+    cout << "Bank Computer : " << endl;
+    Computer::Print ();
+    PrintValue("PreviousAccountNumber", previousaccno);
 	PrintBTree ( (BTree <UplinkObject *> *) &accounts );	
 
 }

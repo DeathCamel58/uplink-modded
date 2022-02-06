@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -96,10 +97,12 @@ void MessageScreen::Save  ( FILE *file )
 void MessageScreen::Print ()
 {
 
-	printf ( "MessageScreen : \n" );
+    cout << "MessageScreen : " << endl;
 	ComputerScreen::Print ();
-	printf ( "NextPage = %d, TextMessage = %s, ButtonMessage = %s, MailThisToMe = %d\n", 
-				nextpage, textmessage, buttonmessage, mailthistome );
+    PrintValue("NextPage", nextpage);
+    PrintValue("TextMessage", textmessage);
+    PrintValue("ButtonMessage", buttonmessage);
+    PrintValue("MailThisToMe", mailthistome);
 
 }
 	

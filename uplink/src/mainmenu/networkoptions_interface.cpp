@@ -61,7 +61,7 @@ void NetworkOptionsInterface::ClientButtonClick ( Button *button )
 
 	if ( app->GetNetwork ()->STATUS == NETWORK_SERVER ) {
 
-		printf ( "NetworkOptionsInterface::ClientButtonClick, cannot connect to a server when already running as a server\n" );
+		cout << "NetworkOptionsInterface::ClientButtonClick, cannot connect to a server when already running as a server" << endl;
 		return;
 
 	}

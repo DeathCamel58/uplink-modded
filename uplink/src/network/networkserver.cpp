@@ -2,6 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+#include <app/miscutils.h>
 #include "gucci.h"
 #include "eclipse.h"
 
@@ -61,7 +62,7 @@ void NetworkServer::StopServer ()
 			int result = TcpClose ( &(clients.GetData (i)->socket) );
 
 			if ( result != TCP4U_SUCCESS ) 
-				printf ( "NetworkServer::StopServer, failed to close connection %d\n", i );
+				cout << "NetworkServer::StopServer, failed to close connection " << i << endl;
 
 		}
 	}
@@ -84,7 +85,7 @@ char *NetworkServer::GetRemoteHost ( int socketindex )
 		return host;
 
 	else {
-		printf ( "NetworkServer::GetRemoteHost, failed to get remote host\n" );
+		cout << "NetworkServer::GetRemoteHost, failed to get remote host" << endl;
 		return nullptr;
 	}
 
@@ -110,7 +111,7 @@ char *NetworkServer::GetRemoteIP ( int socketindex )
 		return fullip;
 
 	else {
-		printf ( "NetworkServer::GetRemoteIP, failed to get remote ip\n" );
+		cout << "NetworkServer::GetRemoteIP, failed to get remote ip" << endl;
 		return nullptr;
 	}
 
@@ -144,7 +145,9 @@ void NetworkServer::Save ( FILE *file )
 void NetworkServer::Print ()
 {
 
-	printf ( "NetworkServer : listensocket:%d, lastlisten:%ld\n", listensocket, lastlisten );
+    cout << "NetworkServer :" << endl;
+    PrintValue("ListenSocket", (int) listensocket);
+    PrintValue("LastListen", lastlisten);
 
 	PrintDArray ( (DArray <UplinkObject *> *) &clients );
 

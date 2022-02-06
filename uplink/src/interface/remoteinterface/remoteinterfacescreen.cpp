@@ -86,7 +86,7 @@ void RemoteInterfaceScreen::Create ()
 {
 
 	if ( cs ) Create ( cs );
-	else printf ( "Error : RemoteInterfaceScreen::Create, cs==nullptr, ScreenID=%d\n", ScreenID () );
+	else cout << "Error : RemoteInterfaceScreen::Create, cs==nullptr, ScreenID=" << ScreenID () << endl;
 
 }
 
