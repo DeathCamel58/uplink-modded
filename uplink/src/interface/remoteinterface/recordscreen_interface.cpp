@@ -78,7 +78,7 @@ void RecordScreenInterface::CommitClick ( Button *button )
 		Button *value = EclGetButton ( bname_value );
 
 		if ( title && value )						
-			rec->ChangeField ( (char *) title->caption.c_str(), (char *) value->caption.c_str() );
+			rec->ChangeField ( title->caption, value->caption );
 
 		else
 			break;

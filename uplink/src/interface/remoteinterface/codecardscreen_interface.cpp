@@ -202,18 +202,16 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
     auto *thisint = (CodeCardScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
     UplinkAssert (thisint)
 
-    char *lowercasecaption = LowerCaseString (answerbutton->caption.c_str());
+    string lowercasecaption = LowerCaseString (answerbutton->caption);
     bool success = false;
 
 #ifdef CODECARD_TOM
 
     if ( !success ) {
 
-        char *lowercaseanswerTOM = LowerCaseString ( thisint->GetCodeTOM( thisint->row, thisint->col ) );
-        if ( strcmp ( lowercasecaption, lowercaseanswerTOM ) == 0 )
+        string lowercaseanswerTOM = LowerCaseString ( thisint->GetCodeTOM( thisint->row, thisint->col ) );
+        if ( lowercasecaption == lowercaseanswerTOM )
             success = true;
-
-        delete [] lowercaseanswerTOM;
 
     }
 
@@ -223,11 +221,9 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
 
     if ( !success ) {
 
-        char *lowercaseanswerCHRIS = LowerCaseString ( thisint->GetCodeCHRIS( thisint->row, thisint->col ) );
-        if ( strcmp ( lowercasecaption, lowercaseanswerCHRIS ) == 0 )
+        string lowercaseanswerCHRIS = LowerCaseString ( thisint->GetCodeCHRIS( thisint->row, thisint->col ) );
+        if ( lowercasecaption == lowercaseanswerCHRIS )
             success = true;
-
-        delete [] lowercaseanswerCHRIS;
 
     }
 
@@ -237,17 +233,13 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
 
     if ( !success ) {
 
-        char *lowercaseanswerMARK = LowerCaseString ( thisint->GetCodeMARK( thisint->row, thisint->col ) );
-        if ( strcmp ( lowercasecaption, lowercaseanswerMARK ) == 0 )
+        string lowercaseanswerMARK = LowerCaseString ( thisint->GetCodeMARK( thisint->row, thisint->col ) );
+        if ( lowercasecaption == lowercaseanswerMARK )
             success = true;
-
-        delete [] lowercaseanswerMARK;
 
     }
 
 #endif
-
-    delete [] lowercasecaption;
 
     if ( success ) {
 

@@ -41,7 +41,7 @@ DialogScreen::~DialogScreen()
 
 }
 
-void DialogScreen::AddWidget ( char *name, int WIDGETTYPE, int x, int y, int width, int height, char *caption, char *tooltip )
+void DialogScreen::AddWidget (const string &name, int WIDGETTYPE, int x, int y, int width, int height, const string &caption, const string &tooltip )
 {
 
 	auto *dsw = new DialogScreenWidget ();
@@ -57,8 +57,8 @@ void DialogScreen::AddWidget ( char *name, int WIDGETTYPE, int x, int y, int wid
 
 }
 
-void DialogScreen::AddWidget ( char *name, int WIDGETTYPE, int x, int y, int width, int height, char *caption, char *tooltip, 
-							   int data1, int data2, char *stringdata1, char *stringdata2 )
+void DialogScreen::AddWidget (const string &name, int WIDGETTYPE, int x, int y, int width, int height, const string &caption, const string &tooltip,
+                              int data1, int data2, const string &stringdata1, const string &stringdata2 )
 {
 
 	auto *dsw = new DialogScreenWidget ();
@@ -77,7 +77,7 @@ void DialogScreen::AddWidget ( char *name, int WIDGETTYPE, int x, int y, int wid
 
 }
 
-void DialogScreen::RemoveWidget ( char *name )
+void DialogScreen::RemoveWidget (const string &name )
 {
 
 	for ( int i = 0; i < widgets.Size (); ++i ) {
@@ -85,7 +85,7 @@ void DialogScreen::RemoveWidget ( char *name )
 		DialogScreenWidget *dsw = widgets.GetData (i);
 		UplinkAssert (dsw)
 
-		if ( strcmp ( dsw->GetName (), name ) == 0 ) {
+		if ( dsw->GetName () == name ) {
 
 			ComputerScreen *cs = game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 
@@ -101,21 +101,21 @@ void DialogScreen::RemoveWidget ( char *name )
 
 }
 
-void DialogScreen::SetReturnKeyButton ( char *name )
+void DialogScreen::SetReturnKeyButton (const string &name )
 {
 
 	delete [] returnkeybutton;
-	returnkeybutton = new char [strlen(name)+1];
-	UplinkSafeStrcpy ( returnkeybutton, name )
+	returnkeybutton = new char [name.length()+1];
+	UplinkSafeStrcpy ( returnkeybutton, name.c_str() )
 	
 }
 
-void DialogScreen::SetEscapeKeyButton ( char *name )
+void DialogScreen::SetEscapeKeyButton (const string &name )
 {
 
     delete [] escapekeybutton;
-    escapekeybutton = new char [strlen(name)+1];
-    UplinkSafeStrcpy ( escapekeybutton, name )
+    escapekeybutton = new char [name.length()+1];
+    UplinkSafeStrcpy ( escapekeybutton, name.c_str() )
 
 }
 
@@ -207,12 +207,12 @@ DialogScreenWidget::~DialogScreenWidget ()
 
 }
 
-void DialogScreenWidget::SetName ( char *newname )
+void DialogScreenWidget::SetName (const string &newname )
 {
 
 	delete [] name;
-	name = new char [strlen(newname)+1];
-	UplinkSafeStrcpy ( name, newname )
+	name = new char [newname.length()+1];
+	UplinkSafeStrcpy ( name, newname.c_str() )
 
 }
 
@@ -239,21 +239,21 @@ void DialogScreenWidget::SetSize ( int newwidth, int newheight )
 
 }
 
-void DialogScreenWidget::SetTooltip ( char *newtooltip )
+void DialogScreenWidget::SetTooltip (const string &newtooltip )
 {
 
 	delete [] tooltip;
-	tooltip = new char [strlen(newtooltip) + 1];
-	UplinkSafeStrcpy ( tooltip, newtooltip )
+	tooltip = new char [newtooltip.length() + 1];
+	UplinkSafeStrcpy ( tooltip, newtooltip.c_str() )
 
 }
 
-void DialogScreenWidget::SetCaption ( char *newcaption )
+void DialogScreenWidget::SetCaption (const string &newcaption )
 {
 
 	delete [] caption;
-	caption = new char [strlen(newcaption) + 1];
-	UplinkSafeStrcpy ( caption, newcaption )
+	caption = new char [newcaption.length() + 1];
+	UplinkSafeStrcpy ( caption, newcaption.c_str() )
 
 }
 	
@@ -287,23 +287,23 @@ void DialogScreenWidget::SetData ( int newdata1, int newdata2 )
 
 }
 
-void DialogScreenWidget::SetStringData ( char *newstringdata1, char *newstringdata2 )
+void DialogScreenWidget::SetStringData (const string &newstringdata1, const string &newstringdata2 )
 {
 
 	delete [] stringdata1;
 	stringdata1 = nullptr;
 	
-	if ( newstringdata1 ) {
-		stringdata1 = new char [strlen(newstringdata1) + 1];
-		UplinkSafeStrcpy ( stringdata1, newstringdata1 )
+	if ( !newstringdata1.empty() ) {
+		stringdata1 = new char [newstringdata1.length() + 1];
+		UplinkSafeStrcpy ( stringdata1, newstringdata1.c_str() )
 	}
 	
 	delete [] stringdata2;
 	stringdata2 = nullptr;
 
-	if ( newstringdata2 ) {
-		stringdata2 = new char [strlen(newstringdata2) + 1];
-		UplinkSafeStrcpy ( stringdata2, newstringdata2 )
+	if ( !newstringdata2.empty() ) {
+		stringdata2 = new char [newstringdata2.length() + 1];
+		UplinkSafeStrcpy ( stringdata2, newstringdata2.c_str() )
 	}
 
 }

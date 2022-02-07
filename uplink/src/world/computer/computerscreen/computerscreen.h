@@ -46,9 +46,9 @@ public:
 	~ComputerScreen() override;
 
 
-	void SetMainTitle ( char *newmaintitle );
-	void SetSubTitle  ( char *newsubtitle );
-	void SetComputer  ( char *newcomputer );
+	void SetMainTitle (const string &newmaintitle );
+	void SetSubTitle  (const string &newsubtitle );
+	void SetComputer  (const string &newcomputer );
 
 	Computer *GetComputer ();
 

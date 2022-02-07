@@ -327,10 +327,10 @@ char *NameGenerator::GenerateComplexPassword ()
 
 }
 
-char *NameGenerator::GenerateDataName ( char *companyname, int DATATYPE )
+char *NameGenerator::GenerateDataName (const string &companyname, int DATATYPE )
 {
 
-	UplinkAssert (companyname)
+	assert(!companyname.empty());
 
 	char dataname [SIZE_DATA_TITLE];
 
@@ -368,57 +368,57 @@ char *NameGenerator::GenerateDataName ( char *companyname, int DATATYPE )
 
 }
 
-char *NameGenerator::GeneratePublicAccessServerName( char *companyname )
+char *NameGenerator::GeneratePublicAccessServerName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Public Access Server", companyname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Public Access Server", companyname.c_str() )
     return tempname;
 }
 
-char *NameGenerator::GenerateAccessTerminalName( char *companyname )
+char *NameGenerator::GenerateAccessTerminalName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Access Terminal", companyname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Access Terminal", companyname.c_str() )
     return tempname;
 }
 
-char *NameGenerator::GenerateInternalServicesServerName ( char *companyname )
+char *NameGenerator::GenerateInternalServicesServerName (const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Internal Services Machine", companyname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Internal Services Machine", companyname.c_str() )
     return tempname;  
 }
 
-char *NameGenerator::GenerateCentralMainframeName( char *companyname )
+char *NameGenerator::GenerateCentralMainframeName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Central Mainframe", companyname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Central Mainframe", companyname.c_str() )
     return tempname;
 }
 
-char *NameGenerator::GenerateInternationalBankName( char *companyname )
+char *NameGenerator::GenerateInternationalBankName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s International Bank", companyname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s International Bank", companyname.c_str() )
     return tempname;
 }
 
-char *NameGenerator::GenerateFileServerName( char *companyname )
+char *NameGenerator::GenerateFileServerName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s File Server", companyname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s File Server", companyname.c_str() )
     return tempname;
 }
 
-char *NameGenerator::GenerateLANName( char *companyname )
+char *NameGenerator::GenerateLANName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Local Area Network", companyname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Local Area Network", companyname.c_str() )
     return tempname;
 }
 
-char *NameGenerator::GeneratePersonalComputerName( char *personname )
+char *NameGenerator::GeneratePersonalComputerName(const string &personname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Personal Computer", personname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Personal Computer", personname.c_str() )
     return tempname;
 }
 
-char *NameGenerator::GenerateVoicePhoneSystemName( char *personname )
+char *NameGenerator::GenerateVoicePhoneSystemName(const string &personname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Voice Phone System", personname )
+    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Voice Phone System", personname.c_str() )
     return tempname;
 }
 

@@ -81,10 +81,10 @@ void SendMailInterface::AttachFileClick ( Button *button )
 
 	UplinkAssert (m)
 
-	m->SetTo      ( (char *) EclGetButton ( "sendmail_to" )->caption.c_str() );
+	m->SetTo      ( EclGetButton ( "sendmail_to" )->caption );
 	m->SetFrom    ( "PLAYER" );
-	m->SetSubject ( (char *) EclGetButton ( "sendmail_subject" )->caption.c_str() );
-	m->SetBody    ( (char *) EclGetButton ( "sendmail_body box" )->caption.c_str() );
+	m->SetSubject ( EclGetButton ( "sendmail_subject" )->caption );
+	m->SetBody    ( EclGetButton ( "sendmail_body box" )->caption );
 
 
 	// Check this is still in memory
@@ -279,15 +279,15 @@ void SendMailInterface::SendClick ( Button *button )
 
 	// Update m with the captions which may have been changed
 
-	char *sendmail_to = (char *) EclGetButton ( "sendmail_to" )->caption.c_str();
+	string sendmail_to = EclGetButton ( "sendmail_to" )->caption;
 
-	if ( strlen( sendmail_to ) >= SIZE_PERSON_NAME )
+	if ( sendmail_to.length() >= SIZE_PERSON_NAME )
 		sendmail_to [ SIZE_PERSON_NAME - 1 ] = '\0';
 
 	m->SetTo      ( sendmail_to );
 	m->SetFrom    ( "PLAYER" );
-	m->SetSubject ( (char *) EclGetButton ( "sendmail_subject" )->caption.c_str() );
-	m->SetBody    ( (char *) EclGetButton ( "sendmail_body box" )->caption.c_str() );
+	m->SetSubject ( EclGetButton ( "sendmail_subject" )->caption );
+	m->SetBody    ( EclGetButton ( "sendmail_body box" )->caption );
 
 	m->Send ();
 
@@ -382,9 +382,9 @@ void SendMailInterface::Remove ()
 
 		// Update m with the captions which may have been changed
 
-		m->SetTo      ( (char *) EclGetButton ( "sendmail_to" )->caption.c_str() );
-		m->SetSubject ( (char *) EclGetButton ( "sendmail_subject" )->caption.c_str() );
-		m->SetBody    ( (char *) EclGetButton ( "sendmail_body box" )->caption.c_str() );
+		m->SetTo      ( EclGetButton ( "sendmail_to" )->caption );
+		m->SetSubject ( EclGetButton ( "sendmail_subject" )->caption );
+		m->SetBody    ( EclGetButton ( "sendmail_body box" )->caption );
 
 		LocalInterfaceScreen::Remove ();
 

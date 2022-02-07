@@ -207,7 +207,7 @@ void Gateway::ExchangeGatewayComplete ()
 		}
 
 		if ( indexSlowest != -1 ) {
-			UplinkAssert (upgradeSlowest != nullptr)
+			assert(upgradeSlowest != nullptr);
 			removedItems.PutData ( upgradeSlowest->name );
 			hardware.RemoveData (indexSlowest);
 		}
@@ -296,7 +296,7 @@ void Gateway::ExchangeGatewayComplete ()
 void Gateway::SetModemType ( char *newmodem, int newmodemspeed )
 {
 
-	UplinkAssert ( strlen(newmodem) < 64 )
+	assert( strlen(newmodem) < 64 );
 	UplinkStrncpy ( modemtype, newmodem, sizeof ( modemtype ) )
 
 	modemspeed = newmodemspeed;

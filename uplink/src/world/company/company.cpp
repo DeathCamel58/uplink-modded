@@ -39,27 +39,27 @@ Company::Company()
 Company::~Company()
 = default;
 
-void Company::SetName ( char *newname )
+void Company::SetName (const string &newname )
 {
 
-	UplinkAssert ( strlen (newname) < SIZE_COMPANY_NAME )
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	assert( newname.length() < SIZE_COMPANY_NAME );
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 }
 
-void Company::SetBoss ( char *bossname )
+void Company::SetBoss (const string &bossname )
 {
 
-	UplinkAssert ( strlen (bossname) < SIZE_PERSON_NAME )
-	UplinkStrncpy ( boss, bossname, sizeof ( boss ) )
+	assert( bossname.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( boss, bossname.c_str(), sizeof ( boss ) )
 
 }
 
-void Company::SetAdmin ( char *adminname )
+void Company::SetAdmin (const string &adminname )
 {
 
-	UplinkAssert ( strlen(adminname) < SIZE_PERSON_NAME )
-	UplinkStrncpy ( administrator, adminname, sizeof ( administrator ) )
+	assert( adminname.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( administrator, adminname.c_str(), sizeof ( administrator ) )
 
 }
 
@@ -103,7 +103,7 @@ void Company::Grow ( int dayspast )
 	// Put our new price into our share history
 
 	int month = game->GetWorld ()->date.GetMonth () - 1;
-	UplinkAssert ( month >= 0 && month < 12 )
+	assert( month >= 0 && month < 12 );
     sharehistory [month] = NumberGenerator::ApplyVariance ( size, 30 );
     if ( sharehistory [month] < 1 ) sharehistory [month] = 1;
 	
@@ -136,7 +136,7 @@ int Company::GetSharePrice ( int month )
 	if ( month == -1 ) 
 		month = lastmonthset;
 
-	UplinkAssert ( month >= 0 && month < 12 )
+	assert( month >= 0 && month < 12 );
 
 	return ( sharehistory [ month ] );
 
@@ -146,7 +146,7 @@ int Company::GetShareChange ()
 {
 
 	int month = lastmonthset;
-	UplinkAssert ( month >= 0 && month < 12 )
+	assert( month >= 0 && month < 12 );
 	int currentprice = sharehistory [month];
 
 	--month;

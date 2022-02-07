@@ -46,7 +46,7 @@ SeizeGatewayEvent::~SeizeGatewayEvent ()
 void SeizeGatewayEvent::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen(newname) < SIZE_PERSON_NAME )
+	assert( strlen(newname) < SIZE_PERSON_NAME );
 	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }

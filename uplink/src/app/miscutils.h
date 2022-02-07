@@ -11,7 +11,7 @@
 
 #include "tosser.h"
 
-char *LowerCaseString       ( const char *thestring );
+string LowerCaseString       (const string &thestring );
 char *StripCarriageReturns  ( const char *thestring );               // Replaces first cr with \x0
 char *TrimSpaces            ( const char *thestring );
 
@@ -26,7 +26,7 @@ bool RemoveFile             (const string &filename );
 DArray <char *> *ListDirectory  ( char *directory, char *filter );
 DArray <char *> *ListSubdirs (const string &directory );
 
-void SetColour              ( char *colourName );                    // calls glColour3f
+void SetColour              (const string &colourName );                    // calls glColour3f
 
 void PrintStackTrace();
 

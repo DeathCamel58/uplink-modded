@@ -36,14 +36,14 @@ public:
 	DialogScreen();
 	~DialogScreen() override;
 
-	void AddWidget ( char *name, int WIDGETTYPE, int x, int y, int width, int height, char *caption, char *tooltip );
-	void AddWidget ( char *name, int WIDGETTYPE, int x, int y, int width, int height, char *caption, char *tooltip,
-					 int data1, int data2, char *stringdata1, char *stringdata2 );
+	void AddWidget (const string &name, int WIDGETTYPE, int x, int y, int width, int height, const string &caption, const string &tooltip );
+	void AddWidget (const string &name, int WIDGETTYPE, int x, int y, int width, int height, const string &caption, const string &tooltip,
+                    int data1, int data2, const string &stringdata1, const string &stringdata2 );
 
-	void RemoveWidget ( char *name );
+	void RemoveWidget (const string &name );
 
-	void SetReturnKeyButton ( char *name );
-    void SetEscapeKeyButton ( char *name );
+	void SetReturnKeyButton (const string &name );
+    void SetEscapeKeyButton (const string &name );
 
 	// Common functions
 
@@ -98,12 +98,12 @@ public:
 	DialogScreenWidget ();
 	~DialogScreenWidget () override;
 
-	void SetName ( char *newname );
+	void SetName (const string &newname );
 	void SetTYPE ( int NEWWIDGETTYPE );
 	void SetPosition ( int newx, int newy );
 	void SetSize ( int newwidth, int newheight );
-	void SetTooltip ( char *newtooltip );
-	void SetCaption ( char *newcaption );
+	void SetTooltip (const string &newtooltip );
+	void SetCaption (const string &newcaption );
 	
 	char *GetName ();
 	char *GetTooltip ();
@@ -112,7 +112,7 @@ public:
 	// Data access (data and stringdata is unused)
 
 	void SetData ( int newdata1, int newdata2 );
-	void SetStringData ( char *newstringdata1, char *newstringdata2 );
+	void SetStringData (const string &newstringdata1, const string &newstringdata2 );
 
 	char *GetStringData1 ();
 	char *GetStringData2 ();

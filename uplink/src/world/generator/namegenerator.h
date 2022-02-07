@@ -32,17 +32,17 @@ public:
 	static char *GenerateEasyPassword ();					// Guessable
 	static char *GenerateComplexPassword ();				// Non dictionary hackable
 	
-	static char *GenerateDataName ( char *companyname, int DATATYPE );
+	static char *GenerateDataName (const string &companyname, int DATATYPE );
 
-    static char *GeneratePublicAccessServerName     ( char *companyname );
-    static char *GenerateAccessTerminalName         ( char *companyname );
-    static char *GenerateInternalServicesServerName ( char *companyname );
-    static char *GenerateCentralMainframeName       ( char *companyname );
-    static char *GenerateInternationalBankName      ( char *companyname );
-    static char *GenerateFileServerName             ( char *companyname );
-    static char *GenerateLANName                    ( char *companyname );
-    static char *GeneratePersonalComputerName       ( char *personname );
-    static char *GenerateVoicePhoneSystemName       ( char *personname );
+    static char *GeneratePublicAccessServerName     (const string &companyname );
+    static char *GenerateAccessTerminalName         (const string &companyname );
+    static char *GenerateInternalServicesServerName (const string &companyname );
+    static char *GenerateCentralMainframeName       (const string &companyname );
+    static char *GenerateInternationalBankName      (const string &companyname );
+    static char *GenerateFileServerName             (const string &companyname );
+    static char *GenerateLANName                    (const string &companyname );
+    static char *GeneratePersonalComputerName       (const string &personname );
+    static char *GenerateVoicePhoneSystemName       (const string &personname );
 };
 
 #endif

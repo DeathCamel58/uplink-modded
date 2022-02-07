@@ -80,23 +80,23 @@ public:
 	void SetCompletion		( char *newA, char *newB, char *newC, char *newD, char *newE );
 
 	void SetCreateDate		( Date *date );
-	void SetEmployer		( char *newemployer );
-	void SetContact			( char *newcontact );
+	void SetEmployer		(const string &newemployer );
+	void SetContact			(const string &newcontact );
 	void SetPayment			( int newpayment, int newmaxpayment = -1 );
 	void SetDifficulty		( int newdifficulty );
 	void SetMinRating		( int newrating );
 	void SetAcceptRating	( int newrating );
 	void SetNpcPriority		( bool newpriority );
-	void SetDescription		( char *newdescription );
-	void SetDetails			( char *newdetails );
-	void SetFullDetails		( char *newdetails );
+	void SetDescription		(const string &newdescription );
+	void SetDetails			(const string &newdetails );
+	void SetFullDetails		(const string &newdetails );
 	
-	void SetWhySoMuchMoney	( char *answer );
-	void SetHowSecure		( char *answer );
-	void SetWhoIsTheTarget  ( char *answer );
+	void SetWhySoMuchMoney	(const string &answer );
+	void SetHowSecure		(const string &answer );
+	void SetWhoIsTheTarget  (const string &answer );
 
-	void GiveLink			( char *ip );
-	void GiveCode			( char *ip, char *code );
+	void GiveLink			(const string &ip );
+	void GiveCode			(const string &ip, const string &code );
 
 	void SetDueDate			( Date *newdate );
 	Date *GetDueDate		();							// Can return NULL

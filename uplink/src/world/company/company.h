@@ -59,15 +59,15 @@ public:
 	Company();
 	~Company() override;
 
-	void SetName ( char *newname );	
+	void SetName (const string &newname );
 
 	void SetSize ( int newsize );
 	void SetTYPE ( int newTYPE );
 	void SetGrowth ( int newgrowth );
 	void SetAlignment ( int newalignment );
 
-	void SetBoss ( char *bossname );
-	void SetAdmin ( char *adminname );
+	void SetBoss (const string &bossname );
+	void SetAdmin (const string &adminname );
 
 	void Grow ( int dayspast );					// Applies growth
 	void VaryGrowth ();

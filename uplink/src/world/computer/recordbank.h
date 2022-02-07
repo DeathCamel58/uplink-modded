@@ -56,13 +56,13 @@ public:
 	void AddRecordSorted ( Record *newrecord, char *sortfield = RECORDBANK_NAME );
 
 	Record *GetRecord			  ( int index );							// Returns NULL if not found
-	Record *GetRecord			  ( char *query );							// Assumes there is only 1 match
-	LList <Record *> *GetRecords  ( char *query );
-	Record *GetRandomRecord		  ( char *query );
+	Record *GetRecord			  (const string &query );							// Assumes there is only 1 match
+	LList <Record *> *GetRecords  (const string &query );
+	Record *GetRandomRecord		  (const string &query );
     
-    Record *GetRecordFromName           ( char *name );
-    Record *GetRecordFromNamePassword   ( char *name, char *password );
-    Record *GetRecordFromAccountNumber  ( char *accNo );
+    Record *GetRecordFromName           (const string &name );
+    Record *GetRecordFromNamePassword   (const string &name, const string &password );
+    Record *GetRecordFromAccountNumber  (const string &accNo );
 
 	int FindNextRecordIndexNameNotSystemAccount ( int curindex = -1);
 
@@ -78,7 +78,7 @@ public:
 	int GetOBJECTID () override;
 
 private:
-	char *MakeSafeField( char * fieldval );
+	static string MakeSafeField(const string &fieldval );
 
 };
 
@@ -104,14 +104,14 @@ public:
 	Record();
 	~Record() override;
 
-	void AddField    ( char *name, char *value );
-	void AddField    ( char *name, int value );
+	void AddField    (const string &name, const string &value );
+	void AddField    (const string &name, int value );
 	
-	void ChangeField ( char *name, char *newvalue );
-	void ChangeField ( char *name, int newvalue );
+	void ChangeField (const string &name, const string &newvalue );
+	void ChangeField (const string &name, int newvalue );
 
-	char *GetField   ( char *name );	 
-	void DeleteField ( char *name );
+    char *GetField   (const string &name );
+	void DeleteField (const string &name );
 
 	// Common functions
 

@@ -40,7 +40,7 @@ public:
 	virtual ~DisconnectedScreen();
 
 	void SetNextPage ( int newnextpage );
-	void SetTextMessage ( char *newtextmessage );
+	void SetTextMessage (const string &newtextmessage );
 
     static void AddLoginLost ( char *ip );
     static void ClearLoginsLost ();

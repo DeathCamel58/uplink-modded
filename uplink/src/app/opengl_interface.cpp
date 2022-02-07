@@ -52,11 +52,10 @@ void initialise_transparency ()
 	if ( !backdrop ) {
 
 		backdrop = new Image ();
-        char *filename = app->GetOptions()->ThemeFilename("backdrops/loading.tif");
-		backdrop->LoadTIF ( RsArchiveFileOpen ( filename ) );
+        string filename = app->GetOptions()->ThemeFilename("backdrops/loading.tif");
+		backdrop->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
 		backdrop->ScaleToOpenGL ();
 		backdrop->FlipAroundH ();
-        delete [] filename;
 				
 	}
 
@@ -904,11 +903,10 @@ void button_assignbitmap ( char *name, char *standard_f )
 	Button *button = EclGetButton ( name );
 	UplinkAssert ( button )
 
-    char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
+    string fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *image = new Image ();
-	image->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
-	image->SetAlpha ( ALPHA );	
-    delete [] fullfilename;
+	image->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	image->SetAlpha ( ALPHA );
     
 	button->SetStandardImage ( image );
 	button->RegisterDrawFunction ( imagebutton_draw );
@@ -940,23 +938,20 @@ void button_assignbitmaps ( char *name, char *standard_f, char *highlighted_f, c
 	Button *button = EclGetButton ( name );
 	UplinkAssert ( button )
 
-    char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
+    string fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *standard_i = new Image ();
-	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
-	standard_i->SetAlpha ( ALPHA );	
-    delete [] fullfilename;
+	standard_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	standard_i->SetAlpha ( ALPHA );
 
     fullfilename = app->GetOptions()->ThemeFilename( highlighted_f );
 	auto *highlighted_i = new Image ();
-	highlighted_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
+	highlighted_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
 	highlighted_i->SetAlpha ( ALPHA );
-    delete [] fullfilename;
     
     fullfilename = app->GetOptions()->ThemeFilename( clicked_f );
 	auto *clicked_i = new Image ();
-	clicked_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
+	clicked_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
 	clicked_i->SetAlpha ( ALPHA );
-    delete [] fullfilename;
 
 	button->SetImages ( standard_i, highlighted_i, clicked_i );
 	button->RegisterDrawFunction ( imagebutton_draw );
@@ -1007,26 +1002,23 @@ void button_assignbitmaps_blend ( char *name, char *standard_f, char *highlighte
 		bb = col->b;
 	}
 
-    char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
+    string fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *standard_i = new Image ();
-	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
+	standard_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
 	standard_i->SetAlpha ( 1.0f );
 	standard_i->SetAlphaBorder ( 0.0f, br, bg, bb );
-    delete [] fullfilename;
 
     fullfilename = app->GetOptions()->ThemeFilename( highlighted_f );
 	auto *highlighted_i = new Image ();
-	highlighted_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
+	highlighted_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
 	highlighted_i->SetAlpha ( 1.0f );
 	highlighted_i->SetAlphaBorder ( 0.0f, br, bg, bb );
-    delete [] fullfilename;
     
     fullfilename = app->GetOptions()->ThemeFilename( clicked_f );
 	auto *clicked_i = new Image ();
-	clicked_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
+	clicked_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
 	clicked_i->SetAlpha ( 1.0f );
 	clicked_i->SetAlphaBorder ( 0.0f, br, bg, bb );
-    delete [] fullfilename;
 
 	button->SetImages ( standard_i, highlighted_i, clicked_i );
 	button->RegisterDrawFunction ( imagebutton_draw_blend );
@@ -1052,12 +1044,11 @@ void button_assignbitmap_blend ( char *name, char *standard_f )
 		bb = col->b;
 	}
 
-    char *fullfilename = app->GetOptions()->ThemeFilename( standard_f );
+    string fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *image = new Image ();
-	image->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
+	image->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
 	image->SetAlpha ( 1.0f );
 	image->SetAlphaBorder ( 0.0f, br, bg, bb );
-    delete [] fullfilename;
     
 	button->SetStandardImage ( image );
 	button->RegisterDrawFunction ( imagebutton_draw_blend );
@@ -1069,11 +1060,10 @@ void button_assignbitmap_blend ( char *name, char *standard_f )
 Image *get_assignbitmap ( char *filename )
 {
 
-    char *fullfilename = app->GetOptions()->ThemeFilename( filename );
+    string fullfilename = app->GetOptions()->ThemeFilename( filename );
 	auto *standard_i = new Image ();
-	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
-	standard_i->SetAlpha ( ALPHA );	
-    delete [] fullfilename;
+	standard_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	standard_i->SetAlpha ( ALPHA );
 
 	return standard_i;
 
@@ -1296,11 +1286,11 @@ void draw_scrollbox  ( Button *button, bool highlighted, bool clicked )
 
 }
 
-void stextbox_scroll ( char *name, int newValue )
+void stextbox_scroll (const string &name, int newValue )
 {
 
     char name_box [256];
-	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box", name )
+	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box", name.c_str() )
     EclDirtyButton ( name_box );
   
 }

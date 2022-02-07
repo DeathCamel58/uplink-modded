@@ -137,24 +137,24 @@ void ConsoleScreenInterface::AddUser ( char *name )
 
 }
 
-void ConsoleScreenInterface::SetCurrentDir ( char *newcurrentdir )
+void ConsoleScreenInterface::SetCurrentDir (const string &newcurrentdir )
 {
 
-	UplinkAssert (newcurrentdir)
+	assert (!newcurrentdir.empty());
 
-	char *lcdir = LowerCaseString ( newcurrentdir );
+	string lcdir = LowerCaseString ( newcurrentdir );
 
-	if ( strcmp ( lcdir, "pub" ) == 0 ||
-		 strcmp ( lcdir, "usr" ) == 0 ||
-		 strcmp ( lcdir, "log" ) == 0 ||
-		 strcmp ( lcdir, "rec" ) == 0 ||
-		 strcmp ( lcdir, "sys" ) == 0 ||
-		 strcmp ( lcdir, "/"   ) == 0 ) {
+	if ( lcdir == "pub" ||
+		 lcdir == "usr" ||
+		 lcdir == "log" ||
+		 lcdir == "rec" ||
+		 lcdir == "sys" ||
+		 lcdir == "/"  ) {
 
-		UplinkStrncpy ( currentdir, lcdir, sizeof ( currentdir ) )
+		UplinkStrncpy ( currentdir, lcdir.c_str(), sizeof ( currentdir ) )
 
-	} else if ( strcmp ( lcdir, "." ) == 0 ||
-		strcmp ( lcdir, ".." ) == 0 ) {
+	} else if ( lcdir == "." ||
+		lcdir == ".." ) {
 
 		UplinkStrncpy ( currentdir, "/", sizeof ( currentdir ) )
 
@@ -163,9 +163,6 @@ void ConsoleScreenInterface::SetCurrentDir ( char *newcurrentdir )
 		PutText ( 0, "Unrecognised directory" );
 
 	}
-
-
-	delete [] lcdir;
 
 	char newcaption [16];
 	UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", currentdir )
@@ -214,23 +211,23 @@ void ConsoleScreenInterface::RunCommand ( char *command )
 
 	UplinkAssert (command)
 
-	char *lccommand = LowerCaseString ( command );
+	string lccommand = LowerCaseString ( command );
 
-	if      ( strstr ( lccommand, "help" ) ) {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_HELP, nullptr, 0 ) );		}
-	else if ( strstr ( lccommand, "dir" ) )  {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DIR, nullptr, 0 ) );			}
-	else if ( strstr ( lccommand, "cd " ) )  {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_CD, lccommand+3, 0 ) );	}
-	else if ( strstr ( lccommand, "delete" ) ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DELETEALL, nullptr, 0 ) );	}
-	else if ( strstr ( lccommand, "run " ) ) {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_RUN, lccommand+4, 0 ) );	}
-	else if ( strstr ( lccommand, "exit" ) ) {			queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_EXIT, nullptr, 0 ) );		}
-	else if ( strstr ( lccommand, "shutdown" ) ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_SHUTDOWN, nullptr, 0 ) );	}
-	else if ( strstr ( lccommand, "disconnect" ) ) {	queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DISCONNECT, nullptr, 0 ) );	}
+	if      ( lccommand.find( "help" ) != string::npos ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_HELP, "", 0 ) );		}
+	else if ( lccommand.find( "dir" ) != string::npos )  {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DIR, "", 0 ) );			}
+	else if ( lccommand.find( "cd " ) != string::npos )  {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_CD, lccommand.substr(3), 0 ) );	                    }
+	else if ( lccommand.find( "delete" ) != string::npos ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DELETEALL, "", 0 ) );	}
+	else if ( lccommand.find( "run " ) != string::npos ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_RUN, lccommand.substr(4), 0 ) );	                    }
+	else if ( lccommand.find( "exit" ) != string::npos ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_EXIT, "", 0 ) );		}
+	else if ( lccommand.find( "shutdown" ) != string::npos ) {	queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_SHUTDOWN, "", 0 ) );	}
+	else if ( lccommand.find( "disconnect" ) != string::npos ) {	queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DISCONNECT, "", 0 ) );	}
 	else {
 
 		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_TEXT, "Unrecognised text", 0 ) );
 
 	}
 
-	delete [] lccommand;
+	lccommand = "";
 	queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_TEXT, " ", 0 ) );
 
 }
@@ -275,7 +272,7 @@ void ConsoleScreenInterface::RunCommand ( ConsoleCommand *cc )
 
 }
 
-void ConsoleScreenInterface::RunCommand_TEXT ( char *text )
+void ConsoleScreenInterface::RunCommand_TEXT (const string &text )
 {
 
 	for ( int i = 0; i < NUMLINES-1; ++i ) {
@@ -436,7 +433,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 
 }
 
-void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
+void ConsoleScreenInterface::RunCommand_DELETEALL (const string &dir )
 {
 
 	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
@@ -445,7 +442,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 	Computer *comp = GetComputerScreen ()->GetComputer ();
 	UplinkAssert (comp)
 
-	if ( dir ) {
+	if ( !dir.empty() ) {
 
 		/*
 			This version of the DELETEALL command
@@ -454,12 +451,12 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 
 			  */
 
-		if ( strcmp ( dir, "sys" ) == 0 ) {
+		if ( dir == "sys" ) {
 
 			thisint->deleted_sys = true;
 
 		}
-		else if ( strcmp ( dir, "log" ) == 0 ) {
+		else if ( dir == "log" ) {
 
 			Date logdate;
 			logdate.SetDate ( &game->GetWorld ()->date );
@@ -482,7 +479,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 			}
 
 		}
-		else if ( strcmp ( dir, "usr" ) == 0 ) {
+		else if ( dir == "usr" ) {
 
 			comp->databank.Format ();
 
@@ -582,7 +579,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL ( char *dir )
 
 }
 
-void ConsoleScreenInterface::RunCommand_RUN	( char *program, bool actuallyrun )
+void ConsoleScreenInterface::RunCommand_RUN	(const string &program, bool actuallyrun )
 {
 
 	auto *thisint = (ConsoleScreenInterface *) GetInterfaceScreen ( SCREEN_CONSOLESCREEN );
@@ -599,21 +596,20 @@ void ConsoleScreenInterface::RunCommand_RUN	( char *program, bool actuallyrun )
 
 			bool isDataTheProgram = false;
 			if ( data ) {
-				char *lcDataTitle = LowerCaseString ( data->title );
-				isDataTheProgram = ( strcmp ( lcDataTitle , program ) == 0 );
-				delete [] lcDataTitle;
+				string lcDataTitle = LowerCaseString ( data->title );
+				isDataTheProgram = ( lcDataTitle == program );
 			}
 
 			if ( isDataTheProgram ) {
 
 				// Only a small number of programs are currently runnable
 
-				if ( strcmp ( program, "revelation" ) == 0 ) {
+				if ( program == "revelation" ) {
 
 					game->GetWorld ()->plotgenerator.RunRevelation ( comp->ip, data->version, true );
 
 				}
-                else if ( strcmp ( program, "faith" ) == 0 ) {
+                else if ( program == "faith" ) {
 
                     game->GetWorld ()->plotgenerator.RunFaith ( comp->ip, data->version, true );
 
@@ -627,7 +623,7 @@ void ConsoleScreenInterface::RunCommand_RUN	( char *program, bool actuallyrun )
                     }
 
                 }
-                else if ( strcmp ( program, "revelationtracer" ) == 0 ) {
+                else if ( program == "revelationtracer" ) {
 
                     game->GetWorld ()->plotgenerator.RunRevelationTracer ( comp->ip );
 
@@ -667,9 +663,8 @@ void ConsoleScreenInterface::RunCommand_RUN	( char *program, bool actuallyrun )
 
 				bool isDataTheProgram = false;
 				if ( data ) {
-					char *lcDataTitle = LowerCaseString ( data->title );
-					isDataTheProgram = ( strcmp ( lcDataTitle , program ) == 0 );
-					delete [] lcDataTitle;
+					string lcDataTitle = LowerCaseString ( data->title );
+					isDataTheProgram = ( lcDataTitle == program );
 				}
 
 				if ( isDataTheProgram ) {
@@ -946,24 +941,19 @@ ConsoleCommand::ConsoleCommand ()
 
 }
 
-ConsoleCommand::ConsoleCommand ( int newTYPE, char *newdata1, int newtime )
+ConsoleCommand::ConsoleCommand (int newTYPE, const string &newdata1, int newtime )
 {
 
 	TYPE = newTYPE;
 	time = newtime;
 
-	if ( newdata1 ) {
-		data1 = new char [strlen(newdata1)+1];
-		UplinkSafeStrcpy ( data1, newdata1 )
+	if ( !newdata1.empty() ) {
+		data1 = newdata1;
 	}
 	else
-		data1 = nullptr;
+		data1 = "";
 
 }
 
 ConsoleCommand::~ConsoleCommand ()
-{
-
-	if ( data1 ) delete [] data1;
-
-}
+= default;

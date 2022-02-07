@@ -111,7 +111,7 @@ void DataBank::InsertData ( Data *newdata )
             index = FindValidPlacement (newdata);
         }
     
-        UplinkAssert (index != -1)
+        assert(index != -1);
 
         for ( int i = 0; i < newdata->size; ++i )
 		    memory.PutData ( insertindex, index + i );
@@ -444,11 +444,11 @@ Data::Data ( Data *copyme )
 Data::~Data ()
 = default;
 
-void Data::SetTitle ( char *newtitle )
+void Data::SetTitle (const string &newtitle )
 {
 	
-	UplinkAssert ( strlen (newtitle) < SIZE_DATA_TITLE )
-	UplinkStrncpy ( title, newtitle, sizeof ( title ) )
+	assert( newtitle.length() < SIZE_DATA_TITLE );
+	UplinkStrncpy ( title, newtitle.c_str(), sizeof ( title ) )
 
 }
 

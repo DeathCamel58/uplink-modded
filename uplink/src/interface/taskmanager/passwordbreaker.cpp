@@ -121,13 +121,13 @@ void PasswordBreaker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 
 		// If the player has not entered a UserID then do this for admin
 		UplinkAssert ( EclGetButton ( "useridscreen_name" ) )
-		if ( EclGetButton ( "useridscreen_name" )->caption == "" )
+		if ( EclGetButton ( "useridscreen_name" )->caption.empty() )
 			EclGetButton ( "useridscreen_name" )->SetCaption ( "admin" );
 				
 		delete [] username;
-		char *name = (char *) EclGetButton ( "useridscreen_name" )->caption.c_str();
-		username = new char [strlen(name)+1];
-		UplinkSafeStrcpy ( username, name )
+		string name = EclGetButton ( "useridscreen_name" )->caption;
+		username = new char [name.length()+1];
+		UplinkSafeStrcpy ( username, name.c_str() )
 
 		// Look up the user name in this computer's records
 				

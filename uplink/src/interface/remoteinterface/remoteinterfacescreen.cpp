@@ -130,7 +130,7 @@ RemoteInterfaceScreen *RemoteInterfaceScreen::GetInterfaceScreen ( int screenID 
 
 	RemoteInterfaceScreen *result = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert ( result )
-	UplinkAssert ( screenID == result->ScreenID () )
+	assert( screenID == result->ScreenID () );
 	return result;
 
 }

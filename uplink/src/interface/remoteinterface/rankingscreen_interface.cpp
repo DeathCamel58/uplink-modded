@@ -170,7 +170,7 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 			}
 		}
 
-		UplinkAssert ( playerrank != -1 )
+		assert( playerrank != -1 );
 
 		// 
 		// Build the interface
@@ -192,8 +192,8 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 
 			if ( sorted.ValidIndex (i) ) {
 
-				UplinkAssert ( sorted.GetData (i)->GetOBJECTID () == OID_AGENT ||
-							   sorted.GetData (i)->GetOBJECTID () == OID_PLAYER )
+				assert( sorted.GetData (i)->GetOBJECTID () == OID_AGENT ||
+							   sorted.GetData (i)->GetOBJECTID () == OID_PLAYER );
 
 				auto *agent = (Agent *) sorted.GetData (i);
 

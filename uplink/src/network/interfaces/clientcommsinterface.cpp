@@ -80,7 +80,7 @@ ClientCommsInterface::~ClientCommsInterface()
 void ClientCommsInterface::MainMenuClick ( Button *button )
 {
 
-    UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT )
+    assert( app->GetNetwork ()->STATUS == NETWORK_CLIENT );
 
     app->GetNetwork ()->GetClient ()->SetClientType ( CLIENT_NONE );
     app->GetMainMenu ()->RunScreen ( MAINMENU_LOGIN );

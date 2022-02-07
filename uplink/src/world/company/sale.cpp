@@ -28,11 +28,11 @@ Sale::~Sale ()
 
 }
 
-void Sale::SetTitle ( char *newtitle )
+void Sale::SetTitle (const string &newtitle )
 {
 	
-	UplinkAssert ( strlen (newtitle) < SIZE_SALE_TITLE )
-	UplinkStrncpy ( title, newtitle, sizeof ( title ) )
+	assert( newtitle.length() < SIZE_SALE_TITLE );
+	UplinkStrncpy ( title, newtitle.c_str(), sizeof ( title ) )
 
 }
 
@@ -50,7 +50,7 @@ void Sale::SetSwhwTYPE ( int newSwhwTYPE )
 
 }
 
-void Sale::AddVersion ( char *details, int cost, int size, int data )
+void Sale::AddVersion (const string &details, int cost, int size, int data )
 {
 
 	auto *sv = new SaleVersion ();
@@ -157,12 +157,12 @@ SaleVersion::~SaleVersion ()
 
 }
 
-void SaleVersion::Set ( char *newdetails, int newcost, int newsize, int newdata )
+void SaleVersion::Set (const string &newdetails, int newcost, int newsize, int newdata )
 {
 
 	delete [] details;
-	details = new char [strlen(newdetails)+1];
-	UplinkSafeStrcpy ( details, newdetails )
+	details = new char [newdetails.length()+1];
+	UplinkSafeStrcpy ( details, newdetails.c_str() )
 
 	cost = newcost;
 	size = newsize;

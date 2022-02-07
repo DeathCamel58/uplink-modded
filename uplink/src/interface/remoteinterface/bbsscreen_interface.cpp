@@ -313,7 +313,7 @@ void BBSScreenInterface::ContactClick ( Button *button )
 			auto *cs = (ContactScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 			
 			UplinkAssert ( cs )
-			UplinkAssert ( cs->ScreenID () == SCREEN_CONTACTSCREEN )
+			assert( cs->ScreenID () == SCREEN_CONTACTSCREEN );
 
 			cs->SetTYPE ( CONTACT_TYPE_MISSION );
 			cs->SetMission ( mission );

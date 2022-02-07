@@ -70,13 +70,13 @@ public:
 	Person ();
 	~Person () override;
 
-	void SetName	    ( char *newname );
+	void SetName	    (const string &newname );
 	void SetAge	        ( int newage );
 	void SetPhotoIndex  ( int newindex );
     void SetVoiceIndex  ( int newindex );
-	void SetLocalHost   ( char *newip );
-	void SetRemoteHost  ( char *newip );
-	void SetPhoneNumber ( char *newphone );	
+	void SetLocalHost   (const string &newip );
+	void SetRemoteHost  (const string &newip );
+	void SetPhoneNumber (const string &newphone );
 	void SetStatus	    ( int newSTATUS );
 	int  GetStatus	    ( );
 

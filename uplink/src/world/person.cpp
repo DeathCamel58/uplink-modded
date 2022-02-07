@@ -57,11 +57,11 @@ Person::~Person()
 
 }
 
-void Person::SetName ( char *newname )
+void Person::SetName (const string &newname )
 {
 
-	UplinkAssert ( strlen (newname) < SIZE_PERSON_NAME )
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	assert( newname.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 	connection.SetOwner ( name );
 	rating.SetOwner ( name );
@@ -89,31 +89,31 @@ void Person::SetVoiceIndex  ( int newindex )
 
 }
 
-void Person::SetLocalHost ( char *newip )
+void Person::SetLocalHost (const string &newip )
 {
 
-	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
-	UplinkStrncpy ( localhost, newip, sizeof ( localhost ) )
+	assert( newip.length() < SIZE_VLOCATION_IP );
+	UplinkStrncpy ( localhost, newip.c_str(), sizeof ( localhost ) )
 
 	UplinkAssert ( game->GetWorld ()->GetVLocation ( localhost ) )
 
 }
 
-void Person::SetRemoteHost ( char *newip )
+void Person::SetRemoteHost (const string &newip )
 {
 
-	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
-	UplinkStrncpy ( remotehost, newip, sizeof ( remotehost ) )
+	assert( newip.length() < SIZE_VLOCATION_IP );
+	UplinkStrncpy ( remotehost, newip.c_str(), sizeof ( remotehost ) )
 
 	UplinkAssert ( game->GetWorld ()->GetVLocation ( remotehost ) )
 
 }
 
-void Person::SetPhoneNumber ( char *newphone )
+void Person::SetPhoneNumber (const string &newphone )
 {
 
-	UplinkAssert ( strlen(newphone) < SIZE_VLOCATION_IP )
-	UplinkStrncpy ( phonenumber, newphone, sizeof ( phonenumber ) )
+	assert( newphone.length() < SIZE_VLOCATION_IP );
+	UplinkStrncpy ( phonenumber, newphone.c_str(), sizeof ( phonenumber ) )
 
 	UplinkAssert ( game->GetWorld ()->GetVLocation ( phonenumber ) )
 

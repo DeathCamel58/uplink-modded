@@ -55,8 +55,8 @@ void LoadingInterface::Create ()
 		int screenh = app->GetOptions ()->GetOptionValue ( "graphics_screenheight" );
 		
 		// Decide which graphic to load up
-        char *filename = app->GetOptions ()->ThemeFilename ( "loading/filenames.txt" );
-		FILE *file = RsArchiveFileOpen ( filename, "rt" );		
+        string filename = app->GetOptions ()->ThemeFilename ( "loading/filenames.txt" );
+		FILE *file = RsArchiveFileOpen ( (char *) filename.c_str(), "rt" );
 		UplinkAssert (file)
 
         LList <char *> filenames;
@@ -84,8 +84,7 @@ void LoadingInterface::Create ()
 		EclRegisterButton ( SX(440), SY(450), 200, 15, "Connecting to GATEWAY...", "", "loading_text" );
         EclRegisterButtonCallbacks ( "loading_text", text_draw, nullptr, nullptr, nullptr );
 
-        RsArchiveFileClose ( filename, file );
-        delete [] filename;
+        RsArchiveFileClose ( (char *) filename.c_str(), file );
 
 //		RsCloseArchive ( "loading.dat" );
 

@@ -106,11 +106,11 @@ void App :: Initialise ()
 void App :: Set ( char *newpath, char *newversion, char *newtype, char *newdate, char *newtitle )
 {
                 
-	UplinkAssert ( strlen ( newpath ) < SIZE_APP_PATH )
-	UplinkAssert ( strlen ( newversion ) < SIZE_APP_VERSION )
-	UplinkAssert ( strlen ( newtype ) < SIZE_APP_TYPE )
-	UplinkAssert ( strlen ( newdate ) < SIZE_APP_DATE )
-	UplinkAssert ( strlen ( newtitle ) < SIZE_APP_TITLE )
+	assert( strlen ( newpath ) < SIZE_APP_PATH );
+	assert( strlen ( newversion ) < SIZE_APP_VERSION );
+	assert( strlen ( newtype ) < SIZE_APP_TYPE );
+	assert( strlen ( newdate ) < SIZE_APP_DATE );
+	assert( strlen ( newtitle ) < SIZE_APP_TITLE );
 
     path = newpath;
     UplinkStrncpy ( version, newversion, sizeof ( version ) )
@@ -169,7 +169,7 @@ void App::RegisterPhoneDialler ( PhoneDialler *phoneDiallerScreen )
 {
 
 	UplinkAssert ( phoneDiallerScreen )
-	UplinkAssert ( phoneDial != phoneDiallerScreen )
+	assert( phoneDial != phoneDiallerScreen );
 
 	if ( phoneDial )
 		UnRegisterPhoneDialler ( phoneDial );
@@ -208,6 +208,7 @@ void CopyGame (const string &username, const string &filename )
 void App::SetNextLoadGame (const string &username )
 {
 
+    // TODO: This assertion fails if the user doesn't provide a username on the login screen
 	assert( !username.empty() );
 
 	nextLoadGame = username;
@@ -342,10 +343,10 @@ void App::LoadGame (const string &username )
 
 }
 
-void App::SaveGame ( char *username )
+void App::SaveGame (const string &username ) const
 {
 
-	if ( strcmp ( username, "NEWAGENT" ) == 0 ) return;
+	if ( username == "NEWAGENT" ) return;
 
 	UplinkAssert ( game )
 
@@ -393,7 +394,7 @@ void App::SaveGame ( char *username )
 
 }
 
-void App::RetireGame ( char *username )
+void App::RetireGame (const string &username ) const
 {
 
 	string filenamereal = userpath + username + ".usr";
@@ -527,7 +528,7 @@ void App::Close ()
 
 }
 
-bool App::Closed ()
+bool App::Closed () const
 {
 
     return closed;
@@ -547,7 +548,7 @@ void App::CoreDump ()
 {
 
 #ifdef WIN32
-    MessageBox ( nullptr, "A Fatal Error occured in Uplink.\n\n"
+    MessageBox ( nullptr, "A Fatal Error occurred in Uplink.\n\n"
                        "Please report this on the Uplink forums at\n"
 					   "http://www.introversion.co.uk/\n\n"
                        "Uplink will now shut down.", 

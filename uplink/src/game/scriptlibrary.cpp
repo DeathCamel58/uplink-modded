@@ -370,7 +370,7 @@ void ScriptLibrary::Script13 ()
     UplinkAssert (vl)
     Computer *comp = vl->GetComputer ();
     UplinkAssert (comp)
-	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER )
+	assert(comp->GetOBJECTID () == OID_BANKCOMPUTER );
 	auto *bank = (BankComputer *) comp;
 
 	// Look up the account number based on the log in name
@@ -447,7 +447,7 @@ void ScriptLibrary::Script15 ()
 
 	auto *csi = (CriminalScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert ( csi )
-	UplinkAssert ( csi->ScreenID () == SCREEN_CRIMINALSCREEN )
+	assert( csi->ScreenID () == SCREEN_CRIMINALSCREEN );
 	csi->SetSearchName ( name );
 
 }
@@ -480,7 +480,7 @@ void ScriptLibrary::Script16 ()
 
 	auto *asi = (AcademicScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert ( asi )
-	UplinkAssert ( asi->ScreenID () == SCREEN_ACADEMICSCREEN )
+	assert( asi->ScreenID () == SCREEN_ACADEMICSCREEN );
 	asi->SetSearchName ( name );
 
 }
@@ -513,7 +513,7 @@ void ScriptLibrary::Script17 ()
 
 	auto *sssi = (SocialSecurityScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
 	UplinkAssert ( sssi )
-	UplinkAssert ( sssi->ScreenID () == SCREEN_SOCSECSCREEN )
+	assert( sssi->ScreenID () == SCREEN_SOCSECSCREEN );
 	sssi->SetSearchName ( name );
 
 }
@@ -1494,7 +1494,7 @@ void ScriptLibrary::Script60 ()
 
 	auto *ds = (DialogScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (ds)
-	UplinkAssert (ds->GetOBJECTID () == OID_DIALOGSCREEN )
+	assert(ds->GetOBJECTID () == OID_DIALOGSCREEN );
 
 	ds->RemoveWidget ( "email1" );
 	ds->RemoveWidget ( "view1" );
@@ -1521,7 +1521,7 @@ void ScriptLibrary::Script61 ()
 
 	auto *ds = (DialogScreen *) game->GetInterface ()->GetRemoteInterface ()->GetComputerScreen ();
 	UplinkAssert (ds)
-	UplinkAssert (ds->GetOBJECTID () == OID_DIALOGSCREEN )
+	assert(ds->GetOBJECTID () == OID_DIALOGSCREEN );
 
 	ds->RemoveWidget ( "email2" );
 	ds->RemoveWidget ( "view2" );

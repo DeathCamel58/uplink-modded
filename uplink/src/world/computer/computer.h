@@ -102,9 +102,9 @@ public:
 	~Computer() override;
 
 	void SetTYPE        ( int newTYPE );
-	void SetName		( char *newname );
-	void SetCompanyName ( char *newname );
-	void SetIP			( char *newip );
+	void SetName		(const string &newname );
+	void SetCompanyName (const string &newname );
+	void SetIP			(const string &newip );
 	void SetTraceSpeed  ( int newtracespeed );
 	void SetTraceAction ( int newtraceaction );
 

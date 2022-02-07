@@ -48,7 +48,7 @@ public:
 	
 	// Middle level functions for generating specific items of data
 
-	static Player *GeneratePlayer ( char *handle );
+	static Player *GeneratePlayer (const string &handle );
 	static void	   GenerateLocalMachine ();
 
 	static void GenerateCompanyUplink ();
@@ -80,24 +80,24 @@ public:
 	static VLocation *GenerateLocation ();			
 	static Company   *GenerateCompany ();
 	static Company   *GenerateCompany_Bank ();
-	static Computer  *GenerateComputer ( char *companyname );
+	static Computer  *GenerateComputer (const string &companyname );
 	static Person    *GeneratePerson ();
 	static Agent	 *GenerateAgent ();
 
-    static Computer  *GenerateComputer                ( char *companyName, int TYPE );
-	static Computer  *GeneratePublicAccessServer	  ( char *companyname );
-	static Computer  *GenerateInternalServicesMachine ( char *companyname );
-	static Computer  *GenerateCentralMainframe        ( char *companyname );
-	static Computer  *GeneratePublicBankServer        ( char *companyname );
-	static Computer	 *GenerateEmptyFileServer		  ( char *companyname );				// Used in StealResearch missions
-    static Computer  *GenerateLAN                     ( char *companyname );
-	static Computer  *GeneratePersonalComputer		  ( char *personname );
-	static Computer  *GenerateVoicePhoneSystem		  ( char *personname );
+    static Computer  *GenerateComputer                (const string &companyName, int TYPE );
+	static Computer  *GeneratePublicAccessServer	  (const string &companyname );
+	static Computer  *GenerateInternalServicesMachine (const string &companyname );
+	static Computer  *GenerateCentralMainframe        (const string &companyname );
+	static Computer  *GeneratePublicBankServer        (const string &companyname );
+	static Computer	 *GenerateEmptyFileServer		  (const string &companyname );				// Used in StealResearch missions
+    static Computer  *GenerateLAN                     (const string &companyname );
+	static Computer  *GeneratePersonalComputer		  (const string &personname );
+	static Computer  *GenerateVoicePhoneSystem		  (const string &personname );
 	
 
 	// Low level functions for "fleshing out" specific items of data
 
-	static Company   *GenerateCompany ( char *companyname, int size, int TYPE, int growth, int alignment );
+	static Company   *GenerateCompany (const string &companyname, int size, int TYPE, int growth, int alignment );
 
 	// Functions which return a random entry
 	static VLocation *GetRandomLocation ();

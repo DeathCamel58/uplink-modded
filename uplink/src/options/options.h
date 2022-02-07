@@ -32,10 +32,10 @@ protected:
 	BTree <Option *> options;
     LList <OptionChange *> shutdownChanges;
 
-    char themeName[128];
-    char themeAuthor[128];
-    char themeTitle[128];
-    char themeDescription[1024];
+    string themeName;
+    string themeAuthor;
+    string themeTitle;
+    string themeDescription;
     BTree <ColourOption *> colours;
 
 public:
@@ -46,24 +46,24 @@ public:
 	void CreateDefaultOptions ();													// Fills in all options not yet created
 
 
-	Option *GetOption ( char *name );												// Returns NULL if not found
-	int     GetOptionValue ( char *name );											// asserts existence of name
-	bool    IsOptionEqualTo ( char *name, int value );
+	Option *GetOption (const string &name );												// Returns NULL if not found
+	int     GetOptionValue (const string &name );											// asserts existence of name
+	bool    IsOptionEqualTo (const string &name, int value );
 	
-	void    SetOptionValue ( char *name, int newvalue );							// Does not create new 
-	void	SetOptionValue ( char *name, int newvalue, char *tooltip, 
-							 bool yesorno = false, bool visible = true );			// Creates new if neccisary
+	void    SetOptionValue (const string &name, int newvalue );							// Does not create new
+	void	SetOptionValue (const string &name, int newvalue, const string &tooltip,
+                            bool yesorno = false, bool visible = true );			// Creates new if neccisary
 
 	LList <Option *> *GetAllOptions ( char *searchstring, bool returnhidden );		// String can be NULL - will return ALL
 
     void SetThemeName ( char *newThemeName );
-    char *GetThemeName ();
-    char *GetThemeTitle ();
-    char *GetThemeDescription ();
+    string GetThemeName ();
+    string GetThemeTitle ();
+    string GetThemeDescription ();
     
-    ColourOption *GetColour     ( char *colourName );                                   // Always safe - returns BLACK if not found
+    ColourOption *GetColour     (const string &colourName );                                   // Always safe - returns BLACK if not found
 
-    char *ThemeFilename ( char *filename );
+    string ThemeFilename (const string &filename );
 
     void RequestShutdownChange ( char *optionName, int newValue );
     void ApplyShutdownChanges ();
@@ -102,8 +102,8 @@ public:
 	Option();
 	~Option() override;
 
-	void SetName    ( char *newname );
-	void SetTooltip ( char *newtooltip );
+	void SetName    (const string &newname );
+	void SetTooltip (const string &newtooltip );
 	void SetYesOrNo	( bool newyesorno );
 	void SetVisible ( bool newvisible );
 	void SetValue   ( int newvalue );

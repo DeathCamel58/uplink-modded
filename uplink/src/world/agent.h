@@ -43,23 +43,23 @@ public:
 	Agent ();
 	~Agent () override;
 
-	void SetHandle ( char *newhandle );
+	void SetHandle (const string &newhandle );
 
 	void GiveMission ( Mission *mission );
 	void CheckMissionDueDates ();						// Have any missions expired?
 
-	void GiveLink	 ( char *ip );
-	bool HasLink     ( char *ip );
-	void RemoveLink  ( char *ip );
+	void GiveLink	 (const string &newip );
+	bool HasLink     (const string &newip );
+	void RemoveLink  (const string &newip );
 
-	void GiveCode    ( char *newip, char *newcode );
+	void GiveCode    (const string &newip, const string &newcode );
 	void GiveMessage ( Message *message ) override;
-    int HasAccount  ( char *ip );                           // Returns access level or -1
+    int HasAccount  (const string &ip );                           // Returns access level or -1
 
 	int  CreateNewAccount ( char *bankip, char *accname, char *password, 
 							int balance, int loan ) override;			// Returns account number
 
-	bool HasMissionLink ( const char *ip );
+	bool HasMissionLink (const string &newip );
 
 	void AttemptMission ();								// Attempts mission 0
 	void AttemptMission_StealFile ();
@@ -68,9 +68,9 @@ public:
 	void AttemptMission_TraceUser ();
 	void AttemptMission_RemoveComputer ();
 
-	void EstablishConnection ( char *ip );				// Complexity based on skill
+	void EstablishConnection (const string &ip );				// Complexity based on skill
 
-    static bool ParseAccessCode ( const char *code, char *username, size_t usernamesize, char *password, size_t passwordsize );
+    static bool ParseAccessCode (const string &thecode, string &username, size_t usernamesize, string &password, size_t passwordsize );
 
 	// Common functions
 

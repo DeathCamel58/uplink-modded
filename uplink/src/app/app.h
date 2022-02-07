@@ -68,13 +68,13 @@ public:
     
 	void Initialise ();	
 	void Close ();			// Shuts down the app	
-    bool Closed ();         // True if in the process of shutting down
+    bool Closed () const;         // True if in the process of shutting down
 
 	void SetNextLoadGame (const string &username );       // Set the username to load with the next call to LoadGame
 	void LoadGame ();                                    // Use the username set with SetNextLoadGame
 	void LoadGame (const string &username );
-	void SaveGame ( char *username );
-	void RetireGame ( char *username );
+	void SaveGame (const string &username ) const;
+	void RetireGame (const string &username ) const;
 	static DArray <char *> *ListExistingGames ();
 
 	Options *GetOptions ();

@@ -35,21 +35,21 @@ void MessageScreen::SetNextPage ( int newnextpage )
 
 }
 
-void MessageScreen::SetTextMessage ( char *newtextmessage )
+void MessageScreen::SetTextMessage (const string &newtextmessage )
 {
 
 	delete [] textmessage;
-	textmessage = new char [strlen(newtextmessage)+1];
-	UplinkSafeStrcpy ( textmessage, newtextmessage )
+	textmessage = new char [newtextmessage.length()+1];
+	UplinkSafeStrcpy ( textmessage, newtextmessage.c_str() )
 
 }
 
-void MessageScreen::SetButtonMessage ( char *newbuttonmessage )
+void MessageScreen::SetButtonMessage (const string &newbuttonmessage )
 {
 
 	delete [] buttonmessage;
-	buttonmessage = new char [strlen(newbuttonmessage)+1];
-	UplinkSafeStrcpy ( buttonmessage, newbuttonmessage )
+	buttonmessage = new char [newbuttonmessage.length()+1];
+	UplinkSafeStrcpy ( buttonmessage, newbuttonmessage.c_str() )
 
 }
 

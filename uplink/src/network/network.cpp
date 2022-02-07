@@ -87,7 +87,7 @@ Network::~Network()
 NetworkServer *Network::GetServer ()
 {
 
-	UplinkAssert ( STATUS == NETWORK_SERVER )
+	assert( STATUS == NETWORK_SERVER );
 	return &server;
 
 }
@@ -95,7 +95,7 @@ NetworkServer *Network::GetServer ()
 NetworkClient *Network::GetClient ()
 {
 
-	UplinkAssert ( STATUS == NETWORK_CLIENT )
+	assert( STATUS == NETWORK_CLIENT );
 	return &client;
 
 }

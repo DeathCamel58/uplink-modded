@@ -440,7 +440,7 @@ void RecordGenerator::GenerateRecord_Financial ( char *personname, int age )
 
 	Computer *comp = WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 	UplinkAssert (comp)
-	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER )
+	assert(comp->GetOBJECTID () == OID_BANKCOMPUTER );
 	auto *bank = (BankComputer *) comp;
 
 	// Base level value - used to determine this man's situation

@@ -89,7 +89,7 @@ public:
 		they must be specifically requested
 	*/
 
-	static Mission *Generate_PayFine				 ( Person *person, Company *company, int amount, Date *duedate, char *reason );	
+	static Mission *Generate_PayFine				 (Person *person, Company *company, int amount, Date *duedate, const string &reason );
 	static Mission *Generate_FrameUser				 ( Company *employer, Person *person );
 	static Mission *Generate_TraceHacker			 ( Mission *completedmission, Person *hacker );
 	static Mission *Generate_TraceHacker			 ( Computer *hacked, Person *hacker );
@@ -121,7 +121,7 @@ public:
     static bool IsMissionComplete_Special        ( Mission *mission, Person *person, Message *message );
 
 	static void MissionCompleted ( Mission *mission, Person *person, Message *message );
-	static void MissionNotCompleted ( Mission *mission, Person *person, Message *message, char *reason );
+	static void MissionNotCompleted (Mission *mission, Person *person, Message *message, const string &reason );
 
 	/*
 		Call this if a person fails a mission - 
@@ -129,7 +129,7 @@ public:
 
 	*/
 
-	static void MissionFailed ( Mission *mission, Person *person, char *reason );
+	static void MissionFailed (Mission *mission, Person *person, const string &reason );
 
 };
 

@@ -1340,7 +1340,7 @@ int WorldMapInterface::IsVisibleWorldMapInterface ()
 int WorldMapInterface::GetScaledX ( int x, int SIZE )
 {
 
-    UplinkAssert ( x >= 0 && x < VIRTUAL_WIDTH )
+    assert( x >= 0 && x < VIRTUAL_WIDTH );
 
     switch ( SIZE ) {
 
@@ -1362,7 +1362,7 @@ int WorldMapInterface::GetScaledX ( int x, int SIZE )
 int WorldMapInterface::GetScaledY ( int y, int SIZE )
 {
 
-    UplinkAssert ( y >= 0 && y < VIRTUAL_HEIGHT )
+    assert( y >= 0 && y < VIRTUAL_HEIGHT );
 
     switch ( SIZE ) {
 
@@ -1460,7 +1460,7 @@ void WorldMapInterface::ScrollX ( float x )
 		button = EclGetButton ( name );
 
 		if ( button ) {
-	        VLocation *vl = game->GetWorld ()->GetVLocation ( (char *) button->caption.c_str() );
+	        VLocation *vl = game->GetWorld ()->GetVLocation ( button->caption );
 			if ( vl ) {
 				button->x = GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3;
 				button->y = GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3;
@@ -1523,7 +1523,7 @@ void WorldMapInterface::ScrollY ( float y )
 		button = EclGetButton ( name );
 
 		if ( button ) {
-	        VLocation *vl = game->GetWorld ()->GetVLocation ( (char *) button->caption.c_str() );
+	        VLocation *vl = game->GetWorld ()->GetVLocation ( button->caption );
 			if ( vl ) {
 				button->x = GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3;
 				button->y = GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3;
@@ -1596,7 +1596,7 @@ void WorldMapInterface::SetZoom ( float z )
 		button = EclGetButton ( name );
 
 		if ( button ) {
-	        VLocation *vl = game->GetWorld ()->GetVLocation ( (char *) button->caption.c_str() );
+	        VLocation *vl = game->GetWorld ()->GetVLocation ( button->caption );
 			if ( vl ) {
 				button->x = GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3;
 				button->y = GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3;
@@ -1716,7 +1716,7 @@ void WorldMapInterface::UpdateAccessLevel ()
 		button = EclGetButton ( name );
 
 		if ( button ) {
-	        VLocation *vl = game->GetWorld ()->GetVLocation ( (char *) button->caption.c_str() );
+	        VLocation *vl = game->GetWorld ()->GetVLocation ( button->caption );
 			if ( vl ) {
 				button->userinfo = game->GetWorld ()->GetPlayer ()->HasAccount ( vl->ip );
 			}

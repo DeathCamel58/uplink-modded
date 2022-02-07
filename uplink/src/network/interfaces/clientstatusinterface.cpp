@@ -164,7 +164,7 @@ void ClientStatusInterface::WorldPanelDraw ( Button *button, bool highlighted, b
 void ClientStatusInterface::MainMenuClick ( Button *button )
 {
 
-	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT )
+	assert( app->GetNetwork ()->STATUS == NETWORK_CLIENT );
 
 	app->GetNetwork ()->GetClient ()->SetClientType ( CLIENT_NONE );
 	app->GetMainMenu ()->RunScreen ( MAINMENU_LOGIN );
@@ -174,7 +174,7 @@ void ClientStatusInterface::MainMenuClick ( Button *button )
 void ClientStatusInterface::SetHardware	( char *newhw )
 {
 
-	UplinkAssert ( strlen(newhw) < sizeof(hardware) )
+	assert( strlen(newhw) < sizeof(hardware) );
 	UplinkStrncpy ( hardware, newhw, sizeof ( hardware ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
@@ -184,7 +184,7 @@ void ClientStatusInterface::SetHardware	( char *newhw )
 void ClientStatusInterface::SetHUDUpgrades ( char *newhud )
 {
 	
-	UplinkAssert ( strlen(newhud) < sizeof(hudupgrades) )
+	assert( strlen(newhud) < sizeof(hudupgrades) );
 	UplinkStrncpy ( hudupgrades, newhud, sizeof ( hudupgrades ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
@@ -194,7 +194,7 @@ void ClientStatusInterface::SetHUDUpgrades ( char *newhud )
 void ClientStatusInterface::SetConnection	( char *newconnection )
 {
 
-	UplinkAssert ( strlen(newconnection) < sizeof(connection) )
+	assert( strlen(newconnection) < sizeof(connection) );
 	UplinkStrncpy ( connection, newconnection, sizeof ( connection ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
@@ -204,7 +204,7 @@ void ClientStatusInterface::SetConnection	( char *newconnection )
 void ClientStatusInterface::SetRating ( char *newrating )
 {
 	
-	UplinkAssert ( strlen(newrating) < sizeof(ratings) )
+	assert( strlen(newrating) < sizeof(ratings) );
 	UplinkStrncpy ( ratings, newrating, sizeof ( ratings ) )
 
 	EclDirtyButton ( "status_personalbg" );
@@ -214,7 +214,7 @@ void ClientStatusInterface::SetRating ( char *newrating )
 void ClientStatusInterface::SetFinancial ( char *newfinancial )
 {
 
-	UplinkAssert (strlen(newfinancial) < sizeof(financial) )
+	assert(strlen(newfinancial) < sizeof(financial) );
 	UplinkStrncpy ( financial, newfinancial, sizeof ( financial ) )
 
 	EclDirtyButton ( "status_personalbg" );
@@ -224,7 +224,7 @@ void ClientStatusInterface::SetFinancial ( char *newfinancial )
 void ClientStatusInterface::SetCriminal  ( char *newcriminal )
 {
 
-	UplinkAssert (strlen(newcriminal) < sizeof(criminal) )
+	assert(strlen(newcriminal) < sizeof(criminal) );
 	UplinkStrncpy ( criminal, newcriminal, sizeof ( criminal ) )
 
 	EclDirtyButton ( "status_personalbg" );

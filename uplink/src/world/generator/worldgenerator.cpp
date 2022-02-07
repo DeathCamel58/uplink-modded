@@ -73,15 +73,14 @@ void WorldGenerator::Initialise()
 {
 
 	worldmapmask = new Image ();
-	char *filename;
+	string filename;
 	if ( game->GetWorldMapType () == Game::defconworldmap )
 		filename = app->GetOptions ()->ThemeFilename ( "worldmaplarge_mask_defcon.tif" );
 	else
 		filename = app->GetOptions ()->ThemeFilename ( "worldmaplarge_mask_new.tif" );
-	worldmapmask->LoadTIF ( RsArchiveFileOpen ( filename ) );
+	worldmapmask->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
 	worldmapmask->Scale ( VIRTUAL_WIDTH, VIRTUAL_HEIGHT );
 	worldmapmask->FlipAroundH ();
-    delete [] filename;
 
 }
 
@@ -117,8 +116,8 @@ void WorldGenerator::GenerateValidMapPos ( int &x, int &y )
 		int tX = NumberGenerator::RandomNumber ( VIRTUAL_WIDTH - 1 );
 		int tY = NumberGenerator::RandomNumber ( VIRTUAL_HEIGHT - 1 ) ;
 
-		UplinkAssert ( tX >= 0 && tX < VIRTUAL_WIDTH )
-		UplinkAssert ( tY >= 0 && tY < VIRTUAL_HEIGHT )
+		assert( tX >= 0 && tX < VIRTUAL_WIDTH );
+		assert( tY >= 0 && tY < VIRTUAL_HEIGHT );
 
 		if ( worldmapmask->GetPixelR ( tX, tY ) != 0 ) {
 
@@ -269,7 +268,7 @@ void WorldGenerator::GenerateSimpleStartingMissionB ()
 
 }
 
-Player *WorldGenerator::GeneratePlayer ( char *handle )
+Player *WorldGenerator::GeneratePlayer (const string &handle )
 {
 
 	// Initialise the player
@@ -358,7 +357,7 @@ void WorldGenerator::GenerateLocalMachine ()
 	dlg3->SetMainTitle ( "Gateway" );
 	dlg3->SetSubTitle ( "Log on complete" );
 	dlg3->AddWidget ( "text2", WIDGET_CAPTION, 170, 210, 270, 15, "Welcome back to your Gateway", "" );
-	dlg3->AddWidget ( "okbutton", WIDGET_NEXTPAGE, 300, 350, 50, 20, "OK", "Click to continue", 0, 0, nullptr, nullptr );
+	dlg3->AddWidget ( "okbutton", WIDGET_NEXTPAGE, 300, 350, 50, 20, "OK", "Click to continue", 0, 0, "", "" );
 	localmachine->AddComputerScreen ( dlg3, 3 );
 
 
@@ -371,7 +370,7 @@ void WorldGenerator::GenerateLocalMachine ()
 
 	auto *dlg6 = new DialogScreen ();
 	dlg6->AddWidget ( "text2", WIDGET_CAPTION, 100, 210, 340, 15, "UPLINK Operating System successfully started on Gateway", "" );
-	dlg6->AddWidget ( "okbutton", WIDGET_NEXTPAGE, 300, 350, 50, 20, "OK", "Click to continue", 7, 0, nullptr, nullptr );
+	dlg6->AddWidget ( "okbutton", WIDGET_NEXTPAGE, 300, 350, 50, 20, "OK", "Click to continue", 7, 0, "", "" );
 	localmachine->AddComputerScreen ( dlg6, 6 );
 
 	// Screen 7						All done!
@@ -388,8 +387,8 @@ void WorldGenerator::GenerateLocalMachine ()
 						   "WOULD YOU LIKE TO RUN THE TUTORIAL?\n"
 						   "(Recommended for first time users)"
 						   , "" );
-	dlg7->AddWidget ( "runtutorial", WIDGET_SCRIPTBUTTON, 300, 350, 50, 20, "Yes", "Run the tutorial", 43, 0, nullptr, nullptr );
-	dlg7->AddWidget ( "dontruntutorial", WIDGET_NEXTPAGE, 200, 350, 50, 20, "No", "Skip the tutorial and return to the main screen", 0, 0, nullptr, nullptr );
+	dlg7->AddWidget ( "runtutorial", WIDGET_SCRIPTBUTTON, 300, 350, 50, 20, "Yes", "Run the tutorial", 43, 0, "", "" );
+	dlg7->AddWidget ( "dontruntutorial", WIDGET_NEXTPAGE, 200, 350, 50, 20, "No", "Skip the tutorial and return to the main screen", 0, 0, "", "" );
 	localmachine->AddComputerScreen ( dlg7, 7 );
 
 	// Screen 8						404 page not found error ;)
@@ -696,8 +695,8 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 	dlg2->AddWidget ( "caption1", WIDGET_CAPTION, 100, 110, 380, 270, body2.str (), "" );
 	body2.rdbuf()->freeze( false );
 	//delete [] body2.str ();
-	dlg2->AddWidget ( "cancel", WIDGET_NEXTPAGE, 160, 380, 100, 20, "Cancel", "Cancel registration", 1, 0, nullptr, nullptr );
-	dlg2->AddWidget ( "continue", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Continue", "Continue registration", 3, 0, nullptr, nullptr );
+	dlg2->AddWidget ( "cancel", WIDGET_NEXTPAGE, 160, 380, 100, 20, "Cancel", "Cancel registration", 1, 0, "", "" );
+	dlg2->AddWidget ( "continue", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Continue", "Continue registration", 3, 0, "", "" );
 	dlg2->SetReturnKeyButton ( "continue" );
 	comp->AddComputerScreen ( dlg2, 2 );
 
@@ -720,7 +719,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 																	 "however you will be safe from arrest as your real world address will never be stored.",
 																	 "" );
 
-	dlg3->AddWidget ( "continue", WIDGET_SCRIPTBUTTON, 270, 400, 100, 20, "Done", "Click here when finished", 33, -1, nullptr, nullptr );
+	dlg3->AddWidget ( "continue", WIDGET_SCRIPTBUTTON, 270, 400, 100, 20, "Done", "Click here when finished", 33, -1, "", "" );
 	dlg3->SetReturnKeyButton ( "continue" );
 	comp->AddComputerScreen ( dlg3, 3 );
 
@@ -754,9 +753,9 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 	//delete [] body3.str ();
 
 #ifdef TESTGAME
-	dlg5->AddWidget ( "continue", WIDGET_SCRIPTBUTTON, 270, 380, 100, 20, "Done", "Click here when finished", 36, 6, nullptr, nullptr );
+	dlg5->AddWidget ( "continue", WIDGET_SCRIPTBUTTON, 270, 380, 100, 20, "Done", "Click here when finished", 36, 6, "", "" );
 #else
-    dlg5->AddWidget ( "continue", WIDGET_SCRIPTBUTTON, 270, 380, 100, 20, "Done", "Click here when finished", 34, 6, nullptr, nullptr );
+    dlg5->AddWidget ( "continue", WIDGET_SCRIPTBUTTON, 270, 380, 100, 20, "Done", "Click here when finished", 34, 6, "", "" );
 #endif
 
 	dlg5->SetReturnKeyButton ( "continue" );
@@ -794,9 +793,9 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 							"systems and sometimes require a new one as a result.  If this is the case, click YES below "
 							"and we will assign you a new gateway.  (There will be an administrative charge of 1000 credits "
 							"if you take this action.)  Otherwise, click NO to log off and try again later.\n\n"
-							"Rent a new Gateway computer?", "", 0, 0, nullptr, nullptr );
-	dlg10->AddWidget ( "yes", WIDGET_SCRIPTBUTTON, 170, 380, 100, 20, "YES", "Click here to rent a new Gateway", 50, 4, nullptr, nullptr );
-	dlg10->AddWidget ( "no", WIDGET_SCRIPTBUTTON, 300, 380, 100, 20, "NO", "Click here to log out", 51, -1, nullptr, nullptr );
+							"Rent a new Gateway computer?", "", 0, 0, "", "" );
+	dlg10->AddWidget ( "yes", WIDGET_SCRIPTBUTTON, 170, 380, 100, 20, "YES", "Click here to rent a new Gateway", 50, 4, "", "" );
+	dlg10->AddWidget ( "no", WIDGET_SCRIPTBUTTON, 300, 380, 100, 20, "NO", "Click here to log out", 51, -1, "", "" );
 	comp->AddComputerScreen ( dlg10, 10 );
 
 }
@@ -1689,8 +1688,8 @@ void WorldGenerator::GenerateGlobalCriminalDatabase ()
 	ds7->SetMainTitle ( "Global Criminal Database" );
 	ds7->SetSubTitle ( "Search for Criminal Record" );
 	ds7->AddWidget ( "name", WIDGET_TEXTBOX, 150, 200, 200, 15, "Enter name here", "Type the name of the person to search for here" );
-	ds7->AddWidget ( "OK", WIDGET_SCRIPTBUTTON, 150, 240, 80, 15, "OK", "Click here when done", 15, -1, nullptr, nullptr );
-	ds7->AddWidget ( "Cancel", WIDGET_NEXTPAGE, 270, 240, 80, 15, "Cancel", "Click here to return to the menu", 4, -1, nullptr, nullptr );
+	ds7->AddWidget ( "OK", WIDGET_SCRIPTBUTTON, 150, 240, 80, 15, "OK", "Click here when done", 15, -1, "", "" );
+	ds7->AddWidget ( "Cancel", WIDGET_NEXTPAGE, 270, 240, 80, 15, "Cancel", "Click here to return to the menu", 4, -1, "", "" );
 
 	ds7->AddWidget ( "border1", WIDGET_BASIC, 120, 170, 260, 4, "", "" );
 	ds7->AddWidget ( "border2", WIDGET_BASIC, 120, 266, 260, 4, "", "" );
@@ -1828,8 +1827,8 @@ void WorldGenerator::GenerateInternationalSocialSecurityDatabase ()
 	ds5->SetMainTitle ( "Social Security Database" );
 	ds5->SetSubTitle ( "Search for social security record" );
 	ds5->AddWidget ( "name", WIDGET_TEXTBOX, 150, 200, 200, 15, "Enter name here", "Type the name of the person to search for here" );
-	ds5->AddWidget ( "OK", WIDGET_SCRIPTBUTTON, 150, 240, 80, 15, "OK", "Click here when done", 17, -1, nullptr, nullptr );
-	ds5->AddWidget ( "Cancel", WIDGET_NEXTPAGE, 270, 240, 80, 15, "Cancel", "Click here to return to the menu", 2, -1, nullptr, nullptr );
+	ds5->AddWidget ( "OK", WIDGET_SCRIPTBUTTON, 150, 240, 80, 15, "OK", "Click here when done", 17, -1, "", "" );
+	ds5->AddWidget ( "Cancel", WIDGET_NEXTPAGE, 270, 240, 80, 15, "Cancel", "Click here to return to the menu", 2, -1, "", "" );
 
 	ds5->AddWidget ( "border1", WIDGET_BASIC, 120, 170, 260, 4, "", "" );
 	ds5->AddWidget ( "border2", WIDGET_BASIC, 120, 266, 260, 4, "", "" );
@@ -2044,8 +2043,8 @@ void WorldGenerator::GenerateInternationalAcademicDatabase ()
 	ds5->SetMainTitle ( "International Academic Database" );
 	ds5->SetSubTitle ( "Search for Academic record" );
 	ds5->AddWidget ( "name", WIDGET_TEXTBOX, 150, 200, 200, 15, "Enter name here", "Type the name of the person to search for here" );
-	ds5->AddWidget ( "OK", WIDGET_SCRIPTBUTTON, 150, 240, 80, 15, "OK", "Click here when done", 16, -1, nullptr, nullptr );
-	ds5->AddWidget ( "Cancel", WIDGET_NEXTPAGE, 270, 240, 80, 15, "Cancel", "Click here to return to the menu", 2, -1, nullptr, nullptr );
+	ds5->AddWidget ( "OK", WIDGET_SCRIPTBUTTON, 150, 240, 80, 15, "OK", "Click here when done", 16, -1, "", "" );
+	ds5->AddWidget ( "Cancel", WIDGET_NEXTPAGE, 270, 240, 80, 15, "Cancel", "Click here to return to the menu", 2, -1, "", "" );
 
 	ds5->AddWidget ( "border1", WIDGET_BASIC, 120, 170, 260, 4, "", "" );
 	ds5->AddWidget ( "border2", WIDGET_BASIC, 120, 266, 260, 4, "", "" );
@@ -2746,7 +2745,7 @@ VLocation *WorldGenerator::GenerateLocation ()
 
 }
 
-Company *WorldGenerator::GenerateCompany ( char *companyname, int size, int TYPE, int growth, int alignment )
+Company *WorldGenerator::GenerateCompany (const string &companyname, int size, int TYPE, int growth, int alignment )
 {
 
 	auto *company = new Company ();
@@ -2775,7 +2774,7 @@ Company *WorldGenerator::GenerateCompany ( char *companyname, int size, int TYPE
 	UplinkAssert (comp)
 
 	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname )
+	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname.c_str() )
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, comp->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2822,7 +2821,7 @@ Company *WorldGenerator::GenerateCompany_Bank ()
 
 }
 
-Computer *WorldGenerator::GenerateComputer ( char *companyname )
+Computer *WorldGenerator::GenerateComputer (const string &companyname )
 {
 
     //char *computername = strdup( NameGenerator::GenerateAccessTerminalName( companyname ) );
@@ -2856,7 +2855,7 @@ Computer *WorldGenerator::GenerateComputer ( char *companyname )
 
 }
 
-Computer  *WorldGenerator::GenerateComputer ( char *companyName, int TYPE )
+Computer  *WorldGenerator::GenerateComputer (const string &companyName, int TYPE )
 {
 
     if ( TYPE & COMPUTER_TYPE_PUBLICACCESSSERVER )                  return GeneratePublicAccessServer ( companyName );
@@ -2871,7 +2870,7 @@ Computer  *WorldGenerator::GenerateComputer ( char *companyName, int TYPE )
 
 }
 
-Computer *WorldGenerator::GeneratePublicAccessServer ( char *companyname )
+Computer *WorldGenerator::GeneratePublicAccessServer (const string &companyname )
 {
 
     //char *computername = strdup( NameGenerator::GeneratePublicAccessServerName( companyname ) );
@@ -2915,7 +2914,7 @@ Computer *WorldGenerator::GeneratePublicAccessServer ( char *companyname )
 
 }
 
-Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
+Computer *WorldGenerator::GenerateInternalServicesMachine (const string &companyname )
 {
 
     //char *computername = strdup( NameGenerator::GenerateInternalServicesServerName( companyname ) );
@@ -2980,7 +2979,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
             				   COMPUTER_TRACEACTION_LEGAL );
 
 
-	if ( strcmp ( companyname, "Government" ) == 0 )
+	if ( companyname == "Government" )
 		comp->SetIsTargetable (false);
 
 	game->GetWorld ()->CreateComputer ( comp );
@@ -3105,7 +3104,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine ( char *companyname )
 
 }
 
-Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
+Computer *WorldGenerator::GenerateCentralMainframe (const string &companyname )
 {
 
     //char *computername = strdup( NameGenerator::GenerateCentralMainframeName(companyname) );
@@ -3151,7 +3150,7 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
     if ( firewallstrength < 1 ) firewallstrength = 1;
     comp->security.AddSystem ( SECURITY_TYPE_FIREWALL, firewallstrength );
 
-	if ( strcmp ( companyname, "Government" ) == 0 )
+	if ( companyname == "Government" )
 		comp->SetIsTargetable (false);
 
 
@@ -3263,7 +3262,7 @@ Computer *WorldGenerator::GenerateCentralMainframe ( char *companyname )
 
 }
 
-Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
+Computer *WorldGenerator::GeneratePublicBankServer (const string &companyname )
 {
 
     //char *computername = strdup( NameGenerator::GenerateInternationalBankName( companyname ) );
@@ -3525,7 +3524,7 @@ Computer *WorldGenerator::GeneratePublicBankServer ( char *companyname )
 
 }
 
-Computer *WorldGenerator::GenerateEmptyFileServer ( char *companyname )
+Computer *WorldGenerator::GenerateEmptyFileServer (const string &companyname )
 {
 
     //char *computername = strdup( NameGenerator::GenerateFileServerName( companyname ) );
@@ -3576,7 +3575,7 @@ Computer *WorldGenerator::GenerateEmptyFileServer ( char *companyname )
 
 }
 
-Computer  *WorldGenerator::GenerateLAN ( char *companyname )
+Computer  *WorldGenerator::GenerateLAN (const string &companyname )
 {
 
 	Company *company = game->GetWorld()->GetCompany( companyname );
@@ -3594,7 +3593,7 @@ Computer  *WorldGenerator::GenerateLAN ( char *companyname )
 	return nullptr;
 }
 
-Computer *WorldGenerator::GeneratePersonalComputer ( char *personname )
+Computer *WorldGenerator::GeneratePersonalComputer (const string &personname )
 {
 
     //char *computername = strdup( NameGenerator::GeneratePersonalComputerName( personname ) );
@@ -3633,7 +3632,7 @@ Computer *WorldGenerator::GeneratePersonalComputer ( char *personname )
 
 }
 
-Computer *WorldGenerator::GenerateVoicePhoneSystem ( char *personname )
+Computer *WorldGenerator::GenerateVoicePhoneSystem (const string &personname )
 {
 
     //char *computername = strdup( NameGenerator::GenerateVoicePhoneSystemName( personname ) );
@@ -3831,10 +3830,10 @@ VLocation *WorldGenerator::GetRandomLocation ()
 {
 
 	DArray <char *> *vls = game->GetWorld ()->locations.ConvertIndexToDArray ();
-	UplinkAssert ( vls->Size () > 0 )
+	assert( vls->Size () > 0 );
 
 	int index = NumberGenerator::RandomNumber ( vls->Size () );
-	UplinkAssert ( vls->ValidIndex (index) )
+	assert( vls->ValidIndex (index) );
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( vls->GetData (index) );
 	delete vls;
@@ -3846,7 +3845,7 @@ Company *WorldGenerator::GetRandomCompany ()
 {
 
 	DArray <char *> *comps = game->GetWorld ()->companies.ConvertIndexToDArray ();
-	UplinkAssert ( comps->Size () > 0 )
+	assert( comps->Size () > 0 );
 
 	while (true) {
 
@@ -3907,7 +3906,7 @@ Computer *WorldGenerator::GetRandomComputer ( int TYPE )
 {
 
 	DArray <char *> *comps = game->GetWorld ()->computers.ConvertIndexToDArray ();
-	UplinkAssert ( comps->Size () > 0 )
+	assert( comps->Size () > 0 );
 
 	// Create a new array of all valid computers
 
@@ -4009,7 +4008,7 @@ Person *WorldGenerator::GetRandomPerson ()
     // Build a list of all valid People
 
 	DArray <char *> *people = game->GetWorld ()->people.ConvertIndexToDArray ();
-	UplinkAssert ( people->Size () > 0 )
+	assert( people->Size () > 0 );
 
     DArray <Person *> validPeople;
 
@@ -4053,7 +4052,7 @@ Agent *WorldGenerator::GetRandomAgent ()
 {
 
 	DArray <char *> *people = game->GetWorld ()->people.ConvertIndexToDArray ();
-	UplinkAssert ( people->Size () > 0 )
+	assert( people->Size () > 0 );
 
 /*
 
@@ -4128,7 +4127,7 @@ Mission *WorldGenerator::GetRandomMission  ()
 	UplinkAssert ( cu )
 
 	LList <Mission *> *missions = &(cu->missions);
-	UplinkAssert ( missions->Size () > 0 )
+	assert( missions->Size () > 0 );
 
 	int index = NumberGenerator::RandomNumber ( missions->Size () );
 	UplinkAssert ( missions->ValidIndex (index) )

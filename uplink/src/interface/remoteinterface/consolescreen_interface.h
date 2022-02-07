@@ -58,7 +58,7 @@ public:
 
 	void AddUser ( char *name );
 
-	void SetCurrentDir ( char *currentdir );
+	void SetCurrentDir (const string &newcurrentdir );
 	
 	void PutText ( int userid, char *text );					// Adds text to end of queue
 	void PutTextAtStart ( int userid, char *text );
@@ -66,12 +66,12 @@ public:
 	void RunCommand				( char *command );				// Parses command into ConsoleCommand object
 	void RunCommand				( ConsoleCommand *cc );
 
-	void RunCommand_TEXT		( char *text );
+	void RunCommand_TEXT		(const string &text );
 	void RunCommand_DIR			();
 	void RunCommand_HELP		();
 	void RunCommand_EXIT		();
-	void RunCommand_DELETEALL	( char *dir );
-	void RunCommand_RUN			( char *program, bool actuallyrun );				// If true, the command itself is run
+	void RunCommand_DELETEALL	(const string &dir );
+	void RunCommand_RUN			(const string &program, bool actuallyrun );				// If true, the command itself is run
 	void RunCommand_SHUTDOWN	();
 	void RunCommand_DISCONNECT	();
 
@@ -111,13 +111,13 @@ class ConsoleCommand
 public:
 
 	int TYPE;
-	char *data1;
+	string data1;
 	int time;
 
 public:
 
 	ConsoleCommand ();
-	ConsoleCommand ( int newTYPE, char *newdata1, int newtime );
+	ConsoleCommand (int newTYPE, const string &newdata1, int newtime );
 	~ConsoleCommand ();
 
 };

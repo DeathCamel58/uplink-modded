@@ -477,28 +477,28 @@ void IRCInterface::AddUser ( char *name )
     // Insert in order
 
     bool inserted = false;
-    char *lowerCaseName = LowerCaseString (name);
+    string lowerCaseName = LowerCaseString (name);
 
     for ( int i = 0; i < users.Size(); ++i ) {
         UplinkIRCUser *thisUser = users.GetData(i);
         UplinkAssert (thisUser)
-        char *lowerCaseThisUser = LowerCaseString ( thisUser->name );
+        string lowerCaseThisUser = LowerCaseString ( thisUser->name );
         if ( ( user->status == 1 && thisUser->status == 0 )                                                            ||
-             (user->status == 1 && thisUser->status == 1 && strcmp ( lowerCaseName, lowerCaseThisUser ) < 0 )          ||
-             (user->status == 0 && thisUser->status == 0 && strcmp ( lowerCaseName, lowerCaseThisUser ) < 0 ) ) {
+             (user->status == 1 && thisUser->status == 1 && lowerCaseName.compare( lowerCaseThisUser ) < 0 )          ||
+             (user->status == 0 && thisUser->status == 0 && lowerCaseName.compare( lowerCaseThisUser ) < 0 ) ) {
 
             users.PutDataAtIndex ( user, i );
             inserted = true;
-            delete [] lowerCaseThisUser;
+            lowerCaseThisUser = "";
             break;
         }
-        delete [] lowerCaseThisUser;
+        lowerCaseThisUser = "";
 
     }
 
     if ( !inserted ) users.PutDataAtEnd ( user );
 
-    delete [] lowerCaseName;
+    lowerCaseName = "";
 
     // Update the scrollbar
 
@@ -764,22 +764,19 @@ void IRCInterface::Create ()
 
         if ( !imgSmileyHappy ) {   
             imgSmileyHappy = new Image ();   
-            char *filename = app->GetOptions ()->ThemeFilename ("irc/smileyhappy.tif");
-            imgSmileyHappy->LoadTIF ( RsArchiveFileOpen ( filename ) );
-            delete [] filename;
+            string filename = app->GetOptions ()->ThemeFilename ("irc/smileyhappy.tif");
+            imgSmileyHappy->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
         }
         if ( !imgSmileySad ) {
             imgSmileySad = new Image ();   
-            char *filename = app->GetOptions ()->ThemeFilename ("irc/smileysad.tif");
-            imgSmileySad->LoadTIF ( RsArchiveFileOpen ( filename ) );      
-            delete [] filename;
+            string filename = app->GetOptions ()->ThemeFilename ("irc/smileysad.tif");
+            imgSmileySad->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
         }
         if ( !imgSmileyWink )
         {   
-            char *filename = app->GetOptions ()->ThemeFilename ("irc/smileywink.tif");
+            string filename = app->GetOptions ()->ThemeFilename ("irc/smileywink.tif");
             imgSmileyWink = new Image ();   
-            imgSmileyWink->LoadTIF ( RsArchiveFileOpen ( filename ) );
-            delete [] filename;
+            imgSmileyWink->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
         }
 
 	}

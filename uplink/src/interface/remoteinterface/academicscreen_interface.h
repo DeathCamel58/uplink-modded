@@ -24,7 +24,7 @@ class AcademicScreenInterface : public RemoteInterfaceScreen
 
 protected:
 
-	char *searchname;
+	string searchname;
 	int recordindex;
 	int lastupdate;
 

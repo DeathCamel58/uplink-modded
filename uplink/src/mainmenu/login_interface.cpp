@@ -123,7 +123,7 @@ void LoginInterface::RetireAgentMsgboxClick ( Button *button )
 	string agentfile = EclGetButton ( "userid_name" )->caption;
 
 	if ( agentfile.length() > 0 ) {
-		app->RetireGame ( (char *) agentfile.c_str() );
+		app->RetireGame ( agentfile );
 		RemoveExistingGames ();
 		CreateExistingGames ();
 	}
@@ -308,7 +308,7 @@ void LoginInterface::UserNameClick ( Button *button )
 void LoginInterface::CommsClick ( Button *button )
 {
 
-	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT )
+	assert( app->GetNetwork ()->STATUS == NETWORK_CLIENT );
 
     EclReset ( app->GetOptions ()->GetOptionValue ("graphics_screenwidth"),
 			   app->GetOptions ()->GetOptionValue ("graphics_screenheight") );
@@ -320,7 +320,7 @@ void LoginInterface::CommsClick ( Button *button )
 void LoginInterface::StatusClick	( Button *button )
 {
 
-	UplinkAssert ( app->GetNetwork ()->STATUS == NETWORK_CLIENT )
+	assert( app->GetNetwork ()->STATUS == NETWORK_CLIENT );
 
     EclReset ( app->GetOptions ()->GetOptionValue ("graphics_screenwidth"),
 			   app->GetOptions ()->GetOptionValue ("graphics_screenheight") );

@@ -201,7 +201,7 @@ void SharesViewScreenInterface::UpdateStatus ()
 void SharesViewScreenInterface::SetCompanyName ( char *newcompanyname )
 {
 
-	UplinkAssert ( strlen(newcompanyname) < SIZE_COMPANY_NAME )
+	assert( strlen(newcompanyname) < SIZE_COMPANY_NAME );
 	UplinkStrncpy ( companyname, newcompanyname, sizeof ( companyname ) )
 
 	//

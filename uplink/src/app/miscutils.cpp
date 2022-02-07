@@ -17,6 +17,7 @@
 
 #include <GL/glu.h> /* glu extention library */
 #include <fstream>
+#include <algorithm>
 
 #include "redshirt.h"
 
@@ -58,17 +59,14 @@ char *GetFilePath ( const char *filename )
     
 }
 
-char *LowerCaseString ( const char *thestring )
+string LowerCaseString (const string &thestring )
 {
 
-	UplinkAssert (thestring)
+	assert(!thestring.empty());
 	
-	char *thecopy = new char [strlen(thestring)+1];
-	UplinkSafeStrcpy ( thecopy, thestring )
+	string thecopy = thestring;
 
-	for ( char *p = thecopy; *p != '\x0'; ++p )
-		if ( *p >= 'A' && *p <= 'Z' )
-			*p += 'a' - 'A';
+    transform(thecopy.begin(), thecopy.end(), thecopy.begin(), ::tolower);
 
 	return thecopy;
 
@@ -390,7 +388,7 @@ DArray <char *> *ListSubdirs (const string &directory )
 
 }
 
-void SetColour ( char *colourName )
+void SetColour (const string &colourName )
 {
 
     if ( !app || 
@@ -506,11 +504,11 @@ void PrintValue(const string& valuename, time_t value) {
 void PrintPadded(const string& name) {
     int pad = (60 - name.length()) / 2 - 1;
     string out;
-    for (int i; i<pad; i++) {
+    for (int i = 0; i<pad; i++) {
         out += "=";
     }
     out += " " + name + " ";
-    for (int i; i<pad; i++) {
+    for (int i = 0; i<pad; i++) {
         out += "=";
     }
     cout << out << endl;

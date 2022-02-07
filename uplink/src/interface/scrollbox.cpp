@@ -40,11 +40,11 @@ ScrollBox::ScrollBox()
 ScrollBox::~ScrollBox()
 = default;
 
-void ScrollBox::SetName ( char *newname )
+void ScrollBox::SetName (const string &newname )
 {
     
-    UplinkAssert (strlen(newname) < SIZE_SCROLLBOX_NAME )
-    UplinkStrncpy ( name, newname, sizeof ( name ) )
+    assert(newname.length() < SIZE_SCROLLBOX_NAME );
+    UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 }
 
@@ -83,7 +83,7 @@ void ScrollBox::SetCurrentIndex ( int newCurrentIndex )
     UpdateInterface ();
 }
 
-void ScrollBox::SetCallback ( void (*newcallback) (char *, int) )
+void ScrollBox::SetCallback ( void (*newcallback) (const string &, int) )
 {
     callback = newcallback;
 }
@@ -375,10 +375,10 @@ bool ScrollBox::IsInterfaceVisible ()
     return true;
 }
 
-void ScrollBox::CreateScrollBox ( char *name, 
-                       int x, int y, int w, int h,
-                       int numItems, int windowSize, int currentIndex,
-                       void (*callback)(char *, int) )
+void ScrollBox::CreateScrollBox (const string &name,
+                                 int x, int y, int w, int h,
+                                 int numItems, int windowSize, int currentIndex,
+                                 void (*callback)(const string &, int) )
 {
 
     auto *sb = new ScrollBox ();

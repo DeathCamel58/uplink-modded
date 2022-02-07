@@ -220,8 +220,8 @@ void SharesListScreenInterface::FilterClick ( Button *button )
 
 	string filter = EclGetButton ( "shareslistscreen_filtertext" )->caption;
 
-	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
-	else						thisinterface->ApplyFilter ( (char *) filter.c_str() );
+	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( "" );
+	else						thisinterface->ApplyFilter ( filter );
 
 }
 
@@ -280,7 +280,7 @@ void SharesListScreenInterface::SetFullList ( LList <char *> *newfulllist )
 	for ( int i = 0; i < newfulllist->Size (); ++i )
 		fulllist.PutData ( newfulllist->GetData (i) );
 	
-	ApplyFilter ( nullptr );
+	ApplyFilter ( "" );
 
 }
 
@@ -292,11 +292,11 @@ void SharesListScreenInterface::SetFullList ()
 	for ( int i = 0; i < filteredlist.Size (); ++i )
 		fulllist.PutData ( filteredlist.GetData (i) );
 
-	ApplyFilter ( nullptr );
+	ApplyFilter ( "" );
 
 }
 
-void SharesListScreenInterface::ApplyFilter ( char *filter )
+void SharesListScreenInterface::ApplyFilter (const string &filter )
 {
 
 	//
@@ -305,22 +305,18 @@ void SharesListScreenInterface::ApplyFilter ( char *filter )
 
 	filteredlist.Empty ();
 
-	if ( filter ) {
+	if ( !filter.empty() ) {
 
-		char *lowercasefilter = LowerCaseString ( filter );
+		string lowercasefilter = LowerCaseString ( filter );
 
 		for ( int i = 0; i < fulllist.Size (); ++i ) {
 
-			char *companyname = LowerCaseString ( fulllist.GetData (i) );
+			string companyname = LowerCaseString ( fulllist.GetData (i) );
 
-			if ( strstr ( companyname, lowercasefilter ) != nullptr )
+			if ( companyname.find( lowercasefilter ) != string::npos )
 				filteredlist.PutData ( fulllist.GetData (i) );
-
-            delete [] companyname;
 				
 		}
-
-		delete [] lowercasefilter;
 
 	}
 	else {
@@ -353,8 +349,8 @@ bool SharesListScreenInterface::ReturnKeyPressed ()
 	
 	if ( filterbutton ) {
 		string filter = filterbutton->caption;
-		if ( filter [0] == '\x0' )  ApplyFilter ( nullptr );
-		else						ApplyFilter ( (char *) filter.c_str() );
+		if ( filter [0] == '\x0' )  ApplyFilter ( "" );
+		else						ApplyFilter ( filter );
 		return true;
 	}
 
@@ -466,7 +462,7 @@ void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 
 		}
 
-		ApplyFilter ( nullptr );
+		ApplyFilter ( "" );
 
 	}
 

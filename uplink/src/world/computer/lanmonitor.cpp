@@ -93,7 +93,7 @@ void LanMonitor::BeginAttack ()
 		    }
         }
 
-        UplinkAssert ( ourFirstLink != -1 )
+        assert( ourFirstLink != -1 );
         UplinkAssert ( lanComputer->systems.ValidIndex ( ourFirstLink ) )
 
   		connection.PutDataAtStart( ourFirstLink );

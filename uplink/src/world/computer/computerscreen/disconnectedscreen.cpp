@@ -33,12 +33,12 @@ void DisconnectedScreen::SetNextPage ( int newnextpage )
 
 }
 
-void DisconnectedScreen::SetTextMessage ( char *newtextmessage )
+void DisconnectedScreen::SetTextMessage (const string &newtextmessage )
 {
 
 	delete [] textmessage;
-	textmessage = new char [strlen(newtextmessage)+1];
-	UplinkSafeStrcpy ( textmessage, newtextmessage )
+	textmessage = new char [newtextmessage.length()+1];
+	UplinkSafeStrcpy ( textmessage, newtextmessage.c_str() )
 
 }
 

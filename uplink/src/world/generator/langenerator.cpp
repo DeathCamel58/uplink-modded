@@ -45,14 +45,14 @@ void LanGenerator::Initialise ()
 {
 }
 
-Computer  *LanGenerator::LoadLAN ( char *filename )
+Computer  *LanGenerator::LoadLAN (const string &filename )
 {
-	idos2unixstream thefile(RsArchiveFileOpen ( filename) );
+	idos2unixstream thefile(RsArchiveFileOpen ( (char *) filename.c_str()) );
 
 	if ( thefile.eof() ) {
 
 		thefile.close ();
-		RsArchiveFileClose ( filename );
+		RsArchiveFileClose ( (char *) filename.c_str() );
 		return nullptr;
 
 	}
@@ -87,7 +87,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
     if ( game->GetWorld ()->GetVLocation (ip) ) {
         cout << "[Already Loaded]" << endl;
 		thefile.close ();
-		RsArchiveFileClose ( filename );
+		RsArchiveFileClose ( (char *) filename.c_str() );
         return nullptr;
     }
 
@@ -97,7 +97,7 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
 	if ( !game->GetWorld()->VerifyVLocation( ip, x, y ) ) {
 		cout << "LanGenerator::LoadLAN WARNING: Location is invalid, ip(" << ip << "), x(" << x << "), y(" << y << ").(" << filename << ")" << endl;
 		thefile.close ();
-		RsArchiveFileClose ( filename );
+		RsArchiveFileClose ( (char *) filename.c_str() );
         return nullptr;
 	}
 
@@ -339,13 +339,13 @@ Computer  *LanGenerator::LoadLAN ( char *filename )
     cout << "done" << endl;
 
 	thefile.close ();
-	RsArchiveFileClose ( filename );
+	RsArchiveFileClose ( (char *) filename.c_str() );
 
 	return comp;
 
 }
 
-Computer  *LanGenerator::GenerateLAN ( char *companyname, int difficulty )
+Computer  *LanGenerator::GenerateLAN (const string &companyname, int difficulty )
 {
 
     //

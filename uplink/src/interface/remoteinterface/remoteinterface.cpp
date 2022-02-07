@@ -228,7 +228,7 @@ void RemoteInterface::Remove ()
 void RemoteInterface::SetSecurity ( char *newname, int newvalue )
 {
 	
-	UplinkAssert ( strlen (newname) < SIZE_PERSON_NAME )
+	assert( strlen (newname) < SIZE_PERSON_NAME );
 
 	UplinkStrncpy ( security_name, newname, sizeof ( security_name ) )
 	security_level = newvalue;

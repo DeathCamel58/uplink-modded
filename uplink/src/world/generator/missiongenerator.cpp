@@ -113,8 +113,8 @@ Mission *MissionGenerator::GenerateMission ()
 {
 
     int playerRating = game->GetWorld ()->GetPlayer ()->rating.uplinkrating;
-    UplinkAssert ( playerRating >= 0 )
-    UplinkAssert ( playerRating < NUM_UPLINKRATINGS )
+    assert( playerRating >= 0 );
+    assert( playerRating < NUM_UPLINKRATINGS );
 
 	return GenerateMission ( prob_missiontype [playerRating]->GetValue () );
 
@@ -1020,7 +1020,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 
 	UplinkAssert ( employer )
 	UplinkAssert ( target )
-	UplinkAssert ( target->GetOBJECTID () == OID_BANKCOMPUTER )
+	assert( target->GetOBJECTID () == OID_BANKCOMPUTER );
 
 	int difficulty = (int) NumberGenerator::RandomNormalNumber ( MINDIFFICULTY_MISSION_FINDDATA_FINANCIAL, DIFFICULTY_MISSION_VARIANCE );
 	if ( difficulty < MINDIFFICULTY_MISSION_FINDDATA_FINANCIAL ) difficulty = MINDIFFICULTY_MISSION_FINDDATA_FINANCIAL;
@@ -1966,7 +1966,7 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 				<< "The access code to the hacked account is " << sacc->password << "\n"
 				<< "(The username is the account number)\n"
 				<< "The amount transfered was " << amount << " credits.\n"
-				<< "This occured around " << game->GetWorld ()->date.GetShortString ()
+				<< "This occurred around " << game->GetWorld ()->date.GetShortString ()
 				<< "\n\n"
 				<< "You are authorised to access the compromised account."
 				<< "\n\n"
@@ -2025,7 +2025,7 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 
 }
 
-Mission *MissionGenerator::Generate_PayFine ( Person *person, Company *company, int amount, Date *duedate, char *reason )
+Mission *MissionGenerator::Generate_PayFine (Person *person, Company *company, int amount, Date *duedate, const string &reason )
 {
 
 	UplinkAssert (person)
@@ -2401,7 +2401,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 				   "The compromised system is :\n"
 				   << hacked->name << "\n"
 				   << "IP : " << hacked->ip << "\n\n"
-				   "The hack occured around " << game->GetWorld ()->date.GetShortString () << ".\n";
+				   "The hack occurred around " << game->GetWorld ()->date.GetShortString () << ".\n";
 
 	if ( provideaccount ) {
 
@@ -2469,8 +2469,8 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	UplinkAssert ( employer )
 	UplinkAssert ( source )
 	UplinkAssert ( target )
-	UplinkAssert ( source->GetOBJECTID () == OID_BANKCOMPUTER )
-	UplinkAssert ( target->GetOBJECTID () == OID_BANKCOMPUTER )
+	assert( source->GetOBJECTID () == OID_BANKCOMPUTER );
+	assert( target->GetOBJECTID () == OID_BANKCOMPUTER );
 
 	//
 	// Set up the basic variables of the mission
@@ -3172,30 +3172,25 @@ bool MissionGenerator::IsMissionComplete_FindData ( Mission *mission, Person *pe
 
 	UplinkAssert (mission)
 
-	char *value1 = LowerCaseString ( mission->completionA );
-	char *value2 = LowerCaseString ( mission->completionB );
-	char *value3 = LowerCaseString ( mission->completionC );
-	char *value4 = LowerCaseString ( mission->completionD );
-	char *value5 = LowerCaseString ( mission->completionE );
+	string value1 = LowerCaseString ( mission->completionA );
+	string value2 = LowerCaseString ( mission->completionB );
+	string value3 = LowerCaseString ( mission->completionC );
+	string value4 = LowerCaseString ( mission->completionD );
+	string value5 = LowerCaseString ( mission->completionE );
 
 	// All 5 values need to be in the message
 	// (Unless they are nullptr)
 
-	char *msgbody = LowerCaseString ( message->GetBody () );
+	string msgbody = LowerCaseString ( message->GetBody () );
 	bool success = true;
 
-	if ( value1 && !( strstr ( msgbody, value1 ) ) ) success = false;
-	if ( value2 && !( strstr ( msgbody, value2 ) ) ) success = false;
-	if ( value3 && !( strstr ( msgbody, value3 ) ) ) success = false;
-	if ( value4 && !( strstr ( msgbody, value4 ) ) ) success = false;
-	if ( value5 && !( strstr ( msgbody, value5 ) ) ) success = false;
+	if ( !value1.empty() && msgbody.find( value1 ) == string::npos ) success = false;
+	if ( !value2.empty() && msgbody.find( value2 ) == string::npos ) success = false;
+	if ( !value3.empty() && msgbody.find( value3 ) == string::npos ) success = false;
+	if ( !value4.empty() && msgbody.find( value4 ) == string::npos ) success = false;
+	if ( !value5.empty() && msgbody.find( value5 ) == string::npos ) success = false;
 
-	delete [] value1;
-	delete [] value2;
-	delete [] value3;
-	delete [] value4;
-	delete [] value5;
-	delete [] msgbody;
+	value1 = value2 = value3 = value4 = value5 = msgbody = "";
 
 	if ( success ) {
 
@@ -3273,15 +3268,14 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
     }
     else if ( strcmp ( field, "TraceTransfer" ) == 0 ) {
 
-        char *personresponsible = LowerCaseString (mission->completionC);
-        UplinkAssert (personresponsible)
+        string personresponsible = LowerCaseString (mission->completionC);
+        assert(!personresponsible.empty());
 
-		char *messagebody = LowerCaseString(message->GetBody ());
+		string messagebody = LowerCaseString(message->GetBody ());
 
-		bool ispersonresponsible = ( strstr ( messagebody, personresponsible ) != nullptr );
+		bool ispersonresponsible = ( messagebody.find( personresponsible ) != string::npos );
 
-		delete [] personresponsible;
-		delete [] messagebody;
+		personresponsible = messagebody = "";
 
 		if ( ispersonresponsible ) {
 
@@ -3330,17 +3324,14 @@ bool MissionGenerator::IsMissionComplete_ChangeData	( Mission *mission, Person *
 
 		if ( fieldvalue ) {
 
-			char *string1 = mission->completionD ? LowerCaseString ( mission->completionD ) : nullptr;
-			char *string2 = mission->completionE ? LowerCaseString ( mission->completionE ) : nullptr;
+			string string1 = mission->completionD ? LowerCaseString ( mission->completionD ) : "";
+			string string2 = mission->completionE ? LowerCaseString ( mission->completionE ) : "";
 
-			char *fieldvaluelower = LowerCaseString ( fieldvalue );
-			foundStrings = ( strstr ( fieldvaluelower, string1 ) && strstr ( fieldvaluelower, string2 ) );
-			delete [] fieldvaluelower;
+			string fieldvaluelower = LowerCaseString ( fieldvalue );
+			foundStrings = ( fieldvaluelower.find( string1 ) != string::npos && fieldvaluelower.find( string2 ) != string::npos );
+			fieldvaluelower = "";
 
-			if ( string1 )
-				delete [] string1;
-			if ( string2 )
-				delete [] string2;
+			string1 = string2 = "";
 
 		}
 
@@ -3488,17 +3479,17 @@ bool MissionGenerator::IsMissionComplete_FrameUser ( Mission *mission, Person *p
 bool MissionGenerator::IsMissionComplete_TraceUser ( Mission *mission, Person *person, Message *message )
 {
 
-	char *personname    = LowerCaseString (mission->completionA);
-	char *targetaccount = mission->completionC ?
+	string personname    = LowerCaseString (mission->completionA);
+	string targetaccount = mission->completionC ?
                             LowerCaseString (mission->completionC) :
-                            nullptr;                                       // nullptr unless this is a TraceUser_MoneyTransfer
-    char *msgbody       = LowerCaseString ( message->GetBody () );
+                            "";                                       // empty string unless this is a TraceUser_MoneyTransfer
+    string msgbody       = LowerCaseString ( message->GetBody () );
 
 	// Check the person's name is in the mail
 
 	bool success = false;
 
-	if ( strstr ( msgbody, personname ) != nullptr ) {
+	if ( msgbody.find( personname ) != string::npos ) {
 
 		if ( strcmp ( message->from, "PLAYER" ) == 0 )
 			game->GetWorld ()->GetPlayer ()->score_peoplefucked ++;
@@ -3509,9 +3500,9 @@ bool MissionGenerator::IsMissionComplete_TraceUser ( Mission *mission, Person *p
 	}
 	else {
 
-        if ( targetaccount && strstr ( msgbody, targetaccount ) != nullptr ) {
+        if ( !targetaccount.empty() && msgbody.find( targetaccount ) != string::npos ) {
 
-            MissionNotCompleted ( mission, person, message, "We've determined that the money was transfered into "
+            MissionNotCompleted ( mission, person, message, "We've determined that the money was transferred into "
                                                             "an account owned by that person, but we do not believe "
                                                             "he was personally responsible.\n\n"
                                                             "We want the name of the Hacker who performed the transfer." );
@@ -3523,10 +3514,7 @@ bool MissionGenerator::IsMissionComplete_TraceUser ( Mission *mission, Person *p
 
 	}
 
-	delete [] personname;
-	if ( targetaccount )
-		delete [] targetaccount;
-	delete [] msgbody;
+	personname = targetaccount = msgbody = "";
 
 	return success;
 
@@ -3564,7 +3552,7 @@ bool MissionGenerator::IsMissionComplete_ChangeAccount ( Mission *mission, Perso
 	BankAccount *target_account = BankAccount::GetAccount ( target_ip, target_acc_s );
 	UplinkAssert (target_account)
 
-	bool hasLogs = source_account->HasTransferOccured ( source_ip, target_ip, target_acc, amount, true );
+	bool hasLogs = source_account->HasTransferOccurred(source_ip, target_ip, target_acc, amount, true);
 
 	if ( hasLogs || ( ( source_balance - amount ) >= source_account->balance && ( target_balance + amount ) <= target_account->balance ) ) {
 
@@ -3574,12 +3562,12 @@ bool MissionGenerator::IsMissionComplete_ChangeAccount ( Mission *mission, Perso
 	}
 	else if ( source_balance != source_account->balance && target_balance != target_account->balance ) {
 
-		MissionNotCompleted ( mission, person, message, "A transfer seem to have occured, verify the amount transfered." );
+		MissionNotCompleted ( mission, person, message, "A transfer seem to have occurred, verify the amount transfered." );
 
 	}
 	else {
 
-		MissionNotCompleted ( mission, person, message, "The transfer has not occured." );
+		MissionNotCompleted ( mission, person, message, "The transfer has not occurred." );
 
 	}
 
@@ -3725,7 +3713,7 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 	// Check the money has been transfered
 	//
 
-	bool success = target_account->HasTransferOccured ( finedperson, amount );
+	bool success = target_account->HasTransferOccurred(finedperson, amount);
 	if ( !success ) {
 		Player *pl = game->GetWorld()->GetPlayer();
 		if ( strcmp ( finedperson, pl->handle ) == 0 ) {
@@ -3735,7 +3723,7 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 				sscanf ( pl->accounts.GetData (i), "%s %s", ip, accno );
 
 				BankAccount *ba = BankAccount::GetAccount ( ip, accno );
-				if ( ba && ( success = target_account->HasTransferOccured ( ba->name, amount ) ) )
+				if ( ba && ( success = target_account->HasTransferOccurred(ba->name, amount) ) )
 					break;
 			}
 		}
@@ -4028,7 +4016,7 @@ void MissionGenerator::MissionCompleted ( Mission *mission, Person *person, Mess
 
 }
 
-void MissionGenerator::MissionNotCompleted ( Mission *mission, Person *person, Message *message, char *reason )
+void MissionGenerator::MissionNotCompleted (Mission *mission, Person *person, Message *message, const string &reason )
 {
 
     std::ostrstream body;
@@ -4047,7 +4035,7 @@ void MissionGenerator::MissionNotCompleted ( Mission *mission, Person *person, M
 	//delete [] body.str ();
 }
 
-void MissionGenerator::MissionFailed ( Mission *mission, Person *person, char *reason )
+void MissionGenerator::MissionFailed (Mission *mission, Person *person, const string &reason )
 {
 
 	UplinkAssert (mission)

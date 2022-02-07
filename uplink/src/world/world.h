@@ -65,12 +65,12 @@ public:
 
 	// Database management functions
 
-	VLocation *CreateVLocation ( char *ip, int phys_x, int phys_y );
-	bool       VerifyVLocation ( char *ip, int phys_x, int phys_y );
-	Company   *CreateCompany   ( char *name );
-	Computer  *CreateComputer  ( char *name, char *companyname, char *ip );
-	Person    *CreatePerson	   ( char *name, char *localhost );
-	void	   CreatePassword  ( char *password );
+	VLocation *CreateVLocation (const string &ip, int phys_x, int phys_y );
+	bool       VerifyVLocation (const string &ip, int phys_x, int phys_y );
+	Company   *CreateCompany   (const string &name );
+	Computer  *CreateComputer  (const string &name, const string &companyname, const string &ip );
+	Person    *CreatePerson	   (const string &name, const string &localhost );
+	void	   CreatePassword  (const string &password );
 		
 	void CreateVLocation  ( VLocation  *vlocation );	
 	void CreateCompany    ( Company    *company );
@@ -78,12 +78,12 @@ public:
 	void CreatePerson     ( Person     *person );	
 	void CreateGatewayDef ( GatewayDef *newdef );
 	
-	VLocation  *GetVLocation  ( char *ip );				//  These all return NULL  
-	Company    *GetCompany	  ( char *name );			//  if the specified object
-	Computer   *GetComputer   ( char *name );			//  is not found in the database
-	Person     *GetPerson     ( char *name );			//  (check before dereferencing) 
+	VLocation  *GetVLocation  (const string &ip );				//  These all return NULL
+	Company    *GetCompany	  (const string &name );			//  if the specified object
+	Computer   *GetComputer   (const string &name );			//  is not found in the database
+	Person     *GetPerson     (const string &name );			//  (check before dereferencing)
 	char	   *GetPassword   ( int index );					
-	GatewayDef *GetGatewayDef ( char *name );
+	GatewayDef *GetGatewayDef (const string &name );
 
 	Player    *GetPlayer     ();						//  Asserts that player exists
 

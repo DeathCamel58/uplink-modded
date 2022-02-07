@@ -43,7 +43,7 @@ public:
 
 	void SetFullList ( LList <char *> *newfulllist );						// The list is copied
 	void SetFullList ();													// Uses current filtered list
-	void ApplyFilter ( char *filter );
+	void ApplyFilter (const string &filter );
 
     bool ReturnKeyPressed () override;
 

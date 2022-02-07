@@ -57,7 +57,7 @@ protected:
 
 	static void CloseClick ( Button *button );
 
-    static void ScrollChange ( char *scrollname, int newValue );
+    static void ScrollChange (const string &scrollname, int newValue );
 
     static int NumLinksOnScreen ();
 
@@ -70,7 +70,7 @@ public:
 
 	void SetFullList ( LList <char *> *newfulllist );						            // The list is copied
 	void SetFullList ();										            			// Uses current filtered list
-	void ApplyFilter ( char *filter );
+	void ApplyFilter (const string &filter );
 
 	void Create () override;
 	void Create ( ComputerScreen *newcs ) override;

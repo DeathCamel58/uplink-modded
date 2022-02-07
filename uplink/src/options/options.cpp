@@ -30,7 +30,7 @@ static ColourOption getColourDefault ( 0.0, 0.0, 0.0 );
 
 Options::Options()
 {
-    UplinkStrncpy ( themeName, "graphics", sizeof ( themeName ) )
+    themeName = "graphics";
 }
 
 Options::~Options()
@@ -50,7 +50,7 @@ Options::~Options()
 
 }
 
-Option *Options::GetOption ( char *name )
+Option *Options::GetOption (const string &name )
 {
 
 	BTree <Option *> *btree = options.LookupTree ( name );
@@ -63,22 +63,21 @@ Option *Options::GetOption ( char *name )
 
 }
 
-int Options::GetOptionValue ( char *name )
+int Options::GetOptionValue (const string &name )
 {
 
 	Option *option = GetOption ( name );
 
 	if ( !option ) {
-		char msg [256];
-		UplinkSnprintf ( msg, sizeof ( msg ), "Option %s not found", name )
-		UplinkAbort(msg)
+		string msg = "Option " + name + " not found";
+		UplinkAbort(msg.c_str())
 	}
 
 	return option->value;
 
 }
 
-bool Options::IsOptionEqualTo ( char *name, int value )
+bool Options::IsOptionEqualTo (const string &name, int value )
 {
 
 	Option *option = GetOption ( name );
@@ -91,7 +90,7 @@ bool Options::IsOptionEqualTo ( char *name, int value )
 
 }
 
-void Options::SetOptionValue ( char *name, int newvalue )
+void Options::SetOptionValue (const string &name, int newvalue )
 {
 
 	BTree <Option *> *btree = options.LookupTree ( name );
@@ -111,7 +110,7 @@ void Options::SetOptionValue ( char *name, int newvalue )
 
 }
 
-void Options::SetOptionValue ( char *name, int newvalue, char *tooltip, bool yesorno, bool visible )
+void Options::SetOptionValue (const string &name, int newvalue, const string &tooltip, bool yesorno, bool visible )
 {
 
 	BTree <Option *> *btree = options.LookupTree ( name );
@@ -255,13 +254,13 @@ void Options::CreateDefaultOptions ()
 
 void Options::SetThemeName ( char *newThemeName )
 {
-    UplinkStrncpy ( themeName, newThemeName, sizeof ( themeName ) )
+    themeName = newThemeName;
 
     //
     // Parse the theme.txt file
 
-    char *themeTextFilename = ThemeFilename ( "theme.txt" );
-    char *rsFilename = RsArchiveFileOpen ( themeTextFilename );
+    string themeTextFilename = ThemeFilename ( "theme.txt" );
+    char *rsFilename = RsArchiveFileOpen ( (char *) themeTextFilename.c_str() );
 
     if ( rsFilename ) {
         idos2unixstream thefile ( rsFilename );
@@ -270,13 +269,13 @@ void Options::SetThemeName ( char *newThemeName )
 
         char unused [64];
 	    thefile >> unused >> ws;
-        thefile.getline ( themeTitle, 128 );
+	    getline(thefile, themeTitle);
 
         thefile >> unused >> ws;
-        thefile.getline ( themeAuthor, 128 );
+        getline(thefile, themeAuthor);
 
         thefile >> unused >> ws;
-        thefile.getline ( themeDescription, 1024 );
+        getline(thefile, themeDescription);
 
         // Colours
 
@@ -308,27 +307,26 @@ void Options::SetThemeName ( char *newThemeName )
     }
 
 
-    RsArchiveFileClose ( themeTextFilename, nullptr );
-    delete [] themeTextFilename;
+    RsArchiveFileClose ( (char *) themeTextFilename.c_str(), nullptr );
 
 }
 
-char *Options::GetThemeName ()
+string Options::GetThemeName ()
 {
     return themeName;
 }
 
-char *Options::GetThemeTitle ()
+string Options::GetThemeTitle ()
 {
     return themeTitle;
 }
 
-char *Options::GetThemeDescription ()
+string Options::GetThemeDescription ()
 {
     return themeDescription;
 }
 
-ColourOption *Options::GetColour ( char *colourName )
+ColourOption *Options::GetColour (const string &colourName )
 {
 
     ColourOption *result = colours.GetData (colourName);
@@ -345,26 +343,24 @@ ColourOption *Options::GetColour ( char *colourName )
 
 }
 
-char *Options::ThemeFilename ( char *filename )
+string Options::ThemeFilename (const string &filename )
 {
 
-	size_t resultsize = 256;
-    char *result = new char [resultsize];
+    string result;
 
-    if ( strcmp ( themeName, "graphics" ) == 0 ) {
+    if ( themeName == "graphics" ) {
 
-        UplinkSnprintf ( result, resultsize, "graphics/%s", filename )
+        result = "graphics/" + filename;
 
     }
     else {
 
-        char fullFilename[256];
-        UplinkSnprintf ( fullFilename, sizeof ( fullFilename ), "%s%s/%s", app->path.c_str(), themeName, filename )
-		if ( DoesFileExist ( fullFilename ) ) {
-            UplinkSnprintf ( result, resultsize, "%s/%s", themeName, filename )
+        string fullFilename = app->path + themeName + "/" + filename;
+		if ( DoesFileExist ( fullFilename.c_str() ) ) {
+            result = themeName + "/" + filename;
 
 		} else {
-            UplinkSnprintf ( result, resultsize, "graphics/%s", filename )
+            result = "graphics/" + filename;
 		}
 
     }
@@ -405,15 +401,14 @@ bool Options::Load ( FILE *file )
 
 	// Read from our own options file
 
-	char filename [256];
-	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath.c_str() )
+	string filename = app->userpath + "options";
 	cout << "Loading uplink options from " << filename << "...";
 
 	FILE *optionsfile = nullptr;
 	bool encrypted = false;
-	if ( RsFileEncryptedNoVerify ( filename ) ) {
-		if ( RsFileEncrypted ( filename ) ) {
-			optionsfile = RsFileOpen ( filename );
+	if ( RsFileEncryptedNoVerify ( (char *) filename.c_str() ) ) {
+		if ( RsFileEncrypted ( (char *) filename.c_str() ) ) {
+			optionsfile = RsFileOpen ( (char *) filename.c_str() );
 			encrypted = true;
 		}
 		else {
@@ -422,7 +417,7 @@ bool Options::Load ( FILE *file )
 		}
 	}
 	else {
-		optionsfile = fopen ( filename, "rb" );
+		optionsfile = fopen ( filename.c_str(), "rb" );
 	}
 
 	if ( optionsfile ) {
@@ -437,7 +432,7 @@ bool Options::Load ( FILE *file )
         if ( version[0] == '\0' || strcmp ( version, SAVEFILE_VERSION_MIN ) < 0 || strcmp ( version, SAVEFILE_VERSION ) > 0 ) {
             cout << endl << "ERROR : Could not load options due to incompatible version format" << endl;
 			if ( encrypted )
-				RsFileClose ( filename, optionsfile );
+				RsFileClose ( (char *) filename.c_str(), optionsfile );
 			else
 				fclose ( optionsfile );
             return false;
@@ -455,19 +450,19 @@ bool Options::Load ( FILE *file )
 		// 't' in the optionsfile at this point signals
 		// theme name comes next
 
-		char newThemeName[sizeof(themeName)];
+		char newThemeName[themeName.length()];
 		size_t newThemeLen;
 
 		if ( fgetc(optionsfile) == 't' )
 			if ( fread(&newThemeLen, sizeof(newThemeLen), 1, optionsfile) == 1 )
-				if ( 0 <= newThemeLen && newThemeLen + 1 < sizeof(themeName) )
+				if ( 0 <= newThemeLen && newThemeLen + 1 < themeName.length() )
 					if ( fread(newThemeName, newThemeLen, 1, optionsfile) == 1 ) {
 						  newThemeName[newThemeLen] = '\0';
-						  UplinkStrncpy(themeName, newThemeName, sizeof ( themeName ))
+						  themeName = newThemeName;
 					}
 
 		if ( encrypted )
-			RsFileClose ( filename, optionsfile );
+			RsFileClose ( (char *) filename.c_str(), optionsfile );
 		else
 			fclose ( optionsfile );
 
@@ -495,12 +490,11 @@ void Options::Save ( FILE *file )
 
 	MakeDirectory ( app->userpath );
 
-	char filename [256];
-	UplinkSnprintf ( filename, sizeof ( filename ), "%soptions", app->userpath.c_str() )
+	string filename = app->userpath + "options";
 
 	cout << "Saving uplink options to " << filename << "...";
 
-	FILE *optionsfile = fopen ( filename, "wb" );
+	FILE *optionsfile = fopen ( filename.c_str(), "wb" );
 
 	if ( optionsfile ) {
 
@@ -513,13 +507,13 @@ void Options::Save ( FILE *file )
 		SaveID_END ( optionsfile );
 
 		fputc('t', optionsfile);
-		size_t themeLen = strlen(themeName);
+		size_t themeLen = themeName.length();
 		fwrite(&themeLen, sizeof(themeLen), 1, optionsfile);
-		fwrite(themeName, themeLen, 1, optionsfile);
+		fwrite(themeName.c_str(), themeLen, 1, optionsfile);
 
 		fclose ( optionsfile );
 
-		RsEncryptFile ( filename );
+		RsEncryptFile ( (char *) filename.c_str() );
 
 	}
 	else {
@@ -573,19 +567,19 @@ Option::Option()
 Option::~Option()
 = default;
 
-void Option::SetName ( char *newname )
+void Option::SetName (const string &newname )
 {
 
-	UplinkAssert ( strlen(newname) < SIZE_OPTION_NAME )
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	assert( newname.length() < SIZE_OPTION_NAME );
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 }
 
-void Option::SetTooltip ( char *newtooltip )
+void Option::SetTooltip (const string &newtooltip )
 {
 
-	UplinkAssert ( strlen(newtooltip) < SIZE_OPTION_TOOLTIP )
-	UplinkStrncpy ( tooltip, newtooltip, sizeof ( tooltip ) )
+	assert( newtooltip.length() < SIZE_OPTION_TOOLTIP );
+	UplinkStrncpy ( tooltip, newtooltip.c_str(), sizeof ( tooltip ) )
 
 }
 

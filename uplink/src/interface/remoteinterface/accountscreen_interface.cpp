@@ -62,7 +62,7 @@ void AccountScreenInterface::Create ( ComputerScreen *newcs )
 
 	// Look up the BankAccount object and store it
 	Computer *comp = cs->GetComputer ();
-	UplinkAssert (comp->GetOBJECTID () == OID_BANKCOMPUTER )
+	assert(comp->GetOBJECTID () == OID_BANKCOMPUTER );
 	auto *bank = (BankComputer *) comp;
 
 	// Look up the account number based on the log in name

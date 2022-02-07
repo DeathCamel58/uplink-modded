@@ -73,11 +73,11 @@ void NuclearWarScreenInterface::DrawLocation ( Button *button, bool highlighted,
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON)
+		assert(index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON);
 		pgl = &(PHYSICALGATEWAYLOCATIONS_DEFCON[index]);
 	}
 	else {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS)
+		assert(index < NUM_PHYSICALGATEWAYLOCATIONS);
 		pgl = &(PHYSICALGATEWAYLOCATIONS[index]);
 	}
 	UplinkAssert (pgl)
@@ -192,11 +192,11 @@ void NuclearWarScreenInterface::ClickLocation ( Button *button )
 
 	const PhysicalGatewayLocation *pgl;
 	if ( game->GetWorldMapType () == Game::defconworldmap ) {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON)
+		assert(index < NUM_PHYSICALGATEWAYLOCATIONS_DEFCON);
 		pgl = &(PHYSICALGATEWAYLOCATIONS_DEFCON[index]);
 	}
 	else {
-		UplinkAssert (index < NUM_PHYSICALGATEWAYLOCATIONS)
+		assert(index < NUM_PHYSICALGATEWAYLOCATIONS);
 		pgl = &(PHYSICALGATEWAYLOCATIONS[index]);
 	}
 	UplinkAssert (pgl)

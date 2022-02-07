@@ -54,12 +54,12 @@ public:
 	~News () override;
 
 	void SetDate     ( Date *newdate );
-	void SetHeadline ( char *newheadline );
-	void SetDetails  ( char *newdetails );
+	void SetHeadline (const string &newheadline );
+	void SetDetails  (const string &newdetails );
 
 	char *GetDetails ();
 
-	void SetData ( int newNEWSTYPE, char *newdata1 = nullptr, char *newdata2 = nullptr );
+	void SetData (int newNEWSTYPE, const string &newdata1 = nullptr, const string &newdata2 = nullptr );
 
 	// Common functions
 

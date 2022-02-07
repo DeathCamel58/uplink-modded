@@ -75,11 +75,11 @@ bool LogBank::LogModified ( int index )
 
 }
 
-char *LogBank::TraceLog ( char *to_ip, char *logbank_ip, Date *date, int uplinkrating )
+string LogBank::TraceLog (const string &to_ip, const string &logbank_ip, Date *date, int uplinkrating )
 {
 
-	UplinkAssert ( to_ip )
-	UplinkAssert ( logbank_ip )
+	assert( !to_ip.empty() );
+	assert( !logbank_ip.empty() );
 	UplinkAssert ( date )
 
 	//
@@ -160,7 +160,7 @@ char *LogBank::TraceLog ( char *to_ip, char *logbank_ip, Date *date, int uplinkr
 				// Now look at the log
 
 				if ( al->TYPE == LOG_TYPE_BOUNCEBEGIN &&
-					 al->data1 && strcmp ( al->data1, to_ip ) == 0 ) {
+					 al->data1 && al->data1 == to_ip ) {
 
 					// This computer is the origin of the bounced call
 					// And is therefore the solution to this trace
@@ -168,7 +168,7 @@ char *LogBank::TraceLog ( char *to_ip, char *logbank_ip, Date *date, int uplinkr
 
 				}
 				else if ( al->TYPE == LOG_TYPE_BOUNCE &&
-						  al->data1 && strcmp ( al->data1, to_ip ) == 0 ) {
+						  al->data1 && al->data1 == to_ip ) {
 
 					// Look up the source computer that created this log
 
@@ -410,8 +410,8 @@ AccessLog::~AccessLog()
 
 }
 
-void AccessLog::SetProperties ( Date *newdate, char *newfromip, char *newfromname,
-							    int newSUSPICIOUS, int newTYPE )
+void AccessLog::SetProperties (Date *newdate, const string &newfromip, const string &newfromname,
+                               int newSUSPICIOUS, int newTYPE )
 {
 
 	UplinkAssert (newdate)
@@ -420,7 +420,7 @@ void AccessLog::SetProperties ( Date *newdate, char *newfromip, char *newfromnam
 	SetTYPE ( newTYPE );
 	SetFromIP ( newfromip );
 
-	UplinkStrncpy( fromname, newfromname, sizeof ( fromname ) )
+	UplinkStrncpy( fromname, newfromname.c_str(), sizeof ( fromname ) )
 
 	SetSuspicious ( newSUSPICIOUS );
 
@@ -432,9 +432,11 @@ void AccessLog::SetProperties ( AccessLog *copyme )
 	UplinkAssert (copyme)
 
 	SetProperties ( &(copyme->date), copyme->fromip, copyme->fromname, copyme->SUSPICIOUS, copyme->TYPE );
-	SetData1 ( copyme->data1 );
-	SetData2 ( copyme->data2 );
-	SetData3 ( copyme->data3 );
+	// TODO: Remove this dirty hack
+	// SetData{1|2|3} takes a std::string, so a nullptr causes a crash
+	SetData1 ( copyme->data1 ? copyme->data1 : "" );
+	SetData2 ( copyme->data2 ? copyme->data2 : "" );
+	SetData3 ( copyme->data3 ? copyme->data3 : "" );
 
 }
 
@@ -445,11 +447,11 @@ void AccessLog::SetTYPE ( int newTYPE )
 
 }
 
-void AccessLog::SetFromIP ( char *newfromip )
+void AccessLog::SetFromIP (const string &newfromip )
 {
 
-	UplinkAssert (strlen(newfromip) < SIZE_VLOCATION_IP )
-	UplinkStrncpy ( fromip, newfromip, sizeof ( fromip ) )
+	assert(newfromip.length() < SIZE_VLOCATION_IP );
+	UplinkStrncpy ( fromip, newfromip.c_str(), sizeof ( fromip ) )
 
 }
 
@@ -460,41 +462,41 @@ void AccessLog::SetSuspicious ( int newSUSPICIOUS )
 
 }
 
-void AccessLog::SetData1 ( char *newdata )
+void AccessLog::SetData1 (const string &newdata )
 {
 
 	delete [] data1;
 	data1 = nullptr;
 
-	if ( newdata ) {
-		data1 = new char [strlen(newdata)+1];
-		UplinkSafeStrcpy ( data1, newdata )
+	if ( !newdata.empty() ) {
+		data1 = new char [newdata.length()+1];
+		UplinkSafeStrcpy ( data1, newdata.c_str() )
 	}
 
 }
 
-void AccessLog::SetData2 ( char *newdata )
+void AccessLog::SetData2 (const string &newdata )
 {
 
 	delete [] data2;
 	data2 = nullptr;
 
-	if ( newdata ) {
-		data2 = new char [strlen(newdata)+1];
-		UplinkSafeStrcpy ( data2, newdata )
+	if ( !newdata.empty() ) {
+		data2 = new char [newdata.length()+1];
+		UplinkSafeStrcpy ( data2, newdata.c_str() )
 	}
 
 }
 
-void AccessLog::SetData3 ( char *newdata )
+void AccessLog::SetData3 (const string &newdata )
 {
 
 	delete [] data3;
 	data3 = nullptr;
 
-	if ( newdata ) {
-		data3 = new char [strlen(newdata)+1];
-		UplinkSafeStrcpy ( data3, newdata )
+	if ( !newdata.empty() ) {
+		data3 = new char [newdata.length()+1];
+		UplinkSafeStrcpy ( data3, newdata.c_str() )
 	}
 
 }

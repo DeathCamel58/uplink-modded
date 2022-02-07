@@ -114,7 +114,7 @@ void StatusInterface::Create ()
 
 		EclRegisterButton ( screenw - panelwidth + 5, paneltop + 220, panelwidth - 15, 60, "", "", "status_legal" );
 		EclRegisterButtonCallbacks ( "status_legal", text_draw, nullptr, nullptr, nullptr );
-		EclRegisterCaptionChange ( "status_legal", crimrec ? crimrec : (char *) "None" );
+		EclRegisterCaptionChange ( "status_legal", crimrec ? crimrec : "None" );
 
 
         //

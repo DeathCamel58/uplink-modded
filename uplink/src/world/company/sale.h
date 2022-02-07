@@ -42,11 +42,11 @@ public:
 	Sale ();
 	~Sale () override;
 
-	void SetTitle ( char *newtitle );
+	void SetTitle (const string &newtitle );
 	void SetSaleTYPE ( int newTYPE );
 	void SetSwhwTYPE ( int newSwhwTYPE );
 
-	void AddVersion ( char *details, int cost, int size, int data );
+	void AddVersion (const string &details, int cost, int size, int data );
 	SaleVersion *GetVersion ( int index );								// Can return NULL
 
 	// Common functions
@@ -80,7 +80,7 @@ public:
 	SaleVersion ();
 	~SaleVersion () override;
 
-	void Set ( char *newdetails, int newcost, int newsize, int newdata );
+	void Set (const string &newdetails, int newcost, int newsize, int newdata );
 	char *GetDetails ();
 
 	// Common functions

@@ -44,9 +44,9 @@ public:
 	VLocation();
 	~VLocation() override;
 
-	void SetIP ( char *newip );
-	static bool VerifyIP ( char *newip );
-	void SetComputer ( char *newcomputer );
+	void SetIP (const string &newip );
+	static bool VerifyIP (const string &newip );
+	void SetComputer (const string &newcomputer );
 
 	void SetPLocation ( int newx, int newy );
 	static bool VerifyPLocation ( int newx, int newy );

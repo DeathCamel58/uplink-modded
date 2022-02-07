@@ -37,21 +37,21 @@ void News::SetDate ( Date *newdate )
 
 }
 
-void News::SetHeadline ( char *newheadline )
+void News::SetHeadline (const string &newheadline )
 {
 
-	UplinkAssert ( strlen ( newheadline ) < SIZE_NEWS_HEADLINE )
-	UplinkStrncpy ( headline, newheadline, sizeof ( headline ) )
+	assert( newheadline.length() < SIZE_NEWS_HEADLINE );
+	UplinkStrncpy ( headline, newheadline.c_str(), sizeof ( headline ) )
 
 }
 
-void News::SetDetails ( char *newdetails )
+void News::SetDetails (const string &newdetails )
 {
 
 
-		delete [] details;
-	details = new char [strlen(newdetails)+1];
-	UplinkSafeStrcpy ( details, newdetails )
+	delete [] details;
+	details = new char [newdetails.length()+1];
+	UplinkSafeStrcpy ( details, newdetails.c_str() )
 
 }
 
@@ -62,21 +62,21 @@ char *News::GetDetails ()
 
 }
 
-void News::SetData ( int newNEWSTYPE, char *newdata1, char *newdata2 )
+void News::SetData (int newNEWSTYPE, const string &newdata1, const string &newdata2 )
 {
 
 	NEWSTYPE = newNEWSTYPE;
 
-	if ( newdata1 ) {
-		UplinkAssert (strlen(newdata1) < SIZE_NEWS_DATA)
-		UplinkStrncpy ( data1, newdata1, sizeof ( data1 ) )
+	if ( !newdata1.empty() ) {
+		assert(newdata1.length() < SIZE_NEWS_DATA);
+		UplinkStrncpy ( data1, newdata1.c_str(), sizeof ( data1 ) )
 	}
 	else
 		UplinkStrncpy ( data1, " ", sizeof ( data1 ) )
 
-	if ( newdata2 ) {
-		UplinkAssert (strlen(newdata2) < SIZE_NEWS_DATA)
-		UplinkStrncpy ( data2, newdata2, sizeof ( data2 ) )
+	if ( !newdata2.empty() ) {
+		assert(newdata2.length() < SIZE_NEWS_DATA);
+		UplinkStrncpy ( data2, newdata2.c_str(), sizeof ( data2 ) )
 	}
 	else
 		UplinkStrncpy ( data2, " ", sizeof ( data2 ) )

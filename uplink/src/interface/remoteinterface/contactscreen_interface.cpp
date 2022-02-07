@@ -165,7 +165,7 @@ void ContactScreenInterface::SetMission ( Mission *newmission )
 {
 
 	UplinkAssert ( newmission )
-	UplinkAssert ( TYPE == CONTACT_TYPE_MISSION )
+	assert( TYPE == CONTACT_TYPE_MISSION );
 
 	mission = newmission;
 

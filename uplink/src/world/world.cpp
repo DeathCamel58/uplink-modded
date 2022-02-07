@@ -101,10 +101,8 @@ World::World()
 		auto *def = new GatewayDef ();
 		def->LoadGatewayDefinition ( thefile );
 
-        char filename[256];
-        char thumbnail[256];
-        UplinkSnprintf ( filename, sizeof ( filename ), "gateway/gateway%d.tif", i )
-        UplinkSnprintf ( thumbnail, sizeof ( thumbnail ), "gateway/gateway_t%d.tif", i )
+        string filename = "gateway/gateway" + to_string(i) + ".tif";
+        string thumbnail = "gateway/gateway_t" + to_string(i) +".tif";
         def->SetFilename ( filename );
         def->SetThumbnail ( thumbnail );
         
@@ -138,14 +136,13 @@ World::~World()
 
 }
 
-VLocation *World::CreateVLocation ( char *ip, int phys_x, int phys_y )
+VLocation *World::CreateVLocation (const string &ip, int phys_x, int phys_y )
 {
 
 	if ( locations.LookupTree ( ip ) != nullptr ) {
 
-		char warning [128];
-		UplinkSnprintf ( warning, sizeof ( warning ), "Duplicate IP created : %s", ip )
-		UplinkWarning ( warning )
+		string warning = "Duplicate IP created : " + ip;
+		UplinkWarning ( warning.c_str())
 
 	}
 
@@ -159,10 +156,10 @@ VLocation *World::CreateVLocation ( char *ip, int phys_x, int phys_y )
 
 }
 
-bool World::VerifyVLocation ( char *ip, int phys_x, int phys_y )
+bool World::VerifyVLocation (const string &ip, int phys_x, int phys_y )
 {
 
-	if ( !ip || !VLocation::VerifyIP ( ip ) || !VLocation::VerifyPLocation ( phys_x, phys_y ) ) {
+	if ( ip.empty() || !VLocation::VerifyIP ( ip ) || !VLocation::VerifyPLocation ( phys_x, phys_y ) ) {
 
 		return false;
 
@@ -172,7 +169,7 @@ bool World::VerifyVLocation ( char *ip, int phys_x, int phys_y )
 
 }
 
-Company *World::CreateCompany ( char *name )
+Company *World::CreateCompany (const string &name )
 {
 
 	auto *company = new Company ();
@@ -184,7 +181,7 @@ Company *World::CreateCompany ( char *name )
 
 }
 
-Computer *World::CreateComputer ( char *name, char *companyname, char *ip )
+Computer *World::CreateComputer (const string &name, const string &companyname, const string &ip )
 {
 
 	auto *computer = new Computer ();
@@ -201,7 +198,7 @@ Computer *World::CreateComputer ( char *name, char *companyname, char *ip )
 
 }
 
-Person *World::CreatePerson ( char *name, char *localhost )
+Person *World::CreatePerson (const string &name, const string &localhost )
 {
 
 	auto *person = new Person ();
@@ -258,11 +255,11 @@ void World::CreatePerson ( Person *person )
 
 }
 
-void World::CreatePassword  ( char *password )
+void World::CreatePassword  (const string &password )
 {
 
-	char *newpassword = new char [ strlen ( password ) + 1 ];
-	UplinkSafeStrcpy ( newpassword, password )
+	char *newpassword = new char [ password.length() + 1 ];
+	UplinkSafeStrcpy ( newpassword, password.c_str() )
 	passwords.PutData ( newpassword );
 
 }
@@ -281,7 +278,7 @@ void World::CreateGatewayDef ( GatewayDef *newdef )
 
 }
 
-VLocation *World::GetVLocation  ( char *ip )
+VLocation *World::GetVLocation  (const string &ip )
 {
 
 	BTree <VLocation *> *vl = locations.LookupTree ( ip );
@@ -291,7 +288,7 @@ VLocation *World::GetVLocation  ( char *ip )
 
 }
 
-Company *World::GetCompany ( char *name )
+Company *World::GetCompany (const string &name )
 {
 
 	BTree <Company *> *company = companies.LookupTree ( name );
@@ -301,7 +298,7 @@ Company *World::GetCompany ( char *name )
 
 }
 
-Computer *World::GetComputer ( char *name )
+Computer *World::GetComputer (const string &name )
 {
 
 	BTree <Computer *> *computer = computers.LookupTree ( name );
@@ -311,10 +308,10 @@ Computer *World::GetComputer ( char *name )
 
 }
 
-Person *World::GetPerson ( char *name )
+Person *World::GetPerson (const string &name )
 {
 
-	if ( people.LookupTree("PLAYER") && strcmp ( name, GetPlayer ()->handle ) == 0 ) {
+	if ( people.LookupTree("PLAYER") && name == GetPlayer ()->handle ) {
 	
 		// We're looking for the player
 		return game->GetWorld ()->GetPlayer ();
@@ -344,11 +341,11 @@ char *World::GetPassword ( int index )
 
 }
 
-GatewayDef *World::GetGatewayDef ( char *name )
+GatewayDef *World::GetGatewayDef (const string &name )
 {
 
-	if ( name ) {
-		char *nameTrim = TrimSpaces ( name );
+	if ( !name.empty() ) {
+		char *nameTrim = TrimSpaces ( name.c_str() );
 
 		for ( int i = 0; i < gatewaydefs.Size (); ++i ) {
 			if ( gatewaydefs.ValidIndex ( i ) && gatewaydefs.GetData ( i ) ) {

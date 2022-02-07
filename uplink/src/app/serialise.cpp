@@ -92,7 +92,7 @@ void SaveBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 			SaveDynamicString ( uo_id->GetData (i), file );
 
 			int OBJECTID = uo->GetData (i)->GetOBJECTID ();
-			UplinkAssert ( OBJECTID != 0 )
+			assert( OBJECTID != 0 );
 			fwrite ( &OBJECTID, sizeof(int), 1, file );			
 
 			uo->GetData (i)->Save ( file );
@@ -365,7 +365,7 @@ void SaveLList ( LList <UplinkObject *> *llist, FILE *file )
 	for ( int i = 0; i < size && nbitem < MAX_ITEMS_DATA_STRUCTURE; ++i ) {
 		if ( llist->GetData (i) ) {
 			int OBJECTID = llist->GetData (i)->GetOBJECTID ();
-			UplinkAssert ( OBJECTID != 0 )
+			assert( OBJECTID != 0 );
 			fwrite ( &OBJECTID, sizeof(int), 1, file );
 			llist->GetData (i)->Save ( file );
 			nbitem++;
@@ -547,7 +547,7 @@ void SaveDArray ( DArray <UplinkObject *> *darray, FILE *file )
 			fwrite ( &i, sizeof(i), 1, file );
 
 			int OBJECTID = darray->GetData (i)->GetOBJECTID ();
-			UplinkAssert ( OBJECTID != 0 )
+			assert( OBJECTID != 0 );
 			fwrite ( &OBJECTID, sizeof(int), 1, file );
 
 			darray->GetData (i)->Save ( file );

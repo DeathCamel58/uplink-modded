@@ -138,7 +138,7 @@ void hSignalSIGFPE ( int n )
 
 	cout << endl << "An Uplink Internal Error has occurred: erroneous arithmetic operation (SIGFPE)" << endl;
 	if ( file_stdout ) {
-		fprintf ( file_stdout, "\nAn Uplink Internal Error has occured: erroneous arithmetic operation (SIGFPE)\n" );
+		fprintf ( file_stdout, "\nAn Uplink Internal Error has occurred: erroneous arithmetic operation (SIGFPE)\n" );
 		fflush ( file_stdout );
 	}
 
@@ -306,14 +306,14 @@ int RunUplinkExceptionHandling ()
 			cout << endl << "An Uplink Internal Error has occurred during graphics initialization" << endl;
 #ifdef WIN32
 			if ( !opengl_isSoftwareRendering () && opengl_setSoftwareRendering ( true ) ) {
-				MessageBox ( nullptr, "A Fatal Error occured in Uplink.\n\n"
+				MessageBox ( nullptr, "A Fatal Error occurred in Uplink.\n\n"
 				                   "Software Rendering is now turn on.\n"
 				                   "Please restart Uplink.", 
 				                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 				exit(255);
 			}
 			else {
-				MessageBox ( nullptr, "A Fatal Error occured in Uplink\n"
+				MessageBox ( nullptr, "A Fatal Error occurred in Uplink\n"
 				                   "during graphics initialization.\n",
 				                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 			}
@@ -326,19 +326,19 @@ int RunUplinkExceptionHandling ()
 		}
 	}
 
-	// Catch any errors that occured
+	// Catch any errors that occurred
 	// Set the screen size back to normal,
 	// then continue with the error - permitting debugging
 
 	cout << endl;
-	cout << "An (unrecognised) Uplink Internal Error has occured" << endl;
-	cout << "===================================================" << endl;
+	cout << "An (unrecognised) Uplink Internal Error has occurred" << endl;
+	cout << "====================================================" << endl;
 
 	App::CoreDump ();
 
 #ifndef WIN32
 	if ( file_stdout ) {
-		fprintf ( file_stdout, "\nAn (unrecognised) Uplink Internal Error has occured\n" );
+		fprintf ( file_stdout, "\nAn (unrecognised) Uplink Internal Error has occurred\n" );
 		fprintf ( file_stdout, "===================================================\n" );
 		if ( app && strncmp ( app->userpath.c_str(), "c:/", sizeof(app->userpath) ) != 0 ) {
 			fprintf ( file_stdout, "See the %sdebug.log file for more informations on the error\n", app->userpath.c_str() );
@@ -630,11 +630,11 @@ bool Init_Steam ()
 			if ( errorSteam ) {
 				fFreeResult = FreeLibrary(hinstLib);
 
-				cout << endl << "An error occured in Uplink" << endl;
+				cout << endl << "An error occurred in Uplink" << endl;
 				cout << errorMsg << endl;
 
 				char message[1024];
-				UplinkIntSnprintf ( message, sizeof(message), "An error occured in Uplink.\n\n"
+				UplinkIntSnprintf ( message, sizeof(message), "An error occurred in Uplink.\n\n"
 				                                              "%s\n", errorMsg);
 
 				MessageBox ( nullptr, message,
@@ -657,10 +657,10 @@ bool Init_Steam ()
     }
 
 #ifdef STEAM_AUTH
-	cout << endl << "An error occured in Uplink" << endl;
+	cout << endl << "An error occurred in Uplink" << endl;
 	cout << "Could not initialize Steam: Function not found." << endl;
 
-	MessageBox ( nullptr, "An error occured in Uplink.\n\n"
+	MessageBox ( nullptr, "An error occurred in Uplink.\n\n"
 	                   "Could not initialize Steam: Function not found.\n", 
 	                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 	return false;
@@ -885,16 +885,16 @@ bool VerifyLegitAndCodeCardCheck()
 
 #ifdef VERIFY_UPLINK_LEGIT
 
-    cout << endl << "An error occured in Uplink" << endl;
+    cout << endl << "An error occurred in Uplink" << endl;
     cout << "Files integrity is not verified" << endl;
 
 #ifdef WIN32
-	MessageBox ( nullptr, "An error occured in Uplink.\n\n"
+	MessageBox ( nullptr, "An error occurred in Uplink.\n\n"
 	                   "Files integrity is not verified.\n", 
 	                   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 #else
 	if ( file_stdout ) {
-        cout << endl << "An Uplink Error has occured" << endl;
+        cout << endl << "An Uplink Error has occurred" << endl;
         cout << "Files integrity is not verified" << endl;
 	}
 #endif
@@ -997,7 +997,7 @@ static bool TestRsLoadArchive ( char *filename )
 
 #ifdef WIN32
 		char message[512];
-		UplinkIntSnprintf( message, sizeof(message), "An error occured in Uplink.\n\n"
+		UplinkIntSnprintf( message, sizeof(message), "An error occurred in Uplink.\n\n"
 		                                             "Files integrity is not verified.\n"
 		                                             "Failed loading '%s'\n", filename );
 
@@ -1005,7 +1005,7 @@ static bool TestRsLoadArchive ( char *filename )
 						   "Uplink Error", MB_ICONEXCLAMATION | MB_OK );
 #else
 		if ( file_stdout ) {
-            cout << endl << "An Uplink Error has occured" << endl;
+            cout << endl << "An Uplink Error has occurred" << endl;
             cout << "Files integrity is not verified" << endl;
             cout << "Failed loading '" << filename << "'" << endl;
 		}
@@ -1027,7 +1027,6 @@ bool Load_Data ()
 
 	if ( debugging ) cout << "Loading application data" << endl;
 
-    // TODO: `.dat` files are not exported into the build directory, leading to the game closing. Export `.dat`s to build dir
 	if ( !TestRsLoadArchive ( "data/data.dat" ) ) return false;
 	if ( !TestRsLoadArchive ( "data/graphics.dat" ) ) return false;
     if ( !TestRsLoadArchive ( "data/loading.dat" ) ) return false;
@@ -1144,7 +1143,7 @@ void Init_Music ()
 void Init_Graphics ()
 {
 	Options *o = app->GetOptions ();
-	o->SetThemeName ( o->GetThemeName() );
+	o->SetThemeName ( (char *) o->GetThemeName().c_str() );
 }
 
 void Init_Fonts	()

@@ -63,7 +63,7 @@ void remove_stextbox ( char *name );
 
 void draw_stextbox	 ( Button *button, bool highlighted, bool clicked );
 void draw_scrollbox  ( Button *button, bool highlighted, bool clicked );
-void stextbox_scroll ( char *name, int newValue );
+void stextbox_scroll (const string &name, int newValue );
 
 //
 // Functions for modal message boxes

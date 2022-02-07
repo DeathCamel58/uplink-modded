@@ -141,7 +141,7 @@ void BankAccount::SetBalance ( int newbalance, int newloan )
 void BankAccount::SetOwner ( char *newname )
 {
 	
-	UplinkAssert ( strlen(newname) < SIZE_PERSON_NAME )
+	assert( strlen(newname) < SIZE_PERSON_NAME );
 	UplinkStrncpy ( name, newname, sizeof ( name ) )
 
 }
@@ -149,7 +149,7 @@ void BankAccount::SetOwner ( char *newname )
 void BankAccount::SetSecurity ( char *newpassword, int newsecurity )
 {
 
-	UplinkAssert ( strlen(newpassword) < sizeof(password) )
+	assert( strlen(newpassword) < sizeof(password) );
 	UplinkStrncpy ( password, newpassword, sizeof ( password ) )
 
 	security = newsecurity;
@@ -181,7 +181,7 @@ void BankAccount::ChangeBalance ( int amount, char *description )
 
 }
 
-bool BankAccount::HasTransferOccured ( char *s_ip, char *t_ip, int t_accno, int amount, bool partial )
+bool BankAccount::HasTransferOccurred (char *s_ip, char *t_ip, int t_accno, int amount, bool partial )
 {
 
 	// 
@@ -275,14 +275,14 @@ bool BankAccount::HasTransferOccured ( char *s_ip, char *t_ip, int t_accno, int 
 
 }
 
-bool BankAccount::HasTransferOccured ( char *person, int amount )
+bool BankAccount::HasTransferOccurred (char *person, int amount )
 {
 
 	char amount_s [16];
 	UplinkSnprintf ( amount_s, sizeof ( amount_s ), "%d", amount )
 
 	//
-	// Go throught each transfer trying to find a match for the amount
+	// Go through each transfer trying to find a match for the amount
 	//
 
 	for ( int i = 0; i < log.internallogs.Size (); ++i ) {

@@ -1,4 +1,4 @@
-// computerrecord.cpp: implementation of the computerrecord class.
+// recordbank.cpp: implementation of the recordbank class.
 //
 //////////////////////////////////////////////////////////////////////
 
@@ -64,12 +64,10 @@ void RecordBank::AddRecordSorted ( Record *newrecord, char *sortfield )
 
 }
 
-char * RecordBank::MakeSafeField( char * fieldval )
+string RecordBank::MakeSafeField(const string &fieldval )
 {
-	size_t len = strlen( fieldval );
-	char * val = new char[ len + 1 ];
-	UplinkSafeStrcpy( val, fieldval )
-	for ( size_t i = 0; i < len; ++i )
+	string val = fieldval;
+	for ( size_t i = 0; i < val.length(); ++i )
 		if ( val[i] == ';' ) val[i] = '.';
 	return val;
 }
@@ -85,7 +83,7 @@ Record *RecordBank::GetRecord ( int index )
 
 }
 
-Record *RecordBank::GetRecord ( char *query )
+Record *RecordBank::GetRecord (const string &query )
 {
 
 	LList <Record *> *result = GetRecords ( query );
@@ -121,53 +119,38 @@ Record *RecordBank::GetRecord ( char *query )
 
 }
 
-Record *RecordBank::GetRecordFromName( char *name )
+Record *RecordBank::GetRecordFromName(const string &name )
 {
-    char query[256];
-	char * tempname = MakeSafeField( name );
+	string tempname = MakeSafeField( name );
 
-	UplinkAssert ( ( sizeof ( "%s = %s" ) + sizeof ( RECORDBANK_NAME ) + strlen ( tempname ) ) < sizeof ( query ) )
-
-    UplinkSnprintf( query, sizeof ( query ), "%s = %s", RECORDBANK_NAME, tempname )
-	delete [] tempname;
+	string query = RECORDBANK_NAME " = " + tempname;
     return GetRecord( query );
 }
 
-Record *RecordBank::GetRecordFromNamePassword ( char *name, char *password )
+Record *RecordBank::GetRecordFromNamePassword (const string &name, const string &password )
 {
-    char query[256];
-	char * tempname = MakeSafeField( name );
-	char * passwd = MakeSafeField( password );
+	string tempname = MakeSafeField( name );
+	string passwd = MakeSafeField( password );
 
-	UplinkAssert ( ( sizeof ( "%s = %s ; %s = %s" ) + sizeof ( RECORDBANK_NAME ) + strlen ( tempname ) + 
-	                 sizeof ( RECORDBANK_PASSWORD ) + strlen ( passwd ) ) < sizeof ( query ) )
-
-	UplinkSnprintf( query, sizeof ( query ), "%s = %s ; %s = %s", RECORDBANK_NAME, tempname, 
-																	 RECORDBANK_PASSWORD, passwd )
-	delete [] tempname;
-	delete [] passwd;
+	string query = RECORDBANK_NAME " = " + tempname + " ; " RECORDBANK_PASSWORD " = " + passwd;
     return GetRecord( query );
 }
 
-Record *RecordBank::GetRecordFromAccountNumber ( char *accNo )
+Record *RecordBank::GetRecordFromAccountNumber (const string &accNo )
 {
-    char query[256];
-	char * tempAccNo = MakeSafeField( accNo );
+	string tempAccNo = MakeSafeField( accNo );
 
-	UplinkAssert ( ( sizeof ( "%s = %s" ) + sizeof ( RECORDBANK_ACCNO ) + strlen ( tempAccNo ) ) < sizeof ( query ) )
-
-	UplinkSnprintf( query, sizeof ( query ), "%s = %s", RECORDBANK_ACCNO, tempAccNo )
-	delete [] tempAccNo;
+	string query = RECORDBANK_ACCNO " = " + tempAccNo;
     return GetRecord( query );
 }
 
-LList <Record *> *RecordBank::GetRecords ( char *query )
+LList <Record *> *RecordBank::GetRecords (const string &query )
 {
 
 	// Make a copy of the query
 	
-	char *localquery = new char [strlen(query)+1];
-	UplinkSafeStrcpy ( localquery, query )
+	char *localquery = new char [query.length()+1];
+	UplinkSafeStrcpy ( localquery, query.c_str() )
 
 	// Calculate the number of conditions 
 
@@ -184,8 +167,8 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 
 	for ( i = 1; i < numconditions; ++i ) {
 		condition [i] = strchr ( condition [i-1], ';' );		
-		UplinkAssert ( *(condition [i]-1) == ' ' )			// Check the ';' is surrounded by spaces
-		UplinkAssert ( *(condition [i]+1) == ' ' )
+		assert( *(condition [i]-1) == ' ' );			// Check the ';' is surrounded by spaces
+		assert( *(condition [i]+1) == ' ' );
 		*(condition [i] - 1) = '\x0';						// Replace the space before the ';' with a '\x0'
 		(condition [i]) += 2;								// Point condition at char after '\x0'
 	}
@@ -208,8 +191,8 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 		else if ( strchr ( condition [i], '-' )	)	oplocation = strchr ( condition [i], '-' );
 		else	UplinkAbort ( "RecordBank::GetRecords, invalid query" )
 		
-		UplinkAssert ( *(oplocation - 1) == ' ' )	// Check the op is surrounded by spaces
-		UplinkAssert ( *(oplocation + 1) == ' ' )
+		assert( *(oplocation - 1) == ' ' );	// Check the op is surrounded by spaces
+		assert( *(oplocation + 1) == ' ' );
 
 		*(oplocation - 1) = '\x0';					// Terminate the field string before the op
 		
@@ -275,7 +258,7 @@ LList <Record *> *RecordBank::GetRecords ( char *query )
 
 }
 
-Record *RecordBank::GetRandomRecord ( char *query )
+Record *RecordBank::GetRandomRecord (const string &query )
 {
 
 	LList <Record *> *records = GetRecords ( query );
@@ -357,16 +340,16 @@ Record::~Record()
 
 }
 
-void Record::AddField ( char *name, char *value )
+void Record::AddField (const string &name, const string &value )
 {
 
-	char *newvalue = new char [strlen(value) + 1];
-	UplinkSafeStrcpy ( newvalue, value )
+	char *newvalue = new char [value.length() + 1];
+	UplinkSafeStrcpy ( newvalue, value.c_str() )
 	fields.PutData ( name, newvalue );
 
 }
 
-void Record::AddField ( char *name, int value )
+void Record::AddField (const string &name, int value )
 {
 
 	size_t newvaluesize = 16;
@@ -376,7 +359,7 @@ void Record::AddField ( char *name, int value )
 
 }
 
-void Record::ChangeField ( char *name, char *newvalue )
+void Record::ChangeField (const string &name, const string &newvalue )
 {
 
 	BTree <char *> *tree = fields.LookupTree ( name );
@@ -384,9 +367,9 @@ void Record::ChangeField ( char *name, char *newvalue )
 	if ( tree ) {
 
 		delete [] tree->data;
-		size_t tree__datasize = strlen(newvalue) + 1;
+		size_t tree__datasize = newvalue.length() + 1;
 		tree->data = new char [tree__datasize];
-		UplinkStrncpy ( tree->data, newvalue, tree__datasize )
+		UplinkStrncpy ( tree->data, newvalue.c_str(), tree__datasize )
 
 	}
 	else {
@@ -398,7 +381,7 @@ void Record::ChangeField ( char *name, char *newvalue )
 
 }
 
-void Record::ChangeField ( char *name, int newvalue )
+void Record::ChangeField (const string &name, int newvalue )
 {
 
 	BTree <char *> *tree = fields.LookupTree ( name );
@@ -420,10 +403,10 @@ void Record::ChangeField ( char *name, int newvalue )
 
 }
 
-char *Record::GetField ( char *name )
+char *Record::GetField (const string &name )
 {
 
-	if ( !name ) return nullptr;
+	if ( name.empty() ) return nullptr;
 
 	BTree <char *> *tree = fields.LookupTree ( name );
 
@@ -440,7 +423,7 @@ char *Record::GetField ( char *name )
 
 }
 
-void Record::DeleteField ( char *name )
+void Record::DeleteField (const string &name )
 {
 
 	fields.RemoveData ( name );

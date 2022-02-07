@@ -45,7 +45,7 @@ Rating::~Rating ()
 char *Rating::GetUplinkRatingString ( int urating )
 {
 
-	UplinkAssert ( urating >= 0 && urating < NUM_UPLINKRATINGS )
+	assert( urating >= 0 && urating < NUM_UPLINKRATINGS );
 	return UPLINKRATING [urating].name;
 
 }
@@ -53,7 +53,7 @@ char *Rating::GetUplinkRatingString ( int urating )
 char *Rating::GetNeuromancerRatingString ( int nrating )
 {
 
-	UplinkAssert ( nrating >= 0 && nrating < NUM_NEUROMANCERRATINGS )
+	assert( nrating >= 0 && nrating < NUM_NEUROMANCERRATINGS );
 	return NEUROMANCERRATING [nrating].name;
 
 }
@@ -61,7 +61,7 @@ char *Rating::GetNeuromancerRatingString ( int nrating )
 void Rating::SetOwner ( char *newowner )
 {
 
-	UplinkAssert (strlen(newowner) < SIZE_PERSON_NAME )
+	assert(strlen(newowner) < SIZE_PERSON_NAME );
 	UplinkStrncpy ( owner, newowner, sizeof ( owner ) )
 
 }
@@ -69,7 +69,7 @@ void Rating::SetOwner ( char *newowner )
 void Rating::SetUplinkRating ( int rating )
 {
 
-	UplinkAssert ( rating >= 0 && rating < NUM_UPLINKRATINGS )
+	assert( rating >= 0 && rating < NUM_UPLINKRATINGS );
 	uplinkrating = rating;
 	uplinkscore = UPLINKRATING [rating].score;
 
@@ -88,7 +88,7 @@ char *Rating::GetUplinkRating ()
 void Rating::SetNeuromancerRating ( int rating )
 {
 
-	UplinkAssert ( rating >= 0 && rating < NUM_NEUROMANCERRATINGS )
+	assert( rating >= 0 && rating < NUM_NEUROMANCERRATINGS );
 	neuromancerrating = rating;
 	neuromancerscore = NEUROMANCERRATING [rating].score;
 

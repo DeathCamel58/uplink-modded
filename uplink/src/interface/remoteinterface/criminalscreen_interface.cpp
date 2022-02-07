@@ -35,11 +35,7 @@ CriminalScreenInterface::CriminalScreenInterface ()
 }
 
 CriminalScreenInterface::~CriminalScreenInterface ()
-{
-
-	delete [] searchname;
-
-}
+= default;
 
 bool CriminalScreenInterface::EscapeKeyPressed ()
 {
@@ -330,12 +326,10 @@ void CriminalScreenInterface::SetSearchName ( char *newsearchname )
 
 	recordindex = comp->recordbank.FindNextRecordIndexNameNotSystemAccount ();
 
-	delete [] searchname;
-
 	if ( recordindex != -1 )
 		searchname = LowerCaseString (newsearchname);
 	else
-		searchname = nullptr;
+		searchname = "";
 
 }
 
@@ -380,7 +374,7 @@ void CriminalScreenInterface::UpdateScreen ()
 void CriminalScreenInterface::Update ()
 {
 
-	if ( searchname && IsVisible () ) {
+	if ( !searchname.empty() && IsVisible () ) {
 
 		int timems = (int)EclGetAccurateTime () - lastupdate;
 
@@ -398,8 +392,7 @@ void CriminalScreenInterface::Update ()
 			//if ( recordindex == comp->recordbank.records.Size () ) {
 			if ( recordindex == -1 ) {
 
-				delete [] searchname;
-				searchname = nullptr;
+				searchname = "";
 				recordindex = -1;
 				return;
 
@@ -408,19 +401,18 @@ void CriminalScreenInterface::Update ()
 			Record *rec = comp->recordbank.GetRecord ( recordindex );
 			char *thisname = rec->GetField ( RECORDBANK_NAME );
 			UplinkAssert (thisname)
-			char *lowercasethisname = LowerCaseString (thisname);
+			string lowercasethisname = LowerCaseString (thisname);
 
 			// Update display with the current record
 
 			UpdateScreen ();
 
 
-			if ( strcmp ( searchname, lowercasethisname ) == 0 ) {
+			if ( searchname == lowercasethisname ) {
 
 				// Record found - stop searching
 
-				delete [] searchname;
-				searchname = nullptr;
+				searchname = "";
 
 			}
 			else {
@@ -432,7 +424,6 @@ void CriminalScreenInterface::Update ()
 
 			}
 
-			delete [] lowercasethisname;
 			lastupdate = (int)EclGetAccurateTime ();
 
 		}

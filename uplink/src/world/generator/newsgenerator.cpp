@@ -349,7 +349,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	// Concatenate each part together and post it
 	//
 
-	part3 << "This occured on " << al->date.GetLongString ();
+	part3 << "This occurred on " << al->date.GetLongString ();
 
 	headline << '\x0';
 	part1 << '\x0';

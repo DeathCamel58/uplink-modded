@@ -38,8 +38,8 @@ public:
 	~MessageScreen() override;
 
 	void SetNextPage ( int newnextpage );
-	void SetTextMessage ( char *newtextmessage );
-	void SetButtonMessage ( char *newbuttonmessage );
+	void SetTextMessage (const string &newtextmessage );
+	void SetButtonMessage (const string &newbuttonmessage );
 	void SetMailThisToMe ( bool newvalue );
 
 	// Common functions

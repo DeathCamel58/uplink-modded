@@ -267,11 +267,11 @@ void DictionaryHacker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 		UplinkAssert ( EclGetButton ( "useridscreen_name" ) )
 		if ( EclGetButton ( "useridscreen_name" )->caption == "" )
 			EclGetButton ( "useridscreen_name" )->SetCaption ( "admin" );
-		char *name = (char *) EclGetButton ( "useridscreen_name" )->caption.c_str();
+		string name = EclGetButton ( "useridscreen_name" )->caption;
 
 		delete [] username;
-		username = new char [strlen(name)+1];
-		UplinkSafeStrcpy ( username, name )
+		username = new char [name.length()+1];
+		UplinkSafeStrcpy ( username, name.c_str() )
 
 		// Look up this user name in this computer's records
 			

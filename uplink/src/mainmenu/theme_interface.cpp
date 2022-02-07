@@ -92,12 +92,12 @@ DArray <char *> *ThemeInterface::ListAvailableThemes ()
 					continue;
 				}
 
-                char *lowercaseThemename = LowerCaseString( themes->GetData(i) );
-				if ( strcmp ( lowercaseThemename, "graphics" ) == 0 ) {
+                string lowercaseThemename = LowerCaseString( themes->GetData(i) );
+				if ( lowercaseThemename == "graphics" ) {
 					delete [] themes->GetData (i);
                     themes->RemoveData (i);
 				}
-                delete [] lowercaseThemename;
+                lowercaseThemename = "";
 
 			}
 		}

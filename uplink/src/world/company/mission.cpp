@@ -80,27 +80,27 @@ void Mission::SetCompletion ( char *newA, char *newB, char *newC, char *newD, ch
 	// No need to set them if nullptr is passed in - they will not be examined after all
 
 	if ( newA ) {
-		UplinkAssert ( strlen(newA) < SIZE_MISSION_COMPLETION )
+		assert( strlen(newA) < SIZE_MISSION_COMPLETION );
 		UplinkStrncpy ( completionA, newA, sizeof ( completionA ) )
 	}
 
 	if ( newB ) {
-		UplinkAssert ( strlen(newB) < SIZE_MISSION_COMPLETION )
+		assert( strlen(newB) < SIZE_MISSION_COMPLETION );
 		UplinkStrncpy ( completionB, newB, sizeof ( completionB ) )
 	}
 
 	if ( newC ) {
-		UplinkAssert ( strlen(newC) < SIZE_MISSION_COMPLETION )
+		assert( strlen(newC) < SIZE_MISSION_COMPLETION );
 		UplinkStrncpy ( completionC, newC, sizeof ( completionC ) )
 	}
 
 	if ( newD ) {
-		UplinkAssert ( strlen(newD) < SIZE_MISSION_COMPLETION )
+		assert( strlen(newD) < SIZE_MISSION_COMPLETION );
 		UplinkStrncpy ( completionD, newD, sizeof ( completionD ) )
 	}
 
 	if ( newE ) {
-		UplinkAssert ( strlen(newE) < SIZE_MISSION_COMPLETION )
+		assert( strlen(newE) < SIZE_MISSION_COMPLETION );
 		UplinkStrncpy ( completionE, newE, sizeof ( completionE ) )
 	}
 
@@ -121,96 +121,96 @@ void Mission::SetNpcPriority ( bool newpriority )
 
 }
 
-void Mission::SetDescription ( char *newdescription )
+void Mission::SetDescription (const string &newdescription )
 {
 
-	UplinkAssert ( strlen ( newdescription ) < SIZE_MISSION_DESCRIPTION )
-	UplinkStrncpy ( description, newdescription, sizeof ( description ) )
+	assert( newdescription.length() < SIZE_MISSION_DESCRIPTION );
+	UplinkStrncpy ( description, newdescription.c_str(), sizeof ( description ) )
 
 }
 
-void Mission::SetDetails ( char *newdetails )
+void Mission::SetDetails (const string &newdetails )
 {
 
 	delete [] details;
 
-	details = new char [strlen(newdetails)+1];
-	UplinkSafeStrcpy ( details, newdetails )
+	details = new char [newdetails.length()+1];
+	UplinkSafeStrcpy ( details, newdetails.c_str() )
 
 }
 
-void Mission::SetFullDetails ( char *newdetails )
+void Mission::SetFullDetails (const string &newdetails )
 {
 
 	delete [] fulldetails;
 
-	fulldetails = new char [strlen(newdetails)+1];
-	UplinkSafeStrcpy ( fulldetails, newdetails )
+	fulldetails = new char [newdetails.length()+1];
+	UplinkSafeStrcpy ( fulldetails, newdetails.c_str() )
 
 }
 
-void Mission::SetWhySoMuchMoney	( char *answer )
+void Mission::SetWhySoMuchMoney	(const string &answer )
 {
 
 	delete [] whysomuchmoney;
 	whysomuchmoney = nullptr;
 
-	if ( answer ) {
+	if ( !answer.empty() ) {
 
-		whysomuchmoney = new char [strlen(answer)+1];
-		UplinkSafeStrcpy ( whysomuchmoney, answer )
+		whysomuchmoney = new char [answer.length()+1];
+		UplinkSafeStrcpy ( whysomuchmoney, answer.c_str() )
 
 	}
 
 }
 
-void Mission::SetHowSecure ( char *answer )
+void Mission::SetHowSecure (const string &answer )
 {
 
 	delete [] howsecure;
 	howsecure = nullptr;
 
-	if ( answer ) {
+	if ( !answer.empty() ) {
 
-		howsecure = new char [strlen(answer)+1];
-		UplinkSafeStrcpy ( howsecure, answer )
+		howsecure = new char [answer.length()+1];
+		UplinkSafeStrcpy ( howsecure, answer.c_str() )
 
 	}
 
 }
 
-void Mission::SetWhoIsTheTarget ( char *answer )
+void Mission::SetWhoIsTheTarget (const string &answer )
 {
 
 	delete [] whoisthetarget;
 	whoisthetarget = nullptr;
 
-	if ( answer ) {
+	if ( !answer.empty() ) {
 
-		whoisthetarget = new char [strlen(answer)+1];
-		UplinkSafeStrcpy ( whoisthetarget, answer )
+		whoisthetarget = new char [answer.length()+1];
+		UplinkSafeStrcpy ( whoisthetarget, answer.c_str() )
 
 	}
 
 }
 
-void Mission::SetEmployer ( char *newemployer )
+void Mission::SetEmployer (const string &newemployer )
 {
 
-	UplinkAssert ( strlen (newemployer) < 64 )
+	assert( newemployer.length() < 64 );
 	UplinkAssert ( game->GetWorld ()->GetCompany (newemployer) )
 
-	UplinkStrncpy ( employer, newemployer, sizeof ( employer ) )
+	UplinkStrncpy ( employer, newemployer.c_str(), sizeof ( employer ) )
 
 }
 
-void Mission::SetContact ( char *newcontact )
+void Mission::SetContact (const string &newcontact )
 {
 
-	UplinkAssert ( strlen (newcontact) < SIZE_PERSON_NAME )
+	assert( newcontact.length() < SIZE_PERSON_NAME );
 	UplinkAssert ( game->GetWorld ()->GetPerson ( newcontact ) )
 
-	UplinkStrncpy ( contact, newcontact, sizeof ( contact ) )
+	UplinkStrncpy ( contact, newcontact.c_str(), sizeof ( contact ) )
 
 }
 
@@ -248,26 +248,26 @@ void Mission::SetAcceptRating ( int newrating )
 
 }
 
-void Mission::GiveLink ( char *ip )
+void Mission::GiveLink (const string &ip )
 {
 
-	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP )
+	assert( ip.length() < SIZE_VLOCATION_IP );
 	size_t theipsize = SIZE_VLOCATION_IP;
 	char *theip = new char [theipsize];
-	UplinkStrncpy ( theip, ip, theipsize )
+	UplinkStrncpy ( theip, ip.c_str(), theipsize )
 	links.PutData ( theip );
 
 }
 
-void Mission::GiveCode ( char *ip, char *code )
+void Mission::GiveCode (const string &ip, const string &code )
 {
 
-	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP )
+	assert( ip.length() < SIZE_VLOCATION_IP );
 	char theip [SIZE_VLOCATION_IP];
-	UplinkStrncpy ( theip, ip, sizeof ( theip ) )
+	UplinkStrncpy ( theip, ip.c_str(), sizeof ( theip ) )
 
-	char *thecode = new char [strlen(code)+1];
-	UplinkSafeStrcpy ( thecode, code )
+	char *thecode = new char [code.length()+1];
+	UplinkSafeStrcpy ( thecode, code.c_str() )
 
 	codes.PutData ( theip, thecode );
 

@@ -48,37 +48,37 @@ Message::~Message()
 
 }
 
-void Message::SetTo	( char *newto )
+void Message::SetTo	(const string &newto )
 {
 
-	UplinkAssert ( strlen (newto) < SIZE_PERSON_NAME )
-	UplinkStrncpy ( to, newto, sizeof ( to ) )
+	assert( newto.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( to, newto.c_str(), sizeof ( to ) )
 
 }
 
-void Message::SetFrom ( char *newfrom )
+void Message::SetFrom (const string &newfrom )
 {
 
-	UplinkAssert ( strlen (newfrom) < SIZE_PERSON_NAME )
-	UplinkStrncpy ( from, newfrom, sizeof ( from ) )
+	assert( newfrom.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( from, newfrom.c_str(), sizeof ( from ) )
 
 }
 
-void Message::SetSubject ( char *newsubject )
+void Message::SetSubject (const string &newsubject )
 {
 
 	delete [] subject;
-	subject = new char [ strlen(newsubject) + 1 ];
-	UplinkSafeStrcpy ( subject, newsubject )
+	subject = new char [ newsubject.length() + 1 ];
+	UplinkSafeStrcpy ( subject, newsubject.c_str() )
 
 }
 
-void Message::SetBody ( char *newbody )
+void Message::SetBody (const string &newbody )
 {
 
 	delete [] body;
-	body = new char [ strlen (newbody) + 1 ];
-	UplinkSafeStrcpy ( body, newbody )
+	body = new char [ newbody.length() + 1 ];
+	UplinkSafeStrcpy ( body, newbody.c_str() )
 
 }
 
@@ -89,22 +89,22 @@ void Message::SetDate ( Date *newdate )
 
 }
 
-void Message::GiveLink ( char *ip )
+void Message::GiveLink (const string &ip )
 {
 
 	size_t theipsize = SIZE_VLOCATION_IP;
 	char *theip = new char [theipsize];
-	UplinkAssert (strlen(ip) < SIZE_VLOCATION_IP )
-	UplinkStrncpy ( theip, ip, theipsize )
+	assert(ip.length() < SIZE_VLOCATION_IP );
+	UplinkStrncpy ( theip, ip.c_str(), theipsize )
 	links.PutData (theip);
 
 }
 
-void Message::GiveCode ( char *ip, char *code )
+void Message::GiveCode (const string &ip, const string &code )
 {
 
-	char *thecode = new char [strlen(code)+1];
-	UplinkSafeStrcpy ( thecode, code )
+	char *thecode = new char [code.length()+1];
+	UplinkSafeStrcpy ( thecode, code.c_str() )
     codes.PutData ( ip, thecode );
 
 }

@@ -327,12 +327,12 @@ void LinksScreenInterface::DeleteLinkClick ( Button *button )
 		Button *filterbutton = EclGetButton ( "linksscreen_filtertext" );
 		if ( filterbutton ) {
 			string filter = filterbutton->caption;
-			if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
-			else						thisinterface->ApplyFilter ( (char *) filter.c_str() );
+			if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( "" );
+			else						thisinterface->ApplyFilter ( filter );
 			baseoffset = currentbaseoffset;
 		}
 		else
-			thisinterface->ApplyFilter ( nullptr );
+			thisinterface->ApplyFilter ( "" );
 
 	}
 
@@ -518,12 +518,12 @@ void LinksScreenInterface::FilterClick ( Button *button )
 
 	string filter = EclGetButton ( "linksscreen_filtertext" )->caption;
 
-	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( nullptr );
-	else						thisinterface->ApplyFilter ( (char *) filter.c_str() );
+	if ( filter [0] == '\x0' )  thisinterface->ApplyFilter ( "" );
+	else						thisinterface->ApplyFilter ( filter );
 
 }
 
-void LinksScreenInterface::ScrollChange ( char *scrollname, int newValue )
+void LinksScreenInterface::ScrollChange (const string &scrollname, int newValue )
 {
 
     baseoffset = newValue;
@@ -580,7 +580,7 @@ void LinksScreenInterface::SetFullList ( LList <char *> *newfulllist )
 
     }
 	
-	ApplyFilter ( nullptr );
+	ApplyFilter ( "" );
 
 }
 
@@ -599,11 +599,11 @@ void LinksScreenInterface::SetFullList ()
 
     }
 
-	ApplyFilter ( nullptr );
+	ApplyFilter ( "" );
 
 }
 
-void LinksScreenInterface::ApplyFilter ( char *filter )
+void LinksScreenInterface::ApplyFilter (const string &filter )
 {
 
 	//
@@ -613,9 +613,9 @@ void LinksScreenInterface::ApplyFilter ( char *filter )
     DeleteLListData ( &filteredlist );
     filteredlist.Empty ();
 
-	if ( filter ) {
+	if ( !filter.empty() ) {
 
-		char *lowercasefilter = LowerCaseString ( filter );
+		string lowercasefilter = LowerCaseString ( filter );
 
 		for ( int i = 0; i < fulllist.Size (); ++i ) {
 
@@ -626,9 +626,9 @@ void LinksScreenInterface::ApplyFilter ( char *filter )
 			}
 
 			char *computername = vl->computer;
-			char *lowercasename = LowerCaseString ( computername );
+			string lowercasename = LowerCaseString ( computername );
 
-            if ( strstr ( lowercasename, lowercasefilter ) != nullptr) {
+            if ( lowercasename.find( lowercasefilter ) != string::npos) {
 
 				size_t datacopysize = SIZE_VLOCATION_IP;
                 char *datacopy = new char [datacopysize];
@@ -637,11 +637,11 @@ void LinksScreenInterface::ApplyFilter ( char *filter )
 
             }
 
-			delete [] lowercasename;
+            lowercasename = "";
 
 		}
 
-		delete [] lowercasefilter;
+        lowercasefilter = "";
 
 	}
 	else {
@@ -943,8 +943,8 @@ bool LinksScreenInterface::ReturnKeyPressed ()
 	
 	if ( filterbutton ) {
 		string filter = filterbutton->caption;
-		if ( filter [0] == '\x0' )  ApplyFilter ( nullptr );
-		else						ApplyFilter ( (char *) filter.c_str() );
+		if ( filter [0] == '\x0' )  ApplyFilter ( "" );
+		else						ApplyFilter ( filter );
 		return true;
 	}
 

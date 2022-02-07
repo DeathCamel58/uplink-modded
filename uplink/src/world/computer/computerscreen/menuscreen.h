@@ -35,7 +35,7 @@ public:
 	MenuScreen();
 	~MenuScreen() override;
 
-	void  AddOption	  ( char *caption, char *tooltip, int nextpage, int security = 10, int index = -1 );
+	void  AddOption	  (const string &caption, const string &tooltip, int nextpage, int security = 10, int index = -1 );
 	int   NumOptions  ();
 	char *GetCaption  ( int index );
 	char *GetTooltip  ( int index );
@@ -76,8 +76,8 @@ public:
 	MenuScreenOption ();
 	~MenuScreenOption () override;
 
-	void SetCaption ( char *newcaption );
-	void SetTooltip ( char *newtooltip );
+	void SetCaption (const string &newcaption );
+	void SetTooltip (const string &newtooltip );
 	void SetNextPage ( int newnextpage );
 	void SetSecurity ( int newsecurity );
 

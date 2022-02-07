@@ -1214,7 +1214,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 	auto *ds3 = new DialogScreen ();
 	ds3->SetMainTitle ( comp->name );
 	ds3->SetSubTitle ( "eMailz" );
-	ds3->AddWidget ( "close", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Close", "Click to close this screen", 1, -1, nullptr, nullptr );
+	ds3->AddWidget ( "close", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Close", "Click to close this screen", 1, -1, "", "" );
 	comp->AddComputerScreen ( ds3, 3 );
 
 	//
@@ -1413,14 +1413,14 @@ void PlotGenerator::Run_Act1Scene5 ()
 	hiscomp->databank.PutData ( data );
 
 	auto *ds = (DialogScreen *) hiscomp->GetComputerScreen (3);
-	UplinkAssert ( ds->GetOBJECTID () == OID_DIALOGSCREEN )
+	assert( ds->GetOBJECTID () == OID_DIALOGSCREEN );
 	ds->AddWidget ( "scheduletitle", WIDGET_CAPTION, 50, 150, 200, 20, "Scheduled emails", "" );
 	ds->AddWidget ( "email1", WIDGET_TEXTBOX, 80, 180, 200, 30, "TO: subscriptions@hackers.com\nSUBJECT: continuation of order", "" );
 	ds->AddWidget ( "email2", WIDGET_TEXTBOX, 80, 220, 200, 30, "TO: all-agents@uplink.com\nSUBJECT: Warning about ARC", "" );
-	ds->AddWidget ( "view1", WIDGET_SCRIPTBUTTON, 280, 180, 50, 14, "View", "Click to view this email", 62, -1, nullptr, nullptr );
-	ds->AddWidget ( "view2", WIDGET_SCRIPTBUTTON, 280, 220, 50, 14, "View", "Click to view this email", 63, -1, nullptr, nullptr );
-	ds->AddWidget ( "cancel1", WIDGET_SCRIPTBUTTON, 280, 195, 50, 14, "Cancel", "Click to stop this mail from being sent", 60, -1, nullptr, nullptr );
-	ds->AddWidget ( "cancel2", WIDGET_SCRIPTBUTTON, 280, 235, 50, 14, "Cancel", "Click to stop this mail from being sent", 61, -1, nullptr, nullptr );
+	ds->AddWidget ( "view1", WIDGET_SCRIPTBUTTON, 280, 180, 50, 14, "View", "Click to view this email", 62, -1, "", "" );
+	ds->AddWidget ( "view2", WIDGET_SCRIPTBUTTON, 280, 220, 50, 14, "View", "Click to view this email", 63, -1, "", "" );
+	ds->AddWidget ( "cancel1", WIDGET_SCRIPTBUTTON, 280, 195, 50, 14, "Cancel", "Click to stop this mail from being sent", 60, -1, "", "" );
+	ds->AddWidget ( "cancel2", WIDGET_SCRIPTBUTTON, 280, 235, 50, 14, "Cancel", "Click to stop this mail from being sent", 61, -1, "", "" );
 	ds->AddWidget ( "mailtext", WIDGET_TEXTBOX, 30, 270, 400, 100, "", "" );
 
 	agent->SetStatus ( PERSON_STATUS_DEAD );
@@ -1531,7 +1531,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 			return;
 
     	auto *ds = (DialogScreen *) hiscomp->GetComputerScreen (3);
-	    UplinkAssert ( ds->GetOBJECTID () == OID_DIALOGSCREEN )
+	    assert( ds->GetOBJECTID () == OID_DIALOGSCREEN );
 
         ds->RemoveWidget ( "email2" );
         ds->RemoveWidget ( "view2" );
@@ -1951,7 +1951,7 @@ void PlotGenerator::Run_Act3Scene2 ()
 	UplinkAssert ( comp->screens.ValidIndex ( 1 ) )
 	auto *menu2 = (MenuScreen *) comp->screens.GetData (1);
 	UplinkAssert (menu2)
-	UplinkAssert (menu2->GetOBJECTID () == OID_MENUSCREEN )
+	assert(menu2->GetOBJECTID () == OID_MENUSCREEN );
 	menu2->AddOption ( "Faith Progress", "Shows the latest known versions of Faith and Revelation", 3, 10, 5 );
 
 	auto *gs3 = new GenericScreen ();
@@ -4249,11 +4249,11 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 
 				if ( fromcomp ) {
 
-					char *traced_ip = fromcomp->logbank.TraceLog ( comp->ip, fromcomp->ip, &(al->date), 10 );
+					string traced_ip = fromcomp->logbank.TraceLog ( comp->ip, fromcomp->ip, &(al->date), 10 );
 
-					if ( traced_ip ) {
+					if ( !traced_ip.empty() ) {
 
-						if ( strcmp ( traced_ip, personalComputer->ip ) == 0 ) {
+						if ( traced_ip == personalComputer->ip ) {
 
 							// Now investigated - so set it back to LOG_NOTSUSPICIOUS
 
@@ -4710,8 +4710,8 @@ int PlotGenerator::GetSpecialMissionsCompleted ()
 char *PlotGenerator::SpecialMissionTitle ( int missionID )
 {
 
-    UplinkAssert (missionID >= 0)
-    UplinkAssert (missionID < 16)
+    assert(missionID >= 0);
+    assert(missionID < 16);
 
     return MISSION_TITLE [missionID];
 
@@ -4720,8 +4720,8 @@ char *PlotGenerator::SpecialMissionTitle ( int missionID )
 char *PlotGenerator::SpecialMissionDescription ( int missionID )
 {
 
-    UplinkAssert (missionID >= 0)
-    UplinkAssert (missionID < 16)
+    assert(missionID >= 0);
+    assert(missionID < 16);
 
     return MISSION_DESCRIPTION [missionID];
 

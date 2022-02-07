@@ -36,11 +36,7 @@ SocialSecurityScreenInterface::SocialSecurityScreenInterface ()
 }
 
 SocialSecurityScreenInterface::~SocialSecurityScreenInterface ()
-{
-
-	delete [] searchname;
-
-}
+= default;
 
 void SocialSecurityScreenInterface::CommitClick ( Button *button )
 {
@@ -61,10 +57,10 @@ void SocialSecurityScreenInterface::CommitClick ( Button *button )
 		Record *rec = comp->recordbank.GetRecord ( sssi->recordindex );
 		UplinkAssert (rec)
 
-		rec->ChangeField ( "Social Security",	(char *) EclGetButton ( "ss_num" )->caption.c_str() );
-		rec->ChangeField ( "D.O.B",				(char *) EclGetButton ( "ss_dob" )->caption.c_str() );
-		rec->ChangeField ( "Marital Status",	(char *) EclGetButton ( "ss_marital" )->caption.c_str() );
-		rec->ChangeField ( "Personal Status",	(char *) EclGetButton ( "ss_personal" )->caption.c_str() );
+		rec->ChangeField ( "Social Security",	EclGetButton ( "ss_num" )->caption );
+		rec->ChangeField ( "D.O.B",			EclGetButton ( "ss_dob" )->caption );
+		rec->ChangeField ( "Marital Status",	EclGetButton ( "ss_marital" )->caption );
+		rec->ChangeField ( "Personal Status",	EclGetButton ( "ss_personal" )->caption );
 
 		create_msgbox ( "Success", "Social Security Record updated" );
 
@@ -200,8 +196,6 @@ void SocialSecurityScreenInterface::SetSearchName ( char *newsearchname )
 
 	recordindex = comp->recordbank.FindNextRecordIndexNameNotSystemAccount ();
 
-	delete [] searchname;
-
 	if ( recordindex != -1 )
 		searchname = LowerCaseString (newsearchname);
 	else
@@ -273,7 +267,7 @@ void SocialSecurityScreenInterface::UpdateScreen ()
 void SocialSecurityScreenInterface::Update ()
 {
 
-	if ( searchname && IsVisible () ) {
+	if ( !searchname.empty() && IsVisible () ) {
 
 		int timems = (int) ( EclGetAccurateTime () - lastupdate );
 
@@ -291,8 +285,7 @@ void SocialSecurityScreenInterface::Update ()
 			//if ( recordindex == comp->recordbank.records.Size () ) {
 			if ( recordindex == -1 ) {
 
-				delete [] searchname;
-				searchname = nullptr;
+				searchname = "";
 				recordindex = -1;
 				return;
 
@@ -301,19 +294,18 @@ void SocialSecurityScreenInterface::Update ()
 			Record *rec = comp->recordbank.GetRecord ( recordindex );
 			char *thisname = rec->GetField ( RECORDBANK_NAME );
 			UplinkAssert (thisname)
-			char *lowercasethisname = LowerCaseString (thisname);
+			string lowercasethisname = LowerCaseString (thisname);
 
 			// Update display with the current record
 
 			UpdateScreen ();
 
 
-			if ( strcmp ( searchname, lowercasethisname ) == 0 ) {
+			if ( searchname == lowercasethisname ) {
 
 				// Record found - stop searching
 
-				delete [] searchname;
-				searchname = nullptr;
+				searchname = "";
 
 			}
 			else {
@@ -325,7 +317,6 @@ void SocialSecurityScreenInterface::Update ()
 
 			}
 
-			delete [] lowercasethisname;
 			lastupdate = (int) ( EclGetAccurateTime () );
 
 		}

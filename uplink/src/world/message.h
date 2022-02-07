@@ -48,14 +48,14 @@ public:
 	Message();
 	~Message() override;
 
-	void SetTo		( char *newto );
-	void SetFrom	( char *newfrom );
-	void SetSubject ( char *newsubject );
-	void SetBody	( char *newbody );
+	void SetTo		(const string &newto );
+	void SetFrom	(const string &newfrom );
+	void SetSubject (const string &newsubject );
+	void SetBody	(const string &newbody );
 	void SetDate    ( Date *newdate );
 
-	void GiveLink ( char *ip );
-	void GiveCode ( char *ip, char *code );
+	void GiveLink (const string &ip );
+	void GiveCode (const string &ip, const string &code );
 
 	void AttachData ( Data *newdata );
 	Data *GetData ();

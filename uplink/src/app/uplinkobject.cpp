@@ -88,7 +88,7 @@ void UplinkObject::LoadID ( FILE *file )
 	char id [SIZE_SAVEID];
 	fread ( id, SIZE_SAVEID, 1, file );
 	id [ sizeof(id) - 1 ] = '\0';
-	UplinkAssert ( strcmp ( id, GetID () ) == 0 );
+	assert( id == GetID () );
 #endif
 
 }
@@ -121,7 +121,7 @@ void UplinkObject::LoadID_END ( FILE *file )
 	char id_end [SIZE_SAVEID_END];
 	fread ( id_end, SIZE_SAVEID_END, 1, file );
 	id_end [ sizeof(id_end) - 1 ] = '\0';
-	UplinkAssert ( strcmp ( id_end, GetID_END () ) == 0 );
+	assert( id_end == GetID_END () );
 #endif
 
 }

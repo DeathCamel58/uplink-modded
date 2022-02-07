@@ -34,18 +34,18 @@ VLocation::VLocation()
 VLocation::~VLocation()
 = default;
 
-void VLocation::SetIP ( char *newip )
+void VLocation::SetIP (const string &newip )
 {
 
-	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
-	UplinkStrncpy ( ip, newip, sizeof ( ip ) )
+	assert( newip.length() < SIZE_VLOCATION_IP );
+	UplinkStrncpy ( ip, newip.c_str(), sizeof ( ip ) )
 
 }
 
-bool VLocation::VerifyIP ( char *newip )
+bool VLocation::VerifyIP (const string &newip )
 {
 
-	if (!newip || strlen(newip) >= SIZE_VLOCATION_IP) {
+	if (newip.empty() || newip.length() >= SIZE_VLOCATION_IP) {
 
 		return false;
 
@@ -55,11 +55,11 @@ bool VLocation::VerifyIP ( char *newip )
 
 }
 
-void VLocation::SetComputer ( char *newcomputer )
+void VLocation::SetComputer (const string &newcomputer )
 {
 
-	UplinkAssert ( strlen (newcomputer) < SIZE_COMPUTER_NAME )
-	UplinkStrncpy ( computer, newcomputer, sizeof ( computer ) )
+	assert( newcomputer.length() < SIZE_COMPUTER_NAME );
+	UplinkStrncpy ( computer, newcomputer.c_str(), sizeof ( computer ) )
 
 //	UplinkAssert ( game->GetWorld ()->GetComputer ( computer ) );
 
@@ -68,8 +68,8 @@ void VLocation::SetComputer ( char *newcomputer )
 void VLocation::SetPLocation ( int newx, int newy )
 {
 
-	UplinkAssert ( newx >= 0 && newx < VIRTUAL_WIDTH )
-	UplinkAssert ( newy >= 0 && newy < VIRTUAL_HEIGHT )
+	assert( newx >= 0 && newx < VIRTUAL_WIDTH );
+	assert( newy >= 0 && newy < VIRTUAL_HEIGHT );
 
 	x = newx;
 	y = newy;

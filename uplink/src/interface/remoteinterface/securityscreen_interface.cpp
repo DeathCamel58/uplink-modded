@@ -239,7 +239,7 @@ void SecurityScreenInterface::Update ()
 
 					if ( EclGetButton ( status ) ) {
 				
-						EclGetButton ( status )->SetCaption ( ss->enabled ? (char *) "Enabled" : (char *) "Disabled" );
+						EclGetButton ( status )->SetCaption ( ss->enabled ? "Enabled" : "Disabled" );
 
 					}
 					

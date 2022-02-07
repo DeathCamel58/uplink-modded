@@ -39,7 +39,7 @@ public:
 
 	bool LogModified ( int index );							// Is the log in internallogs different to that in logs?
 
-	char *TraceLog ( char *to_ip, char *logbank_ip, Date *date, int uplinkrating );		
+	string TraceLog (const string &to_ip, const string &logbank_ip, Date *date, int uplinkrating );
 															// ie source->logbank_ip->to_ip; lookup source and return (recursive)
 
     void Empty ();
@@ -109,19 +109,19 @@ public:
 	AccessLog();
 	~AccessLog() override;
 
-	void SetProperties ( Date *newdate, char *newfromip, char *newfromname,
-						 int newSUSPICIOUS = LOG_NOTSUSPICIOUS,
-						 int newTYPE = LOG_TYPE_TEXT );
+	void SetProperties (Date *newdate, const string &newfromip, const string &newfromname,
+                        int newSUSPICIOUS = LOG_NOTSUSPICIOUS,
+                        int newTYPE = LOG_TYPE_TEXT );
 	
 	void SetProperties ( AccessLog *copyme );
 
 	void SetTYPE ( int newTYPE );
-	void SetFromIP ( char *newfromip );
+	void SetFromIP (const string &newfromip );
 	void SetSuspicious ( int newSUSPICIOUS );
 
-	void SetData1 ( char *newdata );
-	void SetData2 ( char *newdata );
-	void SetData3 ( char *newdata );
+	void SetData1 (const string &newdata );
+	void SetData2 (const string &newdata );
+	void SetData3 (const string &newdata );
 
 	char *GetDescription ();							// Must remember to delete result
 

@@ -43,15 +43,15 @@ Connection::~Connection()
 
 }
 
-void Connection::SetOwner ( char *newowner )
+void Connection::SetOwner (const string &newowner )
 {
 
-	UplinkAssert ( strlen (newowner) < 64 )
-	UplinkStrncpy ( owner, newowner, sizeof ( owner ) )
+	assert( newowner.length() < 64 );
+	UplinkStrncpy ( owner, newowner.c_str(), sizeof ( owner ) )
 
 }
 
-void Connection::AddVLocation ( char *ip )
+void Connection::AddVLocation (const string &ip )
 {
 	
 	// First make sure this ip isn't already in there
@@ -60,21 +60,21 @@ void Connection::AddVLocation ( char *ip )
 
 	size_t newipsize = SIZE_VLOCATION_IP;
 	char *newip = new char [newipsize];
-	UplinkAssert ( strlen (ip) < SIZE_VLOCATION_IP )
-	UplinkStrncpy ( newip, ip, newipsize )
+	assert( ip.length() < SIZE_VLOCATION_IP );
+	UplinkStrncpy ( newip, ip.c_str(), newipsize )
 
 	vlocations.PutDataAtEnd ( newip );
 
 }
 
 /********** Start code by François Gagné **********/
-void Connection::AddOrRemoveVLocation ( char *ip )
+void Connection::AddOrRemoveVLocation (const string &ip )
 {
 
 	// Cannot remove the first location
 
 	for ( int i = 1; i < vlocations.Size (); ++i )
-		if ( strcmp ( vlocations.GetData (i), ip ) == 0 ) {
+		if ( vlocations.GetData (i) == ip ) {
 			delete [] vlocations.GetData (i);
 			vlocations.RemoveData ( i );
 			return;
@@ -94,11 +94,11 @@ void Connection::RemoveLastLocation ()
 
 }
 
-bool Connection::LocationIncluded ( char *ip )
+bool Connection::LocationIncluded (const string &ip )
 {
 
 	for ( int i = 0; i < vlocations.Size (); ++i )
-		if ( strcmp ( vlocations.GetData (i), ip ) == 0 )
+		if ( vlocations.GetData (i) == ip )
 			return true;
 
 	return false;

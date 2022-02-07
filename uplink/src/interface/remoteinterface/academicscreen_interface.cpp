@@ -29,18 +29,14 @@
 AcademicScreenInterface::AcademicScreenInterface ()
 {
 
-	searchname = nullptr;
+	searchname = "";
 	recordindex = -1;
 	lastupdate = 0;
 
 }
 
 AcademicScreenInterface::~AcademicScreenInterface ()
-{
-
-	delete [] searchname;
-
-}
+= default;
 
 bool AcademicScreenInterface::EscapeKeyPressed ()
 {
@@ -69,9 +65,9 @@ void AcademicScreenInterface::CommitClick ( Button *button )
 		Record *rec = comp->recordbank.GetRecord ( asi->recordindex );
 		UplinkAssert (rec)
 
-		rec->ChangeField ( "College", (char *) EclGetButton ( "academic_collegequals" )->caption.c_str() );
-		rec->ChangeField ( "University", (char *) EclGetButton ( "academic_uniquals" )->caption.c_str() );
-		rec->ChangeField ( "Other", (char *) EclGetButton ( "academic_otherquals" )->caption.c_str() );
+		rec->ChangeField ( "College", EclGetButton ( "academic_collegequals" )->caption );
+		rec->ChangeField ( "University", EclGetButton ( "academic_uniquals" )->caption );
+		rec->ChangeField ( "Other", EclGetButton ( "academic_otherquals" )->caption );
 
 		create_msgbox ( "Success", "Academic record updated" );
 
@@ -186,12 +182,10 @@ void AcademicScreenInterface::SetSearchName ( char *newsearchname )
 
 	recordindex = comp->recordbank.FindNextRecordIndexNameNotSystemAccount ();
 
-	delete [] searchname;
-
 	if ( recordindex != -1 )
 		searchname = LowerCaseString (newsearchname);
 	else
-		searchname = nullptr;
+		searchname = "";
 
 }
 
@@ -254,7 +248,7 @@ void AcademicScreenInterface::UpdateScreen ()
 void AcademicScreenInterface::Update ()
 {
 
-	if ( searchname && IsVisible () ) {
+	if ( !searchname.empty() && IsVisible () ) {
 
 		int timems = (int)EclGetAccurateTime () - lastupdate;
 
@@ -272,8 +266,7 @@ void AcademicScreenInterface::Update ()
 			//if ( recordindex == comp->recordbank.records.Size () ) {
 			if ( recordindex == -1 ) {
 
-				delete [] searchname;
-				searchname = nullptr;
+				searchname = "";
 				recordindex = -1;
 				return;
 
@@ -282,19 +275,18 @@ void AcademicScreenInterface::Update ()
 			Record *rec = comp->recordbank.GetRecord ( recordindex );
 			char *thisname = rec->GetField ( RECORDBANK_NAME );
 			UplinkAssert (thisname)
-			char *lowercasethisname = LowerCaseString ( thisname );
+			string lowercasethisname = LowerCaseString ( thisname );
 
 			// Update display with the current record
 
 			UpdateScreen ();
 
 
-			if ( strcmp ( searchname, lowercasethisname ) == 0 ) {
+			if ( searchname == lowercasethisname ) {
 
 				// Record found - stop searching
 
-				delete [] searchname;
-				searchname = nullptr;
+				searchname = "";
 
 			}
 			else {
@@ -306,7 +298,6 @@ void AcademicScreenInterface::Update ()
 
 			}
 
-			delete [] lowercasethisname;
 			lastupdate = (int)EclGetAccurateTime ();
 
 		}

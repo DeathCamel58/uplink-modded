@@ -70,11 +70,11 @@ Agent::~Agent()
 
 }
 
-void Agent::SetHandle ( char *newhandle )
+void Agent::SetHandle (const string &newhandle )
 {
 
-	UplinkAssert ( strlen(newhandle) < SIZE_AGENT_HANDLE )
-	UplinkStrncpy ( handle, newhandle, sizeof ( handle ) )
+	assert( newhandle.length() < SIZE_AGENT_HANDLE );
+	UplinkStrncpy ( handle, newhandle.c_str(), sizeof ( handle ) )
 
 }
 
@@ -119,7 +119,7 @@ void Agent::GiveMission ( Mission *mission )
 
 }
 
-bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t usernamesize, char *password, size_t passwordsize )
+bool Agent::ParseAccessCode (const string &thecode, string &username, size_t usernamesize, string &password, size_t passwordsize )
 {
 
 	/*
@@ -134,7 +134,7 @@ bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t userna
 		*/
 
     char fullcode [256];
-    UplinkStrncpy ( fullcode, thecode, sizeof ( fullcode ) )
+    UplinkStrncpy ( fullcode, thecode.c_str(), sizeof ( fullcode ) )
 
 	//
 	// Count the number of dits
@@ -158,8 +158,8 @@ bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t userna
 		code = strchr ( fullcode, '\'' ) + 1;
 		*( strchr ( code, '\'' ) ) = '\x0';
 
-        UplinkStrncpy ( username, code, usernamesize )
-        UplinkStrncpy ( password, code, passwordsize )
+        username = code;
+        password = code;
         return true;
 
 	}
@@ -175,15 +175,15 @@ bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t userna
 		*( strchr ( name, '\'' ) ) = '\x0';
 		*( strchr ( code, '\'' ) ) = '\x0';
 
-        UplinkStrncpy ( username, name, usernamesize )
-        UplinkStrncpy ( password, code, passwordsize )
+        username = name;
+        password = code;
         return true;
 
 	}
 	else {
 
-        UplinkStrncpy ( username, "", usernamesize )
-        UplinkStrncpy ( password, "", passwordsize )
+        username = "";
+        password = "";
         return false;
 
 	}
@@ -191,15 +191,15 @@ bool Agent::ParseAccessCode ( const char *thecode, char *username, size_t userna
 }
 
 
-void Agent::GiveLink ( char *newip )
+void Agent::GiveLink (const string &newip )
 {
 
 	if ( !HasLink ( newip ) ) {
 
-		UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
+		assert( newip.length() < SIZE_VLOCATION_IP );
 		size_t theipsize = SIZE_VLOCATION_IP;
 		char *theip = new char [theipsize];
-		UplinkStrncpy ( theip, newip, theipsize )
+		UplinkStrncpy ( theip, newip.c_str(), theipsize )
 		links.PutDataAtStart ( theip );
 
         // If this was the player and he is looking at his links screen
@@ -210,7 +210,7 @@ void Agent::GiveLink ( char *newip )
              game->GetInterface ()->GetRemoteInterface ()->currentscreenindex == 0 ) {
 
             ((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->SetFullList ( &links );
-            ((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->ApplyFilter (nullptr);
+            ((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->ApplyFilter ("");
 
         }
 
@@ -224,7 +224,7 @@ void Agent::GiveLink ( char *newip )
 
 }
 
-int Agent::HasAccount  ( char *ip )
+int Agent::HasAccount  (const string &ip )
 {
 
 	int securityLevel = -1;
@@ -253,8 +253,8 @@ int Agent::HasAccount  ( char *ip )
 
 			// Parse the access code for this IP
 
-			char username [256];
-			char password [256];
+			string username;
+			string password;
 			if ( !ParseAccessCode ( code, username, sizeof ( username ), password, sizeof ( password ) ) )
 				continue;
 
@@ -298,24 +298,24 @@ int Agent::HasAccount  ( char *ip )
 
 }
 
-bool Agent::HasLink ( char *newip )
+bool Agent::HasLink (const string &newip )
 {
 
 	for ( int i = 0; i < links.Size (); ++i )
 		if ( links.ValidIndex (i) )
-			if ( strcmp ( newip, links.GetData (i) ) == 0 )
+			if ( newip == links.GetData (i) )
 				return true;
 
 	return false;
 
 }
 
-void Agent::RemoveLink ( char *newip )
+void Agent::RemoveLink (const string &newip )
 {
 
 	for ( int i = 0; i < links.Size (); ++i ) {
 		if ( links.ValidIndex (i) ) {
-			if ( strcmp ( newip, links.GetData (i) ) == 0 ) {
+			if ( newip == links.GetData (i) ) {
 
 				links.RemoveData (i);
 				break;
@@ -352,7 +352,7 @@ void Agent::GiveMessage ( Message *message )
 
 }
 
-void Agent::GiveCode ( char *newip, char *newcode )
+void Agent::GiveCode (const string &newip, const string &newcode )
 {
 
     // Do we already have this code?
@@ -371,12 +371,12 @@ void Agent::GiveCode ( char *newip, char *newcode )
             char *thisip = ips->GetData (i);
             UplinkAssert (thisip)
 
-            if ( strcmp ( thisip, newip ) == 0 ) {
+            if ( thisip == newip ) {
 
                 char *thiscode = thecodes->GetData (i);
                 UplinkAssert (thiscode)
 
-                if ( strcmp ( thiscode, newcode ) == 0 ) {
+                if ( thiscode == newcode ) {
 
                     // We already have the IP and the code
                     found = true;
@@ -387,17 +387,17 @@ void Agent::GiveCode ( char *newip, char *newcode )
 
                     // We have the IP but not exactly the same code
 
-                    char newusername [256];
-                    char newpassword [256];
-                    char thisusername [256];
-                    char thispassword [256];
+                    string newusername;
+                    string newpassword;
+                    string thisusername;
+                    string thispassword;
 
                     bool successA = ParseAccessCode ( newcode, newusername, sizeof ( newusername ), newpassword, sizeof ( newpassword ) );
                     bool successB = ParseAccessCode ( thiscode, thisusername, sizeof ( thisusername ), thispassword, sizeof ( thispassword ) );
 
                     if ( successA && successB ) {
 
-                        if ( strcmp ( newusername, thisusername ) == 0 ) {
+                        if ( newusername == thisusername ) {
 
                             // Usernames match up, but we have an old code
                             // Replace old code with new code
@@ -409,7 +409,7 @@ void Agent::GiveCode ( char *newip, char *newcode )
 
 							size_t newcodecopysize = 128;
 							char *newcodecopy = new char [newcodecopysize];
-							UplinkStrncpy ( newcodecopy, newcode, newcodecopysize )
+							UplinkStrncpy ( newcodecopy, newcode.c_str(), newcodecopysize )
     						codes.PutData ( thisip, newcodecopy );
 
                             found = true;
@@ -432,7 +432,7 @@ void Agent::GiveCode ( char *newip, char *newcode )
 
 		size_t newcodecopysize = 128;
 	    char *newcodecopy = new char [newcodecopysize];
-	    UplinkStrncpy ( newcodecopy, newcode, newcodecopysize )
+	    UplinkStrncpy ( newcodecopy, newcode.c_str(), newcodecopysize )
     	codes.PutData ( newip, newcodecopy );
 
     }
@@ -454,7 +454,7 @@ int  Agent::CreateNewAccount ( char *bankip, char *accname, char *password, int 
 
 }
 
-bool Agent::HasMissionLink ( const char *newip )
+bool Agent::HasMissionLink (const string &newip )
 {
 
 	for ( int ii = 0; ii < missions.Size (); ii++ )
@@ -462,7 +462,7 @@ bool Agent::HasMissionLink ( const char *newip )
 			LList<char*> *links = &(missions.GetData ( ii )->links);
 			for ( int i = 0; i < links->Size () ; i++ )
 				if ( links->ValidIndex ( i ) )
-					if ( strcmp ( newip, links->GetData ( i ) ) == 0 )
+					if ( newip == links->GetData ( i ) )
 						return true;
 		}
 
@@ -735,14 +735,14 @@ void Agent::AttemptMission_TraceUser ()
 
 				if ( fromcomp ) {
 
-					char *traced_ip = fromcomp->logbank.TraceLog ( comp->ip, fromcomp->ip, &(al->date), rating.uplinkrating );
+					string traced_ip = fromcomp->logbank.TraceLog ( comp->ip, fromcomp->ip, &(al->date), rating.uplinkrating );
 
-					if ( traced_ip ) {
+					if ( !traced_ip.empty() ) {
 
 						// Trace successful
 						// Does the guilty person live at this IP?
 
-						if ( strcmp ( hacker->localhost, traced_ip ) == 0 ) {
+						if ( hacker->localhost == traced_ip ) {
 
 							// Mission successful
 
@@ -769,7 +769,7 @@ void Agent::AttemptMission_TraceUser ()
 							for ( int ip = 0; ip < people->Size (); ++ip ) {
 								if ( people->ValidIndex (ip) ) {
 									if ( people->GetData (ip) ) {
-										if ( strcmp ( people->GetData (ip)->localhost, traced_ip ) == 0 ) {
+										if ( people->GetData (ip)->localhost == traced_ip ) {
 											framed = people->GetData (ip);
 											break;
 										}
@@ -843,7 +843,7 @@ void Agent::AttemptMission_RemoveComputer ()
 
 }
 
-void Agent::EstablishConnection ( char *ip )
+void Agent::EstablishConnection (const string &ip )
 {
 
 	connection.Reset ();
@@ -862,7 +862,7 @@ void Agent::EstablishConnection ( char *ip )
 		UplinkAssert (comp)
 
 		if ( !connection.LocationIncluded ( comp->ip ) &&
-			 strcmp ( comp->ip, ip ) != 0 )
+			 comp->ip != ip )
 			connection.AddVLocation ( comp->ip );
 
 		else
@@ -1007,8 +1007,8 @@ bool Agent::Load ( FILE *file )
 
 				bool success = false;
 				if ( thiscode && strlen ( thiscode ) < 256 ) {
-					char thisusername [256];
-					char thispassword [256];
+					string thisusername;
+					string thispassword;
 					success = ParseAccessCode ( thiscode, thisusername, sizeof ( thisusername ), thispassword, sizeof ( thispassword ) );
 
 					if ( success )

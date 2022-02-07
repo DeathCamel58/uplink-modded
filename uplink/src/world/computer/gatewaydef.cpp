@@ -186,7 +186,7 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 void GatewayDef::SetName ( char *newname )
 {
 
-	UplinkAssert ( strlen (newname) < SIZE_GATEWAY_NAME )
+	assert( strlen (newname) < SIZE_GATEWAY_NAME );
 	UplinkStrncpy ( name, newname, sizeof ( name ) )
 		
 }
@@ -194,7 +194,7 @@ void GatewayDef::SetName ( char *newname )
 void GatewayDef::SetDescription ( char *newdescription )
 {
 
-	UplinkAssert ( strlen (newdescription) < SIZE_GATEWAY_DESCRIPTION )
+	assert( strlen (newdescription) < SIZE_GATEWAY_DESCRIPTION );
 	UplinkStrncpy ( description, newdescription, sizeof ( description ) )
 
 }
@@ -202,7 +202,7 @@ void GatewayDef::SetDescription ( char *newdescription )
 void GatewayDef::SetFilename ( char *newfilename )
 {
 
-    UplinkAssert ( strlen ( newfilename) < SIZE_GATEWAY_FILENAME )
+    assert( strlen ( newfilename) < SIZE_GATEWAY_FILENAME );
     UplinkStrncpy ( filename, newfilename, sizeof ( filename ) )
 
 }
@@ -210,7 +210,7 @@ void GatewayDef::SetFilename ( char *newfilename )
 void GatewayDef::SetThumbnail ( char *newthumbnail )
 {
 
-    UplinkAssert ( strlen ( newthumbnail) < SIZE_GATEWAY_FILENAME )
+    assert( strlen ( newthumbnail) < SIZE_GATEWAY_FILENAME );
     UplinkStrncpy ( thumbnail, newthumbnail, sizeof ( thumbnail ) )
 
 }

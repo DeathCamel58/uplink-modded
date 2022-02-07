@@ -175,7 +175,7 @@ void NetworkClient::Handle_ClientCommsData ( char *buffer )
 	// This is a list of IP's making up the players connection
 
 	UplinkAssert ( screen )
-	UplinkAssert ( screen->ScreenID () == CLIENT_COMMS )
+	assert( screen->ScreenID () == CLIENT_COMMS );
 
 	((ClientCommsInterface *) screen)->connection.Empty ();
 
@@ -343,7 +343,7 @@ void NetworkClient::Update ()
 		UplinkAbort ("buffer overflow" )
 
 	    case TCP4U_ERROR:
-		UplinkAbort ( "Tcp4u Error occured" )
+		UplinkAbort ( "Tcp4u Error occurred" )
 
 	}
 

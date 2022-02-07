@@ -32,19 +32,19 @@ public:
 
 protected:
 
-    void (*callback) ( char *, int );         // Function callback for when value is changed
+    void (*callback) ( const string &, int );         // Function callback for when value is changed
 
 public:
 
     ScrollBox();
     ~ScrollBox();
 
-    void SetName            ( char *newname );
+    void SetName            (const string &newname );
     void SetDimensions      ( int newx, int newy, int neww, int newh );
     void SetNumItems        ( int newNumItems );
     void SetWindowSize      ( int newWindowSize );
     void SetCurrentIndex    ( int newCurrentIndex );
-    void SetCallback        ( void (*newcallback) (char *, int) );
+    void SetCallback        ( void (*newcallback) (const string &, int) );
 
 protected:
 
@@ -71,10 +71,10 @@ public:
 
     // These manage the set of all scroll boxes in existence
 
-    static void CreateScrollBox ( char *name, 
-                                  int x, int y, int w, int h,
-                                  int numItems, int windowSize, int currentIndex,
-                                  void (*callback)(char *, int) = nullptr );
+    static void CreateScrollBox (const string &name,
+                                 int x, int y, int w, int h,
+                                 int numItems, int windowSize, int currentIndex,
+                                 void (*callback)(const string &, int) = nullptr );
 
     static void RemoveScrollBox ( char *name );
     static ScrollBox *GetScrollBox ( char *name );

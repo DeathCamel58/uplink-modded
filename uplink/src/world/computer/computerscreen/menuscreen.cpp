@@ -28,7 +28,7 @@ MenuScreen::~MenuScreen()
 
 }
 
-void MenuScreen::AddOption ( char *caption, char *tooltip, int nextpage, int security, int index )
+void MenuScreen::AddOption (const string &caption, const string &tooltip, int nextpage, int security, int index )
 {
 
 	auto *mso = new MenuScreenOption ();
@@ -160,19 +160,19 @@ MenuScreenOption::MenuScreenOption ()
 MenuScreenOption::~MenuScreenOption ()
 = default;
 
-void MenuScreenOption::SetCaption ( char *newcaption )
+void MenuScreenOption::SetCaption (const string &newcaption )
 {
 
-	UplinkAssert ( strlen(newcaption) < SIZE_MENUSCREENOPTION_CAPTION )
-	UplinkStrncpy ( caption, newcaption, sizeof ( caption ) )
+	assert( newcaption.length() < SIZE_MENUSCREENOPTION_CAPTION );
+	UplinkStrncpy ( caption, newcaption.c_str(), sizeof ( caption ) )
 
 }
 
-void MenuScreenOption::SetTooltip ( char *newtooltip )
+void MenuScreenOption::SetTooltip (const string &newtooltip )
 {
 
-	UplinkAssert ( strlen(newtooltip) < SIZE_MENUSCREENOPTION_TOOLTIP )
-	UplinkStrncpy ( tooltip, newtooltip, sizeof ( tooltip ) )
+	assert( newtooltip.length() < SIZE_MENUSCREENOPTION_TOOLTIP );
+	UplinkStrncpy ( tooltip, newtooltip.c_str(), sizeof ( tooltip ) )
 
 }
 

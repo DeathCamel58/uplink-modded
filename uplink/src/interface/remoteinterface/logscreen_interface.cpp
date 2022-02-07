@@ -45,7 +45,7 @@ void LogScreenInterface::CloseClick ( Button *button )
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen )
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
+	assert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
 	auto *ls = (LogScreen *) compscreen;
     UplinkAssert (ls)
     
@@ -75,7 +75,7 @@ void LogScreenInterface::LogClick ( Button *button )
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen )
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
+	assert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
 	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
@@ -179,7 +179,7 @@ void LogScreenInterface::ScrollChange ( char *scrollname, int newValue )
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen )
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
+	assert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
 	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
@@ -212,7 +212,7 @@ void LogScreenInterface::LogDraw ( Button *button, bool highlighted, bool clicke
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen )
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
+	assert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
 	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 
@@ -400,7 +400,7 @@ void LogScreenInterface::Update ()
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
 	UplinkAssert( compscreen )
-	UplinkAssert( compscreen->GetOBJECTID () == OID_LOGSCREEN )
+	assert( compscreen->GetOBJECTID () == OID_LOGSCREEN );
 	auto *ls = (LogScreen *) compscreen;
 	LogBank *logbank = ls->GetTargetLogBank ();
 

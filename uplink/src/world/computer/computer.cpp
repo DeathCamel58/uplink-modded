@@ -71,33 +71,33 @@ void Computer::SetTYPE ( int newTYPE )
 
 }
 
-void Computer::SetName ( char *newname )
+void Computer::SetName (const string &newname )
 {
 
-	UplinkAssert ( strlen ( newname ) < SIZE_COMPUTER_NAME )
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	UplinkAssert ( newname.length() < SIZE_COMPUTER_NAME )
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 }
 
-void Computer::SetCompanyName ( char *newname )
+void Computer::SetCompanyName (const string &newname )
 {
 
-	if ( newname ) {
+	if ( !newname.empty() ) {
 
-		UplinkAssert ( strlen ( newname ) < SIZE_COMPANY_NAME )
+		UplinkAssert ( newname.length() < SIZE_COMPANY_NAME )
 		UplinkAssert ( game->GetWorld ()->GetCompany ( newname ) )
-		UplinkStrncpy ( companyname, newname, sizeof ( companyname ) )
+		UplinkStrncpy ( companyname, newname.c_str(), sizeof ( companyname ) )
 
 	}
 
 }
 
-void Computer::SetIP ( char *newip )
+void Computer::SetIP (const string &newip )
 {
 
-	UplinkAssert ( strlen (newip) < SIZE_VLOCATION_IP )
+	UplinkAssert ( newip.length() < SIZE_VLOCATION_IP )
 	UplinkAssert ( game->GetWorld ()->GetVLocation ( newip ) )
-	UplinkStrncpy ( ip, newip, sizeof ( ip ) )
+	UplinkStrncpy ( ip, newip.c_str(), sizeof ( ip ) )
 
 }
 

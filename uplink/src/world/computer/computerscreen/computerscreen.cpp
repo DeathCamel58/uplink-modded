@@ -30,27 +30,27 @@ ComputerScreen::ComputerScreen()
 ComputerScreen::~ComputerScreen()
 = default;
 
-void ComputerScreen::SetMainTitle ( char *newmaintitle )
+void ComputerScreen::SetMainTitle (const string &newmaintitle )
 {
 
-	UplinkAssert ( strlen(newmaintitle) < SIZE_COMPUTERSCREEN_MAINTITLE )
-	UplinkStrncpy ( maintitle, newmaintitle, sizeof ( maintitle ) )
+	assert( newmaintitle.length() < SIZE_COMPUTERSCREEN_MAINTITLE );
+	UplinkStrncpy ( maintitle, newmaintitle.c_str(), sizeof ( maintitle ) )
 
 }
 
-void ComputerScreen::SetSubTitle ( char *newsubtitle )
+void ComputerScreen::SetSubTitle (const string &newsubtitle )
 {
 
-	UplinkAssert ( strlen(newsubtitle) < SIZE_COMPUTERSCREEN_SUBTITLE )
-	UplinkStrncpy ( subtitle, newsubtitle, sizeof ( subtitle ) )
+	assert( newsubtitle.length() < SIZE_COMPUTERSCREEN_SUBTITLE );
+	UplinkStrncpy ( subtitle, newsubtitle.c_str(), sizeof ( subtitle ) )
 
 }
 
-void ComputerScreen::SetComputer ( char *newcomputer )
+void ComputerScreen::SetComputer (const string &newcomputer )
 {
 
-	UplinkAssert ( strlen(newcomputer) < SIZE_COMPUTER_NAME )
-	UplinkStrncpy ( computer, newcomputer, sizeof ( computer ) )
+	assert( newcomputer.length() < SIZE_COMPUTER_NAME );
+	UplinkStrncpy ( computer, newcomputer.c_str(), sizeof ( computer ) )
 
 }
 

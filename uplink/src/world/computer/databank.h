@@ -117,7 +117,7 @@ public:
 	Data ( Data *copyme );
 	~Data () override;
 
-	void SetTitle ( char *newtitle );
+	void SetTitle (const string &newtitle );
 	void SetDetails ( int newTYPE, int newsize, 
 					  int newencrypted = 0, int newcompressed = 0, 
 					  float newversion = 1.0, int newsoftwareTYPE = SOFTWARETYPE_NONE );

@@ -269,7 +269,7 @@ int Date::GetYear ()
 char *Date::GetMonthName ( int month )
 {
 
-	UplinkAssert ( month > 0 && month < 13 )
+	assert( month > 0 && month < 13 );
 	return monthname [month-1];
 
 }
@@ -417,13 +417,13 @@ void Date::Update ()
 
 	// Verify Date is valid
 
-	UplinkAssert ( second >= 0 && second < 60 );
-	UplinkAssert ( minute >= 0 && minute < 60 );
-	UplinkAssert ( hour   >= 0 && hour   < 24 );
+	assert( second >= 0 && second < 60 );
+	assert( minute >= 0 && minute < 60 );
+	assert( hour   >= 0 && hour   < 24 );
 	
-	UplinkAssert ( day    >  0 && day    <= 31 );
-	UplinkAssert ( month  >  0 && month  <= 12 );
-	UplinkAssert ( year   >  0 );
+	assert( day    >  0 && day    <= 31 );
+	assert( month  >  0 && month  <= 12 );
+	assert( year   >  0 );
 
 #endif
 
