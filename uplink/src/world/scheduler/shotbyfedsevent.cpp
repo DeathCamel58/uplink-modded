@@ -34,20 +34,20 @@ ShotByFedsEvent::~ShotByFedsEvent ()
 
 }
 
-void ShotByFedsEvent::SetName ( char *newname )
+void ShotByFedsEvent::SetName (const string &newname )
 {
 
-	assert( strlen (newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	assert( newname.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 }
 
-void ShotByFedsEvent::SetReason ( char *newreason )
+void ShotByFedsEvent::SetReason (const string &newreason )
 {
 
     delete [] reason;
-	reason = new char [strlen(newreason)+1];
-	UplinkSafeStrcpy ( reason, newreason )
+	reason = new char [newreason.length()+1];
+	UplinkSafeStrcpy ( reason, newreason.c_str() )
 
 }
 

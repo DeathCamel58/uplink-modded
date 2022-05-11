@@ -121,7 +121,7 @@ void LanScan::GoClick ( Button *button )
     istringstream stream(button->name);
     stream >> bname >> pid;
 
-	LanScan *thistask = (LanScan *) SvbGetTask ( pid );
+	auto *thistask = (LanScan *) SvbGetTask ( pid );
 	UplinkAssert (thistask)
 		
 	// Set it going
@@ -209,7 +209,7 @@ void LanScan::Tick ( int n )
 
 			int numSubnetsScanned = (int) ( LAN_SUBNETRANGE * ((float) progress / (float) numticksrequired) );
 
-			LanComputer *lanComp = (LanComputer *) comp;
+			auto *lanComp = (LanComputer *) comp;
 
 			for ( int i = 0; i < lanComp->systems.Size (); ++i ) {
 				if ( lanComp->systems.ValidIndex( i ) ) {

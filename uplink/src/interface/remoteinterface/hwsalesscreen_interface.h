@@ -66,12 +66,12 @@ public:
 	void CreateSalesMenu ( ComputerScreen *cs );
 
 	void Remove () override;
-	void RemoveMenu ();
-	void RemoveSalesMenu ();
+	static void RemoveMenu ();
+	static void RemoveSalesMenu ();
 
 	bool IsVisible () override;
-	bool IsVisibleMenu ();
-	bool IsVisibleSalesMenu ();
+	static bool IsVisibleMenu ();
+	static bool IsVisibleSalesMenu ();
 
 	int ScreenID () override;
 

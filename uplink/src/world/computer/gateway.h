@@ -82,16 +82,16 @@ public:
 	void ExchangeGatewayComplete ();					// Does the actual upgrade
 
 	void GiveHUDUpgrade ( char upgrade );
-	bool HasHUDUpgrade  ( char upgrade );
-	char GetHudUpgrades ();								// Returns the bitfield - be careful!
-	bool HasAnyHUDUpgrade ();
+	bool HasHUDUpgrade  ( char upgrade ) const;
+	char GetHudUpgrades () const;								// Returns the bitfield - be careful!
+	bool HasAnyHUDUpgrade () const;
 
 	void GiveCPU ( char *CPUName );						
 	int GetNumCPUs ();
 	int GetCPUSpeed ();
 	LList <char *> *GetCPUs ();
 
-	int GetBandwidth ();								// Returns min ( modemspeed, gatewaydef.bandwidth )
+	int GetBandwidth () const;								// Returns min ( modemspeed, gatewaydef.bandwidth )
 
 	int GetNumSecurity ();
 	LList <char *> *GetSecurity ();

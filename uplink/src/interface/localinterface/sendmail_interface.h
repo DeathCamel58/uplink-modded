@@ -45,7 +45,7 @@ public:
 	SendMailInterface ();
 	~SendMailInterface () override;
 
-    Message *sGetMessage ();
+    static Message *sGetMessage ();
 
 	void Create () override;
 	void Remove () override;

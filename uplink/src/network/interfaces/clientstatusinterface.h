@@ -45,15 +45,15 @@ public:
 	ClientStatusInterface();
 	~ClientStatusInterface() override;
 
-	void SetHardware	( char *newhw );
-	void SetHUDUpgrades ( char *newhud );
-	void SetConnection	( char *newconnection );
+	void SetHardware	(const string &newhw );
+	void SetHUDUpgrades (const string &newhud );
+	void SetConnection	(const string &newconnection );
 
-	void SetRating      ( char *newrating );
-	void SetFinancial   ( char *newfinancial );
-	void SetCriminal    ( char *newcriminal );
+	void SetRating      (const string &newrating );
+	void SetFinancial   (const string &newfinancial );
+	void SetCriminal    (const string &newcriminal );
 	
-	void AddNewsStory   ( char *news );
+	void AddNewsStory   (const string &newsstory );
 
 	void Create () override;
 	void Remove () override;

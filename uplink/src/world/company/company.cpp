@@ -29,8 +29,8 @@ Company::Company()
 	growth=0;
 	alignment=0;
 	
-	for ( int i = 0; i < 12; ++i )
-		sharehistory [i] = 0;
+	for (int & i : sharehistory)
+		i = 0;
 
 	lastmonthset = 0;
 
@@ -160,7 +160,7 @@ int Company::GetShareChange ()
 
 }
 
-int Company::GetShareLastMonthSet ()
+int Company::GetShareLastMonthSet () const
 {
 
 	return lastmonthset;
@@ -181,7 +181,7 @@ bool Company::Load  ( FILE *file )
 	if ( !FileReadData ( &growth, sizeof(growth), 1, file ) ) return false;
 	if ( !FileReadData ( &alignment, sizeof(alignment), 1, file ) ) return false;
 
-	for ( int i = 0; i < 12; ++i ) 
+	for ( int i = 0; i < 12; ++i )
 		if ( !FileReadData ( &sharehistory [i], sizeof(sharehistory [i]), 1, file ) ) return false;
 
 	if ( !FileReadData ( &lastmonthset, sizeof(lastmonthset), 1, file ) ) return false;

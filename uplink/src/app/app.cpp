@@ -235,9 +235,9 @@ void App::LoadGame (const string &username )
 
 	string filename = app->userpath + username + ".usr";
 
-	if ( !RsFileEncrypted ( (char *) filename.c_str() ) ) {
+	if ( !RsFileEncrypted ( filename ) ) {
 		string filenametmp = app->userpath + username + ".tmp";
-		if ( RsFileEncrypted ( (char *) filenametmp.c_str() ) ) {
+		if ( RsFileEncrypted ( filenametmp ) ) {
 			filename = filenametmp;
 		}
 	}
@@ -246,14 +246,14 @@ void App::LoadGame (const string &username )
 
 	cout << "Loading profile from "  << filename  << "...";
 	
-	FILE *file = RsFileOpen ( (char *) filename.c_str() );
+	FILE *file = RsFileOpen ( filename );
 
 	if ( file ) {
 
 		GetMainMenu ()->Remove ();
 
 		bool success = game->LoadGame ( file );
-		RsFileClose ( (char *) filename.c_str(), file );
+		RsFileClose ( filename, file );
 
         if ( !success ) {
 			EmptyDirectory ( app->usertmppath );
@@ -370,7 +370,7 @@ void App::SaveGame (const string &username ) const
 		fclose ( file );
 
 #ifndef TESTGAME
-		RsEncryptFile ( (char *) filename.c_str() );
+		RsEncryptFile ( filename );
 #endif
 
 		cout << "success. Moving profile to " << filenamereal << "...";

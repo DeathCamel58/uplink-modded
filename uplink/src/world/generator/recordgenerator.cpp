@@ -27,7 +27,7 @@ void RecordGenerator::Initialise ()
 {
 }
 
-void RecordGenerator::GenerateRecords ( char *personname )
+void RecordGenerator::GenerateRecords (const string &personname )
 {
 
 	Person *person = game->GetWorld ()->GetPerson ( personname );
@@ -43,7 +43,7 @@ void RecordGenerator::GenerateRecords ( char *personname )
 
 }
 
-void RecordGenerator::GenerateRecords_Player ( char *playername )
+void RecordGenerator::GenerateRecords_Player (const string &playername )
 {
 
 	// Social Security Record
@@ -90,7 +90,7 @@ void RecordGenerator::GenerateRecords_Player ( char *playername )
 
 }
 
-void RecordGenerator::GenerateRecord_SocialSecurity ( char *personname, int age )
+void RecordGenerator::GenerateRecord_SocialSecurity (const string &personname, int age )
 {
 
 	// Generate a Social Security Record
@@ -104,24 +104,24 @@ void RecordGenerator::GenerateRecord_SocialSecurity ( char *personname, int age 
 	char socialsecurity [16];
 	UplinkSnprintf ( socialsecurity, sizeof ( socialsecurity ), "%d", 10000000 + NumberGenerator::RandomNumber ( 99999999 ) )
 
-	char maritalstatus [64];
+	string maritalstatus;
 
 	switch ( NumberGenerator::RandomNumber ( 5 ) ) {
-		case 0		:		UplinkStrncpy ( maritalstatus, "Single", sizeof ( maritalstatus ) )			break;
-		case 1		:		UplinkStrncpy ( maritalstatus, "Married", sizeof ( maritalstatus ) )			break;
-		case 2		:		UplinkStrncpy ( maritalstatus, "Seperated", sizeof ( maritalstatus ) )			break;
-		case 3		:		UplinkStrncpy ( maritalstatus, "Divorced", sizeof ( maritalstatus ) )			break;
-		case 4		:		UplinkStrncpy ( maritalstatus, "Widowed", sizeof ( maritalstatus ) )			break;
+		case 0		:		maritalstatus = "Single";			break;
+		case 1		:		maritalstatus = "Married";			break;
+		case 2		:		maritalstatus = "Seperated";			break;
+		case 3		:		maritalstatus = "Divorced";			break;
+		case 4		:		maritalstatus = "Widowed";			break;
 	}
 
-	char personalstatus [64];
+	string personalstatus;
 
 	switch ( NumberGenerator::RandomNumber ( 5 ) ) {
-		case 0		:		UplinkStrncpy ( personalstatus, "Employed", sizeof ( personalstatus ) )			break;
-		case 1		:		UplinkStrncpy ( personalstatus, "Un-Employed", sizeof ( personalstatus ) )		break;
-		case 2		:		UplinkStrncpy ( personalstatus, "Student", sizeof ( personalstatus ) )			break;
-		case 3		:		UplinkStrncpy ( personalstatus, "Self-Employed", sizeof ( personalstatus ) )	break;
-		case 4		:		UplinkStrncpy ( personalstatus, "Deceased", sizeof ( personalstatus ) )			break;
+		case 0		:		personalstatus = "Employed";			break;
+		case 1		:		personalstatus = "Un-Employed";		break;
+		case 2		:		personalstatus = "Student";			break;
+		case 3		:		personalstatus = "Self-Employed";	break;
+		case 4		:		personalstatus = "Deceased";		break;
 	}
 
 	auto *soc = new Record ();
@@ -138,7 +138,7 @@ void RecordGenerator::GenerateRecord_SocialSecurity ( char *personname, int age 
 
 }
 
-void RecordGenerator::GenerateRecord_Criminal ( char *personname, int age )
+void RecordGenerator::GenerateRecord_Criminal (const string &personname, int age )
 {
 
 	// Generate a possible criminal past
@@ -262,7 +262,7 @@ void RecordGenerator::GenerateRecord_Criminal ( char *personname, int age )
 
 }
 
-void RecordGenerator::GenerateRecord_Medical ( char *personname, int age )
+void RecordGenerator::GenerateRecord_Medical (const string &personname, int age )
 {
 
 	auto *rec = new Record ();
@@ -277,7 +277,7 @@ void RecordGenerator::GenerateRecord_Medical ( char *personname, int age )
 
 }
 
-void RecordGenerator::GenerateRecord_Academic ( char *personname, int age )
+void RecordGenerator::GenerateRecord_Academic (const string &personname, int age )
 {
 
 	// Generate an academic history based on age
@@ -346,20 +346,20 @@ void RecordGenerator::GenerateRecord_Academic ( char *personname, int age )
 
 		// Has a degree
 
-		char degreesubject [32];
+		string degreesubject;
 
 		switch ( NumberGenerator::RandomNumber ( 10 ) ) {
 
-			case 0 :		UplinkStrncpy ( degreesubject, "Computing", sizeof ( degreesubject ) )						break;
-			case 1 :		UplinkStrncpy ( degreesubject, "Physics", sizeof ( degreesubject ) )						break;
-			case 2 :		UplinkStrncpy ( degreesubject, "Electrical Engineering", sizeof ( degreesubject ) )		break;
-			case 3 :		UplinkStrncpy ( degreesubject, "Mechanical Engineering", sizeof ( degreesubject ) )		break;
-			case 4 :		UplinkStrncpy ( degreesubject, "Software Engineering", sizeof ( degreesubject ) )			break;
-			case 5 :		UplinkStrncpy ( degreesubject, "Systems Engineering", sizeof ( degreesubject ) )			break;
-			case 6 :		UplinkStrncpy ( degreesubject, "Management", sizeof ( degreesubject ) )					break;
-			case 7 :		UplinkStrncpy ( degreesubject, "Artificial Intelligence", sizeof ( degreesubject ) )		break;
-			case 8 :		UplinkStrncpy ( degreesubject, "Philosophy", sizeof ( degreesubject ) )					break;
-			case 9 :		UplinkStrncpy ( degreesubject, "Media studies", sizeof ( degreesubject ) )					break;
+			case 0 :		degreesubject = "Computing";					break;
+			case 1 :		degreesubject = "Physics";						break;
+			case 2 :		degreesubject = "Electrical Engineering";		break;
+			case 3 :		degreesubject = "Mechanical Engineering";		break;
+			case 4 :		degreesubject = "Software Engineering";			break;
+			case 5 :		degreesubject = "Systems Engineering";			break;
+			case 6 :		degreesubject = "Management";					break;
+			case 7 :		degreesubject = "Artificial Intelligence";		break;
+			case 8 :		degreesubject = "Philosophy";					break;
+			case 9 :		degreesubject = "Media studies";				break;
 
 			default:
 				UplinkAbort ( "RecordGenerator::GenerateRecord_Academic, error in Degree Type" )
@@ -384,15 +384,15 @@ void RecordGenerator::GenerateRecord_Academic ( char *personname, int age )
 
 		// Generate qualification
 
-		char qualification [64];
+		string qualification;
 
 		switch ( NumberGenerator::RandomNumber ( 5 ) ) {
 
-			case 0 :		UplinkStrncpy ( qualification, "Diploma in Computing", sizeof ( qualification ) )			break;
-			case 1 :		UplinkStrncpy ( qualification, "IEEE Accreditation", sizeof ( qualification ) )		    break;
-			case 2 :		UplinkStrncpy ( qualification, "Certified systems engineer", sizeof ( qualification ) )	break;
-			case 3 :		UplinkStrncpy ( qualification, "Btec in IT", sizeof ( qualification ) )					break;
-			case 4 :		UplinkStrncpy ( qualification, "Systems Engineering diploma", sizeof ( qualification ) )	break;
+			case 0 :		qualification = "Diploma in Computing";			break;
+			case 1 :		qualification = "IEEE Accreditation";		    break;
+			case 2 :		qualification = "Certified systems engineer";	break;
+			case 3 :		qualification = "Btec in IT";					break;
+			case 4 :		qualification = "Systems Engineering diploma";	break;
 
 			default:
 				UplinkAbort ( "RecordGenerator::GenerateRecord_Academic, error in Qualification Type" )
@@ -432,7 +432,7 @@ void RecordGenerator::GenerateRecord_Academic ( char *personname, int age )
 
 }
 
-void RecordGenerator::GenerateRecord_Financial ( char *personname, int age )
+void RecordGenerator::GenerateRecord_Financial (const string &personname, int age )
 {
 
 	// Find a financial computer - owned by one of the banks of course
@@ -492,7 +492,7 @@ void RecordGenerator::GenerateRecord_Financial ( char *personname, int age )
 					if ( target_acc != myaccount ) {			// Prevent transfers to my own account
 
 						int amount = (int) NumberGenerator::RandomNormalNumber ( myaccount->balance * 0.3f, myaccount->balance * 0.2f );
-						amount = int ( amount / 50 ) * 50;
+						amount = amount / 50 * 50;
 
 						if ( amount > 0 ) {
 
@@ -551,17 +551,18 @@ Record *RecordGenerator::GetSocialSecurity ( char *personname )
 
 }
 
-Record *RecordGenerator::GetCriminal ( char *personname )
+Record *RecordGenerator::GetCriminal (const string &personname )
 {
 
 	Computer *comp = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
 	UplinkAssert ( comp )
 
-	char *name = ( strcmp ( personname, "PLAYER" ) == 0 ?
-							game->GetWorld ()->GetPlayer ()->handle :
-							personname );
-
-	Record *rec = comp->recordbank.GetRecordFromName ( name );
+	Record *rec;
+	if (personname == "PLAYER") {
+        rec = comp->recordbank.GetRecordFromName ( game->GetWorld()->GetPlayer()->handle );
+	} else {
+        rec = comp->recordbank.GetRecordFromName ( personname );
+	}
 
 	return rec;
 
@@ -583,7 +584,7 @@ Record *RecordGenerator::GetMedical ( char *personname )
 
 }
 
-Record *RecordGenerator::GetAcademic ( char *personname )
+Record *RecordGenerator::GetAcademic (char *personname )
 {
 
 	Computer *comp = game->GetWorld ()->GetComputer ( "International Academic Database" );
@@ -599,7 +600,7 @@ Record *RecordGenerator::GetAcademic ( char *personname )
 
 }
 
-BankAccount *RecordGenerator::GetFinancial ( char *personname )
+BankAccount *RecordGenerator::GetFinancial (const string &personname )
 {
 
 	Person *person = game->GetWorld ()->GetPerson ( personname );

@@ -60,8 +60,7 @@ void BBSScreenInterface::ClickBBSButton ( Button *button )
 	index += baseoffset;
 
 	// Dirty the old button
-	char oldname [128];
-	UplinkSnprintf ( oldname, sizeof ( oldname ), "BBmessage %d", currentselect - baseoffset )
+	string oldname = "BBmessage " + to_string(currentselect - baseoffset);
 	EclDirtyButton ( oldname );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -336,8 +335,7 @@ void BBSScreenInterface::ScrollChange ( char *scrollname, int newValue )
 
 	for ( int i = 0; i < NumItemsOnScreen(); ++i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i )
+		string name = "BBmessage " + to_string(i);
 		EclDirtyButton ( name );
 
 	}
@@ -372,8 +370,7 @@ void BBSScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < NumItemsOnScreen(); ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i )
+			string name = "BBmessage " + to_string(i);
 			EclRegisterButton ( 20, i * 20 + 50, SY(388), 17, "", "Read this Bulletin Board message", name );
 			EclRegisterButtonCallbacks ( name, DrawBBSButton, ClickBBSButton, MousedownBBSButton, HighlightBBSButton ); 
 						
@@ -413,8 +410,7 @@ void BBSScreenInterface::Remove ()
 
 		for ( int i = 0; i < NumItemsOnScreen(); ++ i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i )
+			string name = "BBmessage " + to_string(i);
 
 			EclRemoveButton ( name );
 
@@ -463,8 +459,7 @@ void BBSScreenInterface::Update ()
 
 		for ( int i = 0; i < NumItemsOnScreen(); ++ i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "BBmessage %d", i )
+			string name = "BBmessage " + to_string(i);
 			EclDirtyButton ( name );
 
 		}

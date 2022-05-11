@@ -231,7 +231,7 @@ void Network::StopClient ()
 
 }
 
-bool Network::IsActive ()
+bool Network::IsActive () const
 {
 
 	return ( STATUS != NETWORK_NONE );

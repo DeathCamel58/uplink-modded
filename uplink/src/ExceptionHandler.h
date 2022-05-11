@@ -1,6 +1,6 @@
 // ExceptionHandler.h  Version 1.1
 //
-// Copyright © 1998 Bruce Dawson
+// Copyright Â© 1998 Bruce Dawson
 //
 // Author:       Bruce Dawson
 //               brucedawson@cygnus-software.com

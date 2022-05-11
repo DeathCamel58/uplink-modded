@@ -12,7 +12,7 @@ Patched to add .uni playing capabilities
 	_mm_registerloader(&load_s3m);
 	_mm_registerloader(&load_xm);
 +	
-+	// Added by François to have load .uni files
++	// Added by FranÃ§ois to have load .uni files
 +	_mm_registerloader(&load_uni);
 #else
 	_mm_registerloader(&load_669);

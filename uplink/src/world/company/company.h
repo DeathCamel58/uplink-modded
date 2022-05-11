@@ -74,7 +74,7 @@ public:
 
 	int GetSharePrice ( int month = -1 );		// If -1, returns price of share now
 	int GetShareChange ();						// From previous month, in percent
-	int GetShareLastMonthSet ();				// Index of recently set share price
+	int GetShareLastMonthSet () const;				// Index of recently set share price
 	
 	// Common functions
 

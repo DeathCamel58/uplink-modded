@@ -91,10 +91,10 @@ public:
 
 protected:
 
-	void Initialise_ARC ();
-    void Initialise_Andromeda ();
-	void Initialise_ARUNMOR ();
-    void Initialise_DARWIN ();
+	static void Initialise_ARC ();
+    static void Initialise_Andromeda ();
+	static void Initialise_ARUNMOR ();
+    static void Initialise_DARWIN ();
 
 	void Run_Act1Scene1 ();											// ARC begin work on Revelation
 	void Run_Act1Scene2 ();											// ARC are hiring all top Uplink Agents - this makes the news
@@ -106,42 +106,42 @@ protected:
 
     void Run_Act2Scene1 ();                                         // The mission "Maiden Flight" is given out
     void Run_Act2Scene2 ();                                         // Another agent completes "Maiden Flight"
-    void Run_Act2Scene3 ();                                         // Arunmor get in contact and try to get you to betray ARC
+    static void Run_Act2Scene3 ();                                         // Arunmor get in contact and try to get you to betray ARC
 
     void Run_Act3Scene1 ();                                         // News story about Revelation attack
-    void Run_Act3Scene2 ();                                         // Arunmor begin work on Faith
+    static void Run_Act3Scene2 ();                                         // Arunmor begin work on Faith
     void Run_Act3Scene3 ();                                         // Arunmor release details on Revelation, announce their plan
     void Run_Act3Scene4 ();                                         // Feds reveal that ARC is run by Andromeda
 
     void Run_Act4Scene1 ();                                         // "Tracer" is put out
     void Run_Act4Scene2 ();                                         // "TakeMeToYourLeader" is out
     void Run_Act4Scene3 ();                                         // "ARCInfiltration" is put out
-    void Run_Act4Scene4 ();                                         // News story about Tracer
-    void Run_Act4Scene5 ();                                         // News story about TakeMeToYourLeader
-    void Run_Act4Scene6 ();                                         // News story about ARCInfiltration
+    static void Run_Act4Scene4 ();                                         // News story about Tracer
+    static void Run_Act4Scene5 ();                                         // News story about TakeMeToYourLeader
+    static void Run_Act4Scene6 ();                                         // News story about ARCInfiltration
 
     void Run_Act4Scene7 ();                                         // "Darwin" is put out
     void Run_Act4Scene8 ();                                         // "SaveItForTheJury" is put out
     void Run_Act4Scene9 ();                                         // "ShinyHammer" is put out
-    void Run_Act4Scene10 ();                                        // News story about Darwin
-    void Run_Act4Scene11 ();                                        // News story about SaveItForTheJury
-    void Run_Act4Scene12 ();                                        // News story about ShinyHammer
+    static void Run_Act4Scene10 ();                                        // News story about Darwin
+    static void Run_Act4Scene11 ();                                        // News story about SaveItForTheJury
+    static void Run_Act4Scene12 ();                                        // News story about ShinyHammer
 
     void Run_Act4Scene13 ();                                        // Somebody else attempts "Tracer"
     void Run_Act4Scene14 ();                                        // Somebody else attempts "TakeMeToYourLeader"
     void Run_Act4Scene15 ();                                        // Somebody else attempts "ARC Infiltration"
 
-    void Run_Act5Scene1 ();                                         // Arunmor warn everyone that virus release is imminent
+    static void Run_Act5Scene1 ();                                         // Arunmor warn everyone that virus release is imminent
     void Run_Act5Scene2 ();                                         // "TheGrandTour" and "CounterAttack" are put out
-    void Run_Act5Scene3 ();                                         // Player works for Arunmor, successful with Faith
-    void Run_Act5Scene4 ();                                         // Player works for no-one
+    static void Run_Act5Scene3 ();                                         // Player works for Arunmor, successful with Faith
+    static void Run_Act5Scene4 ();                                         // Player works for no-one
     void Run_Act5Scene5 ();                                         // AI launches Revelation/Faith at a random system
     void Run_Act5Scene6 ();                                         // ARC is busted
     void Run_Act5Scene7 ();                                         // Revelation Release Uncontrolled - GAME OVER
 
-    void Run_Act6Scene1 ();                                         // Leader of Andromeda releases press statement
-    void Run_Act6Scene2 ();                                         // Leaders of ARC sentenced to jail
-    void Run_Act6Scene3 ();                                         // Profits of Arunmor soar high
+    static void Run_Act6Scene1 ();                                         // Leader of Andromeda releases press statement
+    static void Run_Act6Scene2 ();                                         // Leaders of ARC sentenced to jail
+    static void Run_Act6Scene3 ();                                         // Profits of Arunmor soar high
 
     //
     // Special Mission Generators
@@ -154,7 +154,7 @@ protected:
     Mission *GenerateMission_Darwin ();                             // ARC #2
     Mission *GenerateMission_SaveItForTheJury ();                   // ARC #3
     Mission *GenerateMission_ShinyHammer ();                        // ARC #4
-    Mission *GenerateMission_GrandTour ();                          // ARC #5
+    static Mission *GenerateMission_GrandTour ();                          // ARC #5
 	
     bool IsMissionComplete_Tracer ();                       
     bool IsMissionComplete_TakeMeToYourLeader ();   
@@ -165,12 +165,12 @@ protected:
     bool IsMissionComplete_ShinyHammer ();  
      
     void PlayerCompletesSpecialMission	( int missionID );	
-    void PlayerFailsSpecialMission		( int missionID );
-    bool RemoveSpecialMission			( int missionID );          // Remove from public BBS board
+    static void PlayerFailsSpecialMission		( int missionID );
+    static bool RemoveSpecialMission			( int missionID );          // Remove from public BBS board
 	
     void Revelation_ReleaseUncontrolled ();                         // Its game over! (success for ARC)
 
-	void NewsRevelationUsed ( char *ip, int success );				// Generates a news story
+	void NewsRevelationUsed ( char *ip, int success ) const;				// Generates a news story
 
 public:
 
@@ -192,7 +192,7 @@ public:
 
     void RunRevelationTracer ( char *ip );
 
-    void RunFaith ( char *ip, float version, bool playerresponsible );
+    static void RunFaith ( char *ip, float version, bool playerresponsible );
 
 	float GetVersion_Faith ();
 	float GetVersion_Revelation ();
@@ -200,8 +200,8 @@ public:
     void Infected ( char *ip );                                     // These manage the list of 
     void Disinfected ( char *ip );                                  // infected computer systems
 
-    bool PlayerCompletedSpecialMission	( int missionID );
-	int GetSpecialMissionsCompleted ();
+    bool PlayerCompletedSpecialMission	( int missionID ) const;
+	int GetSpecialMissionsCompleted () const;
     
     static char *SpecialMissionDescription ( int missionID );
     static char *SpecialMissionTitle ( int missionID );
@@ -220,9 +220,9 @@ public:
 
 protected:
 
-	void MessageIncompatibleSaveGame ( const char *fileassert, int lineassert );
+	static void MessageIncompatibleSaveGame ( const char *fileassert, int lineassert );
 
-	bool UplinkIncompatibleSaveGameAssert ( const bool &condition, const char *fileassert, int lineassert );
+	static bool UplinkIncompatibleSaveGameAssert ( const bool &condition, const char *fileassert, int lineassert );
 
 };
 

@@ -17,7 +17,7 @@ class TaskWrapper
 public:
 
 	int pid;			 // Unique program identifier
-	char *name;
+	std::string name;
 	Task *task;          // The task itself (derived from Task)
 	double priority;      // fraction of total CPU time allocated to this task
 	double progress;	  // Time accumulated on process
@@ -28,11 +28,11 @@ public:
 	virtual ~TaskWrapper();
 	
 	void SetPID ( int newpid );
-	void SetName ( char *newname );
+	void SetName (const std::string &newname );
 	void SetTask ( Task *newtask );
 	void SetPriority ( double newpriority );
 	
-	void DebugPrint ();
+	void DebugPrint () const;
 
 };
 

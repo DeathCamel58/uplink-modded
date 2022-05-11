@@ -129,9 +129,9 @@ void DictionaryHacker::Tick ( int n )
 								}
 
 								// Also add it into the player's code list
-								char newcode [128];
-                                if ( username ) Computer::GenerateAccessCode( username, password, newcode, sizeof ( newcode ) );
-                                else			Computer::GenerateAccessCode( password, newcode, sizeof ( newcode ) );
+								string newcode;
+                                if ( username ) Computer::GenerateAccessCode(username, password, newcode);
+                                else Computer::GenerateAccessCode(password, newcode);
 
 								game->GetWorld ()->GetPlayer ()->GiveCode ( game->GetWorld ()->GetPlayer ()->remotehost, newcode );
 

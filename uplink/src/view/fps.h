@@ -31,7 +31,7 @@ public:
 	void Start ();
     void Tick ();
     
-    float FPS ();
+    float FPS () const;
     
 };
 

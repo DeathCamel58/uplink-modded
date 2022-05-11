@@ -147,7 +147,7 @@ void PlotGenerator::Initialise ()
 void PlotGenerator::Initialise_ARC ()
 {
 
-	char *companyname = "ARC";
+	string companyname = "ARC";
 
 	auto *arc = new Company ();
 	arc->SetName ( companyname );
@@ -195,8 +195,7 @@ void PlotGenerator::Initialise_ARC ()
 
 	// Generate contact addresses for this company
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname )
+	string personname = "internal@" + companyname + ".net";
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, pas->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -286,7 +285,7 @@ void PlotGenerator::Initialise_Andromeda ()
 void PlotGenerator::Initialise_ARUNMOR ()
 {
 
-	char *companyname = "Arunmor";
+	string companyname = "Arunmor";
 
 	auto *company = new Company ();
 	company->SetName ( companyname );
@@ -336,8 +335,7 @@ void PlotGenerator::Initialise_ARUNMOR ()
 
 	// Generate contact addresses for this company
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname )
+	string personname = "internal@" + companyname + ".net";
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, pas->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -350,7 +348,7 @@ void PlotGenerator::Initialise_ARUNMOR ()
 void PlotGenerator::Initialise_DARWIN ()
 {
 
-    char *companyname = "Darwin Research Associates";
+    string companyname = "Darwin Research Associates";
 
     auto *company = new Company ();
     company->SetName ( companyname );
@@ -386,8 +384,7 @@ void PlotGenerator::Initialise_DARWIN ()
 
  	// Generate contact addresses for this company
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname )
+	string personname = "internal@" + companyname + ".net";
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, pas->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -922,7 +919,7 @@ void PlotGenerator::RunFaith ( char *ip, float version, bool playerresponsible )
 
         // Lower version of Faith - may work
 
-        int percentchance = (int) ( 100 * (1.0 - (float) (comp->isinfected_revelation - version) / 2.0) );
+        int percentchance = (int) ( 100 * (1.0 - (comp->isinfected_revelation - version) / 2.0) );
         if ( percentchance <= 33 ) percentchance = 33;
         int random = NumberGenerator::RandomNumber ( 100 );
 
@@ -1187,7 +1184,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 #endif
 
     ComputerScreen *existing0 = comp->GetComputerScreen (0);
-    if ( existing0 ) delete existing0;
+    delete existing0;
 
 	auto *ps0 = new PasswordScreen ();
 	ps0->SetMainTitle ( comp->name );
@@ -1508,8 +1505,8 @@ void PlotGenerator::Run_Act1Scene7 ()
 
 		// Include an access code, but it shouldn't work (they've disabled it by now, of course)
 
-		char code [128];
-        Computer::GenerateAccessCode( agent->handle, "MySocratesNote", code, sizeof ( code ) );
+		string code;
+        Computer::GenerateAccessCode(agent->handle, "MySocratesNote", code);
 
 		auto *msg = new Message ();
 		msg->SetTo ( "PLAYER" );
@@ -3060,8 +3057,8 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
 	record->AddField ( RECORDBANK_SECURITY, "3" );
 	ourcomp->recordbank.AddRecord ( record );
 
-	char code [128];
-    Computer::GenerateAccessCode( username, password, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(username, password, code);
 
 
     // Find the target computer
@@ -3168,8 +3165,8 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
 	record->AddField ( RECORDBANK_SECURITY, "3" );
 	ourcomp->recordbank.AddRecord ( record );
 
-	char code [128];
-    Computer::GenerateAccessCode( username, password, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(username, password, code);
 
 
     //
@@ -3268,8 +3265,8 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	record->AddField ( RECORDBANK_SECURITY, "3" );
 	ourcomp->recordbank.AddRecord ( record );
 
-	char code [128];
-    Computer::GenerateAccessCode( username, password, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(username, password, code);
 
 	//
 	// Generate around 10 files to be stolen,
@@ -3417,8 +3414,8 @@ Mission *PlotGenerator::GenerateMission_CounterAttack ()
 	record->AddField ( RECORDBANK_SECURITY, "3" );
 	ourcomp->recordbank.AddRecord ( record );
 
-	char code [128];
-    Computer::GenerateAccessCode( username, password, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(username, password, code);
 
 
     std::ostrstream details;
@@ -3536,8 +3533,8 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	record->AddField ( RECORDBANK_SECURITY, "3" );
 	ourcomp->recordbank.AddRecord ( record );
 
-	char code [128];
-    Computer::GenerateAccessCode( username, password, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(username, password, code);
 
 	//
 	// Generate around 10 files to be stolen,
@@ -4465,7 +4462,7 @@ bool PlotGenerator::IsMissionComplete_ShinyHammer ()
 
 }
 
-void PlotGenerator::NewsRevelationUsed ( char *ip, int success )
+void PlotGenerator::NewsRevelationUsed ( char *ip, int success ) const
 {
 
 	// Look up the system attacked
@@ -4693,14 +4690,14 @@ void PlotGenerator::PlayerVisitsPlotSites ()
 
 }
 
-bool PlotGenerator::PlayerCompletedSpecialMission ( int missionID )
+bool PlotGenerator::PlayerCompletedSpecialMission ( int missionID ) const
 {
 
 	return ( specialmissionscompleted & (1 << missionID) );
 
 }
 
-int PlotGenerator::GetSpecialMissionsCompleted ()
+int PlotGenerator::GetSpecialMissionsCompleted () const
 {
 
 	return specialmissionscompleted;

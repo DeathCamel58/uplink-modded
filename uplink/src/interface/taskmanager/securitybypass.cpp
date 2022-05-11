@@ -242,7 +242,7 @@ void SecurityBypass::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 
 	UplinkAssert (uo)
 
-	if ( strcmp ( uo->GetID ().c_str(), "SECUR" ) == 0 ) {
+	if ( uo->GetID () == "SECUR" ) {
 
 		UplinkAssert ( ((Security *) uo)->GetSystem (uoi) )
 
@@ -303,17 +303,11 @@ void SecurityBypass::MoveTo ( int x, int y, int time_ms )
 
 		int pid = SvbLookupPID ( this );
 
-		char main [32];
-		char pause [32];
-		char close [32];
-		char title [32];
-		char status [32];
-
-		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
-		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid )
-		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid )
-		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid )
-		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid )
+		string main = "sbypass_main " + to_string(pid);
+		string pause = "sbypass_pause " + to_string(pid);
+		string close = "sbypass_close " + to_string(pid);
+		string title = "sbypass_title " + to_string(pid);
+		string status = "sbypass_status " + to_string(pid);
 
 		EclButtonBringToFront ( main );
 		EclButtonBringToFront ( pause );
@@ -369,23 +363,17 @@ void SecurityBypass::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char main [32];
-		char pause [32];
-		char close [32];
-		char title [32];
-		char status [32];
-
-		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
-		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid )
-		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid )
-		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid )
-		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid )
+		string main = "sbypass_main " + to_string(pid);
+		string pause = "sbypass_pause " + to_string(pid);
+		string close = "sbypass_close " + to_string(pid);
+		string title = "sbypass_title " + to_string(pid);
+		string status = "sbypass_status " + to_string(pid);
 
 
 		/********** Patched by François Gagné **********/
 		// To be complete, each type would need a picture just like the proxy bypass (software/proxy.tif)
 
-		char *bypassCaption, *pauseCaption, *closeCaption;
+		string bypassCaption, pauseCaption, closeCaption;
 		switch ( TYPE ) {
 		  case SECURITY_TYPE_PROXY:
 			bypassCaption = "Click to use this proxy bypass";
@@ -451,17 +439,11 @@ void SecurityBypass::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char main [32];
-		char pause [32];
-		char close [32];
-		char title [32];
-		char status [32];
-
-		UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
-		UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid )
-		UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid )
-		UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid )
-		UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid )
+		string main = "sbypass_main %d" + to_string(pid);
+		string pause = "sbypass_pause %d" + to_string(pid);
+		string close = "sbypass_close %d" + to_string(pid);
+		string title = "sbypass_title %d" + to_string(pid);
+		string status = "sbypass_status %d" + to_string(pid);
 		
 		EclRemoveButton ( main );
 		EclRemoveButton ( pause );
@@ -480,17 +462,11 @@ void SecurityBypass::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char main [32];
-	char pause [32];
-	char close [32];
-	char title [32];
-	char status [32];
-
-	UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
-	UplinkSnprintf ( pause, sizeof ( pause ), "sbypass_pause %d", pid )
-	UplinkSnprintf ( close, sizeof ( close ), "sbypass_close %d",  pid )
-	UplinkSnprintf ( title, sizeof ( title ), "sbypass_title %d", pid )
-	UplinkSnprintf ( status, sizeof ( status ), "sbypass_status %d", pid )
+	string main = "sbypass_main " + to_string(pid);
+	string pause = "sbypass_pause " + to_string(pid);
+	string close = "sbypass_close " + to_string(pid);
+	string title = "sbypass_title " + to_string(pid);
+	string status = "sbypass_status " + to_string(pid);
 	
 	/********** Patched by François Gagné **********/
 	if ( ShouldDraw ( pid ) ) {
@@ -517,8 +493,7 @@ bool SecurityBypass::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char main [32];
-	UplinkSnprintf ( main, sizeof ( main ), "sbypass_main %d", pid )
+	string main = "sbypass_main " + to_string(pid);
 
 	return ( EclGetButton ( main ) != nullptr );
 

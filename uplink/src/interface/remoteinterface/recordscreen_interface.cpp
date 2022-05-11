@@ -89,8 +89,7 @@ void RecordScreenInterface::CommitClick ( Button *button )
 
 	// Log this change
 
-	char logcaption [32];
-	UplinkSnprintf ( logcaption, sizeof ( logcaption ), "Changed Record #%d", recordindex )
+	string logcaption = "Changed Record #" + to_string(recordindex);
 
 	auto *log = new AccessLog ();
 	log->SetProperties ( &(game->GetWorld ()->date), 

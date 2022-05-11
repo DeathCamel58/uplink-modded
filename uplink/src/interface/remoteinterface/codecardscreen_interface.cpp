@@ -243,7 +243,7 @@ void CodeCardScreenInterface::ProceedClick ( Button *button )
 
     if ( success ) {
 
-	    auto *gs= (GenericScreen *) thisint->GetComputerScreen ();
+	    auto *gs= thisint->GetComputerScreen();
 	    UplinkAssert (gs)
 
 	    if ( gs->nextpage != -1 )
@@ -325,8 +325,7 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
 		caption.rdbuf()->freeze( false );
         //delete [] caption.str();
 
-        char rowcolcaption [128];
-        UplinkSnprintf ( rowcolcaption, sizeof ( rowcolcaption ), "Enter code from Row %c, Column %d", row + ('A' - 'a'), col )
+        string rowcolcaption = "Enter code from Row " + to_string(row + ('A' - 'a')) + ", Column " + to_string( col );
         EclRegisterButton ( 100, 250, 200, 15, rowcolcaption, "codecard_rowcol" );
         EclRegisterButtonCallbacks ( "codecard_rowcol", textbutton_draw, nullptr, nullptr, nullptr );
 

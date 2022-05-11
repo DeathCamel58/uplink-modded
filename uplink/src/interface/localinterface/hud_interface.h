@@ -88,8 +88,8 @@ public:
 
     bool IsUpgradeVisible ( char upgrade );
     void AddUpgrade       ( char upgrade );
-    void RemoveUpgrade    ( char upgrade );
-    HUDInterfaceUpgrade *GetUpgrade ( char upgrade );
+    static void RemoveUpgrade    ( char upgrade );
+    static HUDInterfaceUpgrade *GetUpgrade ( char upgrade );
 
 	void Create () override;
 	void Update () override;

@@ -113,7 +113,7 @@ void IPLookup::Tick ( int n )
 			
 			Button *button = EclGetButton ( name_display );
 			UplinkAssert ( button )
-			char *ip = StripCarriageReturns (button->caption.c_str());
+			string ip = StripCarriageReturns (button->caption);
 
 			VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
 
@@ -131,7 +131,6 @@ void IPLookup::Tick ( int n )
 
 			}
 
-            delete [] ip;
 			timeout = time(nullptr);
 			status = IPLOOKUP_FINISHED;
 

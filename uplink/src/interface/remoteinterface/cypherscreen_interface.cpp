@@ -162,14 +162,14 @@ void CypherScreenInterface::ProceedClick ( Button *button )
 }
 
 
-int CypherScreenInterface::NumLocked ()
+int CypherScreenInterface::NumLocked () const
 {
 
 	return numlocked;
 
 }
 
-int CypherScreenInterface::NumUnLocked ()
+int CypherScreenInterface::NumUnLocked () const
 {
 
 	return (CYPHER_WIDTH * CYPHER_HEIGHT) - numlocked;

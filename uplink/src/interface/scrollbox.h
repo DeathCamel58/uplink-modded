@@ -20,7 +20,7 @@ class ScrollBox
 
 public:
 
-    char name [SIZE_SCROLLBOX_NAME];
+    string name;
     int x;
     int y;
     int w;
@@ -76,14 +76,14 @@ public:
                                  int numItems, int windowSize, int currentIndex,
                                  void (*callback)(const string &, int) = nullptr );
 
-    static void RemoveScrollBox ( char *name );
-    static ScrollBox *GetScrollBox ( char *name );
+    static void RemoveScrollBox (const string &name );
+    static ScrollBox *GetScrollBox (const string &name );
     static LList <ScrollBox *> scrollBoxes;
 
     // Grabbing stuff
 
     static char currentGrab [256];
-    static void GrabScrollBar   ( char *name );
+    static void GrabScrollBar   (const string &name );
     static void UnGrabScrollBar ();
     static bool IsGrabInProgress ();
     static void UpdateGrabScroll ();

@@ -146,8 +146,7 @@ void AnalyserInterface::ConnectionDraw ( Button *button, bool highlighted, bool 
 	//
 
 	int systemindex = 0;
-	char name [32];
-	UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) )
+	string name = "analyser_system 0";
 
 	while ( EclGetButton ( name ) ) {
 
@@ -173,7 +172,7 @@ void AnalyserInterface::ConnectionDraw ( Button *button, bool highlighted, bool 
 		}
 		
 		++systemindex;
-		UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex )
+		name = "analyser_system " + to_string(systemindex);
 
 	}
 
@@ -239,18 +238,17 @@ void AnalyserInterface::Remove ()
 		// Remove any security system buttons
 
 		int systemindex = 0;
-		char name [32];
-		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) )
+		string name = "analyser_system 0";
 
 		while ( EclGetButton ( name ) ) {
 
 			EclRemoveButton ( name );
 
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex )
+			name = "analyser_system_t " + to_string(systemindex);
 			EclRemoveButton ( name );
 
 			++systemindex;
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex )
+			name = "analyser_system " + to_string(systemindex);
 
 		}
 
@@ -282,18 +280,17 @@ void AnalyserInterface::Update ()
 		// Remove any old security system buttons
 
 		int systemindex = 0;
-		char name [32];
-		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) )
+		string name = "analyser_system 0";
 
 		while ( EclGetButton ( name ) ) {
 
 			EclRemoveButton ( name );
 
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex )
+			name = "analyser_system_t " + to_string(systemindex);
 			EclRemoveButton ( name );
 
 			++systemindex;
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex )
+            name = "analyser_system " + to_string(systemindex);
 
 		}
 
@@ -414,8 +411,7 @@ void AnalyserInterface::Update ()
 		UplinkAssert (comp)
 
 		int systemindex = 0;
-		char name [32];
-		UplinkStrncpy ( name, "analyser_system 0", sizeof ( name ) )
+		string name = "analyser_system 0";
 
 		while ( EclGetButton ( name ) ) {
 
@@ -429,11 +425,11 @@ void AnalyserInterface::Update ()
 
 			EclRegisterButtonCallback ( name, SystemClick );
 
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system_t %d", systemindex )
+			name = "analyser_system_t " + to_string(systemindex);
 			EclGetButton ( name )->SetCaption ( ss->GetName () );
 
 			++systemindex;
-			UplinkSnprintf ( name, sizeof ( name ), "analyser_system %d", systemindex )
+			name = "analyser_system " + to_string(systemindex);
 
 		}
 	

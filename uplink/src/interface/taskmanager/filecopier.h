@@ -46,7 +46,7 @@ public:
 	FileCopier ();
 	~FileCopier () override;
 
-    int GetState ();                    // Returns variable 'downloading'
+    int GetState () const;                    // Returns variable 'downloading'
 
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;				// Centred on top-right of title image

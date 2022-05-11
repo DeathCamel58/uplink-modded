@@ -47,12 +47,12 @@ GameObituary::~GameObituary ()
 }
 
 
-void GameObituary::SetGameOverReason ( char *newreason )
+void GameObituary::SetGameOverReason (const string &newreason )
 {
 
 	delete [] gameoverreason;
-	gameoverreason = new char [strlen(newreason)+1];
-	UplinkSafeStrcpy ( gameoverreason, newreason )
+	gameoverreason = new char [newreason.length()+1];
+	UplinkSafeStrcpy ( gameoverreason, newreason.c_str())
 
 }
 

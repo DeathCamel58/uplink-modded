@@ -55,7 +55,7 @@ public:
     void RunTutorial1 ( int part );
     void RunTutorial2 ( int part );
     void RunTutorial3 ( int part );
-	bool HasCompletedCurrentSection ();
+	bool HasCompletedCurrentSection () const;
 	
 
 	void Initialise () override;

@@ -98,7 +98,7 @@ void Date::DeActivate ()
 
 }
 
-bool Date::Before ( Date *date )
+bool Date::Before ( Date *date ) const
 {
 
 	return ( ( year <  date->year ) || 
@@ -110,7 +110,7 @@ bool Date::Before ( Date *date )
 
 }
 
-bool Date::After ( Date *date )
+bool Date::After ( Date *date ) const
 {
 
 	return ( ( year >  date->year ) || 
@@ -122,7 +122,7 @@ bool Date::After ( Date *date )
 
 }
 
-bool Date::Equal ( Date *date )
+bool Date::Equal ( Date *date ) const
 {
 
 	return ( year   == date->year   &&
@@ -236,32 +236,32 @@ void Date::AdvanceYear   ( int n )
 
 }
 
-int Date::GetSecond ()
+int Date::GetSecond () const
 {
 	return second;
 }
 
-int Date::GetMinute ()
+int Date::GetMinute () const
 {
 	return minute;
 }
 
-int Date::GetHour ()
+int Date::GetHour () const
 {
 	return hour;
 }
 
-int Date::GetDay ()
+int Date::GetDay () const
 {
 	return day;
 }
 
-int Date::GetMonth ()
+int Date::GetMonth () const
 {
 	return month;
 }
 
-int Date::GetYear ()
+int Date::GetYear () const
 {
 	return year;
 }
@@ -274,7 +274,7 @@ char *Date::GetMonthName ( int month )
 
 }
 
-char *Date::GetShortString ()
+char *Date::GetShortString () const
 {
 
 	char result [SIZE_DATE_SHORT];
@@ -284,7 +284,7 @@ char *Date::GetShortString ()
 
 }
 
-char *Date::GetLongString ()
+char *Date::GetLongString () const
 {
 
 	char result [SIZE_DATE_LONG];

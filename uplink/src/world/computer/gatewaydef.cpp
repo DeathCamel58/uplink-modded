@@ -183,35 +183,35 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 
 }
 
-void GatewayDef::SetName ( char *newname )
+void GatewayDef::SetName (const string &newname )
 {
 
-	assert( strlen (newname) < SIZE_GATEWAY_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	assert( newname.length() < SIZE_GATEWAY_NAME );
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 		
 }
 
-void GatewayDef::SetDescription ( char *newdescription )
+void GatewayDef::SetDescription (const string &newdescription )
 {
 
-	assert( strlen (newdescription) < SIZE_GATEWAY_DESCRIPTION );
-	UplinkStrncpy ( description, newdescription, sizeof ( description ) )
+	assert( newdescription.length() < SIZE_GATEWAY_DESCRIPTION );
+	UplinkStrncpy ( description, newdescription.c_str(), sizeof ( description ) )
 
 }
 
-void GatewayDef::SetFilename ( char *newfilename )
+void GatewayDef::SetFilename (const string &newfilename )
 {
 
-    assert( strlen ( newfilename) < SIZE_GATEWAY_FILENAME );
-    UplinkStrncpy ( filename, newfilename, sizeof ( filename ) )
+    assert( newfilename.length() < SIZE_GATEWAY_FILENAME );
+    UplinkStrncpy ( filename, newfilename.c_str(), sizeof ( filename ) )
 
 }
 
-void GatewayDef::SetThumbnail ( char *newthumbnail )
+void GatewayDef::SetThumbnail (const string &newthumbnail )
 {
 
-    assert( strlen ( newthumbnail) < SIZE_GATEWAY_FILENAME );
-    UplinkStrncpy ( thumbnail, newthumbnail, sizeof ( thumbnail ) )
+    assert( newthumbnail.length() < SIZE_GATEWAY_FILENAME );
+    UplinkStrncpy ( thumbnail, newthumbnail.c_str(), sizeof ( thumbnail ) )
 
 }
 

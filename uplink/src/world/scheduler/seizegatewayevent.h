@@ -33,8 +33,8 @@ public:
 	SeizeGatewayEvent ();
 	~SeizeGatewayEvent () override;
 
-	void SetName ( char *newname );
-	void SetReason ( char *newreason );
+	void SetName (const string &newname );
+	void SetReason (const string &newreason );
 	void SetGatewayID ( int newid );
 
 	void Run () override;

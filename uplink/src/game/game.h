@@ -76,11 +76,11 @@ public:
 	~Game () override;
 
 	void NewGame ();
-	void ExitGame ();
+	static void ExitGame ();
 
 	void SetGameSpeed ( int newspeed );
-	int  GameSpeed ();
-	bool IsRunning ();
+	int  GameSpeed () const;
+	bool IsRunning () const;
 	
 	void GameOver ( char *reason );			//  Ends the current game
     void DemoGameOver ();                   //  This demo game has come to an end
@@ -109,7 +109,7 @@ public:
 
 	void WinCode ( const char *desc, const char *codeExtra = nullptr ); // The player won the code
 
-	bool  IsCodeWon          ();                                     // Is the winning code was won
+	bool  IsCodeWon          () const;                                     // Is the winning code was won
 	char *GetWinningCodeDesc ();                                     // Return the winning code description
 	char *GetWinningCode     ();                                     // Return a printable _encrypted_ winning code
 

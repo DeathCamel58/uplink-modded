@@ -36,19 +36,14 @@ WorldMapInterfaceObject::WorldMapInterfaceObject ()
     y = 0;
     baseX = 0;
     baseY = 0;
-    ip = nullptr;
+    ip = "";
 	isMission = false;
 	isColored = false;
 
 }
 
 WorldMapInterfaceObject::~WorldMapInterfaceObject ()
-{
-
-    if ( ip )
-        delete [] ip;
-
-}
+= default;
 
 void WorldMapInterfaceObject::SetTYPE ( int newTYPE )
 {
@@ -74,22 +69,18 @@ void WorldMapInterfaceObject::SetBasePosition ( int newx, int newy )
 
 }
 
-void WorldMapInterfaceObject::SetIP ( const char *newip )
+void WorldMapInterfaceObject::SetIP (const string& newip )
 {
 
-	if ( ip )
-		delete [] ip;
-
-	if ( newip ) {
-		ip = new char [ strlen(newip) + 1 ];
-		UplinkSafeStrcpy ( ip, newip )
+	if ( !newip.empty() ) {
+		ip = newip;
 
 		CheckIP ();
 	}
 	else {
 		isMission = false;
 		isColored = false;
-		ip = nullptr;
+		ip = "";
 	}
 
 }
@@ -97,7 +88,7 @@ void WorldMapInterfaceObject::SetIP ( const char *newip )
 void WorldMapInterfaceObject::CheckIP ()
 {
 
-	if ( ip ) {
+	if ( !ip.empty() ) {
 		Player *pl = game->GetWorld ()->GetPlayer ();
 		isMission = pl->HasMissionLink ( ip ) || pl->HasMessageLink ( ip );
 
@@ -111,7 +102,7 @@ void WorldMapInterfaceObject::CheckIP ()
 
 }
 
-const char *WorldMapInterfaceObject::GetIP () const
+string WorldMapInterfaceObject::GetIP () const
 {
 
     return ip;
@@ -181,7 +172,7 @@ WorldMapInterfaceLabel::WorldMapInterfaceLabel(
     const char *newCaption)
 
     : featurePoint(newFeaturePoint),
-      caption(nullptr),
+      caption(""),
       labelWidth(0)
 {
     SetTYPE(WORLDMAPOBJECT_LABEL);
@@ -200,25 +191,19 @@ void WorldMapInterfaceLabel::CalculatePossibleLabelPositions( const MapRectangle
     }
 }
 
-void WorldMapInterfaceLabel::SetCaption ( const char *newcaption )
+void WorldMapInterfaceLabel::SetCaption (const string newcaption )
 {
-    if ( caption ) delete [] caption;
-    caption = new char [strlen(newcaption)+1];
-    UplinkSafeStrcpy ( caption, newcaption )
+    caption = newcaption;
     CalculateWidth();
 }
 
-const char *WorldMapInterfaceLabel::GetCaption () const
+string WorldMapInterfaceLabel::GetCaption () const
 {
     return caption;
 }
 
 WorldMapInterfaceLabel::~WorldMapInterfaceLabel ()
-{
-
-    if ( caption ) delete [] caption;
-
-}
+= default;
 
 void WorldMapInterfaceLabel::Draw ( int xOffset, int yOffset, float zoom )
 {
@@ -226,7 +211,7 @@ void WorldMapInterfaceLabel::Draw ( int xOffset, int yOffset, float zoom )
     case WORLDMAPOBJECT_LABEL:
     {
 
-        UplinkAssert (caption)
+        assert (!caption.empty());
 /*        
          glColor4f ( 1.0f, 0.0f, 0.0f, 1.0f );
          glBegin ( GL_QUADS ); 
@@ -490,7 +475,7 @@ void WorldMapLayout::AddLocation ( int x, int y, const char *name, const char *i
                                 WORLDMAPOBJECT_GATEWAY :
                                 WORLDMAPOBJECT_LOCATION;
 
-    WorldMapInterfaceObject *thedot = new WorldMapInterfaceObject ();
+    auto *thedot = new WorldMapInterfaceObject ();
     thedot->SetTYPE ( locationtype );
     thedot->SetPosition ( x, y );
     thedot->SetBasePosition ( x, y );
@@ -498,7 +483,7 @@ void WorldMapLayout::AddLocation ( int x, int y, const char *name, const char *i
 	thedot->tempForConnection = tempForConnection;
     locations.PutData (thedot);
 
-    WorldMapInterfaceLabel *thelabel = new WorldMapInterfaceLabel ( mapRectangle, thedot, name );
+    auto *thelabel = new WorldMapInterfaceLabel ( mapRectangle, thedot, name );
     thelabel->SetBasePosition( x, y );
     labels.PutData (thelabel);
     

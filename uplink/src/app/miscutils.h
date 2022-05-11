@@ -12,7 +12,7 @@
 #include "tosser.h"
 
 string LowerCaseString       (const string &thestring );
-char *StripCarriageReturns  ( const char *thestring );               // Replaces first cr with \x0
+string StripCarriageReturns  (const string &thestring );               // Replaces first cr with \x0
 char *TrimSpaces            ( const char *thestring );
 
 char *GetFilePath           ( const char *filename );

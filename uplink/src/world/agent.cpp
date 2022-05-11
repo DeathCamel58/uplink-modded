@@ -255,7 +255,7 @@ int Agent::HasAccount  (const string &ip )
 
 			string username;
 			string password;
-			if ( !ParseAccessCode ( code, username, sizeof ( username ), password, sizeof ( password ) ) )
+			if ( !ParseAccessCode ( code, username, username.size(), password, password.size() ) )
 				continue;
 
 			// Lookup the computer
@@ -392,8 +392,8 @@ void Agent::GiveCode (const string &newip, const string &newcode )
                     string thisusername;
                     string thispassword;
 
-                    bool successA = ParseAccessCode ( newcode, newusername, sizeof ( newusername ), newpassword, sizeof ( newpassword ) );
-                    bool successB = ParseAccessCode ( thiscode, thisusername, sizeof ( thisusername ), thispassword, sizeof ( thispassword ) );
+                    bool successA = ParseAccessCode ( newcode, newusername, newusername.size(), newpassword, newpassword.size() );
+                    bool successB = ParseAccessCode ( thiscode, thisusername, thisusername.size(), thispassword, thispassword.size() );
 
                     if ( successA && successB ) {
 
@@ -439,15 +439,15 @@ void Agent::GiveCode (const string &newip, const string &newcode )
 
 }
 
-int  Agent::CreateNewAccount ( char *bankip, char *accname, char *password, int balance, int loan )
+int  Agent::CreateNewAccount (const string &bankip, const string &accname, const string &password, int balance, int loan )
 {
 
 	int accno = Person::CreateNewAccount ( bankip, accname, password, balance, loan );
 
 	// Give the access code to this agent
 
-	char code [128];
-    Computer::GenerateAccessCode( accno, password, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(accno, password, code);
 	GiveCode ( bankip, code );
 
 	return accno;
@@ -1009,7 +1009,7 @@ bool Agent::Load ( FILE *file )
 				if ( thiscode && strlen ( thiscode ) < 256 ) {
 					string thisusername;
 					string thispassword;
-					success = ParseAccessCode ( thiscode, thisusername, sizeof ( thisusername ), thispassword, sizeof ( thispassword ) );
+					success = ParseAccessCode ( thiscode, thisusername, thisusername.size(), thispassword, thispassword.size() );
 
 					if ( success )
 						for ( int ii = (int) strlen ( thiscode ) - 1; ii >= 0; ii-- )

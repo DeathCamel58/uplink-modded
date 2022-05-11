@@ -260,7 +260,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	// Create the data to be stolen and add it to the target computer's memory
@@ -340,7 +340,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	postdate.AdvanceMinute ( NumberGenerator::RandomNumber ( 60 ) * -1 );
 
 	// Insert the mission
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_STEALFILE );
 	mission->SetCompletion   ( target->ip, datatitle, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
@@ -394,7 +394,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	// Infer the internal services contact address
@@ -420,14 +420,14 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ) )
 
-	Record *record = new Record ();
+	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
 	record->AddField ( RECORDBANK_PASSWORD, password );
 	record->AddField ( RECORDBANK_SECURITY, "3" );
 	ourcomp->recordbank.AddRecord ( record );
 
-	char code [128];
-    Computer::GenerateAccessCode( username, password, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(username, password, code);
 
 	int missiontype = NumberGenerator::RandomNumber ( 4 ) + 1;
 
@@ -493,10 +493,10 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 
 	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating )
-			<< " or above will be sufficient for automatic acceptance.\n"
-			<< "You will need around " << 10 * int (totalsize / 10) << " gigaquads of space.";
+            << "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
+            << "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating )
+            << " or above will be sufficient for automatic acceptance.\n"
+            << "You will need around " << 10 * (totalsize / 10) << " gigaquads of space.";
 
     if ( target->TYPE == COMPUTER_TYPE_LAN )
         details << "\nThe data is stored on a LAN.\n";
@@ -687,7 +687,7 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	// Create the data to be stolen and add it to the target computer's memory
@@ -814,7 +814,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	// Infer the internal services contact address
@@ -1039,7 +1039,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
@@ -1263,7 +1263,7 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
@@ -1535,7 +1535,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
@@ -1702,7 +1702,7 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 
@@ -1939,7 +1939,7 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
@@ -1976,8 +1976,8 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 				<< "END"
 				<< '\x0';
 
-	char accesscode [128];
-    Computer::GenerateAccessCode( sacc->accountnumber, sacc->password, accesscode, sizeof ( accesscode ) );
+	string accesscode;
+    Computer::GenerateAccessCode(sacc->accountnumber, sacc->password, accesscode);
 
 	Date postdate;
 	postdate.SetDate ( &(game->GetWorld ()->date) );
@@ -2147,7 +2147,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
@@ -2343,7 +2343,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 	bool provideaccount = (hacked->TYPE == COMPUTER_TYPE_INTERNALSERVICESMACHINE);
 
@@ -2435,8 +2435,8 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 	m->SetWhoIsTheTarget ( "That is for you to determine." );
 
     if ( provideaccount ) {
-	    char code [128];
-        Computer::GenerateAccessCode( username, password, code, sizeof ( code ) );
+	    string code;
+        Computer::GenerateAccessCode(username, password, code);
 	    m->GiveCode ( hacked->ip, code );
     }
 
@@ -2486,7 +2486,7 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
@@ -2512,7 +2512,7 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 
 
 	int amount_to_transfer = (int) NumberGenerator::RandomNormalNumber ( sourceaccount->balance / 2.0f, sourceaccount->balance * 0.4f );
-	amount_to_transfer = int ( amount_to_transfer / 500 ) * 500;
+	amount_to_transfer = amount_to_transfer / 500 * 500;
 
     if ( amount_to_transfer <= 0 ) return nullptr;
     if ( amount_to_transfer > sourceaccount->balance ) amount_to_transfer = (int) ( sourceaccount->balance * 0.9 );
@@ -2574,7 +2574,7 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	// Insert the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_CHANGEACCOUNT );
 	mission->SetCompletion   ( completionA, completionB, completionC, completionD, completionE );
 	mission->SetEmployer     ( employer->name );
@@ -2628,7 +2628,7 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
@@ -2678,7 +2678,7 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 	// Insert the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_REMOVECOMPUTER );
 	mission->SetCompletion   ( completionA, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
@@ -2737,7 +2737,7 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 	if ( minrating > 10 ) minrating = 10;
 	if ( acceptrating > 10 ) acceptrating = 10;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
@@ -2791,7 +2791,7 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 	// Insert the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_REMOVEUSER );
 	mission->SetCompletion   ( completionA, nullptr, nullptr, nullptr, nullptr );
 	mission->SetEmployer     ( employer->name );
@@ -3075,7 +3075,7 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 
 		float fractionfound = (float) foundsize / (float) datasize;
 		mission->payment = int (fractionfound * mission->payment);
-		mission->payment = 100 * int (mission->payment / 100);
+		mission->payment = 100 * (mission->payment / 100);
 		if ( mission->payment < 100 ) mission->payment = 100;
 
 		char newmessage [256];
@@ -3083,7 +3083,7 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 															  "It looks like you got most of the files but some are missing.\n"
 															  "We've decided to reduce your remaining payment to %dc.", mission->payment )
 
-		Message *m = new Message ();
+		auto *m = new Message ();
 		m->SetTo ( "PLAYER" );
 		m->SetFrom ( person->name );
 		m->SetSubject ( "Your recent mission" );
@@ -3620,7 +3620,7 @@ bool MissionGenerator::IsMissionComplete_RemoveComputer ( Mission *mission, Pers
 			// System shut down
 			// But files not deleted
 
-			Message *msg = new Message ();
+			auto *msg = new Message ();
 			msg->SetTo ( message->from );
 			msg->SetFrom ( person->name );
 			msg->SetSubject ( "Problems with mission completion" );
@@ -3741,7 +3741,7 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 		body << "Payment of your fine has been received for the following offence: \n"
 			 << mission->GetDetails () << "\n" << '\x0';
 
-		Message *m = new Message ();
+		auto *m = new Message ();
 		m->SetTo ( message->from );
 		m->SetFrom ( person->name );
 		m->SetSubject ( "Fine paid" );
@@ -3761,7 +3761,7 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 			 << "Please ensure this payment reaches us soon to avoid further action."
 			 << '\x0';
 
-		Message *m = new Message ();
+		auto *m = new Message ();
 		m->SetTo ( message->from );
 		m->SetFrom ( person->name );
 		m->SetSubject ( "Outstanding fine still not paid" );
@@ -3788,7 +3788,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
 
         if ( game->GetWorld ()->plotgenerator.PlayerCompletedSpecialMission (SPECIALMISSION_MOLE) ) {
 
-	        Message *m = new Message ();
+	        auto *m = new Message ();
 	        m->SetTo ( message->from );
 	        m->SetFrom ( person->name );
 	        m->SetSubject ( "Mission withdrawn" );
@@ -3886,7 +3886,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
             int foundpercent = (int) ( 100 * ((float) foundsize / (float) 50) );
             int payment = (int) ( PAYMENT_SPECIALMISSION_MOLE * 0.75 * ((float) foundpercent / (float) 100) );
             if ( foundprogram ) payment += (int) ( PAYMENT_SPECIALMISSION_MOLE * 0.25 );
-            payment = 100 * (int) (payment / 100);
+            payment = 100 * (payment / 100);
 
             std::ostrstream body;
             body << "Weve just checked our fileserver, and we can see lots of data containing the handles of "
@@ -3896,7 +3896,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
                 body << "In the end we were able to achieve almost all of the Uplink Agent names.\n";
 
             else
-                body << "In the end we were able to achieve roughly " << 10 * (int) (foundpercent / 10)
+                body << "In the end we were able to achieve roughly " << 10 * (foundpercent / 10)
                      << " percent of the Uplink Agent names.\n";
 
             if ( foundprogram )
@@ -3915,7 +3915,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
             body << "Once again, congratulations on an incredible hack.\n\nEND";
             body << '\x0';
 
-	        Message *m = new Message ();
+	        auto *m = new Message ();
 	        m->SetTo ( message->from );
 	        m->SetFrom ( person->name );
 	        m->SetSubject ( "Mission completed" );
@@ -3942,7 +3942,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
             rundate.SetDate ( &game->GetWorld ()->date );
             rundate.AdvanceDay ( 7 );
 
-	        NotificationEvent *ne = new NotificationEvent ();
+	        auto *ne = new NotificationEvent ();
 	        ne->SetTYPE ( NOTIFICATIONEVENT_TYPE_AGENTSONLISTDIE );
 	        ne->SetRunDate ( &rundate );
 	        game->GetWorld ()->scheduler.ScheduleEvent ( ne );
@@ -3977,7 +3977,7 @@ void MissionGenerator::MissionCompleted ( Mission *mission, Person *person, Mess
          << "THIS IS AN AUTOMATED RESPONSE.  PLEASE DO NOT REPLY."
 		 << '\x0';
 
-	Message *m = new Message ();
+	auto *m = new Message ();
 	m->SetTo ( message->from );
 	m->SetFrom ( person->name );
 	m->SetSubject ( "Mission completed" );
@@ -4024,7 +4024,7 @@ void MissionGenerator::MissionNotCompleted (Mission *mission, Person *person, Me
     body << "\n\nTHIS IS AN AUTOMATED RESPONSE.  PLEASE DO NOT REPLY.";
     body << '\x0';
 
-	Message *m = new Message ();
+	auto *m = new Message ();
 	m->SetTo ( message->from );
 	m->SetFrom ( person->name );
 	m->SetSubject ( "Mission NOT completed" );
@@ -4048,7 +4048,7 @@ void MissionGenerator::MissionFailed (Mission *mission, Person *person, const st
 
         ConsequenceGenerator::DidntPayFine ( person, mission );
 
-        Message *m = new Message ();
+        auto *m = new Message ();
         m->SetTo ( "PLAYER" );
         m->SetFrom ( mission->employer );
         m->SetSubject ( "Failure to pay fine" );
@@ -4071,7 +4071,7 @@ void MissionGenerator::MissionFailed (Mission *mission, Person *person, const st
              << '\x0';
 
 	    // Send a mail to the person
-	    Message *m = new Message ();
+	    auto *m = new Message ();
 	    m->SetTo ( "PLAYER" );
 	    m->SetFrom ( mission->employer );
 	    m->SetSubject ( "Mission FAILED" );

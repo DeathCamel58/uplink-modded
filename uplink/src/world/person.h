@@ -78,7 +78,7 @@ public:
 	void SetRemoteHost  (const string &newip );
 	void SetPhoneNumber (const string &newphone );
 	void SetStatus	    ( int newSTATUS );
-	int  GetStatus	    ( );
+	int  GetStatus	    ( ) const;
 
 	virtual void GiveMessage ( Message *message );
 
@@ -87,16 +87,16 @@ public:
 	VLocation *GetLocalHost ();	
 	VLocation *GetRemoteHost ();						
 
-	virtual int  CreateNewAccount ( char *bankip, char *accname, char *password, 
-									int balance, int loan );						// Returns account number	
+	virtual int  CreateNewAccount (const string &bankip, const string &accname, const string &password,
+                                   int balance, int loan );						// Returns account number
 
 	int  GetBalance ();																// Overall bank balance
-	void ChangeBalance ( int amount, char *description );
+	void ChangeBalance (int amount, const string &description );
 	void SetCurrentAccount ( int index );
 
 	void SetIsTargetable ( bool newvalue );
 
-	bool HasMessageLink ( const char *ip );
+	bool HasMessageLink (const string &newip );
 
 	// Common functions
 

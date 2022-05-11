@@ -47,7 +47,7 @@ public:
 	~ChangeGatewayScreenInterface () override;
 
 	void ShowGateway ( int index );
-	int GetGatewayPrice ( int index );							// Takes into account Part exchange value of your gateway
+	static int GetGatewayPrice ( int index );							// Takes into account Part exchange value of your gateway
 
 	void Create () override;
 	void Create ( ComputerScreen *cs ) override;

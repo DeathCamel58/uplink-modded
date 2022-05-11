@@ -37,9 +37,9 @@ protected:
 	static void ToggleSubMenu       ( int softwareTYPE, int x, int y );						// Co-ords of bottom-left
 	static bool IsVisibleSubMenu	( int softwareTYPE );
 
-	static bool HasVersionMenu		 ( char *program );										// If they have > 1 version
-	static void ToggleVersionMenu    ( char *program, int x, int y );
-	static bool IsVisibleVersionMenu ( char *program );
+	static bool HasVersionMenu		 (const string &program );										// If they have > 1 version
+	static void ToggleVersionMenu    (const string &program, int x, int y );
+	static bool IsVisibleVersionMenu (const string &program );
 
 	static void StartMenuItemDraw				  ( Button *button, bool highlighted, bool clicked );	
 	static void StartMenuItemHighlight			  ( Button *button );

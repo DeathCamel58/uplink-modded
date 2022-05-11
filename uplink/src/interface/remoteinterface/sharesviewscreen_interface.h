@@ -47,7 +47,7 @@ public:
 
     bool EscapeKeyPressed () override;
 
-	void SetCompanyName ( char *newcompanyname );
+	void SetCompanyName (const string &newcompanyname );
 
 	void Create () override;
 	void Create ( ComputerScreen *newcs ) override;

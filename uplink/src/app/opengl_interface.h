@@ -38,18 +38,18 @@ void buttonborder_draw ( Button *button, bool highlighted, bool clicked );
 
 void superhighlight_draw ( Button *button, bool highlighted, bool clicked );
 
-void button_assignbitmap  ( char *name,	char *standard_f );
-void button_assignbitmap  ( char *name,	Image *standard_i_ref );
-void button_assignbitmaps ( char *name, char *standard_f, char *highlighted_f, char *clicked_f );
-void button_assignbitmaps ( char *name, Image *standard_i_ref, Image *highlighted_i_ref, Image *clicked_i_ref );
+void button_assignbitmap  (const string &name, const string &standard_f );
+void button_assignbitmap  (const string &name, Image *standard_i_ref );
+void button_assignbitmaps (const string &name, const string &standard_f, const string &highlighted_f, const string &clicked_f );
+void button_assignbitmaps (const string &name, Image *standard_i_ref, Image *highlighted_i_ref, Image *clicked_i_ref );
 
-void button_assignbitmap_blend ( char *name, char *standard_f );
-void button_assignbitmaps_blend ( char *name, char *standard_f, char *highlighted_f, char *clicked_f );
+void button_assignbitmap_blend (const string &name, const string &standard_f );
+void button_assignbitmaps_blend (const string &name, const string &standard_f, const string &highlighted_f, const string &clicked_f );
 
-Image *get_assignbitmap ( char *filename );
+Image *get_assignbitmap (const string &filename );
 
 
-void tooltip_update ( char *newtooltip );
+void tooltip_update (const string &newtooltip );
 
 Button *getcurrentbutton ();					// Returns button under mouse or NULL
 
@@ -57,9 +57,9 @@ Button *getcurrentbutton ();					// Returns button under mouse or NULL
 // This set of functions can create and manage a scrollable text box
 //
 
-void create_stextbox ( int x, int y, int width, int height, 
-                        char *caption, char *name );
-void remove_stextbox ( char *name );
+void create_stextbox (int x, int y, int width, int height,
+                      char *caption, const string &name );
+void remove_stextbox (const string &name );
 
 void draw_stextbox	 ( Button *button, bool highlighted, bool clicked );
 void draw_scrollbox  ( Button *button, bool highlighted, bool clicked );

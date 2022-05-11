@@ -547,7 +547,7 @@ void WorldMapInterface::DrawWorldMapLarge ( Button *button, bool highlighted, bo
     // Draw the text labels, dots etc
     //
 
-    auto *wmi = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *wmi = &(game->GetInterface()->GetLocalInterface()->GetHUD()->wmi);
     UplinkAssert (wmi)
 
     wmi->DrawAllObjects ();
@@ -810,21 +810,21 @@ void WorldMapInterface::CreateWorldMapInterface_Small ()
 void WorldMapInterface::ZoomInClick ( Button *button )
 {
 
-    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = &(game->GetInterface()->GetLocalInterface()->GetHUD()->wmi);
     UplinkAssert (thisint)
     thisint->ChangeZoom ( 0.1f );
 }
 
 void WorldMapInterface::ZoomOutClick ( Button *button )
 {
-    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = &(game->GetInterface()->GetLocalInterface()->GetHUD()->wmi);
     UplinkAssert (thisint)
     thisint->ChangeZoom ( -0.1f );
 }
 
 void WorldMapInterface::ZoomButtonClick ( Button *button )
 {
-    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = &(game->GetInterface()->GetLocalInterface()->GetHUD()->wmi);
     UplinkAssert (thisint)
 
     float fractionX = (float) (get_mouseX() - button->x) / (float) button->width;
@@ -848,7 +848,7 @@ void WorldMapInterface::ZoomButtonDraw ( Button *button, bool highlighted, bool 
         glVertex2i ( button->x + button->width, button->y + 10 );
     glEnd ();
     
-    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = &(game->GetInterface()->GetLocalInterface()->GetHUD()->wmi);
     UplinkAssert (thisint)
 
     //
@@ -1150,7 +1150,7 @@ void WorldMapInterface::CreateWorldMapInterface_Large ()
     int fullsizeX = mapRect.width;
     int fullsizeY = mapRect.height;
     
-    auto *thisint = (WorldMapInterface *) &(game->GetInterface ()->GetLocalInterface ()->GetHUD ()->wmi);
+    auto *thisint = &(game->GetInterface()->GetLocalInterface()->GetHUD()->wmi);
     UplinkAssert (thisint)
 
     // Create the background bitmap
@@ -1549,8 +1549,8 @@ void WorldMapInterface::SetZoom ( float z )
     float windowW = 1.0f / zoom;
     float windowH = 1.0f / zoom;
     
-    scrollX += (float) ( oldWindowW - windowW ) / 2.0f;
-    scrollY += (float) ( oldWindowH - windowH ) / 2.0f;
+    scrollX += (oldWindowW - windowW) / 2.0f;
+    scrollY += (oldWindowH - windowH) / 2.0f;
 
     if ( scrollX < 0.0f ) scrollX = 0.0f;
     if ( scrollX + windowW > 1.0f ) scrollX = 1.0f - windowW;

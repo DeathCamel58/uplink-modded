@@ -39,9 +39,9 @@ public:
 
 	void Run () override;
 
-    void SetDetails ( char *newsourceip, char *newsourceaccno,
-                      char *newtargetip, char *newtargetaccno,
-                      int newamount, Date *newhackdate );
+    void SetDetails (const string &newsourceip, const string &newsourceaccno,
+                     const string &newtargetip, const string &newtargetaccno,
+                     int newamount, Date *newhackdate );
 
 	char *GetShortString () override;
 	char *GetLongString () override;

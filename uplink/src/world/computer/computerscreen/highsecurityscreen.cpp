@@ -24,7 +24,7 @@ HighSecurityScreen::~HighSecurityScreen ()
 
 }
 
-void HighSecurityScreen::AddSystem ( char *name, int page )
+void HighSecurityScreen::AddSystem (const string &name, int page )
 {
 
 	auto *mso = new MenuScreenOption ();

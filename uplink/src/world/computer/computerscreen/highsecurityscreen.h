@@ -31,7 +31,7 @@ public:
 	HighSecurityScreen ();
 	~HighSecurityScreen () override;
 
-	void AddSystem ( char *name, int page );
+	void AddSystem (const string &name, int page );
 	void SetNextPage ( int newnextpage );
 
 	void ResetSecurity ();							// Sets all systems to "Enabled"

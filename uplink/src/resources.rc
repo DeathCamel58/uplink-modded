@@ -94,7 +94,7 @@ BEGIN
             VALUE "FileDescription", "Uplink Modification"
             VALUE "FileVersion", "10, 0, 0, 0"
             VALUE "InternalName", "Uplink Modification"
-            VALUE "LegalCopyright", "Copyright © 2007 Introversion Software"
+            VALUE "LegalCopyright", "Copyright Â© 2007 Introversion Software"
             VALUE "OriginalFilename", "Uplink.exe"
             VALUE "ProductName", "Introversion Software Uplink Modification"
             VALUE "ProductVersion", "10, 0, 0, 0"

@@ -32,8 +32,8 @@ protected:
 
 public:
 
-    void ForceUpdateAll ();
-    void SpecialHighlight ( int memoryIndex );
+    static void ForceUpdateAll ();
+    static void SpecialHighlight ( int memoryIndex );
 
 	void Create () override;
 	void Remove () override;

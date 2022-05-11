@@ -71,7 +71,7 @@ void SecuritySystem::EndBypass ()
 
 }
 
-char *SecuritySystem::GetName ()
+char *SecuritySystem::GetName () const
 {
 
 	return names [TYPE];

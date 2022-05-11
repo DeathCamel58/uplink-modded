@@ -38,11 +38,11 @@ void AttemptMissionEvent::Run ()
 
 }
 
-void AttemptMissionEvent::SetAgentName ( char *newagentname )
+void AttemptMissionEvent::SetAgentName (const string &newagentname )
 {
 
-	assert( strlen (newagentname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( agentname, newagentname, sizeof ( agentname ) )
+	assert( newagentname.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( agentname, newagentname.c_str(), sizeof ( agentname ) )
 
 }
 

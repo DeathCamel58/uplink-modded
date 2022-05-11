@@ -417,8 +417,8 @@ struct ComputerUpgrade
 extern const ComputerUpgrade SOFTWARE_UPGRADES  [];
 extern const ComputerUpgrade HARDWARE_UPGRADES  [];
 
-const ComputerUpgrade *GetSoftwareUpgrade ( char *name );
-const ComputerUpgrade *GetHardwareUpgrade ( char *name );
+const ComputerUpgrade *GetSoftwareUpgrade (const string &name );
+const ComputerUpgrade *GetHardwareUpgrade (const string &name );
 
 
 /*  ===========================================================================

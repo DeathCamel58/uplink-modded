@@ -44,8 +44,8 @@ public:
 	void Listen ();
 	void StopListening ();
 
-	char *GetRemoteHost ( int socketindex );
-	char *GetRemoteIP ( int socketindex );
+	char *GetRemoteHost ( int socketindex ) const;
+	char *GetRemoteIP ( int socketindex ) const;
 
 	// Common functions
 

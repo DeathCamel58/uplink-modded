@@ -171,71 +171,71 @@ void ClientStatusInterface::MainMenuClick ( Button *button )
 
 }
 
-void ClientStatusInterface::SetHardware	( char *newhw )
+void ClientStatusInterface::SetHardware	(const string &newhw )
 {
 
-	assert( strlen(newhw) < sizeof(hardware) );
-	UplinkStrncpy ( hardware, newhw, sizeof ( hardware ) )
+	assert( newhw.length() < sizeof(hardware) );
+	UplinkStrncpy ( hardware, newhw.c_str(), sizeof ( hardware ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
 
 }
 
-void ClientStatusInterface::SetHUDUpgrades ( char *newhud )
+void ClientStatusInterface::SetHUDUpgrades (const string &newhud )
 {
 	
-	assert( strlen(newhud) < sizeof(hudupgrades) );
-	UplinkStrncpy ( hudupgrades, newhud, sizeof ( hudupgrades ) )
+	assert( newhud.length() < sizeof(hudupgrades) );
+	UplinkStrncpy ( hudupgrades, newhud.c_str(), sizeof ( hudupgrades ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
 
 }
 
-void ClientStatusInterface::SetConnection	( char *newconnection )
+void ClientStatusInterface::SetConnection	(const string &newconnection )
 {
 
-	assert( strlen(newconnection) < sizeof(connection) );
-	UplinkStrncpy ( connection, newconnection, sizeof ( connection ) )
+	assert( newconnection.length() < sizeof(connection) );
+	UplinkStrncpy ( connection, newconnection.c_str(), sizeof ( connection ) )
 
 	EclDirtyButton ( "status_gatewaybg" );
 
 }
 
-void ClientStatusInterface::SetRating ( char *newrating )
+void ClientStatusInterface::SetRating (const string &newrating )
 {
 	
-	assert( strlen(newrating) < sizeof(ratings) );
-	UplinkStrncpy ( ratings, newrating, sizeof ( ratings ) )
+	assert( newrating.length() < sizeof(ratings) );
+	UplinkStrncpy ( ratings, newrating.c_str(), sizeof ( ratings ) )
 
 	EclDirtyButton ( "status_personalbg" );
 
 }
 
-void ClientStatusInterface::SetFinancial ( char *newfinancial )
+void ClientStatusInterface::SetFinancial (const string &newfinancial )
 {
 
-	assert(strlen(newfinancial) < sizeof(financial) );
-	UplinkStrncpy ( financial, newfinancial, sizeof ( financial ) )
+	assert(newfinancial.length() < sizeof(financial) );
+	UplinkStrncpy ( financial, newfinancial.c_str(), sizeof ( financial ) )
 
 	EclDirtyButton ( "status_personalbg" );
 
 }
 
-void ClientStatusInterface::SetCriminal  ( char *newcriminal )
+void ClientStatusInterface::SetCriminal  (const string &newcriminal )
 {
 
-	assert(strlen(newcriminal) < sizeof(criminal) );
-	UplinkStrncpy ( criminal, newcriminal, sizeof ( criminal ) )
+	assert(newcriminal.length() < sizeof(criminal) );
+	UplinkStrncpy ( criminal, newcriminal.c_str(), sizeof ( criminal ) )
 
 	EclDirtyButton ( "status_personalbg" );
 
 }
 
-void ClientStatusInterface::AddNewsStory ( char *newsstory )
+void ClientStatusInterface::AddNewsStory (const string &newsstory )
 {
 
-	char *newscopy = new char [strlen(newsstory)+1];
-	UplinkSafeStrcpy ( newscopy, newsstory )
+	char *newscopy = new char [newsstory.length()+1];
+	UplinkSafeStrcpy ( newscopy, newsstory.c_str() )
 
 	news.PutDataAtStart ( newscopy );
 

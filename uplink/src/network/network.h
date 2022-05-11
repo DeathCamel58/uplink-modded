@@ -53,8 +53,8 @@ public:
 	NetworkServer *GetServer ();					// MUST be in correct STATUS
 	NetworkClient *GetClient ();					// before accessing
 
-	char *GetLocalHost ();
-	char *GetLocalIP ();
+	static char *GetLocalHost ();
+	static char *GetLocalIP ();
 
 	void StartServer ();
 	void StopServer ();
@@ -62,7 +62,7 @@ public:
 	void StartClient ( char *ip );
 	void StopClient ();
 
-	bool IsActive ();
+	bool IsActive () const;
 
 	// Common functions
 

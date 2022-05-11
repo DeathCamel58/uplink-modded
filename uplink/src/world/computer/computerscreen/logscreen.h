@@ -40,7 +40,7 @@ public:
 	void SetNextPage ( int newnextpage ); 
 	void SetTARGET ( int newTARGET );
 
-	LogBank *GetTargetLogBank ();								// Asserts log bank exists
+	LogBank *GetTargetLogBank () const;								// Asserts log bank exists
 
 	// Common functions
 

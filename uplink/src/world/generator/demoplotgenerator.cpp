@@ -205,7 +205,7 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 	int minrating		= 3;
 	int acceptrating	= 4;
 
-	payment = int ( payment / 100 ) * 100;				// Rounds payment to the nearest 100
+	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
 	UplinkStrncpy ( personname, "internal@ARC.net", sizeof ( personname ) )

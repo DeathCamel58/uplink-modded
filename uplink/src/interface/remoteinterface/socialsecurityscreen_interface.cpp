@@ -188,7 +188,7 @@ void SocialSecurityScreenInterface::Remove ()
 
 }
 
-void SocialSecurityScreenInterface::SetSearchName ( char *newsearchname )
+void SocialSecurityScreenInterface::SetSearchName (const string &newsearchname )
 {
 
 	Computer *comp = game->GetWorld ()->GetComputer ( "International Social Security Database" );
@@ -199,7 +199,7 @@ void SocialSecurityScreenInterface::SetSearchName ( char *newsearchname )
 	if ( recordindex != -1 )
 		searchname = LowerCaseString (newsearchname);
 	else
-		searchname = nullptr;
+		searchname = "";
 
 }
 
@@ -220,8 +220,7 @@ void SocialSecurityScreenInterface::UpdateScreen ()
 
 		if ( person ) {
 
-			char filename [256];
-			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex )
+			string filename = "photos/image" + to_string(person->photoindex) + ".tif";
 			button_assignbitmap ( "ss_photo", filename );
 
 		}

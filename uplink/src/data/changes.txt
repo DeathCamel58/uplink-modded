@@ -409,10 +409,10 @@
           the large map is showing. This would cause the map locations to jump
           around erraticly.
 - Fixed : Map locations should now have a very low probability of overlapping
-          thanks to code from François Gagné.
+          thanks to code from FranÃ§ois GagnÃ©.
 - Fixed : It is now possible to remove nodes from a connection chain by
           clicking on them when they are already in the chain, thanks to code
-          from François Gagné.
+          from FranÃ§ois GagnÃ©.
 
 - Added : A screenshot can be saved by pressing the backtick (`) button, which
           is found left of "1" on most PC keyboards. At the moment, only one

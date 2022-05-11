@@ -35,7 +35,7 @@ void SvbReset ()
 
 }
 
-int SvbRegisterTask ( char *name, Task *task )
+int SvbRegisterTask (const string &name, Task *task )
 {
 
 	// Add the task to the list
@@ -325,7 +325,7 @@ Task *SvbGetTask ( int pid )
 
 }
 
-Task *SvbGetTask ( char *name )
+Task *SvbGetTask (const string &name )
 {
 
     for ( int i = 0; i < tasklist.Size (); ++i ) {
@@ -333,7 +333,7 @@ Task *SvbGetTask ( char *name )
         TaskWrapper *tw = tasklist [i];
         assert (tw);
 
-        if ( strcmp ( tw->name, name ) == 0 )
+        if ( tw->name == name )
             return tw->task;
 
     }
@@ -502,11 +502,9 @@ void SvbUpdateInterface ()
 			TaskWrapper *tw = tasklist [i];
 			assert ( tw );
 
-			char name [32];
-			sprintf ( name, "svb_priority %d", i );
+			string name = "svb_priority " + to_string(i);
 
-			char caption [32];
-			sprintf ( caption, "%s", tw->name );
+			string caption = tw->name;
 			//sprintf ( caption, "%f", tw->priority );
 
 			EclRegisterResize ( name, (int)(tw->priority * 100), 10, 500 );

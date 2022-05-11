@@ -33,9 +33,9 @@ public:
 	ArrestEvent ();
 	~ArrestEvent () override;
 
-	void SetName	( char *newname );
-	void SetReason	( char *newreason );
-	void SetIP		( char *newip );
+	void SetName	(const string &newname );
+	void SetReason	(const string &newreason );
+	void SetIP		(const string &newip );
 
 	void Run () override;
 

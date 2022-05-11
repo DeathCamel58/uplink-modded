@@ -31,7 +31,7 @@ public:
 	KeyboardInterface();
 	~KeyboardInterface() override;
 
-	void SetTargetButton ( char *bname );
+	static void SetTargetButton ( char *bname );
 
 	void Create ( int x, int y );
 	void Remove () override;

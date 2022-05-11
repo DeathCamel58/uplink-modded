@@ -87,14 +87,14 @@ void ClientConnection::SetConnectionTime ( int newtime )
 
 }
 
-int ClientConnection::TimeActive ()
+int ClientConnection::TimeActive () const
 {
 
 	int now = (int)EclGetAccurateTime ();
 
 	int active = now - connectiontime;
 
-	return (int) (active/1000);
+	return active / 1000;
 
 }
 

@@ -30,7 +30,7 @@ ScrollBox::ScrollBox()
 {
 
 	interfaceCreated = false;
-    UplinkStrncpy ( name, "NewScrollBox", sizeof ( name ) )
+    name = "NewScrollBox";
     x = y = w = h = 0;
     numItems = windowSize = currentIndex = 0;
     callback = nullptr;
@@ -42,9 +42,8 @@ ScrollBox::~ScrollBox()
 
 void ScrollBox::SetName (const string &newname )
 {
-    
-    assert(newname.length() < SIZE_SCROLLBOX_NAME );
-    UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
+
+    name = newname;
 
 }
 
@@ -250,10 +249,10 @@ void ScrollBox::MouseMoveScrollBar ( Button *button )
     button_highlight(button);
 }
 
-void ScrollBox::GrabScrollBar ( char *name )
+void ScrollBox::GrabScrollBar (const string &name )
 {
     int mouseY = get_mouseY ();
-    UplinkStrncpy ( currentGrab, name, sizeof ( currentGrab ) )
+    UplinkStrncpy ( currentGrab, name.c_str(), sizeof ( currentGrab ) )
 }
 
 void ScrollBox::UnGrabScrollBar ()
@@ -314,13 +313,9 @@ void ScrollBox::UpdateGrabScroll ()
 void ScrollBox::CreateInterface ()
 {
 
-    char scrollUpName[256];
-    char scrollBarName[256];
-    char scrollDownName[256];
-
-    UplinkSnprintf ( scrollUpName, sizeof ( scrollUpName ), "scrollup %s", name )
-    UplinkSnprintf ( scrollDownName, sizeof ( scrollDownName ), "scrolldown %s", name )
-    UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name )
+    string scrollUpName = "scrollup " + name;
+    string scrollBarName = "scrollbar " + name;
+    string scrollDownName = "scrolldown " + name;
 
     EclRegisterButton ( x, y, 15, 15, "^", scrollUpName );
     EclRegisterButton ( x, y + 15, 15, h - 30, " ", scrollBarName );
@@ -341,19 +336,15 @@ void ScrollBox::RemoveInterface ()
 
 	if (!interfaceCreated) return;
 
-    char scrollUpName[256];
-    char scrollBarName[256];
-    char scrollDownName[256];
-
-    UplinkSnprintf ( scrollUpName, sizeof ( scrollUpName ), "scrollup %s", name )
-    UplinkSnprintf ( scrollDownName, sizeof ( scrollDownName ), "scrolldown %s", name )
-    UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name )
+    string scrollUpName = "scrollup " + name;
+    string scrollBarName = "scrollbar " + name;
+    string scrollDownName = "scrolldown " + name;
 
     EclRemoveButton ( scrollUpName );
     EclRemoveButton ( scrollBarName );
     EclRemoveButton ( scrollDownName );
 
-    if ( strcmp ( currentGrab, scrollBarName ) == 0 )
+    if ( currentGrab == scrollBarName )
 		ScrollBox::UnGrabScrollBar ();
 
 	interfaceCreated = false;
@@ -363,8 +354,7 @@ void ScrollBox::UpdateInterface ()
 {
 
 	if (interfaceCreated) {
-	    char scrollBarName [256];
-		UplinkSnprintf ( scrollBarName, sizeof ( scrollBarName ), "scrollbar %s", name )
+	    string scrollBarName = "scrollbar " + name;
 		EclDirtyButton ( scrollBarName );
 	}
 
@@ -394,14 +384,14 @@ void ScrollBox::CreateScrollBox (const string &name,
 
 }
 
-void ScrollBox::RemoveScrollBox ( char *name )
+void ScrollBox::RemoveScrollBox (const string &name )
 {
 
     for ( int i = 0; i < scrollBoxes.Size(); ++i ) {
         
         ScrollBox *sb = scrollBoxes.GetData(i);
 
-        if ( strcmp ( sb->name, name ) == 0 ) {
+        if ( sb->name == name ) {
             sb->RemoveInterface ();
             delete sb;
             scrollBoxes.RemoveData(i);
@@ -412,11 +402,11 @@ void ScrollBox::RemoveScrollBox ( char *name )
             
 }
 
-ScrollBox *ScrollBox::GetScrollBox ( char *name )
+ScrollBox *ScrollBox::GetScrollBox (const string &name )
 {
 
     for ( int i = 0; i < scrollBoxes.Size(); ++i )
-        if ( strcmp ( scrollBoxes.GetData(i)->name, name ) == 0 )
+        if ( scrollBoxes.GetData(i)->name == name )
             return scrollBoxes.GetData(i);
 
     return nullptr;

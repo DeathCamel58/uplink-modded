@@ -161,14 +161,14 @@ void Game::SetGameSpeed ( int newspeed )
 
 }
 
-int Game::GameSpeed ()
+int Game::GameSpeed () const
 {
 
 	return gamespeed;
 
 }
 
-bool Game::IsRunning ()
+bool Game::IsRunning () const
 {
 
 	return ( gamespeed > GAMESPEED_PAUSED );
@@ -501,7 +501,7 @@ void Game::WinCode ( const char *desc, const char *codeExtra )
 
 }
 
-bool Game::IsCodeWon ()
+bool Game::IsCodeWon () const
 {
 
 	return ( winningCodeWon != 0 );

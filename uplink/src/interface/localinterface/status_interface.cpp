@@ -128,12 +128,10 @@ void StatusInterface::Create ()
         for ( int i = 0; i < 16; ++i ) {
             if ( game->GetWorld ()->plotgenerator.PlayerCompletedSpecialMission (i) ) {
 
-                char name [128];
+                string name = "status_award " + to_string(i);
                 char tooltip [128];
-                char filename [256];
-                UplinkSnprintf ( name, sizeof ( name ), "status_award %d", i )
                 UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Completed Special Mission '%s'", game->GetWorld ()->plotgenerator.SpecialMissionTitle (i) )
-                UplinkSnprintf ( filename, sizeof ( filename ), "awards/award%d.tif", i )
+                string filename = "awards/award" + to_string(i) + ".tif";
 
                 EclRegisterButton ( x, y, 16, 16, " ", tooltip, name );                
                 button_assignbitmaps_blend ( name, filename, filename, filename );
@@ -169,8 +167,7 @@ void StatusInterface::Remove ()
 
         for ( int i = 0; i < 16; ++i ) {
 
-            char name [128];
-            UplinkSnprintf ( name, sizeof ( name ), "status_award %d", i )
+            string name = "status_award " + to_string(i);
             EclRemoveButton (name);
 
         }

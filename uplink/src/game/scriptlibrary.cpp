@@ -346,8 +346,8 @@ void ScriptLibrary::Script12 ()
 	
 	// Give the player his new access codes
 
-	char code [128];
-    Computer::GenerateAccessCode( name, passwd, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(name, passwd, code);
 
 	game->GetWorld ()->GetPlayer ()->GiveLink ( comp->ip );
 	game->GetWorld ()->GetPlayer ()->GiveCode ( comp->ip, code );
@@ -687,7 +687,7 @@ void ScriptLibrary::Script33 ()
 	char name [SIZE_AGENT_HANDLE];
 	char password [33];
 	char password2 [33];
-	char accesscode [SIZE_AGENT_HANDLE + 32 + 32];
+	string accesscode;
 
 	strncpy ( name, EclGetButton ( "nametext 0 0" )->caption.c_str(), sizeof( name ) );
 	name [ sizeof( name ) - 1 ] = '\0';
@@ -697,8 +697,8 @@ void ScriptLibrary::Script33 ()
 
 	strncpy ( password2, EclGetButton ( "passwordtext2 0 0" )->caption.c_str(), sizeof( password2 ) );
 	password2 [ sizeof( password2 ) - 1 ] = '\0';
-	
-    Computer::GenerateAccessCode( name, password, accesscode, sizeof ( accesscode ) );
+
+    Computer::GenerateAccessCode(name, password, accesscode);
 
 	if ( strcmp ( game->GetWorld ()->GetPlayer ()->handle, "NEWAGENT" ) != 0 ) {
 		create_msgbox ( "Error", "Our records show you are already\n"
@@ -1674,8 +1674,8 @@ void ScriptLibrary::Script71 ()
 	record->AddField ( RECORDBANK_SECURITY, "3" );
 	ourcomp->recordbank.AddRecord ( record );
 
-	char code [128];
-    Computer::GenerateAccessCode( username, password, code, sizeof ( code ) );
+	string code;
+    Computer::GenerateAccessCode(username, password, code);
 
     // 
     // Generate the text

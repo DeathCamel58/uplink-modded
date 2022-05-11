@@ -55,8 +55,7 @@ void RevelationTracker::Tick ( int n )
 		if ( time(nullptr) > timesync + 3 ) {
 
 			int pid = SvbLookupPID ( this );
-			char boxname [128];
-			UplinkSnprintf ( boxname, sizeof ( boxname ), "revelationtracker_box %d", pid )
+			string boxname = "revelationtracker_box " + to_string(pid);
 			Button *button = EclGetButton ( boxname );
 			UplinkAssert(button)
 
@@ -176,13 +175,9 @@ void RevelationTracker::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-        char titlename [128];
-        char boxname [128];
-        char closename [128];
-
-        UplinkSnprintf ( titlename, sizeof ( titlename ), "revelationtracker_title %d", pid )
-        UplinkSnprintf ( boxname, sizeof ( boxname ), "revelationtracker_box %d", pid )
-        UplinkSnprintf ( closename, sizeof ( closename ), "revaltiontracker_close %d", pid )
+        string titlename = "revelationtracker_title " + to_string(pid);
+        string boxname = "revelationtracker_box " + to_string(pid);
+        string closename = "revaltiontracker_close " + to_string(pid);
 
         EclRegisterButton ( 0, 50, 130, 15, "Revelation Tracker", "Shows all currently infected computers", titlename );
         EclRegisterButton ( 130, 51, 13, 13, "X", "Close the Revelation Tracker", closename );
@@ -208,13 +203,9 @@ void RevelationTracker::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-        char titlename [128];
-        char boxname [128];
-        char closename [128];
-
-        UplinkSnprintf ( titlename, sizeof ( titlename ), "revelationtracker_title %d", pid )
-        UplinkSnprintf ( boxname, sizeof ( boxname ), "revelationtracker_box %d", pid )
-        UplinkSnprintf ( closename, sizeof ( closename ), "revaltiontracker_close %d", pid )
+        string titlename = "revelationtracker_title " + to_string(pid);
+        string boxname = "revelationtracker_box " + to_string(pid);
+        string closename = "revaltiontracker_close " + to_string(pid);
 
         EclRemoveButton ( titlename );
         EclRemoveButton ( boxname );
@@ -231,13 +222,9 @@ void RevelationTracker::ShowInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-        char titlename [128];
-        char boxname [128];
-        char closename [128];
-
-        UplinkSnprintf ( titlename, sizeof ( titlename ), "revelationtracker_title %d", pid )
-        UplinkSnprintf ( boxname, sizeof ( boxname ), "revelationtracker_box %d", pid )
-        UplinkSnprintf ( closename, sizeof ( closename ), "revaltiontracker_close %d", pid )
+        string titlename = "revelationtracker_title " + to_string(pid);
+        string boxname = "revelationtracker_box " + to_string(pid);
+        string closename = "revaltiontracker_close " + to_string(pid);
 
         EclButtonBringToFront ( titlename );
         EclButtonBringToFront ( boxname );
@@ -254,13 +241,9 @@ void RevelationTracker::MoveTo ( int x, int y, int time_ms )
 
         int pid = SvbLookupPID ( this );
 
-        char titlename [128];
-        char boxname [128];
-        char closename [128];
-
-        UplinkSnprintf ( titlename, sizeof ( titlename ), "revelationtracker_title %d", pid )
-        UplinkSnprintf ( boxname, sizeof ( boxname ), "revelationtracker_box %d", pid )
-        UplinkSnprintf ( closename, sizeof ( closename ), "revaltiontracker_close %d", pid )
+        string titlename = "revelationtracker_title " + to_string(pid);
+        string boxname = "revelationtracker_box " + to_string(pid);
+        string closename = "revaltiontracker_close " + to_string(pid);
 
         EclRegisterMovement ( titlename, x, y, time_ms );
         EclRegisterMovement ( boxname, x, y + 15, time_ms );
@@ -274,8 +257,7 @@ bool RevelationTracker::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-    char titlename [128];
-    UplinkSnprintf ( titlename, sizeof ( titlename ), "revelationtracker_title %d", pid )
+    string titlename = "revelationtracker_title " + to_string(pid);
 
 	return ( EclGetButton ( titlename ) != nullptr );
 

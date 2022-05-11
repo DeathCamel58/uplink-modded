@@ -66,7 +66,7 @@ public:
 	// Database management functions
 
 	VLocation *CreateVLocation (const string &ip, int phys_x, int phys_y );
-	bool       VerifyVLocation (const string &ip, int phys_x, int phys_y );
+	static bool       VerifyVLocation (const string &ip, int phys_x, int phys_y );
 	Company   *CreateCompany   (const string &name );
 	Computer  *CreateComputer  (const string &name, const string &companyname, const string &ip );
 	Person    *CreatePerson	   (const string &name, const string &localhost );
@@ -82,8 +82,8 @@ public:
 	Company    *GetCompany	  (const string &name );			//  if the specified object
 	Computer   *GetComputer   (const string &name );			//  is not found in the database
 	Person     *GetPerson     (const string &name );			//  (check before dereferencing)
-	char	   *GetPassword   ( int index );					
-	GatewayDef *GetGatewayDef (const string &name );
+	char	   *GetPassword   ( int index ) const;
+	GatewayDef *GetGatewayDef (const string &name ) const;
 
 	Player    *GetPlayer     ();						//  Asserts that player exists
 

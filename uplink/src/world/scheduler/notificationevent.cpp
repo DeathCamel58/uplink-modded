@@ -597,7 +597,7 @@ void NotificationEvent::PayUplinkMonthlyFee ()
 	// everyone with an Uplink Rating
 	//
 
-	auto *people = (DArray <Person *> *) game->GetWorld ()->people.ConvertToDArray ();
+	auto *people = game->GetWorld()->people.ConvertToDArray();
 
 	for ( int i = 0; i < people->Size (); ++i ) {
 		if ( people->ValidIndex (i) ) {

@@ -24,7 +24,7 @@ public:
     static void Shutdown ();
 
 	static char *GenerateCompanyName ();
-	static char *GeneratePersonName ();
+	static string GeneratePersonName ();
 	static char *GenerateAgentAlias ();
 	static char *GenerateBankName ();
 		

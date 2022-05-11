@@ -56,8 +56,8 @@ public:
 	void GiveMessage ( Message *message ) override;
     int HasAccount  (const string &ip );                           // Returns access level or -1
 
-	int  CreateNewAccount ( char *bankip, char *accname, char *password, 
-							int balance, int loan ) override;			// Returns account number
+	int  CreateNewAccount (const string &bankip, const string &accname, const string &password,
+                           int balance, int loan ) override;			// Returns account number
 
 	bool HasMissionLink (const string &newip );
 

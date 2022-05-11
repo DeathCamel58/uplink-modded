@@ -53,8 +53,8 @@ public:
 
 	Data *GetData     ( int memoryindex );
 	Data *GetDataFile ( int dataindex );
-	Data *GetData     ( char *title );
-	bool ContainsData ( char *title, float version = -1.0f );
+	Data *GetData     (const string &title );
+	bool ContainsData (const string &title, float version = -1.0f );
 
 	int GetDataIndex ( int memoryindex );						// Returns index of data in this memory block
 	int GetMemoryIndex ( int dataindex );						// Finds first memory index pointing to the data

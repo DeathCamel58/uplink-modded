@@ -16,10 +16,10 @@
 
 
 static LList <SgPlaylist *> playlists;
-static char currentplaylist [SIZE_SGPLAYLIST_NAME];
-static char currentsong [256];
+static string currentplaylist;
+static string currentsong;
 
-static char requestedplaylist [SIZE_SGPLAYLIST_NAME];
+static string requestedplaylist;
 static int requestedtime;
 
 static int songindex;
@@ -28,9 +28,7 @@ static int songindex;
 void SgPlaylist_Initialise ()
 {
 
-    sprintf ( currentplaylist, "None" );
-    sprintf ( currentsong, "None" );
-    sprintf ( requestedplaylist, "None" );
+    currentplaylist = currentsong = requestedplaylist = "None";
     requestedtime = -1;
     songindex = -1;
 
@@ -51,28 +49,28 @@ void SgPlaylist_Shutdown ()
 
 }
 
-void SgPlaylist_Create ( char *pname )
+void SgPlaylist_Create (const string &pname )
 {
 
-    SgPlaylist *playlist = new SgPlaylist ();
+    auto *playlist = new SgPlaylist ();
     playlist->SetName ( pname );
     playlists.PutData ( playlist );
 
 }
 
-SgPlaylist *SgPlaylist_GetPlaylist ( char *pname )
+SgPlaylist *SgPlaylist_GetPlaylist (const string &pname )
 {
 
     for ( int i = 0; i < playlists.Size (); ++i ) 
         if ( playlists.GetData (i) )            
-            if ( strcmp ( playlists.GetData (i)->name, pname ) == 0 )
+            if ( playlists.GetData (i)->name == pname )
                 return playlists.GetData(i);
 
     return nullptr;
 
 }
 
-void SgPlaylist_AddSong ( char *pname, char *songname )
+void SgPlaylist_AddSong (const string &pname, char *songname )
 {
 
     SgPlaylist *playlist = SgPlaylist_GetPlaylist(pname);
@@ -81,33 +79,33 @@ void SgPlaylist_AddSong ( char *pname, char *songname )
         playlist->AddSong (songname);
 
     else
-        printf ( "SgPlaylist_AddSong : Failed because playlist %s does not exist\n", pname );
+        cout << "SgPlaylist_AddSong : Failed because playlist " << pname << " does not exist" << endl;
 
 }
 
-void SgPlaylist_Play ( char *pname )
+void SgPlaylist_Play (const string &pname )
 {
 
-    if ( strcmp ( currentplaylist, "None" ) == 0 ) {
+    if ( currentplaylist == "None" ) {
 
         // Nothing is currently playing
         // Start the new playlist immediately
 
-        strcpy ( currentplaylist, pname );
+        currentplaylist = pname;
 //        SgSetModVolume ( 100 );
         songindex = -1;
         SgPlaylist_NextSong ();
 
     }
-    else if ( strcmp ( currentplaylist, pname ) != 0 ) {
+    else if ( currentplaylist != pname ) {
 
         // Something is currently playing
         // Fade it out slowly before changing
 
-        if ( strcmp ( requestedplaylist, "None" ) == 0 )
+        if ( requestedplaylist == "None" )
             requestedtime = (int)EclGetAccurateTime ();
 
-        strcpy ( requestedplaylist, pname );
+        requestedplaylist = pname;
             
     }
 
@@ -117,9 +115,7 @@ void SgPlaylist_Stop ()
 {
 
     SgStopMod ();
-    sprintf ( currentplaylist, "None" );
-    sprintf ( currentsong, "None" );
-    sprintf ( requestedplaylist, "None" );
+    currentplaylist = currentsong = requestedplaylist = "None";
     requestedtime = -1;
     songindex = -1;
 
@@ -137,11 +133,11 @@ void SgPlaylist_NextSong ()
         char *songtitle = playlist->songs.GetData(songindex);
 
         SgPlayMod ( RsArchiveFileOpen ( songtitle ) );
-        strcpy ( currentsong, songtitle );
+        currentsong = songtitle;
 
     }
     else
-        printf ( "SgPlaylist_NextSong : Failed because playlist %s does not exist\n", currentplaylist );
+        cout << "SgPlaylist_NextSong : Failed because playlist " << currentplaylist << " does not exist" << endl;
 
 
 }
@@ -155,11 +151,11 @@ void SgPlaylist_RandomSong ()
 
         char *songtitle = playlist->GetRandomSong ( currentsong );
         SgPlayMod ( RsArchiveFileOpen ( songtitle ) );
-        strcpy ( currentsong, songtitle );
+        currentsong = songtitle;
 
     }
     else
-        printf ( "SgPlaylist_RandomSong : Failed because playlist %s does not exist\n", currentplaylist );
+        cout << "SgPlaylist_RandomSong : Failed because playlist " << currentplaylist << " does not exist" << endl;
 
 }
 
@@ -168,15 +164,15 @@ void SgUpdate ()
 
     // Are we fading out the current playlist?
 
-    if ( strcmp ( requestedplaylist, "None" ) != 0 ) {
+    if ( requestedplaylist != "None" ) {
 
         int timediff = (int)EclGetAccurateTime () - requestedtime;
         int volume = 20 - (int)(20 * ((float) timediff / (float) 4000));
 
         if ( volume <= 0 ) {
             SgStopMod ();
-            strcpy ( currentplaylist, requestedplaylist );
-            strcpy ( requestedplaylist, "None" );
+            currentplaylist = requestedplaylist;
+            requestedplaylist = "None";
             requestedtime = -1;
             songindex = -1;
             SgSetModVolume ( 20 );
@@ -192,7 +188,7 @@ void SgUpdate ()
         // Playing a playlist as usual
         // Has the current mod finished?
 
-        if ( strcmp ( currentplaylist, "None" ) != 0 )
+        if ( currentplaylist != "None" )
             if ( SgModFinished () ) 
                 SgPlaylist_NextSong ();
 

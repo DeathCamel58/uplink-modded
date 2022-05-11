@@ -38,14 +38,14 @@ protected:
 
     static WorldMapLayout *layout;
     static void DrawAllObjects();
-    static bool InConnection( const char *computerName );
+    static bool InConnection(const string& computerName );
 
 public:
 
     ClientCommsInterface();
     ~ClientCommsInterface() override;
     
-    void LayoutLabels();
+    static void LayoutLabels();
     
     void Create () override;
     void Remove () override;

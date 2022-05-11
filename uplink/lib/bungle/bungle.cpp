@@ -1,5 +1,6 @@
 
 #include <cassert>
+#include <algorithm>
 
 #include "tosser.h"
 
@@ -36,32 +37,21 @@ struct LocalFileHeader
 static BTree <LocalFileHeader *> files;
 
 
-void BglSlashify ( char *string )
+void BglSlashify (string &string )
 {
 
 	// Searches out all slashes and changes them to forward slashes
-
-	char *next = strchr ( string, '\\' );
-
-	while ( next ) {
-
-		*(next) = '/';
-		next = strchr ( next, '\\' );
-
-	}
+    replace( string.begin(), string.end(), '\\', '/');
 
 	// Also lowercases the string
-	
-	for ( char *p = string; *p != '\x0'; ++p )
-		if ( *p >= 'A' && *p <= 'Z' )
-			*p += 'a' - 'A';
+    transform(string.begin(), string.end(), string.begin(), ::tolower);
 
 }
 
-bool BglOpenZipFile ( char *zipfile, char *apppath, char *id )
+bool BglOpenZipFile (const string &zipfile, const string &apppath, const string &id )
 {
 
-	FILE *file = fopen ( zipfile, "rb" );
+	FILE *file = fopen ( zipfile.c_str(), "rb" );
 	if ( !file ) return false;
 
 	bool result = BglOpenZipFile ( file, apppath, id );
@@ -72,7 +62,7 @@ bool BglOpenZipFile ( char *zipfile, char *apppath, char *id )
 
 }
 
-bool BglOpenZipFile ( FILE *file, char *apppath, char *id )
+bool BglOpenZipFile (FILE *file, const string &apppath, const string &id )
 {
 	
 	if ( !file ) return false;
@@ -123,9 +113,9 @@ bool BglOpenZipFile ( FILE *file, char *apppath, char *id )
 		else
 			fh->data = nullptr;
 
-		if ( id ) {
-			fh->id = new char [strlen(id) + 1];
-			strcpy ( fh->id, id );
+		if ( !id.empty() ) {
+			fh->id = new char [id.length() + 1];
+			strcpy ( fh->id, id.c_str() );
 		}
 		else 
 			fh->id = nullptr;
@@ -134,8 +124,7 @@ bool BglOpenZipFile ( FILE *file, char *apppath, char *id )
 			 fh->compressedsize == fh->uncompressedsize &&
 			 fh->filename ) {
 
-			char fullfilename [256];
-			sprintf ( fullfilename, "%s%s", apppath, fh->filename );
+			string fullfilename = apppath + fh->filename;
 
 			BglSlashify ( fullfilename );
 
@@ -157,34 +146,31 @@ bool BglOpenZipFile ( FILE *file, char *apppath, char *id )
 
 }
 
-bool BglFileLoaded ( char *filename )
+bool BglFileLoaded (const string &filename )
 {
 
-	char *filenamecopy = new char [strlen(filename)+1];
-	strcpy ( filenamecopy, filename );
+	string filenamecopy = filename;
 	BglSlashify ( filenamecopy );
 
 	LocalFileHeader *lfh = files.GetData ( filenamecopy );
-
-	delete [] filenamecopy;
 
 	return ( lfh != nullptr );
 
 }
 
-void BglCloseZipFile_Recursive ( BTree <LocalFileHeader *> *files, 
-								 LList <char *> *removableids, 
-								 char *id )
+void BglCloseZipFile_Recursive (BTree <LocalFileHeader *> *files,
+                                LList <char *> *removableids,
+                                const string &id )
 {
 
 	assert (removableids);
-	assert (id);
+	assert (!id.empty());
 
 	if ( !files ) return;										// Base case - end of the binary tree
 	
 	LocalFileHeader *lfh = files->data;
 
-	if ( lfh && lfh->id && strcmp ( lfh->id, id ) == 0 ) {
+	if ( lfh && lfh->id && lfh->id == id ) {
 
 		// This one is a match and should be flagged for removal
 		removableids->PutData ( (char *) files->id.c_str() );
@@ -198,7 +184,7 @@ void BglCloseZipFile_Recursive ( BTree <LocalFileHeader *> *files,
 
 }
 
-void BglCloseZipFile ( char *id )
+void BglCloseZipFile (const string &id )
 {
 
 	//
@@ -240,23 +226,20 @@ void BglCloseZipFile ( char *id )
 
 }
 
-bool BglExtractFile ( char *filename, char *target )
+bool BglExtractFile (const string &filename, const string &target )
 {
 
-	char *filenamecopy = new char [strlen(filename)+1];
-	strcpy ( filenamecopy, filename );
+	string filenamecopy = filename;
 	BglSlashify ( filenamecopy );
 
 	LocalFileHeader *lfh = files.GetData ( filenamecopy );
-
-	delete [] filenamecopy;
 
 	if ( lfh ) {
 
 		FILE *output;
 		
-		if ( target )	output = fopen ( target, "wb" );
-		else			output = fopen ( filename, "wb" );
+		if ( !target.empty() )	output = fopen ( target.c_str(), "wb" );
+		else			output = fopen ( filename.c_str(), "wb" );
 
 		if ( !output ) return false;
 
@@ -279,10 +262,10 @@ bool BglExtractFile ( char *filename, char *target )
 }
 
 
-void BglExtractAllFiles ( char *zipfile )
+void BglExtractAllFiles (const string &zipfile )
 {
 
-	FILE *file = fopen ( zipfile, "rb" );
+	FILE *file = fopen ( zipfile.c_str(), "rb" );
 	assert (file);
 
 	while ( !feof ( file ) ) {
@@ -346,11 +329,10 @@ void BglExtractAllFiles ( char *zipfile )
 }
 
 
-DArray <char *> *BglListFiles ( char *path, char *directory, char *filter )
+DArray <char *> *BglListFiles (const string &path, const string &directory, const string &filter )
 {
 
-    char dirCopy [256];
-    sprintf ( dirCopy, "%s%s", path, directory );
+    string dirCopy = path + directory;
     BglSlashify ( dirCopy );
 
     DArray <char *> *result = files.ConvertIndexToDArray();
@@ -359,14 +341,13 @@ DArray <char *> *BglListFiles ( char *path, char *directory, char *filter )
         if ( result->ValidIndex(i) ) {
         
             char *fullPath = result->GetData(i);
-            char thisDir[256];
-            strncpy( thisDir, fullPath, strlen(dirCopy) );
-            thisDir[strlen(dirCopy)] = '\x0';
+            string thisDir = fullPath;
+            thisDir[dirCopy.length()] = '\x0';
 
             bool removeMe = false;
 
-            if ( strcmp ( thisDir, dirCopy ) != 0 )         removeMe = true;                
-            if ( strstr ( fullPath, filter ) == nullptr )      removeMe = true;
+            if ( thisDir != dirCopy )         removeMe = true;
+            if ( strstr ( fullPath, filter.c_str() ) == nullptr )      removeMe = true;
 
             if ( removeMe )
                 result->RemoveData( i );

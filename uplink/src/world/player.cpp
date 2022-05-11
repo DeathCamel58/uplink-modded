@@ -69,22 +69,21 @@ void Player::GiveMessage ( Message *message )
 
 }
 
-bool Player::IsPlayerAccount ( char *bankip, char *accno )
+bool Player::IsPlayerAccount (const string &bankip, const string &accno )
 {
 
-	char searchstring [64];
-	UplinkSnprintf ( searchstring, sizeof ( searchstring ), "%s %s", bankip, accno )
+	string searchstring = bankip + accno;
 
 	for ( int i = 0; i < accounts.Size (); ++i )
 		if ( accounts.ValidIndex (i) )
-			if ( strcmp ( accounts.GetData (i), searchstring ) == 0 )
+			if ( accounts.GetData (i) == searchstring )
 				return true;
 
 	return false;
 
 }
 
-int Player::NumSharesOwned	( char *companyname )
+int Player::NumSharesOwned	(const string &companyname )
 {
 
 	char *stringdata = shares.GetData ( companyname );
@@ -103,7 +102,7 @@ int Player::NumSharesOwned	( char *companyname )
 
 }
 
-int Player::SharesPricePaid ( char *companyname )
+int Player::SharesPricePaid (const string &companyname )
 {
 
 	char *stringdata = shares.GetData ( companyname );
@@ -122,10 +121,10 @@ int Player::SharesPricePaid ( char *companyname )
 
 }
 
-void Player::TradeShares ( char *companyname, int howmany )
+void Player::TradeShares (const string &companyname, int howmany )
 {
 
-	// Look up all neccisary data on company
+	// Look up all necessary data on company
 	// and the shares we own in it
 
 	Company *company = game->GetWorld ()->GetCompany ( companyname );
@@ -270,7 +269,7 @@ int Player::TimeRemaining ()
 
 }
 
-int Player::TimeToTrace ( char *tracerIP, char *routerIP )
+int Player::TimeToTrace (const string &tracerIP, const string &routerIP )
 {
 
     VLocation *tracer = game->GetWorld ()->GetVLocation (tracerIP);
@@ -296,7 +295,7 @@ int Player::TimeToTrace ( char *tracerIP, char *routerIP )
     }
 
     if ( playeraccesslevel != -1 && tracer->GetComputer ()->TYPE == COMPUTER_TYPE_CENTRALMAINFRAME ) {
-        timetonexttrace = (int) ( timetonexttrace * COMPUTER_TYPE_CENTRALMAINFRAME );
+        timetonexttrace = timetonexttrace * COMPUTER_TYPE_CENTRALMAINFRAME;
     }
 
     if ( playeraccesslevel == 1 && tracer->GetComputer ()->TYPE == COMPUTER_TYPE_PUBLICBANKSERVER ) {

@@ -37,7 +37,7 @@ public:
 
 	void AddLog ( AccessLog *log, int index = -1 );			// Adds to both
 
-	bool LogModified ( int index );							// Is the log in internallogs different to that in logs?
+	bool LogModified ( int index ) const;							// Is the log in internallogs different to that in logs?
 
 	string TraceLog (const string &to_ip, const string &logbank_ip, Date *date, int uplinkrating );
 															// ie source->logbank_ip->to_ip; lookup source and return (recursive)

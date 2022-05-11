@@ -184,12 +184,11 @@ void SharesViewScreenInterface::UpdateStatus ()
 
         if ( game->GetInterface ()->GetRemoteInterface ()->security_level < 10 ) {
         
-		    char caption [128];
-		    UplinkSnprintf ( caption, sizeof ( caption ), "You own %d shares\nPaid:%dc Value:%dc", numowned, pricepaid, numowned * currentprice )
+		    string caption = "You own " + to_string(numowned) + " shares\nPaid:" + to_string(pricepaid) + "c Value:" +
+                    to_string(numowned * currentprice) + "c";
 		    EclGetButton ( "sharesviewscreen_owned" )->SetCaption ( caption );
 
-		    char profits [64];
-		    UplinkSnprintf ( profits, sizeof ( profits ), "Profit:%dc", profit )
+		    string profits = "Profit:" + to_string(profit) + "c";
 		    EclGetButton ( "sharesviewscreen_profit" )->SetCaption ( profits );
 
         }
@@ -198,11 +197,11 @@ void SharesViewScreenInterface::UpdateStatus ()
 
 }
 
-void SharesViewScreenInterface::SetCompanyName ( char *newcompanyname )
+void SharesViewScreenInterface::SetCompanyName (const string &newcompanyname )
 {
 
-	assert( strlen(newcompanyname) < SIZE_COMPANY_NAME );
-	UplinkStrncpy ( companyname, newcompanyname, sizeof ( companyname ) )
+	assert( newcompanyname.length() < SIZE_COMPANY_NAME );
+	UplinkStrncpy ( companyname, newcompanyname.c_str(), sizeof ( companyname ) )
 
 	//
 	// Look up the company
@@ -231,15 +230,12 @@ void SharesViewScreenInterface::SetCompanyName ( char *newcompanyname )
 		int month = monthnow - it;
 		if ( month < 0 ) month += 12;
 
-		char bdate [32];
-		char bname [32];
-		UplinkSnprintf ( bdate, sizeof ( bdate ), "sharesviewscreen_date %d", it )
-		UplinkSnprintf ( bname, sizeof ( bname ), "sharesviewscreen_numbers %d", it )
+		string bdate = "sharesviewscreen_date " + to_string(it);
+		string bname = "sharesviewscreen_numbers " + it;
 
 		char date [32];
 		UplinkSnprintf ( date, sizeof ( date ), "%s, %d", Date::GetMonthName ( month + 1 ), month > monthnow ? yearnow - 1 : yearnow )
-		char value [16];
-		UplinkSnprintf ( value, sizeof ( value ), "%d c", sharehistory [month] )
+		string value = to_string(sharehistory[month]) + " c";
 		
 		EclGetButton ( bdate )->SetCaption ( date );
 		EclGetButton ( bname )->SetCaption ( value );
@@ -292,10 +288,8 @@ void SharesViewScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < 12; ++i ) {
 
-			char date [32];
-			char name [32];
-			UplinkSnprintf ( date, sizeof ( date ), "sharesviewscreen_date %d", i )
-			UplinkSnprintf ( name, sizeof ( name ), "sharesviewscreen_numbers %d", i )
+			string date = "sharesviewscreen_date " + to_string(i);
+            string name = "sharesviewscreen_numbers " + to_string(i);
 			EclRegisterButton ( 250, 135 + i * 17, 100, 15, "date", "", date );
 			EclRegisterButton ( 350, 135 + i * 17, 50, 15, "bla", "", name );
 			EclRegisterButtonCallbacks ( date, textbutton_draw, nullptr, nullptr, nullptr );
@@ -346,10 +340,8 @@ void SharesViewScreenInterface::Remove ()
 
 		for ( int i = 0; i < 12; ++i ) {
 
-			char date [32];
-			char name [32];
-			UplinkSnprintf ( date, sizeof ( date ), "sharesviewscreen_date %d", i )
-			UplinkSnprintf ( name, sizeof ( name ), "sharesviewscreen_numbers %d", i )
+			string date = "sharesviewscreen_date " + to_string(i);
+            string name = "sharesviewscreen_numbers " + to_string(i);
 
 			EclRemoveButton ( date );
 			EclRemoveButton ( name );

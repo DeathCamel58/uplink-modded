@@ -67,59 +67,59 @@ TaskManager::~TaskManager ()
 = default;
 
 
-void TaskManager::RunSoftware ( char *name, float version )
+void TaskManager::RunSoftware (const string &name, float version )
 {
 
 	UplinkTask *task = nullptr;
 
 	// Create the new task
 
-	if		( strcmp ( name, "Password_Breaker" ) == 0 ) {		task = new PasswordBreaker (); }
-	else if ( strcmp ( name, "Dictionary_Hacker" ) == 0 ) {		task = new DictionaryHacker (); }
-	else if ( strcmp ( name, "Trace_Tracker" ) == 0 ) {			task = new TraceTracker (); }
-	else if ( strcmp ( name, "File_Copier" ) == 0 )	{			task = new FileCopier (); 
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "File_Deleter" ) == 0 ) {			task = new FileDeleter ();
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Defrag" ) == 0 )					task = new Defrag ();
-	else if ( strcmp ( name, "Log_Deleter" ) == 0 )	{			task = new LogDeleter ();
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Log_UnDeleter" ) == 0 ) {			task = new LogUnDeleter ();
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Log_Modifier" ) == 0 ) {			task = new LogModifier ();
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Decrypter" ) == 0 ) {				task = new Decrypter ();
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "IP_Lookup" ) == 0 ) {				task = new IPLookup (); }
-	else if ( strcmp ( name, "Gateway_Nuke" ) == 0 ) {			task = new GatewayNuke (); }
-	else if ( strcmp ( name, "Motion_Sensor" ) == 0 ) {			task = new MotionSensor (); }
-	else if ( strcmp ( name, "Proxy_Disable" ) == 0 ) {			task = new ProxyDisable (); }
-	else if ( strcmp ( name, "Firewall_Disable" ) == 0 ) {		task = new FirewallDisable (); }
-	else if ( strcmp ( name, "IP_Probe" ) == 0 ) {				task = new IPProbe (); }
-	else if ( strcmp ( name, "Proxy_Bypass" ) == 0 ) {			task = new SecurityBypass ( SECURITY_TYPE_PROXY );
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Firewall_Bypass" ) == 0 ) {		task = new SecurityBypass ( SECURITY_TYPE_FIREWALL ); 
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Encryption_Bypass" ) == 0 ) {		task = new SecurityBypass ( SECURITY_TYPE_ENCRYPTION ); 
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Monitor_Bypass" ) == 0 ) {		task = new SecurityBypass ( SECURITY_TYPE_MONITOR );
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Revelation" ) == 0 ) {			task = new Revelation (); }
-	else if ( strcmp ( name, "Tutorial" ) == 0 ) {				task = new Tutorial (); }
-	else if ( strcmp ( name, "Decypher" ) == 0 ) {				task = new Decypher (); 
-																task->SetFollowMouse ( true ); }
-	else if ( strcmp ( name, "Voice_Analyser" ) == 0 ) {		task = new VoiceAnalyser (); }
-    else if ( strcmp ( name, "Revelation_Tracker" ) == 0 ) {    task = new RevelationTracker (); 
-                                                                task->SetFollowMouse ( true ); }
-    else if ( strcmp ( name, "Uplink_Agent_List" ) == 0 )       task = new UplinkAgentList ();
-    else if ( strcmp ( name, "Faith" ) == 0 )                   task = new Faith ();
-	else if ( strcmp ( name, "LAN_Scan" ) == 0 )				task = new LanScan ();
-	else if ( strcmp ( name, "LAN_Probe" ) == 0 ) {				task = new LanProbe ();
-																task->SetFollowMouse ( true ); }
-    else if ( strcmp ( name, "LAN_Spoof" ) == 0 ) {             task = new LanSpoof ();
-                                                                task->SetFollowMouse ( true ); }
-    else if ( strcmp ( name, "LAN_Force" ) == 0 ) {             task = new LanForce ();
-                                                                task->SetFollowMouse ( true ); }
+	if		( name == "Password_Breaker" ) {		task = new PasswordBreaker (); }
+	else if ( name == "Dictionary_Hacker" ) {		task = new DictionaryHacker (); }
+	else if ( name == "Trace_Tracker" ) {			task = new TraceTracker (); }
+	else if ( name == "File_Copier" )	{			task = new FileCopier ();
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "File_Deleter" ) {			task = new FileDeleter ();
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Defrag" )					task = new Defrag ();
+	else if ( name == "Log_Deleter" )	{			task = new LogDeleter ();
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Log_UnDeleter" ) {			task = new LogUnDeleter ();
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Log_Modifier" ) {			task = new LogModifier ();
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Decrypter" ) {				task = new Decrypter ();
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "IP_Lookup" ) {				task = new IPLookup (); }
+	else if ( name == "Gateway_Nuke" ) {			task = new GatewayNuke (); }
+	else if ( name == "Motion_Sensor" ) {			task = new MotionSensor (); }
+	else if ( name == "Proxy_Disable" ) {			task = new ProxyDisable (); }
+	else if ( name == "Firewall_Disable" ) {		task = new FirewallDisable (); }
+	else if ( name == "IP_Probe" ) {				task = new IPProbe (); }
+	else if ( name == "Proxy_Bypass" ) {			task = new SecurityBypass ( SECURITY_TYPE_PROXY );
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Firewall_Bypass" ) {		    task = new SecurityBypass ( SECURITY_TYPE_FIREWALL );
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Encryption_Bypass" ) {		task = new SecurityBypass ( SECURITY_TYPE_ENCRYPTION );
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Monitor_Bypass" ) {		    task = new SecurityBypass ( SECURITY_TYPE_MONITOR );
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Revelation" ) {			    task = new Revelation (); }
+	else if ( name == "Tutorial" ) {				task = new Tutorial (); }
+	else if ( name == "Decypher" ) {				task = new Decypher ();
+                                                    task->SetFollowMouse ( true ); }
+	else if ( name == "Voice_Analyser" ) {		    task = new VoiceAnalyser (); }
+    else if ( name == "Revelation_Tracker" ) {      task = new RevelationTracker ();
+                                                    task->SetFollowMouse ( true ); }
+    else if ( name == "Uplink_Agent_List" )         task = new UplinkAgentList ();
+    else if ( name == "Faith" )                     task = new Faith ();
+	else if ( name == "LAN_Scan" )				    task = new LanScan ();
+	else if ( name == "LAN_Probe" ) {				task = new LanProbe ();
+                                                    task->SetFollowMouse ( true ); }
+    else if ( name == "LAN_Spoof" ) {               task = new LanSpoof ();
+                                                    task->SetFollowMouse ( true ); }
+    else if ( name == "LAN_Force" ) {               task = new LanForce ();
+                                                    task->SetFollowMouse ( true ); }
 
 	
 	else {
@@ -168,14 +168,14 @@ void TaskManager::SetTargetProgram ( int newtargetprogram )
 
 }
 
-bool TaskManager::IsTargetProgramLast ( int newtargetprogram )
+bool TaskManager::IsTargetProgramLast ( int newtargetprogram ) const
 {
 
 	return ( targetprogramreason != 0 && targetprogram == -1 && newtargetprogram == lasttargetprogram );
 
 }
 
-UplinkTask *TaskManager::GetTargetProgram ()
+UplinkTask *TaskManager::GetTargetProgram () const
 {
 
 	if ( targetprogram != -1 ) {
@@ -187,7 +187,7 @@ UplinkTask *TaskManager::GetTargetProgram ()
 
 }
 
-char *TaskManager::GetTargetProgramName ()
+string TaskManager::GetTargetProgramName () const
 {
     
     if ( targetprogram != -1 ) {
@@ -199,7 +199,7 @@ char *TaskManager::GetTargetProgramName ()
 
     }
     else 
-        return nullptr;
+        return "";
 
 }
 

@@ -72,32 +72,29 @@ string LowerCaseString (const string &thestring )
 
 }
 
-char *StripCarriageReturns ( const char *thestring )
+/**
+ * 
+ * @param thestring
+ * @return
+ */
+string StripCarriageReturns (const string &thestring )
 {
 
-    UplinkAssert (thestring)
+    assert(!thestring.empty());
 
-    // Is there a cr?
+    // get location of carriage return
+    size_t pos = thestring.find('\n');
 
-    const char *firstcr = strchr ( thestring, '\n' );
+    if ( pos == string::npos ) {
 
-    if ( !firstcr ) {
-
-        // No cr found - copy string and return it
-     
-        char *result = new char [strlen(thestring)+1];
-        UplinkSafeStrcpy ( result, thestring )
-        return result;
+        // No cr found - return string
+        return thestring;
 
     }
     else {
 
         // Found a cr - so shorten string to that point
-
-        size_t newlength = firstcr - thestring;
-        char *result = new char [newlength+1];
-        strncpy ( result, thestring, newlength );
-        result [newlength] = '\x0';
+        string result = thestring.substr(0, pos);
         return result;
 
     }
@@ -158,7 +155,7 @@ bool DoesFileExist ( const char *filename )
 void EmptyDirectory (const string &directory )
 {
 
-	string userdir = directory;
+	const string& userdir = directory;
 
 	DIR *dir = opendir( userdir.c_str() );
 	if (dir != nullptr) {

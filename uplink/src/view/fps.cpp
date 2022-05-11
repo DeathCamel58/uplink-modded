@@ -55,7 +55,7 @@ void FrameRate :: Tick ()
 
 }
 
-float FrameRate :: FPS ()
+float FrameRate :: FPS () const
 {
 
     return fps;

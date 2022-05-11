@@ -60,8 +60,7 @@ void SWSalesScreenInterface::ClickSWButton ( Button *button )
 
 	// Dirty the old highlighted button
 
-	char oldname [128];
-	UplinkSnprintf ( oldname, sizeof ( oldname ), "SWsale %d", currentselect - baseoffset )
+	string oldname = "SWsale " + to_string(currentselect - baseoffset);
 	EclDirtyButton ( oldname );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -128,18 +127,15 @@ void SWSalesScreenInterface::DrawSWButton ( Button *button, bool highlighted, bo
 		if ( hasmoney ) 	SetColour ( "DefaultText" );
 		else				SetColour ( "DimmedText" );
 
-		char name [SIZE_SALE_TITLE];
-		char version [8];
-		char cost [32];
-		char size [32];
-		UplinkStrncpy ( name, sale->title, sizeof ( name ) )
-		UplinkSnprintf ( version, sizeof ( version ), "v%d.0", sv->data )
-		UplinkSnprintf ( cost, sizeof ( cost ), "%dc", sv->cost )
+		string name = sale->title;
+		string version = "v" + to_string(sv->data) + ".0";
+		string cost = to_string(sv->cost) + "c";
+		string size;
 		if ( sale->swhwTYPE != SOFTWARETYPE_HUDUPGRADE ) {
-			UplinkSnprintf ( size, sizeof ( size ), "%dGq", sv->size )
+			size = to_string(sv->size) + "Gq";
 		}
 		else {
-			UplinkStrncpy ( size, "0Gq", sizeof ( size ) )
+			size = "0Gq";
 		}
 		GciDrawText ( button->x + 5, button->y + 10, name );
 		GciDrawText ( button->x + 240, button->y + 10, version );
@@ -329,8 +325,7 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 
 			for ( int i = 0; i < 12; ++ i ) {
 
-				char name [128];
-				UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i )
+				string name = "SWsale " + to_string(i);
 
 				EclDirtyButton ( name );
 
@@ -379,8 +374,7 @@ void SWSalesScreenInterface::NextVersionClick ( Button *button )
 			
 			EclRegisterCaptionChange ( "swsales_details", sv->GetDetails (), 2000 );
 			
-			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "SWsale %d", currentselect - baseoffset )
+			string buttonname = "SWsale " + to_string(currentselect - baseoffset);
 			EclDirtyButton ( buttonname );
 
 		}
@@ -406,8 +400,7 @@ void SWSalesScreenInterface::PrevVersionClick ( Button *button )
 			
 			EclRegisterCaptionChange ( "swsales_details", sv->GetDetails (), 2000 );
 			
-			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "SWsale %d", currentselect - baseoffset )
+			string buttonname = "SWsale " + to_string(currentselect - baseoffset);
 			EclDirtyButton ( buttonname );
 
 		}
@@ -416,15 +409,14 @@ void SWSalesScreenInterface::PrevVersionClick ( Button *button )
 
 }
 
-void SWSalesScreenInterface::ScrollChange ( char *scrollname, int newValue )
+void SWSalesScreenInterface::ScrollChange (const string &scrollname, int newValue )
 {
 
     baseoffset = newValue;
 
 	for ( int i = 0; i < NumItemsOnScreen(); ++i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i )
+		string name = "SWsale " + to_string(i);
 		EclDirtyButton ( name );
 
 	}
@@ -454,8 +446,7 @@ void SWSalesScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < NumItemsOnScreen(); ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i )
+			string name = "SWsale " + to_string(i);
 			EclRegisterButton ( 20, i * 20 + 50, SY(390), 17, "", "View details on this item", name );
 			EclRegisterButtonCallbacks ( name, DrawSWButton, ClickSWButton, MousedownSWButton, HighlightSWButton ); 
 						
@@ -497,8 +488,7 @@ void SWSalesScreenInterface::Remove ()
 
 		for ( int i = 0; i < NumItemsOnScreen(); ++ i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "SWsale %d", i )
+			string name = "SWsale " + to_string(i);
 
 			EclRemoveButton ( name );
 

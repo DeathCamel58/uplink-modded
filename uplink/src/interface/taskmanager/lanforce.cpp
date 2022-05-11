@@ -189,15 +189,10 @@ void LanForce::MoveTo ( int x, int y, int time_ms )
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanforce_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanforce_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanforce_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanforce_close %d", pid )
+	string stitle = "lanforce_title " + to_string( pid );
+	string sborder = "lanforce_border " + to_string( pid );
+	string sprogress = "lanforce_progress " + to_string( pid );
+	string sclose = "lanforce_close " + to_string( pid );
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -221,8 +216,7 @@ void LanForce::Tick ( int n )
 	if ( IsInterfaceVisible () ) {
 
 		int pid = SvbLookupPID ( this );
-		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanforce_progress %d", pid )
+		string sprogress = "lanforce_progress " + to_string( pid );
 
 		if ( status == LANFORCE_UNUSED ) {
 
@@ -287,17 +281,11 @@ void LanForce::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-		char tooltip   [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanforce_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanforce_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanforce_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanforce_close %d", pid )
-		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "LAN Force v%1.1f", version )
+		string stitle = "lanforce_title " + to_string( pid );
+		string sborder = "lanforce_border " + to_string( pid );
+		string sprogress = "lanforce_progress " + to_string( pid );
+		string sclose = "lanforce_close " + to_string( pid );
+		string tooltip = "LAN Force v" + to_string( version );
 
 		EclRegisterButton ( 265, 450, 20, 15, "", tooltip, stitle );
 		button_assignbitmap ( stitle, "software/lan.tif" );
@@ -323,15 +311,10 @@ void LanForce::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanforce_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanforce_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanforce_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanforce_close %d", pid )
+		string stitle = "lanforce_title " + to_string( pid );
+        string sborder = "lanforce_border " + to_string( pid );
+        string sprogress = "lanforce_progress " + to_string( pid );
+        string sclose = "lanforce_close " + to_string( pid );
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -349,15 +332,10 @@ void LanForce::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanforce_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanforce_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanforce_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanforce_close %d", pid )
+	string stitle = "lanforce_title " + to_string( pid );
+	string sborder = "lanforce_border " + to_string( pid );
+	string sprogress = "lanforce_progress " + to_string( pid );
+	string sclose = "lanforce_close " + to_string( pid );
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -371,8 +349,7 @@ bool LanForce::IsInterfaceVisible ()
 	
 	int pid = SvbLookupPID ( this );
 
-	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanforce_border %d", pid )
+	string stitle = "lanforce_border " + to_string( pid );
 	
 	return ( EclGetButton (stitle) != nullptr );
 	

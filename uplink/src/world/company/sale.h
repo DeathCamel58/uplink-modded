@@ -47,7 +47,7 @@ public:
 	void SetSwhwTYPE ( int newSwhwTYPE );
 
 	void AddVersion (const string &details, int cost, int size, int data );
-	SaleVersion *GetVersion ( int index );								// Can return NULL
+	SaleVersion *GetVersion ( int index ) const;								// Can return NULL
 
 	// Common functions
 

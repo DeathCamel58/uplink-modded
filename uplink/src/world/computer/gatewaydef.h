@@ -96,11 +96,11 @@ public:
 
 	// Basic data set functions
 
-	void SetName ( char *newname );
-	void SetDescription ( char *newdescription );
+	void SetName (const string &newname );
+	void SetDescription (const string &newdescription );
     
-    void SetFilename ( char *newfilename );
-    void SetThumbnail ( char *newthumbnail );
+    void SetFilename (const string &newfilename );
+    void SetThumbnail (const string &newthumbnail );
 
 	void SetCost ( int newcost );
 	void SetMaxMemory ( int newmaxmemory );

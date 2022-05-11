@@ -88,8 +88,7 @@ void ConsoleScreenInterface::PostClick ( Button *button )
 
 	thisint->PutText ( 1, actualcommand );
 
-	char newcaption [16];
-	UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", thisint->currentdir )
+	string newcaption = thisint->currentdir + ":>";
 	EclRegisterCaptionChange ( "console_typehere", newcaption, 1 );
 
 	if ( actualcommand )	thisint->RunCommand ( actualcommand );
@@ -116,20 +115,19 @@ void ConsoleScreenInterface::WaitingCallback ()
 
 }
 
-void ConsoleScreenInterface::AddUser ( char *name )
+void ConsoleScreenInterface::AddUser (const string& name )
 {
 
-	users.PutDataAtEnd ( name );
+	users.PutDataAtEnd ( (char *) name.c_str() );
 
-	if ( strcmp ( name, "System" ) == 0 ) {
+	if ( name == "System" ) {
 
 		PutText ( 0, "Console session started" );
 
 	}
 	else {
 
-		char message [128];
-		UplinkSnprintf ( message, sizeof ( message ), "User '%s' logged on", name )
+		string message = "User '" + name + "' logged on";
 
 		PutText ( 0, message );
 
@@ -151,12 +149,12 @@ void ConsoleScreenInterface::SetCurrentDir (const string &newcurrentdir )
 		 lcdir == "sys" ||
 		 lcdir == "/"  ) {
 
-		UplinkStrncpy ( currentdir, lcdir.c_str(), sizeof ( currentdir ) )
+		currentdir = lcdir;
 
 	} else if ( lcdir == "." ||
 		lcdir == ".." ) {
 
-		UplinkStrncpy ( currentdir, "/", sizeof ( currentdir ) )
+		currentdir = "/";
 
 	} else {
 
@@ -164,13 +162,12 @@ void ConsoleScreenInterface::SetCurrentDir (const string &newcurrentdir )
 
 	}
 
-	char newcaption [16];
-	UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", currentdir )
+	string newcaption = currentdir + ":>";
 	EclRegisterCaptionChange ( "console_typehere", newcaption );
 
 }
 
-void ConsoleScreenInterface::PutText ( int userid, char *text )
+void ConsoleScreenInterface::PutText (int userid, string text )
 {
 
 	if ( userid == 0 ) {
@@ -180,15 +177,14 @@ void ConsoleScreenInterface::PutText ( int userid, char *text )
 	}
 	else if ( userid == 1 ) {
 
-		char msg [256];
-		UplinkSnprintf ( msg, sizeof ( msg ), "%s:>%s", currentdir, text )
+		string msg = currentdir + ":>" + text;
 		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_TEXT, msg, 0 ) );
 
 	}
 
 }
 
-void ConsoleScreenInterface::PutTextAtStart ( int userid, char *text )
+void ConsoleScreenInterface::PutTextAtStart (int userid, string text )
 {
 
 	if ( userid == 0 ) {
@@ -198,18 +194,17 @@ void ConsoleScreenInterface::PutTextAtStart ( int userid, char *text )
 	}
 	else if ( userid == 1 ) {
 
-		char msg [256];
-		UplinkSnprintf ( msg, sizeof ( msg ), "%s:>%s", currentdir, text )
+		string msg = currentdir + ":>" + text;
 		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, msg, 0 ) );
 
 	}
 
 }
 
-void ConsoleScreenInterface::RunCommand ( char *command )
+void ConsoleScreenInterface::RunCommand (string command )
 {
 
-	UplinkAssert (command)
+	assert (!command.empty());
 
 	string lccommand = LowerCaseString ( command );
 
@@ -277,10 +272,8 @@ void ConsoleScreenInterface::RunCommand_TEXT (const string &text )
 
 	for ( int i = 0; i < NUMLINES-1; ++i ) {
 
-		char name1 [32];
-		char name2 [32];
-		UplinkSnprintf ( name1, sizeof ( name1 ), "console_text %d", i )
-		UplinkSnprintf ( name2, sizeof ( name2 ), "console_text %d", i + 1 )
+		string name1 = "console_text " + to_string(i);
+		string name2 = "console_text " + to_string( i + 1 );
 
 		Button *b1 = EclGetButton ( name1 );
 		UplinkAssert ( b1 )
@@ -300,8 +293,7 @@ void ConsoleScreenInterface::RunCommand_TEXT (const string &text )
 	//int time = strlen(text) * 15;                     TOO SLOW
     int time = 200;
 
-	char name1 [32];
-	UplinkSnprintf ( name1, sizeof ( name1 ), "console_text %d", NUMLINES-1 )
+	string name1 = "console_text " + to_string( NUMLINES-1 );
 
 	EclRegisterCaptionChange ( name1, text, time, WaitingCallback );
 	waiting = true;
@@ -311,7 +303,7 @@ void ConsoleScreenInterface::RunCommand_TEXT (const string &text )
 void ConsoleScreenInterface::RunCommand_DIR ()
 {
 
-	if ( strcmp ( currentdir, "/" ) == 0 ) {
+	if ( currentdir == "/" ) {
 
 		PutTextAtStart ( 0, "pub               directory" );
 		PutTextAtStart ( 0, "usr               directory" );
@@ -320,7 +312,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 		PutTextAtStart ( 0, "sys               directory" );
 
 	}
-	else if ( strcmp ( currentdir, "sys" ) == 0 ) {
+	else if ( currentdir == "sys" ) {
 
 		if ( deleted_sys ) {
 
@@ -337,7 +329,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 		}
 
 	}
-	else if ( strcmp ( currentdir, "usr" ) == 0 ) {
+	else if ( currentdir == "usr" ) {
 
 		Computer *comp = GetComputerScreen ()->GetComputer ();
 		UplinkAssert (comp)
@@ -368,7 +360,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 		PutTextAtStart ( 0, "Directory listing for USR:" );
 
 	}
-	else if ( strcmp ( currentdir, "log" ) == 0 ) {
+	else if ( currentdir == "log" ) {
 
 		Computer *comp = GetComputerScreen ()->GetComputer ();
 		UplinkAssert (comp)
@@ -396,7 +388,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 		PutTextAtStart ( 0, "Directory listing for LOG:" );
 
 	}
-	else if ( strcmp ( currentdir, "pub" ) == 0 ) {
+	else if ( currentdir == "pub" ) {
 
 /*
 		Computer *comp = GetComputerScreen ()->GetComputer ();
@@ -418,7 +410,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 		PutTextAtStart ( 0, "Directory listing for PUB:" );
 
 	}
-	else if ( strcmp ( currentdir, "rec" ) == 0 ) {
+	else if ( currentdir == "rec" ) {
 
 		PutTextAtStart ( 0, "Not accessable from console." );
 		PutTextAtStart ( 0, "Directory listing for REC:" );
@@ -500,7 +492,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL (const string &dir )
 			return;
 		}
 
-		if ( strcmp ( currentdir, "sys" ) == 0 ) {
+		if ( currentdir == "sys" ) {
 
 			// Fix the problem of getting files _not_ destroyed message when there is no file on the server ( the databank is not 'formatted' )
 			if ( comp->databank.NumDataFiles() == 0 )
@@ -512,7 +504,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL (const string &dir )
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Deleting boot.sys...", 0 ) );
 
 		}
-		else if ( strcmp ( currentdir, "log" ) == 0 ) {
+		else if ( currentdir == "log" ) {
 
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_DELETEALL, "log", 0 ) );
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "All files deleted.", 100 ) );
@@ -533,7 +525,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL (const string &dir )
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Deleting all files in LOG...", 0 ) );
 
 		}
-		else if ( strcmp ( currentdir, "usr" ) == 0 ) {
+		else if ( currentdir == "usr" ) {
 
 			if ( comp->security.IsRunning_Firewall () ) {
 				queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Denied access by Firewall", 0 ) );
@@ -556,13 +548,13 @@ void ConsoleScreenInterface::RunCommand_DELETEALL (const string &dir )
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Deleting all files in USR...", 0 ) );
 
 		}
-		else if ( strcmp ( currentdir, "pub" ) == 0 ) {
+		else if ( currentdir == "pub" ) {
 
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Not accessable from console.", 0 ) );
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Deleting all files in PUB...", 0 ) );
 
 		}
-		else if ( strcmp ( currentdir, "rec" ) == 0 ) {
+		else if ( currentdir == "rec" ) {
 
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Not accessable from console.", 0 ) );
 			queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Deleting all files in REC...", 0 ) );
@@ -655,7 +647,7 @@ void ConsoleScreenInterface::RunCommand_RUN	(const string &program, bool actuall
 
 		// Can only run user programs
 
-		if ( strcmp ( currentdir, "usr" ) == 0 ) {
+		if ( currentdir == "usr" ) {
 
 			for ( int i = 0; i < comp->databank.GetDataSize (); ++i ) {
 
@@ -722,7 +714,7 @@ void ConsoleScreenInterface::RunCommand_SHUTDOWN ()
 		if ( comp->GetOBJECTID () != OID_LANCOMPUTER )
 			GetComputerScreen ()->GetComputer ()->SetIsRunning ( false );
 
-		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_DISCONNECT, nullptr, 3000 ) );
+		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_DISCONNECT, "", 3000 ) );
 		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "System failure - disconnecting remote users...", 2000 ) );
 		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "[Failed]", 5000 ) );
 		queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Loading Kernel...", 4000 ) );
@@ -806,8 +798,7 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 
 		SetCurrentDir ( "/" );
 
-		char newcaption [16];
-		UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s:>", currentdir )
+		string newcaption = currentdir + ":>";
 
 		int ybottom = 50 + NUMLINES * 15 + 6;
 

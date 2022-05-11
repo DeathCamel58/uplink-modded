@@ -90,7 +90,7 @@ string UplinkEvent::GetID ()
 {
 
 	UplinkAbort ( "This MUST be overridden" )
-	return nullptr;
+	return "";
 
 }
 

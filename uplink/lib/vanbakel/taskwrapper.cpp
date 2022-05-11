@@ -3,11 +3,14 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <cstdio>
-#include <cstring>
+#include <string>
+#include <iostream>
 
 #include "taskwrapper.h"
 
 #include "mmgr.h"
+
+using namespace std;
 
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
@@ -17,18 +20,14 @@ TaskWrapper::TaskWrapper()
 {
 
 	task = nullptr;
-	name = nullptr;
+	name = "";
 	priority = 0.0;
 	progress = 0.0;
 
 }
 
 TaskWrapper::~TaskWrapper()
-{
-
-	delete [] name;
-
-}
+= default;
 
 void TaskWrapper::SetPID ( int newpid )
 {
@@ -37,12 +36,10 @@ void TaskWrapper::SetPID ( int newpid )
 
 }
 
-void TaskWrapper::SetName ( char *newname )
+void TaskWrapper::SetName (const string &newname )
 {
 
-	delete name;
-	name = new char [strlen(newname)+1];
-	strcpy ( name, newname );
+	name = newname;
 
 }
 
@@ -60,10 +57,13 @@ void TaskWrapper::SetPriority ( double newpriority )
 
 }
 
-void TaskWrapper::DebugPrint ()
+void TaskWrapper::DebugPrint () const
 {
 
-	printf ( "TASK :   %s : PID:'%d', priority:%f, progress:%f\n", name, pid, (float) priority, (float) progress );
+    cout << "TASK : " << name << endl;
+    cout << "\tPID: " << pid << endl;
+    cout << "\tPriority: " << priority << endl;
+    cout << "\tProgress: " << progress << endl;
 
 }
 

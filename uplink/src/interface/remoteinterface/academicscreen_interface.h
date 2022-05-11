@@ -44,7 +44,7 @@ public:
 
     bool EscapeKeyPressed () override;
 
-	void SetSearchName ( char *newsearchname );
+	void SetSearchName (const string &newsearchname );
 
 
 	void Create ( ComputerScreen *cs ) override;

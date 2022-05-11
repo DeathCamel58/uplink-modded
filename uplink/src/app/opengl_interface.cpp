@@ -897,7 +897,7 @@ void button_click ( Button *button )
 
 }
 
-void button_assignbitmap ( char *name, char *standard_f )
+void button_assignbitmap (const string &name, const string &standard_f )
 {
 
 	Button *button = EclGetButton ( name );
@@ -915,7 +915,7 @@ void button_assignbitmap ( char *name, char *standard_f )
 
 }
 
-void button_assignbitmap  ( char *name,	Image *standard_i_ref )
+void button_assignbitmap  (const string &name, Image *standard_i_ref )
 {
 
 	Button *button = EclGetButton ( name );
@@ -932,7 +932,7 @@ void button_assignbitmap  ( char *name,	Image *standard_i_ref )
 
 }
 
-void button_assignbitmaps ( char *name, char *standard_f, char *highlighted_f, char *clicked_f )
+void button_assignbitmaps (const string &name, const string &standard_f, const string &highlighted_f, const string &clicked_f )
 {
 
 	Button *button = EclGetButton ( name );
@@ -960,7 +960,7 @@ void button_assignbitmaps ( char *name, char *standard_f, char *highlighted_f, c
 
 }
 
-void button_assignbitmaps ( char *name, Image *standard_i_ref, Image *highlighted_i_ref, Image *clicked_i_ref )
+void button_assignbitmaps (const string &name, Image *standard_i_ref, Image *highlighted_i_ref, Image *clicked_i_ref )
 {
 
 	Button *button = EclGetButton ( name );
@@ -985,7 +985,7 @@ void button_assignbitmaps ( char *name, Image *standard_i_ref, Image *highlighte
 
 }
 
-void button_assignbitmaps_blend ( char *name, char *standard_f, char *highlighted_f, char *clicked_f )
+void button_assignbitmaps_blend (const string &name, const string &standard_f, const string &highlighted_f, const string &clicked_f )
 {
 
 	Button *button = EclGetButton ( name );
@@ -1027,7 +1027,7 @@ void button_assignbitmaps_blend ( char *name, char *standard_f, char *highlighte
 
 }
 
-void button_assignbitmap_blend ( char *name, char *standard_f )
+void button_assignbitmap_blend (const string &name, const string &standard_f )
 {
 
 	Button *button = EclGetButton ( name );
@@ -1057,7 +1057,7 @@ void button_assignbitmap_blend ( char *name, char *standard_f )
 
 }
 
-Image *get_assignbitmap ( char *filename )
+Image *get_assignbitmap (const string &filename )
 {
 
     string fullfilename = app->GetOptions()->ThemeFilename( filename );
@@ -1077,7 +1077,7 @@ local void tooltip_callback ()
 
 }
 
-void tooltip_update ( char *newtooltip )
+void tooltip_update (const string &newtooltip )
 {
 
 	Button *tooltip = EclGetButton ( "tooltip" );
@@ -1106,7 +1106,7 @@ void tooltip_update ( char *newtooltip )
 			tooltipanimindex = -1;
 		}
 
-		if ( strcmp ( newtooltip, " " ) == 0 ) {
+		if ( newtooltip == " " ) {
 			// No button under mouse
 			tooltip->SetCaption ( " " );
 			currentbuttonname[0] = '\0';
@@ -1130,15 +1130,14 @@ Button *getcurrentbutton ()
 
 }
 
-void create_stextbox ( int x, int y, int width, int height, char *caption, char *name )
+void create_stextbox (int x, int y, int width, int height, char *caption, const string &name )
 {
 
-	char name_box  [128];
+	string name_box = name + " box";
 	//char name_up   [128];
 	//char name_down [128];
 	//char name_bar  [128];
 
-	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box",    name )
 	EclRegisterButton ( x, y, width - 16, height, caption, "", name_box );
 	EclRegisterButtonCallbacks ( name_box, draw_stextbox, nullptr, nullptr, nullptr );
 
@@ -1163,11 +1162,10 @@ void create_stextbox ( int x, int y, int width, int height, char *caption, char 
 
 }
 
-void remove_stextbox ( char *name )
+void remove_stextbox (const string &name )
 {
 
-	char name_box  [128];
-	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box",    name )
+	string name_box = name + " box";
 	EclRemoveButton ( name_box );
 
 	ScrollBox::RemoveScrollBox( name );

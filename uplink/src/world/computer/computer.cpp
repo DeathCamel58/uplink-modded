@@ -191,11 +191,11 @@ int  Computer::AddComputerScreen ( ComputerScreen *cs, int index )
 
 }
 
-ComputerScreen *Computer::GetComputerScreen ( int index )
+ComputerScreen *Computer::GetComputerScreen ( int index ) const
 {
 
 	if ( screens.ValidIndex ( index ) )
-		return (ComputerScreen *) screens.GetData (index);
+		return screens.GetData(index);
 
 	else
 		return nullptr;
@@ -518,7 +518,7 @@ void Computer::UpdateRecentHacks ()
 	
 }
 
-int Computer::NumRecentHacks ()
+int Computer::NumRecentHacks () const
 {
 
 	return numrecenthacks;
@@ -707,19 +707,19 @@ void Computer::Update ()
 
 }
 
-void Computer::GenerateAccessCode( char *code, char *result, size_t resultsize )
+void Computer::GenerateAccessCode(const string &code, string &result)
 {
-    UplinkSnprintf( result, resultsize, "%s:'%s'", "CODE", code )
+    result = "CODE:'" + code + "'";
 }
 
-void Computer::GenerateAccessCode( char *name, char *code, char *result, size_t resultsize )
+void Computer::GenerateAccessCode(const string &name, const string &code, string &result)
 {
-    UplinkSnprintf( result, resultsize, "%s:'%s', %s:'%s'", "NAME", name, "CODE", code )
+    result = "NAME:'" + name + "', CODE:'" + code + "'";
 }
 
-void Computer::GenerateAccessCode( int accNo, char *code, char *result, size_t resultsize )
+void Computer::GenerateAccessCode(int accNo, const string &code, string &result)
 {
-    UplinkSnprintf( result, resultsize, "%s:'%d', %s:'%s'", "NAME", accNo, "CODE", code )
+    result = "NAME:'" + to_string(accNo) + "', CODE:'" + code + "'";
 }
 
 string Computer::GetID ()

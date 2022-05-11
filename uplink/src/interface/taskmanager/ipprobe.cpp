@@ -126,7 +126,7 @@ void IPProbe::Tick ( int n )
 
 				Button *button = EclGetButton ( name_display );
 				UplinkAssert ( button )
-				char *ip = StripCarriageReturns ( button->caption.c_str() );
+				string ip = StripCarriageReturns ( button->caption );
 
 				VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
 
@@ -180,7 +180,6 @@ void IPProbe::Tick ( int n )
 
 				}
 
-                delete [] ip;
 				timeout = (int) ( time(nullptr) + 5 );
 				status = PROBE_FINISHED;
 

@@ -49,7 +49,7 @@ FileCopier::FileCopier () : UplinkTask ()
 FileCopier::~FileCopier ()
 = default;
 
-int FileCopier::GetState ()
+int FileCopier::GetState () const
 {
 
     return downloading;

@@ -83,12 +83,12 @@ void CompanyInfoScreenInterface::BackClick ( Button *button )
 
 }
 
-static char *getNameEmail ( const char *name )
+static char *getNameEmail (const string &name )
 {
 
-	size_t nameLen = strlen ( name );
+	size_t nameLen = name.length();
 	char *nameEmail = new char [ nameLen + 1 ];
-	UplinkSafeStrcpy ( nameEmail, name )
+	UplinkSafeStrcpy ( nameEmail, name.c_str() )
 
 	for ( size_t i = 0; i < nameLen; i++ )
 		if ( nameEmail [ i ] == ' ' || nameEmail [ i ] == '.' || nameEmail [ i ] == '\'' )

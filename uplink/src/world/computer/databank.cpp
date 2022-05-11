@@ -189,24 +189,24 @@ Data *DataBank::GetData ( int memoryindex )
 
 }
 
-Data *DataBank::GetData ( char *title )
+Data *DataBank::GetData (const string &title )
 {
 
 	for ( int i = 0; i < data.Size (); ++i )
 		if ( data.ValidIndex (i) )
-			if ( strcmp ( data.GetData (i)->title, title ) == 0 )
+			if ( data.GetData (i)->title == title )
 				return data.GetData (i);
 
 	return nullptr;
 
 }
 
-bool DataBank::ContainsData ( char *title, float version )
+bool DataBank::ContainsData (const string &title, float version )
 {
 
 	for ( int i = 0; i < data.Size (); ++i )
 		if ( data.ValidIndex (i) )
-			if ( strcmp ( data.GetData (i)->title, title ) == 0 ) {
+			if ( data.GetData (i)->title == title ) {
 				float versionData = data.GetData (i)->version;
 				if ( versionData < 0.0f || versionData >= version )
 					return true;

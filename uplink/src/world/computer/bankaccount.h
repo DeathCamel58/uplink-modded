@@ -40,25 +40,25 @@ public:
 	BankAccount ();
 	~BankAccount () override;
 
-	void SetOwner		 ( char *newname );
-	void SetSecurity	 ( char *newpassword, int newsecurity );
+	void SetOwner		 (const string &newname );
+	void SetSecurity	 (const string &newpassword, int newsecurity );
 	void SetAccNumber	 ( int newaccnumber );	
 	void SetBalance		 ( int newbalance, int newloan );
 
-	void ChangeBalance	 ( int amount, char *description = nullptr );
+	void ChangeBalance	 (int amount, const string &description = "" );
 	
 	// Has this account sent money to target account
 	// If partial is true,  it return true if there is a log of the transaction on the target _or_ source account
 	// If partial is false, it return true if there is a log of the transaction on the target _and_ source account
-	bool HasTransferOccurred (char *s_ip, char *t_ip, int t_accno, int amount, bool partial = false );
-	bool HasTransferOccurred (char *person, int amount );								// Has this account received payment from person
+	bool HasTransferOccurred (char *s_ip, char *t_ip, int t_accno, int amount, bool partial = false ) const;
+	bool HasTransferOccurred (char *person, int amount ) const;								// Has this account received payment from person
 
 	Person *GetPerson ();
 
-	static BankAccount *GetAccount ( char *bankip, char *accno );
-	static bool	TransferMoney ( char *source_ip, char *source_accno,
-								char *target_ip, char *target_accno,
-								int amount, Person *person );
+	static BankAccount *GetAccount (const string &bankip, const string &accno );
+	static bool	TransferMoney (const string &source_ip, const string &source_accno,
+                                  const string &target_ip, const string &target_accno,
+                                  int amount, Person *person );
 
 	// Common functions
 

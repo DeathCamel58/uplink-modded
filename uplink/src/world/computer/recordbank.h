@@ -53,7 +53,7 @@ public:
 	// Data access functions
 
 	void AddRecord ( Record *newrecord );
-	void AddRecordSorted ( Record *newrecord, char *sortfield = RECORDBANK_NAME );
+	void AddRecordSorted (Record *newrecord, const string &sortfield = RECORDBANK_NAME);
 
 	Record *GetRecord			  ( int index );							// Returns NULL if not found
 	Record *GetRecord			  (const string &query );							// Assumes there is only 1 match

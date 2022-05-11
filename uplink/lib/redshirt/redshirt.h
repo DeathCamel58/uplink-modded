@@ -25,7 +25,7 @@
 // Basic routines =============================================
 
 
-void RsInitialise ( char *apppath );                                            // Creates a temp directory
+void RsInitialise (const string &newapppath );                                            // Creates a temp directory
 void RsCleanUp ();																// Deletes all created files
 
 
@@ -35,17 +35,17 @@ void RsCleanUp ();																// Deletes all created files
 
 
 
-bool RsFileExists		( char *filename );
-bool RsFileEncrypted	( char *filename );
-bool RsFileEncryptedNoVerify ( char *filename );
+bool RsFileExists		(const string &filename );
+bool RsFileEncrypted	(const string &filename );
+bool RsFileEncryptedNoVerify (const string &filename );
 
 
-bool RsEncryptFile		( char *filename );						// Overwrites origional with encrypted
-bool RsDecryptFile		( char *filename );						// Overwrites origional with decrypted
+bool RsEncryptFile		(const string &filename );						// Overwrites origional with encrypted
+bool RsDecryptFile		(const string &filename );						// Overwrites origional with decrypted
 
 
-FILE *RsFileOpen		( char *filename, char *mode = "rb" );		// preserves origional
-void  RsFileClose		( char *filename, FILE *file );
+FILE *RsFileOpen		(const string &filename, const string &mode = "rb" );		// preserves origional
+void  RsFileClose		(const string &filename, FILE *file );
 
 
 
@@ -53,13 +53,13 @@ void  RsFileClose		( char *filename, FILE *file );
 // Archive file routines ======================================
 
 
-bool RsLoadArchive			( char *filename );
+bool RsLoadArchive			(const string &filename );
 
-FILE *RsArchiveFileOpen		( char *filename, char *mode );		      // Looks for file apppath/filename					
-char *RsArchiveFileOpen		( char *filename );					      // Opens from filename first, then from zip file
+FILE *RsArchiveFileOpen		(const string &filename, const string &mode );		      // Looks for file apppath/filename
+string RsArchiveFileOpen		(const string &filename );					      // Opens from filename first, then from zip file
 bool RsArchiveFileLoaded	( char *filename );
 
-void RsArchiveFileClose		( char *filename, FILE *file = nullptr );
+void RsArchiveFileClose		(const string &filename, FILE *file = nullptr );
 
 void RsCloseArchive			( char *filename );									// Frees all memory (how nice)
 

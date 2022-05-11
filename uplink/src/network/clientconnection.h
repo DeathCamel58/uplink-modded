@@ -65,7 +65,7 @@ public:
 
 	void SetIndex ( int newindex );
 
-	int TimeActive ();					// Returns seconds active
+	int TimeActive () const;					// Returns seconds active
 
 	// Common functions
 

@@ -260,10 +260,10 @@ void Options::SetThemeName ( char *newThemeName )
     // Parse the theme.txt file
 
     string themeTextFilename = ThemeFilename ( "theme.txt" );
-    char *rsFilename = RsArchiveFileOpen ( (char *) themeTextFilename.c_str() );
+    string rsFilename = RsArchiveFileOpen ( themeTextFilename );
 
-    if ( rsFilename ) {
-        idos2unixstream thefile ( rsFilename );
+    if ( !rsFilename.empty() ) {
+        idos2unixstream thefile ( rsFilename.c_str() );
 
         // Header
 

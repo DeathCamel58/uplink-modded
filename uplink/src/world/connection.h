@@ -60,7 +60,7 @@ public:
 	void BeginTrace ();
 	void EndTrace ();
 
-	bool TraceInProgress ();
+	bool TraceInProgress () const;
 	bool Traced ();
 	bool Connected ();
 

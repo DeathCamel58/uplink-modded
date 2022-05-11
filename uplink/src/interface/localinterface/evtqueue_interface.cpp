@@ -48,8 +48,7 @@ void EventQueueInterface::ScrollUpClick ( Button *button )
 
 	for ( int i = 0; i < 9; ++i ) {
 	
-		char name [64];
-		UplinkSnprintf ( name, sizeof ( name ), "evtqueue_event %d", i )
+		string name = "evtqueue_event " + to_string( i );
 		EclDirtyButton ( name );
 
 	}
@@ -65,8 +64,7 @@ void EventQueueInterface::ScrollDownClick ( Button *button )
 
 	for ( int i = 0; i < 9; ++i ) {
 	
-		char name [64];
-		UplinkSnprintf ( name, sizeof ( name ), "evtqueue_event %d", i )
+		string name = "evtqueue_event %d" + to_string( i );
 		EclDirtyButton ( name );
 
 	}
@@ -207,13 +205,11 @@ void EventQueueInterface::Create ()
 
 		for ( int i = 0; i < 9; ++i ) {
 
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "evtqueue_event %d", i )
+			string name = "evtqueue_event " + to_string( i );
 			EclRegisterButton (  screenw - panelwidth - 3, paneltop + 20 + i * 30, panelwidth - 20, 28, "", "Click to enlarge this event", name );
 			EclRegisterButtonCallbacks ( name, EventDraw, EventClick, button_click, button_highlight );
 
-            char deletename [64];
-            UplinkSnprintf ( deletename, sizeof ( deletename ), "evtqueue_deleteevent %d", i )
+            string deletename = "evtqueue_deleteevent " + to_string( i );
             EclRegisterButton (  (screenw - panelwidth - 3) + panelwidth - 35, paneltop + 20 + i * 30, 13, 13, " ", "Click to delete this event", deletename );
             button_assignbitmaps ( deletename, "close.tif", "close_h.tif", "close_c.tif" );
             EclRegisterButtonCallbacks ( deletename, DeleteEventDraw, DeleteEventClick, button_click, button_highlight );
@@ -241,12 +237,10 @@ void EventQueueInterface::Remove ()
 
 		for ( int i = 0; i < 9; ++i ) {
 		
-			char name [64];
-			UplinkSnprintf ( name, sizeof ( name ), "evtqueue_event %d", i )
+			string name = "evtqueue_event " + to_string( i );
 			EclRemoveButton ( name );
 
-            char deletename [32];
-            UplinkSnprintf ( deletename, sizeof ( deletename ), "evtqueue_deleteevent %d", i )
+            string deletename = "evtqueue_deleteevent " + to_string( i );
             EclRemoveButton ( deletename );
 
 		}
@@ -270,8 +264,7 @@ void EventQueueInterface::Update ()
 
 		for ( int i = 0; i < 9; ++i ) {
 		
-			char name [64];
-			UplinkSnprintf ( name, sizeof ( name ), "evtqueue_event %d", i )
+			string name = "evtqueue_event " + to_string( i );
 			EclDirtyButton ( name );
 
 		}

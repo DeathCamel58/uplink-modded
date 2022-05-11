@@ -43,15 +43,15 @@ public:
 	TaskManager ();
 	~TaskManager () override;
 
-	void RunSoftware ( char *name, float version );
+	void RunSoftware (const string &name, float version );
 												
 	void SetProgramTarget (UplinkObject *newprogramtarget, const string &targetstring, int targetint );
 	void SetTargetProgram ( int newtargetprogram );
 
-	bool IsTargetProgramLast ( int newtargetprogram );
+	bool IsTargetProgramLast ( int newtargetprogram ) const;
 
-	UplinkTask *GetTargetProgram ();					// Can return NULL
-    char *GetTargetProgramName ();                      // Can return NULL
+	UplinkTask *GetTargetProgram () const;					// Can return NULL
+    string GetTargetProgramName () const;                      // Can return NULL
 
 	// Common functions
 

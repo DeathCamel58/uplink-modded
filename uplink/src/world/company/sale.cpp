@@ -60,7 +60,7 @@ void Sale::AddVersion (const string &details, int cost, int size, int data )
 
 }
 
-SaleVersion *Sale::GetVersion ( int index )
+SaleVersion *Sale::GetVersion ( int index ) const
 {
 
 	if ( versions.ValidIndex (index) )

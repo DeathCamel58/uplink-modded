@@ -219,10 +219,10 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 
 		for ( int si = 0; si < software.Size (); ++si ) {
 	
-			char caption [128], tooltip [128], name [128];
+			char caption [128];
 			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si), versions.GetData (si) )
-			UplinkStrncpy ( tooltip, "Runs this software application", sizeof ( tooltip ) )
-			UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", si )
+			string tooltip = "Runs this software application";
+			string name = "hud_software " + to_string(si);
 			EclRegisterButton ( x, y, 140, 15, caption, tooltip, name );
 			EclRegisterButtonCallbacks ( name, SoftwareDraw, SoftwareClick, button_click, SoftwareHighlight );
 			EclRegisterMovement ( name, x, y - si * 17, si * timesplit );
@@ -240,21 +240,19 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 		// We don't know how many entries there could be, so keep deleting until they run out
 
 		int i = 0;
-		char name [32];
-		UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", i )
+		string name = "hud_software " + to_string(i);
 
 		while ( EclGetButton ( name ) != nullptr ) {
 
 			EclRemoveButton ( name );
 			++i;
-			UplinkSnprintf ( name, sizeof ( name ), "hud_software %d", i )
+			name = "hud_software " + to_string(i);
 
 		}
 
 		// Redraw the button that was selected
 
-		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "hud_swmenu %d", currentsubmenu )
+		string bname = "hud_swmenu " + to_string(currentsubmenu);
 		EclDirtyButton ( bname );
 
 		currentsubmenu = SOFTWARETYPE_NONE;
@@ -279,12 +277,11 @@ void SWInterface::SoftwareHighlight ( Button *button )
 
 		// Remove any old version menus
 
-        if ( IsVisibleVersionMenu ( nullptr ) ) {
-			ToggleVersionMenu ( nullptr, 0, 0 );
+        if ( IsVisibleVersionMenu ( "" ) ) {
+			ToggleVersionMenu ( "", 0, 0 );
         }
 		else {										// Force redraw of previously selected button
-			char bname [32];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_software %d", currentprogrambutton )
+			string bname = "hud_software " + to_string(currentprogrambutton);
 			EclDirtyButton ( bname );
 		}
 
@@ -344,8 +341,8 @@ void SWInterface::StartMenuItemHighlight ( Button *button )
 
 		// Remove the old sub menu
 		
-		if ( IsVisibleVersionMenu ( nullptr ) )
-			ToggleVersionMenu ( nullptr, 0, 0 );
+		if ( IsVisibleVersionMenu ( "" ) )
+			ToggleVersionMenu ( "", 0, 0 );
 
 		if ( IsVisibleSubMenu ( currentsubmenu ) )
 			ToggleSubMenu ( currentsubmenu, 0, 0 );
@@ -369,8 +366,8 @@ void SWInterface::StartMenuItemHighlightUnavailable ( Button *button )
 
 	// Remove the old sub menus
 
-	if ( IsVisibleVersionMenu ( nullptr ) )
-		ToggleVersionMenu ( nullptr, 0, 0 );
+	if ( IsVisibleVersionMenu ( "" ) )
+		ToggleVersionMenu ( "", 0, 0 );
 	
 	if ( IsVisibleSubMenu ( currentsubmenu ) )
 		ToggleSubMenu ( currentsubmenu, 0, 0 );
@@ -436,8 +433,8 @@ void SWInterface::ToggleSoftwareMenu ()
 
 		// Remove the old sub menus
 		
-		if ( IsVisibleVersionMenu ( nullptr ) )
-			ToggleVersionMenu ( nullptr, 0, 0 );
+		if ( IsVisibleVersionMenu ( "" ) )
+			ToggleVersionMenu ( "", 0, 0 );
 
 		if ( IsVisibleSubMenu ( currentsubmenu ) )
 			ToggleSubMenu ( currentsubmenu, 0, 0 );
@@ -454,7 +451,7 @@ void SWInterface::ToggleSoftwareMenu ()
 
 }
 
-bool SWInterface::HasVersionMenu ( char *program )
+bool SWInterface::HasVersionMenu (const string &program )
 {
 	
 	// Does the player have more than 1 version?
@@ -467,7 +464,7 @@ bool SWInterface::HasVersionMenu ( char *program )
 
 		if ( db->GetDataFile (di) &&
 			 db->GetDataFile (di)->TYPE == DATATYPE_PROGRAM &&
-			 strcmp ( db->GetDataFile (di)->title, program ) == 0 ) {
+			 db->GetDataFile (di)->title == program ) {
 		
 			 count++;
 			 if ( count > 1 ) return true;
@@ -480,10 +477,10 @@ bool SWInterface::HasVersionMenu ( char *program )
 
 }
 
-void SWInterface::ToggleVersionMenu ( char *program, int x, int y )
+void SWInterface::ToggleVersionMenu (const string &program, int x, int y )
 {
 
-	if ( program && 
+	if ( !program.empty() &&
 		 !IsVisibleVersionMenu ( program ) ) {
 
 		// Create it
@@ -497,7 +494,7 @@ void SWInterface::ToggleVersionMenu ( char *program, int x, int y )
 
 			if ( db->GetDataFile (di) &&
 				 db->GetDataFile (di)->TYPE == DATATYPE_PROGRAM &&
-				 strcmp ( db->GetDataFile (di)->title, program ) == 0 ) {
+				 db->GetDataFile (di)->title == program ) {
 
 				software.PutData ( db->GetDataFile (di)->title );
 				versions.PutData ( db->GetDataFile (di)->version );
@@ -514,10 +511,10 @@ void SWInterface::ToggleVersionMenu ( char *program, int x, int y )
 
 		for ( int si = 0; si < software.Size (); ++si ) {
 	
-			char caption [128], tooltip [128], name [128];
+			char caption [128];
 			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si), versions.GetData (si) )
-			UplinkStrncpy ( tooltip, "Runs this software application", sizeof ( tooltip ) )
-			UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", si )
+			string tooltip = "Runs this software application";
+			string name = "hud_version " + to_string(si);
 			EclRegisterButton ( x, y, 120, 15, caption, tooltip, name );
 			EclRegisterButtonCallbacks ( name, SoftwareDraw, SoftwareClick, button_click, button_highlight );
 			EclRegisterMovement ( name, x, y - si * 17, si * timesplit );
@@ -533,21 +530,19 @@ void SWInterface::ToggleVersionMenu ( char *program, int x, int y )
 		// We don't know how many entries there could be, so keep deleting until they run out
 
 		int i = 0;
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", i )
+		string name = "hud_version " + to_string(i);
 
 		while ( EclGetButton ( name ) != nullptr ) {
 
 			EclRemoveButton ( name );
 			++i;
-			UplinkSnprintf ( name, sizeof ( name ), "hud_version %d", i )
+			name = "hud_version " + to_string(i);
 
 		}	
 
 		// Force redraw of the button that fathered this menu
 
-		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "hud_software %d", currentprogrambutton )
+		string bname = "hud_software " + to_string(currentprogrambutton);
 		EclDirtyButton ( bname );
 
 		currentprogrambutton = -1;
@@ -556,10 +551,10 @@ void SWInterface::ToggleVersionMenu ( char *program, int x, int y )
 
 }
 
-bool SWInterface::IsVisibleVersionMenu ( char *program )
+bool SWInterface::IsVisibleVersionMenu (const string &program )
 {
 
-	if ( program ) 
+	if ( !program.empty() )
 		return ( EclGetButton ( "hud_version 0" ) != nullptr &&
 			     EclGetButton ( "hud_version 0" )->caption.find( program ) != string::npos );
 
@@ -602,8 +597,7 @@ void SWInterface::Update ()
 
 		// Check that the mouse is still over the button in question
 
-		char correctname [32];
-		UplinkSnprintf ( correctname, sizeof ( correctname ), "hud_software %d", currentprogrambutton )
+		string correctname = "hud_software " + to_string(currentprogrambutton);
 
 		Button *currentbutton = getcurrentbutton ();
 

@@ -35,7 +35,7 @@ protected:
 	bool waiting;									// True if waiting for commands to "scroll" on
 
 	int timesync;									// Used to syncronise things
-	char currentdir [8];
+	string currentdir;
 
 	bool deleted_sys;
 
@@ -56,14 +56,14 @@ public:
 	ConsoleScreenInterface ();
 	~ConsoleScreenInterface () override;
 
-	void AddUser ( char *name );
+	void AddUser (const string& name );
 
 	void SetCurrentDir (const string &newcurrentdir );
 	
-	void PutText ( int userid, char *text );					// Adds text to end of queue
-	void PutTextAtStart ( int userid, char *text );
+	void PutText (int userid, string text );					// Adds text to end of queue
+	void PutTextAtStart (int userid, string text );
 	
-	void RunCommand				( char *command );				// Parses command into ConsoleCommand object
+	void RunCommand				(string command );				// Parses command into ConsoleCommand object
 	void RunCommand				( ConsoleCommand *cc );
 
 	void RunCommand_TEXT		(const string &text );
@@ -73,7 +73,7 @@ public:
 	void RunCommand_DELETEALL	(const string &dir );
 	void RunCommand_RUN			(const string &program, bool actuallyrun );				// If true, the command itself is run
 	void RunCommand_SHUTDOWN	();
-	void RunCommand_DISCONNECT	();
+	static void RunCommand_DISCONNECT	();
 
 	void Create ( ComputerScreen *cs ) override;
 	void Remove () override;

@@ -72,7 +72,7 @@ void NetworkServer::StopServer ()
 
 }
 
-char *NetworkServer::GetRemoteHost ( int socketindex )
+char *NetworkServer::GetRemoteHost ( int socketindex ) const
 {
 
 	UplinkAssert ( clients.ValidIndex (socketindex) )
@@ -91,7 +91,7 @@ char *NetworkServer::GetRemoteHost ( int socketindex )
 
 }
 
-char *NetworkServer::GetRemoteIP ( int socketindex )
+char *NetworkServer::GetRemoteIP ( int socketindex ) const
 {
 
 	UplinkAssert ( clients.ValidIndex (socketindex) )

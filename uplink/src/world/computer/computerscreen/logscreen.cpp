@@ -53,7 +53,7 @@ void LogScreen::SetTARGET ( int newTARGET )
 
 }
 
-LogBank *LogScreen::GetTargetLogBank ()
+LogBank *LogScreen::GetTargetLogBank () const
 {
 
 	LogBank *logbank = nullptr;

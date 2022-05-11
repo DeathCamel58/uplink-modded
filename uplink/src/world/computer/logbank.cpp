@@ -54,7 +54,7 @@ void LogBank::AddLog ( AccessLog *log, int index )
 
 }
 
-bool LogBank::LogModified ( int index )
+bool LogBank::LogModified ( int index ) const
 {
 
 	if ( !logs.ValidIndex (index) || !internallogs.ValidIndex (index) )

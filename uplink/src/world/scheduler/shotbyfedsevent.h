@@ -38,8 +38,8 @@ public:
 	ShotByFedsEvent ();
 	~ShotByFedsEvent () override;
 
-	void SetName ( char *newname );
-	void SetReason ( char *newreason );
+	void SetName (const string &newname );
+	void SetReason (const string &newreason );
 
 	void Run () override;
 

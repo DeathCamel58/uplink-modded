@@ -176,15 +176,15 @@ char *BankRobberyEvent::GetLongString ()
 
 }
 
-void BankRobberyEvent::SetDetails ( char *newsourceip, char *newsourceaccno,
-                                    char *newtargetip, char *newtargetaccno,
-                                    int newamount, Date *newhackdate )
+void BankRobberyEvent::SetDetails (const string &newsourceip, const string &newsourceaccno,
+                                   const string &newtargetip, const string &newtargetaccno,
+                                   int newamount, Date *newhackdate )
 {
 
-    UplinkStrncpy ( source_ip, newsourceip, sizeof ( source_ip ) )
-    UplinkStrncpy ( source_accno, newsourceaccno, sizeof ( source_accno ) )
-    UplinkStrncpy ( target_ip, newtargetip, sizeof ( target_ip ) )
-    UplinkStrncpy ( target_accno, newtargetaccno, sizeof ( target_accno ) )
+    UplinkStrncpy ( source_ip, newsourceip.c_str(), sizeof ( source_ip ) )
+    UplinkStrncpy ( source_accno, newsourceaccno.c_str(), sizeof ( source_accno ) )
+    UplinkStrncpy ( target_ip, newtargetip.c_str(), sizeof ( target_ip ) )
+    UplinkStrncpy ( target_accno, newtargetaccno.c_str(), sizeof ( target_accno ) )
 
     amount = newamount;
     hackdate.SetDate ( newhackdate );

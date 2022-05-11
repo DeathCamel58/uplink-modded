@@ -480,7 +480,7 @@ void Init_App ( char *argv0 )
 	cout << "=                           =" << endl;
 	cout << "=        U P L I N K        =" << endl;
 	cout << "=                           =" << endl;
-	cout << "=        Version " << app->version << " =" << endl;
+	cout << "=        Version " << app->version << "       =" << endl;
 
 #ifdef FULLGAME
     cout << "=     - R E L E A S E -     =" << endl;
@@ -987,7 +987,7 @@ void Init_Options ( int argc, char **argv )
 
 }
 
-static bool TestRsLoadArchive ( char *filename )
+static bool TestRsLoadArchive (const string &filename )
 {
 
 	if ( !RsLoadArchive ( filename ) ) {
@@ -1101,14 +1101,10 @@ void Init_Music ()
 
     SgPlaylist_Create ( "main" );
 
-#ifdef DEMOGAME
     SgPlaylist_AddSong ("main", "music/bluevalley.uni" );
     SgPlaylist_AddSong ("main", "music/serenity.uni" );
     SgPlaylist_AddSong ("main", "music/mystique.uni" );
-#else
-    SgPlaylist_AddSong ("main", "music/bluevalley.uni" );
-    SgPlaylist_AddSong ("main", "music/serenity.uni" );
-    SgPlaylist_AddSong ("main", "music/mystique.uni" );
+#ifndef DEMOGAME
     SgPlaylist_AddSong ("main", "music/a94final.uni" );
     SgPlaylist_AddSong ("main", "music/symphonic.uni" );
     SgPlaylist_AddSong ("main", "music/myst2.uni" );
@@ -1160,8 +1156,8 @@ void Init_Fonts	()
 	GciEnableTrueTypeSupport ();
 
 	bool success = false;
-	char *dungeonFontFilename = RsArchiveFileOpen ( "fonts/dungeon.ttf" );
-	if ( !dungeonFontFilename ) {
+	string dungeonFontFilename = RsArchiveFileOpen ( "fonts/dungeon.ttf" );
+	if ( dungeonFontFilename.empty() ) {
         cout << "Unable to open font : fonts/dungeon.ttf" << endl;
 	}
 	else {

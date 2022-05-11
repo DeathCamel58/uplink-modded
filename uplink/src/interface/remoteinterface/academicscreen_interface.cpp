@@ -174,7 +174,7 @@ void AcademicScreenInterface::Remove ()
 
 }
 
-void AcademicScreenInterface::SetSearchName ( char *newsearchname )
+void AcademicScreenInterface::SetSearchName (const string &newsearchname )
 {
 
 	Computer *comp = game->GetWorld ()->GetComputer ( "International Academic Database" );
@@ -206,8 +206,7 @@ void AcademicScreenInterface::UpdateScreen ()
 
 		if ( person ) {
 
-			char filename [256];
-			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex )
+			string filename = "photos/image" + to_string(person->photoindex) + ".tif";
 			button_assignbitmap ( "academic_photo", filename );
 
 		}

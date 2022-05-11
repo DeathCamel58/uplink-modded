@@ -562,7 +562,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 	std::ostrstream headline;
 	std::ostrstream part1, part2, part3;
 
-    totalfilesize = 10 * int(totalfilesize/10);
+    totalfilesize = 10 * (totalfilesize / 10);
 
 	switch ( comp->NumRecentHacks () ) {
 

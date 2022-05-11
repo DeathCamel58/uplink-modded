@@ -28,9 +28,9 @@ const int SIZE_MARKER = 9;
 
 const int SIZE_RSFILENAME = 256;
 
-static char tempfilename [SIZE_RSFILENAME] = "";                         // Returned by RsArchiveFileOpen
-static char rsapppath [SIZE_RSFILENAME] = "";
-static char tempdir[SIZE_RSFILENAME] = "";
+static string tempfilename = "";                         // Returned by RsArchiveFileOpen
+static string rsapppath = "";
+static string tempdir = "";
 static bool rsInitialised = false;
 
 #define BUFFER_SIZE 16384
@@ -38,8 +38,13 @@ static bool rsInitialised = false;
 typedef void filterFunc(unsigned char *, unsigned);
 typedef bool headerFunc(FILE *);
 
-// filterStream:
-// transfers all the data from input to output via filterFunc(buffer, length)
+/**
+ * Transfers all the data from input to output via filterFunc(buffer, length)
+ * @param input
+ * @param output
+ * @param filterFunc
+ * @return
+ */
 bool filterStream(FILE *input, FILE *output, filterFunc *filterFunc)
 {
 	unsigned char buffer[BUFFER_SIZE];
@@ -81,7 +86,7 @@ bool writeRsEncryptedCheckSum ( FILE *output )
 	bool result = false;
 
 	unsigned int hashsize = HashResultSize ();
-	unsigned char *hashbuffer = new unsigned char [ hashsize ];
+	auto *hashbuffer = new unsigned char [ hashsize ];
 
 	fseek ( output, SIZE_MARKER + hashsize, SEEK_SET );
 
@@ -96,7 +101,12 @@ bool writeRsEncryptedCheckSum ( FILE *output )
 
 }
 
-void encryptBuffer(unsigned char *buffer, unsigned length)
+/**
+ * This takes an input buffer, and flips first bit of every byte
+ * @param buffer
+ * @param length
+ */
+void flipBits(unsigned char *buffer, unsigned int length)
 {
 	// Decrypt each byte in the buffer.
 	
@@ -104,18 +114,15 @@ void encryptBuffer(unsigned char *buffer, unsigned length)
 		buffer[i] += 128;
 }
 
-void decryptBuffer(unsigned char *buffer, unsigned int length)
-{
-	// Decrypt each byte in the buffer.
-	
-	for (unsigned i = 0; i < length; i++)
-		buffer[i] -= 128;
-}
-
-bool RsFileExists  ( char *filename )
+/**
+ * Check if file exists
+ * @param filename
+ * @return `true` if file exists, `false` if not
+ */
+bool RsFileExists  (const string &filename )
 {
 
-	FILE *file = fopen ( filename, "r" );
+	FILE *file = fopen ( filename.c_str(), "r" );
 
 	bool success = file != nullptr;
 
@@ -125,6 +132,11 @@ bool RsFileExists  ( char *filename )
 
 }
 
+/**
+ * Checks if given file is encrypted, then skips to data
+ * @param input File handle to check
+ * @return `true` if encrypted, `false` if not
+ */
 bool readRsEncryptedHeader( FILE *input )
 {
 
@@ -134,7 +146,7 @@ bool readRsEncryptedHeader( FILE *input )
 	if ( fread ( newmarker, SIZE_MARKER, 1, input ) == 1 ) {
 		if ( strcmp ( newmarker, marker2 ) == 0 ) {
 			unsigned int hashsize = HashResultSize ();
-			unsigned char *hashbuffer = new unsigned char [ hashsize ];
+			auto *hashbuffer = new unsigned char [ hashsize ];
 			result = ( fread ( hashbuffer, hashsize, 1, input ) == 1 );
 			delete [] hashbuffer;
 		}
@@ -154,7 +166,7 @@ bool writeRsEncryptedHeader ( FILE *output )
 
 	if ( fwrite ( marker2, SIZE_MARKER, 1, output ) == 1 ) {
 		unsigned int hashsize = HashResultSize ();
-		unsigned char *hashbuffer = new unsigned char [ hashsize ];
+		auto *hashbuffer = new unsigned char [ hashsize ];
 		memset ( hashbuffer, 0, hashsize );
 		result = ( fwrite ( hashbuffer, hashsize, 1, output ) == 1 );
 		delete [] hashbuffer;
@@ -164,16 +176,25 @@ bool writeRsEncryptedHeader ( FILE *output )
 
 }
 
+/**
+ * Does nothing
+ * @return Returns `true` no matter what
+ */
 bool noHeader( FILE * )
 {
 	// Useful for a no-operation
 	return true;
 }
 
-bool RsFileEncryptedNoVerify ( char *filename )
+/**
+ * Opens a file and checks if it's encrypted
+ * @param filename The filename to check
+ * @return `true` if encrypted
+ */
+bool RsFileEncryptedNoVerify (const string &filename )
 {
 
-	FILE *input = fopen ( filename, "rb" );
+	FILE *input = fopen ( filename.c_str(), "rb" );
 	if ( !input ) return false;
 
 	bool result = readRsEncryptedHeader ( input );
@@ -184,10 +205,15 @@ bool RsFileEncryptedNoVerify ( char *filename )
 
 }
 
-bool RsFileEncrypted ( char *filename )
+/**
+ * Checks if file header starts with `REDSHIRT\x0` or `REDSHIRT2\x0`
+ * @param filename The filename to check
+ * @return `true` if header is `REDSHIRT\x0`, `false`
+ */
+bool RsFileEncrypted (const string &filename )
 {
 	
-	FILE *input = fopen ( filename, "rb" );
+	FILE *input = fopen ( filename.c_str(), "rb" );
 	if ( !input ) return false;
 
 	bool result = false;
@@ -196,10 +222,10 @@ bool RsFileEncrypted ( char *filename )
 	if ( fread ( newmarker, SIZE_MARKER, 1, input ) == 1 ) {
 		if ( strcmp ( newmarker, marker2 ) == 0 ) {
 			unsigned int hashsize = HashResultSize ();
-			unsigned char *hashbuffer = new unsigned char [ hashsize ];
+			auto *hashbuffer = new unsigned char [ hashsize ];
 
 			if ( fread ( hashbuffer, hashsize, 1, input ) == 1 ) {
-				unsigned char *hashbuffer2 = new unsigned char [ hashsize ];
+				auto *hashbuffer2 = new unsigned char [ hashsize ];
 				unsigned int retsize = RsFileCheckSum ( input, hashbuffer2, hashsize );
 				if ( retsize > 0 && memcmp ( hashbuffer, hashbuffer2, retsize ) == 0 )
 					result = true;
@@ -220,27 +246,23 @@ bool RsFileEncrypted ( char *filename )
 
 }
 
-// filterFile: 
-//   takes input file (infile) and produces outfile
-//
-//   readHeader is a function which attempts to read the header
-//   and returns true on success.
-//
-//   writeHeader is a function which attemps to write the header
-//   and returns true on success.
-//
-//   filterFunc is a function which is used to transform the
-//   bytes in the file.
-//
-//   returns true on success. Deletes outfile on failure.
-
-bool filterFile( char *infile, char *outfile, 
-				 headerFunc *readHeader, 
-				 headerFunc *writeHeader, 
-				 headerFunc *writeChecksum, 
-				 filterFunc *filter)
+/**
+ * Takes input file (infile) and produces outfile
+ * @param infile File to read
+ * @param outfile File to write
+ * @param readHeader Function which attempts to read the header and returns true on success
+ * @param writeHeader Function which attempts to write the header and returns true on success
+ * @param writeChecksum
+ * @param filter Function which is used to transform the bytes in the file
+ * @return `true` on success, `false` on failure
+ */
+bool filterFile(const string &infile, const string &outfile,
+                headerFunc *readHeader,
+                headerFunc *writeHeader,
+                headerFunc *writeChecksum,
+                filterFunc *filter)
 {
-	FILE *input = fopen ( infile, "rb" );
+	FILE *input = fopen ( infile.c_str(), "rb" );
 	if ( !input ) 
 		return false;
 
@@ -251,7 +273,7 @@ bool filterFile( char *infile, char *outfile,
 		return false;
 	}
 
-	FILE *output = fopen ( outfile, "w+b" );
+	FILE *output = fopen ( outfile.c_str(), "w+b" );
     if ( !output ) {
         fclose ( input );
         return false;
@@ -266,7 +288,7 @@ bool filterFile( char *infile, char *outfile,
 		printf("redshirt: failed to write header!");
 		fclose(input);
 		fclose(output);
-		remove(outfile);
+		remove(outfile.c_str());
 		return false;
 	}
 		
@@ -274,7 +296,7 @@ bool filterFile( char *infile, char *outfile,
 		printf("redshirt: failed to write containning bytes!");
 		fclose(input);
 		fclose(output);
-		remove(outfile);
+		remove(outfile.c_str());
 		return false;
 	}
 
@@ -283,7 +305,7 @@ bool filterFile( char *infile, char *outfile,
 		printf("redshirt: failed to write checksum!");
 		fclose(input);
 		fclose(output);
-		remove(outfile);
+		remove(outfile.c_str());
 		return false;
 	}
 
@@ -293,22 +315,27 @@ bool filterFile( char *infile, char *outfile,
 	return true;
 }
 
-// filterFileInPlace
-// process a file in place, temporary file = filename++ext
-// see filterFile for description of readHeader, writeHeader and filterFunc
-
-bool filterFileInPlace( char *filename, char *ext, 				 
-						headerFunc *readHeader, 
-						headerFunc *writeHeader, 
-						headerFunc *writeChecksum, 
-						filterFunc *filterFunc)
+/**
+ * Process a file in place
+ * @param filename The filename to decrypt
+ * @param ext The extension for the decrypted file
+ * @param readHeader Function which attempts to read the header and returns true on success
+ * @param writeHeader Function which attempts to write the header and returns true on success
+ * @param writeChecksum
+ * @param filterFuncF unction which is used to transform the bytes in the file
+ * @return `true` if successfully decrypted, `false` if not
+ */
+bool filterFileInPlace(const string &filename, const string &ext,
+                       headerFunc *readHeader,
+                       headerFunc *writeHeader,
+                       headerFunc *writeChecksum,
+                       filterFunc *filterFunc)
 {
-	char tempfilename [SIZE_RSFILENAME];
-	sprintf ( tempfilename, "%s%s", filename, ext );
+	string tempfilename = filename + ext;
 
 	if (filterFile(filename, tempfilename, readHeader, writeHeader, writeChecksum, filterFunc)) {
-		remove(filename);
-		rename(tempfilename, filename);
+		remove(filename.c_str());
+		rename(tempfilename.c_str(), filename.c_str());
 		return true;
 	}
 	else {
@@ -317,44 +344,51 @@ bool filterFileInPlace( char *filename, char *ext,
 	}
 }
 
-// RsEncryptFile: encrypts a file in-place
-bool RsEncryptFile ( char *filename )
+/**
+ * Encrypt a file in-place
+ * @param filename The file name to encrypt
+ * @return `true` if encrypted, `false` if not
+ */
+bool RsEncryptFile (const string &filename )
 {
-	return filterFileInPlace(filename, ".e", noHeader, writeRsEncryptedHeader, writeRsEncryptedCheckSum, encryptBuffer);
+	return filterFileInPlace(filename, ".e", noHeader, writeRsEncryptedHeader, writeRsEncryptedCheckSum, flipBits);
 }
 
-// RsDecryptFile: decrypt a file in-place
-bool RsDecryptFile ( char *filename )
+/**
+ * Decrypt a file in-place
+ * @param filename The file name to decrypt
+ * @return `true` if decrypted, `false` if not
+ */
+bool RsDecryptFile (const string &filename )
 {
 	if ( !RsFileEncrypted ( filename ) ) {
 		// Not encrypted, so nothing to do
 		return true;
 	}
 
-	return filterFileInPlace(filename, ".d", readRsEncryptedHeader, noHeader, noHeader, decryptBuffer);
+	return filterFileInPlace(filename, ".d", readRsEncryptedHeader, noHeader, noHeader, flipBits);
 };
 
-const char *RsBasename(const char *filename)
+/**
+ * Returns the basename of the file (minus any directory prefixes)
+ * @param filename The file to get the base name of
+ * @return The base name of the file
+ */
+string RsBasename(const string &filename)
 {
 	// Return the basename of the file (minus any directory prefixes)
-	const char *p = filename;
-	do {
-		// Search for the next forward- or backslash
-		const char *slash = strchr(p, '/');
-		if (slash == nullptr)
-			slash = strchr(p, '\\');
-
-		// Didn't find one, quit out
-		if (slash == nullptr)
-			break;
-		
-		p = slash + 1;
-	} while (true);
+	string p = filename.substr(filename.find_last_of("/\\") + 1);
 
 	return p;
 }
 
-FILE *RsFileOpen ( char *filename, char *mode )
+/**
+ * Opens a file and returns the file handle of decrypted version
+ * @param filename The filename to open
+ * @param mode The mode to open the file in
+ * @return The ifstream file handle of decrypted version
+ */
+FILE *RsFileOpen (const string &filename, const string &mode )
 {
 
 	if ( !RsFileExists ( filename ) ) return nullptr;
@@ -362,18 +396,17 @@ FILE *RsFileOpen ( char *filename, char *mode )
 	if ( !RsFileEncrypted ( filename ) ) {
 
 		// Not encrypted, so just open it
-		FILE *file = fopen ( filename, mode );
+		FILE *file = fopen ( filename.c_str(), mode.c_str() );
 		return file;
 
 	}
     else {
 
-	    char dfilename [SIZE_RSFILENAME];
-	    sprintf ( dfilename, "%s%s.d", tempdir, RsBasename(filename) );
+	    string dfilename = tempdir + RsBasename(filename) + ".d";
 		
-		if (filterFile(filename, dfilename, readRsEncryptedHeader, noHeader, noHeader, decryptBuffer)) {
+		if (filterFile(filename, dfilename, readRsEncryptedHeader, noHeader, noHeader, flipBits)) {
 			// Open the result and return it
-			FILE *result = fopen ( dfilename, mode );
+			FILE *result = fopen ( dfilename.c_str(), mode.c_str() );
 			return result;
 		}
 		else {
@@ -383,31 +416,38 @@ FILE *RsFileOpen ( char *filename, char *mode )
     }
 }
 
-void RsFileClose ( char *filename, FILE *file )
+/**
+ * Close file and delete decrypted versions
+ * @param filename The file name to close
+ * @param file The file handle to close
+ */
+void RsFileClose (const string &filename, FILE *file )
 {
 
 	fclose ( file );
 
 	// Delete any decrypted versions
 
-	char dfilename [SIZE_RSFILENAME];
-	sprintf ( dfilename, "%s.d", filename );
+	string dfilename = filename + ".d";
 
-	int result = remove ( dfilename );
+	int result = remove ( dfilename.c_str() );
 
 }
 
-
-bool RsLoadArchive ( char *filename )
+/**
+ * Opens an archive
+ * @param filename Filename to open
+ * @return `true` if archive opened, `false` if not
+ */
+bool RsLoadArchive (const string &filename )
 {
 
-	char fullfilename [SIZE_RSFILENAME];
-	sprintf ( fullfilename, "%s%s", rsapppath, filename );
+	string fullfilename = rsapppath + filename;
 
 	FILE *archive = RsFileOpen ( fullfilename, "rb" );
 
 	if ( !archive ) {
-		int len = (int) strlen ( rsapppath );
+		int len = (int) rsapppath.length();
 		if ( len >= 5 ) {
 			char c1 = rsapppath[ len - 5 ];
 			char c2 = rsapppath[ len - 4 ];
@@ -422,7 +462,7 @@ bool RsLoadArchive ( char *filename )
 				 ( c5 == '\\' || c5 == '/' ) ) {
 
 				fullfilename[ len - 4 ] = '\0';
-				strcat( fullfilename, filename );
+				fullfilename += filename;
 				archive = RsFileOpen ( fullfilename, "rb" );
 			}
 		}
@@ -434,38 +474,42 @@ bool RsLoadArchive ( char *filename )
 
 	RsFileClose ( filename, archive );
 
-	if ( result ) printf ( "Successfully loaded data archive %s\n", filename );
-	else		  printf ( "Failed to load data archive %s\n", filename );
+	if ( result ) cout << "Successfully loaded data archive " << filename << endl;
+	else		  cout << "Failed to load data archive " << filename << endl;
 
 	return result;
 }
 
-FILE *RsArchiveFileOpen	( char *filename, char *mode )
+/**
+ * Opens a given file with a given mode and returns file handle
+ * @param filename File name to open
+ * @param mode Mode to open the file with
+ * @return File handle
+ */
+FILE *RsArchiveFileOpen	(const string &filename, const string &mode )
 {
 
 	FILE *file = nullptr;
-	char *fname = RsArchiveFileOpen ( filename );
+	string fname = RsArchiveFileOpen ( filename );
 
-	if ( fname ) {
+	if ( !fname.empty() ) {
 		//printf( "Opening file %s\n", fname );
-		file = fopen ( fname, mode );
+		file = fopen ( fname.c_str(), mode.c_str() );
 	}
 
 	return file;
 
 }
 
-char *RsArchiveFileOpen ( char *filename )
+/**
+ * Opens archive file and returns location
+ * @param filename File to open
+ * @return Temporary file location WARNING: CHANGES ON EVERY CALL
+ */
+string RsArchiveFileOpen (const string &filename )
 {
 
-    //
-    // WARNING
-    // This function returns tempfilename - a static string
-    // belonging to this library, which changes at every call
-    //
-
-	char fullfilename [SIZE_RSFILENAME];
-	sprintf ( fullfilename, "%s%s", rsapppath, filename );
+	string fullfilename = rsapppath + filename;
 
 	//
 	// Look to see if the file exists
@@ -477,7 +521,7 @@ char *RsArchiveFileOpen ( char *filename )
 	if ( RsFileExists ( fullfilename ) ) {
 
 		//printf( "Found.\n" );
-        strcpy ( tempfilename, fullfilename );
+        tempfilename = fullfilename;
         return tempfilename;
 
 	}
@@ -489,21 +533,21 @@ char *RsArchiveFileOpen ( char *filename )
 
 	if ( BglFileLoaded ( fullfilename ) ) {
 
-		char *extension = strrchr ( fullfilename, '.' );
-		assert (extension);
+		string extension = fullfilename.substr(fullfilename.find_last_of('.'));
+		assert (!extension.empty());
 		
 		int attempt = 0;
 		bool success = false;
-		char targetfilename [SIZE_RSFILENAME];
+		string targetfilename;
 
 		while ( !success && attempt < 3 ) {
-			sprintf ( targetfilename, "%stemp%d%s", tempdir, attempt, extension );
+			targetfilename = tempdir + "temp" + to_string(attempt) + extension;
 			success = BglExtractFile ( fullfilename, targetfilename );
 			++attempt;
 		}
 		
 		if ( success ) {
-			strcpy ( tempfilename, targetfilename );
+			tempfilename = targetfilename;
             //printf( "Found as %s.\n", targetfilename );
 			return tempfilename;
 		}
@@ -518,16 +562,20 @@ char *RsArchiveFileOpen ( char *filename )
 	// Ooops - the file is nowhere to be found
 	//
 
-	printf ( "REDSHIRT : Failed to load file : %s\n", fullfilename );
-	return nullptr;
+	cout << "REDSHIRT : Failed to load file : " << fullfilename << endl;
+	return "";
 
 }
 
+/**
+ * Check if file archive is open
+ * @param filename Filename to check
+ * @return `true` is loaded, `false` if not
+ */
 bool RsArchiveFileLoaded ( char *filename )
 {
 
-	char fullfilename [SIZE_RSFILENAME];
-	sprintf ( fullfilename, "%s%s", rsapppath, filename );
+	string fullfilename = rsapppath + filename;
 
 	if ( RsFileExists ( fullfilename ) ) return true;
 	if ( BglFileLoaded ( fullfilename ) ) return true;
@@ -536,20 +584,25 @@ bool RsArchiveFileLoaded ( char *filename )
 
 }
 
-void RsArchiveFileClose	( char *filename, FILE *file )
+/**
+ * Close file, and delete temp file
+ * @param filename The file name to close
+ * @param file The file handle to close
+ */
+void RsArchiveFileClose	(const string &filename, FILE *file )
 {
 
 	if ( file ) fclose ( file );
 
-	char *extension = strrchr ( filename, '.' );
-	assert (extension);
+	string extension = filename.substr(filename.find('.'));
+	assert(!extension.empty());
 		
-	char targetfilename [SIZE_RSFILENAME];
+	string targetfilename;
 	int attempt = 0;
 
 	while ( attempt < 3 ) {
-		sprintf ( targetfilename, "%stemp%d%s", tempdir, attempt, extension );
-		int result = remove ( targetfilename );
+	    targetfilename = tempdir + "temp" + to_string(attempt) + extension;
+		int result = remove ( targetfilename.c_str() );
 		++attempt;
 	}
 
@@ -562,30 +615,44 @@ void RsCloseArchive	( char *filename )
 
 }
 
-bool RsMakeDirectory ( const char *dirname )
+/**
+ * Creates given directory
+ * @param dirname Directory to create
+ * @return `true` if successful, `false` if not
+ */
+bool RsMakeDirectory (const string &dirname )
 {
 #ifdef WIN32
 	return _mkdir ( dirname ) == 0;
 #else
-	return mkdir ( dirname, 0700 ) == 0;
+	return mkdir ( dirname.c_str(), 0700 ) == 0;
 #endif
 }
 
-void RsDeleteDirectory ( const char *dirname )
+/**
+ * Deletes given directory
+ * @param dirname Directory to delete
+ */
+void RsDeleteDirectory (const string &dirname )
 {
 
 #ifdef WIN32
     _rmdir ( dirname );
 #else
-    rmdir( dirname );
+    rmdir( dirname.c_str() );
 #endif
 
 }
 
-
-void RsInitialise ( char *newapppath )
+/**
+ * Creates the temp directory
+ * NOTE: The given `newapppath` **IS NOT** the created directory.
+ * The created directory is in the form: `<newapppath>temp/`
+ * @param newapppath Prefix for directory
+ */
+void RsInitialise (const string &newapppath )
 {
-    sprintf ( rsapppath, "%s", newapppath );
+    rsapppath = newapppath;
 
     // create a temp directory
 
@@ -595,18 +662,19 @@ void RsInitialise ( char *newapppath )
 #else
 	// Try in the current directory
 
-    sprintf ( tempdir, "%stemp/", rsapppath );
+    tempdir = rsapppath + "temp/";
     if (!RsMakeDirectory ( tempdir )) {
 		// Try in /tmp
 
-		strcpy(tempdir, "/tmp/uplink-XXXXXX");
+		tempdir = "/tmp/uplink-XXXXXX";
+		tempdir = mkdtemp((char *) tempdir.c_str());
 
-		if (mkdtemp(tempdir) == nullptr) {
+		if (tempdir.empty()) {
 			printf( "Failed to make temporary directory\n");
 			abort();
 		}
 
-		strcat(tempdir, "/");
+		tempdir += "/";
 	}
 #endif
 
@@ -616,6 +684,9 @@ void RsInitialise ( char *newapppath )
 	atexit(RsCleanUp); 
 }
 
+/**
+ * Deletes all files in the temp directory, and deletes the directory
+ */
 void RsCleanUp ()
 {
 	if (!rsInitialised) 
@@ -654,16 +725,15 @@ void RsCleanUp ()
 
 #else
     {
-	DIR *dir = opendir( tempdir );
+	DIR *dir = opendir( tempdir.c_str() );
 	if (dir != nullptr) {
 	    struct dirent *entry = readdir ( dir );
 
 	    while (entry != nullptr) {
                 
-			char fullfilename [SIZE_RSFILENAME];
-			sprintf ( fullfilename, "%s%s", tempdir, entry->d_name );
+			string fullfilename = tempdir + entry->d_name;
                 
-			remove ( fullfilename );
+			remove ( fullfilename.c_str() );
 
     		entry = readdir ( dir );
 	    
@@ -694,8 +764,8 @@ DArray <char *> *RsListArchive ( char *path, char *filter )
         if ( result->ValidIndex(i) ) {
 
             char *thisResult = result->GetData(i);
-            char *newResult = new char [strlen(thisResult) - strlen(rsapppath) + 1];
-            strcpy ( newResult, thisResult + strlen(rsapppath) );
+            char *newResult = new char [strlen(thisResult) - rsapppath.length() + 1];
+            strcpy ( newResult, thisResult + rsapppath.length() );
             result->PutData( newResult, i );
 
         }

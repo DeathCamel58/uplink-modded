@@ -78,7 +78,7 @@ void Rating::SetUplinkRating ( int rating )
 
 }
 
-char *Rating::GetUplinkRating ()
+char *Rating::GetUplinkRating () const
 {
 
 	return GetUplinkRatingString ( uplinkrating );
@@ -94,7 +94,7 @@ void Rating::SetNeuromancerRating ( int rating )
 
 }
 
-char *Rating::GetNeuromancerRating ()
+char *Rating::GetNeuromancerRating () const
 {
 
 	return GetNeuromancerRatingString ( neuromancerrating );

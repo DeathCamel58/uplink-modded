@@ -34,11 +34,11 @@ void RecordBank::AddRecord ( Record *newrecord )
 
 }
 
-void RecordBank::AddRecordSorted ( Record *newrecord, char *sortfield )
+void RecordBank::AddRecordSorted (Record *newrecord, const string &sortfield )
 {
 
 	UplinkAssert (newrecord)
-	UplinkAssert (sortfield)
+	UplinkAssert (!sortfield.empty())
 
 	char *newvalue = newrecord->GetField ( sortfield );
 	UplinkAssert (newvalue)

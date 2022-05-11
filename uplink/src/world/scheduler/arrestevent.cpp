@@ -38,29 +38,29 @@ ArrestEvent::~ArrestEvent ()
 
 }
 
-void ArrestEvent::SetName ( char *newname )
+void ArrestEvent::SetName (const string &newname )
 {
 
-	assert( strlen(newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	assert( newname.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 }
 
-void ArrestEvent::SetReason ( char *newreason )
+void ArrestEvent::SetReason (const string &newreason )
 {
 
 	delete [] reason;
-	reason = new char [strlen(newreason)+1];
-	UplinkSafeStrcpy ( reason, newreason )
+	reason = new char [newreason.length()+1];
+	UplinkSafeStrcpy ( reason, newreason.c_str() )
 
 }
 
-void ArrestEvent::SetIP ( char *newip )
+void ArrestEvent::SetIP (const string &newip )
 {
 
 	delete [] ip;
-	ip = new char [strlen(newip)+1];
-	UplinkSafeStrcpy ( ip, newip )
+	ip = new char [newip.length()+1];
+	UplinkSafeStrcpy ( ip, newip.c_str() )
 
 }
 

@@ -130,8 +130,7 @@ void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool high
 	if ( hasmoney ) 	SetColour ( "DefaultText" );
 	else				SetColour ( "DimmedText" );
 
-	char cost [16];
-	UplinkSnprintf ( cost, sizeof ( cost ), "%dc", price )
+	string cost = to_string(price) + "c";
 
 	GciDrawText ( button->x + 5, button->y + 10, gd->name );
 	GciDrawText ( (button->x + button->width - 10 ) - GciTextWidth ( cost ), button->y + 10, cost );
@@ -304,8 +303,7 @@ void ChangeGatewayScreenInterface::ScrollChange ( char *scrollname, int newIndex
 
 	for ( int i = 0; i < numItems; ++i ) {
 
-		char bname [64];
-		UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i )
+		string bname = "changegateway_title " + to_string(i);
 		EclDirtyButton ( bname );
 
 	}
@@ -323,8 +321,7 @@ void ChangeGatewayScreenInterface::ShowGateway ( int index )
 
 	for ( int i = 0; i < numItems; ++i ) {
 
-		char bname [64];
-		UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i )
+		string bname = "changegateway_title " + to_string(i);
 		EclDirtyButton ( bname );
 
 	}
@@ -338,10 +335,8 @@ void ChangeGatewayScreenInterface::ShowGateway ( int index )
 
     if ( gd ) {
 
-	    char newstats1[128];
-	    char newstats2[128];
-	    UplinkSnprintf ( newstats1, sizeof ( newstats1 ), "Max CPUs : %d\nMax Memory : %dGq", gd->maxcpus, gd->maxmemory * 8 )
-	    UplinkSnprintf ( newstats2, sizeof ( newstats2 ), "Max Security : %d\nBandwidth : %dGqs", gd->maxsecurity, gd->bandwidth )
+	    string newstats1 = "Max CPUs : " + to_string(gd->maxcpus) + "\nMax Memory : " + to_string(gd->maxmemory * 8) + "Gq";
+	    string newstats2 = "Max Security : " + to_string(gd->maxsecurity) + "\nBandwidth : " + to_string(gd->bandwidth) + "Gqs";
 	    EclRegisterCaptionChange ( "changegateway_stats1", newstats1 );
 	    EclRegisterCaptionChange ( "changegateway_stats2", newstats2 );
 
@@ -411,8 +406,7 @@ void ChangeGatewayScreenInterface::Create ( ComputerScreen *newcs )
 			if ( game->GetWorld ()->gatewaydefs.ValidIndex ( i ) )
 				gd = game->GetWorld ()->gatewaydefs.GetData ( i );
 
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i )
+			string bname = "changegateway_title " + to_string(i);
 
 			if ( gd )
 				EclRegisterButton ( 20, 140 + i * 20, 220, 15, gd->name, "View this gateway", bname );
@@ -547,8 +541,7 @@ void ChangeGatewayScreenInterface::Remove ()
 
 		for ( int i = 0; i < numRows; ++i ) {
 
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "changegateway_title %d", i )
+			string bname = "changegateway_title " + to_string(i);
 			EclRemoveButton ( bname );
 
 		}

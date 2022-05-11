@@ -124,9 +124,9 @@ public:
     int AddLanLink ( int from, float fromX, float fromY, 
                      int to, float toX, float toY, int security );
     bool VerifyLanLink ( int from, float fromX, float fromY, 
-                         int to, float toX, float toY, int security );
+                         int to, float toX, float toY, int security ) const;
 
-    void Rotate ( int angle );               // 1 = 90 deg, 2 = 180 deg, 3 = 270 deg
+    void Rotate ( int angle ) const;               // 1 = 90 deg, 2 = 180 deg, 3 = 270 deg
     
     void Merge ( LanCluster *target, LanComputer *comp );
     void Merge ( LanComputer *target );

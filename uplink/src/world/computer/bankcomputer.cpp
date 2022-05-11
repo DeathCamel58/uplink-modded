@@ -53,8 +53,7 @@ int BankComputer::CreateBankAccount ( BankAccount *newaccount )
 	if ( newaccount->accountnumber == 0 )
 		cout << "BankComputer::CreateBankAccount WARNING : AccountNumber = 0" << endl;
 
-	char s_account [16];
-	UplinkSnprintf ( s_account, sizeof ( s_account ), "%d", newaccount->accountnumber )
+	string s_account = to_string(newaccount->accountnumber);
 
 	UplinkAssert ( !(accounts.LookupTree ( s_account )) )
 
@@ -75,8 +74,8 @@ int BankComputer::CreateBankAccount ( BankAccount *newaccount )
 
 }
 
-int BankComputer::CreateBankAccount ( char *name, char *password, int security,
-										int balance, int loan )
+int BankComputer::CreateBankAccount (const string &name, const string &password, int security,
+                                     int balance, int loan )
 {
 
 	auto *ba = new BankAccount ();

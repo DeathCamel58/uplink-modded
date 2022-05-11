@@ -50,11 +50,8 @@ void VoicePhoneScreenInterface::AddToText ( char *newtext )
 	UplinkAssert (newtext)
 	Button *button = EclGetButton ("voicescreen_text");
 	UplinkAssert (button)
-	size_t newcaptionsize = button->caption.length() + strlen(newtext) + 3;
-	char *newcaption = new char [newcaptionsize];
-	UplinkSnprintf ( newcaption, newcaptionsize, "%s%s", button->caption.c_str(), newtext )
+	string newcaption = button->caption + newtext;
 	button->SetCaption ( newcaption );
-	delete [] newcaption;
 
 }
 
@@ -163,11 +160,10 @@ void VoicePhoneScreenInterface::Update ()
 					--numwords;
 					timesync = (int) ( EclGetAccurateTime () + 2500 );
 					if ( numwords <= 0 ) STATUS = VOICESTATUS_HUNGUP;
-                    char filename [256];
                     int samplenumber = numwords;
                     if ( samplenumber >= 3 ) samplenumber -= 3;
 //#ifndef DEMOGAME
-                    UplinkSnprintf ( filename, sizeof ( filename ), "sounds/analyser/hello%d_%d.wav", voiceindex, samplenumber )
+                    string filename = "sounds/analyser/hello" + to_string(voiceindex) + "_" + to_string(samplenumber) +".wav";
 					SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );
 //#endif
 

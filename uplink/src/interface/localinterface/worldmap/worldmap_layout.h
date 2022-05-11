@@ -30,16 +30,16 @@ public:
     void SetTYPE ( int newTYPE );
     void SetPosition ( int newx, int newy );
     void SetBasePosition ( int newx, int newy );
-    void SetIP ( const char *newip );
+    void SetIP (const string& newip );
 	void CheckIP ();
 
     virtual void Draw ( int xOffset = 0, int yOffset = 0, float zoom = 1.0 );
     virtual MapRectangle GetExtent() const;
-    const char *GetIP() const;
+    string GetIP() const;
 
 protected:
 
-    char *ip;
+    string ip;
     bool isMission;             // If this object is related to a mission
 	bool isColored;             // If this object is colored
 
@@ -53,7 +53,7 @@ public:
 			   const char *newCaption);
     ~WorldMapInterfaceLabel() override;
     
-    void SetCaption ( const char *newcaption );
+    void SetCaption (const string newcaption );
     void SetLabelPosition(int n);
     void SetRandomLabelPosition();
 
@@ -62,7 +62,7 @@ public:
     bool Overlaps(WorldMapInterfaceObject *label) const;
     
     void Draw( int xOffset = 0, int yOffset = 0, float zoom = 1.0  ) override;
-    const char *GetCaption() const;
+    string GetCaption() const;
     
 protected:
     
@@ -71,7 +71,7 @@ protected:
 
 protected:
 
-    char *caption;
+    string caption;
     WorldMapInterfaceObject *featurePoint; // Does not own featurePoint
 
     int labelPos;

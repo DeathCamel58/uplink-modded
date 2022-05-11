@@ -97,8 +97,7 @@ void ClosingInterface::Update ()
             {
                 int captionNumber = count % 7;                       // (int) fmod(count, 7);
                 button->SetCaption ( captions[captionNumber] );
-                char filename [256];
-                UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", NumberGenerator::RandomNumber (9) + 1 )
+                string filename = "sounds/" + to_string(NumberGenerator::RandomNumber (9) + 1) + ".wav";
                 SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );
                 timesync = (int)EclGetAccurateTime () + 160;
                 count++;
@@ -109,8 +108,7 @@ void ClosingInterface::Update ()
             case 2:
             {
                 button->SetCaption ( "INTROVERSION" );
-                char filename [256];
-                UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", NumberGenerator::RandomNumber (9) + 1 )
+                string filename = "sounds/" + to_string(NumberGenerator::RandomNumber (9) + 1) + ".wav";
                 SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );       
                 timesync = (int)EclGetAccurateTime () + 1000;
                 status++;
@@ -129,8 +127,7 @@ void ClosingInterface::Update ()
                 EclRegisterButton ( 120, 460, 500, 15, " ", " ", "closing_time" );
                 EclRegisterButtonCallbacks ( "closing_time", textbutton_draw, nullptr, nullptr, nullptr );
                 int playtime = int( ((float)(EclGetAccurateTime () - app->starttime)/1000.0)/60.0 );
-                char closingtime[128];
-                UplinkSnprintf ( closingtime, sizeof ( closingtime ), "You've been using Uplink for %d minutes. Visit our web site to buy the full product.", playtime )
+                string closingtime = "You've been using Uplink for " + to_string(playtime) + " minutes. Visit our web site to buy the full product.";
                 EclRegisterCaptionChange ( "closing_time", closingtime, 1500 );
 
                 EclButtonBringToFront ( "closing_text" );

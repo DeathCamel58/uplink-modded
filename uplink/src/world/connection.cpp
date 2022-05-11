@@ -412,7 +412,7 @@ void Connection::Reset ()
 
 }
 
-bool Connection::TraceInProgress ()
+bool Connection::TraceInProgress () const
 {
 
 	return traceinprogress;

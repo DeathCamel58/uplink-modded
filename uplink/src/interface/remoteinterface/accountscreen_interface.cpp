@@ -127,8 +127,7 @@ void AccountScreenInterface::Create ( ComputerScreen *newcs )
 			EclGetButton ( "accountscreen_accountname" )->SetCaption ( account->name );
 
 			// Account number
-			char accno [16];
-			UplinkSnprintf ( accno, sizeof ( accno ), "%d", account->accountnumber )
+			string accno = to_string(account->accountnumber);
 			EclGetButton ( "accountscreen_accountnumber" )->SetCaption ( accno );
 
 
@@ -191,23 +190,21 @@ void AccountScreenInterface::Update ()
 
 			// Update the balance
 
-			char balance [16];
-			UplinkSnprintf ( balance, sizeof ( balance ), "%d", account->balance )
+			string balance = to_string(account->balance);
 			EclGetButton ( "accountscreen_balance" )->SetCaption ( balance );
 		
 			// Update the loan
 
-			char loan [16];
-			UplinkSnprintf ( loan, sizeof ( loan ), "%d", account->loan )
+			string loan = to_string(account->loan);
 			EclGetButton ( "accountscreen_loan" )->SetCaption ( loan );
 
 			// Update the interest rate 
 
-			char rate [16];
-			if        ( account->loan <= SMALLLOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * SMALLLOAN_INTEREST) )
-			} else if ( account->loan <= MEDIUMLOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * MEDIUMLOAN_INTEREST) )
-			} else if ( account->loan <= LARGELOAN_MAX ) {		UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * LARGELOAN_INTEREST) )
-			} else {											UplinkSnprintf ( rate, sizeof ( rate ), "(%d%% apr)", int (100.0 * MAXLOAN_INTEREST) )
+			string rate;
+			if        ( account->loan <= SMALLLOAN_MAX ) {		rate = "(" + to_string(100.0 * SMALLLOAN_INTEREST) + "% apr)";
+			} else if ( account->loan <= MEDIUMLOAN_MAX ) {		rate = "(" + to_string(100.0 * MEDIUMLOAN_INTEREST) + "% apr)";
+			} else if ( account->loan <= LARGELOAN_MAX ) {		rate = "(" + to_string(100.0 * LARGELOAN_INTEREST) + "% apr)";
+			} else {											rate = "(" + to_string(100.0 * MAXLOAN_INTEREST) + "% apr)";
 			}
 
 			EclGetButton ( "accountscreen_loanrate" )->SetCaption ( rate );

@@ -29,7 +29,7 @@ public:
 
 	void Run () override;
 
-	void SetAgentName ( char *newagentname );
+	void SetAgentName (const string &newagentname );
 
 	char *GetShortString () override;
 	char *GetLongString () override;

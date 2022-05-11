@@ -41,7 +41,7 @@ BankAccount::BankAccount ()
 BankAccount::~BankAccount ()
 = default;
 	
-BankAccount *BankAccount::GetAccount ( char *bankip, char *accno )
+BankAccount *BankAccount::GetAccount (const string &bankip, const string &accno )
 {
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( bankip );
@@ -57,9 +57,9 @@ BankAccount *BankAccount::GetAccount ( char *bankip, char *accno )
 
 }
 
-bool BankAccount::TransferMoney ( char *source_ip, char *source_accno,
-								  char *target_ip, char *target_accno,
-								  int amount, Person *person )
+bool BankAccount::TransferMoney (const string &source_ip, const string &source_accno,
+                                 const string &target_ip, const string &target_accno,
+                                 int amount, Person *person )
 {
 
 	UplinkAssert (person)
@@ -67,13 +67,10 @@ bool BankAccount::TransferMoney ( char *source_ip, char *source_accno,
 	BankAccount *source_acc = BankAccount::GetAccount ( source_ip, source_accno );
 	BankAccount *target_acc = BankAccount::GetAccount ( target_ip, target_accno );
 
-	char source_data [128];
-	char target_data [128];
-	UplinkSnprintf ( source_data, sizeof ( source_data ), "%s %s", target_ip, target_accno )
-	UplinkSnprintf ( target_data, sizeof ( target_data ), "%s %s", source_ip, source_accno )
+	string source_data = target_ip + target_accno;
+	string target_data = source_ip + source_accno;
 
-	char s_amount [16];
-	UplinkSnprintf ( s_amount, sizeof ( s_amount ), "%d", amount )
+	string s_amount = to_string(amount);
 
     //
     // If the player is trying to rob money,
@@ -138,19 +135,19 @@ void BankAccount::SetBalance ( int newbalance, int newloan )
 
 }
 
-void BankAccount::SetOwner ( char *newname )
+void BankAccount::SetOwner (const string &newname )
 {
 	
-	assert( strlen(newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	assert( newname.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 }
 
-void BankAccount::SetSecurity ( char *newpassword, int newsecurity )
+void BankAccount::SetSecurity (const string &newpassword, int newsecurity )
 {
 
-	assert( strlen(newpassword) < sizeof(password) );
-	UplinkStrncpy ( password, newpassword, sizeof ( password ) )
+	assert( newpassword.length() < sizeof(password) );
+	UplinkStrncpy ( password, newpassword.c_str(), sizeof ( password ) )
 
 	security = newsecurity;
 
@@ -163,7 +160,7 @@ void BankAccount::SetAccNumber ( int newaccnumber )
 
 }
 
-void BankAccount::ChangeBalance ( int amount, char *description )
+void BankAccount::ChangeBalance (int amount, const string &description )
 {
 
 	balance += amount;
@@ -173,7 +170,7 @@ void BankAccount::ChangeBalance ( int amount, char *description )
 	auto *source_log = new AccessLog ();
 	source_log->SetProperties ( &(game->GetWorld ()->date), "unknown", name, LOG_NOTSUSPICIOUS, LOG_TYPE_TEXT );
 	
-	if ( description )  source_log->SetData1 ( description );
+	if ( !description.empty() )  source_log->SetData1 ( description );
 	else				source_log->SetData1 ( "Unknown" );
 
 	log.AddLog ( source_log );
@@ -181,7 +178,7 @@ void BankAccount::ChangeBalance ( int amount, char *description )
 
 }
 
-bool BankAccount::HasTransferOccurred (char *s_ip, char *t_ip, int t_accno, int amount, bool partial )
+bool BankAccount::HasTransferOccurred (char *s_ip, char *t_ip, int t_accno, int amount, bool partial ) const
 {
 
 	// 
@@ -275,7 +272,7 @@ bool BankAccount::HasTransferOccurred (char *s_ip, char *t_ip, int t_accno, int 
 
 }
 
-bool BankAccount::HasTransferOccurred (char *person, int amount )
+bool BankAccount::HasTransferOccurred (char *person, int amount ) const
 {
 
 	char amount_s [16];

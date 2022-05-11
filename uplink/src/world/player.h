@@ -39,16 +39,16 @@ public:
 	Player ();
 	~Player () override;
 
-	bool IsPlayerAccount   ( char *bankip, char *accno );							// True if this account is owned by the player
+	bool IsPlayerAccount   (const string &bankip, const string &accno );							// True if this account is owned by the player
 	
 	void GiveAllLinks ();
 	void GiveMessage ( Message *message ) override;
 
-	int NumSharesOwned	( char *companyname );
-	int SharesPricePaid ( char *companyname );
-	void TradeShares	( char *companyname, int howmany );
+	int NumSharesOwned	(const string &companyname );
+	int SharesPricePaid (const string &companyname );
+	void TradeShares	(const string &companyname, int howmany );
 
-    static int TimeToTrace ( char *tracerIP, char *routerIP );                     // How long for the people at tracerIP to trace through routerIP
+    static int TimeToTrace (const string &tracerIP, const string &routerIP );                     // How long for the people at tracerIP to trace through routerIP
     int TimeRemaining ();                                                          // How long remaining in this trace?
 
 	// Common functions

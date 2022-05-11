@@ -208,8 +208,7 @@ void SvbCreateColumn ( int baseX, int baseY, TaskWrapper *tw, int taskindex )
 		// Create the bar
 
 		sprintf ( name, "svb_priority %d", taskindex );
-		char caption [32];
-		sprintf ( caption, "%s", tw->name );
+		string caption = tw->name;
 		
 		EclRegisterButton ( baseX, baseY + 8 + taskindex*15, 0, 10, caption, name );
 		EclRegisterButtonCallbacks ( name, Svb_column_draw, Svb_column_click, Svb_button_click, Svb_button_highlight );

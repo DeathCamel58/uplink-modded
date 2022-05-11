@@ -132,7 +132,7 @@ void Person::SetStatus ( int newSTATUS )
 
 }
 
-int Person::GetStatus ( )
+int Person::GetStatus ( ) const
 {
 
 	return STATUS;
@@ -185,7 +185,7 @@ void Person::SetCurrentAccount ( int index )
 
 }
 
-void Person::ChangeBalance ( int amount, char *description )
+void Person::ChangeBalance (int amount, const string &description )
 {
 
 	if ( accounts.Size () > 0 ) {
@@ -245,7 +245,7 @@ void Person::ChangeBalance ( int amount, char *description )
 
 }
 
-int Person::CreateNewAccount ( char *bankip, char *accname, char *password, int balance, int loan )
+int Person::CreateNewAccount (const string &bankip, const string &accname, const string &password, int balance, int loan )
 {
 
 	// Get the bank in question
@@ -264,7 +264,7 @@ int Person::CreateNewAccount ( char *bankip, char *accname, char *password, int 
 
 	size_t newaccountsize = 32;
 	char *newaccount = new char [newaccountsize];
-	UplinkSnprintf ( newaccount, newaccountsize, "%s %d", bankip, accountnumber )
+	UplinkSnprintf ( newaccount, newaccountsize, "%s %d", bankip.c_str(), accountnumber )
 	accounts.PutData ( newaccount );
 
 	// Return the account number
@@ -301,7 +301,7 @@ void Person::SetIsTargetable ( bool newvalue )
 
 }
 
-bool Person::HasMessageLink ( const char *newip )
+bool Person::HasMessageLink (const string &newip )
 {
 
 	for ( int ii = 0; ii < messages.Size (); ii++ )
@@ -309,7 +309,7 @@ bool Person::HasMessageLink ( const char *newip )
 			LList<char*> *links = &(messages.GetData ( ii )->links);
 			for ( int i = 0; i < links->Size () ; i++ )
 				if ( links->ValidIndex ( i ) )
-					if ( strcmp ( newip, links->GetData ( i ) ) == 0 )
+					if ( newip == links->GetData ( i ) )
 						return true;
 		}
 

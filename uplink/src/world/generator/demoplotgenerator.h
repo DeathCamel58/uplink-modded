@@ -27,13 +27,13 @@ protected:
 
 protected:
 
-    void MoveNewMissionToRandomLocation ( Mission *mission );
+    static void MoveNewMissionToRandomLocation ( Mission *mission );
     
-    bool NumAvailableMissions ( int missiontype );                      // Counts number available to player
+    static bool NumAvailableMissions ( int missiontype );                      // Counts number available to player
 
-    Mission *Generate_FileCopyMission ();
-    Mission *Generate_FileDeleteMission ();
-    Mission *Generate_ChangeAcademicMission ();
+    static Mission *Generate_FileCopyMission ();
+    static Mission *Generate_FileDeleteMission ();
+    static Mission *Generate_ChangeAcademicMission ();
     Mission *Generate_ChangeSocialRecordARC ();
 
 public:

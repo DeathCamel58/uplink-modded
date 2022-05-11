@@ -116,7 +116,7 @@ public:
 	void InfectWithRevelation ( float version );					
 
 	int				AddComputerScreen ( ComputerScreen *cs, int index = -1 );	
-	ComputerScreen *GetComputerScreen ( int index );
+	ComputerScreen *GetComputerScreen ( int index ) const;
 
 
 	void CheckForSecurityBreaches ();				// Call me frequently
@@ -125,11 +125,11 @@ public:
 
 	void AddToRecentHacks ( int n );				// Call when this is hacked
 	void UpdateRecentHacks ();						// Call me 4 times a month
-	int  NumRecentHacks ();
+	int  NumRecentHacks () const;
 
-    static void GenerateAccessCode( char *code, char *result, size_t resultsize );
-    static void GenerateAccessCode( char *name, char *code, char *result, size_t resultsize );
-    static void GenerateAccessCode( int accNo, char *code, char *result, size_t resultsize );
+    static void GenerateAccessCode(const string &code, string &result);
+    static void GenerateAccessCode(const string &name, const string &code, string &result);
+    static void GenerateAccessCode(int accNo, const string &code, string &result);
 
 	// Common functions
 

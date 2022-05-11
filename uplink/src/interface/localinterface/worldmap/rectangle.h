@@ -16,12 +16,12 @@ public:
     int x2() const { return x1 + width - 1; }
     int y2() const { return y1 + height - 1; }
     
-    int Min( int a, int b) const {
+    static int Min( int a, int b) {
 	if (a < b) return a; 
 	return b;
     }
     
-    int Max( int a, int b) const {
+    static int Max( int a, int b) {
 	if (a > b) return a;
 	return b;
     }

@@ -35,7 +35,7 @@ protected:
 
 public:
 
-    void Connect ();
+    static void Connect ();
 
 	bool ReturnKeyPressed () override;
 

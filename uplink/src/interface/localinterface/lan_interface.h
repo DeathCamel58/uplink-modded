@@ -101,7 +101,7 @@ public:
     ~LanInterface () override;
 
     void CreateLayout ();
-    void RemoveLayout ();
+    static void RemoveLayout ();
     void PositionLayout ();                         // Moves all buttons
 
     void SelectSystem ( int systemIndex );

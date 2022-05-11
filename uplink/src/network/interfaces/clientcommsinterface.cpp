@@ -213,14 +213,14 @@ void ClientCommsInterface::DrawAllObjects ()
     }
 }
 
-bool ClientCommsInterface::InConnection( const char *computerName )
+bool ClientCommsInterface::InConnection(const string& computerName )
 {
     for (int i = 0; i < connection.Size(); i++) {
 	
 	VLocation *vl = locations.GetData ( connection.GetData (i) );
 	UplinkAssert (vl)
 	
-	if ( strcmp ( vl->computer, computerName ) == 0 )
+	if ( vl->computer == computerName )
 	    return true;
 	
     }

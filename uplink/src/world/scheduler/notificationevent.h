@@ -55,11 +55,11 @@ protected:
 	void PayUplinkMonthlyFee ();
 	void ExpireOldStuff ();
 	void AddInterestOnLoans ();
-    void DemoGameOver ();
+    static void DemoGameOver ();
     void DemoGenerateNewMission ();
-    void BuyAgentList ();
-    void AgentsOnListDie ();
-    void WarezGameOver ();
+    static void BuyAgentList ();
+    static void AgentsOnListDie ();
+    static void WarezGameOver ();
 
 public:
 

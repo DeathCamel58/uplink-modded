@@ -51,9 +51,9 @@ public:
 	void Activate ();					// Update me
 	void DeActivate ();					// Don't update me
 
-	bool Before ( Date *date );        // true if this.date < date
-	bool After  ( Date *date );        // true if this.date > date
-	bool Equal  ( Date *date );        // true if this.date = date
+	bool Before ( Date *date ) const;        // true if this.date < date
+	bool After  ( Date *date ) const;        // true if this.date > date
+	bool Equal  ( Date *date ) const;        // true if this.date = date
 
 	void AdvanceSecond ( int n );		// These can be used
 	void AdvanceMinute ( int n );		// to subtract time
@@ -62,17 +62,17 @@ public:
 	void AdvanceMonth  ( int n );
 	void AdvanceYear   ( int n );
 
-	int GetSecond ();
-	int GetMinute ();
-	int GetHour ();
-	int GetDay ();
-	int GetMonth ();
-	int GetYear ();
+	int GetSecond () const;
+	int GetMinute () const;
+	int GetHour () const;
+	int GetDay () const;
+	int GetMonth () const;
+	int GetYear () const;
 
 	static char *GetMonthName ( int month );
 	
-	char *GetShortString ();       //  hh:mm, dd:mm:yyyy
-	char *GetLongString ();		   //  hh:mm:ss, dd:month:yyyy
+	char *GetShortString () const;       //  hh:mm, dd:mm:yyyy
+	char *GetLongString () const;		   //  hh:mm:ss, dd:month:yyyy
 
 	// Common functions
 

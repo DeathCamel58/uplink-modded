@@ -47,7 +47,7 @@ void LanGenerator::Initialise ()
 
 Computer  *LanGenerator::LoadLAN (const string &filename )
 {
-	idos2unixstream thefile(RsArchiveFileOpen ( (char *) filename.c_str()) );
+	idos2unixstream thefile(RsArchiveFileOpen ( filename ).c_str());
 
 	if ( thefile.eof() ) {
 
@@ -1990,7 +1990,7 @@ int LanCluster::AddLanLink ( int from, float fromX, float fromY,
 }
 
 bool LanCluster::VerifyLanLink ( int from, float fromX, float fromY, 
-                                 int to, float toX, float toY, int security )
+                                 int to, float toX, float toY, int security ) const
 {
 	if ( !systems.ValidIndex ( from ) || !systems.ValidIndex ( to ) ) {
 		return false;
@@ -2010,7 +2010,7 @@ bool LanCluster::VerifyLanLink ( int from, float fromX, float fromY,
 	return true;
 }
 
-void LanCluster::Rotate ( int angle )
+void LanCluster::Rotate ( int angle ) const
 {
 
     //

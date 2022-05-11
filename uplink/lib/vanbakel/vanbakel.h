@@ -33,7 +33,7 @@
 
 void SvbReset ();
 
-int  SvbRegisterTask ( char *name, Task *task );			// Returns PID
+int  SvbRegisterTask (const string &name, Task *task );			// Returns PID
 void SvbRemoveTask ( int pid );
 void SvbRemoveTask ( Task *task );
 
@@ -43,7 +43,7 @@ int  SvbNumTasks ();
 
 int  SvbLookupIndex			   ( int pid );
 Task *SvbGetTask               ( int pid );
-Task *SvbGetTask               ( char *name );
+Task *SvbGetTask               (const string &name );
 TaskWrapper *SvbGetTaskWrapper ( int pid );
 
 TaskWrapper *SvbGetTaskWrapperAtIndex ( int index );					// Careful - indexes are not constant

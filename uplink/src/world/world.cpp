@@ -87,9 +87,9 @@ World::World()
 	// Load the gateway list from a disk file
 	//
 
-	char *filename = RsArchiveFileOpen ( "data/gatewaydefs.txt" );
-	UplinkAssert (filename)
-	idos2unixstream thefile ( filename );
+	string filename = RsArchiveFileOpen ( "data/gatewaydefs.txt" );
+	UplinkAssert (!filename.empty())
+	idos2unixstream thefile ( filename.c_str() );
 	
 	char unused [256];
 	int numgateways;
@@ -330,7 +330,7 @@ Person *World::GetPerson (const string &name )
 
 }
 
-char *World::GetPassword ( int index )				
+char *World::GetPassword ( int index ) const
 {
 
 	if ( passwords.ValidIndex ( index ) )
@@ -341,7 +341,7 @@ char *World::GetPassword ( int index )
 
 }
 
-GatewayDef *World::GetGatewayDef (const string &name )
+GatewayDef *World::GetGatewayDef (const string &name ) const
 {
 
 	if ( !name.empty() ) {

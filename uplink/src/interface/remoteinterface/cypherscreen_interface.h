@@ -50,8 +50,8 @@ public:
 	CypherScreenInterface ();
 	~CypherScreenInterface () override;
 
-	int NumLocked ();								// Once they are all locked,
-	int NumUnLocked ();								// The screen can be bypassed
+	int NumLocked () const;								// Once they are all locked,
+	int NumUnLocked () const;								// The screen can be bypassed
 	bool IsLocked ( int x, int y );
 	void CypherLock ( int x, int y );
 	void CypherLock ();								// Picks an unlocked number at random and locks it

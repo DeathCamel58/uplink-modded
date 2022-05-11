@@ -26,10 +26,10 @@ public:
 	int GenerateUniqueAccountNumber ();
 
 	int CreateBankAccount ( BankAccount *newaccount );						//  These return the account 
-	int CreateBankAccount ( char *name, char *password, int security,		//	number assigned
+	int CreateBankAccount (const string &name, const string &password, int security,		//	number assigned
 							 int balance, int loan );
 
-    void CloseAccount ( int accno );
+    static void CloseAccount ( int accno );
 
 	BankAccount *GetRandomAccount ();
 

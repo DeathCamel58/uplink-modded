@@ -43,20 +43,20 @@ SeizeGatewayEvent::~SeizeGatewayEvent ()
 
 }
 
-void SeizeGatewayEvent::SetName ( char *newname )
+void SeizeGatewayEvent::SetName (const string &newname )
 {
 
-	assert( strlen(newname) < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname, sizeof ( name ) )
+	assert( newname.length() < SIZE_PERSON_NAME );
+	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
 
 }
 
-void SeizeGatewayEvent::SetReason ( char *newreason )
+void SeizeGatewayEvent::SetReason (const string &newreason )
 {
 
     delete [] reason;
-	reason = new char [strlen(newreason)+1];
-	UplinkSafeStrcpy ( reason, newreason )
+	reason = new char [newreason.length()+1];
+	UplinkSafeStrcpy ( reason, newreason.c_str() )
 
 }
 

@@ -26,18 +26,18 @@ SgPlaylist::~SgPlaylist ()
 }
 
 
-void SgPlaylist::SetName ( char *newname )
+void SgPlaylist::SetName (const string &newname )
 {
 
-    strcpy ( name, newname );
+    strcpy ( name, newname.c_str() );
 
 }
 
-void SgPlaylist::AddSong ( char *name )
+void SgPlaylist::AddSong (const string &name )
 {
 
-    char *namecopy = new char [strlen(name)+1];
-    sprintf ( namecopy, name );
+    char *namecopy = new char [name.length()+1];
+    sprintf ( namecopy, name.c_str() );
     songs.PutData(namecopy);
 
 }
@@ -57,10 +57,10 @@ char *SgPlaylist::GetRandomSong ()
 
 }
 
-char *SgPlaylist::GetRandomSong ( char *oldsong )
+char *SgPlaylist::GetRandomSong (const string &oldsong )
 {
 
-    if ( !oldsong ) {
+    if ( oldsong.empty() ) {
 
         return GetRandomSong ();
 
@@ -73,7 +73,7 @@ char *SgPlaylist::GetRandomSong ( char *oldsong )
     else {
 
         char *candidate = GetRandomSong ();
-        while ( strcmp ( candidate, oldsong ) == 0 )
+        while ( candidate == oldsong )
             candidate = GetRandomSong ();
 
         return candidate;

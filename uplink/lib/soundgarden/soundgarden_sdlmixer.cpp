@@ -22,6 +22,8 @@
 
 #include "mmgr.h"
 
+using namespace std;
+
 static Mix_Music *currentmod = nullptr;
 static BTree <Mix_Chunk *> cache;					// Stores sounds already loaded
 
@@ -155,13 +157,13 @@ void SgShutdown()
   Mix_CloseAudio();
 }
 
-void SgPlaySound ( char *fullfilename, char *id, bool synchronised )
+void SgPlaySound (const string &fullfilename, const string &id, bool synchronised )
 {
   if (!SgInitialised)
     return;
 
   Mix_Chunk *sample = nullptr;
-  char *sampleid = id ? id : fullfilename;
+  string sampleid = !id.empty() ? id : fullfilename;
 
   if ( cache.LookupTree ( sampleid ) ) {
 
@@ -182,7 +184,7 @@ void SgPlaySound ( char *fullfilename, char *id, bool synchronised )
 
     // Load sample and place into cache
 
-    sample = Mix_LoadWAV( fullfilename );
+    sample = Mix_LoadWAV( fullfilename.c_str() );
     if ( !sample ) {
       SgDebugPrintf ( "SoundGarden WARNING : Failed to load sound file %s\n (%s)", fullfilename, Mix_GetError() );
       return;
@@ -205,7 +207,7 @@ static int musicVol()
 	return (int) ( playerVolume / 20.0 * ( MIX_MAX_VOLUME / 1.5 ) );
 }
 
-void SgPlayMod ( char *fullfilename )
+void SgPlayMod (const string &fullfilename )
 {
 
   if (!SgInitialised)
@@ -213,7 +215,7 @@ void SgPlayMod ( char *fullfilename )
 
   SgStopMod ();
 
-  currentmod=Mix_LoadMUS(fullfilename);
+  currentmod=Mix_LoadMUS(fullfilename.c_str());
 
   /* didn't work -> exit with errormsg. */
 

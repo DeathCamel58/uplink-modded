@@ -325,21 +325,21 @@ void Gateway::GiveHUDUpgrade ( char upgrade )
 
 }
 
-bool Gateway::HasHUDUpgrade ( char upgrade )
+bool Gateway::HasHUDUpgrade ( char upgrade ) const
 {
 
 	return ( hudupgrades & upgrade );
 
 }
 
-char Gateway::GetHudUpgrades ()
+char Gateway::GetHudUpgrades () const
 {
 
 	return hudupgrades;
 
 }
 
-bool Gateway::HasAnyHUDUpgrade ()
+bool Gateway::HasAnyHUDUpgrade () const
 {
 
 	return ( hudupgrades != 0 );
@@ -454,7 +454,7 @@ LList <char *> *Gateway::GetCPUs ()
 
 }
 
-int Gateway::GetBandwidth ()
+int Gateway::GetBandwidth () const
 {
 
 	GatewayDef *gatewaydef = curgatewaydef;

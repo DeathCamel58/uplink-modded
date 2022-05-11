@@ -34,12 +34,12 @@ public:
     SgPlaylist ();
     ~SgPlaylist ();
 
-    void SetName ( char *newname );
-    void AddSong ( char *name );
+    void SetName (const string &newname );
+    void AddSong (const string &name );
 
     int NumSongs ();
     char *GetRandomSong ();
-    char *GetRandomSong ( char *oldsong );                      // Any song but not the old one
+    char *GetRandomSong (const string &oldsong );                      // Any song but not the old one
                                                                 // Warning - infinite loop if all songs have same name
 };
 

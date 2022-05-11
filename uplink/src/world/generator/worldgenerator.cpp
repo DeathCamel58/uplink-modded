@@ -501,9 +501,9 @@ void WorldGenerator::LoadDynamicsGatewayDefs ()
         if ( extraGateways->ValidIndex(j) ) {
 
             char *gatewayFilename = extraGateways->GetData(j);
-	        char *rsFilename = RsArchiveFileOpen ( gatewayFilename );
-	        UplinkAssert (rsFilename)
-	        idos2unixstream thisFile ( rsFilename );
+	        string rsFilename = RsArchiveFileOpen ( gatewayFilename );
+	        UplinkAssert (!rsFilename.empty())
+	        idos2unixstream thisFile ( rsFilename.c_str() );
 
             auto *def = new GatewayDef ();
             def->LoadGatewayDefinition ( thisFile );
@@ -3224,7 +3224,7 @@ Computer *WorldGenerator::GenerateCentralMainframe (const string &companyname )
 
 		int TYPE = NumberGenerator::RandomNumber ( 2 ) + 1;
 		int size = (int) NumberGenerator::RandomNormalNumber ( 6, 4 );
-		int encrypted = (int) NumberGenerator::RandomNumber ( 2 );
+		int encrypted = NumberGenerator::RandomNumber(2);
 		int compressed = NumberGenerator::RandomNumber ( 2 );
 		char *datatitle = NameGenerator::GenerateDataName ( companyname, TYPE );
 
@@ -3681,12 +3681,7 @@ Person *WorldGenerator::GeneratePerson ()
 {
 
 	//char *name = strdup( NameGenerator::GeneratePersonName () );
-	char name[MAX_PERSONNAME];
-	strncpy( name, NameGenerator::GeneratePersonName(),
-		     MAX_PERSONNAME );
-	if ( name[MAX_PERSONNAME - 1] != '\0' ) {
-		name[MAX_PERSONNAME - 1] = '\0';
-	}
+	string name = NameGenerator::GeneratePersonName();
 
 	Computer *comp = GeneratePersonalComputer ( name );
 	UplinkAssert (comp)
@@ -3728,11 +3723,8 @@ Person *WorldGenerator::GeneratePerson ()
 Agent *WorldGenerator::GenerateAgent ()
 {
 
-	char name [SIZE_PERSON_NAME];
-	char handle [SIZE_AGENT_HANDLE];
-
-    UplinkStrncpy ( name, NameGenerator::GeneratePersonName (), sizeof ( name ) )
-    UplinkStrncpy ( handle, NameGenerator::GenerateAgentAlias (), sizeof ( handle ) )
+	string name = NameGenerator::GeneratePersonName();
+	string handle = NameGenerator::GenerateAgentAlias();
 
 	Computer *comp = GeneratePersonalComputer ( name );
 	UplinkAssert (comp)
@@ -4042,7 +4034,7 @@ Person *WorldGenerator::GetRandomPerson ()
 
 	    int index = NumberGenerator::RandomNumber ( validPeople.Size () );
 		UplinkAssert ( validPeople.ValidIndex (index) )
-        return (Person *) validPeople.GetData ( index );
+        return validPeople.GetData(index);
 
     }
 

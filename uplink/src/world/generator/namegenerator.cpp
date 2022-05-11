@@ -218,7 +218,7 @@ char *NameGenerator::GenerateCompanyName ()
 
 }
 
-char *NameGenerator::GeneratePersonName ()
+string NameGenerator::GeneratePersonName ()
 {
 
 	LoadNames ();								// Won't do anything if names exist

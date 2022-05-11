@@ -178,8 +178,7 @@ void ThemeInterface::ThemeNameClick ( Button *button )
     for ( int i = 0; i < themes->Size(); ++i ) {
         if ( themes->ValidIndex (i) ) {
 
-            char bname [64];
-            UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i )
+            string bname = "theme " + to_string( i );
             EclDirtyButton ( bname );
 
         }
@@ -220,8 +219,7 @@ void ThemeInterface::Create ()
             if ( themes->ValidIndex (i) ) {
 
                 char *themeName = themes->GetData(i);
-                char bname [64];
-                UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i )
+                string bname = "theme " + to_string( i );
                 EclRegisterButton ( screenw - 210, screenh - 40, 200, 15, themeName, "Select this theme", bname );
                 EclRegisterButtonCallbacks ( bname, ThemeNameDraw, ThemeNameClick, button_click, button_highlight );
                 EclRegisterMovement ( bname, screenw - 210, ypos, 500 );
@@ -290,8 +288,7 @@ void ThemeInterface::Remove ()
             for ( int i = 0; i < themes->Size(); ++i ) {
                 if ( themes->ValidIndex(i) ) {
             
-                    char bname [64];
-                    UplinkSnprintf ( bname, sizeof ( bname ), "theme %d", i )
+                    string bname = "theme " + to_string( i );
                     EclRemoveButton ( bname );
 
                 }
