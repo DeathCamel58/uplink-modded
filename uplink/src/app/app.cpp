@@ -13,6 +13,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <dirent.h>
+
+#include <utility>
 #endif
 
 #include "gucci.h"
@@ -50,11 +52,11 @@ App :: App ()
 
     path = "c:/";
     userpath = path;
-    UplinkStrncpy ( version, "1.31c", sizeof ( version ) )
-    UplinkStrncpy ( type, "RELEASE", sizeof ( type ) )
-    UplinkStrncpy ( date, "01/01/97", sizeof ( date ) )
-    UplinkStrncpy ( title, "NewApp", sizeof ( title ) )
-    UplinkStrncpy ( release, "Version 1.0 (RELEASE), Compiled on 01/01/97", sizeof ( release ) )
+    version = "1.31c";
+    type = "RELEASE";
+    date = "01/01/97";
+    title = "NewApp";
+    release = "Version 1.0 (RELEASE), Compiled on 01/01/97";
 
     starttime = 0;
 
@@ -103,21 +105,15 @@ void App :: Initialise ()
 
 }
 
-void App :: Set ( char *newpath, char *newversion, char *newtype, char *newdate, char *newtitle )
+void App :: Set (string newpath, string newversion, string newtype, string newdate, string newtitle )
 {
-                
-	assert( strlen ( newpath ) < SIZE_APP_PATH );
-	assert( strlen ( newversion ) < SIZE_APP_VERSION );
-	assert( strlen ( newtype ) < SIZE_APP_TYPE );
-	assert( strlen ( newdate ) < SIZE_APP_DATE );
-	assert( strlen ( newtitle ) < SIZE_APP_TITLE );
 
-    path = newpath;
-    UplinkStrncpy ( version, newversion, sizeof ( version ) )
-    UplinkStrncpy ( type, newtype, sizeof ( type ) )
-    UplinkStrncpy ( date, newdate, sizeof ( date ) )
-    UplinkStrncpy ( title, newtitle, sizeof ( title ) )
-    UplinkSnprintf ( release, sizeof ( release ), "Version %s (%s)\nCompiled on %s\n", version, type, date )
+    path = std::move(newpath);
+    version = std::move(newversion);
+    type = std::move(newtype);
+    date = std::move(newdate);
+    title = std::move(newtitle);
+    release = "Version " + version + " (" + type + ")\nCompiled on " + date + "\n";
 
 #ifdef WIN32
 	// Under Windows, the user-path is %app-path%/users

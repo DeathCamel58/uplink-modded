@@ -914,8 +914,8 @@ bool UplinkIRCMonitor::Received_PRIVMSG (const CIrcMessage* pmsg)
         else if ( version )
         {
             char reply[512];
-            UplinkIntSnprintf ( reply, sizeof ( reply ), "NOTICE %s: %s :%cVERSION UplinkIRC v%s%c", 
-                            IRCInterface::cIrcSession->GetInfo().sNick.c_str(), (char *) pmsg->prefix.sNick.c_str(), '\x1', app->version, '\x1' );
+            UplinkIntSnprintf ( reply, sizeof ( reply ), "NOTICE %s: %s :%cVERSION UplinkIRC v%s%c",
+                            IRCInterface::cIrcSession->GetInfo().sNick.c_str(), (char *) pmsg->prefix.sNick.c_str(), '\x1', app->version.c_str(), '\x1' );
 			reply [ sizeof ( reply ) - 1 ] = '\0';
             (*IRCInterface::cIrcSession) << reply;
         }
@@ -932,7 +932,7 @@ bool UplinkIRCMonitor::Received_PRIVMSG (const CIrcMessage* pmsg)
             char reply[512];
             UplinkIntSnprintf ( reply, sizeof ( reply ), "NOTICE %s: %s :%cFINGER %s running UplinkIRC v%s, www.introversion.co.uk%c", 
                             IRCInterface::cIrcSession->GetInfo().sNick.c_str(), (char *) pmsg->prefix.sNick.c_str(), 
-                            '\x1', IRCInterface::cIrcSession->GetInfo().sNick.c_str(), app->version, '\x1' );
+                            '\x1', IRCInterface::cIrcSession->GetInfo().sNick.c_str(), app->version.c_str(), '\x1' );
 			reply [ sizeof ( reply ) - 1 ] = '\0';
             (*IRCInterface::cIrcSession) << reply;
         }

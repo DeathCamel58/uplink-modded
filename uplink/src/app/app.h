@@ -40,11 +40,11 @@ public :
     string userpath;
     string usertmppath; // Used by the crash reporter to store the current .usr
     string userretirepath; // Used to store old agents ( .usr / .tmp )
-    char version [SIZE_APP_VERSION];
-    char type    [SIZE_APP_TYPE];
-    char date    [SIZE_APP_DATE];
-    char title   [SIZE_APP_TITLE];
-    char release [SIZE_APP_RELEASE];          
+    string version;
+    string type;
+    string date;
+    string title;
+    string release;
 
     int starttime;
     bool closed;
@@ -63,8 +63,8 @@ public:
     App ();
     ~App () override;
     
-    void Set ( char *newpath, char *newversion, char *newtype,
-			   char *newdate, char *newtitle );
+    void Set (string newpath, string newversion, string newtype,
+              string newdate, string newtitle );
     
 	void Initialise ();	
 	void Close ();			// Shuts down the app	

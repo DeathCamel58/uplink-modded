@@ -34,7 +34,7 @@ public:
 	virtual string GetID ();						// You must provide this
 	virtual int   GetOBJECTID ();				// Neccisary if this is used in a Tosser structure
 
-	char *GetID_END ();							//
+	string GetID_END ();							//
 	void LoadID ( FILE *file );					// Used to ensure
 	void SaveID ( FILE *file );					// VERY safe loading
 	void LoadID_END ( FILE *file );				// of save game files		

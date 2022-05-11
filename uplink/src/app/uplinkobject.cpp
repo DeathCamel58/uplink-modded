@@ -50,12 +50,10 @@ string UplinkObject::GetID ()
 	return "UOBJ";
 }
 
-char *UplinkObject::GetID_END ()
+string UplinkObject::GetID_END ()
 {
 
-	size_t id_endsize = SIZE_SAVEID_END;
-	char *id_end = new char [id_endsize];
-	UplinkSnprintf ( id_end, id_endsize, "%s_END", GetID () )
+	string id_end = GetID() + "_END";
 	return id_end;
 
 }

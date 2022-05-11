@@ -78,7 +78,7 @@
 void RunUplink ( int argc, char **argv );
 int RunUplinkExceptionHandling ();
 
-void Init_App      ( char *apppath );
+void Init_App      ( char *argv0 );
 void Init_Options  ( int argc, char **argv );
 
 bool Load_Data	   ();
