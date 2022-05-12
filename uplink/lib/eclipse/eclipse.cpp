@@ -1442,33 +1442,33 @@ double EclGetAccurateTime ()
 void EclDebugPrint ()
 {
 
-	printf ( "====================== E C L I P S E =======================\n" );
+	cout << "====================== E C L I P S E =======================" << endl;
 
-	printf ( "BUTTONS : \n" );
+	cout << "BUTTONS : " << endl;
 	for ( int bi = 0; bi < buttons.Size (); ++bi )
 		buttons.GetData (bi)->DebugPrint ();		
 
-	printf ( "Current Highlight = %s\n", currenthighlight.c_str() );
-	printf ( "Current Click     = %s\n", currentclick.c_str() );
+	cout << "Current Highlight = " << currenthighlight << endl;
+	cout << "Current Click     = " << currentclick << endl;
 
-	printf ( "ANIMATIONS : \n" );
-	if ( animsenabled )  printf ( "Animations are ENABLED\n" );
-	else				 printf ( "Animations are DISABLED\n" );
+	cout << "ANIMATIONS : " << endl;
+	if ( animsenabled )  cout << "Animations are ENABLED" << endl;
+	else				 cout << "Animations are DISABLED" << endl;
 
-	if ( animsfasterenabled )  printf ( "Faster Animations are ENABLED\n" );
-	else                       printf ( "Faster Animations are DISABLED\n" );
+	if ( animsfasterenabled )  cout << "Faster Animations are ENABLED" << endl;
+	else                       cout << "Faster Animations are DISABLED" << endl;
 
 	for ( int ai = 0; ai < anims.Size (); ++ai ) 
 		if ( anims.ValidIndex (ai) )
 			anims.GetData (ai)->DebugPrint ();
 
-	printf ( "EDITABLE BUTTONS : \n" );
+	cout << "EDITABLE BUTTONS : " << endl;
 	
 	for ( int eb = 0; eb < editablebuttons.Size (); ++eb )
 		if ( editablebuttons.ValidIndex (eb) )
 		    cout << editablebuttons.GetData(eb) << endl;
 
-	printf ( "================ E N D  O F  E C L I P S E =================\n" );
+	cout << "================ E N D  O F  E C L I P S E =================" << endl;
 
 }
 

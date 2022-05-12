@@ -16,11 +16,11 @@ Animation::~Animation()
 void Animation::DebugPrint () const
 {
 
-	printf ( "ANIMATION : buttonname:'%s'\n", buttonname );
-	printf ( "			  sX:%d, sY:%d, tX:%d, tY:%d, dX:%f, dY:%f\n", sourceX, sourceY, targetX, targetY, dX, dY );
-	printf ( "		      sW:%d, sH:%d, tW:%d, tH:%d, dH:%f, dW:%f\n", sourceW, sourceH, targetW, targetH, dH, dW );
-	printf ( "		      target caption : '%s', dC:%f\n", targetC, dC );
-	printf ( "			  time:%d, starttime:%d, finishtime:%d, MOVETYPE:%d\n", time, starttime, finishtime, MOVETYPE );
+	cout << "ANIMATION : buttonname:'" << buttonname << "'" << endl;
+	cout << "			  sX:" << sourceX << ", sY:" << sourceY << ", tX:" << targetX << ", tY:" << targetY << ", dX:" << dX << ", dY:" << dY << endl;
+	cout << "		      sW:" << sourceW << ", sH:" << sourceH << ", tW:" << targetW << ", tH:" << targetH << ", dH:" << dH << ", dW:" << dW << endl;
+	cout << "		      target caption : '" << targetC << "', dC:" << dC << endl;
+	cout << "			  time:" << time << ", starttime:" << starttime << ", finishtime:" << finishtime << ", MOVETYPE:" << MOVETYPE << endl;
 
 }
 

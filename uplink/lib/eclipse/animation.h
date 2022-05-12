@@ -19,7 +19,7 @@ public:
 	int targetX, targetY;      // Where the button should end up
 	float dX, dY;              // Amount to move for every time interval
 
-	int sourceW, sourceH;      // Origional size of button
+	int sourceW, sourceH;      // Original size of button
 	int targetW, targetH;      // Target size of button
 	float dW, dH;              // Amount to resize for every time interval
 

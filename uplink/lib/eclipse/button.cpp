@@ -178,8 +178,8 @@ void Button::MouseMove ()
 void Button::DebugPrint () const
 {
 
-	printf ( "BUTTON : name:'%s', x:%d, y:%d, width:%d, height:%d\n", name.c_str(), x, y, width, height );
-	printf ( "         caption:'%s', tooltip:'%s'\n", caption.c_str(), tooltip.c_str() );
+	cout << "BUTTON : name:'" << name << "', x:" << x << ", y:" << y << ", width:" << width << ", height:" << height << endl;
+	cout << "         caption:'" << caption << "', tooltip:'" << tooltip << "'" << endl;
 
 }
 
