@@ -2475,13 +2475,11 @@ void WorldGenerator::GenerateOCP ()
 
 	// Generate contact addresses for this company
 
-	char contactcomputer [SIZE_COMPUTER_NAME];
-	UplinkStrncpy ( contactcomputer, "OCP remote monitoring system", sizeof ( contactcomputer ) )
+	string contactcomputer = "OCP remote monitoring system";
 	Computer *contact = game->GetWorld ()->GetComputer ( contactcomputer );
 	UplinkAssert (contact)
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkStrncpy ( personname, "internal@OCP.net", sizeof ( personname ) )
+	string personname = "internal@OCP.net";
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, contact->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2532,13 +2530,11 @@ void WorldGenerator::GenerateSJGames ()
 
 	// Generate contact addresses for this company
 
-	char contactcomputer [SIZE_COMPUTER_NAME];
-	UplinkStrncpy ( contactcomputer, "Steve Jackson Games Server", sizeof ( contactcomputer ) )
+	string contactcomputer = "Steve Jackson Games Server";
 	Computer *contact = game->GetWorld ()->GetComputer ( contactcomputer );
 	UplinkAssert (contact)
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkStrncpy ( personname, "internal@Steve Jackson Games.net", sizeof ( personname ) )
+	string personname = "internal@Steve Jackson Games.net";
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, contact->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2715,13 +2711,11 @@ void WorldGenerator::GenerateIntroversion ()
 
 	// Generate contact addresses for this company
 
-	char contactcomputer [SIZE_COMPUTER_NAME];
-	UplinkStrncpy ( contactcomputer, "Introversion Software", sizeof ( contactcomputer ) )
+	string contactcomputer = "Introversion Software";
 	Computer *contact = game->GetWorld ()->GetComputer ( contactcomputer );
 	UplinkAssert (contact)
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkStrncpy ( personname, "internal@Introversion Software.net", sizeof ( personname ) )
+	string personname = "internal@Introversion Software.net";
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, contact->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2733,8 +2727,7 @@ VLocation *WorldGenerator::GenerateLocation ()
 	int x, y;
 	GenerateValidMapPos ( x, y );
 
-	char ip [SIZE_VLOCATION_IP];
-	UplinkSnprintf ( ip, sizeof ( ip ), "%d.%d.%d.%d", NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000), NumberGenerator::RandomNumber (1000) )
+	string ip = to_string(NumberGenerator::RandomNumber (1000)) + "." + to_string(NumberGenerator::RandomNumber (1000)) + "." + to_string(NumberGenerator::RandomNumber (1000)) + "." + to_string(NumberGenerator::RandomNumber (1000)) + "";
 
 	auto *vl = new VLocation ();
 	vl->SetPLocation ( x, y );
@@ -2773,8 +2766,7 @@ Company *WorldGenerator::GenerateCompany (const string &companyname, int size, i
 	Computer *comp = game->GetWorld ()->GetComputer ( contactcomputer );
 	UplinkAssert (comp)
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", companyname.c_str() )
+	string personname = "internal@" + companyname + ".net";
 	Person *pinternal = game->GetWorld ()->CreatePerson ( personname, comp->ip );
 	pinternal->SetIsTargetable ( false );
 
@@ -2790,8 +2782,7 @@ Company *WorldGenerator::GenerateCompany ()
 {
 
 	// Generate the company
-	char companyname [SIZE_COMPANY_NAME];
-	UplinkStrncpy ( companyname, NameGenerator::GenerateCompanyName (), sizeof ( companyname ) )
+	string companyname = NameGenerator::GenerateCompanyName ();
 
 	int size      = (int) NumberGenerator::RandomNormalNumber ( COMPANYSIZE_AVERAGE,      COMPANYSIZE_RANGE );
 	int growth    = (int) NumberGenerator::RandomNormalNumber ( COMPANYGROWTH_AVERAGE,    COMPANYGROWTH_RANGE );
@@ -2806,8 +2797,7 @@ Company *WorldGenerator::GenerateCompany ()
 Company *WorldGenerator::GenerateCompany_Bank ()
 {
 
-	char companyname [SIZE_COMPANY_NAME];
-    UplinkStrncpy ( companyname, NameGenerator::GenerateBankName (), sizeof ( companyname ) )
+	string companyname = NameGenerator::GenerateBankName ();
 
 	int size      = (int) NumberGenerator::RandomNormalNumber ( 4, 4 );
 	int growth    = (int) NumberGenerator::RandomNormalNumber ( 10, 20 );

@@ -19,8 +19,8 @@ protected:
 
 	int status;
 	int currentindex;
-	char *username;
-	char *password;
+	string username;
+	string password;
 
 	float numticksrequired;
 	int progress;

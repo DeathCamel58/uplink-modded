@@ -71,8 +71,7 @@ void Revelation::Tick ( int n )
 
 			for ( int i = 0; i < numcopies; ++i ) {
 	    
-				char bname [64];
-				UplinkSnprintf ( bname, sizeof ( bname ), "revelation %d %d %d", pid, nextnumber, i )
+				string bname = "revelation " + to_string(pid) + " " + to_string(nextnumber) + " " + to_string(i);
 
 				// Remove existing
 
@@ -91,11 +90,10 @@ void Revelation::Tick ( int n )
 
 				// Play sound
 
-				char filename [256];
 				int soundindex = captionIndex;
 				if ( soundindex > 9 ) soundindex = 9;
 				if ( soundindex < 1 ) soundindex = 1;
-				UplinkSnprintf ( filename, sizeof ( filename ), "sounds/%d.wav", soundindex )
+				string filename = "sounds/" + to_string(soundindex) + ".wav";
 				SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );
 
 
@@ -188,8 +186,7 @@ void Revelation::RemoveInterface ()
         for ( int i = 0; i < numcopies; ++i ) {
             for ( int j = 0; j < 40; ++j ) {
 
-                char bname [64];
-                UplinkSnprintf ( bname, sizeof ( bname ), "revelation %d %d %d", pid, j, i )
+                string bname = "revelation " + to_string(pid) + " " + to_string(j) + " " + to_string(i);
                 EclRemoveButton ( bname );
 
             }
@@ -209,8 +206,7 @@ bool Revelation::IsInterfaceVisible ()
 {
 
     int pid = SvbLookupPID (this);
-    char bname [64];
-    UplinkSnprintf ( bname, sizeof ( bname ), "revelation %d %d %d", pid, 0, 0 )
+    string bname = "revelation " + to_string(pid) +" 0 0";
 
 	return ( EclGetButton ( bname ) != nullptr );
 

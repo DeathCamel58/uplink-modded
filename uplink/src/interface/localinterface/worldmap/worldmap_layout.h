@@ -53,7 +53,7 @@ public:
 			   const char *newCaption);
     ~WorldMapInterfaceLabel() override;
     
-    void SetCaption (const string newcaption );
+    void SetCaption (const string& newcaption );
     void SetLabelPosition(int n);
     void SetRandomLabelPosition();
 

@@ -96,10 +96,10 @@ protected:
     static float scrollY;
     static float zoom;
 
-    void ScrollX ( float x );
-    void ScrollY ( float y );
-    void SetZoom ( float z );
-    void ChangeZoom ( float z );
+    static void ScrollX ( float x );
+    static void ScrollY ( float y );
+    static void SetZoom ( float z );
+    static void ChangeZoom ( float z );
 
 public:
 

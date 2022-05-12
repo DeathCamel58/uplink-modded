@@ -34,7 +34,7 @@ protected:
 
     static void GatewayPictureDraw ( Button *button, bool highlighted, bool clicked );
 
-    static void ScrollChange ( char *scrollname, int newIndex );
+    static void ScrollChange (const string &scrollname, int newIndex );
 
 protected:
 

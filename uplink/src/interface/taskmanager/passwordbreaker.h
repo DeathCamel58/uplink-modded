@@ -15,9 +15,9 @@ class PasswordBreaker : public UplinkTask
 protected:
 
 	int length, difficulty, currentchar;
-	char *caption;
-	char *username;
-	char *password;
+	string caption;
+	string username;
+	string password;
 	bool *found;
 
 	int numticksrequired;						// For next letter

@@ -191,7 +191,7 @@ void WorldMapInterfaceLabel::CalculatePossibleLabelPositions( const MapRectangle
     }
 }
 
-void WorldMapInterfaceLabel::SetCaption (const string newcaption )
+void WorldMapInterfaceLabel::SetCaption (const string& newcaption )
 {
     caption = newcaption;
     CalculateWidth();
@@ -250,7 +250,7 @@ void WorldMapInterfaceLabel::Draw ( int xOffset, int yOffset, float zoom )
 
 MapRectangle WorldMapInterfaceLabel::GetExtent () const
 {    
-    return MapRectangle(x, y, labelWidth, 13);
+    return {x, y, labelWidth, 13};
 }
 
 void WorldMapInterfaceLabel::CalculateWidth()

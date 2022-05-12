@@ -56,9 +56,6 @@ PasswordBreaker::PasswordBreaker () : UplinkTask ()
 PasswordBreaker::~PasswordBreaker()
 {
 
-	delete [] caption;
-	delete [] username;
-	delete [] password;
 	delete [] found;
 
 }
@@ -66,10 +63,7 @@ PasswordBreaker::~PasswordBreaker()
 void PasswordBreaker::Initialise ()
 {
 
-	delete [] caption;
-	size_t captionsize = 32;
-	caption = new char [captionsize];
-	UplinkStrncpy ( caption, "Select target", captionsize )
+	caption = "Select target";
 
 }
 
@@ -103,14 +97,11 @@ void PasswordBreaker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 
 		length = (int) strlen ( ps->password );
 		difficulty = ps->difficulty;
-		
-		delete [] password;
-		size_t passwordsize = length+1;
-		password = new char [passwordsize];
-		UplinkStrncpy ( password, ps->password, passwordsize )
 
-		delete [] username;
-		username = nullptr;
+		size_t passwordsize = length+1;
+		password = ps->password;
+
+		username = "";
 
 	}
 	else if ( uo->GetOBJECTID () == OID_USERIDSCREEN ) {
@@ -123,11 +114,9 @@ void PasswordBreaker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 		UplinkAssert ( EclGetButton ( "useridscreen_name" ) )
 		if ( EclGetButton ( "useridscreen_name" )->caption.empty() )
 			EclGetButton ( "useridscreen_name" )->SetCaption ( "admin" );
-				
-		delete [] username;
+
 		string name = EclGetButton ( "useridscreen_name" )->caption;
-		username = new char [name.length()+1];
-		UplinkSafeStrcpy ( username, name.c_str() )
+		username = name;
 
 		// Look up the user name in this computer's records
 				
@@ -152,11 +141,8 @@ void PasswordBreaker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 			difficulty = (int) ( HACKDIFFICULTY_SECURITYMODIFIER [security] * uid->difficulty );
 
 			length = (int) strlen ( passwd );
-			
-			delete [] password;
-			size_t passwordsize = length+1;
-			password = new char [passwordsize];
-			UplinkStrncpy ( password, passwd, passwordsize )
+
+			password = passwd;
 						
 		}
 		else {
@@ -177,31 +163,26 @@ void PasswordBreaker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 
 	// Set up the password breaker to work with this new data
 
-	delete [] caption;
 	size_t captionsize = length+1;
-	caption = new char [captionsize];
 	delete [] found;
 	found = new bool [length];
 
-	UplinkStrncpy ( caption, "", captionsize )
+	caption = "";
 	for ( int i = 0; i < length; ++i ) {
-		UplinkStrncat ( caption, captionsize, "x" )
+		caption += "x";
 		found [i] = false;
 	}
 
     int pid = SvbLookupPID (this);
 
-	char buttonname [64];
-	UplinkSnprintf ( buttonname, sizeof ( buttonname ), "passwordbreaker %d", pid )
+	string buttonname = "passwordbreaker " + to_string( pid );
 	EclGetButton ( buttonname )->width = length * 26;
 
-	char closename [64];
-	UplinkSnprintf ( closename, sizeof ( closename ), "passwordbreaker_close %d", pid )
-	EclGetButton ( closename )->x = EclGetButton(buttonname)->x + (length * 26) - 13;
+    string closename = "passwordbreaker_close " + to_string( pid );
+    EclGetButton ( closename )->x = EclGetButton(buttonname)->x + (length * 26) - 13;
     EclDirtyButton ( closename );
 
-    char fillname [64];
-    UplinkSnprintf ( fillname, sizeof ( fillname ), "passwordbreaker_fill %d", pid )
+    string fillname = "passwordbreaker_fill " + to_string( pid );
     EclGetButton ( fillname )->width = (length * 26) - 14;
     EclDirtyButton ( fillname );
 
@@ -274,8 +255,7 @@ void PasswordBreaker::Tick ( int n )
 						caption [i] = alphabet [ int ( 26 * ( (float) rand () / (float) RAND_MAX ) ) ];
 					
 					if ( IsInterfaceVisible () ) {
-						char buttonname [64];
-						UplinkSnprintf ( buttonname, sizeof ( buttonname ), "passwordbreaker %d", SvbLookupPID (this) )
+						string buttonname = "passwordbreaker " + to_string( SvbLookupPID (this) );
 						EclGetButton ( buttonname )->SetCaption ( caption );
 						GciPostRedisplay ();
 					}
@@ -291,7 +271,7 @@ void PasswordBreaker::Tick ( int n )
 					// Give the code to the player
 
 					string newcode;
-                    if ( username ) Computer::GenerateAccessCode(username, password, newcode);
+                    if ( !username.empty() ) Computer::GenerateAccessCode(username, password, newcode);
                     else Computer::GenerateAccessCode(password, newcode);
 					game->GetWorld ()->GetPlayer ()->GiveCode ( game->GetWorld ()->GetPlayer ()->remotehost, newcode );				
 
@@ -353,8 +333,7 @@ void PasswordBreaker::PasswordDraw ( Button *button, bool highlighted, bool clic
 	if ( button->caption != "Select target" ) {
 
 		for ( size_t i = 0; i < button->caption.length(); ++i ) {
-			char caption [2];
-			UplinkSnprintf ( caption, sizeof ( caption ), "%c", button->caption [i] )
+			string caption = to_string( button->caption [i] );
 			GciDrawText ( (int) ( xpos + i * 25 ), ypos, caption, BITMAP_15 );
 		}
 
@@ -413,18 +392,15 @@ void PasswordBreaker::CreateInterface ()
 
 		int pid = SvbLookupPID (this);
 
-        char buttonname [64];
-		UplinkSnprintf ( buttonname, sizeof ( buttonname ), "passwordbreaker %d", pid )
+        string buttonname = "passwordbreaker " + to_string( pid );
 		EclRegisterButton ( 245, 375, 130, 30, caption, "Password Breaker", buttonname );
 		EclRegisterButtonCallbacks ( buttonname, PasswordDraw, PasswordClick, button_click, button_highlight );
 
-        char fillname [64];
-        UplinkSnprintf ( fillname, sizeof ( fillname ), "passwordbreaker_fill %d", pid )
+        string fillname = "passwordbreaker_fill " + to_string( pid );
         EclRegisterButton ( 245, 360, 116, 15, "Password Breaker", "", fillname );
         EclRegisterButtonCallbacks ( fillname, button_draw, nullptr, nullptr, nullptr );
 
-		char closename [64];
-		UplinkSnprintf ( closename, sizeof ( closename ), "passwordbreaker_close %d", pid )
+		string closename = "passwordbreaker_close " + to_string( pid );
     	EclRegisterButton ( 362, 361, 13, 13, "X", "Close the password breaker", closename );
 		button_assignbitmaps ( closename, "close.tif", "close_h.tif", "close_c.tif" );
 		EclRegisterButtonCallback ( closename, CloseClick );
@@ -440,16 +416,13 @@ void PasswordBreaker::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char buttonname [64];
-		UplinkSnprintf ( buttonname, sizeof ( buttonname ), "passwordbreaker %d", pid )
+		string buttonname = "passwordbreaker " + to_string( pid );
 		EclRemoveButton ( buttonname );
 
-		char closename [64];
-		UplinkSnprintf ( closename, sizeof ( closename ), "passwordbreaker_close %d", pid )
+		string closename = "passwordbreaker_close " + to_string( pid );
 		EclRemoveButton ( closename );
 
-        char fillname [64];
-        UplinkSnprintf ( fillname, sizeof ( fillname ), "passwordbreaker_fill %d", pid )
+        string fillname = "passwordbreaker_fill " + to_string( pid );
         EclRemoveButton ( fillname );
 
 	}
@@ -463,16 +436,13 @@ void PasswordBreaker::ShowInterface ()
 
 	int pid = SvbLookupPID (this);
 
-	char buttonname [64];
-    UplinkSnprintf ( buttonname, sizeof ( buttonname ), "passwordbreaker %d", pid )
+	string buttonname = "passwordbreaker " + to_string( pid );
 	EclButtonBringToFront ( buttonname );
 
-	char closename [64];
-	UplinkSnprintf ( closename, sizeof ( closename ), "passwordbreaker_close %d", pid )
+	string closename = "passwordbreaker_close " + to_string( pid );
 	EclButtonBringToFront ( closename );
 
-    char fillname [64];
-    UplinkSnprintf ( fillname, sizeof ( fillname ), "passwordbreaker_fill %d", pid )
+    string fillname = "passwordbreaker_fill " + to_string( pid );
     EclButtonBringToFront ( fillname );
 
 }
@@ -480,8 +450,7 @@ void PasswordBreaker::ShowInterface ()
 bool PasswordBreaker::IsInterfaceVisible ()
 {
 	
-	char buttonname [64];
-	UplinkSnprintf ( buttonname, sizeof ( buttonname ), "passwordbreaker %d", SvbLookupPID (this) )
+	string buttonname = "passwordbreaker " + to_string( SvbLookupPID (this) );
 
 	return ( EclGetButton ( buttonname ) != nullptr );
 

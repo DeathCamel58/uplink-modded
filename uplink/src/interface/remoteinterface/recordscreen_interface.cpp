@@ -68,11 +68,8 @@ void RecordScreenInterface::CommitClick ( Button *button )
 
 	while ( true ) {
 		
-		char bname_title [64];
-		char bname_value [128];
-
-		UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", i )
-		UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", i )
+		string bname_title = "recordscreen_title " + to_string(i);
+        string bname_value = "recordscreen_value " + to_string(i);
 
 		Button *title = EclGetButton ( bname_title );
 		Button *value = EclGetButton ( bname_value );
@@ -149,8 +146,7 @@ void RecordScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( 230, 370, 80, 20, "Commit", "Commit the changes you have made", "recordscreen_commit" );
 		EclRegisterButtonCallback ( "recordscreen_commit", CommitClick );
 
-		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "recordscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
+		string name = "recordscreen_click " + to_string(GetComputerScreen ()->nextpage) + " " + GetComputerScreen ()->GetComputer ()->ip;
 		EclRegisterButton ( 320, 370, 80, 20, "Close", "Close the records screen", name );
 		EclRegisterButtonCallback ( name, CloseClick );
 
@@ -175,11 +171,8 @@ void RecordScreenInterface::CreateRecord ( int index )
 
 	while ( true ) {
 
-		char bname_title [64];
-		char bname_value [128];
-
-		UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", i )
-		UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", i )
+		string bname_title = "recordscreen_title " + to_string( i );
+        string bname_value = "recordscreen_value " + to_string( i );
 
 		if ( EclGetButton ( bname_title ) && EclGetButton ( bname_value ) ) {
 
@@ -215,11 +208,8 @@ void RecordScreenInterface::CreateRecord ( int index )
 			UplinkAssert ( field_titles->ValidIndex (j) )
 			UplinkAssert ( field_values->ValidIndex (j) )
 		
-			char bname_title [64];
-			char bname_value [128];
-
-			UplinkSnprintf ( bname_title, sizeof ( bname_title ), "recordscreen_title %d", j )
-			UplinkSnprintf ( bname_value, sizeof ( bname_value ), "recordscreen_value %d", j )
+			string bname_title = "recordscreen_title " + to_string( j );
+            string bname_value = "recordscreen_value " + to_string( j );
 
 			// Count the number of newlines
 			int numnewlines = 1;			// (the last one)
@@ -280,8 +270,7 @@ void RecordScreenInterface::Remove ()
 
 		EclRemoveButton ( "recordscreen_commit" );
 
-		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "recordscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
+		string name = "recordscreen_click " + to_string(GetComputerScreen ()->nextpage) + " " + GetComputerScreen ()->GetComputer ()->ip;
 		EclRemoveButton ( name );
 
 	}

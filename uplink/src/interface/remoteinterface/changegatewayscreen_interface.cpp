@@ -294,7 +294,7 @@ void ChangeGatewayScreenInterface::GatewayPictureDraw ( Button *button, bool hig
 
 }
 
-void ChangeGatewayScreenInterface::ScrollChange ( char *scrollname, int newIndex )
+void ChangeGatewayScreenInterface::ScrollChange (const string &scrollname, int newIndex )
 {
 
     baseOffset = newIndex;
