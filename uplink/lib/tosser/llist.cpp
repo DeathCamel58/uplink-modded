@@ -192,7 +192,11 @@ T LList <T>::GetData ( int index )
 
         if ( current == NULL ) {
             previousindex = -1;
-            return (T) 0;
+            if (typeid(T) == typeid(string)) {
+                return T();
+            } else {
+                return (T) 0;
+            }
         }
         else {
             previousindex = index;
