@@ -1442,7 +1442,7 @@ double EclGetAccurateTime ()
 void EclDebugPrint ()
 {
 
-	printf ( "============== E C L I P S E ===============================\n" );	
+	printf ( "====================== E C L I P S E =======================\n" );
 
 	printf ( "BUTTONS : \n" );
 	for ( int bi = 0; bi < buttons.Size (); ++bi )
@@ -1466,9 +1466,9 @@ void EclDebugPrint ()
 	
 	for ( int eb = 0; eb < editablebuttons.Size (); ++eb )
 		if ( editablebuttons.ValidIndex (eb) )
-			printf ( "%s\n", editablebuttons.GetData (eb) );
+		    cout << editablebuttons.GetData(eb) << endl;
 
-	printf ( "============== E N D  O F  E C L I P S E ===================\n" );
+	printf ( "================ E N D  O F  E C L I P S E =================\n" );
 
 }
 
