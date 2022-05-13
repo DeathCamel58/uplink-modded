@@ -1532,9 +1532,9 @@ int LanGenerator::GenerateAuthentication ( LanComputer *comp, LanCluster *cluste
 	ds->AddWidget( "text", WIDGET_CAPTION, 50, 100, 200, 100, "Access to authentication Server systems granted.\n"
 														 "Please proceed with caution.", " " );
 	ds->AddWidget( "enable", WIDGET_SCRIPTBUTTON, 50, 200, 150, 20, "Enable Security Locks",
-							"Enable the locks on this Local Area Network", 80, dsIndex, nullptr, nullptr );
+							"Enable the locks on this Local Area Network", 80, dsIndex, "", "" );
 	ds->AddWidget( "disable", WIDGET_SCRIPTBUTTON, 50, 240, 150, 20, "Disable security locks",
-							"Disable the locks on this Local Area Network", 81, dsIndex, nullptr, nullptr );
+							"Disable the locks on this Local Area Network", 81, dsIndex, "", "" );
 
 	hs->SetNextPage( dsIndex );
 
@@ -1713,9 +1713,9 @@ int LanGenerator::GenerateIsolationBridge ( LanComputer *comp, LanCluster *clust
 	ds->SetSubTitle ( "ISOLATION BRIDGE" );
 	ds->AddWidget( "text", WIDGET_CAPTION, 50, 100, 200, 100, "Isolation bridge accessed", " " );
 	ds->AddWidget( "enable", WIDGET_SCRIPTBUTTON, 50, 200, 150, 20, "Enable Isolation Bridge",
-							"Enable the bridge (disconnecting Router)", 82, -1, nullptr, nullptr );
+							"Enable the bridge (disconnecting Router)", 82, -1, "", "" );
 	ds->AddWidget( "disable", WIDGET_SCRIPTBUTTON, 50, 240, 150, 20, "Disable Isolation Bridge",
-							"Disable the bridge (enable Router)", 83, -1, nullptr, nullptr );
+							"Disable the bridge (enable Router)", 83, -1, "", "" );
 
 
     int systemIndex = cluster->AddLanSystem( LANSYSTEM_ISOLATIONBRIDGE, x, y, security, dsIndex );

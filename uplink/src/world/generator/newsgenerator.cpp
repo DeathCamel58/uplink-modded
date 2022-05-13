@@ -366,7 +366,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	News *news = new News ();
 	news->SetHeadline ( headline.str () );
 	news->SetDetails ( details.str () );
-	news->SetData ( NEWS_TYPE_HACKED, comp->ip );
+	news->SetData ( NEWS_TYPE_HACKED, comp->ip, "" );
 
 	headline.rdbuf()->freeze( false );
 	part1.rdbuf()->freeze( false );
@@ -519,8 +519,8 @@ void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 	news->SetHeadline ( headline.str () );
 	news->SetDetails ( details.str () );
 
-	if ( filesdeleted ) news->SetData ( NEWS_TYPE_COMPUTERDESTROYED, comp->ip );
-	else				news->SetData ( NEWS_TYPE_COMPUTERSHUTDOWN, comp->ip );
+	if ( filesdeleted ) news->SetData ( NEWS_TYPE_COMPUTERDESTROYED, comp->ip, "" );
+	else				news->SetData ( NEWS_TYPE_COMPUTERSHUTDOWN, comp->ip, "" );
 
 	headline.rdbuf()->freeze( false );
 	part1.rdbuf()->freeze( false );
@@ -649,7 +649,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 	News *news = new News ();
 	news->SetHeadline ( headline.str () );
 	news->SetDetails ( details.str () );
-	news->SetData ( NEWS_TYPE_STOLEN, comp->ip );
+	news->SetData ( NEWS_TYPE_STOLEN, comp->ip, "" );
 
 	headline.rdbuf()->freeze( false );
 	part1.rdbuf()->freeze( false );
@@ -770,7 +770,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 	News *news = new News ();
 	news->SetHeadline ( headline.str () );
 	news->SetDetails ( details.str () );
-	news->SetData ( NEWS_TYPE_DELETED, comp->ip );
+	news->SetData ( NEWS_TYPE_DELETED, comp->ip, "" );
 
 	headline.rdbuf()->freeze( false );
 	part1.rdbuf()->freeze( false );
@@ -926,7 +926,7 @@ void NewsGenerator::Arrested ( Person *person, Computer *comp, char *reason )
 	News *news = new News ();
 	news->SetHeadline ( headline.str () );
 	news->SetDetails ( details.str () );
-	news->SetData ( NEWS_TYPE_ARREST, person->name, comp ? comp->ip : nullptr );
+	news->SetData ( NEWS_TYPE_ARREST, person->name, comp ? comp->ip : "" );
 
 	headline.rdbuf()->freeze( false );
 	part1.rdbuf()->freeze( false );
