@@ -378,7 +378,7 @@ void IRCInterface::AddText ( char *user, const char *text, float r, float g, flo
 	// Don't use this value of mainHeight, must match linksscreen_interface.cpp
 	//int mainHeight = (int) ( screenh * 0.8 );
 
-	LList <char *> *wrapped = wordwraptext( text, mainWidth );
+	LList <string> *wrapped = wordwraptext( text, mainWidth );
 
 	if ( wrapped ) {
 		int numLines = wrapped->Size();
@@ -386,20 +386,20 @@ void IRCInterface::AddText ( char *user, const char *text, float r, float g, flo
 		// Add those lines into the buffer
 		
 		for ( int i = 0; i < numLines; ++i ) {
-			char *theLine = wrapped->GetData(i);
-			UplinkAssert (theLine)
-			if ( strlen(theLine) > 0 ) {
+			string theLine = wrapped->GetData(i);
+			assert(!theLine.empty());
+			if ( !theLine.empty() ) {
 				auto *msg = new UplinkIRCMessage ();
 				char *thisuser = ( i == 0 ? user : nullptr );
-				msg->Set ( thisuser, theLine, r, g, b );
+				msg->Set ( thisuser, (char *) theLine.c_str(), r, g, b );
 				buffer.PutDataAtEnd( msg );
 			}
 		}
 
 		// Now finished with the wrapped stuff
 
-		if ( wrapped->ValidIndex (0) && wrapped->GetData (0) )
-			delete [] wrapped->GetData (0);				// Only delete first entry - since there is only one string really
+		if ( wrapped->ValidIndex (0) && wrapped->GetData (0).empty() )
+			wrapped->RemoveData(0);				// Only delete first entry - since there is only one string really
 		delete wrapped;
 	}
 	

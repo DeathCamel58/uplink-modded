@@ -28,9 +28,9 @@ void border_draw ( Button *button );
 void textbutton_draw  ( Button *button, bool highlighted, bool clicked );
 void textbutton_keypress ( Button *button, char key );
 
-LList <char *> *wordwraptext ( const char *string, int linesize );
+LList <string> *wordwraptext ( const string& text, int linesize );
 
-void text_draw		  ( int x, int y, const char *string, int linesize );
+void text_draw		  (int x, int y, const string text, int linesize );
 void text_draw		  ( Button *button, bool highlighted, bool clicked );
 void textbox_draw     ( Button *button, bool highlighted, bool clicked );
 
@@ -58,7 +58,7 @@ Button *getcurrentbutton ();					// Returns button under mouse or NULL
 //
 
 void create_stextbox (int x, int y, int width, int height,
-                      char *caption, const string &name );
+                      string caption, const string &name );
 void remove_stextbox (const string &name );
 
 void draw_stextbox	 ( Button *button, bool highlighted, bool clicked );

@@ -459,7 +459,7 @@ bool Agent::HasMissionLink (const string &newip )
 
 	for ( int ii = 0; ii < missions.Size (); ii++ )
 		if ( missions.ValidIndex ( ii ) ) {
-			LList<char*> *links = &(missions.GetData ( ii )->links);
+			LList <char*> *links = &(missions.GetData ( ii )->links);
 			for ( int i = 0; i < links->Size () ; i++ )
 				if ( links->ValidIndex ( i ) )
 					if ( newip == links->GetData ( i ) )

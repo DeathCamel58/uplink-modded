@@ -78,11 +78,11 @@ void NewsScreenInterface::ClickNewsButton ( Button *button )
             char *newDetails = cu->GetNews (index)->GetDetails();
             Button *detailsButton = EclGetButton ( "news_details box" );
             UplinkAssert (detailsButton)
-        	LList <char *> *wrappedtext = wordwraptext ( newDetails, detailsButton->width );
+        	LList <string> *wrappedtext = wordwraptext ( newDetails, detailsButton->width );
 			if ( wrappedtext ) {
 				scrollBox->SetNumItems( wrappedtext->Size() );
-				if ( wrappedtext->ValidIndex (0) && wrappedtext->GetData (0) )
-					delete [] wrappedtext->GetData(0);
+				if ( wrappedtext->ValidIndex (0) && !wrappedtext->GetData (0).empty() )
+					wrappedtext->RemoveData(0);
 				delete wrappedtext;
 			}
 			else {
@@ -235,7 +235,7 @@ void NewsScreenInterface::DrawDetails ( Button *button, bool highlighted, bool c
 
 	SetColour ( "DefaultText" );
 
-	LList <char *> *wrappedtext = wordwraptext ( button->caption.c_str(), button->width );
+	LList <string> *wrappedtext = wordwraptext ( button->caption, button->width );
 
 	if ( wrappedtext ) {
 
@@ -252,8 +252,8 @@ void NewsScreenInterface::DrawDetails ( Button *button, bool highlighted, bool c
 		}
 
 		//DeleteLListData ( wrappedtext );							// Only delete first entry - since there is only one string really
-		if ( wrappedtext->ValidIndex (0) && wrappedtext->GetData (0) )
-			delete [] wrappedtext->GetData (0);
+		if ( wrappedtext->ValidIndex (0) && !wrappedtext->GetData (0).empty() )
+			wrappedtext->RemoveData(0);
 		delete wrappedtext;
 
 	}

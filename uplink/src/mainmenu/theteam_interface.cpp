@@ -148,16 +148,16 @@ void TheTeamInterface::TextDraw ( Button *button, bool highlighted, bool clicked
 
 	glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
-	LList <char *> *wrappedText = wordwraptext ( button->caption.c_str(), button->width );
+	LList <string> *wrappedText = wordwraptext ( button->caption.c_str(), button->width );
 	UplinkAssert (wrappedText)
 
 	for ( int line = 0; line < wrappedText->Size (); ++line ) {
 
 		int ypos = button->y + 5 + line * 12;
-		char *thisLine = wrappedText->GetData (line);
-		UplinkAssert (thisLine)
+		string thisLine = wrappedText->GetData (line);
+		assert(!thisLine.empty());
 
-		for ( size_t i = 0; i < strlen(thisLine); ++i ) {
+		for ( size_t i = 0; i < thisLine.size(); ++i ) {
 			char thischar [2];
 			UplinkSnprintf ( thischar, sizeof ( thischar ), "%c", thisLine [i] )
 			GciDrawText ( (int) ( button->x + i * 6 ), ypos, thischar, HELVETICA_10 );
@@ -165,8 +165,8 @@ void TheTeamInterface::TextDraw ( Button *button, bool highlighted, bool clicked
 
 	}
 
-	if ( wrappedText->ValidIndex (0) && wrappedText->GetData (0) )
-		delete [] wrappedText->GetData (0);				// Only delete first entry - since there is only one string really
+	if ( wrappedText->ValidIndex (0) && !wrappedText->GetData (0).empty() )
+		wrappedText->RemoveData(0);				// Only delete first entry - since there is only one string really
 	delete wrappedText;
 
 	glDisable ( GL_SCISSOR_TEST );

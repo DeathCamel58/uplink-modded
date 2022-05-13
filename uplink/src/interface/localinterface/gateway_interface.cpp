@@ -140,7 +140,7 @@ void GatewayInterface::Create ()
 
 		// Create the CPUs
 
-		LList <char *> *cpus = gateway->GetCPUs ();
+		LList <string> *cpus = gateway->GetCPUs ();
 
 		for ( int ic = 0; ic < gatewaydef->maxcpus; ++ic ) {
 
@@ -204,7 +204,7 @@ void GatewayInterface::Create ()
 
 		// Create the security devices
 
-		LList <char *> *security = gateway->GetSecurity ();
+		LList <string> *security = gateway->GetSecurity ();
 
 		for ( int is = 0; is < gatewaydef->maxsecurity; ++is ) {
 

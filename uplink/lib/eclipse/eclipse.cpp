@@ -56,7 +56,7 @@ public:
 };
 
 local vector <dirtyrect> dirtyrectangles;
-local LList <char *> editablebuttons;						// List of editable buttons
+local LList <string> editablebuttons;						// List of editable buttons
 
 // Default button callbacks
 
@@ -110,8 +110,8 @@ void EclReset ( int width, int height )
 
     // Also delete the editable buttons
 
-    while ( editablebuttons.GetData (0) ) {
-        char *b = editablebuttons.GetData (0);
+    while ( !editablebuttons.GetData (0).empty() ) {
+        string b = editablebuttons.GetData (0);
         editablebuttons.RemoveData (0);
     }
 
@@ -340,9 +340,7 @@ void EclMakeButtonEditable (const string &name )
 	if ( button ) {
 	    // TODO: This nifty hack is used to make sure that the original data `name` isn't destroyed after return.
 	    // Using a cast will cause the data do magically **disappear** after original data is changed.
-	    char *data = new char [name.length()];
-        strcpy(data, name.c_str());
-		editablebuttons.PutDataAtEnd (data);
+		editablebuttons.PutDataAtEnd (name);
 	}
 
 #ifdef DEBUG
@@ -399,7 +397,7 @@ void EclHighlightNextEditableButton ()
 					// This is the currently highlighted button 
 					// move onto the next
 
-					char *nextbutton = ( i < editablebuttons.Size () - 1 ) ?
+					string nextbutton = ( i < editablebuttons.Size () - 1 ) ?
 											 editablebuttons.GetData (i+1) :
 											 editablebuttons.GetData (0);
 
@@ -812,8 +810,7 @@ void EclUpdateSuperHighlights (const string &name )
 
 	if ( EclIsSuperHighlighted ( name ) ) {
 
-		char superhighlight_name [128];
-		sprintf ( superhighlight_name, "Ecl_superhighlight %s", name.c_str() );
+		string superhighlight_name = "Ecl_superhighlight " + name;
 
 		Button *highlightbutton = EclGetButton ( superhighlight_name );
 		
@@ -1191,7 +1188,7 @@ void EclUpdateAllAnimations ()
 			Animation *anim = anims [i];
 			assert ( anim );
 			
-			// Button may have been deleted - attempt to re-aquire it here
+			// Button may have been deleted - attempt to re-acquire it here
 			anim->button = EclGetButton ( anim->buttonname );
 			
 			if ( !anim->button ) {
@@ -1340,7 +1337,7 @@ void EclUpdateAllAnimations ()
 						size_t showlength = (size_t)( ( (float)EclGetAccurateTime () - anim->starttime ) * anim->dC );
 						string caption = anim->targetC;
 						if ( showlength < anim->targetC.length() + 1 )
-                                                    caption [showlength] = 0;
+                            caption = caption.substr(0, showlength);
 						anim->button->SetCaption ( caption );
 
 					}

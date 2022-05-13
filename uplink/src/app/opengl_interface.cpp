@@ -28,7 +28,7 @@
 #include "mmgr.h"
 
 local int tooltipanimindex = -1;                // Index of animation running on tooltip button
-local char currentbuttonname [512] = {0};       // Button mouse is currently over
+local string currentbuttonname;       // Button mouse is currently over
 
 local int superhighlight_flash = 0;			    // Used to flash superhighlighted buttons
 local time_t curserflash = 0;					// Used to flash curser
@@ -53,7 +53,7 @@ void initialise_transparency ()
 
 		backdrop = new Image ();
         string filename = app->GetOptions()->ThemeFilename("backdrops/loading.tif");
-		backdrop->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
+		backdrop->LoadTIF ( RsArchiveFileOpen ( filename ) );
 		backdrop->ScaleToOpenGL ();
 		backdrop->FlipAroundH ();
 				
@@ -401,26 +401,24 @@ void border_draw ( Button *button )
 
 }
 
-LList <char *> *wordwraptext ( const char *string, int linesize ) 
+/**
+ * Goes through the string and divides it up into several smaller strings, taking into account newline characters, and
+ * the width of the text area.
+ * @param text Text to handle
+ * @param linesize The maximum size of the line in pixels
+ * @return LList with separate lines in separate elements
+ */
+LList <string> *wordwraptext (const string& text, int linesize )
 {
 
-	/*
+    // TODO: There are two checks for empty text. Find out which one needs to be returned, and trash the other.
+	if ( text.empty() ) return nullptr;
 
-		Goes through the string and divides it up into several 
-		smaller strings, taking into account newline characters,
-		and the width of the text area.
-		
-		*/
+	auto *llist = new LList <string> ();
 
-	if ( !string ) return nullptr;
+	if ( text.empty() ) {
 
-	auto *llist = new LList <char *> ();
-
-	if ( strlen ( string ) == 0 ) {
-
-		char *emptystring = new char [ 2 ];
-		*emptystring = '\0';
-		llist->PutData ( emptystring );
+		llist->PutData ( "" );
 		return llist;
 
 	}
@@ -430,71 +428,61 @@ LList <char *> *wordwraptext ( const char *string, int linesize )
 	int linewidth = int (linesize / averagecharsize);
 	if ( linewidth == 0 )
 		linewidth = 1;
-	
 
-	// Create a copy of the string which we will use as our output strings
-	// (All connected together but seperated by 0)
-	// And add a newline on at the end (to make sure a newline will be found)
+	istringstream stream(text);
+	while ( stream.good() ) {
+	    string substring;
+	    // Read text until a newline
+        getline( stream, substring, '\n');
 
-	size_t newstringsize = strlen(string) + 2;
-	char *newstring = new char [ newstringsize + 1 ];
-	UplinkSnprintf ( newstring, newstringsize, "%s\n", string )
 
-	// Build a linked list of pointers into this new string
-	// Each pointer representing another line
+        if (substring.size() > linewidth) {
+            // If substring is too long, split it into chunks
+            while (substring.size() > linewidth) {
+                string tmpstring = substring.substr(0, linewidth);
 
-	char *currentpos = newstring;
-	llist->PutData ( currentpos );
+                // Find the last occurrence of a space.
+                size_t space = tmpstring.rfind(" ");
+                if (space != string::npos) {
+                    // If we found a space, substring to the space
+                    tmpstring = substring.substr(0, space);
+                    space += 1;
+                } else {
+                    // No space found, just cut at the line width
+                    space = linewidth;
+                }
+                // Append the shortened string to the string list
+                llist->PutDataAtEnd(tmpstring);
 
-	while ( true ) {
-
-		char *nextnewline = strchr ( currentpos, '\n' );
-		if ( !nextnewline ) break;
-
-		if ( nextnewline - currentpos > linewidth ) {
-
-			// This line is too long and needs trimming down
-			// Ignore the newline char we found - it will be dealt with
-			// as part of the next line
-			// Place a terminater in the space between the last 2 words
-			currentpos += linewidth;
-			char oldchar = *(currentpos - 1);
-			*(currentpos - 1) = 0;
-			char *space = strrchr ( currentpos - linewidth, ' ' );
-			
-			if ( space ) {
-				*(currentpos - 1) = oldchar;
-				currentpos = space + 1;
-				*space = 0;
-				llist->PutData ( currentpos );
-			}
-			else {
-				// We cannot wrap this line - the word is longer than the max line width
-				llist->PutData ( currentpos );
-			}
-
-		}
-		else {
-
-			// Found a newline char - replace with a terminator
-			// then add this position in as the next line	
-			// then continue from this position
-			currentpos =  nextnewline + 1;
-			*nextnewline = 0;
-			llist->PutData ( currentpos );
-
-		}
-
+                // Now set the substring to exclude already added data
+                substring.erase(0, space);
+            }
+            llist->PutDataAtEnd(substring);
+        } else {
+            // If short enough, put substring into string list
+            llist->PutDataAtEnd(substring);
+        }
 	}
+	// TODO: Don't append an empty data element
+	// NOTE: This is only here because the original code had an additional, empty data element. Usages **will have** to
+	//       be fixed to account for this when fixed.
+	llist->PutDataAtEnd("");
 
 	return llist;
 
 }
 
-void text_draw	( int x, int y, const char *string, int linesize )
+/**
+ * Takes input text, splits it into lines that fit, then draws to screen
+ * @param x X position of where to draw text
+ * @param y Y position of where to draw text
+ * @param text The text to process and draw
+ * @param linesize The maximum line width of the text
+ */
+void text_draw	(int x, int y, const string text, int linesize )
 {
 
-	LList <char *> *wrappedtext = wordwraptext ( string, linesize );
+	auto wrappedtext = wordwraptext (text, linesize );
 
 	if ( wrappedtext ) {
 
@@ -507,14 +495,23 @@ void text_draw	( int x, int y, const char *string, int linesize )
 
 		}
 
-		if ( wrappedtext->ValidIndex (0) && wrappedtext->GetData (0) )
-			delete [] wrappedtext->GetData (0);				// Only delete first entry - since there is only one string really
+		// TODO: Check if this is really necessary.
+		// NOTE: Because the original code removed the data cell, then it immediately deleted the whole LList, this
+		//       likely isn't necessary.
+		if ( wrappedtext->ValidIndex (0) && !wrappedtext->GetData (0).empty() )
+			wrappedtext->RemoveData(0);				// Only delete first entry - since there is only one string really
 		delete wrappedtext;
 
 	}
 
 }
 
+/**
+ * Takes input button, splits the caption into lines that fit, then draws to screen
+ * @param button The button to draw
+ * @param highlighted Should the button be highlighted
+ * @param clicked Is the button clicked
+ */
 void text_draw ( Button *button, bool highlighted, bool clicked ) 
 {
 
@@ -528,11 +525,11 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 
 	// Print the text
 
-	LList <char *> *wrappedtext = nullptr;
+	LList <string> *wrappedtext = new LList <string> ();
 	
 	if ( !highlighted || !EclIsButtonEditable (button->name) ) {
 		
-		wrappedtext = wordwraptext ( button->caption.c_str(), button->width );
+		wrappedtext = wordwraptext ( button->caption, button->width );
 		
 	}
 	else {
@@ -542,12 +539,9 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 		if ( time(nullptr) >= (curserflash - 1) ) {
 
 			size_t newcaptionsize = button->caption.length() + 2;
-			char *newcaption = new char [newcaptionsize];
-			UplinkSnprintf ( newcaption, newcaptionsize, "%s_", button->caption.c_str() )
+			string newcaption = button->caption;
 
 			wrappedtext = wordwraptext ( newcaption, button->width );
-
-			delete [] newcaption;					// It was copied by wordwraptext
 
 			if ( time(nullptr) >= curserflash )
 				curserflash = time(nullptr) + 2;
@@ -555,11 +549,11 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 		}
 		else {
 
-			wrappedtext = wordwraptext ( button->caption.c_str(), button->width );
+			wrappedtext = wordwraptext ( button->caption, button->width );
 
 		}
 
-		// Must dirty this button so the curser is redrawn
+		// Must dirty this button so the cursor is redrawn
 
 		EclDirtyButton ( button->name );
 
@@ -576,8 +570,11 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 
 		}
 
-		if ( wrappedtext->ValidIndex (0) && wrappedtext->GetData (0) )
-			delete [] wrappedtext->GetData (0);				// Only delete first entry - since there is only one string really
+        // TODO: Check if this is really necessary.
+        // NOTE: Because the original code removed the data cell, then it immediately deleted the whole LList, this
+        //       likely isn't necessary.
+		if ( wrappedtext->ValidIndex (0) && !wrappedtext->GetData (0).empty() )
+			wrappedtext->RemoveData(0);				// Only delete first entry - since there is only one string really
 		delete wrappedtext;
 
 	}
@@ -613,6 +610,11 @@ void textbutton_draw  ( Button *button, bool highlighted, bool clicked )
 
 }
 
+/**
+ * Used to append text to button's caption when user interacts with it
+ * @param button The button that received input
+ * @param key The keycode of the input
+ */
 void textbutton_keypress ( Button *button, char key )
 {
 
@@ -637,22 +639,16 @@ void textbutton_keypress ( Button *button, char key )
 
 		// Enter key
 		size_t newcaptionsize = button->caption.length() + 2;
-		char *newcaption = new char [newcaptionsize];
-		UplinkSnprintf ( newcaption, newcaptionsize, "%s\n", button->caption.c_str() )
+		string newcaption = button->caption + "\n";
 		
 		button->SetCaption ( newcaption );
-
-		delete [] newcaption;
 
 	}
 	else {
 
 		size_t newcaptionsize = button->caption.length() + 2;
-		char *newcaption = new char [newcaptionsize];
-		UplinkSnprintf ( newcaption, newcaptionsize, "%s%c", button->caption.c_str(), key )
+		string newcaption = button->caption + key;
 		button->SetCaption ( newcaption );
-
-		delete [] newcaption;
 
 	}
 
@@ -868,15 +864,15 @@ void button_highlight ( Button *button )
 	UplinkAssert ( button )
 	
 	EclHighlightButton ( button->name );
-	tooltip_update ( (char *) button->tooltip.c_str() );
+	tooltip_update ( button->tooltip );
 	
 	if ( button->name != currentbuttonname ) {
 
-//		char filename [256];
-//		UplinkSnprintf ( filename, sizeof ( filename ), "%ssounds/mouseover.wav", app->path );
+        // TODO: Implement the unimplemented sound on button hover
+//		string filename = app->path + "sounds/mouseover.wav";
 //		SgPlaySound ( RsArchiveFileOpen ( filename ) );
 
-		UplinkStrncpy ( currentbuttonname, button->name.c_str(), sizeof ( currentbuttonname ) )
+		currentbuttonname = button->name;
 
 	}
 
@@ -905,7 +901,7 @@ void button_assignbitmap (const string &name, const string &standard_f )
 
     string fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *image = new Image ();
-	image->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	image->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	image->SetAlpha ( ALPHA );
     
 	button->SetStandardImage ( image );
@@ -940,17 +936,17 @@ void button_assignbitmaps (const string &name, const string &standard_f, const s
 
     string fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *standard_i = new Image ();
-	standard_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	standard_i->SetAlpha ( ALPHA );
 
     fullfilename = app->GetOptions()->ThemeFilename( highlighted_f );
 	auto *highlighted_i = new Image ();
-	highlighted_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	highlighted_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	highlighted_i->SetAlpha ( ALPHA );
     
     fullfilename = app->GetOptions()->ThemeFilename( clicked_f );
 	auto *clicked_i = new Image ();
-	clicked_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	clicked_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	clicked_i->SetAlpha ( ALPHA );
 
 	button->SetImages ( standard_i, highlighted_i, clicked_i );
@@ -1004,19 +1000,19 @@ void button_assignbitmaps_blend (const string &name, const string &standard_f, c
 
     string fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *standard_i = new Image ();
-	standard_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	standard_i->SetAlpha ( 1.0f );
 	standard_i->SetAlphaBorder ( 0.0f, br, bg, bb );
 
     fullfilename = app->GetOptions()->ThemeFilename( highlighted_f );
 	auto *highlighted_i = new Image ();
-	highlighted_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	highlighted_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	highlighted_i->SetAlpha ( 1.0f );
 	highlighted_i->SetAlphaBorder ( 0.0f, br, bg, bb );
     
     fullfilename = app->GetOptions()->ThemeFilename( clicked_f );
 	auto *clicked_i = new Image ();
-	clicked_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	clicked_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	clicked_i->SetAlpha ( 1.0f );
 	clicked_i->SetAlphaBorder ( 0.0f, br, bg, bb );
 
@@ -1046,7 +1042,7 @@ void button_assignbitmap_blend (const string &name, const string &standard_f )
 
     string fullfilename = app->GetOptions()->ThemeFilename( standard_f );
 	auto *image = new Image ();
-	image->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	image->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	image->SetAlpha ( 1.0f );
 	image->SetAlphaBorder ( 0.0f, br, bg, bb );
     
@@ -1062,7 +1058,7 @@ Image *get_assignbitmap (const string &filename )
 
     string fullfilename = app->GetOptions()->ThemeFilename( filename );
 	auto *standard_i = new Image ();
-	standard_i->LoadTIF ( RsArchiveFileOpen ( (char *) fullfilename.c_str() ) );
+	standard_i->LoadTIF ( RsArchiveFileOpen ( fullfilename ) );
 	standard_i->SetAlpha ( ALPHA );
 
 	return standard_i;
@@ -1109,7 +1105,7 @@ void tooltip_update (const string &newtooltip )
 		if ( newtooltip == " " ) {
 			// No button under mouse
 			tooltip->SetCaption ( " " );
-			currentbuttonname[0] = '\0';
+			currentbuttonname = "";
 		}		
 		else {
 			tooltipanimindex = EclRegisterCaptionChange ( "tooltip", newtooltip, tooltip_callback );			
@@ -1122,7 +1118,7 @@ void tooltip_update (const string &newtooltip )
 Button *getcurrentbutton ()
 {
 
-	if ( currentbuttonname[0] != '\0' ) 
+	if ( !currentbuttonname.empty() )
 		return EclGetButton ( currentbuttonname );
 
 	else
@@ -1130,27 +1126,24 @@ Button *getcurrentbutton ()
 
 }
 
-void create_stextbox (int x, int y, int width, int height, char *caption, const string &name )
+void create_stextbox (int x, int y, int width, int height, string caption, const string &name )
 {
 
 	string name_box = name + " box";
-	//char name_up   [128];
-	//char name_down [128];
-	//char name_bar  [128];
 
 	EclRegisterButton ( x, y, width - 16, height, caption, "", name_box );
 	EclRegisterButtonCallbacks ( name_box, draw_stextbox, nullptr, nullptr, nullptr );
 
     int numItems = 0;
-    if ( strlen(caption) < 5 ) {
+    if ( caption.size() < 5 ) {
         numItems = 15;
     }
     else {
-        LList <char *> *wrappedText = wordwraptext( caption, width );
+        LList <string> *wrappedText = wordwraptext( caption, width );
 		if ( wrappedText ) {
 			numItems = wrappedText->Size() + 2;
-			if ( wrappedText->ValidIndex (0) && wrappedText->GetData (0) )
-				delete [] wrappedText->GetData(0);
+			if ( wrappedText->ValidIndex (0) && !wrappedText->GetData (0).empty() )
+                wrappedText->RemoveData(0);
 			delete wrappedText;
 		}
 		if ( numItems < 4 ) numItems = 15;
@@ -1183,7 +1176,7 @@ void draw_stextbox ( Button *button, bool highlighted, bool clicked )
 
 	// Get the offset
 
-	char name_base [128];
+	string name_base;
     istringstream stream(button->name);
     stream >> name_base;
     ScrollBox *scrollBox = ScrollBox::GetScrollBox( name_base );
@@ -1228,7 +1221,7 @@ void draw_stextbox ( Button *button, bool highlighted, bool clicked )
 
 	SetColour ( "DefaultText" );    
 
-	LList <char *> *wrappedtext = wordwraptext ( button->caption.c_str(), button->width );
+	LList <string> *wrappedtext = wordwraptext ( button->caption, button->width );
 
 	if ( wrappedtext ) {
 
@@ -1245,8 +1238,8 @@ void draw_stextbox ( Button *button, bool highlighted, bool clicked )
 		}
 
 		//DeleteLListData ( wrappedtext );							// Only delete first entry - since there is only one string really
-		if ( wrappedtext->ValidIndex (0) && wrappedtext->GetData (0) )
-			delete [] wrappedtext->GetData (0);
+		if ( wrappedtext->ValidIndex (0) && !wrappedtext->GetData (0).empty() )
+            wrappedtext->RemoveData(0);
 		delete wrappedtext;
 
 	}
@@ -1287,8 +1280,7 @@ void draw_scrollbox  ( Button *button, bool highlighted, bool clicked )
 void stextbox_scroll (const string &name, int newValue )
 {
 
-    char name_box [256];
-	UplinkSnprintf ( name_box, sizeof ( name_box ),  "%s box", name.c_str() )
+    string name_box = name + " box";
     EclDirtyButton ( name_box );
   
 }

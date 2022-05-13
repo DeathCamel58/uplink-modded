@@ -56,8 +56,8 @@ protected:
 public:
 
 	static bool connected;
-	static LList<UplinkIRCMessage *> buffer;
-    static LList<UplinkIRCUser *> users;
+	static LList <UplinkIRCMessage *> buffer;
+    static LList <UplinkIRCUser *> users;
 
     static char channelName [256];
 

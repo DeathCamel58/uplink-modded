@@ -87,27 +87,24 @@ void HWInterface::CreateHWInterface ()
 
 		// Total CPU speed
 
-		char cpustats [64];
-		UplinkSnprintf ( cpustats, sizeof ( cpustats ), "Total CPU speed: %d Ghz", gateway->GetCPUSpeed () )
+		string cpustats = "Total CPU speed: " + to_string(gateway->GetCPUSpeed()) + " Ghz";
 		EclRegisterCaptionChange ( "hw_cpu",   cpustats );
 	
 		// Bandwidth
 
-		char bandwidthstats [64];
-		UplinkSnprintf ( bandwidthstats, sizeof ( bandwidthstats ), "Bandwidth: %d Gq/s", gateway->GetBandwidth () )
+		string bandwidthstats = "Bandwidth: " + to_string(gateway->GetBandwidth()) + " Gq/s";
 		EclRegisterCaptionChange ( "hw_modem", bandwidthstats );
 
 		// Memory
 
-		char memory [128];
-		UplinkSnprintf ( memory, sizeof ( memory ), "Memory Capacity: %d Gq", gateway->memorysize )
+		string memory = "Memory Capacity: " + to_string(gateway->memorysize) + " Gq";
 		EclRegisterCaptionChange ( "hw_memory", memory );
 
 		// Hardware devices
 
 		std::ostrstream hardware;	
 		hardware << "DEVICES\n";
-        LList <char *> *security = gateway->GetSecurity ();
+        LList <string> *security = gateway->GetSecurity ();
         if ( security->Size () == 0 ) 
             hardware << "None";
 
