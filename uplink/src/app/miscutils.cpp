@@ -18,6 +18,7 @@
 #include <GL/glu.h> /* glu extention library */
 #include <fstream>
 #include <algorithm>
+#include <filesystem>
 
 #include "redshirt.h"
 
@@ -155,24 +156,11 @@ bool DoesFileExist ( const char *filename )
 void EmptyDirectory (const string &directory )
 {
 
-	const string& userdir = directory;
-
-	DIR *dir = opendir( userdir.c_str() );
-	if (dir != nullptr) {
-	    struct dirent *entry = readdir ( dir );
-
-	    while (entry != nullptr) {
-	    
-			if ( strcmp ( entry->d_name, "." ) != 0 && strcmp ( entry->d_name, ".." ) != 0 ) {
-				string newname = directory + entry->d_name;
-				unlink ( newname.c_str() );
-			}
-		    entry = readdir ( dir );
-	    
-	    }
-	  
-	    closedir( dir );
-	}
+    if (filesystem::exists(directory)) {
+        for (const auto &entry : filesystem::directory_iterator(directory)) {
+            filesystem::remove_all(entry.path());
+        }
+    }
 
 }
 

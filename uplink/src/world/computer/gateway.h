@@ -89,12 +89,12 @@ public:
 	void GiveCPU ( char *CPUName );						
 	int GetNumCPUs ();
 	int GetCPUSpeed ();
-	LList <char *> *GetCPUs ();
+	LList <string> *GetCPUs ();
 
 	int GetBandwidth () const;								// Returns min ( modemspeed, gatewaydef.bandwidth )
 
 	int GetNumSecurity ();
-	LList <char *> *GetSecurity ();
+	LList <string> *GetSecurity ();
 
 	void GiveStartingHardware ();
 	void GiveHardware  ( char *newhardware );

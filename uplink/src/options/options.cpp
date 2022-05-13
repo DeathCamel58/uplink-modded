@@ -175,7 +175,7 @@ void Options::CreateDefaultOptions ()
 
 #ifndef TESTGAME
 	if ( !GetOption ( "game_firsttime" ) ) {
-		DArray <char *> *existing = App::ListExistingGames ();
+		DArray <string> *existing = App::ListExistingGames ();
 		int lenexisting = existing->Size ();
 
 		if ( lenexisting > 0 ) {
@@ -185,9 +185,10 @@ void Options::CreateDefaultOptions ()
 			SetOptionValue ( "game_firsttime", 1, "z", true, false );
 		}
 
+		// TODO: Check if this is necessary because the entire object is deleted immediately after one element deleted
 		for ( int i = 0; i < lenexisting; i++ )
 			if ( existing->ValidIndex ( i ) )
-				delete [] existing->GetData (i);
+			    existing->RemoveData(i);
 
 		delete existing;
 	}

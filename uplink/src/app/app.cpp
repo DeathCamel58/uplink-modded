@@ -13,6 +13,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <dirent.h>
+#include <filesystem>
 
 #include <utility>
 #endif
@@ -192,8 +193,7 @@ void CopyGame (const string &username, const string &filename )
 
 	string filenametmp = app->usertmppath + "curagent.usr";
 
-	//char filenametmpUplink [256];
-	//UplinkSnprintf ( filenametmpUplink, sizeof ( filenametmpUplink ), "%scuragent_clear.bin", app->usertmppath );
+	//string filenametmpUplink = app->usertmppath + "curagent_clear.bin";
 
 	EmptyDirectory ( app->usertmppath );
 	CopyFilePlain ( filename, filenametmp );
@@ -414,62 +414,25 @@ void App::RetireGame (const string &username ) const
 
 }
 
-DArray <char *> *App::ListExistingGames ()
+/**
+ * Gets all save games
+ * @return DArray of all save game file names
+ */
+DArray <string> *App::ListExistingGames ()
 {
 
-	auto *existing = new DArray <char *> ();
+    auto existing = new DArray<string> ();
 
-#ifdef WIN32
-
-	char searchstring [_MAX_PATH + 1];
-	UplinkSnprintf ( searchstring, sizeof ( searchstring ), "%s*.usr", app->userpath );
-
-	_finddata_t thisfile;
-	intptr_t fileindex = _findfirst ( searchstring, &thisfile );
-
-	int exitmeplease = 0;
-
-	while ( fileindex != -1 && !exitmeplease ) {
-
-		size_t newnamesize = _MAX_PATH + 1;
-		char *newname = new char [newnamesize];
-		UplinkStrncpy ( newname, thisfile.name, newnamesize );
-		char *p = strchr ( newname, '.' );
-		if ( p ) *p = '\x0';
-
-		existing->PutData ( newname );
-		exitmeplease = _findnext ( fileindex, &thisfile );
-
-	}
-
-	if ( fileindex != -1 )
-		_findclose ( fileindex );
-
-#else
 	string userdir = app->userpath;
-	DIR *dir = opendir( userdir.c_str() );
-	if (dir != nullptr) {
-	    struct dirent *entry = readdir ( dir );
 
-	    while (entry != nullptr) {
-	    
-		char *p = strstr(entry->d_name, ".usr");
-		if ( p ) {
-		    *p = '\x0';
-	      
-		    size_t newnamesize = 256;
-			char *newname = new char [newnamesize];
-		    UplinkStrncpy ( newname, entry->d_name, newnamesize )
-		    existing->PutData ( newname );
-		}
-	    
-		entry = readdir ( dir );
-	    
-	    }
-	  
-	    closedir( dir );
-	}
-#endif
+	// Loop over all files in directory
+    for (const auto & entry : filesystem::directory_iterator(userdir)) {
+        string filename = entry.path().filename();
+
+        if (filename.substr(filename.size()-4) == ".usr") {
+            existing->PutData(filename.substr(0, filename.size() - 4));
+        }
+    }
 
 	return existing;
 
@@ -515,9 +478,8 @@ void App::Close ()
 	}
 
 #ifdef _DEBUG
-    char filename [256];
-    UplinkSnprintf ( filename, sizeof ( filename ), "%smemtemp", app->userpath );
-//    SlPrintMemoryLeaks ( filename );
+    string filename = app->userpath + "memtemp";
+    SlPrintMemoryLeaks ( filename );
 #endif
 
 	//exit(0);

@@ -306,7 +306,7 @@ bool Person::HasMessageLink (const string &newip )
 
 	for ( int ii = 0; ii < messages.Size (); ii++ )
 		if ( messages.ValidIndex ( ii ) ) {
-			LList<char*> *links = &(messages.GetData ( ii )->links);
+			LList <char*> *links = &(messages.GetData ( ii )->links);
 			for ( int i = 0; i < links->Size () ; i++ )
 				if ( links->ValidIndex ( i ) )
 					if ( newip == links->GetData ( i ) )

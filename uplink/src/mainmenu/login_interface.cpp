@@ -49,18 +49,16 @@ LoginInterface::~LoginInterface()
 void LoginInterface::CreateExistingGames ()
 {
 
-	DArray <char *> *existing = App::ListExistingGames ();
+	DArray <string> *existing = App::ListExistingGames ();
 	
 	for ( int i = 0; i < existing->Size (); ++i ) {
 		if ( existing->ValidIndex (i) ) {
-			char *curAgent = existing->GetData ( i );
+			string curAgent = existing->GetData ( i );
 
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "username %d", i )
+			string name = "username " + to_string(i);
 			EclRegisterButton ( SX(35), SY(300) + i * 18, SX(170), 15, curAgent, "Log in as this Agent", name );
 			EclRegisterButtonCallbacks ( name, textbutton_draw, UserNameClick, button_click, button_highlight );
 
-			delete [] curAgent;
 		}
 	}
 			
@@ -138,16 +136,14 @@ void LoginInterface::RetireAgentClick ( Button *button )
 
 	bool found = false;
 	if ( agentfile.length() > 0 ) {
-		DArray <char *> *existing = App::ListExistingGames ();
+		DArray <string> *existing = App::ListExistingGames ();
 
 		int lenexisting = existing->Size ();
 		for ( int i = 0; i < lenexisting; i++ )
 			if ( existing->ValidIndex ( i ) ) {
-				char *curAgent = existing->GetData ( i );
+				string curAgent = existing->GetData ( i );
 				if ( curAgent == agentfile )
 					found = true;
-
-				delete [] curAgent;
 			}
 
 		delete existing;

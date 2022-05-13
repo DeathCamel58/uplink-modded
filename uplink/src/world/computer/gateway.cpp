@@ -435,10 +435,10 @@ int Gateway::GetCPUSpeed ()
 
 }
 
-LList <char *> *Gateway::GetCPUs ()
+LList <string> *Gateway::GetCPUs ()
 {
 
-	auto *list = new LList <char *> ();
+	auto list = new LList <string> ();
 
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 
@@ -487,10 +487,10 @@ int Gateway::GetNumSecurity ()
 
 }
 
-LList <char *> *Gateway::GetSecurity ()
+LList <string> *Gateway::GetSecurity ()
 {
 
-	auto *list = new LList <char *> ();
+	auto list = new LList <string> ();
 
 	for ( int i = 0; i < hardware.Size (); ++i ) {
 

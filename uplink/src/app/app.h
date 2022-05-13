@@ -75,7 +75,7 @@ public:
 	void LoadGame (const string &username );
 	void SaveGame (const string &username ) const;
 	void RetireGame (const string &username ) const;
-	static DArray <char *> *ListExistingGames ();
+	static DArray <string> *ListExistingGames ();
 
 	Options *GetOptions ();
 	Network *GetNetwork ();
