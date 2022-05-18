@@ -30,7 +30,7 @@ void textbutton_keypress ( Button *button, char key );
 
 LList <string> *wordwraptext ( const string& text, int linesize );
 
-void text_draw		  (int x, int y, const string text, int linesize );
+void text_draw		  (int x, int y, const string& text, int linesize );
 void text_draw		  ( Button *button, bool highlighted, bool clicked );
 void textbox_draw     ( Button *button, bool highlighted, bool clicked );
 
@@ -58,7 +58,7 @@ Button *getcurrentbutton ();					// Returns button under mouse or NULL
 //
 
 void create_stextbox (int x, int y, int width, int height,
-                      string caption, const string &name );
+                      const string& caption, const string &name );
 void remove_stextbox (const string &name );
 
 void draw_stextbox	 ( Button *button, bool highlighted, bool clicked );

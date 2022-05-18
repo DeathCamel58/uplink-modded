@@ -5,16 +5,12 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
-
 #include <cstring>
 #include <cstdio>
 #include <sstream>
 
 #include "soundgarden.h"
-#include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
@@ -25,7 +21,6 @@
 #include "interface/interface.h"
 #include "interface/remoteinterface/remoteinterface.h"
 #include "interface/remoteinterface/remoteinterfacescreen.h"
-#include "interface/remoteinterface/passwordscreen_interface.h"
 #include "interface/taskmanager/taskmanager.h"
 #include "interface/taskmanager/dictionaryhacker.h"
 

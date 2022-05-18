@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include <cstdio>
 #include <sstream>
 
@@ -122,7 +120,7 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 
 		}
 
-		char date [64], subject [256];
+		string date, subject;
 		bool encrypted = ( game->GetWorld ()->GetPlayer ()->rating.uplinkrating < mission->minuplinkrating );
 
 		if ( !encrypted ) {
@@ -130,8 +128,8 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 			auto ratingdif = (float)(game->GetWorld ()->GetPlayer ()->rating.uplinkrating - mission->minuplinkrating);
 			if ( ratingdif > 5.0f ) ratingdif = 5.0f;
 			
-			UplinkStrncpy ( subject, mission->description, sizeof ( subject ) )
-			UplinkStrncpy ( date, mission->createdate.GetShortString (), sizeof ( date ) )
+			subject = mission->description;
+			date = mission->createdate.GetShortString ();
 
 #ifdef DEMOGAME
             glColor4f ( 1.0f - ratingdif * 0.2f, 1.0f - ratingdif * 0.2f, 1.0f - ratingdif * 0.2f, 1.0f );
@@ -142,8 +140,8 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 		}
 		else {
 
-			UplinkStrncpy ( subject, "Encrypted (Insufficient Uplink Rating)", sizeof ( subject ) )
-			UplinkStrncpy ( date, "Unknown", sizeof ( date ) )
+			subject = "Encrypted (Insufficient Uplink Rating)";
+			date = "Unknown";
 
 			glColor4f ( 0.2f, 0.2f, 0.2f, 1.0f );		
 
@@ -328,7 +326,7 @@ void BBSScreenInterface::ContactClick ( Button *button )
 
 }
 
-void BBSScreenInterface::ScrollChange ( char *scrollname, int newValue )
+void BBSScreenInterface::ScrollChange (const string &scrollname, int newValue )
 {
 
     baseoffset = newValue;

@@ -5,7 +5,6 @@
 #include "soundgarden.h"
 
 #include "app/app.h"
-#include "app/opengl.h"
 #include "app/opengl_interface.h"
 
 #include "mainmenu/mainmenu.h"

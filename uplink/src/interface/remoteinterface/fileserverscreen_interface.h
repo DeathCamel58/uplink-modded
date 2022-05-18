@@ -37,7 +37,7 @@ protected:
 	                                       Data **data, int *size, int* memoryindex );
 
     static void CreateScrollBar ( int nbItems );
-    static void ScrollChange ( char *scrollname, int newValue );
+    static void ScrollChange (const string &scrollname, int newValue );
 
 	static void FileClick		( Button *button );
 	static void CloseClick		( Button *button );

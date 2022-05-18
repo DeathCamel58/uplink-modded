@@ -7,22 +7,17 @@
 #include <io.h>
 #else
 #include <sys/stat.h>
-#include <sys/types.h>
 #include <fcntl.h>
-#include <unistd.h>
 #include <dirent.h>
 #endif
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
 #include <fstream>
 #include <algorithm>
 #include <filesystem>
 
 #include "redshirt.h"
-
-#include "gucci.h"
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -60,6 +55,11 @@ char *GetFilePath ( const char *filename )
     
 }
 
+/**
+ * Converts a string to lowercase
+ * @param thestring The string to change
+ * @return The string in all lowercase letters
+ */
 string LowerCaseString (const string &thestring )
 {
 
@@ -134,25 +134,34 @@ char *TrimSpaces ( const char *thestring )
 
 }
 
+/**
+ * Creates given directory
+ * @param dirname Directory to create
+ */
 void MakeDirectory (const string &dirname )
 {
 
-#ifdef WIN32
-  _mkdir ( dirname.c_str() );
-#else
-  mkdir ( dirname.c_str(), 0700 );
-#endif
+    filesystem::create_directory(dirname);
 
 }
 
 
-bool DoesFileExist ( const char *filename )
+/**
+ * Checks if given filename exists
+ * @param filename File name to check
+ * @return `true` if file exists
+ */
+bool DoesFileExist (const string& filename )
 {
 
-    return access(filename, 0) == 0;
+    return filesystem::exists(filename);
 
 }
 
+/**
+ * Deletes all files and folders within a directory while preserving directory
+ * @param directory Directory to delete everything in
+ */
 void EmptyDirectory (const string &directory )
 {
 
@@ -164,25 +173,22 @@ void EmptyDirectory (const string &directory )
 
 }
 
+/**
+ * Copies file from one location to another
+ * @param oldfilename File path to copy
+ * @param newfilename File path to put copy
+ * @return `true` on success
+ */
 bool CopyFilePlain (const string &oldfilename, const string &newfilename )
 {
 
-	bool success = false;
-	ifstream src(oldfilename, ios::binary);
-	ofstream dst(newfilename, ios::binary);
-
-	if (!src.is_open() || !src.is_open()) {
-	    src.close();
-	    dst.close();
-        return false;
+    if (DoesFileExist(oldfilename)) {
+        if (filesystem::copy_file(oldfilename, newfilename, filesystem::copy_options::overwrite_existing)) {
+            return true;
+        }
     }
 
-	dst << src.rdbuf();
-
-	src.close();
-	dst.close();
-
-	return true;
+    return false;
 
 }
 
@@ -213,14 +219,15 @@ bool CopyFileUplink ( const char *oldfilename, const char *newfilename )
 
 }
 
+/**
+ * Deletes a file
+ * @param filename File name to delete
+ * @return `true` if file deleted
+ */
 bool RemoveFile (const string &filename )
 {
 
-#ifdef WIN32
-	return ( _unlink ( filename.c_str() ) == 0 );
-#else
-	return ( unlink ( filename.c_str() ) == 0 );
-#endif
+    filesystem::remove(filename);
 
 }
 
@@ -456,6 +463,8 @@ void PrintStackTrace()
 
 }
 
+// TODO: Use template instantiation to not have to type `PrintValue` functions
+
 void PrintValue(const string& valuename, const string& value) {
     cout << "=== USED THE PRINTVALUE FUNCTION ===" << endl;
     cout << "\t" << valuename << ": " << value << endl;
@@ -486,6 +495,10 @@ void PrintValue(const string& valuename, time_t value) {
     cout << "\t" << valuename << ": " << value << endl;
 }
 
+/**
+ * Prints text centered with `=`
+ * @param name Text to print
+ */
 void PrintPadded(const string& name) {
     int pad = (60 - name.length()) / 2 - 1;
     string out;

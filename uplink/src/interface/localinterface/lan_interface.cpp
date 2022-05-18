@@ -442,8 +442,7 @@ void LanInterface::DrawLink ( LanComputerLink *link,
 			glVertex2f ( toX, toY );
 		glEnd ();
 
-	}
-	else if ( (link->fromX == 1.0 && link->toX == 0.0) ||               // Right to left
+	} else if ( (link->fromX == 1.0 && link->toX == 0.0) ||               // Right to left
 			  (link->fromX == 0.0 && link->toX == 1.0) ) {				// Left to right
 
 		glBegin ( GL_LINE_STRIP );
@@ -459,8 +458,7 @@ void LanInterface::DrawLink ( LanComputerLink *link,
 			glVertex2f ( toX, toY );
 		glEnd ();
 
-	}
-	else if ( (link->fromY == 0 && link->toX == 0) ||				// Top to left
+	} else if ( (link->fromY == 0 && link->toX == 0) ||				// Top to left
 			  (link->fromY == 1 && link->toX == 1) || 				// Bottom to right
 			  (link->fromY == 1 && link->toX == 0) ||				// Bottom to left
 			  (link->fromY == 0 && link->toX == 1) ) {				// Top to right
@@ -471,8 +469,7 @@ void LanInterface::DrawLink ( LanComputerLink *link,
 			glVertex2f ( toX, toY );
 		glEnd ();
 
-	}
-	else if ( (link->fromX == 1 && link->toY == 0) ||					// Right to top
+	} else if ( (link->fromX == 1 && link->toY == 0) ||					// Right to top
 			  (link->fromX == 0 && link->toY == 1) ||					// Left to bottom
 			  (link->fromX == 0 && link->toY == 0) ||					// Left to top
 			  (link->fromX == 1 && link->toY == 1) ) {					// Right to bottom
@@ -483,8 +480,7 @@ void LanInterface::DrawLink ( LanComputerLink *link,
 			glVertex2f ( toX, toY );
 		glEnd ();
 
-	}
-	else {																// Fuck knows
+	} else {																// Fuck knows
 
 		glBegin ( GL_LINE_STRIP );
 			glVertex2f ( fromX, fromY );
@@ -1014,8 +1010,7 @@ void LanInterface::CreateLayout ()
                 LanComputerSystem *lanSystem = lancomp->systems.GetData(i);
                 UplinkAssert (lanSystem)
 
-                char name [64];
-                UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i )
+                string name = "lansystem " + to_string(i);
                 int x = background->x + (lanSystem->x);
                 int y = background->y + (lanSystem->y);
 
@@ -1063,14 +1058,13 @@ void LanInterface::RemoveLayout ()
 {
 
     int i = 0;
-    char name [64];
-    UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i )
+    string name = "lansystem " + to_string(i);
 
     while ( EclGetButton ( name ) ) {
 
         EclRemoveButton ( name );
         ++i;
-        UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i )
+        name = "lansystem " + to_string(i);
 
     }
     
@@ -1105,8 +1099,7 @@ void LanInterface::PositionLayout ()
                 LanComputerSystem *lanSystem = lancomp->systems.GetData(i);
                 UplinkAssert (lanSystem)
 
-                char name [64];
-                UplinkSnprintf ( name, sizeof ( name ), "lansystem %d", i )
+                string name = "lansystem " + to_string(i);
                 int x = background->x + (lanSystem->x) + offsetX;
                 int y = background->y + (lanSystem->y) + offsetY;
 

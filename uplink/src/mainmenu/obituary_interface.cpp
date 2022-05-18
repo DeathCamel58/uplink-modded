@@ -5,11 +5,8 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
-
 #include "eclipse.h"
 #include "soundgarden.h"
-#include "redshirt.h"
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -138,8 +135,7 @@ void ObituaryInterface::Create ()
 
 #endif
 		
-		char finances [32];
-		UplinkSnprintf ( finances, sizeof ( finances ), "%d credits", gob->money )
+		string finances = to_string(gob->money) + " credits";
 
 		char name [128];
 		UplinkSnprintf ( name, sizeof ( name ), "Agent %s", gob->name )
@@ -181,12 +177,10 @@ void ObituaryInterface::Create ()
         for ( int i = 0; i < 16; ++i ) {
             if ( gob->specialmissionscompleted & (1 << i) ) {
 
-                char name [128];
+                string name = "obituary_award " + to_string(i);
                 char tooltip [128];
-                char filename [256];
-                UplinkSnprintf ( name, sizeof ( name ), "obituary_award %d", i )
                 UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Completed Special Mission '%s'", PlotGenerator::SpecialMissionTitle (i) )
-                UplinkSnprintf ( filename, sizeof ( filename ), "awards/award%d.tif", i )
+                string filename = "awards/award" + to_string(i) + ".tif";
 
                 EclRegisterButton ( x, y, 16, 16, " ", tooltip, name );                
                 button_assignbitmaps ( name, filename, filename, filename );
@@ -198,21 +192,16 @@ void ObituaryInterface::Create ()
             }            
         }
 
-        char numberoutof[128];
-        UplinkSnprintf ( numberoutof, sizeof ( numberoutof ), "(%d out of %d)", numcompleted, 12 )
+        string numberoutof = "(" + to_string(numcompleted) + " out of 12)";
         EclRegisterButton ( 190, 400, 120, 15, numberoutof, "", "obituary_numberoutof" );
         EclRegisterButtonCallbacks ( "obituary_numberoutof", textbutton_draw, nullptr, nullptr, nullptr );
 
 		//
 		// Right column
 
-		char highsecurityhacks [128];
-		char livesruined [128];
-		char systemsdestroyed [128];
-		
-		UplinkSnprintf ( highsecurityhacks, sizeof ( highsecurityhacks ), "You compromised %d high security systems", gob->score_highsecurityhacks )
-		UplinkSnprintf ( livesruined, sizeof ( livesruined ), "You ruined the lives of %d people", gob->score_peoplefucked )
-		UplinkSnprintf ( systemsdestroyed, sizeof ( systemsdestroyed ), "You destroyed %d computers", gob->score_systemsfucked )
+		string highsecurityhacks = "You compromised " + to_string(gob->score_highsecurityhacks) + " high security systems";
+        string livesruined = "You ruined the lives of " + to_string(gob->score_peoplefucked) + " people";
+        string systemsdestroyed = "You destroyed " + to_string(gob->score_systemsfucked) + " computers";
 
 		EclRegisterButton ( 350, 300, 300, 15, highsecurityhacks, "", "obituary_highsecurityhacks" );		
 		EclRegisterButton ( 350, 320, 300, 15, systemsdestroyed, "", "obituary_systemsdestroyed" );
@@ -222,8 +211,7 @@ void ObituaryInterface::Create ()
 		EclRegisterButtonCallbacks ( "obituary_livesruined", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterButtonCallbacks ( "obituary_systemsdestroyed", textbutton_draw, nullptr, nullptr, nullptr );
 
-		char score [64];
-		UplinkSnprintf ( score, sizeof ( score ), "Final Score    %d", gob->score )
+        string score = "Final Score    %" + to_string(gob->score);
 
 		EclRegisterButton ( 360, 410, 200, 25, score, "", "obituary_score" );
 		EclRegisterButtonCallbacks ( "obituary_score", LargeTextDraw, nullptr, nullptr, nullptr );
@@ -275,8 +263,7 @@ void ObituaryInterface::Remove ()
         EclRemoveButton ( "obituary_numberoutof" );
         for ( int i = 0; i < 16; ++i ) {
 
-            char name [128];
-            UplinkSnprintf ( name, sizeof ( name ), "obituary_award %d", i )
+            string name = "obituary_award " + to_string(i);
             EclRemoveButton (name);
 
         }

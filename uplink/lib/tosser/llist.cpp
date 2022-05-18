@@ -24,6 +24,11 @@ LList<T>::~LList ()
     Empty();
 }
 
+/**
+ * Appends data to LList
+ * @tparam T Type of LList
+ * @param newdata Data to insert
+ */
 template <class T>
 void LList<T>::PutData ( const T &newdata )
 {
@@ -32,6 +37,11 @@ void LList<T>::PutData ( const T &newdata )
 	
 }
 
+/**
+ * Appends data to LList
+ * @tparam T Type of LList
+ * @param newdata Data to insert
+ */
 template <class T>
 void LList<T>::PutDataAtEnd ( const T &newdata )
 {
@@ -65,6 +75,11 @@ void LList<T>::PutDataAtEnd ( const T &newdata )
 
 }
 
+/**
+ * Prepends data to LList
+ * @tparam T Type of LList
+ * @param newdata Data to insert
+ */
 template <class T>
 void LList<T>::PutDataAtStart ( const T &newdata )
 {
@@ -98,6 +113,12 @@ void LList<T>::PutDataAtStart ( const T &newdata )
 
 }
 
+/**
+ * Inserts data at index of LList
+ * @tparam T Type of LList
+ * @param newdata Data to insert
+ * @param index Index to insert data at
+ */
 template <class T>
 void LList <T>::PutDataAtIndex ( const T &newdata, int index )
 {
@@ -141,6 +162,11 @@ void LList <T>::PutDataAtIndex ( const T &newdata, int index )
 		
 }
 
+/**
+ * Gets the number of LList items
+ * @tparam T Type of LList
+ * @return Number of items in LList
+ */
 template <class T>
 int LList <T>::Size ()
 {
@@ -149,6 +175,12 @@ int LList <T>::Size ()
 
 }
 
+/**
+ * Returns data from given index in LList
+ * @tparam T Type of LList
+ * @param index Index to get data from
+ * @return The data at given index
+ */
 template <class T>
 T LList <T>::GetData ( int index )
 {
@@ -207,6 +239,12 @@ T LList <T>::GetData ( int index )
 
 }
 
+/**
+ * Returns data from given index in LList
+ * @tparam T Type of LList
+ * @param index Index to get data from
+ * @return The data at given index
+ */
 template <class T>
 T LList <T> :: operator [] (int index)
 {
@@ -215,6 +253,12 @@ T LList <T> :: operator [] (int index)
 
 }
 
+/**
+ * Checks if the index exists in the LList
+ * @tparam T Type of the LList
+ * @param index Index to check if exists
+ * @return `true` if index exists
+ */
 template <class T>
 bool LList <T>::ValidIndex ( int index )
 {
@@ -223,6 +267,10 @@ bool LList <T>::ValidIndex ( int index )
 
 }
 
+/**
+ * Deletes all items in LList
+ * @tparam T Type of the LList
+ */
 template <class T>
 void LList <T>::Empty ()
 {
@@ -249,6 +297,11 @@ void LList <T>::Empty ()
     
 }
 
+/**
+ * Deletes an index in an LList
+ * @tparam T Type of the LList
+ * @param index Index to delete in LList
+ */
 template <class T>
 void LList <T>::RemoveData ( int index )
 {
@@ -285,6 +338,12 @@ void LList <T>::RemoveData ( int index )
         
 }
 
+/**
+ * Finds where the data is in an LList
+ * @tparam T Type of the LList
+ * @param data Data to look for
+ * @return The index of the data in the LList, `-1` if it doesn't exist
+ */
 template <class T>
 int LList <T>::FindData ( const T &data )
 {

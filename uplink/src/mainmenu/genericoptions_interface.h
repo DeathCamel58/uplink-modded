@@ -42,7 +42,7 @@ public:
 	~GenericOptionsInterface () override;
 
 	void SetOptionTYPE ( char *newtype );						// eg GAME, SOUND etc
-	void ChangeOptionValue ( char *option, int newvalue );
+	static void ChangeOptionValue ( char *option, int newvalue );
 
 	void Create () override;
 	void Remove () override;

@@ -1,30 +1,13 @@
 
 #include "eclipse.h"
-#include "vanbakel.h"
 
 #include "app/app.h"
-#include "app/miscutils.h"
 #include "app/serialise.h"
 
 #include "options/options.h"
 
-#include "game/game.h"
-#include "game/data/data.h"
-
-#include "interface/interface.h"
 #include "interface/localinterface/localinterface.h"
 #include "interface/localinterface/cheat_interface.h"
-#include "interface/remoteinterface/remoteinterface.h"
-
-#include "world/world.h"
-#include "world/player.h"
-
-#include "world/computer/computer.h"
-#include "world/computer/lancomputer.h"
-#include "world/computer/computerscreen/computerscreen.h"
-#include "world/generator/consequencegenerator.h"
-#include "world/generator/worldgenerator.h"
-#include "world/scheduler/shotbyfedsevent.h"
 
 #include "mmgr.h"
 

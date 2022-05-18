@@ -7,8 +7,6 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
@@ -25,7 +23,6 @@
 #include "world/computer/bankaccount.h"
 #include "world/computer/bankcomputer.h"
 #include "world/generator/missiongenerator.h"
-#include "world/generator/numbergenerator.h"
 #include "world/generator/worldgenerator.h"
 
 #include "mmgr.h"

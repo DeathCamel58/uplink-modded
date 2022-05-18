@@ -76,7 +76,7 @@ protected:
     static void PauseButtonClick  ( Button *button );
     static void UnPauseClick      ( Button *button );
 
-	static void HighlightToolbarButton   ( char *bname );
+	static void HighlightToolbarButton   (const string& bname);
 	static void UnHighlightToolbarButton ();
 
 public:

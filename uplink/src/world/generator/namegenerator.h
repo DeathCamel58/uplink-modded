@@ -29,7 +29,7 @@ public:
 	static char *GenerateBankName ();
 		
 	static char *GeneratePassword ();
-	static char *GenerateEasyPassword ();					// Guessable
+	static string GenerateEasyPassword ();					// Guessable
 	static char *GenerateComplexPassword ();				// Non dictionary hackable
 	
 	static char *GenerateDataName (const string &companyname, int DATATYPE );

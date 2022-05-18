@@ -137,8 +137,8 @@ void GciTimerFunc(unsigned int millis, GciCallbackT *callback, int value);
 
 
 struct GciScreenMode {
-	unsigned w;    // Width
-	unsigned h;    // Height
+	int w;    // Width
+	int h;    // Height
 //	unsigned bpp;  // Bits per pixel
 };
 

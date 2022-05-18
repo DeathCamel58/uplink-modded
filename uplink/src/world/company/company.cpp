@@ -3,9 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <app/miscutils.h>
-#include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -93,8 +91,6 @@ void Company::SetAlignment ( int newalignment )
 
 void Company::Grow ( int dayspast )
 {
-
-	int oldsize = size;
 
 	float fraction_of_growth = (float) dayspast / 90;						// 90 days is ~ 1/4 year
 

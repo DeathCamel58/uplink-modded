@@ -3,7 +3,6 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <app/miscutils.h>
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -17,7 +16,6 @@
 #include "world/computer/computer.h"
 #include "world/computer/logbank.h"
 #include "world/computer/recordbank.h"
-#include "world/computer/security.h"
 #include "world/computer/securitysystem.h"
 #include "world/computer/computerscreen/computerscreen.h"
 
@@ -297,7 +295,7 @@ void Computer::CheckForSecurityBreaches ()
 
 	if ( databank.formatted ) {
 
-		char *softwaretype [4] = { "SCIENTIFIC", "CORPORATE", "CUSTOMER", "SOFTWARE" };
+		string softwaretype [4] = { "SCIENTIFIC", "CORPORATE", "CUSTOMER", "SOFTWARE" };
 		int softwareindex = NumberGenerator::RandomNumber ( 4 );
 
 		NewsGenerator::AllFilesDeleted ( this, softwaretype [softwareindex] );

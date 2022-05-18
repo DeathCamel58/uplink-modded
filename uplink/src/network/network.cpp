@@ -3,12 +3,8 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <tcp4u.h>
-#include <smtp4u.h>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/serialise.h"
 #include "app/globals.h"
 

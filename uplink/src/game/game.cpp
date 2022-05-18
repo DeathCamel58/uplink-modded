@@ -3,7 +3,6 @@
 
 #include <app/miscutils.h>
 #include "eclipse.h"
-#include "gucci.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 
@@ -30,7 +29,6 @@
 #include "world/message.h"
 #include "world/generator/worldgenerator.h"
 #include "world/generator/numbergenerator.h"
-#include "world/generator/plotgenerator.h"
 #include "world/scheduler/notificationevent.h"
 
 #include "mmgr.h"

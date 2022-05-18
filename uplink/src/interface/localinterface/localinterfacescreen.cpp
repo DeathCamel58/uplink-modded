@@ -8,10 +8,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
-#include "gucci.h"
-
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/miscutils.h"

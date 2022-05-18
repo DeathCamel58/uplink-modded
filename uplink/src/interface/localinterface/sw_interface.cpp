@@ -5,12 +5,9 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include <cstring>
 #include <sstream>
 
-#include "soundgarden.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 
@@ -279,8 +276,7 @@ void SWInterface::SoftwareHighlight ( Button *button )
 
         if ( IsVisibleVersionMenu ( "" ) ) {
 			ToggleVersionMenu ( "", 0, 0 );
-        }
-		else {										// Force redraw of previously selected button
+        } else {										// Force redraw of previously selected button
 			string bname = "hud_software " + to_string(currentprogrambutton);
 			EclDirtyButton ( bname );
 		}

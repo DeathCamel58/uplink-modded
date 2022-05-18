@@ -6,12 +6,10 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 #include "vanbakel.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 
@@ -25,7 +23,6 @@
 #include "interface/localinterface/memory_interface.h"
 
 #include "world/world.h"
-#include "world/vlocation.h"
 #include "world/player.h"
 #include "world/computer/computer.h"
 #include "world/computer/securitysystem.h"
@@ -176,9 +173,8 @@ void Defrag::StopDefrag ( )
 
 		LocalInterfaceScreen *lis = game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();   
 		UplinkAssert (lis)
-		auto *mi = (MemoryInterface *) lis;
-		mi->SpecialHighlight ( -1 ); // No highlight
-		mi->ForceUpdateAll ();
+		MemoryInterface::SpecialHighlight ( -1 ); // No highlight
+		MemoryInterface::ForceUpdateAll ();
 
 	}
 	/********** End code by François Gagné **********/
@@ -265,9 +261,8 @@ void Defrag::HandleNewMemorySlot ( int index )
 
         LocalInterfaceScreen *lis = game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ();    
         UplinkAssert (lis)
-        auto *mi = (MemoryInterface *) lis;
-        mi->SpecialHighlight ( index );
-        mi->ForceUpdateAll ();
+        MemoryInterface::SpecialHighlight ( index );
+        MemoryInterface::ForceUpdateAll ();
 
     }
 
@@ -278,9 +273,7 @@ void Defrag::Tick ( int n )
 
 	if ( IsInterfaceVisible () ) {
 		
-		char sprogress [128];
-		
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", SvbLookupPID ( this ) )
+		string sprogress = "defrag_progress " + to_string(SvbLookupPID ( this ));
 
 		if ( progress == 0 ) {												// Do nothing - waiting for user to click GO			
 
@@ -351,15 +344,10 @@ void Defrag::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid )
+		string stitle = "defrag_title " + to_string(pid);
+        string sborder = "defrag_border " + to_string(pid);
+        string sprogress = "defrag_progress " + to_string(pid);
+        string sclose = "defrag_close " + to_string(pid);
 
 		EclRegisterButton ( 265, 422, 20, 15, "", "Defrag the files on your computer", stitle );
 		button_assignbitmap ( stitle, "software/go.tif" );
@@ -386,15 +374,10 @@ void Defrag::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid )
+		string stitle = "defrag_title " + to_string(pid);
+        string sborder = "defrag_border " + to_string(pid);
+        string sprogress = "defrag_progress " + to_string(pid);
+        string sclose = "defrag_close " + to_string(pid);
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -412,15 +395,10 @@ void Defrag::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "defrag_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "defrag_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "defrag_close %d", pid )
+	string stitle = "defrag_title " + to_string(pid);
+    string sborder = "defrag_border " + to_string(pid);
+    string sprogress = "defrag_progress " + to_string(pid);
+    string sclose = "defrag_close " + to_string(pid);
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -433,8 +411,7 @@ bool Defrag::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "defrag_title %d", pid )
+	string stitle = "defrag_title " + to_string(pid);
 
 	return ( EclGetButton ( stitle ) != nullptr );
 

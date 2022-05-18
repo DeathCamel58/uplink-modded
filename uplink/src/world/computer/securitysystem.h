@@ -58,7 +58,7 @@ public:
 	void Bypass ();
 	void EndBypass ();
 
-	char *GetName () const;
+	string GetName () const;
 
 	// Common functions
 

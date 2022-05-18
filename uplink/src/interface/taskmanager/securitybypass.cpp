@@ -3,8 +3,6 @@
 #include "vanbakel.h"
 #include "eclipse.h"
 
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/uplinkobject.h"

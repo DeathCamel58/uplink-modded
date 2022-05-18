@@ -28,7 +28,7 @@ protected:
 	static void MemoryBlockClick	 ( Button *button );
 	
 	static void TitleClick ( Button *button );
-    static void ScrollChange ( char *scrollname, int newValue );
+    static void ScrollChange (const string &scrollname, int newValue );
 
 public:
 

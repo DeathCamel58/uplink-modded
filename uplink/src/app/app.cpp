@@ -8,10 +8,6 @@
 #include <direct.h>
 #include <io.h>
 #else
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <fcntl.h>
-#include <unistd.h>
 #include <dirent.h>
 #include <filesystem>
 
@@ -448,7 +444,7 @@ void App::Close ()
     EclReset ( app->GetOptions ()->GetOptionValue ("graphics_screenwidth"),
 			   app->GetOptions ()->GetOptionValue ("graphics_screenheight") );
 
-	if ( game ) game->ExitGame ();
+	if ( game ) Game::ExitGame ();
 
     options->ApplyShutdownChanges ();
     options->Save ( nullptr );
@@ -554,23 +550,19 @@ void App::Update ()
         EclReset ( app->GetOptions ()->GetOptionValue ("graphics_screenwidth"),
 				   app->GetOptions ()->GetOptionValue ("graphics_screenheight") );
 
-		if ( game->GetWorld ()->GetPlayer ()->gateway.nuked )
-			mainmenu->RunScreen ( MAINMENU_CONNECTIONLOST );
-
-        else if ( game->GetObituary ()->demogameover ) 
-            mainmenu->RunScreen ( MAINMENU_DEMOGAMEOVER );
-
-        else if ( game->GetObituary ()->warezgameover )
-            mainmenu->RunScreen ( MAINMENU_WAREZGAMEOVER );
-
-        else if ( game->GetWorld ()->plotgenerator.revelation_releaseuncontrolled )
-            mainmenu->RunScreen ( MAINMENU_REVELATIONWON );
-
-        else if ( game->GetWorld ()->plotgenerator.revelation_releasefailed )
-            mainmenu->RunScreen ( MAINMENU_REVELATIONLOST );
-
-		else
-			mainmenu->RunScreen ( MAINMENU_DISAVOWED );
+		if ( game->GetWorld ()->GetPlayer ()->gateway.nuked ) {
+            mainmenu->RunScreen(MAINMENU_CONNECTIONLOST);
+        } else if ( game->GetObituary ()->demogameover ) {
+            mainmenu->RunScreen(MAINMENU_DEMOGAMEOVER);
+        } else if ( game->GetObituary ()->warezgameover ) {
+            mainmenu->RunScreen(MAINMENU_WAREZGAMEOVER);
+        } else if ( game->GetWorld ()->plotgenerator.revelation_releaseuncontrolled ) {
+            mainmenu->RunScreen(MAINMENU_REVELATIONWON);
+        } else if ( game->GetWorld ()->plotgenerator.revelation_releasefailed ) {
+            mainmenu->RunScreen(MAINMENU_REVELATIONLOST);
+        } else {
+            mainmenu->RunScreen(MAINMENU_DISAVOWED);
+        }
 
 	}
 

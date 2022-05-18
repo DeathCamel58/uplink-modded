@@ -8,8 +8,6 @@
 #include "app/opengl_interface.h"
 #include "app/globals.h"
 
-#include "game/game.h"
-
 #include "mainmenu/mainmenu.h"
 #include "mainmenu/networkoptions_interface.h"
 

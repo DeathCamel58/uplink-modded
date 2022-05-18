@@ -3,7 +3,6 @@
 
 #include "app/app.h"
 #include "app/opengl_interface.h"
-#include "app/globals.h"
 
 #include "mainmenu/mainmenu.h"
 #include "mainmenu/options_interface.h"

@@ -7,12 +7,9 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
-
 #include "game/game.h"
 #include "game/data/data.h"
 
-#include "app/app.h"
 #include "app/serialise.h"
 #include "app/globals.h"
 #include "app/miscutils.h"
@@ -167,7 +164,7 @@ void ConsoleScreenInterface::SetCurrentDir (const string &newcurrentdir )
 
 }
 
-void ConsoleScreenInterface::PutText (int userid, string text )
+void ConsoleScreenInterface::PutText (int userid, const string& text )
 {
 
 	if ( userid == 0 ) {
@@ -184,7 +181,7 @@ void ConsoleScreenInterface::PutText (int userid, string text )
 
 }
 
-void ConsoleScreenInterface::PutTextAtStart (int userid, string text )
+void ConsoleScreenInterface::PutTextAtStart (int userid, const string& text )
 {
 
 	if ( userid == 0 ) {
@@ -201,7 +198,7 @@ void ConsoleScreenInterface::PutTextAtStart (int userid, string text )
 
 }
 
-void ConsoleScreenInterface::RunCommand (string command )
+void ConsoleScreenInterface::RunCommand (const string& command )
 {
 
 	assert (!command.empty());
@@ -600,8 +597,7 @@ void ConsoleScreenInterface::RunCommand_RUN	(const string &program, bool actuall
 
 					game->GetWorld ()->plotgenerator.RunRevelation ( comp->ip, data->version, true );
 
-				}
-                else if ( program == "faith" ) {
+				} else if ( program == "faith" ) {
 
                     game->GetWorld ()->plotgenerator.RunFaith ( comp->ip, data->version, true );
 
@@ -614,8 +610,7 @@ void ConsoleScreenInterface::RunCommand_RUN	(const string &program, bool actuall
 				        queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Success", 0 ) );
                     }
 
-                }
-                else if ( program == "revelationtracer" ) {
+                } else if ( program == "revelationtracer" ) {
 
                     game->GetWorld ()->plotgenerator.RunRevelationTracer ( comp->ip );
 
@@ -788,8 +783,7 @@ void ConsoleScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int i = 0; i < NUMLINES; ++i ) {
 
 			int y = 50 + ( i * 15 );
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "console_text %d", i )
+			string name = "console_text " + to_string(i);
 
 			EclRegisterButton ( 22, y, 390, 15, "", "", name );
 			EclRegisterButtonCallbacks ( name, MessageDraw, nullptr, nullptr, nullptr );
@@ -844,8 +838,7 @@ void ConsoleScreenInterface::Remove ()
 
 		for ( int ti = 0; ti < NUMLINES; ++ti ) {
 
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "console_text %d", ti )
+			string name = "console_text " + to_string(ti);
 			EclRemoveButton ( name );
 
 		}

@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include <cstdio>
 #include <sstream>
 
@@ -245,23 +243,19 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 			    // Special case - HUD upgrades
 			    //
 	
-				if ( strcmp ( sale->title, "HUD_MapShowTrace" ) == 0 )
-					game->GetWorld ()->GetPlayer ()->gateway.GiveHUDUpgrade ( HUDUPGRADE_MAPSHOWSTRACE );
+				if ( strcmp ( sale->title, "HUD_MapShowTrace" ) == 0 ) {
+                    game->GetWorld()->GetPlayer()->gateway.GiveHUDUpgrade(HUDUPGRADE_MAPSHOWSTRACE);
+                } else if ( strcmp ( sale->title, "HUD_ConnectionAnalysis" ) == 0 ) {
+                    game->GetWorld()->GetPlayer()->gateway.GiveHUDUpgrade(HUDUPGRADE_CONNECTIONANALYSIS);
+                } else if ( strcmp ( sale->title, "HUD_IRC-Client" ) == 0 ) {
+                    game->GetWorld()->GetPlayer()->gateway.GiveHUDUpgrade(HUDUPGRADE_IRCCLIENT);
+                } else if ( strcmp ( sale->title, "HUD_LANView" ) == 0 ) {
+                    game->GetWorld()->GetPlayer()->gateway.GiveHUDUpgrade(HUDUPGRADE_LANVIEW);
+                } else {
+                    UplinkAbort ("Unrecognised HUD upgrade")
+                }
 
-				else if ( strcmp ( sale->title, "HUD_ConnectionAnalysis" ) == 0 )
-					game->GetWorld ()->GetPlayer ()->gateway.GiveHUDUpgrade ( HUDUPGRADE_CONNECTIONANALYSIS );
-
-                else if ( strcmp ( sale->title, "HUD_IRC-Client" ) == 0 )
-                    game->GetWorld ()->GetPlayer ()->gateway.GiveHUDUpgrade ( HUDUPGRADE_IRCCLIENT );
-
-                else if ( strcmp ( sale->title, "HUD_LANView" ) == 0 )
-                    game->GetWorld ()->GetPlayer ()->gateway.GiveHUDUpgrade ( HUDUPGRADE_LANVIEW );
-
-				else
-					UplinkAbort ( "Unrecognised HUD upgrade" )
-
-			}
-			else if ( sale->swhwTYPE == SOFTWARETYPE_BYPASSER ) {
+			} else if ( sale->swhwTYPE == SOFTWARETYPE_BYPASSER ) {
 
 			    //
 			    // Special case - Bypass software (requires HUD_ConnectionAnalysis)
@@ -276,15 +270,13 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 					EclRegisterCaptionChange ( "swsales_details", "You require a HUD_ConnectionAnalysis upgrade before purchasing any bypasser." );
 					return;					
 
-				}
-                else {
+				} else {
 
                     game->GetWorld ()->GetPlayer ()->gateway.databank.PutData ( newsw, memoryindex );
 
                 }
 
-			}
-            else if ( sale->swhwTYPE == SOFTWARETYPE_LANTOOL ) {
+			} else if ( sale->swhwTYPE == SOFTWARETYPE_LANTOOL ) {
 
                 //
                 // Special case - Lan Tool (requires HUD_LanView)
@@ -299,15 +291,13 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
                     EclRegisterCaptionChange ( "swsales_details", "You require a HUD_LanView upgrade before purchasing any LAN tools." );
                     return;
 
-                }
-                else {
+                } else {
 
                     game->GetWorld ()->GetPlayer ()->gateway.databank.PutData ( newsw, memoryindex );
 
                 }
 
-            }
-			else {
+            } else {
 
 				game->GetWorld ()->GetPlayer ()->gateway.databank.PutData ( newsw, memoryindex );
 
@@ -331,8 +321,7 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 
 			}
 
-		}
-		else if ( memoryindex == -1 ) {
+		} else if ( memoryindex == -1 ) {
 	
 			// Not enough space
 			delete newsw;
@@ -341,8 +330,7 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 
 			EclRegisterCaptionChange ( "swsales_details", "You do not have enough memory to store this program." );
 
-		}
-		else {
+		} else {
 
 			// Not enough money
 			delete newsw;

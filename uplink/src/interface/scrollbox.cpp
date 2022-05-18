@@ -3,17 +3,10 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
-
-#include <cstdio>
 #include <sstream>
 
 #include "eclipse.h"
-#include "gucci.h"
 
-#include "app/app.h"
-#include "app/globals.h"
 #include "app/miscutils.h"
 #include "app/opengl_interface.h"
 #include "app/opengl.h"
@@ -24,7 +17,7 @@
 
 
 LList <ScrollBox *> ScrollBox::scrollBoxes;
-char ScrollBox::currentGrab[] = "None";
+string ScrollBox::currentGrab = "None";
 
 ScrollBox::ScrollBox()
 {
@@ -251,20 +244,19 @@ void ScrollBox::MouseMoveScrollBar ( Button *button )
 
 void ScrollBox::GrabScrollBar (const string &name )
 {
-    int mouseY = get_mouseY ();
-    UplinkStrncpy ( currentGrab, name.c_str(), sizeof ( currentGrab ) )
+    currentGrab = name;
 }
 
 void ScrollBox::UnGrabScrollBar ()
 {
-    if ( strcmp ( currentGrab, "None" ) != 0 ) {
-        UplinkStrncpy ( currentGrab, "None", sizeof ( currentGrab ) )
+    if ( currentGrab != "None" ) {
+        currentGrab = "None";
     }       
 }
  
 bool ScrollBox::IsGrabInProgress ()
 {
-    if ( strcmp ( currentGrab, "None" ) == 0 )
+    if ( currentGrab == "None" )
         return false;
 
     else {
@@ -350,7 +342,7 @@ void ScrollBox::RemoveInterface ()
 	interfaceCreated = false;
 }
 
-void ScrollBox::UpdateInterface ()
+void ScrollBox::UpdateInterface () const
 {
 
 	if (interfaceCreated) {

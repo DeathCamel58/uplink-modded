@@ -5,14 +5,12 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 
 #include "vanbakel.h"
 #include "eclipse.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/miscutils.h"
@@ -108,8 +106,7 @@ void IPLookup::Tick ( int n )
 			// Try to lookup the IP in the box
 
 			int pid = SvbLookupPID ( this );
-			char name_display [64];
-			UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
+			string name_display = "iplookup_display " + to_string(pid);
 			
 			Button *button = EclGetButton ( name_display );
 			UplinkAssert ( button )
@@ -143,8 +140,7 @@ void IPLookup::Tick ( int n )
 			if ( time (nullptr) > timeout + 5 ) {
 
 				int pid = SvbLookupPID ( this );
-				char name_display [64];
-				UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
+				string name_display = "iplookup_display " + to_string(pid);
 
 				EclRegisterCaptionChange ( name_display, "Enter IP" );
 				status = IPLOOKUP_IDLE;
@@ -169,13 +165,9 @@ void IPLookup::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char name_go [64];
-		char name_display [64];
-		char name_close [64];
-
-		UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid )
-		UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
-		UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid )
+		string name_go = "iplookup_go " + to_string(pid);
+        string name_display = "iplookup_display " + to_string(pid);
+        string name_close = "iplookup_close " + to_string(pid);
 
 		EclRegisterButton ( 305, 444, 20, 15, "", "Perform the lookup", name_go );
 		EclRegisterButton ( 325, 444, 185, 14, "Enter IP", "Type your IP here", name_display );
@@ -200,13 +192,9 @@ void IPLookup::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char name_go [64];
-		char name_display [64];
-		char name_close [64];
-
-		UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid )
-		UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
-		UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid )
+		string name_go = "iplookup_go " + to_string(pid);
+        string name_display = "iplookup_display " + to_string(pid);
+        string name_close = "iplookup_close " + to_string(pid);
 
 		EclRemoveButton ( name_go );
 		EclRemoveButton ( name_display );
@@ -223,13 +211,9 @@ void IPLookup::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char name_go [64];
-	char name_display [64];
-	char name_close [64];
-
-	UplinkSnprintf ( name_go, sizeof ( name_go ), "iplookup_go %d", pid )
-	UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
-	UplinkSnprintf ( name_close, sizeof ( name_close ), "iplookup_close %d", pid )
+	string name_go = "iplookup_go " + to_string(pid);
+    string name_display = "iplookup_display " + to_string(pid);
+    string name_close = "iplookup_close " + to_string(pid);
 
 	EclButtonBringToFront ( name_go );
 	EclButtonBringToFront ( name_display );
@@ -242,8 +226,7 @@ bool IPLookup::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char name_display [64];
-	UplinkSnprintf ( name_display, sizeof ( name_display ), "iplookup_display %d", pid )
+	string name_display = "iplookup_display " + to_string(pid);
 
 	return ( EclGetButton ( name_display ) != nullptr );
 

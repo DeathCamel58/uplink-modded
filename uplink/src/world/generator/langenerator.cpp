@@ -2,8 +2,6 @@
 
 #include <strstream>
 
-#include <fstream>
-
 #include "redshirt.h"
 
 #include "app/app.h"
@@ -176,8 +174,7 @@ Computer  *LanGenerator::LoadLAN (const string &filename )
 															indexUsed = GenerateModem               (comp, cluster, x, y, security, dataX, sizeof ( dataX ) );
 			else
 															indexUsed = GenerateModem               (comp, cluster, x, y, security);
-		}
-        else if ( strstr(systemName, "LOGSERVER" ) )        indexUsed = GenerateLogServer           (comp, cluster, x, y, security);
+		} else if ( strstr(systemName, "LOGSERVER" ) )        indexUsed = GenerateLogServer           (comp, cluster, x, y, security);
 
 		else
 			cout << "LanGenerator::LoadLAN WARNING: Unrecognised System TYPE " << systemName << ".(" << filename << ")" << endl;

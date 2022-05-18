@@ -48,7 +48,7 @@ void SgStopMod   ();
 void SgPlaylist_Initialise ();
 void SgPlaylist_Shutdown ();
 void SgPlaylist_Create (const std::string &pname );
-void SgPlaylist_AddSong (const std::string &pname, char *songname );
+void SgPlaylist_AddSong (const std::string &pname, const std::string &songname );
 void SgPlaylist_Play (const std::string &pname );
 void SgPlaylist_Stop ();
 void SgPlaylist_NextSong ();

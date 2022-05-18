@@ -7,7 +7,6 @@
 #include <cstdio>
 
 #include "eclipse.h"
-#include "gucci.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 

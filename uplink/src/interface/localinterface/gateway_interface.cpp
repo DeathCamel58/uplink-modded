@@ -4,19 +4,15 @@
 #endif
 
 #include <GL/gl.h>
-#include <GL/glu.h>
-
 
 #include "eclipse.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 
 #include "game/game.h"
-#include "game/data/data.h"
 
 #include "world/world.h"
 #include "world/player.h"
@@ -148,8 +144,7 @@ void GatewayInterface::Create ()
 
 				GatewayDefLocation *gdl = gatewaydef->cpus.GetData (ic);
 				UplinkAssert (gdl)
-				char bname [64];
-				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu %d", ic )
+				string bname = "gateway_cpu " + to_string(ic);
 				EclRegisterButton ( gatewayX + gdl->x, gatewayY + gdl->y, 
 									SIZE_GATEWAY_CPU_W, SIZE_GATEWAY_CPU_H, " ", " ", bname );
 
@@ -182,8 +177,7 @@ void GatewayInterface::Create ()
 				GatewayDefLocation *gdl = gatewaydef->memory.GetData (im);
 				UplinkAssert (gdl)
 
-				char bname [64];
-				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_memory %d", im )
+				string bname = "gateway_memory " + to_string(im);
 
 				EclRegisterButton ( gatewayX + gdl->x, gatewayY + gdl->y, 
 									SIZE_GATEWAY_MEM_W, SIZE_GATEWAY_MEM_H, " ", bname );
@@ -213,8 +207,7 @@ void GatewayInterface::Create ()
 				GatewayDefLocation *gdl = gatewaydef->security.GetData (is);
 				UplinkAssert (gdl)
 
-				char bname [64];
-				UplinkSnprintf ( bname, sizeof ( bname ), "gateway_security %d", is )
+				string bname = "gateway_security " + to_string(is);
 
 				EclRegisterButton ( gatewayX + gdl->x, gatewayY + gdl->y, 
 									SIZE_GATEWAY_SEC_W, SIZE_GATEWAY_SEC_H, " ", bname );
@@ -237,8 +230,7 @@ void GatewayInterface::Create ()
 
 		// Create the modem
 
-		char modemtooltip [32];
-		UplinkSnprintf ( modemtooltip, sizeof ( modemtooltip ), "Modem (%dGqs)", gateway->GetBandwidth () )
+		string modemtooltip = "Modem (" + to_string(gateway->GetBandwidth()) + "Gqs)";
 		EclRegisterButton ( gatewayX + gatewaydef->modemX, gatewayY + gatewaydef->modemY, 
 							SIZE_GATEWAY_MODEM_W, SIZE_GATEWAY_MODEM_H, " ", modemtooltip, "gateway_modem" );
 		button_assignbitmap ( "gateway_modem", "gateway/modem.tif" );
@@ -279,22 +271,19 @@ void GatewayInterface::Remove ()
 		UplinkAssert (gatewaydef)
 
 		for ( int ic = 0; ic < gatewaydef->maxcpus; ++ic ) {
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu %d", ic )
+			string bname = "gateway_cpu " + to_string(ic);
 			EclRemoveButton ( bname );
-			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_cpu_caption %d", ic )
+			bname = "gateway_cpu_caption " + to_string(ic);
 			EclRemoveButton ( bname );
 		}
 
 		for ( int im = 0; im < gatewaydef->maxmemory; ++im ) {
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_memory %d", im )
+			string bname = "gateway_memory " + to_string(im);
 			EclRemoveButton ( bname );
 		}
 
 		for ( int is = 0; is < gatewaydef->maxsecurity; ++is ) {
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "gateway_security %d", is )
+			string bname = "gateway_security " + to_string(is);
 			EclRemoveButton ( bname );
 		}
 

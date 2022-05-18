@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include <cmath>
 #include <sstream>
 
@@ -432,8 +430,7 @@ void WorldMapInterface::DrawWorldMapSmall ( Button *button, bool highlighted, bo
         glColor4f ( 0.4f, 0.4f, 0.8f, 1.0f );
         border_draw ( button );
 
-    }
-	else {
+    } else {
 
 		glColor3ub ( 81, 138, 215 );
 		border_draw ( button );
@@ -454,7 +451,7 @@ public:
     lastFrame = (int) EclGetAccurateTime();
   };
 
-  bool shouldDrawNow() {
+  bool shouldDrawNow() const {
     return EclGetAccurateTime() - lastFrame  > frameDuration;
   }
 
@@ -715,7 +712,7 @@ void WorldMapInterface::DrawLocation ( Button *button, bool highlighted, bool cl
 		int y = button->y + 20;
 		
 		char msg[256];
-		
+
 		UplinkSnprintf(msg, sizeof ( msg ), "Owner: %s", comp->companyname)
 		int w1 = GciTextWidth(msg) + 10;
 
@@ -901,8 +898,7 @@ void WorldMapInterface::RemoveTempConnectionButton()
 
 	do {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "worldmaptempcon %d", numtempconbutton )
+		string name = "worldmaptempcon " + to_string(numtempconbutton);
 		button = EclGetButton ( name );
 
 		if ( button )
@@ -967,10 +963,9 @@ void WorldMapInterface::ProgramLayoutEngine()
 					int x1 = mapRect.x1;
 					int y1 = mapRect.y1;
 
-					char name [128];
+					string name = "worldmaptempcon " + to_string(numtempconbutton);
 					char caption [128];
 					char tooltip [128];
-					UplinkSnprintf ( name, sizeof ( name ), "worldmaptempcon %d", numtempconbutton )
 					UplinkStrncpy ( caption, vl->ip, sizeof ( caption ) )
 					UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Connect to IP address %s", vl->ip )
 					EclRegisterButton ( GetScaledX ( vl->x, WORLDMAP_LARGE ) + x1 - 3, GetScaledY ( vl->y, WORLDMAP_LARGE ) + y1 - 3, 7, 7, caption, tooltip, name );
@@ -1455,8 +1450,7 @@ void WorldMapInterface::ScrollX ( float x )
 
 	do {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "worldmaptempcon %d", numtempconbutton )
+		string name = "worldmaptempcon " + to_string(numtempconbutton);
 		button = EclGetButton ( name );
 
 		if ( button ) {
@@ -1518,8 +1512,7 @@ void WorldMapInterface::ScrollY ( float y )
 
 	do {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "worldmaptempcon %d", numtempconbutton )
+		string name = "worldmaptempcon " + to_string(numtempconbutton);
 		button = EclGetButton ( name );
 
 		if ( button ) {
@@ -1591,8 +1584,7 @@ void WorldMapInterface::SetZoom ( float z )
 
 	do {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "worldmaptempcon %d", numtempconbutton )
+		string name = "worldmaptempcon " + to_string(numtempconbutton);
 		button = EclGetButton ( name );
 
 		if ( button ) {
@@ -1711,8 +1703,7 @@ void WorldMapInterface::UpdateAccessLevel ()
 
 	do {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "worldmaptempcon %d", numtempconbutton )
+		string name = "worldmaptempcon " + to_string(numtempconbutton);
 		button = EclGetButton ( name );
 
 		if ( button ) {

@@ -5,7 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "soundgarden.h"
@@ -154,8 +153,7 @@ void NuclearWarScreenInterface::DrawMainMap ( Button *button, bool highlighted, 
             glEnd ();
 
             if ( !nuke->sound ) {
-                char explosion [128];
-                UplinkSnprintf ( explosion, sizeof ( explosion ), "sounds/explosion%d.wav", NumberGenerator::RandomNumber(3)+1 )
+                string explosion = "sounds/explosion" + to_string(NumberGenerator::RandomNumber(3)+1) + ".wav";
                 SgPlaySound ( RsArchiveFileOpen ( explosion ), explosion, false );
                 nuke->sound = true;
             }
@@ -307,8 +305,7 @@ void NuclearWarScreenInterface::Create ( ComputerScreen *newcs )
 				pgl = &(PHYSICALGATEWAYLOCATIONS[i]);
 			UplinkAssert (pgl)
 
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "nuclearwar_location %d", i )
+			string bname = "nuclearwar_location " + to_string(i);
 
 			char tooltip [128];
 			UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Simulate attack on this site", pgl->city )
@@ -355,8 +352,7 @@ void NuclearWarScreenInterface::Remove ()
 
 		for ( int i = 0; i < numPhysicalGatewayLocations; ++i ) {
 
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "nuclearwar_location %d", i )
+			string bname = "nuclearwar_location " + to_string(i);
 			EclRemoveButton ( bname );
 
 		}

@@ -1,22 +1,16 @@
 
 #include <strstream>
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/miscutils.h"
 
 #include "game/game.h"
-#include "game/data/data.h"
 
 #include "world/world.h"
 #include "world/computer/computer.h"
 #include "world/computer/recordbank.h"
-#include "world/computer/security.h"
 #include "world/computer/computerscreen/genericscreen.h"
-#include "world/generator/numbergenerator.h"
 
 #include "interface/interface.h"
 #include "interface/remoteinterface/remoteinterface.h"

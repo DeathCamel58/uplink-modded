@@ -6,7 +6,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 #include "vanbakel.h"
@@ -191,10 +190,7 @@ void ProxyDisable::Tick ( int n )
 		}
 			
 
-		char sprogress [128];
-		//char sborder   [128];
-		
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", SvbLookupPID ( this ) )
+		string sprogress = "proxydisable_progress " + to_string(SvbLookupPID ( this ));
 
 		if ( progress == 0 ) {												// Do nothing - waiting for user to click GO			
 
@@ -258,11 +254,11 @@ void ProxyDisable::Tick ( int n )
 
 					SecuritySystem *ss = comp->security.GetSystem (i);
 					if ( ss && ss->TYPE == SECURITY_TYPE_PROXY && ss->enabled && !ss->bypassed ) {
-						if ( version >= ss->level )
-							ss->Disable ();
-
-                        else
-							failed = true;
+						if ( version >= ss->level ) {
+                            ss->Disable();
+                        } else {
+                            failed = true;
+                        }
 					}
 							
 
@@ -271,8 +267,7 @@ void ProxyDisable::Tick ( int n )
 				if ( failed ) {
 					progress = 3;
 					EclRegisterCaptionChange ( sprogress, "Failed" );
-				}
-				else {
+				} else {
 					progress = 4;
 					EclRegisterCaptionChange ( sprogress, "Success" );
 				}
@@ -281,17 +276,7 @@ void ProxyDisable::Tick ( int n )
 
 			}
 
-		}
-		else if ( progress == 3 ) {											// Unable to proceed due to insufficient version
-
-			if ( time(nullptr) > timersync ) {
-
-				SvbRemoveTask ( SvbLookupPID ( this ) );
-
-			}
-
-		}
-		else if ( progress == 4 ) {											// We are done
+		} else if ( progress == 3 || progress == 4 ) {						// Unable to proceed due to insufficient version, or we are done
 
 			if ( time(nullptr) > timersync ) {
 
@@ -313,15 +298,10 @@ void ProxyDisable::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid )
+		string stitle = "proxydisable_title " + to_string(pid);
+        string sborder = "proxydisable_border " + to_string(pid);
+        string sprogress = "proxydisable_progress " + to_string(pid);
+        string sclose = "proxydisable_close " + to_string(pid);
 
 		EclRegisterButton ( 265, 422, 20, 15, "", "Disable any proxy servers running on this machine", stitle );
 		button_assignbitmap ( stitle, "software/go.tif" );
@@ -348,15 +328,10 @@ void ProxyDisable::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid )
+		string stitle = "proxydisable_title " + to_string(pid);
+        string sborder = "proxydisable_border " + to_string(pid);
+        string sprogress = "proxydisable_progress " + to_string(pid);
+        string sclose = "proxydisable_close " + to_string(pid);
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -374,15 +349,10 @@ void ProxyDisable::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "proxydisable_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "proxydisable_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "proxydisable_close %d", pid )
+	string stitle = "proxydisable_title " + to_string(pid);
+    string sborder = "proxydisable_border " + to_string(pid);
+    string sprogress = "proxydisable_progress " + to_string(pid);
+    string sclose = "proxydisable_close " + to_string(pid);
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -395,8 +365,7 @@ bool ProxyDisable::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "proxydisable_title %d", pid )
+	string stitle = "proxydisable_title " + to_string(pid);
 
 	return ( EclGetButton ( stitle ) != nullptr );
 

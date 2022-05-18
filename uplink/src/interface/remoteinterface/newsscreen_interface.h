@@ -37,7 +37,7 @@ protected:
 	static void DrawDetails     ( Button *button, bool highlighted, bool clicked );
 
 	static void ExitClick		( Button *button );
-    static void ScrollChange    ( char *scrollname, int newValue );
+    static void ScrollChange    (const string &scrollname, int newValue );
 
 public:
 

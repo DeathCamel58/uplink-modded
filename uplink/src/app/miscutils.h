@@ -17,7 +17,7 @@ char *TrimSpaces            ( const char *thestring );
 
 char *GetFilePath           ( const char *filename );
 void MakeDirectory          (const string &dirname );
-bool DoesFileExist          ( const char *filename );
+bool DoesFileExist          (const string& filename );
 void EmptyDirectory         (const string &directory );
 bool CopyFilePlain          (const string &oldfilename, const string &newfilename );
 bool CopyFileUplink         ( const char *oldfilename, const char *newfilename );

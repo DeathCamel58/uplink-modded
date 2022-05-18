@@ -3,13 +3,9 @@
 #include <windows.h>
 #endif
 
-#include <GL/gl.h>
-
-#include <GL/glu.h> /*_glu_extention_library_*/
-
 #include <cstdlib>
+#include <random>
 
-#include "gucci.h"
 #include "redshirt.h"
 
 #include "app/app.h"
@@ -56,7 +52,7 @@ void LoadingInterface::Create ()
 		
 		// Decide which graphic to load up
         string filename = app->GetOptions ()->ThemeFilename ( "loading/filenames.txt" );
-		FILE *file = RsArchiveFileOpen ( (char *) filename.c_str(), "rt" );
+		FILE *file = RsArchiveFileOpen ( filename, "rt" );
 		UplinkAssert (file)
 
         LList <char *> filenames;
@@ -69,7 +65,9 @@ void LoadingInterface::Create ()
 			else
 				delete [] thisfile;
 		}
-		float value = ( (float) rand () / (float) RAND_MAX );		
+		random_device rnd;
+        uniform_real_distribution<float> unif(0, 1);
+		float value = unif(rnd);
 		int pictureindex = (int) ( value * filenames.Size () );
     
 		EclRegisterButton ( 0, 0, screenw, screenh, "", "", "loading_background" );

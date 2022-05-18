@@ -6,9 +6,7 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
-
 
 #include "vanbakel.h"
 #include "eclipse.h"
@@ -27,7 +25,6 @@
 #include "interface/taskmanager/logmodifier.h"
 
 #include "world/world.h"
-#include "world/date.h"
 #include "world/player.h"
 #include "world/computer/logbank.h"
 
@@ -35,7 +32,7 @@
 
 static int numlogtypes = 9 - 1;					// (-1 to 7)
 
-static char *logtypes [] = {	"Deleted",
+static string logtypes [] = {	"Deleted",
 								"None",
 								"Text",
 								"ConectionOpened",

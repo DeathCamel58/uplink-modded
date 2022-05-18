@@ -1,6 +1,4 @@
 
-#include <cstdio>
-
 #include "sgplaylist.h"
 
 #include "mmgr.h"
@@ -10,18 +8,14 @@
 SgPlaylist::SgPlaylist ()
 {
 
-    sprintf ( name, "New playlist" );
+    name = "New playlist";
             
 }
 
 SgPlaylist::~SgPlaylist ()
 {
 
-	for ( int i = 0; i < songs.Size (); ++i ) 
-		if ( songs.GetData (i) )
-			if ( strlen(songs.GetData (i)) != 0 )
-				if ( strcmp(songs.GetData (i), "") != 0 )
-					delete [] songs.GetData (i);
+    songs.Empty();
 
 }
 
@@ -29,15 +23,14 @@ SgPlaylist::~SgPlaylist ()
 void SgPlaylist::SetName (const string &newname )
 {
 
-    strcpy ( name, newname.c_str() );
+    name = newname;
 
 }
 
 void SgPlaylist::AddSong (const string &name )
 {
 
-    char *namecopy = new char [name.length()+1];
-    sprintf ( namecopy, name.c_str() );
+    const string& namecopy = name;
     songs.PutData(namecopy);
 
 }
@@ -49,7 +42,7 @@ int SgPlaylist::NumSongs ()
 
 }
 
-char *SgPlaylist::GetRandomSong ()
+string SgPlaylist::GetRandomSong ()
 {
 
   	int songindex = (int)( ( (float) rand () / (float) RAND_MAX ) * NumSongs () );
@@ -57,7 +50,7 @@ char *SgPlaylist::GetRandomSong ()
 
 }
 
-char *SgPlaylist::GetRandomSong (const string &oldsong )
+string SgPlaylist::GetRandomSong (const string &oldsong )
 {
 
     if ( oldsong.empty() ) {
@@ -72,7 +65,7 @@ char *SgPlaylist::GetRandomSong (const string &oldsong )
     }
     else {
 
-        char *candidate = GetRandomSong ();
+        string candidate = GetRandomSong ();
         while ( candidate == oldsong )
             candidate = GetRandomSong ();
 

@@ -6,7 +6,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 #include "vanbakel.h"
@@ -190,10 +189,7 @@ void FirewallDisable::Tick ( int n )
 		}
 			
 
-		char sprogress [128];
-		//char sborder   [128];
-		
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", SvbLookupPID ( this ) )
+		string sprogress = "firewalldisable_progress " + to_string(SvbLookupPID ( this ));
 
 		if ( progress == 0 ) {												// Do nothing - waiting for user to click GO			
 
@@ -281,7 +277,7 @@ void FirewallDisable::Tick ( int n )
 			}
 
 		}
-		else if ( progress == 3 ) {											// Unable to proceed due to insufficient version
+		else if ( progress == 3 || progress == 4 ) {						// Unable to proceed due to insufficient version, or we are done
 
 			if ( time(nullptr) > timersync ) {
 
@@ -290,16 +286,6 @@ void FirewallDisable::Tick ( int n )
 			}
 
 		}
-		else if ( progress == 4 ) {											// We are done
-
-			if ( time(nullptr) > timersync ) {
-
-				SvbRemoveTask ( SvbLookupPID ( this ) );
-
-			}
-
-		}
-
 
 	}
 
@@ -312,15 +298,10 @@ void FirewallDisable::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid )
+		string stitle = "firewalldisable_title " + to_string(pid);
+        string sborder = "firewalldisable_border " + to_string(pid);
+        string sprogress = "firewalldisable_progress " + to_string(pid);
+        string sclose = "firewalldisable_close " + to_string(pid);
 
 		EclRegisterButton ( 265, 442, 20, 15, "", "Disable any firewalls running on this machine", stitle );
 		button_assignbitmap ( stitle, "software/go.tif" );
@@ -347,15 +328,10 @@ void FirewallDisable::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid )
+		string stitle = "firewalldisable_title " + to_string(pid);
+        string sborder = "firewalldisable_border " + to_string(pid);
+        string sprogress = "firewalldisable_progress " + to_string(pid);
+        string sclose = "firewalldisable_close " + to_string(pid);
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -373,15 +349,10 @@ void FirewallDisable::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "firewalldisable_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "firewalldisable_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "firewalldisable_close %d", pid )
+	string stitle = "firewalldisable_title " + to_string(pid);
+    string sborder = "firewalldisable_border " + to_string(pid);
+    string sprogress = "firewalldisable_progress " + to_string(pid);
+    string sclose = "firewalldisable_close " + to_string(pid);
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -394,8 +365,7 @@ bool FirewallDisable::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "firewalldisable_title %d", pid )
+	string stitle = "firewalldisable_title " + to_string(pid);
 
 	return ( EclGetButton ( stitle ) != nullptr );
 

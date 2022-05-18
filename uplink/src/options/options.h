@@ -56,7 +56,7 @@ public:
 
 	LList <Option *> *GetAllOptions ( char *searchstring, bool returnhidden );		// String can be NULL - will return ALL
 
-    void SetThemeName ( char *newThemeName );
+    void SetThemeName (string newThemeName);
     string GetThemeName ();
     string GetThemeTitle ();
     string GetThemeDescription ();
@@ -65,7 +65,7 @@ public:
 
     string ThemeFilename (const string &filename );
 
-    void RequestShutdownChange ( char *optionName, int newValue );
+    void RequestShutdownChange (string optionName, int newValue );
     void ApplyShutdownChanges ();
 
 	// Common functions
@@ -126,7 +126,7 @@ class OptionChange
 public:
     OptionChange () = default;;
 
-    char name [SIZE_OPTION_NAME];
+    string name;
     int value;
 };
 

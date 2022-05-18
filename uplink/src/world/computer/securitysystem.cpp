@@ -7,11 +7,7 @@
 #include "mmgr.h"
 
 
-static char *names [] = {	"Unknown",
-							"Proxy",
-							"Firewall",
-							"Encrypter",
-							"Monitor" };
+string names [] = {	"Unknown", "Proxy", "Firewall", "Encrypter", "Monitor" };
 
 
 
@@ -71,7 +67,7 @@ void SecuritySystem::EndBypass ()
 
 }
 
-char *SecuritySystem::GetName () const
+string SecuritySystem::GetName () const
 {
 
 	return names [TYPE];

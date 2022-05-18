@@ -5,9 +5,7 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
-
 
 #include "eclipse.h"
 #include "vanbakel.h"
@@ -15,7 +13,6 @@
 #include "redshirt.h"
 
 #include "app/app.h"
-#include "app/opengl_interface.h"
 #include "app/globals.h"
 
 #include "options/options.h"
@@ -34,7 +31,7 @@
 
 
 int numRevelationTexts = 13;
-char *revelationText[] = {   
+string revelationText[] = {
                              "YOU ARE NOT A SLAVE",
                              "YOU DESERVE MORE THAN THIS",
                              "THE TIME IS NEAR",
@@ -83,7 +80,7 @@ void Revelation::Tick ( int n )
 				int y = NumberGenerator::RandomNumber ( 480 );
 	            
 				int captionIndex = NumberGenerator::RandomNumber ( numRevelationTexts );
-				char *caption = revelationText[captionIndex];
+				string caption = revelationText[captionIndex];
 
 				EclRegisterButton ( x, y, 200, 15, caption, " ", bname );
 				EclRegisterButtonCallbacks ( bname, DrawRevelation, nullptr, nullptr, nullptr );

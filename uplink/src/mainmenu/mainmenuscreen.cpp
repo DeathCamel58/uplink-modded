@@ -7,7 +7,6 @@
 #include "app/app.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
-#include "eclipse.h"
 
 #include "options/options.h"
 

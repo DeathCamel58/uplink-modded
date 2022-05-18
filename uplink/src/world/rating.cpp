@@ -4,9 +4,6 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -19,7 +16,6 @@
 #include "world/player.h"
 
 #include "world/scheduler/eventscheduler.h"
-#include "world/scheduler/notificationevent.h"
 
 #include "mmgr.h"
 

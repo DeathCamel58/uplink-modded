@@ -6,11 +6,8 @@
 #include <cstdio>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
 #include "game/game.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -38,11 +35,11 @@ void PasswordScreen::SetNextPage ( int newnextpage )
 
 }
 
-void PasswordScreen::SetPassword ( char *newpassword )
+void PasswordScreen::SetPassword (const string& newpassword)
 {
 
-	assert( strlen (newpassword) < SIZE_PASSWORDSCREEN_PASSWORD );
-	UplinkStrncpy ( password, newpassword, sizeof ( password ) )
+	assert( newpassword.length() < SIZE_PASSWORDSCREEN_PASSWORD );
+	UplinkStrncpy ( password, newpassword.c_str(), sizeof ( password ) )
 
 }
 

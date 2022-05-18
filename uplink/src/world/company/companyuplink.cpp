@@ -2,8 +2,6 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "gucci.h"
-
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"

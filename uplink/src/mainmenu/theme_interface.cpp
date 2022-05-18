@@ -5,7 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "soundgarden.h"
@@ -14,7 +13,6 @@
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/miscutils.h"
-#include "app/opengl.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
 

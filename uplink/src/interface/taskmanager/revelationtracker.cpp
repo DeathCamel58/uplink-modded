@@ -7,14 +7,11 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
-
 
 #include "eclipse.h"
 #include "vanbakel.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 

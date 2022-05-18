@@ -46,7 +46,7 @@ public:
     void PlayerRatingChange ();
     void PlayerCompletedMission ( Mission *mission );
 
-    void GenerateNewMission ( bool randomdate = false );                // Occurs every few hours
+    static void GenerateNewMission ( bool randomdate = false );                // Occurs every few hours
 
    	bool PlayerContactsARC ( Message *msg );					        // These handle all emails from the player to the main co's.  
 

@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
-
 #include <cstring>
 
 #include "eclipse.h"
@@ -14,7 +12,6 @@
 #include "gucci.h"
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/miscutils.h"
 #include "app/opengl_interface.h"
@@ -23,7 +20,6 @@
 
 #include "interface/interface.h"
 #include "interface/remoteinterface/remoteinterface.h"
-#include "interface/localinterface/keyboardinterface.h"
 #include "interface/remoteinterface/passwordscreen_interface.h"
 #include "interface/taskmanager/taskmanager.h"
 

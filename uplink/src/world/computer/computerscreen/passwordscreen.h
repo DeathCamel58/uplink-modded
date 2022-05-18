@@ -35,7 +35,7 @@ public:
 
 	
 	void SetNextPage ( int newnextpage );
-	void SetPassword ( char *newpassword );
+	void SetPassword (const string& newpassword );
 	void SetDifficulty ( int newdifficulty );
 
 

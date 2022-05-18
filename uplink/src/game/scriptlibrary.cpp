@@ -8,8 +8,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include "eclipse.h"
 #include "soundgarden.h"
 #include "redshirt.h"
@@ -49,7 +47,6 @@
 #include "world/computer/lancomputer.h"
 #include "world/computer/lanmonitor.h"
 #include "world/computer/recordbank.h"
-#include "world/computer/computerscreen/passwordscreen.h"
 #include "world/computer/computerscreen/dialogscreen.h"
 #include "world/computer/bankaccount.h"
 #include "world/generator/missiongenerator.h"
@@ -292,8 +289,7 @@ void ScriptLibrary::Script11 ()
 
 	// Log the player in as this person
 
-	char saccno [16];
-	UplinkSnprintf( saccno, sizeof ( saccno ), "%d", accno )
+	string saccno = to_string(accno);
 	game->GetInterface ()->GetRemoteInterface ()->SetSecurity ( saccno, 3 );
 
 	
@@ -410,7 +406,7 @@ void ScriptLibrary::Script13 ()
 
         int iaccno;
         sscanf ( accno, "%d", &iaccno );        
-        bank->CloseAccount ( iaccno );
+        BankComputer::CloseAccount ( iaccno );
 
         game->GetInterface ()->GetRemoteInterface ()->SetSecurity ( "Guest", 10 );
         game->GetInterface ()->GetRemoteInterface ()->RunScreen ( 3, comp );
@@ -794,7 +790,7 @@ void ScriptLibrary::Script33 ()
 
 	auto *mission = new Mission ();
 	mission->SetTYPE ( MISSION_STEALFILE );
-	mission->SetCompletion ( IP_UPLINKINTERNALSERVICES, "Uplink test data", nullptr, nullptr, nullptr );
+	mission->SetCompletion ( IP_UPLINKINTERNALSERVICES, "Uplink test data", "", "", "" );
 	mission->SetEmployer ( "Uplink" );
 	mission->SetContact ( "internal@Uplink.net" );
 	mission->SetPayment ( 0 );
@@ -1012,8 +1008,7 @@ void ScriptLibrary::Script40 ()
 
 		int progress = (int) (100.0 * (float) button->width / 200.0);
 
-		char caption [16];
-		UplinkSnprintf ( caption, sizeof ( caption ), "%d %%", progress )
+		string caption = to_string(progress) + " %%";
 		
 		Button *prog = EclGetButton ( "downloadingUOS_prog" );
 		UplinkAssert (prog)
@@ -1075,8 +1070,7 @@ void ScriptLibrary::Script41 ()
 
 		for ( int i = 0; i < 14; ++i ) {
 
-			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "syscheckUOS_%d", i )
+			string buttonname = "syscheckUOS_" + to_string(i);
 
 			if ( !EclGetButton ( buttonname ) ) {
 
@@ -1095,8 +1089,7 @@ void ScriptLibrary::Script41 ()
 				else {
 
 					// Not first time round - create 'OK' button
-					char okname [32];
-					UplinkSnprintf ( okname, sizeof ( okname ), "syscheckUOS_OK_%d", (i-1) )
+					string okname = "syscheckUOS_OK_" + to_string(i-1);
 					EclRegisterButton ( 450, 130 + 20 * (i-1), 30, 15, "[OK]", "", okname );
 					EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
@@ -1104,23 +1097,23 @@ void ScriptLibrary::Script41 ()
 
 				// Now create current test button
 
-				char caption [128];
+				string caption;
 				
 				switch ( i ) {
-					case 0		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : Trinity Ax086 2GQs cpu...", sizeof ( caption ) )			break;
-					case 1		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : K256 512KQds modem...", sizeof ( caption ) )				break;
-					case 2		:		UplinkStrncpy ( caption, "Checking gateway HARDWARE : 24 GQds DR-RAM memory...", sizeof ( caption ) )			break;
-					case 3		:		UplinkStrncpy ( caption, "Verifying integrity of Uplink Operating System...", sizeof ( caption ) )				break;
-					case 4		:		UplinkStrncpy ( caption, "Verifying security of Uplink Operating System...", sizeof ( caption ) )				break;
-					case 5		:		UplinkStrncpy ( caption, "Installing UPLINK Operating system files...", sizeof ( caption ) )						break;
-					case 6		:		UplinkStrncpy ( caption, "Initialising TSR programs in memory...", sizeof ( caption ) )							break;
-					case 7		:		UplinkStrncpy ( caption, "Sending RUN signal to core Uplink Kernel...", sizeof ( caption ) )						break;
-					case 8		:		UplinkStrncpy ( caption, "Checking Kernel Initilisation...", sizeof ( caption ) )								break;
-					case 9		:		UplinkStrncpy ( caption, "Establishing Network communications protocols...", sizeof ( caption ) )				break;
-					case 10		:		UplinkStrncpy ( caption, "Installing File-Copier...", sizeof ( caption ) )										break;
-					case 11		:		UplinkStrncpy ( caption, "Installing File-Deleter...", sizeof ( caption ) )										break;
-					case 12		:		UplinkStrncpy ( caption, "Installing Task-Manager you can read fast...", sizeof ( caption ) )					break;
-					case 13		:		UplinkStrncpy ( caption, "Running Graphical User Interface...", sizeof ( caption ) )								break;
+					case 0		:		caption = "Checking gateway HARDWARE : Trinity Ax086 2GQs cpu..."; break;
+					case 1		:		caption = "Checking gateway HARDWARE : K256 512KQds modem..."; break;
+					case 2		:		caption = "Checking gateway HARDWARE : 24 GQds DR-RAM memory..."; break;
+					case 3		:		caption = "Verifying integrity of Uplink Operating System..."; break;
+					case 4		:		caption = "Verifying security of Uplink Operating System..."; break;
+					case 5		:		caption = "Installing UPLINK Operating system files..."; break;
+					case 6		:		caption = "Initialising TSR programs in memory..."; break;
+					case 7		:		caption = "Sending RUN signal to core Uplink Kernel..."; break;
+					case 8		:		caption = "Checking Kernel Initilisation..."; break;
+					case 9		:		caption = "Establishing Network communications protocols..."; break;
+					case 10		:		caption = "Installing File-Copier..."; break;
+					case 11		:		caption = "Installing File-Deleter..."; break;
+					case 12		:		caption = "Installing Task-Manager you can read fast..."; break;
+					case 13		:		caption = "Running Graphical User Interface..."; break;
 				}
 
 				EclRegisterButton ( 20, 130 + 20 * i, 400, 15, caption, "", buttonname );
@@ -1156,11 +1149,9 @@ void ScriptLibrary::Script42 ()
 		for ( int i = 0; i < 14; ++i ) {
 			
 			// Remove existing start-up sequence
-			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "syscheckUOS_%d", i )
+			string buttonname = "syscheckUOS_" + to_string(i);
 			EclRemoveButton ( buttonname );
-			char okname [32];
-			UplinkSnprintf ( okname, sizeof ( okname ), "syscheckUOS_OK_%d", i )
+			string okname = "syscheckUOS_OK_" + to_string(i);
 			EclRemoveButton ( okname );
 
 		}
@@ -1219,8 +1210,7 @@ void ScriptLibrary::Script45 ()
 
 		for ( int i = 0; i < 4; ++i ) {
 
-			char buttonname [32];
-			UplinkSnprintf ( buttonname, sizeof ( buttonname ), "newpatch_%d", i )
+			string buttonname = "newpatch_" + to_string(i);
 
 			if ( !EclGetButton ( buttonname ) ) {
 
@@ -1235,8 +1225,7 @@ void ScriptLibrary::Script45 ()
                 }
                 else {
 
-				    char okname [32];
-				    UplinkSnprintf ( okname, sizeof ( okname ), "newpatch_OK_%d", (i-1) )
+				    string okname = "newpatch_OK_" + to_string(i-1);
 				    EclRegisterButton ( 500, 140 + 20 * (i-1), 30, 15, "[OK]", "", okname );
 				    EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
@@ -1244,13 +1233,13 @@ void ScriptLibrary::Script45 ()
 
 				// Now create current test button
 
-				char caption [128];
+				string caption;
 				
 				switch ( i ) {
-					case 0		:		UplinkStrncpy ( caption, "Reading new patch data...", sizeof ( caption ) )			break;
-					case 1		:		UplinkStrncpy ( caption, "Modifying Uplink executable...", sizeof ( caption ) )				break;
-					case 2		:		UplinkStrncpy ( caption, "Modifying Uplink runtime data...", sizeof ( caption ) )			break;
-					case 3		:		UplinkStrncpy ( caption, "Validating patch authorisation with Uplink Corporation...", sizeof ( caption ) )				break;
+					case 0		:		caption = "Reading new patch data..."; break;
+					case 1		:		caption = "Modifying Uplink executable..."; break;
+					case 2		:		caption = "Modifying Uplink runtime data..."; break;
+					case 3		:		caption = "Validating patch authorisation with Uplink Corporation..."; break;
 				}
 
 				EclRegisterButton ( 100, 140 + 20 * i, 400, 15, caption, "", buttonname );
@@ -1327,8 +1316,7 @@ void NewPatchOKClick ( Button *button )
 void ScriptLibrary::Script46 ()
 {
 
-	char okname [32];
-	UplinkSnprintf ( okname, sizeof ( okname ), "newpatch_OK_%d", 3 )
+	string okname = "newpatch_OK_3";
 	EclRegisterButton ( 500, 140 + 20 * 3, 30, 15, "[OK]", "", okname );
 	EclRegisterButtonCallbacks ( okname, textbutton_draw, nullptr, nullptr, nullptr );
 
@@ -1407,8 +1395,7 @@ void ScriptLibrary::Script47 ()
     // Screen resolution to 1024x768
 
 	GciScreenMode *mode = GciGetClosestScreenMode ( 1024, 768 );
-	char messagesetresolution [ 256 ];
-	UplinkSnprintf ( messagesetresolution, sizeof ( messagesetresolution ), "Set the in-game screen resolution to %dx%d", mode->w, mode->h )
+	string messagesetresolution = "Set the in-game screen resolution to " + to_string(mode->w) + "x" + to_string(mode->h);
 	delete mode;
 
     EclRegisterButton ( 150, 250, 300, 15, messagesetresolution, "This is now the recommended in-game resolution.", "newpatch_screenres" );
@@ -1713,7 +1700,7 @@ void ScriptLibrary::Script71 ()
 
 	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
-	mission->SetCompletion   ( ourcomp->ip, nullptr, nullptr, nullptr, nullptr );
+	mission->SetCompletion   ( ourcomp->ip, "", "", "", "" );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, payment );
@@ -2103,7 +2090,7 @@ void ScriptLibrary::Script85 ()
 
     int NUMCAPTIONS = 14;
 
-    char *TEXT [] = {   "Not Connected",
+    string TEXT [] = {   "Not Connected",
                         "Aligning radio transmitter",
                         "Complete",
                         "Starting remote connect services",
@@ -2157,7 +2144,7 @@ void ScriptLibrary::Script85 ()
         if ( captionIndex == NUMCAPTIONS - 1 ) {
 
             auto *rsi = (RadioTransmitterScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
-            rsi->Connect ();
+            RadioTransmitterScreenInterface::Connect ();
 
         }
         else {

@@ -5,10 +5,6 @@
 
 #include <strstream>
 
-#include <GL/gl.h>
-
-#include <GL/glu.h>
-
 #include "eclipse.h"
 #include "soundgarden.h"
 #include "redshirt.h"

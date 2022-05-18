@@ -24,7 +24,6 @@
 
 #include <ctime>
 #include <sys/stat.h>
-#include <sys/types.h>
 #include <fcntl.h>
 
 #ifdef WIN32
@@ -40,17 +39,9 @@
 #include <csignal>
 #endif
 
-#include <GL/gl.h>
-
-#include <GL/glu.h>
-
-
-#include "eclipse.h"
-#include "vanbakel.h"
 #include "soundgarden.h"
 #include "gucci.h"
 #include "redshirt.h"
-#include "bungle.h"
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -340,7 +331,7 @@ int RunUplinkExceptionHandling ()
 	if ( file_stdout ) {
 		fprintf ( file_stdout, "\nAn (unrecognised) Uplink Internal Error has occurred\n" );
 		fprintf ( file_stdout, "===================================================\n" );
-		if ( app && strncmp ( app->userpath.c_str(), "c:/", sizeof(app->userpath) ) != 0 ) {
+		if ( app && strncmp ( app->userpath.c_str(), "c:/", app->userpath.size() ) != 0 ) {
 			fprintf ( file_stdout, "See the %sdebug.log file for more informations on the error\n", app->userpath.c_str() );
 		}
 		else {
@@ -1266,8 +1257,7 @@ void Run_MainMenu ()
 		app->GetMainMenu ()->RunScreen ( MAINMENU_FIRSTLOAD );
 		GciTimerFunc ( 2000, ScriptLibrary::RunScript, 30 );
 
-	}
-	else {
+	} else {
 	
         // Normal startup
 

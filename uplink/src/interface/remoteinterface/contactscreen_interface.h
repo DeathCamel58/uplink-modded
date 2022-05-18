@@ -48,7 +48,7 @@ protected:
 
 protected:
 
-	static void PutMessage ( int userid, char *message );
+	static void PutMessage (int userid, const string& message );
 	static void AskQuestion ( int index );
 	static void WaitingCallback ();							// Called when messagehas finished "scrolling" on
 
@@ -70,7 +70,7 @@ public:
 	void SetMission  ( Mission *newmission );
 
 	void AddUser ( char *name );
-	void AddQuestion ( char *question, int index = -1 );
+	void AddQuestion (const string& question, int index = -1 );
 
 	bool ReturnKeyPressed () override;
 

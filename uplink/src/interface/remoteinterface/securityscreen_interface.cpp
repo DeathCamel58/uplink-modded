@@ -5,10 +5,8 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 
@@ -150,16 +148,10 @@ void SecurityScreenInterface::Create ( ComputerScreen *newcs )
 
 				if ( ss ) {
 		
-					char title [64];
-					char level [64];
-					char status [64];
-					
-					UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i )
-					UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i )
-					UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i )
-
-					char leveltext [8];
-					UplinkSnprintf ( leveltext, sizeof ( leveltext ), "level %d", ss->level )
+					string title = "securityscreen_systemtitle " + to_string(i);
+                    string level = "securityscreen_systemlevel " + to_string(i);
+                    string status = "securityscreen_systemstatus " + to_string(i);
+					string leveltext = "level " + to_string(ss->level);
 
 					EclRegisterButton ( 50, 140 + i * 40, 150, 25, ss->GetName (), "Click here to toggle its status", title );
 					EclRegisterButton ( 200, 140 + i * 40, 100, 25, leveltext, "Click here to toggle its status", level );
@@ -198,13 +190,9 @@ void SecurityScreenInterface::Remove ()
 
 		for ( int i = 0; i < comp->security.NumSystems (); ++i ) {
 			
-			char title [64];
-			char level [64];
-			char status [64];
-			
-			UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i )
-			UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i )
-			UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i )
+			string title = "securityscreen_systemtitle " + to_string(i);
+            string level = "securityscreen_systemlevel " + to_string(i);
+            string status = "securityscreen_systemstatus " + to_string(i);
 
 			EclRemoveButton ( title );
 			EclRemoveButton ( level );
@@ -234,8 +222,7 @@ void SecurityScreenInterface::Update ()
 
 				if ( ss ) {
 
-					char status [64];
-					UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i )
+					string status = "securityscreen_systemstatus " + to_string(i);
 
 					if ( EclGetButton ( status ) ) {
 				
@@ -245,13 +232,9 @@ void SecurityScreenInterface::Update ()
 					
 				}
 
-				char title [64];
-				char level [64];
-				char status [64];
-				
-				UplinkSnprintf ( title, sizeof ( title ), "securityscreen_systemtitle %d", i )
-				UplinkSnprintf ( level, sizeof ( level ), "securityscreen_systemlevel %d", i )
-				UplinkSnprintf ( status, sizeof ( status ), "securityscreen_systemstatus %d", i )
+				string title = "securityscreen_systemtitle " + to_string(i);
+                string level = "securityscreen_systemlevel " + to_string(i);
+                string status = "securityscreen_systemstatus " + to_string(i);
 
 				EclDirtyButton ( title );
 				EclDirtyButton ( level );

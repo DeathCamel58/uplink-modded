@@ -3,7 +3,6 @@
 
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -12,7 +11,6 @@
 #include "world/world.h"
 #include "world/company/company.h"
 #include "world/computer/computer.h"
-#include "world/generator/worldgenerator.h"
 #include "world/generator/namegenerator.h"
 #include "world/generator/numbergenerator.h"
 
@@ -282,7 +280,7 @@ char *NameGenerator::GeneratePassword ()
 
 }
 
-char *NameGenerator::GenerateEasyPassword ()
+string NameGenerator::GenerateEasyPassword ()
 {
 
 	switch ( NumberGenerator::RandomNumber ( 5 ) ) {

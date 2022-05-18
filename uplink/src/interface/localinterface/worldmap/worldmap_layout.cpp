@@ -3,7 +3,6 @@
 #endif
 
 #include <GL/gl.h>
-#include <GL/glu.h>
 
 #include <cmath>
 #include <cstdio>
@@ -12,7 +11,6 @@
 
 #include "app/app.h"
 #include "app/globals.h"
-#include "app/opengl_interface.h"
 
 #include "game/game.h"
 

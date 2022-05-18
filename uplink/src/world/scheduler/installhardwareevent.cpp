@@ -2,9 +2,6 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -50,7 +47,7 @@ void InstallHardwareEvent::Run ()
 	UplinkAssert ( sv )
 
 	bool success = true;
-	char failure [128];
+	string failure;
 
 	//
 	// MODEM - Change the player's gateway's transfer rate
@@ -79,7 +76,7 @@ void InstallHardwareEvent::Run ()
 
 		if ( gateway->memorysize + sv->data > gd->maxmemory * 8 ) {
 			success = false;
-			UplinkStrncpy ( failure, "There was not enough space to fit the memory into your gateway.", sizeof ( failure ) )
+			failure = "There was not enough space to fit the memory into your gateway.";
 			game->GetWorld ()->GetPlayer ()->ChangeBalance ( sv->cost, "Refund from Uplink Corporation" );
 		}
 		else
@@ -101,10 +98,9 @@ void InstallHardwareEvent::Run ()
 
 		if ( gateway->GetNumSecurity () + 1 > gd->maxsecurity ) {
             success = false;
-			UplinkStrncpy ( failure, "There was not enough space to fit the security device into your gateway.", sizeof ( failure ) )
+			failure = "There was not enough space to fit the security device into your gateway.";
 			game->GetWorld ()->GetPlayer ()->ChangeBalance ( sv->cost, "Refund from Uplink Corporation" );
-		}
-        else {
+		} else {
 
             game->GetWorld ()->GetPlayer ()->gateway.GiveHardware ( hwsale->title );
 

@@ -2,9 +2,6 @@
 #include <cstring>
 #include <strstream>
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/globals.h"
 
 #include "game/game.h"
@@ -668,7 +665,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 
 }
 
-void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
+void NewsGenerator::AllFilesDeleted (Computer *comp, const string& filetype )
 {
 
 	// Filetype is SCIENTIFIC, CORPORATE, CUSTOMER or SOFTWARE
@@ -709,7 +706,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 
 	}
 
-	if ( strcmp ( filetype, "SCIENTIFIC" ) == 0 ) {
+	if ( filetype == "SCIENTIFIC" ) {
 
 		headline << "Computer failure blaimed for research loss";
 
@@ -719,8 +716,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 		part3 << "In a statement today the company said that serious damage had been done and that it "
 				 "could cost the company millions of dollars to perform the research again.";
 
-	}
-	else if ( strcmp ( filetype, "CORPORATE" ) == 0 ) {
+	} else if ( filetype == "CORPORATE" ) {
 
 		headline << "Major corporation suffers complete data loss";
 
@@ -729,8 +725,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 		part3 << "It is not known how much this will cost the company but there is little doubt that serious damage "
 				 "has been done.  This level of data loss could not occur without serious repurcusions.";
 
-	}
-	else if ( strcmp ( filetype, "CUSTOMER" ) == 0 ) {
+	} else if ( filetype == "CUSTOMER" ) {
 
 		headline << comp->companyname << " loses gigaquads of customer data due to 'malicious hackers'";
 
@@ -740,8 +735,7 @@ void NewsGenerator::AllFilesDeleted ( Computer *comp, char *filetype )
 
 		part3 << comp->companyname << " today issued a statement saying that they were investigating the incident.";
 
-	}
-	else if ( strcmp ( filetype, "SOFTWARE" ) == 0 ) {
+	} else if ( filetype == "SOFTWARE" ) {
 
 		headline << "Proprietary software source code deleted by hacker";
 

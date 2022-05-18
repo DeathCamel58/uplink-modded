@@ -12,14 +12,12 @@
 #include "soundgarden.h"
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/probability.h"
 #include "app/serialise.h"
 #include "app/miscutils.h"
 
 #include "game/game.h"
-#include "game/scriptlibrary.h"
 #include "game/data/data.h"
 
 #include "world/world.h"
@@ -103,7 +101,7 @@ void MissionGenerator::Shutdown ()
     for ( int i = 0; i < NUM_UPLINKRATINGS; ++i ) {
 
         Probability *p = prob_missiontype [i];
-        if ( p ) delete p;
+        delete p;
 
     }
 
@@ -342,7 +340,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	// Insert the mission
 	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_STEALFILE );
-	mission->SetCompletion   ( target->ip, datatitle, nullptr, nullptr, nullptr );
+	mission->SetCompletion   ( target->ip, datatitle, "", "", "" );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -356,8 +354,8 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	if ( !game->IsRunning () )	mission->SetCreateDate   ( &postdate );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -593,7 +591,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	postdate.AdvanceMinute ( NumberGenerator::RandomNumber ( 60 ) * -1 );
 
 	// Insert the mission
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_STEALFILE );
 	mission->SetCompletion   ( completionA, completionB, completionC, completionD, completionE );
 	mission->SetEmployer     ( employer->name );
@@ -612,8 +610,8 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	mission->GiveLink ( ourcomp->ip );
 	mission->GiveCode ( ourcomp->ip, code );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -760,9 +758,9 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 	postdate.AdvanceMinute ( NumberGenerator::RandomNumber ( 60 ) * -1 );
 
 	// Insert the mission
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_DESTROYFILE );
-	mission->SetCompletion   ( completionA, completionB, nullptr, nullptr, nullptr );
+	mission->SetCompletion   ( completionA, completionB, "", "", "" );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -965,9 +963,9 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	postdate.AdvanceMinute ( NumberGenerator::RandomNumber ( 60 ) * -1 );
 
 	// Insert the mission
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_DESTROYFILE );
-	mission->SetCompletion   ( completionA, completionB, completionC, nullptr, nullptr );
+	mission->SetCompletion   ( completionA, completionB, completionC, "", "" );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -982,8 +980,8 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -1003,12 +1001,9 @@ Mission *MissionGenerator::Generate_FindData ( Company *employer )
 	Mission *mission = nullptr;
 	Computer *target = nullptr;
 
-	switch ( missiontype ) {
-
-		case 0  :		target = WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
-						mission = Generate_FindData_FinancialRecord ( employer, target );
-						break;
-
+	if (missiontype == 0) {
+	    target = WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
+        mission = Generate_FindData_FinancialRecord ( employer, target );
 	}
 
 	return mission;
@@ -1125,7 +1120,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 	else if ( missiontype == 3 ) {
 
 		// Perform the transfer
-		BankComputer *receiver = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
+		auto *receiver = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 		UplinkAssert ( receiver )
 		BankAccount *raccount = receiver->GetRandomAccount ();
 		UplinkAssert ( raccount )
@@ -1189,9 +1184,9 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 	// Insert the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_FINDDATA );
-	mission->SetCompletion   ( completionA, completionB, completionC, nullptr, nullptr );
+	mission->SetCompletion   ( completionA, completionB, completionC, "", "" );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -1206,8 +1201,8 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -1480,7 +1475,7 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 	// Insert the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_CHANGEDATA );
 	mission->SetCompletion   ( completionA, completionB, completionC, completionD, completionE );
 	mission->SetEmployer     ( employer->name );
@@ -1497,8 +1492,8 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -1646,7 +1641,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	// Insert the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_CHANGEDATA );
 	mission->SetCompletion   ( completionA, completionB, completionC, completionD, completionE );
 	mission->SetEmployer     ( employer->name );
@@ -1664,8 +1659,8 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -1850,7 +1845,7 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 	// Insert the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_CHANGEDATA );
 	mission->SetCompletion   ( completionA, completionB, completionC, completionD, completionE );
 	mission->SetEmployer     ( employer->name );
@@ -1869,8 +1864,8 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -1991,9 +1986,9 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 	// Insert the mission
 	//
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_TRACEUSER );
-	mission->SetCompletion   ( hacker->name, source->ip, tacc->name, nullptr, nullptr );
+	mission->SetCompletion   ( hacker->name, source->ip, tacc->name, "", "" );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2012,8 +2007,8 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 
 	if ( hacker == game->GetWorld ()->GetPlayer () ) mission->SetNpcPriority ( true );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -2036,7 +2031,7 @@ Mission *MissionGenerator::Generate_PayFine (Person *person, Company *company, i
 	// Locate a target bank account
 	//
 
-	BankComputer *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
+	auto *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 	UplinkAssert (bank)
 	BankAccount *account = bank->GetRandomAccount ();
 	UplinkAssert (account)
@@ -2098,9 +2093,9 @@ Mission *MissionGenerator::Generate_PayFine (Person *person, Company *company, i
 	//
 
 
-	Mission *mission = new Mission ();
+	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_PAYFINE );
-	mission->SetCompletion   ( completionA, completionB, completionC, nullptr, nullptr );
+	mission->SetCompletion   ( completionA, completionB, completionC, "", "" );
 	mission->SetDueDate		 ( duedate );
 	mission->SetEmployer     ( company->name );
 	mission->SetContact      ( personname );
@@ -2113,7 +2108,7 @@ Mission *MissionGenerator::Generate_PayFine (Person *person, Company *company, i
 	mission->SetFullDetails  ( fulldetails.str () );
 	if ( !game->IsRunning () ) mission->SetCreateDate   ( &postdate );
 
-	fulldetails.rdbuf()->freeze( 0 );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] fulldetails.str ();
 
 	return mission;
@@ -2196,7 +2191,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 
 		UplinkStrncpy ( description, "Frame a man for bank fraud", sizeof ( description ) )
 
-		BankComputer *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
+		auto *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 		UplinkAssert (bank)
 
 		fulldetails << "We need this man to be arrested and charged for breaking into a bank and "
@@ -2263,9 +2258,10 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 	// Build the mission
 	//
 
-	Mission *m = new Mission ();
+	auto *m = new Mission ();
 	m->SetTYPE		   ( MISSION_FRAMEUSER );
-	m->SetCompletion   ( completionA, completionB, missiontype == 1 ? nullptr : completionC, nullptr, nullptr );
+	// TODO: Check if this will work, as it seems like `1` may be passed
+	m->SetCompletion   ( completionA, completionB, missiontype == 1 ? "" : completionC, "", "" );
 	m->SetEmployer     ( employer->name );
 	m->SetContact      ( personname );
 	m->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2284,8 +2280,8 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
     m->GiveLink ( person->localhost );
 	if ( missiontype == 2 || missiontype == 3 ) m->GiveLink ( completionC );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -2362,7 +2358,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 																		'a' + NumberGenerator::RandomNumber ( 26 ),
 																		'a' + NumberGenerator::RandomNumber ( 26 ) )
 
-		Record *record = new Record ();
+		auto *record = new Record ();
 		record->AddField ( RECORDBANK_NAME, username );
 		record->AddField ( RECORDBANK_PASSWORD, password );
 		record->AddField ( RECORDBANK_SECURITY, "3" );
@@ -2416,9 +2412,9 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 				   "END"
 				<< '\x0';
 
-	Mission *m = new Mission ();
+	auto *m = new Mission ();
 	m->SetTYPE		 ( MISSION_TRACEUSER );
-	m->SetCompletion   ( hacker->name, hacked->ip, nullptr, nullptr, nullptr );
+	m->SetCompletion   ( hacker->name, hacked->ip, "", "", "" );
 	m->SetEmployer     ( companyname );
 	m->SetContact      ( contact );
 	m->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2442,8 +2438,8 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 
 	if ( hacker == game->GetWorld ()->GetPlayer () ) m->SetNpcPriority ( true );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -2592,8 +2588,8 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	mission->GiveLink ( source->ip );
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -2680,7 +2676,7 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 
 	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_REMOVECOMPUTER );
-	mission->SetCompletion   ( completionA, nullptr, nullptr, nullptr, nullptr );
+    mission->SetCompletion   ( completionA, "", "", "", "" );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2695,8 +2691,8 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	if ( !game->IsRunning () ) mission->SetCreateDate   ( &postdate );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -2793,7 +2789,7 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 
 	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_REMOVEUSER );
-	mission->SetCompletion   ( completionA, nullptr, nullptr, nullptr, nullptr );
+	mission->SetCompletion   ( completionA, "", "", "", "" );
 	mission->SetEmployer     ( employer->name );
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, (int) ( payment * 1.1 ) );
@@ -2807,8 +2803,8 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 	mission->SetHowSecure ( "That depends on the method you use." );
 	if ( !game->IsRunning () ) mission->SetCreateDate   ( &postdate );
 
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
+	details.rdbuf()->freeze( false );
+	fulldetails.rdbuf()->freeze( false );
 	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
@@ -2889,7 +2885,7 @@ bool MissionGenerator::IsMissionComplete_StealFile ( Mission *mission, Person *p
 
 		MissionNotCompleted ( mission, person, message, reason.str () );
 
-		reason.rdbuf()->freeze( 0 );
+		reason.rdbuf()->freeze( false );
 		//delete [] reason.str ();
 		return false;
 
@@ -3282,8 +3278,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
             MissionCompleted ( mission, person, message );
             return true;
 
-        }
-        else {
+        } else {
 
             MissionNotCompleted ( mission, person, message, "Could you please verify your results.  We have reason to believe that person is not responsible." );
             return false;
@@ -3748,7 +3743,7 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 		m->SetBody ( body.str () );
 		m->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
 
@@ -3768,7 +3763,7 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 		m->SetBody ( body.str () );
 		m->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
 	}
@@ -3922,7 +3917,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
 	        m->SetBody ( body.str() );
 	        m->Send ();
 
-			body.rdbuf()->freeze( 0 );
+			body.rdbuf()->freeze( false );
 			//delete [] body.str ();
 
             //
@@ -3984,7 +3979,7 @@ void MissionGenerator::MissionCompleted ( Mission *mission, Person *person, Mess
 	m->SetBody ( body.str () );
 	m->Send ();
 
-	body.rdbuf()->freeze( 0 );
+	body.rdbuf()->freeze( false );
 	//delete [] body.str ();
 
 	if		( mission->paymentmethod == MISSIONPAYMENT_HALFATSTART )		game->GetWorld ()->GetPlayer ()->ChangeBalance ( mission->payment / 2, "Anonymous benefactor" );
@@ -4031,7 +4026,7 @@ void MissionGenerator::MissionNotCompleted (Mission *mission, Person *person, Me
 	m->SetBody ( body.str () );
 	m->Send ();
 
-	body.rdbuf()->freeze( 0 );
+	body.rdbuf()->freeze( false );
 	//delete [] body.str ();
 }
 
@@ -4078,7 +4073,7 @@ void MissionGenerator::MissionFailed (Mission *mission, Person *person, const st
 	    m->SetBody ( body.str () );
 	    m->Send ();
 
-		body.rdbuf()->freeze( 0 );
+		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
     }

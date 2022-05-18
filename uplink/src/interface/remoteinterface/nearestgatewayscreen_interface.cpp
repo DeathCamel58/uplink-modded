@@ -5,7 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 
@@ -185,8 +184,7 @@ void NearestGatewayScreenInterface::Create ( ComputerScreen *newcs )
 				pgl = &(PHYSICALGATEWAYLOCATIONS[i]);
 			UplinkAssert (pgl)
 
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "nearestgateway_location %d", i )
+			string bname = "nearestgateway_location " + to_string(i);
 
 			char tooltip [128];
 			UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Select %s as your local Gateway", pgl->city )
@@ -226,8 +224,7 @@ void NearestGatewayScreenInterface::Remove ()
 
 		for ( int i = 0; i < numPhysicalGatewayLocations; ++i ) {
 
-			char bname [64];
-			UplinkSnprintf ( bname, sizeof ( bname ), "nearestgateway_location %d", i )
+			string bname = "nearestgateway_location " + to_string(i);
 			EclRemoveButton ( bname );
 
 		}

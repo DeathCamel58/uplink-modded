@@ -4,13 +4,10 @@
 #endif
 
 #include <GL/gl.h>
-#include <GL/glu.h>
-
 
 #include <cstdio>
 #include <sstream>
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 
@@ -188,13 +185,9 @@ void HighSecurityScreenInterface::Create ( ComputerScreen *newcs )
 
             }
 
-			char title [64];
-			char button [64];
-			char status [64];
-			
-			UplinkSnprintf ( title, sizeof ( title ), "highsecurity_systemtitle %d", i )
-			UplinkSnprintf ( button, sizeof ( button ), "highsecurity_systembutton %d", i )
-			UplinkSnprintf ( status, sizeof ( status ), "highsecurity_systemstatus %d", i )
+			string title = "highsecurity_systemtitle " + to_string(i);
+            string button = "highsecurity_systembutton " + to_string(i);
+            string status = "highsecurity_systemstatus " + to_string(i);
 
 			EclRegisterButton ( 30, 140 + i * 40, 300, 25, mso->caption, "Click here to access this system", title );
 			EclRegisterButtonCallbacks ( title, SystemTitleDraw, SystemClick, button_click, button_highlight );			
@@ -238,13 +231,9 @@ void HighSecurityScreenInterface::Remove ()
 
 		for ( int i = 0; i < hs->systems.Size (); ++i ) {
 			
-			char title [64];
-			char button [64];
-			char status [64];
-			
-			UplinkSnprintf ( title, sizeof ( title ), "highsecurity_systemtitle %d", i )
-			UplinkSnprintf ( button, sizeof ( button ), "highsecurity_systembutton %d", i )
-			UplinkSnprintf ( status, sizeof ( status ), "highsecurity_systemstatus %d", i )
+			string title = "highsecurity_systemtitle " + to_string(i);
+            string button = "highsecurity_systembutton " + to_string(i);
+            string status = "highsecurity_systemstatus " + to_string(i);
 
 			EclRemoveButton ( title );
 			EclRemoveButton ( button );

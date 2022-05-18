@@ -5,9 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
-
 #include "eclipse.h"
 
 #include "app/app.h"

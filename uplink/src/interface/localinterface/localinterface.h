@@ -74,7 +74,7 @@ public:
 
 	int InScreen ();									// Returns id code of current screen
 	void RunScreen ( int SCREENCODE, int index = -1 );
-	bool VerifyScreen ( int SCREENCODE, int index = -1 );
+	static bool VerifyScreen ( int SCREENCODE, int index = -1 );
 
 	LocalInterfaceScreen *GetInterfaceScreen ();		// Asserts screen
 	HUDInterface *GetHUD ();							// Asserts hud

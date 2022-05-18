@@ -41,7 +41,7 @@ protected:
 	static void AcceptClick		( Button *button );
 	static void ContactClick	( Button *button );
 	static void ExitClick		( Button *button );
-	static void ScrollChange    ( char *scrollname, int newValue );
+	static void ScrollChange    (const string &scrollname, int newValue );
 
     static int NumItemsOnScreen ();
 

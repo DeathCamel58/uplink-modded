@@ -6,16 +6,11 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
 #include "game/game.h"
 #include "game/data/data.h"
-
 
 #include "world/world.h"
 #include "world/player.h"
@@ -207,14 +202,11 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkStrncpy ( personname, "internal@ARC.net", sizeof ( personname ) )
+	string personname = "internal@ARC.net";					// Person to send completion email to
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description = "Modify a protected Social Security document";
 	std::ostrstream details;
 	std::ostrstream fulldetails;
-
-    UplinkStrncpy ( description, "Modify a protected Social Security document", sizeof ( description ) )
 
 	details << "Payment for this job is " << payment << " credits.\n"
 			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"

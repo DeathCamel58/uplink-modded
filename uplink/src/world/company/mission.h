@@ -77,7 +77,7 @@ public:
 	~Mission () override;
 
 	void SetTYPE			( int newTYPE );
-	void SetCompletion		( char *newA, char *newB, char *newC, char *newD, char *newE );
+	void SetCompletion		(const string& newA, const string& newB, const string& newC, const string& newD, const string& newE );
 
 	void SetCreateDate		( Date *date );
 	void SetEmployer		(const string &newemployer );

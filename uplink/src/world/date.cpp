@@ -3,10 +3,8 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <app/miscutils.h>
-#include "gucci.h"
 #include "eclipse.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -16,8 +14,6 @@
 #include "world/date.h"
 #include "world/player.h"
 #include "world/company/company.h"
-
-#include "world/generator/numbergenerator.h"
 
 
 #include "mmgr.h"

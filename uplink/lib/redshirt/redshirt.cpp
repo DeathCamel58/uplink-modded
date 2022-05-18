@@ -13,6 +13,8 @@
 #include <cstring>
 #include <cassert>
 #include <cstdlib>
+#include <filesystem>
+#include <fstream>
 
 #include "bungle.h"
 #include "tosser.h"
@@ -116,19 +118,17 @@ void flipBits(unsigned char *buffer, unsigned int length)
 
 /**
  * Check if file exists
- * @param filename
+ * @param filename Path to check existence of
  * @return `true` if file exists, `false` if not
  */
 bool RsFileExists  (const string &filename )
 {
 
-	FILE *file = fopen ( filename.c_str(), "r" );
+    if (filesystem::exists(filename)) {
+        return true;
+    }
 
-	bool success = file != nullptr;
-
-	if ( success ) fclose ( file );
-
-	return success;
+    return false;
 
 }
 
@@ -208,7 +208,7 @@ bool RsFileEncryptedNoVerify (const string &filename )
 /**
  * Checks if file header starts with `REDSHIRT\x0` or `REDSHIRT2\x0`
  * @param filename The filename to check
- * @return `true` if header is `REDSHIRT\x0`, `false`
+ * @return `true` if header of the file determines it was made with this library
  */
 bool RsFileEncrypted (const string &filename )
 {

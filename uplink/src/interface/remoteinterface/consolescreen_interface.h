@@ -60,10 +60,10 @@ public:
 
 	void SetCurrentDir (const string &newcurrentdir );
 	
-	void PutText (int userid, string text );					// Adds text to end of queue
-	void PutTextAtStart (int userid, string text );
+	void PutText (int userid, const string& text );					// Adds text to end of queue
+	void PutTextAtStart (int userid, const string& text );
 	
-	void RunCommand				(string command );				// Parses command into ConsoleCommand object
+	void RunCommand				(const string& command );				// Parses command into ConsoleCommand object
 	void RunCommand				( ConsoleCommand *cc );
 
 	void RunCommand_TEXT		(const string &text );

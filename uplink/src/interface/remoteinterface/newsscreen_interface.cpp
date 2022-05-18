@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include <cstdio>
 #include <sstream>
 
@@ -59,8 +57,7 @@ void NewsScreenInterface::ClickNewsButton ( Button *button )
 
 	// Dirty the old button
 
-	char oldname [128];
-	UplinkSnprintf ( oldname, sizeof ( oldname ), "news_story %d", currentselect - baseoffset )
+	string oldname = "news_story " + to_string(currentselect - baseoffset);
 	EclDirtyButton ( oldname );
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -313,7 +310,7 @@ bool NewsScreenInterface::EscapeKeyPressed ()
 }
 
 
-void NewsScreenInterface::ScrollChange ( char *scrollname, int newValue )
+void NewsScreenInterface::ScrollChange (const string &scrollname, int newValue )
 {
 
     baseoffset = newValue;
@@ -322,8 +319,7 @@ void NewsScreenInterface::ScrollChange ( char *scrollname, int newValue )
 
 	for ( int i = 0; i < numRows; ++i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i )
+		string name = "news_story " + to_string(i);
 		EclDirtyButton ( name );
 
 	}
@@ -346,8 +342,7 @@ void NewsScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < numRows; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i )
+			string name = "news_story " + to_string(i);
 			EclRegisterButton ( 20, i * 40 + 50, itemWidth, 39, "", "Read this News story", name );
 			EclRegisterButtonCallbacks ( name, DrawNewsButton, ClickNewsButton, MousedownNewsButton, HighlightNewsButton ); 
 						
@@ -379,8 +374,7 @@ void NewsScreenInterface::Remove ()
 
 		for ( int i = 0; i < numRows; ++ i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i )
+			string name = "news_story " + to_string(i);
 
 			EclRemoveButton ( name );
 
@@ -420,8 +414,7 @@ void NewsScreenInterface::Update ()
 
 		for ( int i = 0; i < numRows; ++ i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "news_story %d", i )
+			string name = "news_story " + to_string(i);
 			EclDirtyButton ( name );
 
 		}

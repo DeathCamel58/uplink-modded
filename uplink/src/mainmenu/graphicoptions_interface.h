@@ -50,7 +50,7 @@ public:
 	~GraphicOptionsInterface () override;
 
 	void SetOptionTYPE ( char *newtype );						// eg GAME, SOUND etc
-	static bool ChangeOptionValue ( char *option, int newvalue );      // Returns true if shutdown required
+	static bool ChangeOptionValue (const string& option, int newvalue );      // Returns true if shutdown required
 
 	void Create () override;
 	//void Remove ();

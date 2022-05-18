@@ -102,20 +102,20 @@ protected:
 	void Run_Act1Scene4 ();											// Act1Scene4Agent posts story - "everything is ok with ARC"
 	void Run_Act1Scene5 ();											// Act1Scene4Agent is found dead
 	void Run_Act1Scene7 ();											// Act1Scebe4Agent sends out a "delayed" warning mail about ARC
-	void Run_Act1Scene8 ();											// Uplink issue a warning to all agents
+	void Run_Act1Scene8 () const;											// Uplink issue a warning to all agents
 
     void Run_Act2Scene1 ();                                         // The mission "Maiden Flight" is given out
     void Run_Act2Scene2 ();                                         // Another agent completes "Maiden Flight"
     static void Run_Act2Scene3 ();                                         // Arunmor get in contact and try to get you to betray ARC
 
-    void Run_Act3Scene1 ();                                         // News story about Revelation attack
+    void Run_Act3Scene1 () const;                                         // News story about Revelation attack
     static void Run_Act3Scene2 ();                                         // Arunmor begin work on Faith
-    void Run_Act3Scene3 ();                                         // Arunmor release details on Revelation, announce their plan
+    void Run_Act3Scene3 () const;                                         // Arunmor release details on Revelation, announce their plan
     void Run_Act3Scene4 ();                                         // Feds reveal that ARC is run by Andromeda
 
-    void Run_Act4Scene1 ();                                         // "Tracer" is put out
-    void Run_Act4Scene2 ();                                         // "TakeMeToYourLeader" is out
-    void Run_Act4Scene3 ();                                         // "ARCInfiltration" is put out
+    void Run_Act4Scene1 () const;                                         // "Tracer" is put out
+    void Run_Act4Scene2 () const;                                         // "TakeMeToYourLeader" is out
+    void Run_Act4Scene3 () const;                                         // "ARCInfiltration" is put out
     static void Run_Act4Scene4 ();                                         // News story about Tracer
     static void Run_Act4Scene5 ();                                         // News story about TakeMeToYourLeader
     static void Run_Act4Scene6 ();                                         // News story about ARCInfiltration
@@ -146,14 +146,14 @@ protected:
     //
     // Special Mission Generators
     
-    Mission *GenerateMission_Tracer ();                             // Arunmor #2
-    Mission *GenerateMission_TakeMeToYourLeader ();                 // Arunmor #3
-    Mission *GenerateMission_ARCInfiltration ();                    // Arunmor #4
-    Mission *GenerateMission_CounterAttack ();                      // Arunmor #5
-    Mission *GenerateMission_MaidenFlight ();                       // ARC #1
-    Mission *GenerateMission_Darwin ();                             // ARC #2
+    static Mission *GenerateMission_Tracer ();                             // Arunmor #2
+    static Mission *GenerateMission_TakeMeToYourLeader ();                 // Arunmor #3
+    static Mission *GenerateMission_ARCInfiltration ();                    // Arunmor #4
+    Mission *GenerateMission_CounterAttack () const;                      // Arunmor #5
+    static Mission *GenerateMission_MaidenFlight ();                       // ARC #1
+    static Mission *GenerateMission_Darwin ();                             // ARC #2
     Mission *GenerateMission_SaveItForTheJury ();                   // ARC #3
-    Mission *GenerateMission_ShinyHammer ();                        // ARC #4
+    static Mission *GenerateMission_ShinyHammer ();                        // ARC #4
     static Mission *GenerateMission_GrandTour ();                          // ARC #5
 	
     bool IsMissionComplete_Tracer ();                       
@@ -194,8 +194,8 @@ public:
 
     static void RunFaith ( char *ip, float version, bool playerresponsible );
 
-	float GetVersion_Faith ();
-	float GetVersion_Revelation ();
+	float GetVersion_Faith () const;
+	float GetVersion_Revelation () const;
 
     void Infected ( char *ip );                                     // These manage the list of 
     void Disinfected ( char *ip );                                  // infected computer systems

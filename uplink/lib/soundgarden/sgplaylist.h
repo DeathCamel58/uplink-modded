@@ -26,8 +26,8 @@ class SgPlaylist
 
 public:
 
-    char name [SIZE_SGPLAYLIST_NAME];
-    LList <char *> songs;
+    string name;
+    LList <string> songs;
 
 public:
 
@@ -38,8 +38,8 @@ public:
     void AddSong (const string &name );
 
     int NumSongs ();
-    char *GetRandomSong ();
-    char *GetRandomSong (const string &oldsong );                      // Any song but not the old one
+    string GetRandomSong ();
+    string GetRandomSong (const string &oldsong );                      // Any song but not the old one
                                                                 // Warning - infinite loop if all songs have same name
 };
 

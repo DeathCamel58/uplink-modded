@@ -3,17 +3,12 @@
 #include <windows.h>
 #endif
 
-#include <GL/gl.h>
-
-#include <GL/glu.h>
 #include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
 #include "soundgarden.h"
-#include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/miscutils.h"
 #include "app/opengl_interface.h"

@@ -5,13 +5,11 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/miscutils.h"
@@ -22,7 +20,6 @@
 #include "interface/remoteinterface/remoteinterface.h"
 #include "interface/remoteinterface/shareslistscreen_interface.h"
 #include "interface/remoteinterface/sharesviewscreen_interface.h"
-#include "interface/localinterface/phonedialler.h"
 
 #include "world/world.h"
 #include "world/message.h"
@@ -119,8 +116,7 @@ void SharesListScreenInterface::ShareDraw ( Button *button, bool highlighted, bo
 
 		glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
-		char currentprice [16];
-		UplinkSnprintf ( currentprice, sizeof ( currentprice ), "%d c", company->GetSharePrice () )
+		string currentprice = to_string(company->GetSharePrice()) + " c";
 
 		char changeinprice [16];
 		if ( company->GetShareChange () != 0 ) {
@@ -233,8 +229,7 @@ void SharesListScreenInterface::ScrollUpClick ( Button *button )
 
 	for ( int i = 0; i < 14; ++i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i )
+		string name = "shareslistscreen_share " + to_string(i);
 		EclDirtyButton ( name );
 
 	}
@@ -248,8 +243,7 @@ void SharesListScreenInterface::ScrollDownClick ( Button *button )
 
 	for ( int i = 0; i < 14; ++i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i )
+		string name = "shareslistscreen_share " + to_string(i);
 		EclDirtyButton ( name );
 
 	}
@@ -334,8 +328,7 @@ void SharesListScreenInterface::ApplyFilter (const string &filter )
 
 	for ( int ib = 0; ib < 14; ++ib ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", ib )
+		string name = "shareslistscreen_share " + to_string(ib);
 		EclDirtyButton ( name );
 
 	}
@@ -389,8 +382,7 @@ void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int li = 0; li < 14; ++li ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", li )
+			string name = "shareslistscreen_share " + to_string(li);
 			EclRegisterButton ( 30, 145 + li * 15, 350, 14, "", "View this share in more detail", name );
 			EclRegisterButtonCallbacks ( name, ShareDraw, ShareClick, ShareMouseDown, ShareMouseMove );
 
@@ -486,8 +478,7 @@ void SharesListScreenInterface::Remove ()
 		
 		for ( int i = 0; i < 14; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "shareslistscreen_share %d", i )
+			string name = "shareslistscreen_share " + to_string(i);
 			EclRemoveButton ( name );
 		
 		}

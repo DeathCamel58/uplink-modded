@@ -8,12 +8,10 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "eclipse.h"
 #include "soundgarden.h"
-#include "redshirt.h"
 
 #include "game/game.h"
 
@@ -192,8 +190,7 @@ void FinanceInterface::ClickAccountButton ( Button *button )
 		int oldaccount = game->GetWorld ()->GetPlayer ()->currentaccount;
 		game->GetWorld ()->GetPlayer ()->SetCurrentAccount ( index );
 
-		char oldaccount_buttonname [32];
-		UplinkSnprintf ( oldaccount_buttonname, sizeof ( oldaccount_buttonname ), "finance_account %d", oldaccount )
+		string oldaccount_buttonname = "finance_account " + to_string(oldaccount);
 		EclDirtyButton ( oldaccount_buttonname );
 
 	}
@@ -267,11 +264,9 @@ void FinanceInterface::Create ()
 			char accno [16];
 			sscanf ( accountdetails, "%s %s", ip, accno );
 			
-			char accounttext [128];
-			UplinkStrncpy ( accounttext, "Logging on...", sizeof ( accounttext ) )
+			string accounttext = "Logging on...";
 
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
+			string name = "finance_account " + to_string(i);
 			EclRegisterButton ( screenw - panelwidth, paneltop + 100 + i * 20, panelwidth - 7, 15, accounttext, "Set this to be your current account", name );
 			EclRegisterButtonCallbacks ( name, DrawAccountButton, ClickAccountButton, button_click, button_highlight );
 
@@ -298,14 +293,13 @@ void FinanceInterface::Remove ()
 		// Remove each account button
 
 		int i = 0;
-		char name [32];
-		UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
+		string name = "finance_account " + to_string(i);
 
 		while ( EclGetButton ( name ) ) {
 
 			EclRemoveButton ( name );
 			++i;
-			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
+			name = "finance_account " + to_string(i);
 
 		}
 
@@ -335,11 +329,9 @@ void FinanceInterface::Update ()
 				char accno [16];
 				sscanf ( accountdetails, "%s %s", ip, accno );
 				
-				char accounttext [128];
-				UplinkStrncpy ( accounttext, "Logging on...", sizeof ( accounttext ) )
+				string accounttext = "Logging on...";
 
-				char name [32];
-				UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
+				string name = "finance_account " + to_string(i);
 				EclRegisterButton ( screenw - panelwidth, paneltop + 100 + i * 20, panelwidth - 7, 15, accounttext, "Open this account", name );
 				EclRegisterButtonCallbacks ( name, DrawAccountButton, ClickAccountButton, button_click, button_highlight );
 
@@ -352,8 +344,7 @@ void FinanceInterface::Update ()
 
 			for ( int i = game->GetWorld ()->GetPlayer ()->accounts.Size (); i < previousnumaccounts; ++i ) {
 
-				char name [32];
-				UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
+				string name = "finance_account " + to_string(i);
 				EclRemoveButton ( name );
 
 			}
@@ -370,8 +361,7 @@ void FinanceInterface::Update ()
 
 		for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->accounts.Size (); ++i ) {
 
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "finance_account %d", i )
+			string name = "finance_account " + to_string(i);
 			UplinkAssert ( EclGetButton ( name ) )
 
 			// Try to get the old balance
@@ -417,8 +407,7 @@ void FinanceInterface::Update ()
 
 		// Update the overall balance
 		
-		char caption [128];
-		UplinkSnprintf ( caption, sizeof ( caption ), "Balance : %d credits", balance )
+		string caption = "Balance : " + to_string(balance) + " credits";
 		EclGetButton ( "finance_balance" )->SetCaption ( caption );
 
 		lastupdate = time(nullptr);

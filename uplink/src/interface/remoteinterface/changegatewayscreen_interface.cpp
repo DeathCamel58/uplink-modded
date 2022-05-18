@@ -7,11 +7,8 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/miscutils.h"
 #include "app/opengl_interface.h"
@@ -114,8 +111,7 @@ void ChangeGatewayScreenInterface::GatewayButtonDraw ( Button *button, bool high
 		SetColour ( "PanelHighlightBorder" );
 		border_draw ( button );
 
-	}
-    else if ( index == thisint->currentselect ) {
+	} else if ( index == thisint->currentselect ) {
 
         SetColour ( "PanelBorder" );
         border_draw ( button );

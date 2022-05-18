@@ -3,12 +3,10 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <app/miscutils.h>
-#include "gucci.h"
 #include "vanbakel.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -26,9 +24,7 @@
 // === Include all Local Interface objects here ===============================
 
 
-#include "interface/localinterface/hud_interface.h"
 #include "interface/localinterface/hw_interface.h"
-#include "interface/localinterface/phonedialler.h"
 #include "interface/localinterface/memory_interface.h"
 #include "interface/localinterface/status_interface.h"
 #include "interface/localinterface/finance_interface.h"

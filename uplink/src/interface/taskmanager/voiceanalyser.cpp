@@ -6,14 +6,12 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "vanbakel.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
@@ -130,8 +128,7 @@ void VoiceAnalyser::PlayClick ( Button *button )
 
         Person *person = game->GetWorld ()->GetPerson ( thistask->personname );
         UplinkAssert (person)
-        char filename [256];
-        UplinkSnprintf ( filename, sizeof ( filename ), "sounds/analyser/verifyme%d.wav", person->voiceindex )
+        string filename = "sounds/analyser/verifyme" + to_string(person->voiceindex) + ".wav";
 		SgPlaySound ( RsArchiveFileOpen ( filename ), filename, true );
 
 //#endif
@@ -139,8 +136,7 @@ void VoiceAnalyser::PlayClick ( Button *button )
         thistask->STATUS = VOICEANALYSER_STATUS_REPRODUCING;
 		thistask->timesync = (int) ( EclGetAccurateTime () + 8000 );
 
-		char textbutton [64];
-		UplinkSnprintf ( textbutton, sizeof ( textbutton ), "analyser_text %d", pid )
+		string textbutton = "analyser_text " + to_string(pid);
 		EclRegisterCaptionChange ( textbutton, "Reproducing voice sample..." );
 
 		// IF we're looking at a voice analysis screen,
@@ -345,8 +341,7 @@ void VoiceAnalyser::Tick ( int n )
 		int maxsample = 0;
 	
 		int pid = SvbLookupPID ( this );
-		char textbutton [64];
-		UplinkSnprintf ( textbutton, sizeof ( textbutton ), "analyser_text %d", pid )
+		string textbutton = "analyser_text " + to_string(pid);
 
 
 		switch ( STATUS ) {
@@ -415,8 +410,7 @@ void VoiceAnalyser::Tick ( int n )
 					STATUS = VOICEANALYSER_STATUS_READY;
 					timesync = 0;
 
-					char play [64];
-					UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
+					string play = "analyser_play " + to_string(pid);
 					EclDirtyButton ( play );
 
 				}
@@ -446,8 +440,7 @@ void VoiceAnalyser::Tick ( int n )
 					STATUS = VOICEANALYSER_STATUS_READY;
 					timesync = 0;
 
-					char play [64];
-					UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
+					string play = "analyser_play " + to_string(pid);
 					EclDirtyButton ( play );
 
 					// IF we're looking at a voice analyser screen,
@@ -503,8 +496,7 @@ void VoiceAnalyser::Tick ( int n )
 			 for ( int count = 0; count < n; ++count ) {
 
 				++progress;      
-				char caption [64];
-				UplinkSnprintf ( caption, sizeof ( caption ), "Downloading %d%% ...", (int)( ( (float) progress / (float) numticksrequired ) * 100 ) )
+				string caption = "Downloading " + to_string( ( progress / numticksrequired ) * 100 ) + "%% ...";
 				EclRegisterCaptionChange ( textbutton, caption );
 
 				if ( progress >= numticksrequired ) {
@@ -515,8 +507,7 @@ void VoiceAnalyser::Tick ( int n )
 				   STATUS = VOICEANALYSER_STATUS_READY;
 				   timesync = 0;
 
-				   char play [64];
-				   UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
+				   string play = "analyser_play " + to_string(pid);
 				   EclDirtyButton ( play );
 
 				   break;
@@ -552,8 +543,7 @@ void VoiceAnalyser::Tick ( int n )
 
 			}
 			
-			char analyser [64];
-			UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
+			string analyser = "analyser_analyser " + to_string(pid);
 			EclDirtyButton ( analyser );
 
 			animsync = (int) EclGetAccurateTime ();
@@ -574,17 +564,11 @@ void VoiceAnalyser::MoveTo ( int x, int y, int time_ms )
 
 		int pid = SvbLookupPID ( this );
 
-		char title [64];
-		char close [64];
-		char text [64];
-		char analyser [64];
-		char play [64];
-
-		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
-		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid )
-		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid )
-		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
-		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
+		string title = "analyser_title " + to_string(pid);
+        string close = "analyser_close " + to_string(pid);
+        string text = "analyser_text " + to_string(pid);
+        string analyser = "analyser_analyser " + to_string(pid);
+        string play = "analyser_play " + to_string(pid);
 
 		EclRegisterMovement ( title, x + 1, y + 1, time_ms );
 		EclRegisterMovement ( close, x + 276, y + 1, time_ms );
@@ -609,17 +593,11 @@ void VoiceAnalyser::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char title [64];
-		char close [64];
-		char text [64];
-		char analyser [64];
-		char play [64];
-
-		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
-		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid )
-		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid )
-		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
-		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
+		string title = "analyser_title " + to_string(pid);
+        string close = "analyser_close " + to_string(pid);
+        string text = "analyser_text " + to_string(pid);
+        string analyser = "analyser_analyser " + to_string(pid);
+        string play = "analyser_play " + to_string(pid);
 
 		EclRegisterButton ( 200, 400, 275, 13, "Voice Analyser", "Click to move this application", title );
 		EclRegisterButtonCallback ( title, TitleClick );
@@ -654,17 +632,11 @@ void VoiceAnalyser::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char title [64];
-		char close [64];
-		char text [64];
-		char analyser [64];
-		char play [64];
-
-		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
-		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid )
-		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid )
-		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
-		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
+		string title = "analyser_title " + to_string(pid);
+        string close = "analyser_close " + to_string(pid);
+        string text = "analyser_text " + to_string(pid);
+        string analyser = "analyser_analyser " + to_string(pid);
+        string play = "analyser_play " + to_string(pid);
 
 		EclRemoveButton ( title );
 		EclRemoveButton ( close );
@@ -683,17 +655,11 @@ void VoiceAnalyser::ShowInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char title [64];
-		char close [64];
-		char text [64];
-		char analyser [64];
-		char play [64];
-
-		UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
-		UplinkSnprintf ( close, sizeof ( close ), "analyser_close %d", pid )
-		UplinkSnprintf ( text, sizeof ( text ), "analyser_text %d", pid )
-		UplinkSnprintf ( analyser, sizeof ( analyser ), "analyser_analyser %d", pid )
-		UplinkSnprintf ( play, sizeof ( play ), "analyser_play %d", pid )
+		string title = "analyser_title " + to_string(pid);
+        string close = "analyser_close " + to_string(pid);
+        string text = "analyser_text " + to_string(pid);
+        string analyser = "analyser_analyser " + to_string(pid);
+        string play = "analyser_play " + to_string(pid);
 
 		EclButtonBringToFront ( title );
 		EclButtonBringToFront ( close );
@@ -709,8 +675,7 @@ bool VoiceAnalyser::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char title [64];
-	UplinkSnprintf ( title, sizeof ( title ), "analyser_title %d", pid )
+	string title = "analyser_title " + to_string(pid);
 
 	return ( EclGetButton ( title ) != nullptr );
 

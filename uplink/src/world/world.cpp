@@ -11,7 +11,6 @@
 
 #include "game/data/data.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 #include "app/miscutils.h"
@@ -36,12 +35,8 @@
 #include "world/generator/namegenerator.h"
 #include "world/generator/consequencegenerator.h"
 #include "world/generator/newsgenerator.h"
-#include "world/generator/plotgenerator.h"
 #include "world/generator/demoplotgenerator.h"
 #include "world/generator/langenerator.h"
-
-#include "world/scheduler/eventscheduler.h"
-#include "world/scheduler/notificationevent.h"
 
 #include "mmgr.h"
 

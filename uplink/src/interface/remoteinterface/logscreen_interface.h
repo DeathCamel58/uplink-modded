@@ -36,7 +36,7 @@ protected:
 	static int GetLastItem ( DArray<class AccessLog *> *logs );
 
     static void CreateScrollBar ( int nbItems );
-    static void ScrollChange ( char *scrollname, int newValue );
+    static void ScrollChange (const string &scrollname, int newValue );
 
 	static void LogClick		( Button *button );
 	static void CloseClick		( Button *button );

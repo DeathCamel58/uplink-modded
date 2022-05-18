@@ -6,7 +6,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 
@@ -131,8 +130,7 @@ void LanScan::GoClick ( Button *button )
 	thistask->progress = 0;
 	thistask->status = LANSCAN_SCANNING;
 
-	char sprogress [128];
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid )
+	string sprogress = "lanscan_progress " + to_string(pid);
 	EclRegisterCaptionChange ( sprogress, "Scanning...", 0 );	
 
 }
@@ -183,8 +181,7 @@ void LanScan::Tick ( int n )
 
 		}	
 
-		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", SvbLookupPID ( this ) )
+		string sprogress = "lanscan_progress " + to_string(SvbLookupPID ( this ) );
 
 		if ( status == LANSCAN_SCANNING ) {
 
@@ -263,15 +260,10 @@ void LanScan::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid )
+		string stitle = "lanscan_title " + to_string(pid);
+        string sborder = "lanscan_border " + to_string(pid);
+        string sprogress = "lanscan_progress " + to_string(pid);
+        string sclose = "lanscan_close " + to_string(pid);
 
 		EclRegisterButton ( 265, 422, 20, 15, "", "Scan the Local Area Network for systems", stitle );
 		button_assignbitmap ( stitle, "software/go.tif" );
@@ -298,15 +290,10 @@ void LanScan::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid )
+		string stitle = "lanscan_title " + to_string(pid);
+        string sborder = "lanscan_border " + to_string(pid);
+        string sprogress = "lanscan_progress " + to_string(pid);
+        string sclose = "lanscan_close " + to_string(pid);
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -324,15 +311,10 @@ void LanScan::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanscan_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanscan_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanscan_close %d", pid )
+	string stitle = "lanscan_title " + to_string(pid);
+    string sborder = "lanscan_border " + to_string(pid);
+    string sprogress = "lanscan_progress " + to_string(pid);
+    string sclose = "lanscan_close " + to_string(pid);
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -345,8 +327,7 @@ bool LanScan::IsInterfaceVisible ()
 {
 	
 	int pid = SvbLookupPID ( this );
-	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanscan_title %d", pid )
+	string stitle = "lanscan_title " + to_string(pid);
 
 	return ( EclGetButton ( stitle ) != nullptr );
 

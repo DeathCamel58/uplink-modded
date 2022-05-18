@@ -54,8 +54,8 @@ protected:
 
     void CreateInterface ();
     void RemoveInterface ();
-    void UpdateInterface ();
-    bool IsInterfaceVisible ();
+    void UpdateInterface () const;
+    static bool IsInterfaceVisible ();
 
     void ScrollUp ();
     void ScrollDown ();
@@ -82,7 +82,7 @@ public:
 
     // Grabbing stuff
 
-    static char currentGrab [256];
+    static string currentGrab;
     static void GrabScrollBar   (const string &name );
     static void UnGrabScrollBar ();
     static bool IsGrabInProgress ();

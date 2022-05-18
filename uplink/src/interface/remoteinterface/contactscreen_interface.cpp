@@ -7,7 +7,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
 #include <sstream>
 
 #include "game/game.h"
@@ -120,7 +119,7 @@ void ContactScreenInterface::QuestionClick ( Button *button )
 
 }
 
-void ContactScreenInterface::PutMessage ( int userid, char *message )
+void ContactScreenInterface::PutMessage (int userid, const string& message )
 {
 
 	// Work out the full message
@@ -256,7 +255,7 @@ void ContactScreenInterface::AddUser ( char *name )
 
 }
 
-void ContactScreenInterface::AddQuestion ( char *question, int index )
+void ContactScreenInterface::AddQuestion (const string& question, int index )
 {
 
 	if ( index == -1 ) {
@@ -268,10 +267,8 @@ void ContactScreenInterface::AddQuestion ( char *question, int index )
 			numquestions = index + 1;
 	}
 
-	char name1 [32];
-	char name2 [32];
-	UplinkSnprintf ( name1, sizeof ( name1 ), "contact_questionb %d", index )
-	UplinkSnprintf ( name2, sizeof ( name2 ), "contact_question %d", index )
+	string name1 = "contact_questionb " + to_string(index);
+    string name2 = "contact_question " + to_string(index);
 
 	int x = ( index < 5 ? 20 : 230 );
 	int y = ( index < 5 ? 300 + index * 20 : 300 + (index-5) * 20 );
@@ -412,8 +409,7 @@ void ContactScreenInterface::AskQuestion ( int index )
 							}
 							else {
 
-								char message [128];
-								UplinkSnprintf ( message, sizeof ( message ), "OK, we'll give you %dc because of your reputation.", thisint->mission->maxpayment )
+								string message = "OK, we'll give you " + to_string(thisint->mission->maxpayment) + "c because of your reputation.";
 								PutMessage ( 2, message );
 
 								thisint->mission->payment = thisint->mission->maxpayment;
@@ -575,8 +571,7 @@ void ContactScreenInterface::Create ( ComputerScreen *newcs )
 		for ( int i = 0; i < NUMLINES; ++i ) {
 
 			int y = 50 + ( i * 15 );
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "contact_text %d", i )
+			string name = "contact_text " + to_string(i);
 
 			EclRegisterButton ( 22, y, 400, 15, "", "", name );
 			EclRegisterButtonCallbacks ( name, MessageDraw, nullptr, nullptr, nullptr );
@@ -614,8 +609,7 @@ void ContactScreenInterface::Remove ()
 
 		for ( int ti = 0; ti < NUMLINES; ++ti ) {
 
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "contact_text %d", ti )
+			string name = "contact_text " + to_string(ti);
 			EclRemoveButton ( name );
 
 		}
@@ -629,11 +623,10 @@ void ContactScreenInterface::Remove ()
 
 		for ( int qi = 0; qi < numquestions; ++qi ) {
 
-			char name [32];
-			UplinkSnprintf ( name, sizeof ( name ), "contact_question %d", qi )
+			string name = "contact_question " + to_string(qi);
 			EclRemoveButton ( name );
 
-			UplinkSnprintf ( name, sizeof ( name ), "contact_questionb %d", qi )
+			name = "contact_questionb " + to_string(qi);
 			EclRemoveButton ( name );
 
 		}
@@ -658,10 +651,8 @@ void ContactScreenInterface::Update ()
 
 		for ( int i = 0; i < NUMLINES-1; ++i ) {
 
-			char name1 [32];
-			char name2 [32];
-			UplinkSnprintf ( name1, sizeof ( name1 ), "contact_text %d", i )
-			UplinkSnprintf ( name2, sizeof ( name2 ), "contact_text %d", i + 1 )
+			string name1 = "contact_text " + to_string(i);
+            string name2 = "contact_text " + to_string(i + 1);
 
 			Button *b1 = EclGetButton ( name1 );
 			UplinkAssert ( b1 )
@@ -680,8 +671,7 @@ void ContactScreenInterface::Update ()
 		char *message = messagequeue.GetData (0);
 		int time = (int) ( strlen(message) * 5 );
 
-		char name1 [32];
-		UplinkSnprintf ( name1, sizeof ( name1 ), "contact_text %d", NUMLINES-1 )
+		string name1 = "contact_text " + to_string(NUMLINES-1);
 
 		EclRegisterCaptionChange ( name1, message, time, WaitingCallback );
 		waiting = true;

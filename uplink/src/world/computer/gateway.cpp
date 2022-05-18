@@ -3,9 +3,6 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -293,11 +290,11 @@ void Gateway::ExchangeGatewayComplete ()
 
 }
 
-void Gateway::SetModemType ( char *newmodem, int newmodemspeed )
+void Gateway::SetModemType (const string& newmodem, int newmodemspeed)
 {
 
-	assert( strlen(newmodem) < 64 );
-	UplinkStrncpy ( modemtype, newmodem, sizeof ( modemtype ) )
+	assert( newmodem.length() < 64 );
+	UplinkStrncpy ( modemtype, newmodem.c_str(), sizeof ( modemtype ) )
 
 	modemspeed = newmodemspeed;
 
@@ -346,14 +343,14 @@ bool Gateway::HasAnyHUDUpgrade () const
 
 }
 
-void Gateway::GiveCPU ( char *CPUName )
+void Gateway::GiveCPU (const string& CPUName)
 {
 
 	GatewayDef *gatewaydef = curgatewaydef;
 	UplinkAssert (gatewaydef)
 
-    char *cpucopy = new char [strlen(CPUName)+1];
-    UplinkSafeStrcpy ( cpucopy, CPUName )
+    char *cpucopy = new char [CPUName.length()+1];
+    UplinkSafeStrcpy ( cpucopy, CPUName.c_str() )
 
 	if ( GetNumCPUs () < gatewaydef->maxcpus ) {
 
@@ -374,11 +371,7 @@ void Gateway::GiveCPU ( char *CPUName )
 			UplinkAssert (cu)
 
 			if ( cu->TYPE == GATEWAYUPGRADETYPE_CPU ) {
-				if ( indexSlowest == -1 || upgradeSlowest == nullptr ) {
-					indexSlowest = i;
-					upgradeSlowest = cu;
-				}
-				else if ( cu->data < upgradeSlowest->data ) {
+				if ( (indexSlowest == -1 || upgradeSlowest == nullptr) || cu->data < upgradeSlowest->data ) {
 					indexSlowest = i;
 					upgradeSlowest = cu;
 				}
@@ -517,8 +510,7 @@ void Gateway::GiveStartingHardware ()
 
 	// Modem
 
-	char modemname [64];
-	UplinkSnprintf ( modemname, sizeof ( modemname ), "Modem (%d Ghz)", PLAYER_START_MODEMSPEED )
+	string modemname = "Modem (" + to_string(PLAYER_START_MODEMSPEED) + " Ghz)";
 	SetModemType  ( modemname, PLAYER_START_MODEMSPEED );
 
 	// Memory
@@ -537,12 +529,12 @@ void Gateway::GiveHardware ( char *newhardware )
 
 }
 
-bool Gateway::IsHWInstalled ( char *name )
+bool Gateway::IsHWInstalled (string name )
 {
 
 	for ( int i = 0; i < hardware.Size (); ++i )
 		if ( hardware.GetData (i) )
-			if ( strcmp ( hardware.GetData (i), name ) == 0 )
+			if ( name == hardware.GetData (i) )
 				return true;
 
 	return false;

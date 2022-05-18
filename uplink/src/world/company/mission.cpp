@@ -2,11 +2,8 @@
 #include <cstring>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
 #include "game/game.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -74,34 +71,34 @@ void Mission::SetTYPE ( int newTYPE )
 
 }
 
-void Mission::SetCompletion ( char *newA, char *newB, char *newC, char *newD, char *newE )
+void Mission::SetCompletion (const string& newA, const string& newB, const string& newC, const string& newD, const string& newE )
 {
 
 	// No need to set them if nullptr is passed in - they will not be examined after all
 
-	if ( newA ) {
-		assert( strlen(newA) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionA, newA, sizeof ( completionA ) )
+	if ( !newA.empty() ) {
+		assert( newA.length() < SIZE_MISSION_COMPLETION );
+		UplinkStrncpy ( completionA, newA.c_str(), sizeof ( completionA ) )
 	}
 
-	if ( newB ) {
-		assert( strlen(newB) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionB, newB, sizeof ( completionB ) )
+	if ( !newB.empty() ) {
+		assert( newB.length() < SIZE_MISSION_COMPLETION );
+		UplinkStrncpy ( completionB, newB.c_str(), sizeof ( completionB ) )
 	}
 
-	if ( newC ) {
-		assert( strlen(newC) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionC, newC, sizeof ( completionC ) )
+	if ( !newC.empty() ) {
+		assert( newC.length() < SIZE_MISSION_COMPLETION );
+		UplinkStrncpy ( completionC, newC.c_str(), sizeof ( completionC ) )
 	}
 
-	if ( newD ) {
-		assert( strlen(newD) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionD, newD, sizeof ( completionD ) )
+	if ( !newD.empty() ) {
+		assert( newD.length() < SIZE_MISSION_COMPLETION );
+		UplinkStrncpy ( completionD, newD.c_str(), sizeof ( completionD ) )
 	}
 
-	if ( newE ) {
-		assert( strlen(newE) < SIZE_MISSION_COMPLETION );
-		UplinkStrncpy ( completionE, newE, sizeof ( completionE ) )
+	if ( !newE.empty() ) {
+		assert( newE.length() < SIZE_MISSION_COMPLETION );
+		UplinkStrncpy ( completionE, newE.c_str(), sizeof ( completionE ) )
 	}
 
 }

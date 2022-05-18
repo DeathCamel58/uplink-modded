@@ -2,11 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-//#include "stdafx.h"
-
 #include <GL/gl.h>
-
-#include <GL/glu.h> /* glu extention library */
 
 #include "eclipse.h"
 #include "soundgarden.h"
@@ -15,15 +11,9 @@
 #include "app/app.h"
 #include "app/opengl_interface.h"
 #include "app/globals.h"
-#include "app/opengl.h"
 #include "app/miscutils.h"
 
-#include "game/game.h"
 #include "game/scriptlibrary.h"
-
-#include "interface/interface.h"
-#include "interface/localinterface/localinterface.h"
-#include "interface/remoteinterface/remoteinterface.h"
 
 #include "network/network.h"
 #include "network/networkclient.h"
@@ -71,12 +61,11 @@ void LoginInterface::RemoveExistingGames ()
 
 	// Remove all username buttons
 	int usernameindex = 0;
-	char name [32];
-	UplinkSnprintf ( name, sizeof ( name ), "username %d", usernameindex )
+	string name = "username " + to_string(usernameindex);
 	while ( EclGetButton ( name ) ) {
 		EclRemoveButton ( name );
 		++usernameindex;
-		UplinkSnprintf ( name, sizeof ( name ), "username %d", usernameindex )
+		name = "username " + to_string(usernameindex);
 	} 
 
 }

@@ -5,7 +5,6 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "gucci.h"
 #include "eclipse.h"
 
 #include "app/app.h"

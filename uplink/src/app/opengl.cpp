@@ -14,7 +14,6 @@
 
 #include "tosser.h"
 #include "eclipse.h"
-#include "vanbakel.h"
 #include "gucci.h"
 #include "soundgarden.h"
 
@@ -24,7 +23,6 @@
 #include "app/opengl.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
-#include "app/miscutils.h"
 
 #include "mainmenu/mainmenu.h"
 #include "mainmenu/mainmenuscreen.h"
@@ -53,7 +51,7 @@
 // Local function definitions
 
 
-local void init(void);
+local void init();
 local void keyboard(unsigned char, int, int);
 local void specialkeyboard(int, int, int);
 local void mouse(int,int,int,int);
@@ -61,7 +59,7 @@ local void mousemove(int,int);
 local void passivemouse(int,int);
 local void resize(int, int);
 local void drawcube(int, int, int);
-local void idle(void);
+local void idle();
 
 local int lastidleupdate = 0;
 local int mouseX = 0;
@@ -196,7 +194,7 @@ bool opengl_setSoftwareRendering ( bool softwareRendering )
 
 #endif
 
-local void init(void)
+local void init()
 {
 
 /*
@@ -281,7 +279,7 @@ local void init(void)
 
 }
 
-void display(void)
+void display()
 {
 
     if ( app->Closed () ) return;
@@ -392,7 +390,7 @@ void keyboard(unsigned char key, int x, int y)
 
     if ( app->Closed () ) return;
 
-	if ( key == 13 ) {									// ======== Return key
+	if ( key == 13 ) { // ======== Return key
 
       	bool returned = false;
 
@@ -403,8 +401,7 @@ void keyboard(unsigned char key, int x, int y)
                 returned = ((IRCInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen ())->ReturnKeyPressed ();
             else
 			    returned = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->ReturnKeyPressed ();
-        }
-		else if ( app->GetMainMenu ()->InScreen () != MAINMENU_UNKNOWN )
+        } else if ( app->GetMainMenu ()->InScreen () != MAINMENU_UNKNOWN )
 			returned = app->GetMainMenu ()->GetMenuScreen ()->ReturnKeyPressed ();
 
 	    if ( !returned ) {
@@ -416,8 +413,7 @@ void keyboard(unsigned char key, int x, int y)
 
 	    }
 
-	}
-    else if ( key == 27 ) {                             // ======== Esc key
+	} else if ( key == 27 ) { // ======== Esc key
 
 		string name = EclGetHighlightedButton ();
 
@@ -433,21 +429,15 @@ void keyboard(unsigned char key, int x, int y)
 
         }
 
-    }
-	else if ( key == 9 ) {								// ========= Tab key
+    } else if ( key == 9 ) { // ========= Tab key
 		
         EclHighlightNextEditableButton ();
 
-	}
-	else if ( key == 96 ) { // backtick (`)
+	} else if ( key == 96 ) { // backtick (`)
 
-	    char screenpath [256];
-	    UplinkSnprintf ( screenpath, sizeof ( screenpath ), "%sscreenshot.bmp", app->userpath )
+		GciSaveScreenshot( app->userpath + "screenshot.bmp" );
 
-		GciSaveScreenshot( screenpath );
-
-	}
-    else {
+	} else {
 
 		string name = EclGetHighlightedButton ();
 		if ( EclIsButtonEditable (name) ) 
@@ -482,10 +472,7 @@ void specialkeyboard (int key, int x, int y)
 
 		case GCI_KEY_F9:
 
-			char screenpath [256];
-			UplinkSnprintf ( screenpath, sizeof ( screenpath ), "%sscreenshot.bmp", app->userpath )
-
-			GciSaveScreenshot( screenpath );
+			GciSaveScreenshot( app->userpath + "screenshot.bmp" );
 
 			break;
 

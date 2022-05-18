@@ -1,5 +1,4 @@
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"

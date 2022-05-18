@@ -5,9 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/miscutils.h"
 #include "app/opengl_interface.h"
@@ -58,8 +55,7 @@ void RadioTransmitterScreenInterface::FrequencyDraw ( Button *button, bool highl
     SetColour ( "PanelBorder" );
     border_draw ( button );
 
-    char frequency[64];
-    UplinkSnprintf ( frequency, sizeof ( frequency ), "%d.%d Ghz", frequencyGhz, frequencyMhz )
+    string frequency = to_string(frequencyGhz) + "." + to_string(frequencyMhz) + " Ghz";
 
     GciDrawText ( button->x + 10, button->y + 10, frequency );
 

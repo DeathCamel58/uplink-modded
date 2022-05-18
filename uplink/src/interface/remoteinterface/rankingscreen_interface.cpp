@@ -5,10 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 #include "app/miscutils.h"
@@ -184,11 +180,8 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < 10; ++i ) {
 
-			char name   [24];
-			char status [24];
-
-			UplinkSnprintf ( name, sizeof ( name ), "ranking_name %d", i )
-			UplinkSnprintf ( status, sizeof ( status ), "ranking_status %d", i )
+			string name = "ranking_name " + to_string(i);
+            string status = "ranking_status " + to_string(i);
 
 			if ( sorted.ValidIndex (i) ) {
 
@@ -200,11 +193,11 @@ void RankingScreenInterface::Create ( ComputerScreen *newcs )
 				char cname [128];
 				UplinkSnprintf ( cname, sizeof ( cname ), "%2d  :  Agent %s", i + 1, agent->handle )
 				
-				char cstatus [32];
-				if      ( agent->GetStatus () == PERSON_STATUS_NONE ) {			UplinkStrncpy ( cstatus, "Active", sizeof ( cstatus ) )
-				} else if ( agent->GetStatus () == PERSON_STATUS_INJAIL ) {		UplinkStrncpy ( cstatus, "In Jail", sizeof ( cstatus ) )
-				} else if ( agent->GetStatus () == PERSON_STATUS_DEAD ) {		UplinkStrncpy ( cstatus, "Deceased", sizeof ( cstatus ) )
-				} else {														UplinkStrncpy ( cstatus, "Unknown", sizeof ( cstatus ) )
+				string cstatus;
+				if      ( agent->GetStatus () == PERSON_STATUS_NONE ) {			cstatus = "Active";
+				} else if ( agent->GetStatus () == PERSON_STATUS_INJAIL ) {		cstatus = "In Jail";
+				} else if ( agent->GetStatus () == PERSON_STATUS_DEAD ) {		cstatus = "Deceased";
+				} else {														cstatus = "Unknown";
 				}
 
 				EclRegisterButton ( 30, 120 + 20 * i, 170, 15, cname, "", name );
@@ -284,11 +277,8 @@ void RankingScreenInterface::Remove ()
 
 		for ( int i = 0; i < 10; ++i ) {
 
-			char name   [24];
-			char status [24];
-
-			UplinkSnprintf ( name, sizeof ( name ), "ranking_name %d", i )
-			UplinkSnprintf ( status, sizeof ( status ), "ranking_status %d", i )
+			string name = "ranking_name " + to_string(i);
+            string status = "ranking_status " + to_string(i);
 
 			EclRemoveButton ( name );
 			EclRemoveButton ( status );

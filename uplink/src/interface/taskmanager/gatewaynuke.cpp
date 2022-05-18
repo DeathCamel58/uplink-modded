@@ -6,7 +6,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 
@@ -16,12 +15,7 @@
 
 #include "app/app.h"
 #include "app/globals.h"
-#include "app/opengl.h"
 #include "app/opengl_interface.h"
-
-#include "mainmenu/mainmenu.h"
-
-#include "options/options.h"
 
 #include "game/game.h"
 
@@ -62,8 +56,7 @@ void GatewayNuke::YesClick ( Button *button )
 	auto *task = (GatewayNuke *) SvbGetTask ( pid );
 	UplinkAssert (task)
 
-	char title [32];
-	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
+	string title = "gatenuke_title " + to_string(pid);
 
 
 	switch ( task->status ) {
@@ -206,13 +199,9 @@ void GatewayNuke::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char title [32];
-		char yes [32];
-		char no [32];
-
-		UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
-		UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid )
-		UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid )
+		string title = "gatenuke_title " + to_string(pid);
+        string yes = "gatenuke_yes " + to_string(pid);
+        string no = "gatenuke_no " + to_string(pid);
 
 		EclRegisterButton ( 40, 20, 107, 15, "Nuke Gateway?", "Click yes to destroy your gateway, no to abort", title );
 		EclRegisterButton ( 20, 20, 20, 15, "Yes", "Click here to nuke your gateway", yes );
@@ -233,13 +222,9 @@ void GatewayNuke::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char title [32];
-		char yes [32];
-		char no [32];
-
-		UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
-		UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid )
-		UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid )
+		string title = "gatenuke_title " + to_string(pid);
+        string yes = "gatenuke_yes " + to_string(pid);
+        string no = "gatenuke_no " + to_string(pid);
 
 		EclRemoveButton ( title );
 		EclRemoveButton ( yes );
@@ -256,13 +241,9 @@ void GatewayNuke::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char title [32];
-	char yes [32];
-	char no [32];
-
-	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
-	UplinkSnprintf ( yes, sizeof ( yes ), "gatenuke_yes %d", pid )
-	UplinkSnprintf ( no, sizeof ( no ), "gatenuke_no %d", pid )
+	string title = "gatenuke_title " + to_string(pid);
+    string yes = "gatenuke_yes " + to_string(pid);
+    string no = "gatenuke_no " + to_string(pid);
 
 	EclButtonBringToFront ( title );
 	EclButtonBringToFront ( yes );
@@ -274,8 +255,7 @@ bool GatewayNuke::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char title [32];
-	UplinkSnprintf ( title, sizeof ( title ), "gatenuke_title %d", pid )
+	string title = "gatenuke_title " + to_string(pid);
 
 	return ( EclGetButton ( title ) != nullptr );
 

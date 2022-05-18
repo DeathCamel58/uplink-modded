@@ -74,7 +74,7 @@ public:
 	
 
 	void SetGateway		  ( GatewayDef *newgd );
-	void SetModemType     ( char *newmodem, int newmodemspeed );
+	void SetModemType     (const string& newmodem, int newmodemspeed );
 	void SetMemorySize    ( int newsize );
 	void ChangeMemorySize ( int amount );
 
@@ -86,7 +86,7 @@ public:
 	char GetHudUpgrades () const;								// Returns the bitfield - be careful!
 	bool HasAnyHUDUpgrade () const;
 
-	void GiveCPU ( char *CPUName );						
+	void GiveCPU (const string& CPUName );
 	int GetNumCPUs ();
 	int GetCPUSpeed ();
 	LList <string> *GetCPUs ();
@@ -98,7 +98,7 @@ public:
 
 	void GiveStartingHardware ();
 	void GiveHardware  ( char *newhardware );
-	bool IsHWInstalled ( char *name );
+	bool IsHWInstalled (string name );
 
 	void GiveStartingSoftware ();
 

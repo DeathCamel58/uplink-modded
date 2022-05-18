@@ -6,8 +6,6 @@
 
   */
 
-#include <cstdio>
-
 #include "eclipse.h"
 
 #include "view/fps.h"

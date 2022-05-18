@@ -14,7 +14,7 @@
 #define _included_game_h
 
 #include <cstdio>
-#include <time.h>
+#include <ctime>
 
 // ============================================================================
 

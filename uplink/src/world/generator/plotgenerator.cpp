@@ -2,7 +2,6 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -34,8 +33,6 @@
 #include "world/generator/numbergenerator.h"
 #include "world/generator/missiongenerator.h"
 #include "world/scheduler/runplotsceneevent.h"
-#include "world/scheduler/notificationevent.h"
-#include "world/generator/langenerator.h"
 #include "world/generator/namegenerator.h"
 
 #include "interface/interface.h"
@@ -643,14 +640,12 @@ bool PlotGenerator::PlayerContactsARC ( Message *msg )
 
 		return true;
 
-	}
-	else if ( act == 2 && (scene == 2 || scene == 3) ) {
+	} else if ( act == 2 && (scene == 2 || scene == 3) ) {
 
         IsMissionComplete_MaidenFlight ();
 		return true;
 
-	}
-    else if ( act == 4 ) {
+	} else if ( act == 4 ) {
 
         if ( playerloyalty == -1 ) {
 
@@ -745,8 +740,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 
         }
 
-    }
-	else if ( act == 3 ) {
+    } else if ( act == 3 ) {
 
 		// The player might have sent a copy of Revelation - big news!
 
@@ -777,8 +771,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 							   "Once again thank you for your contribution to project Faith." );
 				msg->Send ();
 
-			}
-			else {
+			} else {
 
 				// He sent us an older version which is no use
 
@@ -1031,14 +1024,14 @@ void PlotGenerator::RunRevelationTracer ( char *ip )
 
 }
 
-float PlotGenerator::GetVersion_Faith ()
+float PlotGenerator::GetVersion_Faith () const
 {
 
 	return version_faith;
 
 }
 
-float PlotGenerator::GetVersion_Revelation ()
+float PlotGenerator::GetVersion_Revelation () const
 {
 
 	return version_revelation;
@@ -1551,7 +1544,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 
 }
 
-void PlotGenerator::Run_Act1Scene8 ()
+void PlotGenerator::Run_Act1Scene8 () const
 {
 
 	if ( !playercancelsmail ) {
@@ -1680,8 +1673,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
-    }
-	else if ( playercancelsmail ) {
+    } else if ( playercancelsmail ) {
 
 	    auto *act1scene4 = (Agent *) game->GetWorld ()->GetPerson ( act1scene4agent );
     	if ( UplinkIncompatibleSaveGameAssert (act1scene4, __FILE__, __LINE__) )
@@ -1716,8 +1708,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 		body.rdbuf()->freeze( false );
 		//delete [] body.str ();
 
-	}
-    else if ( playervisitsplotsites ) {
+	} else if ( playervisitsplotsites ) {
 
 		std::ostrstream body;
 		body << "Agent " << game->GetWorld ()->GetPlayer ()->handle << ",\n"
@@ -1836,7 +1827,7 @@ void PlotGenerator::Run_Act2Scene3 ()
 
 }
 
-void PlotGenerator::Run_Act3Scene1 ()
+void PlotGenerator::Run_Act3Scene1 () const
 {
 
     // Remove the ARC mission from the player
@@ -1971,7 +1962,7 @@ void PlotGenerator::Run_Act3Scene2 ()
 
 }
 
-void PlotGenerator::Run_Act3Scene3 ()
+void PlotGenerator::Run_Act3Scene3 () const
 {
 
     std::ostrstream details;
@@ -2062,7 +2053,7 @@ void PlotGenerator::Run_Act3Scene4 ()
 
 }
 
-void PlotGenerator::Run_Act4Scene1 ()
+void PlotGenerator::Run_Act4Scene1 () const
 {
 
     // Arunmor put out "Tracer"
@@ -2108,7 +2099,7 @@ void PlotGenerator::Run_Act4Scene1 ()
 
 }
 
-void PlotGenerator::Run_Act4Scene2 ()
+void PlotGenerator::Run_Act4Scene2 () const
 {
 
     // Arunmor put out "Take me to your leader"
@@ -2154,7 +2145,7 @@ void PlotGenerator::Run_Act4Scene2 ()
 
 }
 
-void PlotGenerator::Run_Act4Scene3 ()
+void PlotGenerator::Run_Act4Scene3 () const
 {
 
     // Arunmor put out "ARC Infiltration"
@@ -3279,8 +3270,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 
 	for ( int i = 0; i < numfiles; ++i ) {
 
-		char datatitle [64];
-		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "ARC-REVELATION %d.dat", i )
+		string datatitle = "ARC-REVELATION " + to_string(i) + ".dat";
 
 		Data *file = new Data ();
 		file->SetTitle ( datatitle );
@@ -3339,7 +3329,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	// Insert the mission
 	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
-	mission->SetCompletion   ( nullptr, nullptr, nullptr, nullptr, nullptr );
+    mission->SetCompletion   ( "", "", "", "", "" );
 	mission->SetEmployer     ( "Arunmor" );
 	mission->SetContact      ( "internal@Arunmor.net" );
 	mission->SetDifficulty   ( 10 );
@@ -3366,7 +3356,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 
 }
 
-Mission *PlotGenerator::GenerateMission_CounterAttack ()
+Mission *PlotGenerator::GenerateMission_CounterAttack () const
 {
 
     Computer *ourcomp = game->GetWorld ()->GetComputer ( NameGenerator::GenerateFileServerName("Arunmor") );
@@ -3401,7 +3391,7 @@ Mission *PlotGenerator::GenerateMission_CounterAttack ()
 	// Add in a new account for the player to use
 	//
 
-	char *password = "faithinchaos";
+	string password = "faithinchaos";
 	char username [12];
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
@@ -3520,7 +3510,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	// Add in a new account for the player to use
 	//
 
-	char *password = "darwin";
+	string password = "darwin";
 	char username [12];
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
@@ -3566,10 +3556,9 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	// Generate the fields of the mission
     //
 
-	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream fulldetails;
 
-	UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_DARWIN), sizeof ( description ) )
+    string description = SpecialMissionDescription (SPECIALMISSION_DARWIN);
 
 	fulldetails << "The results of our recent test have been extremely encouraging.  Revelation is easily "
                    "destructive enough to take out most of the Internet when it is finally released.  Unfortunately, "
@@ -3600,7 +3589,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	// Insert the mission
 	auto *mission = new Mission ();
 	mission->SetTYPE		 ( MISSION_SPECIAL );
-	mission->SetCompletion   ( nullptr, nullptr, nullptr, nullptr, nullptr );
+	mission->SetCompletion   ( "", "", "", "", "" );
 	mission->SetEmployer     ( "ARC" );
 	mission->SetContact      ( "internal@ARC.net" );
 	mission->SetDifficulty   ( 10 );
@@ -3646,10 +3635,9 @@ Mission *PlotGenerator::GenerateMission_SaveItForTheJury ()
 
     UplinkStrncpy ( saveitforthejury_targetbankip, bank->ip, sizeof ( saveitforthejury_targetbankip ) )
 
-	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream fulldetails;
 
-    UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_SAVEITFORTHEJURY), sizeof ( description ) )
+    string description = SpecialMissionDescription (SPECIALMISSION_SAVEITFORTHEJURY);
 
     fulldetails << "We have decided that it is time to get personal.  The chief technical director of "
                    "Arunmor Corporation, Mr " << poorsod->name << ", has recently excelled in his line of work.\n"

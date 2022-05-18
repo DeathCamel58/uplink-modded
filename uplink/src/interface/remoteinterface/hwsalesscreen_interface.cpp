@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include <cstdio>
 #include <sstream>
 
@@ -14,7 +12,6 @@
 #include "soundgarden.h"
 #include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/miscutils.h"
 #include "app/opengl_interface.h"
@@ -30,7 +27,6 @@
 #include "world/company/sale.h"
 #include "world/company/companyuplink.h"
 #include "world/computer/gatewaydef.h"
-#include "world/generator/numbergenerator.h"
 #include "world/scheduler/installhardwareevent.h"
 
 #include "interface/interface.h"
@@ -109,8 +105,7 @@ void HWSalesScreenInterface::ClickHWButton ( Button *button )
 
 	// Dirty the old highlighted button
 
-	char oldname [128];
-	UplinkSnprintf ( oldname, sizeof ( oldname ), "HWsale %d", currentselect - baseoffset )
+	string oldname = "HWsale " + to_string( currentselect - baseoffset );
 	EclDirtyButton ( oldname );
 
 	auto *thisint = (HWSalesScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ();
@@ -174,10 +169,9 @@ void HWSalesScreenInterface::DrawHWButton ( Button *button, bool highlighted, bo
 		else                SetColour ( "DimmedText" );
 
 		char name [SIZE_SALE_TITLE];		
-		char cost [32];
-		UplinkStrncpy ( name, sale->title, sizeof ( name ) )
-		UplinkSnprintf ( cost, sizeof ( cost ), "%dc", sv->cost )
-		GciDrawText ( button->x + 5, button->y + 10, name );		
+        UplinkStrncpy ( name, sale->title, sizeof ( name ) )
+        string cost = to_string( sv->cost ) + "c";
+        GciDrawText ( button->x + 5, button->y + 10, name );
 		GciDrawText ( button->x + 330, button->y + 10, cost );
 
 	}
@@ -257,7 +251,7 @@ void HWSalesScreenInterface::ExitClick ( Button *button )
 		// We are looking at a sales screen
 		// So exit to the menu
 
-		thisint->RemoveSalesMenu ();
+		HWSalesScreenInterface::RemoveSalesMenu ();
 		thisint->SetHWType ( -1 );
 		thisint->CreateMenu ( thisint->cs );
 
@@ -387,8 +381,7 @@ void HWSalesScreenInterface::AcceptClick ( Button *button )
 
 		for ( int i = 0; i < 12; ++ i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
+			string name = "HWsale " + to_string(i);
 
 			EclDirtyButton ( name );
 
@@ -406,8 +399,7 @@ void HWSalesScreenInterface::ScrollUpClick ( Button *button )
 
 	for ( int i = 0; i < 12; ++ i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
+		string name = "HWsale " + to_string(i);
 
 		EclDirtyButton ( name );
 
@@ -431,8 +423,7 @@ void HWSalesScreenInterface::ScrollDownClick ( Button *button )
 
 	for ( int i = 0; i < 12; ++ i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
+		string name = "HWsale " + to_string(i);
 
 		EclDirtyButton ( name );
 
@@ -550,8 +541,7 @@ void HWSalesScreenInterface::CreateSalesMenu ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < 12; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
+			string name = "HWsale " + to_string(i);
 			EclRegisterButton ( 20, i * 20 + 50, 390, 17, "", "View details on this item", name );
 			EclRegisterButtonCallbacks ( name, DrawHWButton, ClickHWButton, MousedownHWButton, HighlightHWButton ); 
 						
@@ -618,8 +608,7 @@ void HWSalesScreenInterface::RemoveSalesMenu ()
 
 	for ( int i = 0; i < 12; ++ i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "HWsale %d", i )
+		string name = "HWsale " + to_string(i);
 
 		EclRemoveButton ( name );
 

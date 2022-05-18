@@ -3,7 +3,6 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <app/miscutils.h>
-#include "gucci.h"
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -92,14 +91,12 @@ Record *RecordBank::GetRecord (const string &query )
 
 		return nullptr;
 
-	}
-    else if ( result->Size () == 0 ) {
+	} else if ( result->Size () == 0 ) {
 
         delete result;
         return nullptr;
 
-    }
-	else if ( result->Size () > 1 ) {
+    } else if ( result->Size () > 1 ) {
 
 		cout << "RecordBank::GetRecord, found more than 1 match, returning the first" << endl;
 		UplinkAssert ( result->ValidIndex (0) )
@@ -107,8 +104,7 @@ Record *RecordBank::GetRecord (const string &query )
         delete result;
         return record;
 
-	}
-	else {
+	} else {
 
 		UplinkAssert ( result->ValidIndex (0) )
         Record *record = result->GetData (0);
@@ -271,9 +267,9 @@ Record *RecordBank::GetRandomRecord (const string &query )
         delete records;
         return result;
 
+	} else {
+	    return nullptr;
 	}
-    else 
-		return nullptr;
 
 }
 

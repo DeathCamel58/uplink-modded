@@ -25,7 +25,6 @@
 #include "options/options.h"
 
 #include "app/dos2unix.h"
-#include "app/opengl_interface.h"
 
 #include "world/world.h"
 #include "world/player.h"
@@ -1414,8 +1413,7 @@ void WorldGenerator::GenerateUplinkInternalServicesSystem ()
 
 	for ( int i = 0; i < 10; ++i ) {
 
-		char datatitle [64];
-		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "Uplink_Agent_Data %d.dat", i )
+		string datatitle = "Uplink_Agent_Data " + to_string(i) + ".dat";
         int size = 5;
         int encrypted = 7;
 

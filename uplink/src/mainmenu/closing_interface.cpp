@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
-
 #include <cmath>
 
 
@@ -81,7 +79,7 @@ void ClosingInterface::Update ()
         Button *button = EclGetButton ( "closing_text" );
         UplinkAssert (button)
 
-        char *captions [] = { "Judgement", "Perception",
+        string captions [] = { "Judgement", "Perception",
                               "Thinking", "Feeling",
                               "Sensation", "Intuition",
                               "Extraversion" };

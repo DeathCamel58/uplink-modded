@@ -5,9 +5,7 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
-
 
 #include "eclipse.h"
 #include "vanbakel.h"
@@ -125,13 +123,11 @@ void MotionSensor::Tick ( int n )
 
 		oldnumpeople = numpeople;
 
-		char caption [16];
-		UplinkSnprintf ( caption, sizeof ( caption ), "%d", numpeople)
+		string caption = to_string(numpeople);
 
 		int pid = SvbLookupPID ( this );
 
-		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
+		string bname = "motionsensor_main " + to_string(pid);
 
 		UplinkAssert ( EclGetButton ( bname ) )
 		EclGetButton ( bname )->SetCaption ( caption );
@@ -152,8 +148,7 @@ void MotionSensor::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
+		string bname = "motionsensor_main " + to_string(pid);
 
 		EclRegisterButton ( 280, 20, 40, 5, "0", "Shows the status of the Motion sensor on your Gateway", bname );
 		EclRegisterButtonCallbacks ( bname, SensorDraw, SensorClose, button_click, button_highlight );
@@ -169,8 +164,7 @@ void MotionSensor::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
+		string bname = "motionsensor_main " + to_string(pid);
 
 		EclRemoveButton ( bname );
 
@@ -185,8 +179,7 @@ void MotionSensor::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char bname [32];
-	UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
+	string bname = "motionsensor_main " + to_string(pid);
 
 	EclButtonBringToFront ( bname );
 
@@ -196,8 +189,7 @@ bool MotionSensor::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char bname [32];
-	UplinkSnprintf ( bname, sizeof ( bname ), "motionsensor_main %d", pid )
+	string bname = "motionsensor_main " + to_string(pid);
 
 	return ( EclGetButton ( bname ) != nullptr );
 

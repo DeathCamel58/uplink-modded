@@ -4,8 +4,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include <ctime>
 #include <sstream>
 
@@ -17,7 +15,6 @@
 
 #include "app/app.h"
 #include "app/globals.h"
-#include "app/opengl.h"
 #include "app/opengl_interface.h"
 
 #include "game/game.h"
@@ -409,22 +406,22 @@ void HUDInterface::MoveSelecter ( int screenID, int screenindex )
 		case SCREEN_ANALYSER:		HighlightToolbarButton ( "hud_analyser" );				break;
         case SCREEN_IRC:            HighlightToolbarButton ( "hud_ircclient" );             break;
         case SCREEN_LAN:            HighlightToolbarButton ( "hud_lanview" );               break;
-		case SCREEN_CHEATS:																	break;
-		case SCREEN_EVTQUEUE:																break;
-		case SCREEN_NONE:																	break;
+		case SCREEN_CHEATS:
+		case SCREEN_EVTQUEUE:
+		case SCREEN_NONE: {
+            break;
+        }
 
 		case SCREEN_EMAIL:
 		{
-			char bname [32];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", screenindex )
+			string bname = "hud_message " + to_string(screenindex);
 			HighlightToolbarButton ( bname );
 			break;
 		}
 
 		case SCREEN_MISSION:
 		{
-			char bname [32];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", screenindex )
+			string bname = "hud_mission " + to_string(screenindex);
 			HighlightToolbarButton ( bname );
 			break;
 		}
@@ -436,7 +433,7 @@ void HUDInterface::MoveSelecter ( int screenID, int screenindex )
 
 }
 
-void HUDInterface::HighlightToolbarButton   ( char *bname )
+void HUDInterface::HighlightToolbarButton   (const string& bname)
 {
 
 	// Get the button
@@ -461,8 +458,8 @@ void HUDInterface::HighlightToolbarButton   ( char *bname )
 		// Remember this button was highlighted
 
 		delete [] GetHUD ()->previoushighlight;
-		GetHUD ()->previoushighlight = new char [strlen(bname)+1];
-		UplinkSafeStrcpy ( GetHUD ()->previoushighlight, bname )
+		GetHUD ()->previoushighlight = new char [bname.size()+1];
+		UplinkSafeStrcpy ( GetHUD ()->previoushighlight, bname.c_str() )
 
 	}
 	else {
@@ -594,7 +591,7 @@ void HUDInterface::Create ()
 #endif
 
 		// Task manager 
-		SvbCreateInterface ( 335, 15 );
+		SvbCreateInterface ( 350, 15 );
 
 	}
 
@@ -701,8 +698,7 @@ void HUDInterface::Update ()
 
 		for ( int mi = 0; mi < game->GetWorld ()->GetPlayer ()->messages.Size (); ++mi ) {
 
-			char bname [128];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", mi )
+			string bname = "hud_message " + to_string(mi);
 			if ( !EclGetButton ( bname ) ) {
 				EclRegisterButton ( 222, screenh - 41, 24, 24, "", "Read this message", bname );
 				button_assignbitmaps ( bname, "hud/email.tif", "hud/email_h.tif", "hud/email_c.tif" );
@@ -718,12 +714,11 @@ void HUDInterface::Update ()
 		// (ie if they have been deleted)
 
         int removeMessageIndex = game->GetWorld ()->GetPlayer ()->messages.Size ();
-		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", removeMessageIndex )
+		string bname = "hud_message " + to_string(removeMessageIndex);
         while ( EclGetButton ( bname ) ) {
 			EclRemoveButton ( bname );
             ++removeMessageIndex;
-            UplinkSnprintf ( bname, sizeof ( bname ), "hud_message %d", removeMessageIndex )
+            bname = "hud_message " + to_string(removeMessageIndex);
         }
 
 
@@ -733,8 +728,7 @@ void HUDInterface::Update ()
 
 		for ( int msi = 0; msi < game->GetWorld ()->GetPlayer ()->missions.Size (); ++msi ) {
 
-			char bname [128];
-			UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", msi )
+			string bname = "hud_mission " + to_string(msi);
 
 			if ( !EclGetButton ( bname ) ) {
 				EclRegisterButton ( 222, screenh - 41, 24, 24, "", "View this mission", bname );
@@ -754,11 +748,11 @@ void HUDInterface::Update ()
 		
 		// Remove any mission buttons that shouldn't be here
         int removeMissionIndex = game->GetWorld ()->GetPlayer ()->missions.Size ();
-        UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", removeMissionIndex )
+		bname = "hud_mission " + to_string(removeMissionIndex);
         while ( EclGetButton ( bname ) ) {
 			EclRemoveButton ( bname );
             ++removeMissionIndex;
-            UplinkSnprintf ( bname, sizeof ( bname ), "hud_mission %d", removeMissionIndex )
+            bname = "hud_mission " + to_string(removeMissionIndex);
         }
 
         // Add / remove any upgrade buttons

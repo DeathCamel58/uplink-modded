@@ -70,7 +70,7 @@ SgPlaylist *SgPlaylist_GetPlaylist (const string &pname )
 
 }
 
-void SgPlaylist_AddSong (const string &pname, char *songname )
+void SgPlaylist_AddSong (const string &pname, const string &songname )
 {
 
     SgPlaylist *playlist = SgPlaylist_GetPlaylist(pname);
@@ -130,15 +130,14 @@ void SgPlaylist_NextSong ()
 
         ++songindex;
         if ( songindex >= playlist->songs.Size() ) songindex = 0;
-        char *songtitle = playlist->songs.GetData(songindex);
+        string songtitle = playlist->songs.GetData(songindex);
 
         SgPlayMod ( RsArchiveFileOpen ( songtitle ) );
         currentsong = songtitle;
 
-    }
-    else
+    } else {
         cout << "SgPlaylist_NextSong : Failed because playlist " << currentplaylist << " does not exist" << endl;
-
+    }
 
 }
 
@@ -149,7 +148,7 @@ void SgPlaylist_RandomSong ()
 
     if ( playlist ) {
 
-        char *songtitle = playlist->GetRandomSong ( currentsong );
+        string songtitle = playlist->GetRandomSong ( currentsong );
         SgPlayMod ( RsArchiveFileOpen ( songtitle ) );
         currentsong = songtitle;
 

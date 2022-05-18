@@ -2,8 +2,6 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
 #include "app/globals.h"
 #include "app/app.h"
 #include "app/serialise.h"
@@ -288,7 +286,7 @@ bool LogBank::Load ( FILE *file )
 			    auto *al = new AccessLog ();
 				if ( al ) {
 					if ( !logs.ValidIndex ( index ) ) {
-						UplinkPrintAssert ( logs.ValidIndex ( index ) )
+						assert( logs.ValidIndex ( index ) );
 						delete al;
 						return false;
 					}

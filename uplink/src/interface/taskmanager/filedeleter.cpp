@@ -5,7 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 
@@ -13,7 +12,6 @@
 #include "vanbakel.h"
 #include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
@@ -54,15 +52,10 @@ void FileDeleter::MoveTo ( int x, int y, int time_ms )
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
+	string stitle = "filedeleter_title " + to_string(pid);
+    string sborder = "filedeleter_border " + to_string(pid);
+    string sprogress = "filedeleter_progress " + to_string(pid);
+    string sclose = "filedeleter_close " + to_string(pid);
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -222,15 +215,10 @@ static bool FileDeleter_ReSetTargetProgram ( int pid )
 	TaskManager *tm = game->GetInterface ()->GetTaskManager ();
 	if ( tm->IsTargetProgramLast ( pid ) ) {
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
+		string stitle = "filedeleter_title " + to_string(pid);
+        string sborder = "filedeleter_border " + to_string(pid);
+        string sprogress = "filedeleter_progress " + to_string(pid);
+        string sclose = "filedeleter_close " + to_string(pid);
 
 		int animationid;
 		if ( ( animationid = EclIsNoCaptionChangeActive( stitle ) ) != -1 )
@@ -260,8 +248,7 @@ void FileDeleter::Tick ( int n )
 	if ( IsInterfaceVisible () ) {
 
 		int pid = SvbLookupPID ( this );
-		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
+		string sprogress = "filedeleter_progress " + to_string(pid);
 
 		if ( status == FILEDELETER_OFF ) {
 
@@ -359,15 +346,10 @@ void FileDeleter::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
+		string stitle = "filedeleter_title " + to_string(pid);
+        string sborder = "filedeleter_border " + to_string(pid);
+        string sprogress = "filedeleter_progress " + to_string(pid);
+        string sclose = "filedeleter_close " + to_string(pid);
 
 		EclRegisterButton ( 265, 450, 20, 15, "", "File Deleter", stitle );
 		button_assignbitmap ( stitle, "software/del.tif" );
@@ -393,15 +375,10 @@ void FileDeleter::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
+		string stitle = "filedeleter_title " + to_string(pid);
+        string sborder = "filedeleter_border " + to_string(pid);
+        string sprogress = "filedeleter_progress " + to_string(pid);
+        string sclose = "filedeleter_close " + to_string(pid);
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -419,15 +396,10 @@ void FileDeleter::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "filedeleter_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "filedeleter_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "filedeleter_close %d", pid )
+	string stitle = "filedeleter_title " + to_string(pid);
+    string sborder = "filedeleter_border " + to_string(pid);
+    string sprogress = "filedeleter_progress " + to_string(pid);
+    string sclose = "filedeleter_close " + to_string(pid);
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -441,8 +413,7 @@ bool FileDeleter::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "filedeleter_border %d", pid )
+	string stitle = "filedeleter_border " + to_string(pid);
 	
 	return ( EclGetButton (stitle) != nullptr );
 

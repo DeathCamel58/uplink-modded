@@ -3,11 +3,7 @@
 #include <windows.h>
 #endif
 
-#include <strstream>
-
 #include <GL/gl.h>
-
-#include <GL/glu.h> /* glu extention library */
 
 #include <cstring>
 
@@ -147,13 +143,13 @@ void UserIDScreenInterface::ProceedClick ( Button *button )
 	if ( !game->GetWorld ()->GetPlayer ()->IsConnected () )
 		return;
 	
-	char *name = (char *) EclGetButton ( "useridscreen_name" )->caption.c_str();
-	char *code = (char *) EclGetButton ( "useridscreen_code" )->caption.c_str();
+	string name = EclGetButton ( "useridscreen_name" )->caption;
+	string code = EclGetButton ( "useridscreen_code" )->caption;
 
-	if ( strlen ( name ) >= SIZE_PERSON_NAME )
+	if ( name.length() >= SIZE_PERSON_NAME )
 		name [ SIZE_PERSON_NAME - 1 ] = '\0';
 
-	if ( strlen ( code ) >= 64 )
+	if ( code.length() >= 64 )
 		code [ 64 - 1 ] = '\0';
 
 	// Look up that code in this computer's records
@@ -183,15 +179,14 @@ void UserIDScreenInterface::ProceedClick ( Button *button )
 		// Add this into the computer's logs
 
 		auto *log = new AccessLog ();
-		char logdetails [256];
-		UplinkSnprintf ( logdetails, sizeof ( logdetails ), "User [%s] logged on (level %d)", name, security )
+		string logdetails = "User [" + name + "] logged on (level " + to_string(security) + ")";
 		log->SetProperties ( &(game->GetWorld ()->date),
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER" );
 		log->SetData1 ( logdetails );
 
 		comp->logbank.AddLog ( log );
 
-		if ( strcmp ( name, "admin" ) == 0 )
+		if ( name == "admin" )
 			game->GetWorld ()->GetPlayer ()->GetConnection ()->BeginTrace ();			// Always trace admin access
 
 		if ( uid->nextpage != -1 )
@@ -359,8 +354,7 @@ void UserIDScreenInterface::Create ( ComputerScreen *newcs )
 				if ( codes->ValidIndex (i) && ips->ValidIndex (i) ) {
 					if ( strcmp ( ips->GetData (i), cs->GetComputer ()->ip ) == 0 ) {
 
-						char name [64];
-						UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode )
+						string name = "useridscreen_code " + to_string(currentcode);
 						EclRegisterButton ( 200, 330 + currentcode*15, 250, 15, codes->GetData (i), "Use this code", name );
 						EclRegisterButtonCallbacks ( name, textbutton_draw, AccessCodeClick, button_click, button_highlight );
 						++currentcode;
@@ -402,14 +396,13 @@ void UserIDScreenInterface::Remove ()
 		EclRemoveButton ( "useridscreen_codestitle" );
 
 		int currentcode = 0;
-		char name [64];
-		UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode )
+		string name = "useridscreen_code " + to_string(currentcode);
 
 		while ( EclGetButton ( name ) ) {
 
 			EclRemoveButton ( name );
 			++currentcode;
-			UplinkSnprintf ( name, sizeof ( name ), "useridscreen_code %d", currentcode )
+			name = "useridscreen_code " + to_string(currentcode);
 
 		}
 

@@ -2,7 +2,6 @@
 
 #include <strstream>
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -96,13 +95,10 @@ void RecordGenerator::GenerateRecord_SocialSecurity (const string &personname, i
 	// Generate a Social Security Record
 	// Add it into the International Social Security Database
 
-	char dob [64];
-	UplinkSnprintf ( dob, sizeof ( dob ), "%d - %d - %d", NumberGenerator::RandomNumber ( 28 ) + 1,
-														   NumberGenerator::RandomNumber ( 12 ) + 1,
-														   2010 - age )
+	string dob = to_string(NumberGenerator::RandomNumber ( 28 ) + 1) + " - " + to_string(NumberGenerator::RandomNumber ( 12 ) + 1) + " - " +
+            to_string(2010 - age);
 
-	char socialsecurity [16];
-	UplinkSnprintf ( socialsecurity, sizeof ( socialsecurity ), "%d", 10000000 + NumberGenerator::RandomNumber ( 99999999 ) )
+	string socialsecurity = to_string(10000000 + NumberGenerator::RandomNumber ( 99999999 ));
 
 	string maritalstatus;
 
@@ -168,9 +164,9 @@ void RecordGenerator::GenerateRecord_Criminal (const string &personname, int age
 					case 1  :			convictions << "Armed Robbery\n"; numconv++;			break;
 					case 2  :			convictions << "Robbery\n"; numconv++;					break;
 					case 3  :			convictions << "Petty theft\n"; numconv++;				break;
-					case 4  :	break;
-					case 5  :	break;
-					case 6  :	break;
+					case 4  :
+					case 5  :
+					case 6  :
 					case 7  :	break;
 					case 8  :			convictions << "Disturbing the peace\n"; numconv++;		break;
 					case 9  :			convictions << "Reckless driving\n"; numconv++;			break;
@@ -216,9 +212,9 @@ void RecordGenerator::GenerateRecord_Criminal (const string &personname, int age
 					case 1  :			convictions << "Willful destruction of data\n"; numconv++;				break;
 					case 2  :			convictions << "Theft of sensitive data\n"; numconv++;					break;
 					case 3  :			convictions << "Unlawful access of classified data\n"; numconv++;		break;
-					case 4  :	break;
-					case 5  :	break;
-					case 6  :	break;
+					case 4  :
+					case 5  :
+					case 6  :
 					case 7  :	break;
 					case 8  :			convictions << "Falsifying academic results\n"; numconv++;				break;
 					case 9  :			convictions << "Illegal modification of credit rating\n"; numconv++;	break;
@@ -292,7 +288,7 @@ void RecordGenerator::GenerateRecord_Academic (const string &personname, int age
 
 		// Has some college quals
 
-		LList <char *> possiblequals;
+		LList <string> possiblequals;
 		possiblequals.PutData ( "Science" );
 		possiblequals.PutData ( "Maths" );
 		possiblequals.PutData ( "Physics" );
@@ -314,7 +310,7 @@ void RecordGenerator::GenerateRecord_Academic (const string &personname, int age
 			for ( int i = 0; i < numquals; ++i ) {
 
 				int thisqualindex = NumberGenerator::RandomNumber ( possiblequals.Size () );
-				UplinkAssert ( possiblequals.ValidIndex (thisqualindex) )
+				assert( possiblequals.ValidIndex (thisqualindex) );
 
 				int grade = (int) ( 1 + NumberGenerator::RandomNormalNumber ( 100.0f - brains, 40.0f ) / 15 );
 				if ( grade < 0 ) grade = 0;
@@ -461,8 +457,7 @@ void RecordGenerator::GenerateRecord_Financial (const string &personname, int ag
 	int accno = person->CreateNewAccount ( bank->ip, personname, NameGenerator::GeneratePassword (), balance, loan );
 	person->rating.SetCreditRating ( financial_situation );
 
-	char accno_s [16];
-	UplinkSnprintf ( accno_s, sizeof ( accno_s ), "%d", accno )
+	string accno_s = to_string(accno);
 
 	BankAccount *myaccount = bank->accounts.GetData (accno_s);
 	UplinkAssert (myaccount)

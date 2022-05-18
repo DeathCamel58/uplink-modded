@@ -4,7 +4,6 @@
 
 #include "soundgarden.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -14,8 +13,6 @@
 #include "world/vlocation.h"
 #include "world/generator/consequencegenerator.h"
 #include "world/scheduler/arrestevent.h"
-
-#include "options/options.h"
 
 #include "mmgr.h"
 

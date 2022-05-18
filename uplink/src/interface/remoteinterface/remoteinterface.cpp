@@ -5,15 +5,12 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <app/miscutils.h>
 
-#include "gucci.h"
 #include "vanbakel.h"
 
 #include "interface/interface.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -353,15 +350,15 @@ bool RemoteInterface::VerifyScreen ( int screenindex )
 	
 	VLocation *vl = game->GetWorld ()->GetPlayer ()->GetRemoteHost ();
 
+    assert(vl);
 	if ( !vl ) {
-		UplinkPrintAssert ( vl )
 		return false;
 	}
 
 	Computer *comp = vl->GetComputer ();
 
+    assert(comp);
 	if ( !comp ) {
-		UplinkPrintAssert ( comp )
 		return false;
 	}
 
@@ -424,7 +421,6 @@ bool RemoteInterface::VerifyScreen ( int screenindex )
 			case -1:
 				UplinkPrintAbort ( "RemoteInterface warning : Unknown ComputerScreen" )
 				return false;
-				break;
 
 			default:
 				UplinkPrintAbortArgs ( "Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name, comp->ip )

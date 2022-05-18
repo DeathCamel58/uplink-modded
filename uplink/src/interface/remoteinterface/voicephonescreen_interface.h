@@ -33,7 +33,7 @@ class VoicePhoneScreenInterface : public RemoteInterfaceScreen
 
 protected:
 
-	static void AddToText ( char *newtext );
+	static void AddToText (const string& newtext );
 
 protected:
 

@@ -5,17 +5,15 @@
 
 #include <strstream>
 
-#include <fstream>
+#include <utility>
 #include "app/dos2unix.h"
 
-#include "gucci.h"
 #include "redshirt.h"
 
 #include "app/globals.h"
 #include "app/app.h"
 #include "app/miscutils.h"
 #include "app/serialise.h"
-#include "app/opengl.h"
 
 #include "options/options.h"
 
@@ -253,9 +251,9 @@ void Options::CreateDefaultOptions ()
 
 }
 
-void Options::SetThemeName ( char *newThemeName )
+void Options::SetThemeName (string newThemeName)
 {
-    themeName = newThemeName;
+    themeName = std::move(newThemeName);
 
     //
     // Parse the theme.txt file
@@ -357,7 +355,7 @@ string Options::ThemeFilename (const string &filename )
     else {
 
         string fullFilename = app->path + themeName + "/" + filename;
-		if ( DoesFileExist ( fullFilename.c_str() ) ) {
+		if ( DoesFileExist ( fullFilename ) ) {
             result = themeName + "/" + filename;
 
 		} else {
@@ -370,11 +368,11 @@ string Options::ThemeFilename (const string &filename )
 
 }
 
-void Options::RequestShutdownChange ( char *optionName, int newValue )
+void Options::RequestShutdownChange (string optionName, int newValue )
 {
 
     auto *oc = new OptionChange ();
-    UplinkStrncpy ( oc->name, optionName, sizeof ( oc->name ) )
+    oc->name = std::move(optionName);
     oc->value = newValue;
 
     shutdownChanges.PutData( oc );
@@ -514,7 +512,7 @@ void Options::Save ( FILE *file )
 
 		fclose ( optionsfile );
 
-		RsEncryptFile ( (char *) filename.c_str() );
+		RsEncryptFile ( filename );
 
 	}
 	else {

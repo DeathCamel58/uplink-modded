@@ -2,10 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "game/game.h"
-
 #include "interface/interface.h"
-#include "interface/taskmanager/taskmanager.h"
 #include "interface/taskmanager/uplinktask.h"
 
 #include "mmgr.h"

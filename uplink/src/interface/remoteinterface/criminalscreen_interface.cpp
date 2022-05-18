@@ -1,9 +1,6 @@
 
 #include <strstream>
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/miscutils.h"
@@ -16,7 +13,6 @@
 #include "world/computer/recordbank.h"
 #include "world/computer/security.h"
 #include "world/computer/computerscreen/genericscreen.h"
-#include "world/generator/numbergenerator.h"
 #include "world/scheduler/arrestevent.h"
 
 #include "interface/interface.h"
@@ -212,8 +208,7 @@ void CriminalScreenInterface::ArrestClick ( Button *button )
 			rundate.AdvanceMinute ( TIME_LEGALACTION_WARNING * -1 );
 			game->GetWorld ()->scheduler.ScheduleWarning ( ae, &rundate );
 
-			char message [128];
-			UplinkSnprintf ( message, sizeof ( message ), "Authorisation Accepted\nThis man will be arrested in %d hours.", TIME_LEGALACTION / 60 )
+			string message = "Authorisation Accepted\nThis man will be arrested in " + to_string(TIME_LEGALACTION / 60) + " hours.";
 
 			create_msgbox ( "Arrest Authorised", message );
 
@@ -356,8 +351,7 @@ void CriminalScreenInterface::UpdateScreen ()
 
 		if ( person ) {
 
-			char filename [256];
-			UplinkSnprintf ( filename, sizeof ( filename ), "photos/image%d.tif", person->photoindex )
+			string filename = "photos/image" + to_string(person->photoindex) + ".tif";
 			button_assignbitmap ( "criminal_photo", filename );
 
 		}

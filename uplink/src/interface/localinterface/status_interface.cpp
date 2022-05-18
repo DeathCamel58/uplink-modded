@@ -6,14 +6,8 @@
 #include <windows.h>
 #endif
 
-#include <GL/gl.h>
-
-#include <GL/glu.h>
-
-
 #include "eclipse.h"
 #include "soundgarden.h"
-#include "redshirt.h"
 
 #include "app/app.h"
 #include "app/globals.h"

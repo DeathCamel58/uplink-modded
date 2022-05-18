@@ -3,23 +3,16 @@
 #include <windows.h>
 #endif
 
-#include <GL/gl.h>
-
-#include <GL/glu.h> /*_glu_extention_library_*/
-
 #include <cstring>
 #include <cstdio>
 
 #include "soundgarden.h"
-#include "gucci.h"
 #include "redshirt.h"
 
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
-#include "app/opengl.h"
 
-#include "game/game.h"
 #include "game/scriptlibrary.h"
 
 #include "interface/localinterface/phonedialler.h"

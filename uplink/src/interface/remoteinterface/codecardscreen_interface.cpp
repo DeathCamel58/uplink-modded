@@ -3,10 +3,6 @@
 #include <windows.h>
 #endif
 
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <fcntl.h>
-
 #ifdef WIN32
 #include <conio.h>
 #include <io.h>
@@ -15,10 +11,8 @@
 #endif
 
 #include <strstream>
-#include <ctime>
 
 #include <GL/gl.h>
-#include <GL/glu.h>
 
 #include "eclipse.h"
 

@@ -1,13 +1,10 @@
 
 #include <strstream>
 
-#include "app/app.h"
 #include "app/globals.h"
 
 #include "game/game.h"
 #include "game/data/data.h"
-
-#include "options/options.h"
 
 #include "interface/interface.h"
 #include "interface/remoteinterface/remoteinterface.h"

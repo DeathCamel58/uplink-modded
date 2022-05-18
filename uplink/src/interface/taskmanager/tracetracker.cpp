@@ -9,7 +9,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 #include "eclipse.h"
@@ -159,8 +158,7 @@ void TraceTracker::AudioClick ( Button *button )
 
     thistask->audioon = !thistask->audioon;
 
-    char audioname [64];
-    UplinkSnprintf ( audioname, sizeof ( audioname ), "tracetracker_audio %d", pid )
+    string audioname = "tracetracker_audio " + to_string(pid);
 
     if ( thistask->audioon )
         button_assignbitmaps ( audioname, "software/audioon.tif", "software/audioon_h.tif", "software/audioon_c.tif" );
@@ -198,13 +196,9 @@ void TraceTracker::MoveTo ( int x, int y, int time_ms )
 
 		int pid = SvbLookupPID ( this );
 
-		char displayname [64];
-		char closename [64];
-		char audioname [64];
-
-		UplinkSnprintf ( displayname, sizeof ( displayname ), "tracetracker_display %d", pid )
-		UplinkSnprintf ( closename, sizeof ( closename ), "tracetracker_close %d", pid )
-        UplinkSnprintf ( audioname, sizeof ( audioname ), "tracetracker_audio %d", pid )
+		string displayname = "tracetracker_display " + to_string(pid);
+        string closename = "tracetracker_close " + to_string(pid);
+        string audioname = "tracetracker_audio " + to_string(pid);
 
 		EclRegisterMovement ( displayname, x, y, time_ms );
 		EclRegisterMovement ( closename, x + 100, y, time_ms );
@@ -220,8 +214,7 @@ void TraceTracker::Tick ( int n )
 	if ( IsInterfaceVisible () ) {
 
 		int pid = SvbLookupPID ( this );
-		char displayname [64];
-		UplinkSnprintf ( displayname, sizeof ( displayname ), "tracetracker_display %d", pid )
+		string displayname = "tracetracker_display " + to_string(pid);
 
 		Button *button = EclGetButton ( displayname );
 		UplinkAssert ( button )
@@ -259,8 +252,7 @@ void TraceTracker::Tick ( int n )
 
             }
 
-		    char displayname [64];
-		    UplinkSnprintf ( displayname, sizeof ( displayname ), "tracetracker_display %d", pid )
+		    string displayname = "tracetracker_display " + to_string(pid);
 		    EclDirtyButton ( displayname );
 
         }
@@ -289,8 +281,7 @@ void TraceTracker::Tick ( int n )
 				else if ( version == 2.0 ) {
 
 					int percent = (int) ( 100 * (float) connection->traceprogress / (float) (connection->GetSize () - 1) );
-					char caption [128];
-					UplinkSnprintf ( caption, sizeof ( caption ), "Trace: %d%%", percent )
+					string caption = "Trace: " + to_string(percent) + "%%";
 					button->SetCaption ( caption );		
 
 				}
@@ -298,8 +289,7 @@ void TraceTracker::Tick ( int n )
 
 					int timeremaining = game->GetWorld ()->GetPlayer ()->TimeRemaining ();
 
-					char caption [128];
-					UplinkSnprintf ( caption, sizeof ( caption ), "Trace: %d secs", timeremaining )
+					string caption = "Trace: " + to_string(timeremaining) + " secs";
 					button->SetCaption ( caption );		
 					
 				}
@@ -309,8 +299,7 @@ void TraceTracker::Tick ( int n )
 
 					int accuratetimeremaining = (int) ( (traceestimate - EclGetAccurateTime ()) / 1000 );
 					if ( accuratetimeremaining < 0 ) accuratetimeremaining = 0;
-					char caption [128];
-					UplinkSnprintf ( caption, sizeof ( caption ), "Trace: %ds (%d)", timeremaining, accuratetimeremaining )
+					string caption = "Trace: " + to_string(timeremaining) + "s (" + to_string(accuratetimeremaining) + ")";
 					button->SetCaption ( caption );
 
 				}
@@ -349,13 +338,9 @@ void TraceTracker::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char displayname [64];
-		char closename [64];
-        char audioname [64];
-		
-		UplinkSnprintf ( displayname, sizeof ( displayname ), "tracetracker_display %d", pid )
-		UplinkSnprintf ( closename, sizeof ( closename ), "tracetracker_close %d", pid )
-        UplinkSnprintf ( audioname, sizeof ( audioname ), "tracetracker_audio %d", pid )
+		string displayname = "tracetracker_display " + to_string(pid);
+        string closename = "tracetracker_close " + to_string(pid);
+        string audioname = "tracetracker_audio " + to_string(pid);
 
 		EclRegisterButton ( 25, 300, 100, 13, "Trace Tracker", "Trace Tracker", displayname );
 		EclRegisterButtonCallbacks ( displayname, TraceDraw, nullptr, nullptr, nullptr );
@@ -384,13 +369,9 @@ void TraceTracker::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char displayname [64];
-		char closename [64];
-        char audioname [64];
-		
-		UplinkSnprintf ( displayname, sizeof ( displayname ), "tracetracker_display %d", pid )
-		UplinkSnprintf ( closename, sizeof ( closename ), "tracetracker_close %d", pid )
-        UplinkSnprintf ( audioname, sizeof ( audioname ), "tracetracker_audio %d", pid )
+		string displayname = "tracetracker_display " + to_string(pid);
+        string closename = "tracetracker_close " + to_string(pid);
+        string audioname = "tracetracker_audio " + to_string(pid);
 
 		EclRemoveButton ( displayname );		
 		EclRemoveButton ( closename );
@@ -407,13 +388,9 @@ void TraceTracker::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char displayname [64];
-	char closename [64];
-    char audioname [64];
-	
-	UplinkSnprintf ( displayname, sizeof ( displayname ), "tracetracker_display %d", pid )
-	UplinkSnprintf ( closename, sizeof ( closename ), "tracetracker_close %d", pid )
-    UplinkSnprintf ( audioname, sizeof ( audioname ), "tracetracker_audio %d", pid )
+	string displayname = "tracetracker_display " + to_string(pid);
+    string closename = "tracetracker_close " + to_string(pid);
+    string audioname = "tracetracker_audio " + to_string(pid);
 
 	EclButtonBringToFront ( displayname );		
 	EclButtonBringToFront ( closename );
@@ -425,8 +402,7 @@ bool TraceTracker::IsInterfaceVisible ()
 {
 
 	int pid = SvbLookupPID ( this );
-	char displayname [64];		
-	UplinkSnprintf ( displayname, sizeof ( displayname ), "tracetracker_display %d", pid )
+	string displayname = "tracetracker_display " + to_string(pid);
 
 	return ( EclGetButton ( displayname ) != nullptr );
 

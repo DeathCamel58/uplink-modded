@@ -2,9 +2,7 @@
 //#include "stdafx.h"
 
 #include <app/miscutils.h>
-#include "gucci.h"
 
-#include "app/app.h"
 #include "app/serialise.h"
 #include "app/globals.h"
 
@@ -14,7 +12,6 @@
 #include "world/world.h"
 #include "world/player.h"
 #include "world/computer/gatewaydef.h"
-#include "world/generator/numbergenerator.h"
 
 #include "mmgr.h"
 

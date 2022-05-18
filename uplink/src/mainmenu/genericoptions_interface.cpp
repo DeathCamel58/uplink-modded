@@ -3,9 +3,6 @@
 #include <windows.h>
 #endif
 
-#include <GL/gl.h>
-
-#include <GL/glu.h>
 #include <sstream>
 
 #include "soundgarden.h"
@@ -13,14 +10,12 @@
 
 #include "app/app.h"
 #include "app/globals.h"
-#include "app/opengl.h"
 #include "app/opengl_interface.h"
 
 #include "options/options.h"
 
 #include "mainmenu/mainmenu.h"
 #include "mainmenu/genericoptions_interface.h"
-#include "mainmenu/login_interface.h"
 
 #include "mmgr.h"
 
@@ -39,15 +34,13 @@ void GenericOptionsInterface::ApplyClick ( Button *button )
 	UplinkAssert (thisint)
 
 	int index = 0;
-	char name1 [64];
-	UplinkSnprintf ( name1, sizeof ( name1 ), "generic_option %d", index )
+	string name1 = "generic_option " + to_string(index);
 
 	while ( EclGetButton ( name1 ) != nullptr ) {
 
 		// Look up the next option button
 
-		char name2 [64];
-		UplinkSnprintf ( name2, sizeof ( name2 ), "generic_value %d", index )
+		string name2 = "generic_value " + to_string(index);
 
 		Button *namebutton = EclGetButton ( name1 );
 		Button *valuebutton = EclGetButton ( name2 );
@@ -59,7 +52,7 @@ void GenericOptionsInterface::ApplyClick ( Button *button )
 
 		char optionname [64];
 		int newvalue;
-		UplinkSnprintf ( optionname, sizeof ( optionname ), "%s_%s", thisint->optionTYPE, namebutton->caption )
+		UplinkSnprintf ( optionname, sizeof ( optionname ), "%s_%s", thisint->optionTYPE, namebutton->caption.c_str() )
         string unused;
         istringstream stream(valuebutton->caption);
         stream >> newvalue;
@@ -74,7 +67,7 @@ void GenericOptionsInterface::ApplyClick ( Button *button )
 		// Next button
 
 		++index;
-		UplinkSnprintf ( name1, sizeof ( name1 ), "generic_option %d", index )
+		name1 = "generic_option " + to_string(index);
 
 	}
 
@@ -107,8 +100,7 @@ void GenericOptionsInterface::ToggleBoxClick ( Button *button )
 
 	// Grab the appropriate button
 
-	char name2 [64];
-	UplinkSnprintf ( name2, sizeof ( name2 ), "generic_value %d", buttonindex )
+	string name2 = "generic_value " + to_string(buttonindex);
 	Button *button2 = EclGetButton ( name2 );
 	UplinkAssert (button2)
 
@@ -187,16 +179,12 @@ void GenericOptionsInterface::SetOptionTYPE ( char *newtype )
 		Option *option = options->GetData (i);
 		UplinkAssert (option)
 
-		char name1 [64];
-		char name2 [64];
-
-		UplinkSnprintf ( name1, sizeof ( name1 ), "generic_option %d", i )
-		UplinkSnprintf ( name2, sizeof ( name2 ), "generic_value %d", i )
+		string name1 = "generic_option " + to_string(i);
+        string name2 = "generic_value " + to_string(i);
 
 		char *optionname = strchr ( option->name, '_' ) + 1;
 		
-		char value [8];
-		UplinkSnprintf ( value, sizeof ( value ), "%d", option->value )
+		string value = to_string( option->value );
 
 		EclRegisterButton ( screenw - 210, screenh - 40, 150, 15, optionname, option->tooltip, name1 );
 		EclRegisterButtonCallbacks ( name1, button_draw, ToggleBoxClick, button_click, button_highlight );
@@ -261,19 +249,17 @@ void GenericOptionsInterface::Remove ()
 		EclRemoveButton ( "generic_title" );
 
 		int index = 0;
-		char name1 [64];
-		UplinkSnprintf ( name1, sizeof ( name1 ), "generic_option %d", index )
+		string name1 = "generic_option " + to_string(index);
 
 		while ( EclGetButton ( name1 ) != nullptr ) {
 
-			char name2 [64];
-			UplinkSnprintf ( name2, sizeof ( name2 ), "generic_value %d", index )
+			string name2 = "generic_value " + to_string(index);
 
 			EclRemoveButton ( name1 );
 			EclRemoveButton ( name2 );
 
 			++index;
-			UplinkSnprintf ( name1, sizeof ( name1 ), "generic_option %d", index )
+			name1 = "generic_option " + to_string(index);
 
 		}
 

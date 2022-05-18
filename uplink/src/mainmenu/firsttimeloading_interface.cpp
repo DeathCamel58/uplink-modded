@@ -1,6 +1,5 @@
 
 #include "soundgarden.h"
-#include "redshirt.h"
 
 #include "app/app.h"
 #include "app/opengl_interface.h"

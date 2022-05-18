@@ -1,10 +1,8 @@
 
-#include "gucci.h"
 #include "eclipse.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 

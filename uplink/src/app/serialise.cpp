@@ -1,8 +1,6 @@
 
 //#include "stdafx.h"
 
-#include "gucci.h"
-
 #include "app/app.h"
 #include "app/serialise.h"
 #include "app/globals.h"
@@ -110,8 +108,8 @@ void SaveBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 bool LoadBTree  ( BTree <UplinkObject *> *btree, FILE *file )
 {
 
+    assert(btree);
 	if ( !btree ) {
-		UplinkPrintAssert ( btree )
 		return false;
 	}
 
@@ -258,8 +256,8 @@ void SaveBTree ( BTree <char *> *btree, FILE *file )
 bool LoadBTree ( BTree <char *> *btree, FILE *file )
 {
 
+    assert(btree);
 	if ( !btree ) {
-		UplinkPrintAssert ( btree )
 		return false;
 	}
 
@@ -377,8 +375,8 @@ void SaveLList ( LList <UplinkObject *> *llist, FILE *file )
 bool LoadLList ( LList <UplinkObject *> *llist, FILE *file )
 {
 
+    assert(llist);
 	if ( !llist ) {
-		UplinkPrintAssert ( llist )
 		return false;
 	}
 
@@ -566,8 +564,8 @@ void SaveDArray ( DArray <UplinkObject *> *darray, FILE *file )
 bool LoadDArray ( DArray <UplinkObject *> *darray, FILE *file )
 {
 
+    assert(darray);
 	if ( !darray ) {
-		UplinkPrintAssert ( darray )
 		return false;
 	}
 
@@ -694,7 +692,6 @@ void DeleteDArrayDataD( DArray <char *> *darray, const char * file, int line )
 				// Even zero length string need to be deleted
 			    //if ( strlen(darray->GetData (i)) != 0 )
 					try {
-					    delete [] darray->GetData (i);
 						darray->RemoveData( i );
 					} catch(...) {
 //						DEBUG_PRINTF( "Oops! Tried to delete something that wasn't there [%s (%d)].\n",
@@ -740,8 +737,8 @@ void SaveDArray ( DArray <int> *darray, FILE *file )
 bool LoadDArray ( DArray <int> *darray, FILE *file )
 {
 
+    assert(darray);
 	if ( !darray ) {
-		UplinkPrintAssert ( darray )
 		return false;
 	}
 
@@ -874,7 +871,7 @@ UplinkObject *CreateUplinkObject ( int OBJECTID )
 
 }
 
-bool LoadDynamicStringInt ( char* _file, int _line, char **string, FILE *file )
+bool LoadDynamicStringInt (const char *_file, int _line, char **string, FILE *file )
 {
 
 	*string = nullptr;
@@ -886,14 +883,12 @@ bool LoadDynamicStringInt ( char* _file, int _line, char **string, FILE *file )
 
 		// Nothing to do, nullptr string.
 
-	}
-    else if ( size < 0 || size > MAX_LENGTH_DYMANIC_STRING ) {
+	} else if ( size < 0 || size > MAX_LENGTH_DYMANIC_STRING ) {
 
 		UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size appears to be wrong, size=%d, %s:%d", size, _file, _line )
 		return false;
 
-    }
-	else {
+    } else {
 
 		*string = new char [size+1];
 		if ( !FileReadData ( *string, size, 1, file ) ) {
@@ -901,18 +896,18 @@ bool LoadDynamicStringInt ( char* _file, int _line, char **string, FILE *file )
 			return false;
 		}
 		(*string) [ size ] = '\0';
-	
+
 	}
 
 	return true;
 
 }
 
-bool LoadDynamicStringInt ( char* _file, int _line, char *string, int maxsize, FILE *file )
+bool LoadDynamicStringInt (const char *_file, int _line, char *string, int maxsize, FILE *file )
 {
 
+    assert(string);
 	if ( !string ) {
-		UplinkPrintAssert (string)
 		return false;
 	}
 
@@ -927,8 +922,7 @@ bool LoadDynamicStringInt ( char* _file, int _line, char *string, int maxsize, F
         UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, empty string, %s:%d", _file, _line )
 		return false;
 
-	}
-	else if ( size > maxsize ) {
+	} else if ( size > maxsize ) {
 
         UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size > maxsize, size=%d, maxsize=%d, %s:%d", size, maxsize, _file, _line )
 
@@ -946,14 +940,12 @@ bool LoadDynamicStringInt ( char* _file, int _line, char *string, int maxsize, F
 
 		return false;
 
-	}
-    else if ( size < 0 ) {
+	} else if ( size < 0 ) {
 
         UplinkPrintAbortArgs ( "WARNING: LoadDynamicString, size appears to be wrong, size=%d, %s:%d", size, _file, _line )
 		return false;
 
-    }
-	else {
+    } else {
 		
 		if ( !FileReadData ( string, size, 1, file ) ) {
 			string [ size - 1 ] = '\0';
@@ -1014,13 +1006,146 @@ void SaveDynamicString ( char *string, int maxsize, FILE *file )
 
 }
 
-bool FileReadDataInt ( char* _file, int _line, void * _DstBuf, size_t _ElementSize, size_t _Count, FILE * _File )
+/**
+ * Takes input data, and writes it to file
+ * @param data Data to write
+ * @param maxsize The maximum size of the data
+ * @param file fstream to write to
+ */
+void SaveDynamicString ( string *data, int maxsize, fstream *file )
 {
-	size_t sizeRead = fread ( _DstBuf, _ElementSize, _Count, _File );
-	if ( sizeRead != _Count ) {
-		UplinkPrintAbortArgs ( "WARNING: FileReadDataInt, request read count is different then the readed count, request=%zu, readed=%zu, errno=%d, %s:%d",
-		                       _Count, sizeRead, errno, _file, _line )
-		return false;
-	}
-	return true;
+
+    if ( !data->empty() ) {
+
+        int realmaxsize = MAX_LENGTH_DYMANIC_STRING;
+        if ( maxsize > 0 )
+            realmaxsize = min ( MAX_LENGTH_DYMANIC_STRING, maxsize );
+
+        int size = (int) ( data->size() + 1 );
+        if ( size <= realmaxsize ) {
+
+            file->write((char *) size, sizeof(size));
+
+            if (size > 1) {
+                file->write(data->c_str(), size - 1);
+            }
+
+            // Every data element should end with `\0`
+            char terminatingchar = '\0';
+            file->write(&terminatingchar, 1);
+
+        }
+        else {
+
+            cout << "WARNING: SaveDynamicString: Size appears to be too long." << endl;
+
+            file->write( (char *) realmaxsize, sizeof(realmaxsize));
+            if (realmaxsize > 1) {
+                file->write(data->c_str(), realmaxsize - 1);
+            }
+
+            char terminatingchar = '\0';
+            file->write(&terminatingchar, 1);
+
+        }
+
+    }
+    else {
+
+        int size = -1;
+        file->write((char *) size, 1);
+
+    }
+
+}
+
+bool FileReadDataInt (const char *_file, int _line, void * _DstBuf, size_t _ElementSize, size_t _Count, FILE * _File )
+{
+    size_t sizeRead = fread ( _DstBuf, _ElementSize, _Count, _File );
+    if ( sizeRead != _Count ) {
+        UplinkPrintAbortArgs ( "WARNING: FileReadDataInt, request read count is different then the readed count, request=%zu, readed=%zu, errno=%d, %s:%d",
+                               _Count, sizeRead, errno, _file, _line )
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Reads characters from file into data string
+ * @param data The string to put data into
+ * @param _Count Number of bytes to read
+ * @param _File ifstream to read data from
+ * @return `true` if data read was successful
+ */
+bool FileReadDataInt (string & data, size_t _Count, fstream _File )
+{
+
+    char *_dataBuf = new char[_Count];
+
+    _File.read(_dataBuf, _Count);
+
+    data = _dataBuf;
+
+    if (!_File.good()) {
+        cout << "WARNING: FileReadDataInt: Read request is not good." << endl;
+        return false;
+    } else {
+        return true;
+    }
+}
+
+/**
+ * Reads in next data element from fstream
+ * @param data String to put data into
+ * @param file fstream to read from
+ * @return `true` if read successful
+ */
+bool FileReadNext ( string &data, FILE *file) {
+    char currentRead[1];
+    char terminatingchar = '\0';
+
+    data = "";
+    fread(currentRead, sizeof(currentRead), 1, file);
+
+    // While we haven't read in `\0`
+    while (strcmp(currentRead, &terminatingchar) != 0) {
+        // Append current byte to data
+        data += currentRead;
+
+        // Read in new byte
+        fread(currentRead, sizeof(currentRead), 1, file);
+    }
+
+    // Read in the rest of `\0`s to set the pointer to the start of the next element
+    while (strcmp(currentRead, &terminatingchar) == 0) {
+        fread(currentRead, sizeof(currentRead), 1, file);
+    }
+    // Move pointer one back (as we've read in a byte of good data)
+    fseek(file, -1, SEEK_CUR);
+
+    return true;
+
+}
+
+/**
+ * Reads in next data element from fstream
+ * @param data String to put data into
+ * @param file fstream to read from
+ * @return `true` if read successful
+ */
+bool FileReadNext ( string &data, fstream *file) {
+    char *currentRead = new char[1024];
+
+    data = "";
+
+    file->getline(currentRead, sizeof(currentRead), '\0');
+
+    if (file->good()) {
+        data = currentRead;
+        return true;
+    } else {
+        cout << "WARNING: FileReadNext: File read was not good." << endl;
+        return false;
+    }
+
 }

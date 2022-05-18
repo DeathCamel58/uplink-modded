@@ -5,11 +5,8 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
-
-#include "gucci.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 

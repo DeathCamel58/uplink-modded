@@ -35,7 +35,7 @@ public:
 	static void ComputerHacked		( Computer *comp, AccessLog *al );					// Hacked by unknown person
 	static void ComputerDestroyed	( Computer *comp, bool filesdeleted );
 	static void AllFilesStolen		( Computer *comp, char *filetype, int totalfilesize );
-	static void AllFilesDeleted		( Computer *comp, char *filetype );
+	static void AllFilesDeleted		(Computer *comp, const string& filetype );
 
 	// Events related to people
 

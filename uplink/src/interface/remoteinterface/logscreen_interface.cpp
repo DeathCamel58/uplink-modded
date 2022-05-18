@@ -5,7 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "eclipse.h"
@@ -174,7 +173,7 @@ int LogScreenInterface::GetLastItem ( DArray<class AccessLog *> *logs )
 
 }
 
-void LogScreenInterface::ScrollChange ( char *scrollname, int newValue )
+void LogScreenInterface::ScrollChange (const string &scrollname, int newValue )
 {
 
 	ComputerScreen *compscreen = game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ()->GetComputerScreen ();
@@ -187,8 +186,7 @@ void LogScreenInterface::ScrollChange ( char *scrollname, int newValue )
 
 	for ( int i = 0; i < 15; ++i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i )
+		string name = "logscreen_log " + to_string(i);
 		EclDirtyButton ( name );
 
 	}
@@ -298,8 +296,7 @@ void LogScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < 15; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i )
+			string name = "logscreen_log " + to_string(i);
 			EclRegisterButton ( 15, 140 + i * 15, 400, 14, "", "Select this log", name );
 			EclRegisterButtonCallbacks ( name, LogDraw, LogClick, button_click, button_highlight );
 
@@ -368,8 +365,7 @@ void LogScreenInterface::Remove ()
 
 		for ( int i = 0; i < 15; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i )
+			string name = "logscreen_log " + to_string(i);
 			EclRemoveButton ( name );
 
 		}
@@ -413,8 +409,7 @@ void LogScreenInterface::Update ()
 
 		for ( int i = 0; i < 15; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "logscreen_log %d", i )
+			string name = "logscreen_log " + to_string(i);
 			EclDirtyButton ( name );
 
 		}

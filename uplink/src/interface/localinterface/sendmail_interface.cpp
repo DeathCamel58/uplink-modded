@@ -34,24 +34,10 @@ bool SendMailInterface::changed = false;	        // Has m changed?
 
 
 SendMailInterface::SendMailInterface ()
-{
-
-	//if ( m )
-	//	delete m;
-	//m = new Message ();       // The message being built up
-	//changed = false;          // Has m changed?
-
-}
+= default;
 
 SendMailInterface::~SendMailInterface ()
-{
-
-	//if ( m ) {
-	//	delete m;
-	//	m = nullptr;
-	//}
-
-}
+= default;
 
 Message *SendMailInterface::sGetMessage ()
 {
@@ -147,9 +133,9 @@ void SendMailInterface::ToggleFileList ( int x, int y )
 
 			for ( int si = 0; si < numfiles; ++si ) {
 
-				char caption [128], tooltip [128], name [128];
+				char caption [128], name [128];
 				UplinkStrncpy ( caption, software.GetData (si), sizeof ( caption ) )
-				UplinkStrncpy ( tooltip, "Attach this file to the mail message", sizeof ( tooltip ) )
+				string tooltip = "Attach this file to the mail message";
 				UplinkSnprintf ( name, sizeof ( name ), "sendmail_file %d", si )
 				EclRegisterButton ( x, y, 120, 15, caption, tooltip, name );
 				EclRegisterButtonCallbacks ( name, button_draw, AttachFileClick, button_click, button_highlight );
@@ -168,14 +154,13 @@ void SendMailInterface::ToggleFileList ( int x, int y )
 	else {
 
 		int index = 0;
-		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_file %d", index )
+		string bname = "sendmail_file " + to_string(index);
 
 		while ( EclGetButton ( bname ) ) {
 
 			EclRemoveButton ( bname );
 			++index;
-			UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_file %d", index )
+			bname = "sendmail_file " + to_string(index);
 
 		}
 
@@ -211,8 +196,7 @@ void SendMailInterface::ToggleAddressBook ( int x, int y )
 
 			for ( int i = 0; i < numcontacts; ++i ) {
 
-				char name [64];
-				UplinkSnprintf ( name, sizeof ( name ), "sendmail_addressbook %d", i )
+				string name = "sendmail_addressbook " + to_string(i);
 
 				char *contact = game->GetWorld ()->GetPlayer ()->missions.GetData (i)->contact;
 
@@ -235,14 +219,13 @@ void SendMailInterface::ToggleAddressBook ( int x, int y )
 		// Remove address book
 
 		int index = 0;
-		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_addressbook %d", index )
+		string bname = "sendmail_addressbook " + to_string(index);
 
 		while ( EclGetButton ( bname ) ) {
 
 			EclRemoveButton ( bname );
 			++index;
-			UplinkSnprintf ( bname, sizeof ( bname ), "sendmail_addressbook %d", index )
+			bname = "sendmail_addressbook " + to_string(index);
 
 		}
 

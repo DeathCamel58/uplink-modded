@@ -3,7 +3,6 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <app/miscutils.h>
-#include "gucci.h"
 
 #include "app/app.h"
 #include "app/globals.h"

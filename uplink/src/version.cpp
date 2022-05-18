@@ -1,7 +1,6 @@
 
 #ifndef WIN32
 
-#include <cstring>
 #include <iostream>
 
 #include "app/globals_defines.h"

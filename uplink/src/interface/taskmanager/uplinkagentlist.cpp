@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
-
 #include <cstring>
 #include <cstdio>
 #include <sstream>
@@ -23,22 +21,17 @@
 
 #include "game/game.h"
 #include "game/scriptlibrary.h"
-#include "game/data/data.h"
 
 #include "interface/interface.h"
 #include "interface/remoteinterface/remoteinterface.h"
 #include "interface/remoteinterface/remoteinterfacescreen.h"
-#include "interface/remoteinterface/passwordscreen_interface.h"
 #include "interface/taskmanager/taskmanager.h"
 #include "interface/taskmanager/uplinkagentlist.h"
 
 #include "world/world.h"
 #include "world/player.h"
 #include "world/computer/computer.h"
-#include "world/computer/recordbank.h"
 #include "world/computer/computerscreen/passwordscreen.h"
-#include "world/computer/computerscreen/useridscreen.h"
-#include "world/generator/numbergenerator.h"
 
 #include "mmgr.h"
 
@@ -182,8 +175,7 @@ void UplinkAgentList::ScrollUpClick ( Button *button )
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual)
 
-	char listname [32];
-	UplinkSnprintf ( listname, sizeof ( listname ), "uplinkagentlist %d", pid )
+	string listname = "uplinkagentlist " + to_string(pid);
     EclDirtyButton ( listname );
 
 }
@@ -200,8 +192,7 @@ void UplinkAgentList::ScrollDownClick ( Button *button )
     auto *ual = (UplinkAgentList *) SvbGetTask ( pid );
     UplinkAssert (ual)
 
-	char listname [32];
-	UplinkSnprintf ( listname, sizeof ( listname ), "uplinkagentlist %d", pid )
+	string listname = "uplinkagentlist " + to_string(pid);
     EclDirtyButton ( listname );
     
 }
@@ -352,8 +343,7 @@ void UplinkAgentList::CreateInterface ()
         //
         // Create the list
 
-		char bname [32];
-		UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid )
+		string bname = "uplinkagentlist " + to_string(pid);
 	
 		EclRegisterButton ( x, y, width, height, "", "", bname );
 		EclRegisterButtonCallbacks ( bname, UplinkAgentListDraw, nullptr, button_click, button_highlight );
@@ -362,8 +352,7 @@ void UplinkAgentList::CreateInterface ()
         //
         // Title bar
 
-        char titlename [64];
-        UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid )
+        string titlename = "uplinkagentlist_title " + to_string(pid);
         EclRegisterButton ( x, y - 14, width, 14, "Uplink Agent List", "Click to move this tool", titlename );
         EclRegisterButtonCallback ( titlename, TitleClick );
 
@@ -371,8 +360,7 @@ void UplinkAgentList::CreateInterface ()
         //
         // Create the close button
 
-		char closename [64];
-		UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid )
+		string closename = "uplinkagentlist_close " + to_string(pid);
 
 		EclRegisterButton ( width + x + 1, y - 14, 13, 13, "X", "Close the Uplink Agent List", closename );
 		button_assignbitmaps ( closename, "close.tif", "close_h.tif", "close_c.tif" );
@@ -381,13 +369,9 @@ void UplinkAgentList::CreateInterface ()
         //
         // Scroll bar
 
-	    char name_up   [128];
-	    char name_down [128];
-	    char name_bar  [128];
-
-	    UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid )
-	    UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid )
-	    UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid )
+	    string name_up = "uplinkagentlist_scrollup " + to_string(pid);
+        string name_down = "uplinkagentlist_scrolldown " + to_string(pid);
+        string name_bar = "uplinkagentlist_scrollbar " + to_string(pid);
         
 	    EclRegisterButton ( width + x, y, 15, 15, "^", "Scroll up", name_up );
 	    EclRegisterButton ( width + x, y + height - 15, 15, 15, "v", "Scroll down", name_down );
@@ -423,24 +407,18 @@ void UplinkAgentList::MoveTo ( int x, int y, int time_ms )
     int width = 250;
     int height = 150;
 
-	char bname [128];
-	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid )
+	string bname = "uplinkagentlist " + to_string(pid);
 	EclRegisterMovement ( bname, x, y, time_ms );
 
-	char closename [64];
-	UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid )
+	string closename = "uplinkagentlist_close " + to_string(pid);
     EclRegisterMovement ( closename, x + width + 1, y - 14, time_ms );
 	
-    char titlename [64];
-    UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid )
+    string titlename = "uplinkagentlist_title " + to_string(pid);
     EclRegisterMovement ( titlename, x, y - 14, time_ms );
 
-    char name_up [64];
-    char name_down [64];
-    char name_bar [64];
-	UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid )
-	UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid )
-	UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid )
+    string name_up =   "uplinkagentlist_scrollup " + to_string(pid);
+    string name_down = "uplinkagentlist_scrolldown " + to_string(pid);
+    string name_bar =  "uplinkagentlist_scrollbar " + to_string(pid);
     
     EclRegisterMovement ( name_up, x + width, y, time_ms );
     EclRegisterMovement ( name_down, x + width, y + height - 15, time_ms );
@@ -455,24 +433,18 @@ void UplinkAgentList::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char bname [128];
-		UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid )
+		string bname = "uplinkagentlist " + to_string(pid);
 		EclRemoveButton ( bname );
 
-		char closename [64];
-		UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid )
+		string closename = "uplinkagentlist_close " + to_string(pid);
 		EclRemoveButton ( closename );
 
-        char titlename [64];
-        UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid )
+        string titlename = "uplinkagentlist_title " + to_string(pid);
         EclRemoveButton ( titlename );
 
-        char name_up [64];
-        char name_down [64];
-        char name_bar [64];
-	    UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid )
-	    UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid )
-	    UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid )
+        string name_up =   "uplinkagentlist_scrollup " + to_string(pid);
+        string name_down = "uplinkagentlist_scrolldown " + to_string(pid);
+        string name_bar =  "uplinkagentlist_scrollbar " + to_string(pid);
                 
         EclRemoveButton ( name_up );
         EclRemoveButton ( name_down );
@@ -489,24 +461,18 @@ void UplinkAgentList::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char bname [128];
-	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", pid )
+	string bname = "uplinkagentlist " + to_string(pid);
 	EclButtonBringToFront ( bname );
 
-	char closename [64];
-	UplinkSnprintf ( closename, sizeof ( closename ), "uplinkagentlist_close %d", pid )
+	string closename = "uplinkagentlist_close " + to_string(pid);
 	EclButtonBringToFront ( closename );
 
-    char titlename [64];
-    UplinkSnprintf ( titlename, sizeof ( titlename ), "uplinkagentlist_title %d", pid )
+    string titlename = "uplinkagentlist_title " + to_string(pid);
     EclButtonBringToFront ( titlename );
 
-    char name_up [64];
-    char name_down [64];
-    char name_bar [64];
-	UplinkSnprintf ( name_up, sizeof ( name_up ),   "uplinkagentlist_scrollup %d", pid )
-	UplinkSnprintf ( name_down, sizeof ( name_down ), "uplinkagentlist_scrolldown %d", pid )
-	UplinkSnprintf ( name_bar, sizeof ( name_bar ),  "uplinkagentlist_scrollbar %d", pid )
+    string name_up =   "uplinkagentlist_scrollup " + to_string(pid);
+    string name_down = "uplinkagentlist_scrolldown " + to_string(pid);
+    string name_bar =  "uplinkagentlist_scrollbar " + to_string(pid);
 
     EclButtonBringToFront ( name_up );
    	EclButtonBringToFront ( name_down );
@@ -517,8 +483,7 @@ void UplinkAgentList::ShowInterface ()
 bool UplinkAgentList::IsInterfaceVisible ()
 {
 
-	char bname [128];
-	UplinkSnprintf ( bname, sizeof ( bname ), "uplinkagentlist %d", SvbLookupPID (this) )
+	string bname = "uplinkagentlist " + to_string( SvbLookupPID (this) );
 
 	return ( EclGetButton ( bname ) != nullptr );
 

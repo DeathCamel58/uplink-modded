@@ -6,12 +6,10 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "vanbakel.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
@@ -1984,8 +1982,7 @@ bool Tutorial::HasCompletedCurrentSection () const
 		else if ( current_part == 27 )					return ( game->GetInterface ()->GetLocalInterface ()->InScreen () == SCREEN_NONE );
 		else											return nextclicked;
 		
-	}
-    else if ( current_tutorial == 2 ) {
+	} else if ( current_tutorial == 2 ) {
 
         if      ( current_part == 2 )                   return ( game->GetInterface ()->GetLocalInterface ()->InScreen () == SCREEN_MISSION );
         else if ( current_part == 4 )                   return ( !game->GetWorld ()->GetPlayer ()->IsConnected () );
@@ -2045,8 +2042,7 @@ bool Tutorial::HasCompletedCurrentSection () const
         else                                            return nextclicked;
 
 
-    }
-    else if ( current_tutorial == 3 ) {
+    } else if ( current_tutorial == 3 ) {
 
         if      ( current_part == 2 )                   return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKINTERNALSERVICES ) == 0 );
         else if ( current_part == 3 )                   return ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_UPLINKINTERNALSERVICES ) == 0 &&

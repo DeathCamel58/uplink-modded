@@ -4,7 +4,6 @@
 
 #include <strstream>
 
-#include "gucci.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 
@@ -64,8 +63,7 @@ void EmailInterface::EmailReply ( Button *button )
 		game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_NONE );
 
 
-	char contact [SIZE_PERSON_NAME];
-	UplinkStrncpy ( contact, em->message->from, sizeof ( contact ) )
+	string contact = em->message->from;
 
 	std::ostrstream body;
 	body << "RE your email\n"
@@ -154,8 +152,8 @@ void EmailInterface::Create ()
 		//EclRegisterButton ( screenw - panelwidth - 3, paneltop, panelwidth, 15, "EMAIL", "Remove the email screen", "email_title" );
 		EclRegisterButton ( screenw - panelwidth, paneltop + 3, panelwidth - 7, 15, "EMAIL", "Remove the email screen", "email_title" );
 		EclRegisterButtonCallback ( "email_title", TitleClick );
-		
-		char from [SIZE_PERSON_NAME + 8];		
+
+		char from [SIZE_PERSON_NAME + 8];
 		char date [SIZE_DATE_LONG + 8];
 		size_t subjectsize = strlen(message->GetSubject()) + 12;
 		char *subject = new char [subjectsize];

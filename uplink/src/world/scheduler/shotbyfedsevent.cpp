@@ -2,9 +2,6 @@
 #include <strstream>
 #include <app/miscutils.h>
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/serialise.h"
 #include "app/globals.h"
 
@@ -13,8 +10,6 @@
 #include "world/world.h"
 #include "world/scheduler/shotbyfedsevent.h"
 #include "world/generator/consequencegenerator.h"
-
-#include "options/options.h"
 
 #include "mmgr.h"
 

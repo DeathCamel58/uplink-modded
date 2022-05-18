@@ -6,15 +6,7 @@
 #include <windows.h>
 #endif
 
-#include <GL/gl.h>
-
-#include <GL/glu.h>
 #include <app/miscutils.h>
-
-#include "app/app.h"
-#include "app/globals.h"
-
-#include "options/options.h"
 
 #include "view/view.h"
 

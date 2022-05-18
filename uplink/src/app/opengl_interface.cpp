@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
-
 #include <cstdio>
 #include <sstream>
 
@@ -479,7 +477,7 @@ LList <string> *wordwraptext (const string& text, int linesize )
  * @param text The text to process and draw
  * @param linesize The maximum line width of the text
  */
-void text_draw	(int x, int y, const string text, int linesize )
+void text_draw	(int x, int y, const string& text, int linesize )
 {
 
 	auto wrappedtext = wordwraptext (text, linesize );
@@ -525,7 +523,7 @@ void text_draw ( Button *button, bool highlighted, bool clicked )
 
 	// Print the text
 
-	LList <string> *wrappedtext = new LList <string> ();
+	auto *wrappedtext = new LList <string> ();
 	
 	if ( !highlighted || !EclIsButtonEditable (button->name) ) {
 		
@@ -1126,7 +1124,7 @@ Button *getcurrentbutton ()
 
 }
 
-void create_stextbox (int x, int y, int width, int height, string caption, const string &name )
+void create_stextbox (int x, int y, int width, int height, const string& caption, const string &name )
 {
 
 	string name_box = name + " box";

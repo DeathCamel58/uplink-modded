@@ -4,10 +4,6 @@
 
 //#include "stdafx.h"
 
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <fcntl.h>
-
 #ifdef WIN32
 #include <conio.h>
 #include <io.h>
@@ -17,8 +13,6 @@
 
 #endif
 
-
-#include "gucci.h"
 
 #include "game/game.h"
 #include "game/data/data.h"
@@ -564,8 +558,7 @@ void Agent::AttemptMission_StealFile ()
 
 		ConsequenceGenerator::MissionCompleted ( m, this );
 
-	}
-    else {
+	} else {
 
         // Not worth bothering - nobody will notice a
         // single file stolen
@@ -597,8 +590,7 @@ void Agent::AttemptMission_DeleteFile ()
 
 		ConsequenceGenerator::MissionCompleted ( m, this );
 
-	}
-    else {
+	} else {
 
         // Not worth bothering - nobody will notice a
         // single file deletion

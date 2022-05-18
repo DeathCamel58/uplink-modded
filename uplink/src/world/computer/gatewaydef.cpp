@@ -2,9 +2,6 @@
 
 //#include "stdafx.h"
 
-#include "gucci.h"
-
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 #include "app/uplinkobject.h"
@@ -327,8 +324,8 @@ static void SaveDArrayGatewayDefLocation ( DArray <GatewayDefLocation *> *darray
 static bool LoadDArrayGatewayDefLocation ( DArray <GatewayDefLocation *> *darray, FILE *file )
 {
 
+    assert(darray);
 	if ( !darray ) {
-		UplinkPrintAssert ( darray )
 		return false;
 	}
 

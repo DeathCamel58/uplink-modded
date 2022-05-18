@@ -4,7 +4,6 @@
 #include "eclipse.h"
 #include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 

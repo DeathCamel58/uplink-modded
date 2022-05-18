@@ -8,8 +8,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
-
 #include "eclipse.h"
 #include "gucci.h"
 

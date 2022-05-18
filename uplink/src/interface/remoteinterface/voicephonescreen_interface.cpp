@@ -4,7 +4,6 @@
 #include "redshirt.h"
 #include "soundgarden.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 
@@ -44,10 +43,10 @@ bool VoicePhoneScreenInterface::ReturnKeyPressed ()
 
 }
 
-void VoicePhoneScreenInterface::AddToText ( char *newtext )
+void VoicePhoneScreenInterface::AddToText (const string& newtext )
 {
 		
-	UplinkAssert (newtext)
+	assert(!newtext.empty());
 	Button *button = EclGetButton ("voicescreen_text");
 	UplinkAssert (button)
 	string newcaption = button->caption + newtext;

@@ -8,7 +8,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
 #include <sstream>
 
 #include "eclipse.h"
@@ -27,7 +26,6 @@
 #include "interface/interface.h"
 #include "interface/remoteinterface/remoteinterface.h"
 #include "interface/remoteinterface/dialogscreen_interface.h"
-#include "interface/localinterface/keyboardinterface.h"
 
 #include "world/world.h"
 #include "world/computer/computer.h"

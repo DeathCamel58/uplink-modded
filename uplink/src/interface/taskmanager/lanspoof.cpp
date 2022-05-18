@@ -5,12 +5,10 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 #include "vanbakel.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
@@ -182,15 +180,10 @@ void LanSpoof::MoveTo ( int x, int y, int time_ms )
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid )
+	string stitle = "lanspoof_title " + to_string(pid);
+    string sborder = "lanspoof_border " + to_string(pid);
+    string sprogress = "lanspoof_progress " + to_string(pid);
+    string sclose = "lanspoof_close " + to_string(pid);
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -214,8 +207,7 @@ void LanSpoof::Tick ( int n )
 	if ( IsInterfaceVisible () ) {
 
 		int pid = SvbLookupPID ( this );
-		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
+		string sprogress = "lanspoof_progress " + to_string(pid);
 
 		if ( status == LANSPOOF_UNUSED ) {
 
@@ -226,8 +218,7 @@ void LanSpoof::Tick ( int n )
 
 			}
 
-		}
-		else if ( status == LANSPOOF_SPOOFING ) {
+		} else if ( status == LANSPOOF_SPOOFING ) {
 
 			// Check the system still exists
 			if ( !comp || !comp->systems.ValidIndex( systemIndex ) ) {
@@ -259,8 +250,7 @@ void LanSpoof::Tick ( int n )
 					EclRegisterCaptionChange ( sprogress, "Spoofed", 0 );
 					status = LANSPOOF_SPOOFED;
 
-				}
-				else {
+				} else {
 
 					EclRegisterCaptionChange ( sprogress, "Failed", 0 );
 					status = LANSPOOF_FAILED;
@@ -269,23 +259,7 @@ void LanSpoof::Tick ( int n )
 
 			}
 	
-		}
-		else if ( status == LANSPOOF_FAILED ) {
-
-			// Check the system still exists
-			if ( !comp || !comp->systems.ValidIndex( systemIndex ) ) {
-				SvbRemoveTask ( pid );
-				return;
-			}
-
-            // Check we are still connected
-            if ( !game->GetWorld ()->GetPlayer ()->IsConnected () ) {
-                SvbRemoveTask (pid);
-                return;
-            }
-
-		}
-		else if ( status == LANSPOOF_SPOOFED ) {
+		} else if ( status == LANSPOOF_FAILED || status == LANSPOOF_SPOOFED ) {
 
 			// Check the system still exists
 			if ( !comp || !comp->systems.ValidIndex( systemIndex ) ) {
@@ -312,17 +286,11 @@ void LanSpoof::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-		char tooltip   [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid )
-		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "LAN Spoof v%1.1f", version )
+		string stitle = "lanspoof_title " + to_string(pid);
+        string sborder = "lanspoof_border " + to_string(pid);
+        string sprogress = "lanspoof_progress " + to_string(pid);
+        string sclose = "lanspoof_close " + to_string(pid);
+        string tooltip = "LAN Spoof v" + to_string(version);
 
 		EclRegisterButton ( 265, 450, 20, 15, "", tooltip, stitle );
 		button_assignbitmap ( stitle, "software/lan.tif" );
@@ -348,15 +316,10 @@ void LanSpoof::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid )
+		string stitle = "lanspoof_title " + to_string(pid);
+        string sborder = "lanspoof_border " + to_string(pid);
+        string sprogress = "lanspoof_progress " + to_string(pid);
+        string sclose = "lanspoof_close " + to_string(pid);
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -374,15 +337,10 @@ void LanSpoof::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanspoof_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanspoof_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanspoof_close %d", pid )
+	string stitle = "lanspoof_title " + to_string(pid);
+    string sborder = "lanspoof_border " + to_string(pid);
+    string sprogress = "lanspoof_progress " + to_string(pid);
+    string sclose = "lanspoof_close " + to_string(pid);
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -396,8 +354,7 @@ bool LanSpoof::IsInterfaceVisible ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanspoof_border %d", pid )
+	string stitle = "lanspoof_border " + to_string(pid);
 	
 	return ( EclGetButton (stitle) != nullptr );
 

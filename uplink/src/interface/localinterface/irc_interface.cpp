@@ -347,14 +347,14 @@ void IRCInterface::PostClick ( Button *button )
 
 }
 
-void IRCInterface::TextScrollChange ( char *name, int newValue )
+void IRCInterface::TextScrollChange (const string &name, int newValue )
 {
     
     EclDirtyButton ( "irc_maintext" );
 
 }
 
-void IRCInterface::UserScrollChange ( char *name, int newValue )
+void IRCInterface::UserScrollChange (const string &name, int newValue )
 {
 
     EclDirtyButton ( "irc_userlist" );

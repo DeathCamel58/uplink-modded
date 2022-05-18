@@ -3,9 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <app/miscutils.h>
-#include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 
@@ -15,7 +13,6 @@
 #include "interface/remoteinterface/remoteinterface.h"
 
 #include "world/world.h"
-#include "world/vlocation.h"
 #include "world/player.h"
 #include "world/computer/computer.h"
 #include "world/computer/bankcomputer.h"

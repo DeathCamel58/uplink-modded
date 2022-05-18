@@ -5,7 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 
 #include <cstring>
 #include <cstdio>
@@ -15,7 +14,6 @@
 #include "gucci.h"
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/serialise.h"
 #include "app/opengl_interface.h"
@@ -28,7 +26,6 @@
 #include "interface/taskmanager/passwordbreaker.h"
 
 #include "world/world.h"
-#include "world/date.h"
 #include "world/player.h"
 #include "world/computer/computer.h"
 #include "world/computer/recordbank.h"

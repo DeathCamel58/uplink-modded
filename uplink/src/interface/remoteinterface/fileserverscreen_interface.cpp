@@ -7,13 +7,11 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "eclipse.h"
 #include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 
@@ -130,9 +128,7 @@ void FileServerScreenInterface::FileClick ( Button *button )
 		game->GetInterface ()->GetTaskManager ()->SetProgramTarget ( &(comp->databank), button->name, memoryindex );
 
 		// Log this access
-		char action [64];
-
-		UplinkSnprintf ( action, sizeof ( action ), "Accessed memory file index %d", fileindex )
+		string action = "Accessed memory file index " + to_string(fileindex);
 		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date), 
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER",
@@ -265,15 +261,14 @@ int FileServerScreenInterface::GetInfoRowDisplayDataBank ( DataBank *db, int fil
 
 }
 
-void FileServerScreenInterface::ScrollChange ( char *scrollname, int newValue )
+void FileServerScreenInterface::ScrollChange (const string &scrollname, int newValue )
 {
 
     baseoffset = newValue;
 
 	for ( int i = 0; i < 15; ++i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i )
+		string name = "fileserverscreen_file " + to_string(i);
 		EclDirtyButton ( name );
 
 	}
@@ -330,19 +325,16 @@ void FileServerScreenInterface::FileDraw ( Button *button, bool highlighted, boo
 
 		GciDrawText ( button->x, button->y + 10, data->title );
 
-		char size [64];
-		UplinkSnprintf ( size, sizeof ( size ), "%d GigaQuads", data->size )
+		string size = to_string(data->size) + " GigaQuads";
 		GciDrawText ( button->x + 150, button->y + 10, size );
 
 		if ( data->encrypted > 0 ) {
-			char encrypttext [32];
-			UplinkSnprintf ( encrypttext, sizeof ( encrypttext ), "Level %d", data->encrypted )
+			string encrypttext = "Level " + to_string( data->encrypted );
 			GciDrawText ( button->x + 250, button->y + 10, encrypttext );
 		}
 
 		if ( data->compressed > 0 ) {
-			char compressedtext [32];
-			UplinkSnprintf ( compressedtext, sizeof ( compressedtext ), "Level %d", data->compressed )
+			string compressedtext = "Level " + to_string( data->compressed );
 			GciDrawText ( button->x + 330, button->y + 10, compressedtext );
 		}
 
@@ -355,8 +347,7 @@ void FileServerScreenInterface::FileDraw ( Button *button, bool highlighted, boo
 
 		GciDrawText ( button->x, button->y + 10, "Free space" );
 
-		char size [64];
-		UplinkSnprintf ( size, sizeof ( size ), "%d GigaQuads", sizeData )
+		string size = to_string(sizeData) + " GigaQuads";
 		GciDrawText ( button->x + 150, button->y + 10, size );
 
 	}
@@ -419,8 +410,7 @@ void FileServerScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int i = 0; i < 15; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i )
+			string name = "fileserverscreen_file " + to_string(i);
 			EclRegisterButton ( 15, 140 + i * 15, 400, 14, "", "Select this file", name );
 			EclRegisterButtonCallbacks ( name, FileDraw, FileClick, button_click, button_highlight );
 
@@ -493,8 +483,7 @@ void FileServerScreenInterface::Remove ()
 
 		for ( int i = 0; i < 15; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i )
+			string name = "fileserverscreen_file " + to_string(i);
 			EclRemoveButton ( name );
 
 		}
@@ -538,8 +527,7 @@ void FileServerScreenInterface::Update ()
 
 		for ( int i = 0; i < 15; ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "fileserverscreen_file %d", i )
+			string name = "fileserverscreen_file " + to_string(i);
 			EclDirtyButton ( name );
 
 		}

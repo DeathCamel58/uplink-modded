@@ -5,8 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
-
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
@@ -15,7 +13,6 @@
 
 #include "world/world.h"
 #include "world/player.h"
-#include "world/generator/numbergenerator.h"
 
 #include "interface/interface.h"
 #include "interface/remoteinterface/remoteinterface.h"
@@ -43,10 +40,9 @@ SharesViewScreenInterface::~SharesViewScreenInterface ()
 bool SharesViewScreenInterface::EscapeKeyPressed ()
 {
 
-	char closename [32];
-	UplinkSnprintf ( closename, sizeof ( closename ), "sharesviewscreen_close %d", GetComputerScreen ()->nextpage )
+	string closename = "sharesviewscreen_close " + to_string(GetComputerScreen ()->nextpage);
     Button *button = EclGetButton (closename);
-    UplinkAssert (closename)
+    UplinkAssert (!closename.empty())
 
     CloseClick ( button );
     return true;

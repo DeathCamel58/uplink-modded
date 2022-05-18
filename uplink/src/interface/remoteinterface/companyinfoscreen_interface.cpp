@@ -1,5 +1,6 @@
 
 
+#include <algorithm>
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
@@ -83,16 +84,19 @@ void CompanyInfoScreenInterface::BackClick ( Button *button )
 
 }
 
-static char *getNameEmail (const string &name )
+/**
+ * Returns the string with no spaces, periods, or single quotes
+ * @param name The string to modify
+ * @return The modified string
+ */
+static string getNameEmail (const string &name )
 {
 
-	size_t nameLen = name.length();
-	char *nameEmail = new char [ nameLen + 1 ];
-	UplinkSafeStrcpy ( nameEmail, name.c_str() )
+	string nameEmail = name;
 
-	for ( size_t i = 0; i < nameLen; i++ )
-		if ( nameEmail [ i ] == ' ' || nameEmail [ i ] == '.' || nameEmail [ i ] == '\'' )
-			nameEmail [ i ] = '_';
+    replace(nameEmail.begin(), nameEmail.end(), ' ', '_');
+    replace(nameEmail.begin(), nameEmail.end(), '.', '_');
+    replace(nameEmail.begin(), nameEmail.end(), '\'', '_');
 
 	return nameEmail;
 
@@ -123,8 +127,7 @@ void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 		Company *company = game->GetWorld ()->GetCompany ( companyname );
 		UplinkAssert (company)
 
-		char mdemail [128];
-		char adminemail [128];
+		string mdemail, adminemail;
 		char mdtel [32];
 		char admintel [32];
 
@@ -133,24 +136,20 @@ void CompanyInfoScreenInterface::Create ( ComputerScreen *newcs )
 		
 		if ( boss && admin ) {
 
-			char *companynameEmail = getNameEmail ( companyname );
-			char *bossnameEmail = getNameEmail ( company->boss );
-			char *administratornameEmail = getNameEmail ( company->administrator );
+			string companynameEmail = getNameEmail ( companyname );
+			string bossnameEmail = getNameEmail ( company->boss );
+			string administratornameEmail = getNameEmail ( company->administrator );
 
-			UplinkSnprintf ( mdemail, sizeof ( mdemail ), "%s@%s.net", bossnameEmail, companynameEmail )
-			UplinkSnprintf ( adminemail, sizeof ( adminemail ), "%s@%s.net", administratornameEmail, companynameEmail )
+			mdemail = bossnameEmail + "@" + companynameEmail + ".net";
+			adminemail = administratornameEmail + "@" + companynameEmail + ".net";
 			UplinkSnprintf ( mdtel, sizeof ( mdtel ), "tel. %s", boss->phonenumber )
 			UplinkSnprintf ( admintel, sizeof ( admintel ), "tel. %s", admin->phonenumber )
-
-			delete [] administratornameEmail;
-			delete [] bossnameEmail;
-			delete [] companynameEmail;
 
 		}
 		else {
 
-			UplinkStrncpy ( mdemail, "Unlisted", sizeof ( mdemail ) )
-			UplinkStrncpy ( adminemail, "Unlisted", sizeof ( adminemail ) )
+			mdemail = "Unlisted";
+			adminemail = "Unlisted";
 			UplinkStrncpy ( mdtel, "Unlisted", sizeof ( mdtel ) )
 			UplinkStrncpy ( admintel, "Unlisted", sizeof ( admintel ) )
 

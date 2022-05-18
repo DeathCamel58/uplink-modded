@@ -43,8 +43,8 @@ protected:
     static void ConnectClick        ( Button *button );
 	static void PostClick           ( Button *button );
 
-    static void TextScrollChange    ( char *name, int newValue );
-    static void UserScrollChange    ( char *name, int newValue );
+    static void TextScrollChange    (const string &name, int newValue );
+    static void UserScrollChange    (const string &name, int newValue );
     static void AddEmoticons        ( int row, char *smiley, Image *imgSmiley );
 
 protected:

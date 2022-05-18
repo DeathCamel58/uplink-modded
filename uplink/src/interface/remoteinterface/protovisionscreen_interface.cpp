@@ -3,16 +3,11 @@
 #include <windows.h>
 #endif
 
-#include <GL/gl.h>
-
-#include <GL/glu.h> /* glu extention library */
 #include <sstream>
-
 
 #include "eclipse.h"
 #include "gucci.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 
@@ -116,7 +111,7 @@ void ProtovisionScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "protovisionscreen_subtitle" );
 		EclRegisterButtonCallbacks ( "protovisionscreen_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
-        char *textmessage = "Falken's maze\n"
+        string textmessage = "Falken's maze\n"
 							"Black jack\n"
 							"Gin rummy\n"
 							"hearts\n"

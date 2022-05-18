@@ -5,14 +5,12 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /*_glu_extention_library_*/
 #include <sstream>
 
 #include "vanbakel.h"
 #include "soundgarden.h"
 #include "redshirt.h"
 
-#include "app/app.h"
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
@@ -181,15 +179,10 @@ void LanProbe::MoveTo ( int x, int y, int time_ms )
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanprobe_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanprobe_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanprobe_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanprobe_close %d", pid )
+	string stitle = "lanprobe_title " + to_string(pid);
+    string sborder = "lanprobe_border " + to_string(pid);
+    string sprogress = "lanprobe_progress " + to_string(pid);
+    string sclose = "lanprobe_close " + to_string(pid);
 
 	EclRegisterMovement ( stitle, x, y, time_ms);
 	EclRegisterMovement ( sborder, x + 20, y, time_ms );
@@ -213,8 +206,7 @@ void LanProbe::Tick ( int n )
 	if ( IsInterfaceVisible () ) {
 
 		int pid = SvbLookupPID ( this );
-		char sprogress [128];
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanprobe_progress %d", pid )
+		string sprogress = "lanprobe_progress " + to_string(pid);
 
 		if ( status == LANPROBE_UNUSED ) {
 
@@ -312,10 +304,9 @@ void LanProbe::Tick ( int n )
 								        target->IncreaseVisibility( LANSYSTEMVISIBLE_AWARE );
 							        }
 
+                                } else {
+                                    link->IncreaseVisibility(LANLINKVISIBLE_FROMAWARE);
                                 }
-							    else
-                                    link->IncreaseVisibility( LANLINKVISIBLE_FROMAWARE );
-
 
 						    }
 						    else if ( link->to == systemIndex ) {
@@ -331,9 +322,9 @@ void LanProbe::Tick ( int n )
 								        target->IncreaseVisibility( LANSYSTEMVISIBLE_AWARE );
 							        }
 
+                                } else {
+                                    link->IncreaseVisibility(LANLINKVISIBLE_TOAWARE);
                                 }
-							    else
-								    link->IncreaseVisibility( LANLINKVISIBLE_TOAWARE );
 
 						    }
 
@@ -350,8 +341,7 @@ void LanProbe::Tick ( int n )
 				status = LANPROBE_FINISHED;
 			}
 
-		}
-        else if ( status == LANPROBE_FINISHED ) {
+		} else if ( status == LANPROBE_FINISHED ) {
 
             progress = 0;
             systemIndex = -1;
@@ -371,17 +361,11 @@ void LanProbe::CreateInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-		char tooltip   [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanprobe_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanprobe_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanprobe_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanprobe_close %d", pid )
-		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "LAN Probe v%1.1f", version )
+		string stitle = "lanprobe_title " + to_string(pid);
+        string sborder = "lanprobe_border " + to_string(pid);
+        string sprogress = "lanprobe_progress " + to_string(pid);
+        string sclose = "lanprobe_close " + to_string(pid);
+        string tooltip = "LAN Probe v" + to_string(version);
 
 		EclRegisterButton ( 265, 450, 20, 15, "", tooltip, stitle );
 		button_assignbitmap ( stitle, "software/lan.tif" );
@@ -407,15 +391,10 @@ void LanProbe::RemoveInterface ()
 
 		int pid = SvbLookupPID ( this );
 
-		char stitle    [128];
-		char sborder   [128];
-		char sprogress [128];
-		char sclose    [128];
-
-		UplinkSnprintf ( stitle, sizeof ( stitle ), "lanprobe_title %d", pid )
-		UplinkSnprintf ( sborder, sizeof ( sborder ), "lanprobe_border %d", pid )
-		UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanprobe_progress %d", pid )
-		UplinkSnprintf ( sclose, sizeof ( sclose ), "lanprobe_close %d", pid )
+		string stitle = "lanprobe_title " + to_string(pid);
+        string sborder = "lanprobe_border " + to_string(pid);
+        string sprogress = "lanprobe_progress " + to_string(pid);
+        string sclose = "lanprobe_close " + to_string(pid);
 
 		EclRemoveButton ( stitle );
 		EclRemoveButton ( sborder );
@@ -433,15 +412,10 @@ void LanProbe::ShowInterface ()
 
 	int pid = SvbLookupPID ( this );
 
-	char stitle    [128];
-	char sborder   [128];
-	char sprogress [128];
-	char sclose    [128];
-
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanprobe_title %d", pid )
-	UplinkSnprintf ( sborder, sizeof ( sborder ), "lanprobe_border %d", pid )
-	UplinkSnprintf ( sprogress, sizeof ( sprogress ), "lanprobe_progress %d", pid )
-	UplinkSnprintf ( sclose, sizeof ( sclose ), "lanprobe_close %d", pid )
+	string stitle = "lanprobe_title " + to_string(pid);
+    string sborder = "lanprobe_border " + to_string(pid);
+    string sprogress = "lanprobe_progress " + to_string(pid);
+    string sclose = "lanprobe_close " + to_string(pid);
 
 	EclButtonBringToFront ( stitle );
 	EclButtonBringToFront ( sborder );
@@ -455,8 +429,7 @@ bool LanProbe::IsInterfaceVisible ()
 	
 	int pid = SvbLookupPID ( this );
 
-	char stitle [128];
-	UplinkSnprintf ( stitle, sizeof ( stitle ), "lanprobe_border %d", pid )
+	string stitle = "lanprobe_border " + to_string(pid);
 	
 	return ( EclGetButton (stitle) != nullptr );
 	

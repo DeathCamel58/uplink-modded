@@ -4,8 +4,6 @@
 #endif
 
 #include <GL/gl.h>
-#include <GL/glu.h>
-
 
 #include <cstdlib>
 #include <sstream>
@@ -148,7 +146,7 @@ void TheTeamInterface::TextDraw ( Button *button, bool highlighted, bool clicked
 
 	glColor4f ( 1.0f, 1.0f, 1.0f, 1.0f );
 
-	LList <string> *wrappedText = wordwraptext ( button->caption.c_str(), button->width );
+	LList <string> *wrappedText = wordwraptext ( button->caption, button->width );
 	UplinkAssert (wrappedText)
 
 	for ( int line = 0; line < wrappedText->Size (); ++line ) {
@@ -276,7 +274,7 @@ void TheTeamInterface::Update ()
 
 }
 
-void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
+void TheTeamInterface::MergeCaption (const string& buttonName, string targetCaption )
 {
 
 	UplinkAssert ( EclGetButton(buttonName) )
@@ -287,7 +285,7 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 	// First check - is the current name the right length?
 	//
 
-	if ( currentCaption.length() < strlen(targetCaption) ) {
+	if ( currentCaption.length() < targetCaption.length() ) {
 
 		size_t newCaptionSize = currentCaption.length() + 2;
 		newCaption = new char [newCaptionSize];
@@ -296,7 +294,7 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 		newCaption [newCaptionSize-1] = '\x0';
 
 	}
-	else if ( currentCaption.length() > strlen(targetCaption) ) {
+	else if ( currentCaption.length() > targetCaption.length() ) {
 
 		size_t newCaptionSize = currentCaption.length()+1;
 		newCaption = new char [newCaptionSize];
@@ -319,7 +317,7 @@ void TheTeamInterface::MergeCaption ( char *buttonName, char *targetCaption )
 	UplinkAssert (newCaption)
 
 	size_t newCaptionSize = strlen(newCaption);
-	size_t targetCaptionSize = strlen(targetCaption);
+	size_t targetCaptionSize = targetCaption.length();
 	int numchanges = 0;
 
 	for ( size_t i = 0; i < newCaptionSize; ++i ) {

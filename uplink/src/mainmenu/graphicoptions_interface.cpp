@@ -5,7 +5,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h>
 #include <sstream>
 
 #include "soundgarden.h"
@@ -15,7 +14,6 @@
 #include "app/app.h"
 #include "app/globals.h"
 #include "app/miscutils.h"
-#include "app/opengl.h"
 #include "app/opengl_interface.h"
 #include "app/serialise.h"
 
@@ -23,7 +21,6 @@
 
 #include "mainmenu/mainmenu.h"
 #include "mainmenu/graphicoptions_interface.h"
-#include "mainmenu/login_interface.h"
 
 #include "mmgr.h"
 
@@ -49,8 +46,7 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 	UplinkAssert (thisint)
 
 	int index = 0;
-	char name1 [64];
-	UplinkSnprintf ( name1, sizeof ( name1 ), "graphic_option %d", index )
+	string name1 = "graphic_option " + to_string(index);
 
     bool shutdownRequired = false;
 
@@ -58,8 +54,7 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 
 		// Look up the next option button
 
-		char name2 [64];
-		UplinkSnprintf ( name2, sizeof ( name2 ), "graphic_value %d", index )
+		string name2 = "graphic_value " + to_string(index);
 
 		Button *namebutton = EclGetButton ( name1 );
 		Button *valuebutton = EclGetButton ( name2 );
@@ -89,7 +84,7 @@ void GraphicOptionsInterface::ApplyClick ( Button *button )
 		// Next button
 
 		++index;
-		UplinkSnprintf ( name1, sizeof ( name1 ), "graphic_option %d", index )
+		name1 = "graphic_option " + to_string(index);
 
 	}
 
@@ -140,8 +135,7 @@ void GraphicOptionsInterface::ToggleBoxClick ( Button *button )
 
 	// Grab the appropriate button
 
-	char name2 [64];
-	UplinkSnprintf ( name2, sizeof ( name2 ), "graphic_value %d", buttonindex )
+	string name2 = "graphic_value " + to_string(buttonindex);
 	Button *button2 = EclGetButton ( name2 );
 	UplinkAssert (button2)
 
@@ -162,14 +156,14 @@ GraphicOptionsInterface::GraphicOptionsInterface ()
 GraphicOptionsInterface::~GraphicOptionsInterface ()
 = default;
 
-bool GraphicOptionsInterface::ChangeOptionValue ( char *option, int newvalue )
+bool GraphicOptionsInterface::ChangeOptionValue (const string& option, int newvalue )
 {
 
 	//
 	// Deal with specific options
 	//
 
-	if ( strcmp ( option, "graphics_buttonanimations" ) == 0 ) {
+	if ( option == "graphics_buttonanimations" ) {
 
     	app->GetOptions ()->SetOptionValue ( option, newvalue );
 
@@ -179,7 +173,7 @@ bool GraphicOptionsInterface::ChangeOptionValue ( char *option, int newvalue )
         return false;
 
 	}
-	else if ( strcmp ( option, "graphics_fasterbuttonanimations" ) == 0 ) {
+	else if ( option == "graphics_fasterbuttonanimations" ) {
 
     	app->GetOptions ()->SetOptionValue ( option, newvalue );
 
@@ -189,12 +183,12 @@ bool GraphicOptionsInterface::ChangeOptionValue ( char *option, int newvalue )
         return false;
 
 	}
-	else if ( strcmp ( option, "graphics_fullscreen" ) == 0 ||
-         strcmp ( option, "graphics_screendepth" ) == 0 ||
-         strcmp ( option, "graphics_screenrefresh" ) == 0 ||
-         strcmp ( option, "graphics_safemode" ) == 0 || 
-         strcmp ( option, "graphics_screenwidth" ) == 0 ||
-         strcmp ( option, "graphics_screenheight" ) == 0 ) {
+	else if ( option == "graphics_fullscreen" ||
+         option == "graphics_screendepth" ||
+         option == "graphics_screenrefresh" ||
+         option == "graphics_safemode" ||
+         option == "graphics_screenwidth" ||
+         option == "graphics_screenheight" ) {
 
         app->GetOptions ()->RequestShutdownChange ( option, newvalue );
 

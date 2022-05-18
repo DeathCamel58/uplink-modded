@@ -66,11 +66,8 @@ void FaithScreenInterface::Create ( ComputerScreen *newcs )
 
 		// Create the information boxes
 
-		char faith [128];
-		char revelation [128];
-		
-		UplinkSnprintf ( faith, sizeof ( faith ), "Version %1.1f", game->GetWorld ()->plotgenerator.GetVersion_Faith () )
-		UplinkSnprintf ( revelation, sizeof ( revelation ), "Version %1.1f", game->GetWorld ()->plotgenerator.GetVersion_Revelation () )
+		string faith = "Version " + to_string( game->GetWorld ()->plotgenerator.GetVersion_Faith () );
+        string revelation = "Version " + to_string( game->GetWorld ()->plotgenerator.GetVersion_Revelation () );
 
 		EclRegisterButton ( 100, 150, 100, 30, "Faith", "", "faithscreen_faithtitle" );
 		EclRegisterButton ( 100, 200, 100, 30, "Revelation", "", "faithscreen_revelationtitle" );
