@@ -46,6 +46,28 @@ set(SDL_INCLUDE_DIR
         ${PROJECT_SOURCE_DIR}/SDL/include
         CACHE INTERNAL "SDL_mixer: Include Directories" FORCE)
 
+include_directories(${SDL_INCLUDE_DIR})
+
+# Replace CMAKE_SOURCE_DIR with CMAKE_CURRENT_SOURCE_DIR in libmikmod
+file(READ mikmod/libmikmod/CMakeLists.txt FILE_CONTENTS)
+string(REPLACE "CMAKE_SOURCE_DIR" "CMAKE_CURRENT_SOURCE_DIR" FILE_CONTENTS_NEW "${FILE_CONTENTS}")
+file(WRITE mikmod/libmikmod/CMakeLists.txt "${FILE_CONTENTS_NEW}")
+unset(FILE_CONTENTS)
+unset(FILE_CONTENTS_NEW)
+
+add_subdirectory(mikmod/libmikmod)
+set(MIKMOD_INCLUDE_DIR
+        ${PROJECT_SOURCE_DIR}/mikmod/libmikmod/include)
+include_directories(${MIKMOD_INCLUDE_DIR})
+link_libraries(mikmod)
+
+set(SUPPORT_MOD_MODPLUG ON CACHE INTERNAL "Support loading MOD music via modplug")
+
+option(SDL_MIXER_MIKMOD "Should Mikmod be used to parse audio" ON)
+if (SDL_MIXER_MIKMOD)
+    add_definitions(-DMUSIC_MOD_MIKMOD)
+endif ()
+
 add_subdirectory(SDL_mixer)
 set(SDL_MIXER_INCLUDE_DIR
         ${PROJECT_SOURCE_DIR}/SDL_mixer

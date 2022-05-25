@@ -133,7 +133,8 @@ include_directories(${ECLIPSE_INCLUDE_DIR}
         ${IRCLIB_INCLUDE_DIR}
         ${FTGL_INCLUDE_DIR}
         ${SDL_INCLUDE_DIR}
-        ${SDL_MIXER_INCLUDE_DIR})
+        ${SDL_MIXER_INCLUDE_DIR}
+        ${MIKMOD_INCLUDE_DIR})
 
 
 
@@ -356,6 +357,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE unrar)
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL2)
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL2_mixer)
 target_link_libraries(${PROJECT_NAME} PRIVATE bungle)
+target_link_libraries(${PROJECT_NAME} PRIVATE mikmod)
 
 add_library(binreloc app/binreloc.cpp app/binreloc.h)
 add_definitions(-fpermissive)

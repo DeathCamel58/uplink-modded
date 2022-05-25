@@ -69,13 +69,11 @@ void SgInitialise ()
 
   if (Mix_Init(MIX_INIT_MOD) <= -1) {
     cout << "Mix_Init Error: " << SDL_GetError() << endl;
-    printf("Mix_Init error: %s\n", SDL_GetError());
     return;
   }
 
   int fragmentSize = 512;
 
-  //if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, fragmentSize)==-1) {
   if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, fragmentSize) == -1) {
     printf("Mix_OpenAudio error: %s\n", Mix_GetError());
     return;

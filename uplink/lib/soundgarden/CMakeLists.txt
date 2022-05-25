@@ -23,6 +23,13 @@ if (SOUNDGARDEN_USE_SDL)
 endif ()
 message("-- SOUNDGARDEN_USE_SDL: '${SOUNDGARDEN_USE_SDL}'")
 
+# Debug option
+option(SOUNDGARDEN_DEBUG "Enable Debugging" OFF)
+if (SOUNDGARDEN_DEBUG)
+    add_definitions(-D_DEBUG)
+endif ()
+message("-- SOUNDGARDEN_DEBUG: '${SOUNDGARDEN_DEBUG}'")
+
 FILE(GLOB soundgardenSRC *.cpp)
 add_library(soundgarden ${soundgardenSRC})
 

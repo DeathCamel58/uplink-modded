@@ -22,3 +22,6 @@
 [submodule "uplink/lib/xz"]
 	path = uplink/lib/xz
 	url = https://git.tukaani.org/xz.git
+[submodule "uplink/lib/mikmod"]
+	path = uplink/lib/mikmod
+	url = https://git.code.sf.net/p/mikmod/mikmod
