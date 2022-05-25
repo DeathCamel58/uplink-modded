@@ -130,7 +130,10 @@ include_directories(${ECLIPSE_INCLUDE_DIR}
         ${REDSHIRT_INCLUDE_DIR}
         ${BUNGLE_INCLUDE_DIR}
         ${TCP4U_INCLUDE_DIR}
-        ${IRCLIB_INCLUDE_DIR})
+        ${IRCLIB_INCLUDE_DIR}
+        ${FTGL_INCLUDE_DIR}
+        ${SDL_INCLUDE_DIR}
+        ${SDL_MIXER_INCLUDE_DIR})
 
 
 
@@ -350,7 +353,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE tcp4u)
 target_link_libraries(${PROJECT_NAME} PRIVATE soundgarden)
 target_link_libraries(${PROJECT_NAME} PRIVATE vanbakel)
 target_link_libraries(${PROJECT_NAME} PRIVATE unrar)
-target_link_libraries(${PROJECT_NAME} PRIVATE SDL)
+target_link_libraries(${PROJECT_NAME} PRIVATE SDL2)
 target_link_libraries(${PROJECT_NAME} PRIVATE SDL2_mixer)
 target_link_libraries(${PROJECT_NAME} PRIVATE bungle)
 

@@ -67,19 +67,16 @@ void SgInitialise ()
 
   SgPrintSDLMixerVersionInfo();
 
-#ifdef _DEBUG
-  if (SDL_Init(SDL_INIT_AUDIO|SDL_INIT_NOPARACHUTE) == -1) {
-#else
-  if (SDL_Init(SDL_INIT_AUDIO) == -1) {
-#endif
-    printf("SDL_Init error: %s\n", SDL_GetError());
+  if (Mix_Init(MIX_INIT_MOD) <= -1) {
+    cout << "Mix_Init Error: " << SDL_GetError() << endl;
+    printf("Mix_Init error: %s\n", SDL_GetError());
     return;
   }
 
   int fragmentSize = 512;
 
   //if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, fragmentSize)==-1) {
-  if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, fragmentSize)==-1) {
+  if (Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, fragmentSize) == -1) {
     printf("Mix_OpenAudio error: %s\n", Mix_GetError());
     return;
   }
@@ -173,7 +170,7 @@ void SgPlaySound (const string &fullfilename, const string &id, bool synchronise
 		
     if ( !sample ) {
 
-      SgDebugPrintf ( "SoundGarden WARNING : Failed to load sound file from cache : %s\n", fullfilename );
+      SgDebugPrintf ( "SoundGarden WARNING : Failed to load sound file from cache : %s\n", fullfilename.c_str() );
       cache.RemoveData ( sampleid );
       return;
 
@@ -186,7 +183,7 @@ void SgPlaySound (const string &fullfilename, const string &id, bool synchronise
 
     sample = Mix_LoadWAV( fullfilename.c_str() );
     if ( !sample ) {
-      SgDebugPrintf ( "SoundGarden WARNING : Failed to load sound file %s\n (%s)", fullfilename, Mix_GetError() );
+      SgDebugPrintf ( "SoundGarden WARNING : Failed to load sound file %s\n (%s)", fullfilename.c_str(), Mix_GetError() );
       return;
     }
 
@@ -197,7 +194,7 @@ void SgPlaySound (const string &fullfilename, const string &id, bool synchronise
   Mix_VolumeChunk(sample, MIX_MAX_VOLUME / 4 );
   if ( Mix_PlayChannel(-1 /* First free unreserved channel */, sample, 0 /* number of loops */) == -1 ) {
     SgDebugPrintf("SoundGarden WARNING : Failed to play sound file %s\n (%s)\n", 
-      fullfilename, Mix_GetError());
+      fullfilename.c_str(), Mix_GetError());
   }
 }
 
@@ -221,7 +218,7 @@ void SgPlayMod (const string &fullfilename )
 
   if(currentmod==nullptr){
     SgDebugPrintf("SoundGarden WARNING : Failed to load music file %s\n (%s)\n", 
-      fullfilename, Mix_GetError());
+      fullfilename.c_str(), Mix_GetError());
     return;
   }
 
@@ -232,11 +229,11 @@ void SgPlayMod (const string &fullfilename )
   //Mix_PlayMusic(currentmod, 0 /* loops */);
   if ( Mix_PlayMusic(currentmod, -1 /* loops */) == -1 ) {
     SgDebugPrintf("SoundGarden WARNING : Failed to play music file %s\n (%s)\n", 
-      fullfilename, Mix_GetError());
+      fullfilename.c_str(), Mix_GetError());
     return;
   }
         
-  SgDebugPrintf ( "SoundGarden Playing Music : %s\n", fullfilename );
+  SgDebugPrintf ( "SoundGarden Playing Music : %s\n", fullfilename.c_str() );
 
 }
 

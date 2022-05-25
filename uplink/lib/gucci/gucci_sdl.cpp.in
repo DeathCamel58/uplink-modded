@@ -10,11 +10,12 @@
 #include <list>
 #include <iostream>
 
-#include <SDL/SDL.h>
+#include <SDL.h>
 #include <GL/gl.h>
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
+#include <vector>
 
 #include "gucci.h"
 #include "gucci_internal.h"
@@ -26,7 +27,7 @@ using namespace std;
 #define GciAbs(num) (((num)>0)?(num):-(num))
 
 
-static SDL_Surface *screen = nullptr;
+static SDL_Window *screen = nullptr;
 
 static unsigned _GciGetAccurateTime ();
 
@@ -75,17 +76,17 @@ char *GciInitGraphicsLibrary ( int graphics_flags )
   bool debugging = (graphics_flags & GCI_DEBUGSTART) != 0;
 
   if ( debugging ) printf ( "Initialising SDL..." );
-  //if ((SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER)==-1)) { 
+  //if ((SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER)==-1)) {
 #ifdef _DEBUG
-  if ((SDL_Init(SDL_INIT_VIDEO|SDL_INIT_NOPARACHUTE)==-1)) { 
+  if ((SDL_Init(SDL_INIT_VIDEO|SDL_INIT_NOPARACHUTE)==-1)) {
 #else
-  if ((SDL_Init(SDL_INIT_VIDEO)==-1)) { 
+  if ((SDL_Init(SDL_INIT_VIDEO)==-1)) {
 #endif
     //printf("Could not initialize SDL: %s.\n", SDL_GetError());
     //exit(-1);
     char message[] = "Could not initialize SDL: %s.";
     char *errorMessage = nullptr;
-    char *sdlErrorMessage = SDL_GetError ();
+    const char *sdlErrorMessage = SDL_GetError ();
 	size_t sizeErrorMessage = sizeof ( message ) + strlen ( sdlErrorMessage ) + 1;
     errorMessage = new char [ sizeErrorMessage ];
 #ifdef WIN32
@@ -114,11 +115,11 @@ char *GciInitGraphics( const string &caption, int graphics_flags, int screenWidt
     //sdlFlags |= SDL_DOUBLEBUF;
   }
 
-  const SDL_VideoInfo* info = nullptr;
-  info=SDL_GetVideoInfo();
-
-  if (screenDepth == -1)
-    screenDepth = info->vfmt->BitsPerPixel;
+//  const SDL_VideoInfo* info = nullptr;
+//  info=SDL_GetVideo();
+//
+//  if (screenDepth == -1)
+//    screenDepth = info->vfmt->BitsPerPixel;
 
   if (graphics_flags & GCI_RGB) {
     switch(screenDepth) {
@@ -128,7 +129,7 @@ char *GciInitGraphics( const string &caption, int graphics_flags, int screenWidt
       SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 8 );
       SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 8 );
       break;
-	
+
     case 16:
     default:
       SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 5 );
@@ -139,47 +140,17 @@ char *GciInitGraphics( const string &caption, int graphics_flags, int screenWidt
     }
     SDL_GL_SetAttribute( SDL_GL_DEPTH_SIZE, 16 );
   }
-  if (graphics_flags & GCI_FULLSCREEN) sdlFlags |= SDL_FULLSCREEN;
-
-  int closestbpp = SDL_VideoModeOK(screenWidth, screenHeight, screenDepth, sdlFlags | SDL_OPENGL);
-  if (closestbpp == 0) {
-    printf("Warning, no available video mode for width: %d, height:%d, flags:%d\n", screenWidth, screenHeight, sdlFlags | SDL_OPENGL);
-  }
-  else if (screenDepth != closestbpp) {
-    printf("Warning, difference in depth between the video mode requested %d and the closest available %d for width: %d, height:%d, flags:%d\n", screenDepth, closestbpp, screenWidth, screenHeight, sdlFlags | SDL_OPENGL);
-
-    switch(closestbpp) {
-    case 24:
-    case 32:
-      SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 8 );
-      SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 8 );
-      SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 8 );
-      break;
-
-    case 16:
-      SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 5 );
-      SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 5 );
-      SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 5 );
-      break;
-
-    default:
-      SDL_GL_SetAttribute( SDL_GL_RED_SIZE, closestbpp / 3 );
-      SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, closestbpp / 3 );
-      SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, closestbpp / 3 );
-      break;
-    }
-
-    screenDepth = closestbpp;
-  }
+  if (graphics_flags & GCI_FULLSCREEN) sdlFlags |= SDL_WINDOW_FULLSCREEN;
 
   if ( debugging ) printf ( "SDL is now opening a %dx%d window in %d depth ...", screenWidth, screenHeight, screenDepth );
-  screen = SDL_SetVideoMode(screenWidth, screenHeight, screenDepth, sdlFlags | SDL_OPENGL);
+  screen = SDL_CreateWindow(caption.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, sdlFlags | SDL_WINDOW_OPENGL);
+  SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, 0);
   if (screen == nullptr) {
     //printf("Could not initialize SDL Video: %s.\n", SDL_GetError());
     //exit(-1);
     char message[] = "Could not initialize SDL Video: %s.";
     char *errorMessage = nullptr;
-    char *sdlErrorMessage = SDL_GetError ();
+    const char *sdlErrorMessage = SDL_GetError ();
 	size_t sizeErrorMessage = sizeof ( message ) + strlen ( sdlErrorMessage ) + 1;
     errorMessage = new char [ sizeErrorMessage ];
 #ifdef WIN32
@@ -190,14 +161,9 @@ char *GciInitGraphics( const string &caption, int graphics_flags, int screenWidt
 	errorMessage [ sizeErrorMessage - 1 ] = '\0';
 	return errorMessage;
   }
-  if ( debugging ) printf ( "done\n ");  
+  if ( debugging ) printf ( "done\n ");
 
-  if ( debugging ) printf ( "SDL is now changing the window caption and diverse settings ...");  
-
-  SDL_WM_SetCaption(caption.c_str(), nullptr);
-  
-  SDL_EnableUNICODE(1);
-  SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY,SDL_DEFAULT_REPEAT_INTERVAL);
+  if ( debugging ) printf ( "SDL is now changing the window caption and diverse settings ...");
 
   if ( debugging ) printf ( "done\n ");
 
@@ -234,7 +200,7 @@ int GciFallbackTextWidth ( const string &text, int STYLE )
 	return inside;
   }
   else {
-    // We recursed back here, not even the 
+    // We recursed back here, not even the
     // default font is supported!
     abort();
     return 0;
@@ -268,7 +234,7 @@ bool GciLayerDamaged()
 
 void GciSwapBuffers()
 {
-  SDL_GL_SwapBuffers();
+  SDL_GL_SwapWindow(screen);
   displayDamaged = false;
 }
 
@@ -329,7 +295,7 @@ void GciMainLoop()
   finished = false;
 
   unsigned lastFrameTime = _GciGetAccurateTime();
-  unsigned frameRate = @GUCCI_FRAME_RATE@;
+  unsigned frameRate = 35;
   unsigned framePeriod = 1000 / frameRate;
 
   while (!finished) {
@@ -346,14 +312,14 @@ void GciMainLoop()
     /* Check for events */
     while(SDL_PollEvent(&event) && !finished){  /* Loop until there are no events left on the queue */
       switch(event.type){  /* Process the appropiate event type */
-      case SDL_KEYDOWN: {
+      case SDL_TEXTINPUT: {
 	int x, y;
 	SDL_GetMouseState(&x, &y);
 
-	Uint16 unicode = event.key.keysym.unicode;
+	Uint16 unicode = event.key.keysym.scancode;
 	if ( ( event.key.keysym.mod & KMOD_NUM ) == KMOD_NUM ) {
-		if ( SDLK_KP0 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP9 )
-			unicode = SDLK_0 + ( event.key.keysym.sym - SDLK_KP0 );
+		if ( SDLK_KP_0 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP_9 )
+			unicode = SDLK_0 + ( event.key.keysym.sym - SDLK_KP_0 );
 		else if ( event.key.keysym.sym == SDLK_KP_PERIOD )
 			unicode = SDLK_PERIOD;
 		else if ( event.key.keysym.sym == SDLK_KP_ENTER )
@@ -371,18 +337,18 @@ void GciMainLoop()
 	}
 
 	if (unicode == 0) {
-	  if (gciSpecialHandlerP) 
+	  if (gciSpecialHandlerP)
 	    (*gciSpecialHandlerP)(sdlKeyToGucci(event.key.keysym.sym), x, y);
 	}
 	else {
-	  if (gciKeyboardHandlerP) 
+	  if (gciKeyboardHandlerP)
 	    (*gciKeyboardHandlerP)((unsigned char) unicode, x, y);
 	}
       }
 	break;
-      case SDL_MOUSEMOTION: 
+      case SDL_MOUSEMOTION:
 	if (gciMotionHandlerP) {
-	  /* I have a feeling we should only call this if 
+	  /* I have a feeling we should only call this if
 	     a mouse button is depressed */
 	  	  (*gciMotionHandlerP)(event.motion.x, event.motion.y);
 	}
@@ -402,8 +368,8 @@ void GciMainLoop()
       case SDL_QUIT:
 	finished = true;
 	break;
-      case SDL_VIDEOEXPOSE:
-      case SDL_VIDEORESIZE:
+      case SDL_WINDOWEVENT_EXPOSED:
+      case SDL_WINDOWEVENT_RESIZED:
 	displayDamaged = true;
 	break;
       default: /* Report an unhandled event */
@@ -435,7 +401,7 @@ void GciRestoreScreenSize()
     int value = 0;
     if ( SDL_GL_GetAttribute(SDL_GL_DOUBLEBUFFER,&value) == 0 )
 		if ( value != 0 )
-			SDL_GL_SwapBuffers();
+			SDL_GL_SwapWindow(screen);
 
     SDL_QuitSubSystem(SDL_INIT_VIDEO);
   }
@@ -476,7 +442,7 @@ static unsigned _GciGetAccurateTime ()
 	if ( !initted ) {
 		initted = true;
 
-		if ( QueryPerformanceFrequency ( &frequency ) && 
+		if ( QueryPerformanceFrequency ( &frequency ) &&
 		     QueryPerformanceCounter ( &firstPerformanceCount ) ) {
 
 			supportsHighResTime = true;
@@ -514,26 +480,26 @@ static unsigned _GciGetAccurateTime ()
 
 	// Linux version
 
-	static bool initted = false; 
-	static struct timeval startTime; 
-	struct timeval tv; 
-  
-	if (!initted) { 
-		initted = true; 
+	static bool initted = false;
+	static struct timeval startTime;
+	struct timeval tv;
+
+	if (!initted) {
+		initted = true;
 		gettimeofday(&startTime, nullptr);
-		return 0; 
-	} 
+		return 0;
+	}
 
 	gettimeofday(&tv, nullptr);
-  
-	long diff_usec = tv.tv_usec - startTime.tv_usec; 
-	if (diff_usec < 0) { 
-		diff_usec += 1000000; 
-		tv.tv_sec --; 
-	} 
-	long diff_sec = tv.tv_sec - startTime.tv_sec; 
 
-	return 1000 * diff_sec + diff_usec / 1000; 
+	long diff_usec = tv.tv_usec - startTime.tv_usec;
+	if (diff_usec < 0) {
+		diff_usec += 1000000;
+		tv.tv_sec --;
+	}
+	long diff_sec = tv.tv_sec - startTime.tv_sec;
+
+	return 1000 * diff_sec + diff_usec / 1000;
 
 #endif
 
@@ -544,26 +510,41 @@ GciScreenModeList *GciListScreenModes() {
 
 	GciScreenModeList *resolutions = new DArray<GciScreenMode *>;
 
-	SDL_Rect **modes;
+    std::vector<SDL_DisplayMode> modes;
+
+    int display_count = SDL_GetNumVideoDisplays();
+
+    SDL_Log("Number of displays: %i", display_count);
+    for (int display_index = 0; display_index <= display_count; display_index++) {
+        SDL_Log("Display %i:", display_index);
+
+        int modes_count = SDL_GetNumDisplayModes(display_index);
+        for (int mode_index = 0; mode_index <= modes_count; mode_index++) {
+            SDL_DisplayMode mode = { SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, nullptr };
+
+            if (SDL_GetDisplayMode(display_index, mode_index, &mode) == 0) {
+                SDL_Log(" %i bpp\t%i x %i @ %iHz",
+                        SDL_BITSPERPIXEL(mode.format), mode.w, mode.h, mode.refresh_rate);
+
+                if (mode.w >= 640 && mode.h >= 480) {
+                    GciScreenMode *newMode = new GciScreenMode;
+                    newMode->w = mode.w;
+                    newMode->h = mode.h;
+                    resolutions->PutData( newMode );
+                }
+            }
+        }
+    }
+
 	/* Get available fullscreen/hardware modes */
-	modes = SDL_ListModes(nullptr, SDL_FULLSCREEN|SDL_HWSURFACE|SDL_OPENGL);
+//	modes = SDL_ListModes(nullptr, SDL_WINDOW_FULLSCREEN|SDL_WINDOW_OPENGL);
 
 	/* Check is there are any modes available
 	   and try non-hardware modes if not. */
-	if(modes == (SDL_Rect **)nullptr){
-		printf( "SDL Resolutions: not using HW flag.\n" );
-		modes = SDL_ListModes(nullptr, SDL_FULLSCREEN|SDL_OPENGL);
-	}
-
-	for( unsigned i = 0; modes[i]; ++i ) {
-		// We don't need the really small resolutions
-		if (modes[i]->w >= 640 && modes[i]->h >= 480) {
-			GciScreenMode *newMode = new GciScreenMode;
-			newMode->w = modes[i]->w;
-			newMode->h = modes[i]->h;
-			resolutions->PutData( newMode );
-		}
-	}
+//	if(modes == (SDL_Rect **)nullptr){
+//		printf( "SDL Resolutions: not using HW flag.\n" );
+//		modes = SDL_ListModes(nullptr, SDL_WINDOW_FULLSCREEN|SDL_WINDOW_OPENGL);
+//	}
 
 	return resolutions;
 }
@@ -574,30 +555,22 @@ GciScreenMode *GciGetClosestScreenMode ( int width, int height ) {
 	newMode->w = width;
 	newMode->h = height;
 
-	SDL_Rect **modes;
-	/* Get available fullscreen/hardware modes */
-	modes = SDL_ListModes(nullptr, SDL_FULLSCREEN|SDL_HWSURFACE|SDL_OPENGL);
+	SDL_DisplayMode target, closest;
+	target.w = width;
+	target.h = height;
+	target.format = 0; // Don't care
+	target.refresh_rate = 0; // Don't care
+	target.driverdata = nullptr; // Initialize to 0
+	cout << "Requesting " << target.w << "x" << target.h << endl;
 
-	/* Check is there are any modes available
-	   and try non-hardware modes if not. */
-	if(modes == (SDL_Rect **)nullptr){
-		printf( "SDL Resolutions: not using HW flag.\n" );
-		modes = SDL_ListModes(nullptr, SDL_FULLSCREEN|SDL_OPENGL);
+	if (SDL_GetClosestDisplayMode(0, &target, &closest) == nullptr) {
+	    cout << "No suitable display mode found!" << endl;
+	} else {
+	    cout << "Got a suitable display mode!" << endl;
 	}
 
-	int curdeltaW = -1, curdeltaH = -1;
-	for( unsigned i = 0; modes[i]; ++i ) {
-		// We don't need the really small resolutions
-		
-		int deltaW = GciAbs ( width - modes[i]->w );
-		int deltaH = GciAbs ( height - modes[i]->h );
-		if ( curdeltaW == -1 || curdeltaH == -1 || ( deltaW + deltaH ) < ( curdeltaW + curdeltaH ) ) {
-			curdeltaW = deltaW;
-			curdeltaH = deltaH;
-			newMode->w = modes[i]->w;
-			newMode->h = modes[i]->h;
-		}
-	}
+	newMode->w = closest.w;
+	newMode->h = closest.h;
 
 	return newMode;
 }
@@ -619,16 +592,16 @@ void GciSaveScreenshot( const string &file ) {
 	unsigned char *pixels;
 	int i;
 
-	int w = screen->w;
-	int h = screen->h;
-	
-	if (!(screen->flags & SDL_OPENGL))
+	int w = SDL_GetWindowSurface(screen)->w;
+	int h = SDL_GetWindowSurface(screen)->h;
+
+	if (!(SDL_GetWindowSurface(screen)->flags & SDL_WINDOW_OPENGL))
 	{
 		//SDL_SaveBMP(temp, file);
 		return;
 	}
-		
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, screen->w, screen->h, 24,
+
+	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, w, h, 24,
 #if SDL_BYTEORDER == SDL_LIL_ENDIAN
 	0x000000FF, 0x0000FF00, 0x00FF0000, 0
 #else
@@ -658,8 +631,9 @@ void GciSaveScreenshot( const string &file ) {
 bool GciAppVisible ()
 {
 
-	if ( ( SDL_GetAppState () & SDL_APPACTIVE ) == SDL_APPACTIVE )
-		return true;
+    if (SDL_GetWindowFlags(screen) & SDL_WINDOW_SHOWN) {
+        return true;
+    }
 
 	return false;
 
