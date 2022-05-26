@@ -343,7 +343,7 @@ void EclMakeButtonEditable (const string &name )
 		editablebuttons.PutDataAtEnd (name);
 	}
 
-#ifdef DEBUG
+#ifdef _DEBUG
 
 	else
 		printf ( "ECL WARNING : EclMakeButtonEditable called, invalid button name\n" );
