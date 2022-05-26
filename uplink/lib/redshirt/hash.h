@@ -1,5 +1,5 @@
-#ifndef _included_hash_h
-#define _included_hash_h
+#ifndef included_hash_h
+#define included_hash_h
 
 /*
  *	Hash data using SHA1

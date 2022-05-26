@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_evtqueueinterface_h
-#define _included_evtqueueinterface_h
+#ifndef included_evtqueueinterface_h
+#define included_evtqueueinterface_h
 
 // ============================================================================
 

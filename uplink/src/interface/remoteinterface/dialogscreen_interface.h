@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_dialogscreeninterface_h
-#define _included_dialogscreeninterface_h
+#ifndef included_dialogscreeninterface_h
+#define included_dialogscreeninterface_h
 
 
 // ============================================================================

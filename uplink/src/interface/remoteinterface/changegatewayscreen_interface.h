@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_changegatewayscreeninterface_h
-#define _included_changegatewayscreeninterface_h
+#ifndef included_changegatewayscreeninterface_h
+#define included_changegatewayscreeninterface_h
 
 #include "interface/remoteinterface/remoteinterfacescreen.h"
 

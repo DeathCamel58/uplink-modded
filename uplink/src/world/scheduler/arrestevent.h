@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_arrestevent_h
-#define _included_arrestevent_h
+#ifndef included_arrestevent_h
+#define included_arrestevent_h
 
 
 #include "world/person.h"

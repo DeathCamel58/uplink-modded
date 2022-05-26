@@ -9,8 +9,8 @@
 
 
 
-#ifndef _included_swinterface_h
-#define _included_swinterface_h
+#ifndef included_swinterface_h
+#define included_swinterface_h
 
 #include "eclipse.h"
 

@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_messagescreen_h
-#define _included_messagescreen_h
+#ifndef included_messagescreen_h
+#define included_messagescreen_h
 
 // ============================================================================
 

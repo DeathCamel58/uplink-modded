@@ -5,8 +5,8 @@
 
 	*/
 
-#ifndef _included_langenerator_h
-#define _included_langenerator_h
+#ifndef included_langenerator_h
+#define included_langenerator_h
 
 class LanComputer;
 class LanComputerSystem;

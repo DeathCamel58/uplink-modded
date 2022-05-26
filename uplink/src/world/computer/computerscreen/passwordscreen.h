@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_passwordscreen_h
-#define _included_passwordscreen_h
+#ifndef included_passwordscreen_h
+#define included_passwordscreen_h
 
 // ============================================================================
 

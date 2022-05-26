@@ -9,8 +9,8 @@
 
   */
 
-#ifndef _included_bbsscreen_h
-#define _included_bbsscreen_h
+#ifndef included_bbsscreen_h
+#define included_bbsscreen_h
 
 
 #include "world/computer/computerscreen/computerscreen.h"

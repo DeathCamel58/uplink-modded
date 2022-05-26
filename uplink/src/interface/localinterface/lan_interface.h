@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_laninterface_h
-#define _included_laninterface_h
+#ifndef included_laninterface_h
+#define included_laninterface_h
 
 // ============================================================================
 

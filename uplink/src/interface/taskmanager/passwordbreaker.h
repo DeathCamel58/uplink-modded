@@ -1,6 +1,6 @@
 
-#ifndef _included_passwordbreaker_h
-#define _included_passwordbreaker_h
+#ifndef included_passwordbreaker_h
+#define included_passwordbreaker_h
 
 
 #include "vanbakel.h"

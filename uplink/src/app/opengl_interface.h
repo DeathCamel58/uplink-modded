@@ -1,6 +1,6 @@
 
-#ifndef _included_openglinterface_h
-#define _included_openglinterface_h
+#ifndef included_openglinterface_h
+#define included_openglinterface_h
 
 #include "eclipse.h"
 #include "gucci.h"

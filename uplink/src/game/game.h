@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_game_h
-#define _included_game_h
+#ifndef included_game_h
+#define included_game_h
 
 #include <cstdio>
 #include <ctime>

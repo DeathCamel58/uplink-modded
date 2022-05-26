@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_sale_h
-#define _included_sale_h
+#ifndef included_sale_h
+#define included_sale_h
 
 // ============================================================================
 

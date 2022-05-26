@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_uplinktask_h
-#define _included_uplinktask_h
+#ifndef included_uplinktask_h
+#define included_uplinktask_h
 
 // ============================================================================
 

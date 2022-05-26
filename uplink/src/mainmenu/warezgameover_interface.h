@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_warezgameoverinterface_h
-#define _included_warezgameoverinterface_h
+#ifndef included_warezgameoverinterface_h
+#define included_warezgameoverinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 

@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_warningevent_h
-#define _included_warningevent_h
+#ifndef included_warningevent_h
+#define included_warningevent_h
 
 
 #include "world/scheduler/uplinkevent.h"

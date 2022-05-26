@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_obituaryinterface_h
-#define _included_obituaryinterface_h
+#ifndef included_obituaryinterface_h
+#define included_obituaryinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 

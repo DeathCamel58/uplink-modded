@@ -1,7 +1,7 @@
 
 
-#ifndef _included_protovisionscreeninterface_h
-#define _included_protovisionsscreeninterface_h
+#ifndef included_protovisionscreeninterface_h
+#define included_protovisionsscreeninterface_h
 
 
 // ============================================================================

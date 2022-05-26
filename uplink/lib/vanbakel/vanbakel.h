@@ -14,8 +14,8 @@
 */
 
 
-#ifndef _included_vanbakel_h
-#define _included_vanbakel_h
+#ifndef included_vanbakel_h
+#define included_vanbakel_h
 
 #include "tosser.h"
 #include "eclipse.h"

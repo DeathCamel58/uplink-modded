@@ -6,8 +6,8 @@
 	
   */
 
-#ifndef _included_companyuplink_h
-#define _included_companyuplink_h
+#ifndef included_companyuplink_h
+#define included_companyuplink_h
 
 // ============================================================================
 

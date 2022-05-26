@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_gameobituary_h
-#define _included_gameobituary_h
+#ifndef included_gameobituary_h
+#define included_gameobituary_h
 
 #include "app/uplinkobject.h"
 #include "world/person.h"

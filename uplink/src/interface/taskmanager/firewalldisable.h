@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_firewalldisable_h
-#define _included_firewalldisable_h
+#ifndef included_firewalldisable_h
+#define included_firewalldisable_h
 
 #include "eclipse.h"
 

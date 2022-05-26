@@ -10,8 +10,8 @@
 
   */
 
-#ifndef _included_rating_h
-#define _included_rating_h
+#ifndef included_rating_h
+#define included_rating_h
 
 
 #include "app/uplinkobject.h"

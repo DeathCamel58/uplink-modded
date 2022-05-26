@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_rankingsinterface_h
-#define _included_rankingsinterface_h
+#ifndef included_rankingsinterface_h
+#define included_rankingsinterface_h
 
 #include "interface/remoteinterface/remoteinterfacescreen.h"
 

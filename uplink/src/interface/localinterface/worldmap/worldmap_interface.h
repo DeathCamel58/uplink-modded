@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_worldmapinterface_h
-#define _included_worldmapinterface_h
+#ifndef included_worldmapinterface_h
+#define included_worldmapinterface_h
 
 
 #include "eclipse.h"

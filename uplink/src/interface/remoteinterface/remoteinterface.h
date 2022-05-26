@@ -9,8 +9,8 @@
 	
   */
 
-#ifndef _included_remoteinterface_h
-#define _included_remoteinterface_h
+#ifndef included_remoteinterface_h
+#define included_remoteinterface_h
 
 
 #include "app/uplinkobject.h"

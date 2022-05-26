@@ -11,8 +11,8 @@
 
   */
 
-#ifndef _included_highsecurityscreen_h
-#define _included_highsecurityscreen_h
+#ifndef included_highsecurityscreen_h
+#define included_highsecurityscreen_h
 
 #include "world/computer/computerscreen/computerscreen.h"
 class MenuScreenOption;

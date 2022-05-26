@@ -9,8 +9,8 @@
 	*/
 
 
-#ifndef _included_mission_h
-#define _included_mission_h
+#ifndef included_mission_h
+#define included_mission_h
 
 // ============================================================================
 

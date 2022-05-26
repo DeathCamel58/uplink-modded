@@ -1,7 +1,7 @@
 
 
-#ifndef _included_logscreeninterface_h
-#define _included_logscreeninterface_h
+#ifndef included_logscreeninterface_h
+#define included_logscreeninterface_h
 
 
 // ============================================================================

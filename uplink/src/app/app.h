@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_app_h
-#define _included_app_h
+#ifndef included_app_h
+#define included_app_h
 
 // ============================================================================
 

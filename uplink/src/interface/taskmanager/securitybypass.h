@@ -12,8 +12,8 @@
 
 
 
-#ifndef _included_proxybypass_h
-#define _included_proxybypass_h
+#ifndef included_proxybypass_h
+#define included_proxybypass_h
 
 #include "world/vlocation.h"
 

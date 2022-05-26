@@ -6,8 +6,8 @@
   */
 
 
-#ifndef _included_linksscreen_h
-#define _included_linksscreen_h
+#ifndef included_linksscreen_h
+#define included_linksscreen_h
 
 // ============================================================================
 

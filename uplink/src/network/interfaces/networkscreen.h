@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_networkscreen_h
-#define _included_networkscreen_h
+#ifndef included_networkscreen_h
+#define included_networkscreen_h
 
 
 class NetworkScreen

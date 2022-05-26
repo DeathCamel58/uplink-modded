@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_networkserver_h
-#define _included_networkserver_h
+#ifndef included_networkserver_h
+#define included_networkserver_h
 
 // ============================================================================
 

@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_lanprobe_h
-#define _included_lanprobe_h
+#ifndef included_lanprobe_h
+#define included_lanprobe_h
 
 #include "eclipse.h"
 #include "interface/taskmanager/uplinktask.h"

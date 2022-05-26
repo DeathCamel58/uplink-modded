@@ -11,8 +11,8 @@
   */
 
 
-#ifndef _included_newsgenerator_h
-#define _included_newsgenerator_h
+#ifndef included_newsgenerator_h
+#define included_newsgenerator_h
 
 // ============================================================================
 

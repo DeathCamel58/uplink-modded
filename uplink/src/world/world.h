@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_world_h
-#define _included_world_h
+#ifndef included_world_h
+#define included_world_h
 
 // ============================================================================
 

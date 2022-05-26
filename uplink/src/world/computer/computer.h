@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_computer_h
-#define _included_computer_h
+#ifndef included_computer_h
+#define included_computer_h
 
 // ============================================================================
 

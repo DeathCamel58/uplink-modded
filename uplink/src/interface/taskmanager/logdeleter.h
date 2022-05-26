@@ -1,6 +1,6 @@
 
-#ifndef _included_logdeleter_h
-#define _included_logdeleter_h
+#ifndef included_logdeleter_h
+#define included_logdeleter_h
 
 
 // ============================================================================

@@ -12,8 +12,8 @@
 	*/
 
 
-#ifndef _included_eventscheduler_h
-#define _included_eventscheduler_h
+#ifndef included_eventscheduler_h
+#define included_eventscheduler_h
 
 
 #include "tosser.h"

@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_cypherscreeninterface_h
-#define _included_cypherscreeninterface_h
+#ifndef included_cypherscreeninterface_h
+#define included_cypherscreeninterface_h
 
 
 // ==============================================================

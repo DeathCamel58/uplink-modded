@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_clientcommsinterface_h
-#define _included_clientcommsinterface_h
+#ifndef included_clientcommsinterface_h
+#define included_clientcommsinterface_h
 
 // ============================================================================
 

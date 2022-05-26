@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_hardwareinterface_h
-#define _included_hardwareinterface_h
+#ifndef included_hardwareinterface_h
+#define included_hardwareinterface_h
 
 
 #include "interface/localinterface/localinterfacescreen.h"

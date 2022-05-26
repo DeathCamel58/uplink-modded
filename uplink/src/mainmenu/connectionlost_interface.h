@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_connectionlostinterface_h
-#define _included_connectionlostinterface_h
+#ifndef included_connectionlostinterface_h
+#define included_connectionlostinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 

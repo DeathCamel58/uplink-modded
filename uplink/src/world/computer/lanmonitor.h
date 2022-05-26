@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_lanmonitor_h
-#define _included_lanmonitor_h
+#ifndef included_lanmonitor_h
+#define included_lanmonitor_h
 
 
 class LanComputer;

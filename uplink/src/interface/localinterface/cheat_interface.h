@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_cheatinterface_h
-#define _included_cheatinterface_h
+#ifndef included_cheatinterface_h
+#define included_cheatinterface_h
 
 
 #include "interface/localinterface/localinterfacescreen.h"

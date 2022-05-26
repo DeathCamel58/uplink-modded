@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_lanforce_h
-#define _included_lanforce_h
+#ifndef included_lanforce_h
+#define included_lanforce_h
 
 #include "eclipse.h"
 #include "interface/taskmanager/uplinktask.h"

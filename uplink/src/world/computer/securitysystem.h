@@ -12,8 +12,8 @@
 
 
 
-#ifndef _included_securitysystem_h
-#define _included_securitysystem_h
+#ifndef included_securitysystem_h
+#define included_securitysystem_h
 
 // ============================================================================
 

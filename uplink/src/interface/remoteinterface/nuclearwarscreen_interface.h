@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_nuclearwarscreeninterface_h
-#define _included_nuclearwarscreeninterface_h
+#ifndef included_nuclearwarscreeninterface_h
+#define included_nuclearwarscreeninterface_h
 
 #include "interface/remoteinterface/remoteinterfacescreen.h"
 

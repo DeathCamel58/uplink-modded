@@ -16,8 +16,8 @@
 	*/
 
 
-#ifndef _included_consequencegenerator_h
-#define _included_consequencegenerator_h
+#ifndef included_consequencegenerator_h
+#define included_consequencegenerator_h
 
 // ============================================================================
 

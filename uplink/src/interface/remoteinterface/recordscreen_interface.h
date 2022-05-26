@@ -1,8 +1,8 @@
 
 //	Record Screen Interface
 
-#ifndef _included_recordscreeninterface_h
-#define _included_recordscreeninterface_h
+#ifndef included_recordscreeninterface_h
+#define included_recordscreeninterface_h
 
 
 // ============================================================================

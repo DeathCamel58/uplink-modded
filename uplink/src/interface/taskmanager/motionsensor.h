@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_motionsensor_h
-#define _included_motionsensor_h
+#ifndef included_motionsensor_h
+#define included_motionsensor_h
 
 
 #include "interface/taskmanager/uplinktask.h"

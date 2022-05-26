@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_localinterface_h
-#define _included_localinterface_h
+#ifndef included_localinterface_h
+#define included_localinterface_h
 
 
 #include "app/uplinkobject.h"

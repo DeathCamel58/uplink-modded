@@ -6,8 +6,8 @@
   */
 
 
-#ifndef _included_socialsecurityscreeninterface_h
-#define _included_socialsecurityscreeninterface_h
+#ifndef included_socialsecurityscreeninterface_h
+#define included_socialsecurityscreeninterface_h
 
 // ============================================================================
 

@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_redshirt_h
-#define _included_redshirt_h
+#ifndef included_redshirt_h
+#define included_redshirt_h
 
 #include <cstdio>
 

@@ -19,8 +19,8 @@
 // ============================================================================
 
 
-#ifndef _included_plotgenerator_h
-#define _included_plotgenerator_h
+#ifndef included_plotgenerator_h
+#define included_plotgenerator_h
 
 #include "app/uplinkobject.h"
 #include "world/person.h"

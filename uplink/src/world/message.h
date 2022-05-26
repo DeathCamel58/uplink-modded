@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_message_h
-#define _included_message_h
+#ifndef included_message_h
+#define included_message_h
 
 // ============================================================================
 

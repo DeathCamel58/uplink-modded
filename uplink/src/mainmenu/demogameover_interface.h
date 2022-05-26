@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_demogameoverinterface_h
-#define _included_demogameoverinterface_h
+#ifndef included_demogameoverinterface_h
+#define included_demogameoverinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 

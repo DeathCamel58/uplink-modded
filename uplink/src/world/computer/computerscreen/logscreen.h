@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_logscreen_h
-#define _included_logscreen_h
+#ifndef included_logscreen_h
+#define included_logscreen_h
 
 // ============================================================================
 

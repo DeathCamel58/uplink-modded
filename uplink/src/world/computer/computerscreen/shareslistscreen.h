@@ -12,8 +12,8 @@
   */
 
 
-#ifndef _included_shareslistscreen_h
-#define _included_shareslistscreen_h
+#ifndef included_shareslistscreen_h
+#define included_shareslistscreen_h
 
 // ============================================================================
 

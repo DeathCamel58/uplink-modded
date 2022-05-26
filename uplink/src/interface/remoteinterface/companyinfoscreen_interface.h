@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _includedcompanyinfoscreeninterface_h
-#define _includedcompanyinfoscreeninterface_h
+#ifndef includedcompanyinfoscreeninterface_h
+#define includedcompanyinfoscreeninterface_h
 
 
 #include "interface/remoteinterface/remoteinterfacescreen.h"

@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_installhardwareevent_h
-#define _included_installhardwareevent_h
+#ifndef included_installhardwareevent_h
+#define included_installhardwareevent_h
 
 // ============================================================================
 

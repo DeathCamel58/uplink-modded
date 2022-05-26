@@ -6,8 +6,8 @@
   */
 
 
-#ifndef _included_miscutils_h
-#define _included_miscutils_h
+#ifndef included_miscutils_h
+#define included_miscutils_h
 
 #include "tosser.h"
 

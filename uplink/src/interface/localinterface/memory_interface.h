@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_memoryinterface_h
-#define _included_memoryinterface_h
+#ifndef included_memoryinterface_h
+#define included_memoryinterface_h
 
 
 #include "interface/localinterface/localinterfacescreen.h"

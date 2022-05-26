@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_uplinkobject_h
-#define _included_uplinkobject_h
+#ifndef included_uplinkobject_h
+#define included_uplinkobject_h
 
 #include <cstdio>
 

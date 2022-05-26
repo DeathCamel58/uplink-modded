@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_securityscreeninterface_h
-#define _included_securityscreeninterface_h
+#ifndef included_securityscreeninterface_h
+#define included_securityscreeninterface_h
 
 // ============================================================================
 

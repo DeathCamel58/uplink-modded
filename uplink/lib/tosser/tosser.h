@@ -6,8 +6,8 @@
 //                           V1.14                               //
 //===============================================================//
 
-#ifndef _included_tosser_h
-#define _included_tosser_h
+#ifndef included_tosser_h
+#define included_tosser_h
 
 #include <iostream>
 using namespace std;

@@ -5,8 +5,8 @@
 	
   */
 
-#ifndef _included_loadinginterface_h
-#define _included_loadinginterface_h
+#ifndef included_loadinginterface_h
+#define included_loadinginterface_h
 
 
 #include "mainmenu/mainmenuscreen.h"

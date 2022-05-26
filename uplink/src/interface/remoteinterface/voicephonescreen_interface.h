@@ -9,8 +9,8 @@
 
   */
 
-#ifndef _included_voicephonescreeninterface_h
-#define _included_voicephonescreeninterface_h
+#ifndef included_voicephonescreeninterface_h
+#define included_voicephonescreeninterface_h
 
 // ============================================================================
 

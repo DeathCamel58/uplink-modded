@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_defrag_h
-#define _included_defrag_h
+#ifndef included_defrag_h
+#define included_defrag_h
 
 #include "eclipse.h"
 

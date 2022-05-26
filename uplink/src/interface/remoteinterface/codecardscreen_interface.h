@@ -1,7 +1,7 @@
 
 
-#ifndef _included_codecardscreeninterface_h
-#define _included_codecardscreeninterface_h
+#ifndef included_codecardscreeninterface_h
+#define included_codecardscreeninterface_h
 
 
 #include "interface/remoteinterface/remoteinterfacescreen.h"

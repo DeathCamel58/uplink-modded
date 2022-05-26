@@ -9,8 +9,8 @@
   */
   
 
-#ifndef _included_genericoptionsinterface_h
-#define _included_genericoptionsinterface_h
+#ifndef included_genericoptionsinterface_h
+#define included_genericoptionsinterface_h
 
 #include "eclipse.h"
 

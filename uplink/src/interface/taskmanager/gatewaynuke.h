@@ -9,8 +9,8 @@
 
   */
 
-#ifndef _included_gatewaynuke_h
-#define _included_gatewaynuke_h
+#ifndef included_gatewaynuke_h
+#define included_gatewaynuke_h
 
 // ============================================================================
 

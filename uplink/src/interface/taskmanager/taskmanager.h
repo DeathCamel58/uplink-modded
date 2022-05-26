@@ -12,8 +12,8 @@
 
 // ============================================================================
 
-#ifndef _included_tasks_h
-#define _included_tasks_h
+#ifndef included_tasks_h
+#define included_tasks_h
 
 
 #include "vanbakel.h"

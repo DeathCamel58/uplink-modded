@@ -1,7 +1,7 @@
 
 
-#ifndef _included_passwordscreeninterface_h
-#define _included_passwordscreeninterface_h
+#ifndef included_passwordscreeninterface_h
+#define included_passwordscreeninterface_h
 
 
 // ============================================================================

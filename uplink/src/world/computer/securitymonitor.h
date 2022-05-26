@@ -12,8 +12,8 @@
 
 
 
-#ifndef _included_securitymonitor_h
-#define _included_securitymonitor_h
+#ifndef included_securitymonitor_h
+#define included_securitymonitor_h
 
 #include "world/date.h"
 

@@ -10,8 +10,8 @@
 
   */
 	
-#ifndef _included_connection_h
-#define _included_connection_h
+#ifndef included_connection_h
+#define included_connection_h
 
 // ============================================================================
 

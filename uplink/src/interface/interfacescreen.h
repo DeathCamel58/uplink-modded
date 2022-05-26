@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_interfacescreen_h
-#define _included_interfacescreen_h
+#ifndef included_interfacescreen_h
+#define included_interfacescreen_h
 
 #include "app/uplinkobject.h"
 

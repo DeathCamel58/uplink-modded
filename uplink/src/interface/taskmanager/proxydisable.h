@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_proxydisable_h
-#define _included_proxydisable_h
+#ifndef included_proxydisable_h
+#define included_proxydisable_h
 
 #include "eclipse.h"
 

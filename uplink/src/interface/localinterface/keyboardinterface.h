@@ -7,8 +7,8 @@
 	*/
 
 
-#ifndef _included_keyboard_h
-#define _included_keyboard_h
+#ifndef included_keyboard_h
+#define included_keyboard_h
 
 
 #include "interface/localinterface/localinterfacescreen.h"

@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_sgplaylist_h
-#define _included_sgplaylist_h
+#ifndef included_sgplaylist_h
+#define included_sgplaylist_h
 
 #define SIZE_SGPLAYLIST_NAME 64
 

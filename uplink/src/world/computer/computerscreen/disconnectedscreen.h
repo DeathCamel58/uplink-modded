@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_disconnectedscreen_h
-#define _included_disconnectedscreen_h
+#ifndef included_disconnectedscreen_h
+#define included_disconnectedscreen_h
 
 // ============================================================================
 

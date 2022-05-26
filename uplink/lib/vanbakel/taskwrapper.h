@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_taskwrapper_h
-#define _included_taskwrapper_h
+#ifndef included_taskwrapper_h
+#define included_taskwrapper_h
 
 #include "task.h"
 

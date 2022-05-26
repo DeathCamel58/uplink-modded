@@ -8,8 +8,8 @@
 
 	*/
 
-#ifndef _included_probability_h
-#define _included_probability_h
+#ifndef included_probability_h
+#define included_probability_h
 
 #include "tosser.h"
 

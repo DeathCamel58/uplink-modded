@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_optionsinterface_h
-#define _included_optionsinterface_h
+#ifndef included_optionsinterface_h
+#define included_optionsinterface_h
 
 #include "eclipse.h"
 

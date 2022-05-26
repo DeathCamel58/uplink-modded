@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_lanscan_h
-#define _included_lanscan_h
+#ifndef included_lanscan_h
+#define included_lanscan_h
 
 #include "world/vlocation.h"
 #include "interface/taskmanager/uplinktask.h"

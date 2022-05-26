@@ -12,8 +12,8 @@
 
 
 
-#ifndef _included_voiceanalysisinterface_h
-#define _included_voiceanalysisinterface_h
+#ifndef included_voiceanalysisinterface_h
+#define included_voiceanalysisinterface_h
 
 // ============================================================================
 

@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_runplotsceneevent_h
-#define _included_runplotsceneevent_h
+#ifndef included_runplotsceneevent_h
+#define included_runplotsceneevent_h
 
 
 #include "world/scheduler/uplinkevent.h"

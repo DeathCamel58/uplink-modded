@@ -1,7 +1,7 @@
 
 
-#ifndef _included_Menuscreeninterface_h
-#define _included_Menuscreeninterface_h
+#ifndef included_Menuscreeninterface_h
+#define included_Menuscreeninterface_h
 
 #include "eclipse.h"
 

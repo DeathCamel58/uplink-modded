@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_logbank_h
-#define _included_logbank_h
+#ifndef included_logbank_h
+#define included_logbank_h
 
 // ============================================================================
 

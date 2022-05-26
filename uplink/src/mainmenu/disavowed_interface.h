@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_disavowedinterface_h
-#define _included_disavowedinterface_h
+#ifndef included_disavowedinterface_h
+#define included_disavowedinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 

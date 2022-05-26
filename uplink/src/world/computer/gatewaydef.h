@@ -1,7 +1,7 @@
 // -*- tab-width:4 c-file-style:"cc-mode" -*-
 
-#ifndef _included_gatewaydef_h
-#define _included_gatewaydef_h
+#ifndef included_gatewaydef_h
+#define included_gatewaydef_h
 
 /*
 	

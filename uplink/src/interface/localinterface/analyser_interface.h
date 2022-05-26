@@ -7,8 +7,8 @@
 
 
 
-#ifndef _included_analyserinterface_h
-#define _included_analyserinterface_h
+#ifndef included_analyserinterface_h
+#define included_analyserinterface_h
 
 
 #include "world/vlocation.h"

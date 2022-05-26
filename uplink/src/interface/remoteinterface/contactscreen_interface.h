@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_contactscreeninterface_h
-#define _included_contactscreeninterface_H
+#ifndef included_contactscreeninterface_h
+#define included_contactscreeninterface_H
 
 #include "tosser.h"
 #include "eclipse.h"

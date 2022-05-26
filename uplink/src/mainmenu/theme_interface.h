@@ -9,8 +9,8 @@
   */
   
 
-#ifndef _included_themeinterface_h
-#define _included_themeinterface_h
+#ifndef included_themeinterface_h
+#define included_themeinterface_h
 
 #include "eclipse.h"
 

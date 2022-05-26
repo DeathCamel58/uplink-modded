@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_loansscreeninterface_h
-#define _included_loansscreeninterface_h
+#ifndef included_loansscreeninterface_h
+#define included_loansscreeninterface_h
 
 
 #include "world/computer/bankaccount.h"

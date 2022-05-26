@@ -14,8 +14,8 @@
   */
 
 
-#ifndef _included_genericscreen_h
-#define _included_genericscreen_h
+#ifndef included_genericscreen_h
+#define included_genericscreen_h
 
 #include "world/computer/computerscreen/computerscreen.h"
 

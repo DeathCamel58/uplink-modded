@@ -6,8 +6,8 @@
   */
 
 
-#ifndef _included_academicscreeninterface_h
-#define _included_academicscreeninterface_h
+#ifndef included_academicscreeninterface_h
+#define included_academicscreeninterface_h
 
 // ============================================================================
 

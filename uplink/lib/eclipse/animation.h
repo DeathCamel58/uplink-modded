@@ -1,6 +1,6 @@
 
-#ifndef _included_animation_h
-#define _included_animation_h
+#ifndef included_animation_h
+#define included_animation_h
 
 
 #include "button.h"

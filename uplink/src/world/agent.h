@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_agent_h
-#define _included_agent_h
+#ifndef included_agent_h
+#define included_agent_h
 
 // ============================================================================
 

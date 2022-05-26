@@ -12,8 +12,8 @@
   */
 
 
-#ifndef _included_person_h
-#define _included_person_h
+#ifndef included_person_h
+#define included_person_h
 
 // ============================================================================
 

@@ -9,8 +9,8 @@
 
   */
 
-#ifndef _included_highsecurityscreeninterface_h
-#define _included_highsecurityscreeninterface_h
+#ifndef included_highsecurityscreeninterface_h
+#define included_highsecurityscreeninterface_h
 
 #include "interface/remoteinterface/remoteinterfacescreen.h"
 

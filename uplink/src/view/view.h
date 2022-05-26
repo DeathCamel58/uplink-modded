@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_view_h
-#define _included_view_h
+#ifndef included_view_h
+#define included_view_h
 
 // ============================================================================
 

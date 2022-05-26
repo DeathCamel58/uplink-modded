@@ -1,6 +1,6 @@
 
-#ifndef _included_accountscreen_h
-#define _included_accountscreen_h
+#ifndef included_accountscreen_h
+#define included_accountscreen_h
 
 // ============================================================================
 

@@ -1,7 +1,7 @@
 
 
-#ifndef _included_useridscreeninterface_h
-#define _included_useridscreeninterface_h
+#ifndef included_useridscreeninterface_h
+#define included_useridscreeninterface_h
 
 
 // ============================================================================

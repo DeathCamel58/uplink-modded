@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_consolescreeninterface_h
-#define _included_consolescreeninterface_H
+#ifndef included_consolescreeninterface_h
+#define included_consolescreeninterface_H
 
 // ============================================================================
 

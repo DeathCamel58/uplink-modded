@@ -6,8 +6,8 @@
   */
 
 
-#ifndef _included_vlocation_h
-#define _included_vlocation_h
+#ifndef included_vlocation_h
+#define included_vlocation_h
 
 // ============================================================================
 

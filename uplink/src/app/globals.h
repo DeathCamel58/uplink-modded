@@ -4,8 +4,8 @@
 
   */
 
-#ifndef _included_globals_h
-#define _included_globals_h
+#ifndef included_globals_h
+#define included_globals_h
 
 #include "globals_defines.h"
 

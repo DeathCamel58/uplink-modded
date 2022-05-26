@@ -1,6 +1,6 @@
 
-#ifndef _included_probe_h
-#define _included_probe_h
+#ifndef included_probe_h
+#define included_probe_h
 
 // ============================================================================
 

@@ -9,8 +9,8 @@
 	*/
 
 
-#ifndef _included_cypherscreen_h
-#define _included_cypherscreen_h
+#ifndef included_cypherscreen_h
+#define included_cypherscreen_h
 
 #include "world/computer/computerscreen/computerscreen.h"
 

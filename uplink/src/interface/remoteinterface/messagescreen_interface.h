@@ -1,7 +1,7 @@
 
 
-#ifndef _included_messagescreeninterface_h
-#define _included_messagescreeninterface_h
+#ifndef included_messagescreeninterface_h
+#define included_messagescreeninterface_h
 
 
 // ============================================================================

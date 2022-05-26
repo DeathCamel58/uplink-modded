@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_closinginterface_h
-#define _included_closinginterface_h
+#ifndef included_closinginterface_h
+#define included_closinginterface_h
 
 
 #include "mainmenu/mainmenuscreen.h"

@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_revelationtracker_h
-#define _included_revelationtracker_h
+#ifndef included_revelationtracker_h
+#define included_revelationtracker_h
 
 
 

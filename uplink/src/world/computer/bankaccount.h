@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_bankaccount_h
-#define _included_bankaccount_h
+#ifndef included_bankaccount_h
+#define included_bankaccount_h
 
 
 #include "app/uplinkobject.h"

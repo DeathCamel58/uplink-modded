@@ -1,7 +1,7 @@
 
 
-#ifndef _included_linksscreeninterface_h
-#define _included_linksscreeninterface_h
+#ifndef included_linksscreeninterface_h
+#define included_linksscreeninterface_h
 
 
 // ============================================================================

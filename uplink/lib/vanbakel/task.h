@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_task_h
-#define _included_task_h
+#ifndef included_task_h
+#define included_task_h
 
 //#ifdef _DEBUG
 //#include "slasher.h"

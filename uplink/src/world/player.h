@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_player_h
-#define _included_player_h
+#ifndef included_player_h
+#define included_player_h
 
 // ============================================================================
 

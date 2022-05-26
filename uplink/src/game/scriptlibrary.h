@@ -10,8 +10,8 @@
 	
   */
 
-#ifndef _included_scriptlibrary_h
-#define _included_scriptlibrary_h
+#ifndef included_scriptlibrary_h
+#define included_scriptlibrary_h
 
 #include "eclipse.h"
 

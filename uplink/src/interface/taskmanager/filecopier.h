@@ -1,6 +1,6 @@
 
-#ifndef _included_filecopier_h
-#define _included_filecopier_h
+#ifndef included_filecopier_h
+#define included_filecopier_h
 
 
 // ============================================================================

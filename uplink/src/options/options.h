@@ -12,8 +12,8 @@
 
   */
 
-#ifndef _included_options_h
-#define _included_options_h
+#ifndef included_options_h
+#define included_options_h
 
 #include "app/globals.h"
 #include "app/uplinkobject.h"

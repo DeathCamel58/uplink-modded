@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_security_h
-#define _included_security_h
+#ifndef included_security_h
+#define included_security_h
 
 // ============================================================================
 

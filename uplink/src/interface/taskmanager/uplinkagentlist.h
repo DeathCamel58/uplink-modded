@@ -1,6 +1,6 @@
 
-#ifndef _included_uplinkagentlist_h
-#define _included_uplinkagentlist_h
+#ifndef included_uplinkagentlist_h
+#define included_uplinkagentlist_h
 
 
 #include "vanbakel.h"

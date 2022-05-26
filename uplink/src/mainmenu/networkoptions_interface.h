@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_networkoptionsinterface_h
-#define _included_networkoptionsinterface_h
+#ifndef included_networkoptionsinterface_h
+#define included_networkoptionsinterface_h
 
 #include "eclipse.h"
 

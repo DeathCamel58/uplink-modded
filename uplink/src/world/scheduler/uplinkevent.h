@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_uplinkevent_h
-#define _included_uplinkevent_h
+#ifndef included_uplinkevent_h
+#define included_uplinkevent_h
 
 // ============================================================================
 

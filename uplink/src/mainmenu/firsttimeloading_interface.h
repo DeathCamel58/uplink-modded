@@ -6,8 +6,8 @@
 	
   */
 
-#ifndef _included_firsttimeloadinginterface_h
-#define _included_firsttimeloadinginterface_h
+#ifndef included_firsttimeloadinginterface_h
+#define included_firsttimeloadinginterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 

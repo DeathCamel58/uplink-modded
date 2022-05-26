@@ -11,8 +11,8 @@
 
 	*/
  
-#ifndef _included_gamedata_h
-#define _included_gamedata_h
+#ifndef included_gamedata_h
+#define included_gamedata_h
 
 #include "app/globals.h"
 

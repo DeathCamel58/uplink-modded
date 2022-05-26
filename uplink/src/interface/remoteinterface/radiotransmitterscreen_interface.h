@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_radiotransmitterscreeninterface_h
-#define _included_radiotransmitterscreeninterface_h
+#ifndef included_radiotransmitterscreeninterface_h
+#define included_radiotransmitterscreeninterface_h
 
 #include "world/computer/computerscreen/genericscreen.h"
 #include "interface/remoteinterface/remoteinterfacescreen.h"

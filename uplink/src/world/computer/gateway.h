@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_gateway_h
-#define _included_gateway_h
+#ifndef included_gateway_h
+#define included_gateway_h
 
 // ============================================================================
 

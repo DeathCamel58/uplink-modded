@@ -8,8 +8,8 @@
   */
   
 
-#ifndef _included_graphicoptionsinterface_h
-#define _included_graphicoptionsinterface_h
+#ifndef included_graphicoptionsinterface_h
+#define included_graphicoptionsinterface_h
 
 #include "eclipse.h"
 

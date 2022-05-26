@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_tracetracker_h
-#define _included_tracetracker_h
+#ifndef included_tracetracker_h
+#define included_tracetracker_h
 
 #include "interface/taskmanager/uplinktask.h"
 

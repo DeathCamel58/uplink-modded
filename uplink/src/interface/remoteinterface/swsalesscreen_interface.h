@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_swsalesscreeninterface_h
-#define _included_swsalesscreeninterface_h
+#ifndef included_swsalesscreeninterface_h
+#define included_swsalesscreeninterface_h
 
 // ============================================================================
 

@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_news_h
-#define _included_news_h
+#ifndef included_news_h
+#define included_news_h
 
 // ============================================================================
 

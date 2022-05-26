@@ -10,8 +10,8 @@
 
 // ============================================================================
 
-#ifndef _included_faithscreeninterface_h
-#define _included_faithscreeninterface_h
+#ifndef included_faithscreeninterface_h
+#define included_faithscreeninterface_h
 
 #include "interface/remoteinterface/remoteinterfacescreen.h"
 

@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_hudinterface_h
-#define _included_hudinterface_h
+#ifndef included_hudinterface_h
+#define included_hudinterface_h
 
 // ============================================================================
 

@@ -1,6 +1,6 @@
 
-#ifndef _included_dictionaryhacker_h
-#define _included_dictionaryhacker_h
+#ifndef included_dictionaryhacker_h
+#define included_dictionaryhacker_h
 
 
 #include "vanbakel.h"

@@ -11,8 +11,8 @@
   */
 
 
-#ifndef _included_sharesviewscreeninterface_h
-#define _included_sharesviewscreeninterface_h
+#ifndef included_sharesviewscreeninterface_h
+#define included_sharesviewscreeninterface_h
 
 #include "world/company/company.h"
 #include "world/computer/computerscreen/genericscreen.h"

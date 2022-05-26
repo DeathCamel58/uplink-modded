@@ -8,8 +8,8 @@
 
 	*/
 
-#ifndef _included_recordgenerator_h
-#define _included_recordgenerator_h
+#ifndef included_recordgenerator_h
+#define included_recordgenerator_h
 
 class Record;
 class BankAccount;

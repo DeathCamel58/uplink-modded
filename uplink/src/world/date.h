@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_date_h
-#define _included_date_h
+#ifndef included_date_h
+#define included_date_h
 
 #include <cstdio>
 

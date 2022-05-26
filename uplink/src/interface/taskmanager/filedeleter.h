@@ -1,6 +1,6 @@
 
-#ifndef _included_filedeleter_h
-#define _included_filedeleter_h
+#ifndef included_filedeleter_h
+#define included_filedeleter_h
 
 
 // ============================================================================

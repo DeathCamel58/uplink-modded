@@ -1,6 +1,6 @@
 
-#ifndef _included_bankcomputer_h
-#define _included_bankcomputer_h
+#ifndef included_bankcomputer_h
+#define included_bankcomputer_h
 
 
 #include "world/computer/computer.h"

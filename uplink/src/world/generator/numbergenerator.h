@@ -1,6 +1,6 @@
 
-#ifndef _included_numbergenerator_h
-#define _included_numbergenerator_h
+#ifndef included_numbergenerator_h
+#define included_numbergenerator_h
 
 
 class NumberGenerator

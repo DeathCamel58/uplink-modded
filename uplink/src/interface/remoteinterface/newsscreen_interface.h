@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_newsscreeninterface_h
-#define _included_newsscreeninterface_h
+#ifndef included_newsscreeninterface_h
+#define included_newsscreeninterface_h
 
 // ============================================================================
 

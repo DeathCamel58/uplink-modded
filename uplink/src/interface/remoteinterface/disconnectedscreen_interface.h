@@ -1,7 +1,7 @@
 
 
-#ifndef _included_disconnectedscreeninterface_h
-#define _included_disconnectedscreeninterface_h
+#ifndef included_disconnectedscreeninterface_h
+#define included_disconnectedscreeninterface_h
 
 
 // ============================================================================

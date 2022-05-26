@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_databank_h
-#define _included_databank_h
+#ifndef included_databank_h
+#define included_databank_h
 
 
 #include "app/uplinkobject.h"

@@ -6,8 +6,8 @@
 	
   */
 
-#ifndef _included_theteaminterface_h
-#define _included_theteaminterface_h
+#ifndef included_theteaminterface_h
+#define included_theteaminterface_h
 
 
 #include "mainmenu/mainmenuscreen.h"

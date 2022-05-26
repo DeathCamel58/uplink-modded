@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_demoplotgenerator_h
-#define _included_demoplotgenerator_h
+#ifndef included_demoplotgenerator_h
+#define included_demoplotgenerator_h
 
 
 #include "app/uplinkobject.h"

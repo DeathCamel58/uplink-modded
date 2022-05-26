@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_attemptmissionevent_h
-#define _included_attemptmissionevent_h
+#ifndef included_attemptmissionevent_h
+#define included_attemptmissionevent_h
 
 
 #include "world/person.h"

@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_company_h
-#define _included_company_h
+#ifndef included_company_h
+#define included_company_h
 
 // ============================================================================
 

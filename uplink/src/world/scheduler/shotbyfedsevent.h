@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_shotbyfedsevent_h
-#define _included_shotbyfedsevent_h
+#ifndef included_shotbyfedsevent_h
+#define included_shotbyfedsevent_h
 
 // ============================================================================
 

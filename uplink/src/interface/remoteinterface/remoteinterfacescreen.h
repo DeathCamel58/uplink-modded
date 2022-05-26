@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_remoteinterfacescreen_h
-#define _included_remoteinterfacescreen_h
+#ifndef included_remoteinterfacescreen_h
+#define included_remoteinterfacescreen_h
 
 // ============================================================================
 

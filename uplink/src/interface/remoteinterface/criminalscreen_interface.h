@@ -6,8 +6,8 @@
   */
 
 
-#ifndef _included_criminalscreeninterface_h
-#define _included_criminalscreeninterface_h
+#ifndef included_criminalscreeninterface_h
+#define included_criminalscreeninterface_h
 
 // ============================================================================
 

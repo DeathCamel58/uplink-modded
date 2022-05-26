@@ -5,8 +5,8 @@
 
   */
 
-#ifndef _included_bbsscreeninterface_h
-#define _included_bbsscreeninterface_h
+#ifndef included_bbsscreeninterface_h
+#define included_bbsscreeninterface_h
 
 // ============================================================================
 

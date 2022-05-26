@@ -6,8 +6,8 @@
   */
 
 
-#ifndef _included_mainmenu_h
-#define _included_mainmenu_h
+#ifndef included_mainmenu_h
+#define included_mainmenu_h
 
 
 #include "app/uplinkobject.h"

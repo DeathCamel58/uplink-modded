@@ -10,8 +10,8 @@
   */
 
 
-#ifndef _included_revelationlostinterface_h
-#define _included_revelationlostinterface_h
+#ifndef included_revelationlostinterface_h
+#define included_revelationlostinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 

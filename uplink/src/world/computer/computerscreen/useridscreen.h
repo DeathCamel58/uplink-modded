@@ -8,8 +8,8 @@
 	*/
 
 
-#ifndef _included_useridscreen_h
-#define _included_useridscreen_h
+#ifndef included_useridscreen_h
+#define included_useridscreen_h
 
 #include "world/computer/computerscreen/computerscreen.h"
 

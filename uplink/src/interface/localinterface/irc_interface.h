@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_ircinterface_h
-#define _included_ircinterface_h
+#ifndef included_ircinterface_h
+#define included_ircinterface_h
 
 // ============================================================================
 

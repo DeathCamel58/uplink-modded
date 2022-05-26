@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_bungle_h
-#define _included_bungle_h
+#ifndef included_bungle_h
+#define included_bungle_h
 
 #include <cstdio>
 

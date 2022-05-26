@@ -8,8 +8,8 @@
   */
 
 
-#ifndef _included_clientconnection_h
-#define _included_clientconnection_h
+#ifndef included_clientconnection_h
+#define included_clientconnection_h
 
 #include <tcp4u.h>
 

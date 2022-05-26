@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_missiongenerator_h
-#define _included_missiongenerator_h
+#ifndef included_missiongenerator_h
+#define included_missiongenerator_h
 
 #include "game/data/data.h"
 

@@ -10,8 +10,8 @@
 // ============================================================================
 
 
-#ifndef _included_lancomputer_h
-#define _included_lancomputer_h
+#ifndef included_lancomputer_h
+#define included_lancomputer_h
 
 #include "world/computer/computer.h"
 

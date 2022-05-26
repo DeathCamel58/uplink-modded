@@ -4,8 +4,8 @@
 // Part of the Eclipse interface library
 // By Christopher Delay
 
-#ifndef _included_button_h
-#define _included_button_h
+#ifndef included_button_h
+#define included_button_h
 
 
 #include "gucci.h"

@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_seizeevent_h
-#define _included_seizeevent_h
+#ifndef included_seizeevent_h
+#define included_seizeevent_h
 
 
 #include "world/person.h"

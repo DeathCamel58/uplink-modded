@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_emailinterface_h
-#define _included_emailinterface_h
+#ifndef included_emailinterface_h
+#define included_emailinterface_h
 
 #include "eclipse.h"
 

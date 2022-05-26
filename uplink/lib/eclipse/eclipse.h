@@ -12,8 +12,8 @@
    ============================================================================
 */
 
-#ifndef _included_eclipse_h
-#define _included_eclipse_h
+#ifndef included_eclipse_h
+#define included_eclipse_h
 
 /*
 #ifdef DMALLOC

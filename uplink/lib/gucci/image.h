@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _INCLUDED_IMAGE_H
-#define _INCLUDED_IMAGE_H
+#ifndef included_IMAGE_H
+#define included_IMAGE_H
 
 /*
 #ifdef _DEBUG

@@ -1,6 +1,6 @@
 
-#ifndef _included_decrypter_h
-#define _included_decrypter_h
+#ifndef included_decrypter_h
+#define included_decrypter_h
 
 
 // ============================================================================

@@ -4,8 +4,8 @@
 
   */
 
-#ifndef _included_globals_defines_h
-#define _included_globals_defines_h
+#ifndef included_globals_defines_h
+#define included_globals_defines_h
 
 //#ifdef _DEBUG
 //#include "slasher.h"

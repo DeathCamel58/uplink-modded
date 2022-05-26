@@ -1,6 +1,6 @@
 
-#ifndef _included_dialler_h
-#define _included_dialler_h
+#ifndef included_dialler_h
+#define included_dialler_h
 
 
 #include "interface/localinterface/localinterfacescreen.h"

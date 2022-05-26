@@ -10,8 +10,8 @@
 
 
 
-#ifndef _included_notificationevent_h
-#define _included_notificationevent_h
+#ifndef included_notificationevent_h
+#define included_notificationevent_h
 
 // ============================================================================
 

@@ -10,8 +10,8 @@
 
   */
 
-#ifndef _included_voiceanalyser_h
-#define _included_voiceanalyser_h
+#ifndef included_voiceanalyser_h
+#define included_voiceanalyser_h
 
 // ============================================================================
 

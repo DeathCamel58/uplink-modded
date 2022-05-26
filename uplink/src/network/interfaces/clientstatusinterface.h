@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_statusinterface_h
-#define _included_statusinterface_h
+#ifndef included_statusinterface_h
+#define included_statusinterface_h
 
 
 #include "network/interfaces/networkscreen.h"

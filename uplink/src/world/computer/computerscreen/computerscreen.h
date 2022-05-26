@@ -12,8 +12,8 @@
   */
 
 
-#ifndef _included_computerscreen_h
-#define _included_computerscreen_h
+#ifndef included_computerscreen_h
+#define included_computerscreen_h
 
 // ============================================================================
 

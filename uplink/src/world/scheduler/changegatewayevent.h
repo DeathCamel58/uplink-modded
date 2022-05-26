@@ -11,8 +11,8 @@
   */
 
 
-#ifndef _included_changegatewayevent_h
-#define _included_changegatewayevent_h
+#ifndef included_changegatewayevent_h
+#define included_changegatewayevent_h
 
 
 #include "world/scheduler/uplinkevent.h"

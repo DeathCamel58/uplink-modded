@@ -1,7 +1,7 @@
 
 
-#ifndef _included_shareslistscreeninterface_h
-#define _included_shareslistscreeninterface_h
+#ifndef included_shareslistscreeninterface_h
+#define included_shareslistscreeninterface_h
 
 
 // ============================================================================

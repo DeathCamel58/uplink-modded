@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_missioninterface_h
-#define _included_missioninterface_h
+#ifndef included_missioninterface_h
+#define included_missioninterface_h
 
 // ============================================================================
 

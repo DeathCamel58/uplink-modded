@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_network_h
-#define _included_network_h
+#ifndef included_network_h
+#define included_network_h
 
 // ============================================================================
 

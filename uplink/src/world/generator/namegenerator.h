@@ -1,6 +1,6 @@
 
-#ifndef _included_namegenerator_h
-#define _included_namegenerator_h
+#ifndef included_namegenerator_h
+#define included_namegenerator_h
 
 #define MAX_COMPUTERNAME 128
 #define MAX_PERSONNAME   128

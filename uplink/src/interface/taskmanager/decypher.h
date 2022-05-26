@@ -1,6 +1,6 @@
 
-#ifndef _included_decypher_h
-#define _included_decypher_h
+#ifndef included_decypher_h
+#define included_decypher_h
 
 
 // ============================================================================

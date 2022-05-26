@@ -9,8 +9,8 @@
   */
 
 
-#ifndef _included_revelationwoninterface_h
-#define _included_revelationwoninterface_h
+#ifndef included_revelationwoninterface_h
+#define included_revelationwoninterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 

@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_logininterface_h
-#define _included_logininterface_h
+#ifndef included_logininterface_h
+#define included_logininterface_h
 
 #include "eclipse.h"
 

@@ -8,8 +8,8 @@
 
   */
 
-#ifndef _included_soundgarden_h
-#define _included_soundgarden_h
+#ifndef included_soundgarden_h
+#define included_soundgarden_h
 
 #include <cstdio>
 #include <string>

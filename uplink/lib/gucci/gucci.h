@@ -6,8 +6,8 @@
 
   */
 
-#ifndef _included_gucci_h
-#define _included_gucci_h
+#ifndef included_gucci_h
+#define included_gucci_h
 
 #include "tosser.h"
 

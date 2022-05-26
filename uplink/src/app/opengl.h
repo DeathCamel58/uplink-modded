@@ -7,8 +7,8 @@
   */
 
 
-#ifndef _included_opengl_h
-#define _included_opengl_h
+#ifndef included_opengl_h
+#define included_opengl_h
 
 
 void opengl_initialise ( int argc, char **argv );

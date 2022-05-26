@@ -1,7 +1,7 @@
 
 
-#ifndef _included_recordbank_h
-#define _included_recordbank_h
+#ifndef included_recordbank_h
+#define included_recordbank_h
 
 /*
 

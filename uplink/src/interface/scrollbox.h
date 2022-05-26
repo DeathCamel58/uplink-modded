@@ -6,8 +6,8 @@
   */
 
 
-#ifndef _included_scrollbox_h
-#define _included_scrollbox_h
+#ifndef included_scrollbox_h
+#define included_scrollbox_h
 
 #include "tosser.h"
 

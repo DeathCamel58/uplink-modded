@@ -11,8 +11,8 @@
 
 // ============================================================================
 
-#ifndef _included_lanspoof_h
-#define _included_lanspoof_h
+#ifndef included_lanspoof_h
+#define included_lanspoof_h
 
 #include "eclipse.h"
 #include "interface/taskmanager/uplinktask.h"

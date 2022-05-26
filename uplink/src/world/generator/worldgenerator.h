@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_worldgenerator_h
-#define _included_worldgenerator_h
+#ifndef included_worldgenerator_h
+#define included_worldgenerator_h
 
 // ============================================================================
 

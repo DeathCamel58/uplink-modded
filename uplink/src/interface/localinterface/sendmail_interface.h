@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_sendmailinterface_h
-#define _included_sendmailinterface_h
+#ifndef included_sendmailinterface_h
+#define included_sendmailinterface_h
 
 // ============================================================================
 

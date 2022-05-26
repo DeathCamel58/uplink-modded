@@ -2,8 +2,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _included_financeinterface_h
-#define _included_financeinterface_h
+#ifndef included_financeinterface_h
+#define included_financeinterface_h
 
 
 #include "interface/localinterface/localinterfacescreen.h"

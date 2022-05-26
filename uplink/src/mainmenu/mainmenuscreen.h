@@ -7,8 +7,8 @@
 
   */
 
-#ifndef _included_mainmenuscreen_h
-#define _included_mainmenuscreen_h
+#ifndef included_mainmenuscreen_h
+#define included_mainmenuscreen_h
 
 #include "tosser.h"
 

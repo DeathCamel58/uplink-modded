@@ -10,8 +10,8 @@
 
   */
 
-#ifndef _included_tutorial_h
-#define _included_tutorial_h
+#ifndef included_tutorial_h
+#define included_tutorial_h
 
 #include "eclipse.h"
 

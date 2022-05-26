@@ -1,6 +1,6 @@
 
-#ifndef _included_gatewayinterface_h
-#define _included_gatewayinterface_h
+#ifndef included_gatewayinterface_h
+#define included_gatewayinterface_h
 
 
 #include "localinterfacescreen.h"

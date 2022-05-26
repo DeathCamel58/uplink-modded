@@ -14,8 +14,8 @@
 
 
 
-#ifndef _included_bankrobberyevent_h
-#define _included_bankrobberyevent_h
+#ifndef included_bankrobberyevent_h
+#define included_bankrobberyevent_h
 
 #include "world/scheduler/eventscheduler.h"
 

@@ -1,6 +1,6 @@
 
-#ifndef _included_interface_h
-#define _included_interface_h
+#ifndef included_interface_h
+#define included_interface_h
 
 #include "taskwrapper.h"
 
