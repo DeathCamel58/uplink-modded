@@ -27,235 +27,222 @@ using namespace std;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-Image::Image()
-{
+Image::Image() {
 
-	pixels = nullptr;
-	rgb_pixels = nullptr;
-
-}
-
-Image::Image( const Image& img )
-{
-
-	width = img.width;
-	height = img.height;
-	alpha = img.alpha;
-
-	pixels = nullptr;
-	if ( img.pixels ) {
-		pixels = new unsigned char [ width * height * 4 ];
-		memcpy ( pixels, img.pixels, width * height * 4 );
-	}
-
-	rgb_pixels = nullptr;
-	if ( img.rgb_pixels ) {
-	    rgb_pixels = new unsigned char [ width * height * 3 ];
-		memcpy ( rgb_pixels, img.rgb_pixels, width * height * 3 );
-	}
+    pixels = nullptr;
+    rgb_pixels = nullptr;
 
 }
 
-Image::~Image()
-{
+Image::Image(const Image &img) {
 
-	delete [] pixels;
-	delete [] rgb_pixels;
+    width = img.width;
+    height = img.height;
+    alpha = img.alpha;
 
-}
+    pixels = nullptr;
+    if (img.pixels) {
+        pixels = new unsigned char[width * height * 4];
+        memcpy(pixels, img.pixels, width * height * 4);
+    }
 
-void Image::LoadRAW (const std::string &filename, int sizex, int sizey )
-{
-
-	width = sizex;
-	height = sizey;
-
-	if ( rgb_pixels ) {
-		delete [] rgb_pixels;
-		rgb_pixels = nullptr;
-	}
-
-	delete [] pixels;
-	pixels = new unsigned char [sizex * sizey * 4];
-
-	FILE *file = fopen ( filename.c_str(), "rb" );
-
-	if ( !file ) {
-		printf ( "GUCCI Error - failed to load RAW image %s\n", filename.c_str() );
-		//exit(255);
-		CreateErrorBitmap ();
-		return;
-	}
-
-	for ( int y = 0; y < sizey; ++y ) {
-		for ( int x = 0; x < sizex; ++x ) {
-
-			for ( int i = 0; i < 3; ++i ) {
-				
-				int thechar = fgetc ( file );
-				pixels [((height-y-1) * width + x) * 4 + i] = (unsigned char) thechar;
-
-			}
-
-			pixels [((height-y-1) * width + x) * 4 + 3] = alpha;
-
-		}
-	}
-
-	fclose ( file );
+    rgb_pixels = nullptr;
+    if (img.rgb_pixels) {
+        rgb_pixels = new unsigned char[width * height * 3];
+        memcpy(rgb_pixels, img.rgb_pixels, width * height * 3);
+    }
 
 }
 
-void Image::LoadTIF (const std::string &filename )
-{
+Image::~Image() {
 
-    char emsg[1024];		
-	TIFFRGBAImage img;
+    delete[] pixels;
+    delete[] rgb_pixels;
+
+}
+
+void Image::LoadRAW(const std::string &filename, int sizex, int sizey) {
+
+    width = sizex;
+    height = sizey;
+
+    if (rgb_pixels) {
+        delete[] rgb_pixels;
+        rgb_pixels = nullptr;
+    }
+
+    delete[] pixels;
+    pixels = new unsigned char[sizex * sizey * 4];
+
+    FILE *file = fopen(filename.c_str(), "rb");
+
+    if (!file) {
+        printf("GUCCI Error - failed to load RAW image %s\n", filename.c_str());
+        //exit(255);
+        CreateErrorBitmap();
+        return;
+    }
+
+    for (int y = 0; y < sizey; ++y) {
+        for (int x = 0; x < sizex; ++x) {
+
+            for (int i = 0; i < 3; ++i) {
+
+                int thechar = fgetc(file);
+                pixels[((height - y - 1) * width + x) * 4 + i] = (unsigned char) thechar;
+
+            }
+
+            pixels[((height - y - 1) * width + x) * 4 + 3] = alpha;
+
+        }
+    }
+
+    fclose(file);
+
+}
+
+void Image::LoadTIF(const std::string &filename) {
+
+    char emsg[1024];
+    TIFFRGBAImage img;
 
     TIFF *tif = TIFFOpen(filename.c_str(), "r");
-    if ( !tif ) {
-        printf ( "GUCCI Error - failed to load TIF %s\n", filename.c_str() );
-		CreateErrorBitmap ();
-		return;
-	}
+    if (!tif) {
+        printf("GUCCI Error - failed to load TIF %s\n", filename.c_str());
+        CreateErrorBitmap();
+        return;
+    }
 
-    TIFFRGBAImageBegin (&img, tif, 0, emsg);
-    int npixels = img.width * img.height;    
-	auto *raster = new uint32 [npixels * sizeof(uint32)];
-    
-	TIFFRGBAImageGet(&img, raster, img.width, img.height);
+    TIFFRGBAImageBegin(&img, tif, 0, emsg);
+    int npixels = img.width * img.height;
+    auto *raster = new uint32[npixels * sizeof(uint32)];
 
-	// Now convert the TIFF data into RAW data
+    TIFFRGBAImageGet(&img, raster, img.width, img.height);
 
-	width = img.width;
-	height = img.height;
+    // Now convert the TIFF data into RAW data
 
-	if ( rgb_pixels ) {
-		delete [] rgb_pixels;
-		rgb_pixels = nullptr;
-	}
+    width = img.width;
+    height = img.height;
 
-	delete [] pixels;
-	pixels = (unsigned char *) raster;
+    if (rgb_pixels) {
+        delete[] rgb_pixels;
+        rgb_pixels = nullptr;
+    }
 
-	// Close down all those horrible TIF structures
+    delete[] pixels;
+    pixels = (unsigned char *) raster;
+
+    // Close down all those horrible TIF structures
 
     TIFFRGBAImageEnd(&img);
-	TIFFClose ( tif );
+    TIFFClose(tif);
 
 }
 
-void Image::SetAlpha ( float newalpha )
-{
+void Image::SetAlpha(float newalpha) {
 
-	alpha = (unsigned char) ( newalpha * 256.0 );
-	auto a = (unsigned char) ( newalpha * 255.0 );
-	
-	if ( pixels ) {
+    alpha = (unsigned char) (newalpha * 256.0);
+    auto a = (unsigned char) (newalpha * 255.0);
 
-		for ( int x = 0; x < width; ++x ) 
-			for ( int y = 0; y < height; ++y )
-				pixels [( y * width + x) * 4 + 3] = a;
+    if (pixels) {
 
-	}
+        for (int x = 0; x < width; ++x)
+            for (int y = 0; y < height; ++y)
+                pixels[(y * width + x) * 4 + 3] = a;
 
-}
-
-void Image::SetAlphaBorderRec ( int x, int y, unsigned char a, unsigned char r, unsigned char g, unsigned char b )
-{
-
-	if ( 0 <= x && x < width && 0 <= y && y < height ) {
-		unsigned char *curpixel = &pixels [( y * width + x) * 4];
-		if ( curpixel[3] != a && curpixel[0] == r && curpixel[1] == g && curpixel[2] == b ) {
-			curpixel[3] = a;
-			SetAlphaBorderRec ( x - 1, y, a, r, g, b );
-			SetAlphaBorderRec ( x + 1, y, a, r, g, b );
-			SetAlphaBorderRec ( x, y - 1, a, r, g, b );
-			SetAlphaBorderRec ( x, y + 1, a, r, g, b );
-		}
-	}
+    }
 
 }
 
-void Image::SetAlphaBorder ( float newalpha, float testred, float testgreen, float testblue )
-{
+void Image::SetAlphaBorderRec(int x, int y, unsigned char a, unsigned char r, unsigned char g, unsigned char b) {
 
-	auto a = (unsigned char) ( newalpha * 255.0 );
-	auto r = (unsigned char) ( testred * 255.0 );
-	auto g = (unsigned char) ( testgreen * 255.0 );
-	auto b = (unsigned char) ( testblue * 255.0 );
-	
-	if ( pixels ) {
-
-		for ( int x = 0; x < width; ++x ) {
-			SetAlphaBorderRec ( x, 0, a, r, g, b );
-			SetAlphaBorderRec ( x, height - 1, a, r, g, b );
-		}
-
-		for ( int y = 0; y < height; ++y ) {
-			SetAlphaBorderRec ( 0, y, a, r, g, b );
-			SetAlphaBorderRec ( width - 1, y, a, r, g, b );
-		}
-
-	}
+    if (0 <= x && x < width && 0 <= y && y < height) {
+        unsigned char *curpixel = &pixels[(y * width + x) * 4];
+        if (curpixel[3] != a && curpixel[0] == r && curpixel[1] == g && curpixel[2] == b) {
+            curpixel[3] = a;
+            SetAlphaBorderRec(x - 1, y, a, r, g, b);
+            SetAlphaBorderRec(x + 1, y, a, r, g, b);
+            SetAlphaBorderRec(x, y - 1, a, r, g, b);
+            SetAlphaBorderRec(x, y + 1, a, r, g, b);
+        }
+    }
 
 }
 
-float Image::GetAlpha () const
-{
+void Image::SetAlphaBorder(float newalpha, float testred, float testgreen, float testblue) {
 
-	return float ( alpha / 256.0 );
+    auto a = (unsigned char) (newalpha * 255.0);
+    auto r = (unsigned char) (testred * 255.0);
+    auto g = (unsigned char) (testgreen * 255.0);
+    auto b = (unsigned char) (testblue * 255.0);
 
-}
+    if (pixels) {
 
-int Image::Width () const
-{
-	
-	return width;
+        for (int x = 0; x < width; ++x) {
+            SetAlphaBorderRec(x, 0, a, r, g, b);
+            SetAlphaBorderRec(x, height - 1, a, r, g, b);
+        }
 
-}
+        for (int y = 0; y < height; ++y) {
+            SetAlphaBorderRec(0, y, a, r, g, b);
+            SetAlphaBorderRec(width - 1, y, a, r, g, b);
+        }
 
-int Image::Height () const
-{
-
-	return height;
-
-}
-
-void Image::FlipAroundH ()
-{
-
-	if ( pixels ) {
-
-		auto *newpixels = new unsigned char [width * height * 4];
-		
-		for ( int y = 0; y < height; ++y ) {
-
-			unsigned char *source = pixels + y * width * 4;
-			unsigned char *dest = newpixels + (width * (height-1) * 4) - (y * width * 4);
-
-			memcpy ( (void *) dest, (void *) source, width * 4 );
-
-		}
-
-		if ( rgb_pixels ) {
-			delete [] rgb_pixels;
-			rgb_pixels = nullptr;
-		}
-
-		delete [] pixels;
-		pixels = newpixels;
-
-	}
+    }
 
 }
 
-void Image::Scale ( int newwidth, int newheight )
-{
+float Image::GetAlpha() const {
 
-	if ( pixels ) {
+    return float(alpha / 256.0);
 
-		auto *newpixels = new unsigned char [newwidth * newheight * 4];
+}
+
+int Image::Width() const {
+
+    return width;
+
+}
+
+int Image::Height() const {
+
+    return height;
+
+}
+
+void Image::FlipAroundH() {
+
+    if (pixels) {
+
+        auto *newpixels = new unsigned char[width * height * 4];
+
+        for (int y = 0; y < height; ++y) {
+
+            unsigned char *source = pixels + y * width * 4;
+            unsigned char *dest = newpixels + (width * (height - 1) * 4) - (y * width * 4);
+
+            memcpy((void *) dest, (void *) source, width * 4);
+
+        }
+
+        if (rgb_pixels) {
+            delete[] rgb_pixels;
+            rgb_pixels = nullptr;
+        }
+
+        delete[] pixels;
+        pixels = newpixels;
+
+    }
+
+}
+
+void Image::Scale(int newwidth, int newheight) {
+
+    if (pixels) {
+
+        auto *newpixels = new unsigned char[newwidth * newheight * 4];
 
 /*
 		for ( int x = 0; x < newwidth; ++x ) {
@@ -270,185 +257,178 @@ void Image::Scale ( int newwidth, int newheight )
 			}
 		}
 */
-		int result = gluScaleImage ( GL_RGBA, width, height, GL_UNSIGNED_BYTE, pixels, newwidth, newheight, GL_UNSIGNED_BYTE, newpixels );
-		char *resultc = (char *) gluErrorString ( (GLenum) result );
+        int result = gluScaleImage(GL_RGBA, width, height, GL_UNSIGNED_BYTE, pixels, newwidth, newheight,
+                                   GL_UNSIGNED_BYTE, newpixels);
+        char *resultc = (char *) gluErrorString((GLenum) result);
 
-		if ( rgb_pixels ) {
-			delete [] rgb_pixels;
-			rgb_pixels = nullptr;
-		}
+        if (rgb_pixels) {
+            delete[] rgb_pixels;
+            rgb_pixels = nullptr;
+        }
 
-		delete [] pixels;
-		pixels = newpixels;
+        delete[] pixels;
+        pixels = newpixels;
 
-		width = newwidth;
-		height = newheight;
+        width = newwidth;
+        height = newheight;
 
-	}
-		
-}
-
-void Image::ScaleToOpenGL ()
-{
-
-	int twidth, theight;
-
-	if		( width <= 32 )  twidth = 64;
-	else if ( width <= 128 ) twidth = 128;
-	else					 twidth = 256;
-
-	if		( height <= 32 )  theight = 64;
-	else if ( height <= 128 ) theight = 128;
-	else					  theight = 256;
-
-	Scale ( twidth, theight );
+    }
 
 }
 
-void Image::Draw ( int x, int y ) const
-{
+void Image::ScaleToOpenGL() {
 
-	if ( pixels ) {
+    int twidth, theight;
 
-		glPushAttrib ( GL_ALL_ATTRIB_BITS );
-		glDisable ( GL_BLEND );
+    if (width <= 32) twidth = 64;
+    else if (width <= 128) twidth = 128;
+    else twidth = 256;
 
-		glRasterPos2i ( x, y + height );
-		glDrawPixels ( width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels );
+    if (height <= 32) theight = 64;
+    else if (height <= 128) theight = 128;
+    else theight = 256;
 
-		glPopAttrib ();
-
-	}
-
-}
-
-unsigned char *Image::GetRGBPixels()
-{
-
-	if ( pixels ) {
-
-		if ( rgb_pixels == nullptr ) {
-			rgb_pixels = new unsigned char [ width * height * 3 ];
-
-			for ( int x = 0; x < width; ++x ) 
-				for ( int y = 0; y < height; ++y ) 
-					for ( int i = 0; i < 3; ++i)
-						rgb_pixels[3 * (y * width + x) + i] = pixels[4 * (y * width + x) + i];
-		}
-
-	}
-
-	return rgb_pixels;
+    Scale(twidth, theight);
 
 }
 
-void Image::DrawBlend ( int x, int y ) const
-{
+void Image::Draw(int x, int y) const {
 
-	if ( pixels ) {
+    if (pixels) {
 
-		glPushAttrib ( GL_ALL_ATTRIB_BITS );
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
+        glDisable(GL_BLEND);
 
-		glBlendFunc ( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-		glEnable ( GL_BLEND );
+        glRasterPos2i(x, y + height);
+        glDrawPixels(width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 
-		glRasterPos2i ( x, y + height );
-		glDrawPixels ( width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels );
+        glPopAttrib();
 
-		glPopAttrib ();
-
-	}
+    }
 
 }
 
-void Image::CreateErrorBitmap ()
-{
+unsigned char *Image::GetRGBPixels() {
 
-	width = 32;
-	height = 32;
-	auto *newimage = new uint32 [ width * height * sizeof(uint32) ];
+    if (pixels) {
 
-	uint32 WHITE = 0xFFFFFFFF;
-	uint32 BLACK = 0xFF000000;
+        if (rgb_pixels == nullptr) {
+            rgb_pixels = new unsigned char[width * height * 3];
 
-	for ( int x = 0; x < width; ++x ) {
-		for ( int y = 0; y < height; ++y ) {
+            for (int x = 0; x < width; ++x)
+                for (int y = 0; y < height; ++y)
+                    for (int i = 0; i < 3; ++i)
+                        rgb_pixels[3 * (y * width + x) + i] = pixels[4 * (y * width + x) + i];
+        }
 
-			if ( x == 0 || y == 0 || x == width - 1 || y == height - 1 || x == y || x + y == width )
-				newimage [y * width + x] = WHITE;
+    }
 
-			else
-				newimage [y * width + x] = BLACK;
-
-		}
-	}
-	
-	if ( rgb_pixels ) {
-		delete [] rgb_pixels;
-		rgb_pixels = nullptr;
-	}
-
-	delete [] pixels;
-	pixels = (unsigned char *) newimage;
+    return rgb_pixels;
 
 }
 
-char Image::GetPixelR ( int x, int y ) const
-{
+void Image::DrawBlend(int x, int y) const {
 
-	if ( pixels ) {
+    if (pixels) {
 
-		if ( x < 0 || x >= width ||
-	  		 y < 0 || y >= height )
+        glPushAttrib(GL_ALL_ATTRIB_BITS);
 
-			 return -1;
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable(GL_BLEND);
 
-		else
+        glRasterPos2i(x, y + height);
+        glDrawPixels(width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
 
-			return ( pixels [(y * width + x) * 4] );
+        glPopAttrib();
 
-	}
-
-	 return -1;
+    }
 
 }
 
-char Image::GetPixelG ( int x, int y ) const
-{
+void Image::CreateErrorBitmap() {
 
-	if ( pixels ) {
+    width = 32;
+    height = 32;
+    auto *newimage = new uint32[width * height * sizeof(uint32)];
 
-		if ( x < 0 || x >= width ||
-	  		 y < 0 || y >= height )
+    uint32 WHITE = 0xFFFFFFFF;
+    uint32 BLACK = 0xFF000000;
 
-			 return -1;
+    for (int x = 0; x < width; ++x) {
+        for (int y = 0; y < height; ++y) {
 
-		else
+            if (x == 0 || y == 0 || x == width - 1 || y == height - 1 || x == y || x + y == width)
+                newimage[y * width + x] = WHITE;
 
-			return ( pixels [(y * width + x) * 4 + 1] );
+            else
+                newimage[y * width + x] = BLACK;
 
-	}
+        }
+    }
 
-	 return -1;
+    if (rgb_pixels) {
+        delete[] rgb_pixels;
+        rgb_pixels = nullptr;
+    }
+
+    delete[] pixels;
+    pixels = (unsigned char *) newimage;
 
 }
 
-char Image::GetPixelB ( int x, int y ) const
-{
+char Image::GetPixelR(int x, int y) const {
 
-	if ( pixels ) {
+    if (pixels) {
 
-		if ( x < 0 || x >= width ||
-	  		 y < 0 || y >= height )
+        if (x < 0 || x >= width ||
+            y < 0 || y >= height)
 
-			return -1;
+            return -1;
 
-		else
+        else
 
-			return ( pixels [(y * width + x) * 4 + 2] );
+            return (pixels[(y * width + x) * 4]);
 
-	}
+    }
 
-	 return -1;
+    return -1;
+
+}
+
+char Image::GetPixelG(int x, int y) const {
+
+    if (pixels) {
+
+        if (x < 0 || x >= width ||
+            y < 0 || y >= height)
+
+            return -1;
+
+        else
+
+            return (pixels[(y * width + x) * 4 + 1]);
+
+    }
+
+    return -1;
+
+}
+
+char Image::GetPixelB(int x, int y) const {
+
+    if (pixels) {
+
+        if (x < 0 || x >= width ||
+            y < 0 || y >= height)
+
+            return -1;
+
+        else
+
+            return (pixels[(y * width + x) * 4 + 2]);
+
+    }
+
+    return -1;
 
 }

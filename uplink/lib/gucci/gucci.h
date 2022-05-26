@@ -24,43 +24,51 @@
 // Screen resolution functions ---------------------
 
 
-void GciStoreScreenSize ();
-bool GciSetScreenSize ( int width, int height, 
-                        int bpp = -1, int refresh = -1 );			// Returns true (success) or false (failure)
-void GciRestoreScreenSize ();
+void GciStoreScreenSize();
 
-void GciResizeGlut ( int width, int height );
+bool GciSetScreenSize(int width, int height,
+                      int bpp = -1, int refresh = -1);            // Returns true (success) or false (failure)
+void GciRestoreScreenSize();
+
+void GciResizeGlut(int width, int height);
+
 void GciRestoreGlut();
 
 // Font functions ----------------------------------
 
-#define BITMAP_13		1
-#define BITMAP_15		2
-#define TIMESROMAN_10		3
-#define TIMESROMAN_24		4
-#define HELVETICA_10		5
-#define HELVETICA_12		6
-#define HELVETICA_18		7
+#define BITMAP_13        1
+#define BITMAP_15        2
+#define TIMESROMAN_10        3
+#define TIMESROMAN_24        4
+#define HELVETICA_10        5
+#define HELVETICA_12        6
+#define HELVETICA_18        7
 
-void GciSetDefaultFont ( int STYLE );
+void GciSetDefaultFont(int STYLE);
 
-void GciDrawText (int x, int y, const string &text );								// Uses default
-void GciDrawText (int x, int y, const string &text, int STYLE );					// STYLE can be a ttf index if ttf is enabled
+void GciDrawText(int x, int y, const string &text);                                // Uses default
+void GciDrawText(int x, int y, const string &text,
+                 int STYLE);                    // STYLE can be a ttf index if ttf is enabled
 
-int GciTextWidth (const string &text );
-int GciTextWidth (const string &text, int STYLE );
+int GciTextWidth(const string &text);
 
-bool GciRegisterTrueTypeFont(const string &filename );
-bool GciUnregisterTrueTypeFont(const string &filename );
+int GciTextWidth(const string &text, int STYLE);
+
+bool GciRegisterTrueTypeFont(const string &filename);
+
+bool GciUnregisterTrueTypeFont(const string &filename);
 
 // Font functions for dealing with true types -------
 
-void GciEnableTrueTypeSupport ();
-void GciDisableTrueTypeSupport ();
+void GciEnableTrueTypeSupport();
 
-bool GciLoadTrueTypeFont (int index, const string &fontname, const string &filename, int size );
-void GciDeleteTrueTypeFont ( int index );
-void GciDeleteAllTrueTypeFonts ();
+void GciDisableTrueTypeSupport();
+
+bool GciLoadTrueTypeFont(int index, const string &fontname, const string &filename, int size);
+
+void GciDeleteTrueTypeFont(int index);
+
+void GciDeleteAllTrueTypeFonts();
 
 
 /* Graphics flags */
@@ -69,7 +77,8 @@ void GciDeleteAllTrueTypeFonts ();
 #define GCI_FULLSCREEN 0x4
 #define GCI_DEBUGSTART 0x8
 
-char *GciInitGraphicsLibrary ( int graphics_flags );
+char *GciInitGraphicsLibrary(int graphics_flags);
+
 char *GciInitGraphics(const string &caption,
                       int graphics_flags,
                       int screenWidth, int screenHeight,
@@ -79,17 +88,27 @@ char *GciInitGraphics(const string &caption,
 void GciMainLoop();
 
 typedef void GciDisplayFuncT();
+
 typedef void GciIdleFuncT();
+
 typedef void GciKeyboardFuncT(unsigned char key, int x, int y);
+
 typedef void GciMouseFuncT(int button, int state, int x, int y);
+
 typedef void GciMotionFuncT(int x, int y);
+
 typedef void GciPassiveMotionFuncT(int x, int y);
+
 typedef void GciReshapeFuncT(int newWidth, int oldWidth);
+
 typedef void GciSpecialFuncT(int key, int x, int y);
+
 typedef void GciCallbackT(int value);
 
 bool GciLayerDamaged();
+
 void GciSwapBuffers();
+
 void GciPostRedisplay();
 
 
@@ -97,11 +116,17 @@ void GciPostRedisplay();
 
 GCI_GLUT_FUNC(Display); /* void GciDisplayFunction( GciDisplayFunc * ); */
 GCI_GLUT_FUNC(Mouse);
+
 GCI_GLUT_FUNC(Motion);
+
 GCI_GLUT_FUNC(PassiveMotion);
+
 GCI_GLUT_FUNC(Keyboard);
+
 GCI_GLUT_FUNC(Special);
+
 GCI_GLUT_FUNC(Idle);
+
 GCI_GLUT_FUNC(Reshape);
 
 void GciTimerFunc(unsigned int millis, GciCallbackT *callback, int value);
@@ -137,20 +162,21 @@ void GciTimerFunc(unsigned int millis, GciCallbackT *callback, int value);
 
 
 struct GciScreenMode {
-	int w;    // Width
-	int h;    // Height
+    int w;    // Width
+    int h;    // Height
 //	unsigned bpp;  // Bits per pixel
 };
 
 typedef DArray<GciScreenMode *> GciScreenModeList;
 
 GciScreenModeList *GciListScreenModes();
+
 void GciDeleteScreenModeArrayData(GciScreenModeList *);
 
-GciScreenMode *GciGetClosestScreenMode ( int width, int height );
+GciScreenMode *GciGetClosestScreenMode(int width, int height);
 
-void GciSaveScreenshot(const string &file );
+void GciSaveScreenshot(const string &file);
 
-bool GciAppVisible ();
+bool GciAppVisible();
 
 #endif
