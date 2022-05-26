@@ -3,8 +3,10 @@
 #ifdef WIN32
 #include <windows.h>
 #else
+
 #include <sys/time.h>
 #include <sys/resource.h>
+
 #endif
 
 #include <list>
@@ -29,91 +31,106 @@ using namespace std;
 
 static SDL_Window *screen = nullptr;
 
-static unsigned _GciGetAccurateTime ();
+static unsigned _GciGetAccurateTime();
 
 static bool _GciIsInitGraphicsLibrary = false;
 
-static int sdlKeyToGucci(int key)
-{
-  switch (key) {
-  case SDLK_F1: return GCI_KEY_F1;
-  case SDLK_F2: return GCI_KEY_F2;
-  case SDLK_F3: return GCI_KEY_F3;
-  case SDLK_F4: return GCI_KEY_F4;
-  case SDLK_F5: return GCI_KEY_F5;
-  case SDLK_F6: return GCI_KEY_F6;
-  case SDLK_F7: return GCI_KEY_F7;
-  case SDLK_F8: return GCI_KEY_F8;
-  case SDLK_F9: return GCI_KEY_F9;
-  case SDLK_F10: return GCI_KEY_F10;
-  case SDLK_F11: return GCI_KEY_F11;
-  case SDLK_F12: return GCI_KEY_F12;
-  default: return 1000 + key;
-  }
+static int sdlKeyToGucci(int key) {
+    switch (key) {
+        case SDLK_F1:
+            return GCI_KEY_F1;
+        case SDLK_F2:
+            return GCI_KEY_F2;
+        case SDLK_F3:
+            return GCI_KEY_F3;
+        case SDLK_F4:
+            return GCI_KEY_F4;
+        case SDLK_F5:
+            return GCI_KEY_F5;
+        case SDLK_F6:
+            return GCI_KEY_F6;
+        case SDLK_F7:
+            return GCI_KEY_F7;
+        case SDLK_F8:
+            return GCI_KEY_F8;
+        case SDLK_F9:
+            return GCI_KEY_F9;
+        case SDLK_F10:
+            return GCI_KEY_F10;
+        case SDLK_F11:
+            return GCI_KEY_F11;
+        case SDLK_F12:
+            return GCI_KEY_F12;
+        default:
+            return 1000 + key;
+    }
 }
 
-static int sdlButtonToGucci(int button)
-{
-  switch (button) {
-  case SDL_BUTTON_LEFT: return GCI_LEFT_BUTTON;
-  case SDL_BUTTON_MIDDLE: return GCI_MIDDLE_BUTTON;
-  case SDL_BUTTON_RIGHT: return GCI_RIGHT_BUTTON;
-  default: return GCI_UNKNOWN;
-  }
+static int sdlButtonToGucci(int button) {
+    switch (button) {
+        case SDL_BUTTON_LEFT:
+            return GCI_LEFT_BUTTON;
+        case SDL_BUTTON_MIDDLE:
+            return GCI_MIDDLE_BUTTON;
+        case SDL_BUTTON_RIGHT:
+            return GCI_RIGHT_BUTTON;
+        default:
+            return GCI_UNKNOWN;
+    }
 }
 
-static int sdlMouseEventToGucci(int eventType)
-{
-  switch (eventType) {
-  case SDL_MOUSEBUTTONDOWN: return GCI_DOWN;
-  case SDL_MOUSEBUTTONUP: return GCI_UP;
-  default: return GCI_UNKNOWN;
-  }
+static int sdlMouseEventToGucci(int eventType) {
+    switch (eventType) {
+        case SDL_MOUSEBUTTONDOWN:
+            return GCI_DOWN;
+        case SDL_MOUSEBUTTONUP:
+            return GCI_UP;
+        default:
+            return GCI_UNKNOWN;
+    }
 }
 
-char *GciInitGraphicsLibrary ( int graphics_flags )
-{
-  bool debugging = (graphics_flags & GCI_DEBUGSTART) != 0;
+char *GciInitGraphicsLibrary(int graphics_flags) {
+    bool debugging = (graphics_flags & GCI_DEBUGSTART) != 0;
 
-  if ( debugging ) printf ( "Initialising SDL..." );
-  //if ((SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER)==-1)) {
+    if (debugging) printf("Initialising SDL...");
+    //if ((SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER)==-1)) {
 #ifdef _DEBUG
-  if ((SDL_Init(SDL_INIT_VIDEO|SDL_INIT_NOPARACHUTE)==-1)) {
+    if ((SDL_Init(SDL_INIT_VIDEO|SDL_INIT_NOPARACHUTE)==-1)) {
 #else
-  if ((SDL_Init(SDL_INIT_VIDEO)==-1)) {
+    if ((SDL_Init(SDL_INIT_VIDEO) == -1)) {
 #endif
-    //printf("Could not initialize SDL: %s.\n", SDL_GetError());
-    //exit(-1);
-    char message[] = "Could not initialize SDL: %s.";
-    char *errorMessage = nullptr;
-    const char *sdlErrorMessage = SDL_GetError ();
-	size_t sizeErrorMessage = sizeof ( message ) + strlen ( sdlErrorMessage ) + 1;
-    errorMessage = new char [ sizeErrorMessage ];
+        //printf("Could not initialize SDL: %s.\n", SDL_GetError());
+        //exit(-1);
+        char message[] = "Could not initialize SDL: %s.";
+        char *errorMessage = nullptr;
+        const char *sdlErrorMessage = SDL_GetError();
+        size_t sizeErrorMessage = sizeof(message) + strlen(sdlErrorMessage) + 1;
+        errorMessage = new char[sizeErrorMessage];
 #ifdef WIN32
-	_snprintf ( errorMessage, sizeErrorMessage, message, sdlErrorMessage );
+        _snprintf ( errorMessage, sizeErrorMessage, message, sdlErrorMessage );
 #else
-	snprintf ( errorMessage, sizeErrorMessage, message, sdlErrorMessage );
+        snprintf(errorMessage, sizeErrorMessage, message, sdlErrorMessage);
 #endif
-	errorMessage [ sizeErrorMessage - 1 ] = '\0';
-	return errorMessage;
-  }
-  if ( debugging ) printf ( "done\n ");
+        errorMessage[sizeErrorMessage - 1] = '\0';
+        return errorMessage;
+    }
+    if (debugging) printf("done\n ");
 
-  _GciIsInitGraphicsLibrary = true;
-  return nullptr;
+    _GciIsInitGraphicsLibrary = true;
+    return nullptr;
 }
 
-char *GciInitGraphics( const string &caption, int graphics_flags, int screenWidth, int screenHeight,
-		      int screenDepth, int screenRefresh, int argc, char *argv[] )
-{
-  bool debugging = (graphics_flags & GCI_DEBUGSTART) != 0;
-  bool runFullScreen = (graphics_flags & GCI_FULLSCREEN) != 0;
+char *GciInitGraphics(const string &caption, int graphics_flags, int screenWidth, int screenHeight,
+                      int screenDepth, int screenRefresh, int argc, char *argv[]) {
+    bool debugging = (graphics_flags & GCI_DEBUGSTART) != 0;
+    bool runFullScreen = (graphics_flags & GCI_FULLSCREEN) != 0;
 
-  int sdlFlags = 0;
-  if (graphics_flags & GCI_DOUBLE) {
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    //sdlFlags |= SDL_DOUBLEBUF;
-  }
+    int sdlFlags = 0;
+    if (graphics_flags & GCI_DOUBLE) {
+        SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+        //sdlFlags |= SDL_DOUBLEBUF;
+    }
 
 //  const SDL_VideoInfo* info = nullptr;
 //  info=SDL_GetVideo();
@@ -121,90 +138,86 @@ char *GciInitGraphics( const string &caption, int graphics_flags, int screenWidt
 //  if (screenDepth == -1)
 //    screenDepth = info->vfmt->BitsPerPixel;
 
-  if (graphics_flags & GCI_RGB) {
-    switch(screenDepth) {
-    case 24:
-    case 32:
-      SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 8 );
-      SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 8 );
-      SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 8 );
-      break;
+    if (graphics_flags & GCI_RGB) {
+        switch (screenDepth) {
+            case 24:
+            case 32:
+                SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
+                SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
+                SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
+                break;
 
-    case 16:
-    default:
-      SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 5 );
-      SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 5 );
-      SDL_GL_SetAttribute( SDL_GL_BLUE_SIZE, 5 );
-	  screenDepth = 16;
-      break;
+            case 16:
+            default:
+                SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 5);
+                SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 5);
+                SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 5);
+                screenDepth = 16;
+                break;
+        }
+        SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16);
     }
-    SDL_GL_SetAttribute( SDL_GL_DEPTH_SIZE, 16 );
-  }
-  if (graphics_flags & GCI_FULLSCREEN) sdlFlags |= SDL_WINDOW_FULLSCREEN;
+    if (graphics_flags & GCI_FULLSCREEN) sdlFlags |= SDL_WINDOW_FULLSCREEN;
 
-  if ( debugging ) printf ( "SDL is now opening a %dx%d window in %d depth ...", screenWidth, screenHeight, screenDepth );
-  screen = SDL_CreateWindow(caption.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, sdlFlags | SDL_WINDOW_OPENGL);
-  SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, 0);
-  if (screen == nullptr) {
-    //printf("Could not initialize SDL Video: %s.\n", SDL_GetError());
-    //exit(-1);
-    char message[] = "Could not initialize SDL Video: %s.";
-    char *errorMessage = nullptr;
-    const char *sdlErrorMessage = SDL_GetError ();
-	size_t sizeErrorMessage = sizeof ( message ) + strlen ( sdlErrorMessage ) + 1;
-    errorMessage = new char [ sizeErrorMessage ];
+    if (debugging) printf("SDL is now opening a %dx%d window in %d depth ...", screenWidth, screenHeight, screenDepth);
+    screen = SDL_CreateWindow(caption.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth,
+                              screenHeight, sdlFlags | SDL_WINDOW_OPENGL);
+    SDL_Renderer *renderer = SDL_CreateRenderer(screen, -1, 0);
+    if (screen == nullptr) {
+        //printf("Could not initialize SDL Video: %s.\n", SDL_GetError());
+        //exit(-1);
+        char message[] = "Could not initialize SDL Video: %s.";
+        char *errorMessage = nullptr;
+        const char *sdlErrorMessage = SDL_GetError();
+        size_t sizeErrorMessage = sizeof(message) + strlen(sdlErrorMessage) + 1;
+        errorMessage = new char[sizeErrorMessage];
 #ifdef WIN32
-	_snprintf ( errorMessage, sizeErrorMessage, message, sdlErrorMessage );
+        _snprintf ( errorMessage, sizeErrorMessage, message, sdlErrorMessage );
 #else
-	snprintf ( errorMessage, sizeErrorMessage, message, sdlErrorMessage );
+        snprintf(errorMessage, sizeErrorMessage, message, sdlErrorMessage);
 #endif
-	errorMessage [ sizeErrorMessage - 1 ] = '\0';
-	return errorMessage;
-  }
-  if ( debugging ) printf ( "done\n ");
+        errorMessage[sizeErrorMessage - 1] = '\0';
+        return errorMessage;
+    }
+    if (debugging) printf("done\n ");
 
-  if ( debugging ) printf ( "SDL is now changing the window caption and diverse settings ...");
+    if (debugging) printf("SDL is now changing the window caption and diverse settings ...");
 
-  if ( debugging ) printf ( "done\n ");
+    if (debugging) printf("done\n ");
 
-  return nullptr;
+    return nullptr;
 }
-
 
 extern int gci_defaultfont; // The default Gucci style
 
-void GciFallbackDrawText ( int x, int y, const string &text, int STYLE )
-{
-  static bool inside = false;
+void GciFallbackDrawText(int x, int y, const string &text, int STYLE) {
+    static bool inside = false;
 
-  if (!inside) {
-    inside = true;
-    GciDrawText(x, y, text, gci_defaultfont);
-    inside = false;
-  }
-  else {
-    // We recursed back here, not even the
-    // default font is supported!
-    abort();
-  }
+    if (!inside) {
+        inside = true;
+        GciDrawText(x, y, text, gci_defaultfont);
+        inside = false;
+    } else {
+        // We recursed back here, not even the
+        // default font is supported!
+        abort();
+    }
 }
 
-int GciFallbackTextWidth ( const string &text, int STYLE )
-{
-  static bool inside = false;
+int GciFallbackTextWidth(const string &text, int STYLE) {
+    static bool inside = false;
 
-  if (!inside) {
-    inside = true;
-    int result = GciTextWidth(text, gci_defaultfont);
-    inside = false;
-	return inside;
-  }
-  else {
-    // We recursed back here, not even the
-    // default font is supported!
-    abort();
-    return 0;
-  }
+    if (!inside) {
+        inside = true;
+        int result = GciTextWidth(text, gci_defaultfont);
+        inside = false;
+        return inside;
+    } else {
+        // We recursed back here, not even the
+        // default font is supported!
+        abort();
+        return 0;
+    }
 }
 
 #define GUCCI_FUNC(Function) \
@@ -227,279 +240,263 @@ static bool gciRedisplay = true;
 static bool displayDamaged = false;
 static bool finished = false;
 
-bool GciLayerDamaged()
-{
-  return displayDamaged;
+bool GciLayerDamaged() {
+    return displayDamaged;
 }
 
-void GciSwapBuffers()
-{
-  SDL_GL_SwapWindow(screen);
-  displayDamaged = false;
+void GciSwapBuffers() {
+    SDL_GL_SwapWindow(screen);
+    displayDamaged = false;
 }
 
-void GciPostRedisplay()
-{
-  gciRedisplay = displayDamaged = true;
+void GciPostRedisplay() {
+    gciRedisplay = displayDamaged = true;
 }
 
 class Callback {
 public:
-  Callback(unsigned duration, GciCallbackT *callback, int value)
-    : callback(callback), value(value)
-  {
-    expiryTime = SDL_GetTicks() + duration;
-  };
+    Callback(unsigned duration, GciCallbackT *callback, int value)
+            : callback(callback), value(value) {
+        expiryTime = SDL_GetTicks() + duration;
+    };
 
-  bool expired() {
-    return SDL_GetTicks() > expiryTime;
-  };
+    bool expired() {
+        return SDL_GetTicks() > expiryTime;
+    };
 
-  void invoke();
+    void invoke();
 
 private:
-  GciCallbackT *callback;
-  int value;
-  unsigned expiryTime;
+    GciCallbackT *callback;
+    int value;
+    unsigned expiryTime;
 };
 
 typedef list<Callback *> TimerList;
 static TimerList timerEvents;
 
-static void GciProcessTimerEvents()
-{
-  for (TimerList::iterator i = timerEvents.begin(); i != timerEvents.end(); ) {
-    Callback *c = *i;
-    if (c->expired()) {
-      i = timerEvents.erase(i);
-      c->invoke();
-      delete c;
+static void GciProcessTimerEvents() {
+    for (TimerList::iterator i = timerEvents.begin(); i != timerEvents.end();) {
+        Callback *c = *i;
+        if (c->expired()) {
+            i = timerEvents.erase(i);
+            c->invoke();
+            delete c;
+        } else
+            i++;
     }
-    else
-      i++;
-  }
 }
 
-void Callback::invoke()
-{
-  (*callback)(value);
+void Callback::invoke() {
+    (*callback)(value);
 };
 
-void GciTimerFunc(unsigned int millis, GciCallbackT *callback, int value)
-{
-  timerEvents.push_back(new Callback(millis, callback, value));
+void GciTimerFunc(unsigned int millis, GciCallbackT *callback, int value) {
+    timerEvents.push_back(new Callback(millis, callback, value));
 }
 
-void GciMainLoop()
-{
-  finished = false;
+void GciMainLoop() {
+    finished = false;
 
-  unsigned lastFrameTime = _GciGetAccurateTime();
-  unsigned frameRate = 35;
-  unsigned framePeriod = 1000 / frameRate;
+    unsigned lastFrameTime = _GciGetAccurateTime();
+    unsigned frameRate = 35;
+    unsigned framePeriod = 1000 / frameRate;
 
-  while (!finished) {
+    while (!finished) {
 //     unsigned now = _GciGetAccurateTime();
 //     unsigned frameDuration = now - lastFrameTime;
 
 //     if (frameDuration > framePeriod) {
 //       lastFrameTime = now;
-    if (gciDisplayHandlerP)
-	(*gciDisplayHandlerP)();
+        if (gciDisplayHandlerP)
+            (*gciDisplayHandlerP)();
 
-    SDL_Event event;
+        SDL_Event event;
 
-    /* Check for events */
-    while(SDL_PollEvent(&event) && !finished){  /* Loop until there are no events left on the queue */
-      switch(event.type){  /* Process the appropiate event type */
-      case SDL_TEXTINPUT: {
-	int x, y;
-	SDL_GetMouseState(&x, &y);
+        /* Check for events */
+        while (SDL_PollEvent(&event) && !finished) {  /* Loop until there are no events left on the queue */
+            switch (event.type) {  /* Process the appropriate event type */
+                case SDL_KEYDOWN: {
+                    int x, y;
+                    SDL_GetMouseState(&x, &y);
 
-	Uint16 unicode = event.key.keysym.scancode;
-	if ( ( event.key.keysym.mod & KMOD_NUM ) == KMOD_NUM ) {
-		if ( SDLK_KP_0 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP_9 )
-			unicode = SDLK_0 + ( event.key.keysym.sym - SDLK_KP_0 );
-		else if ( event.key.keysym.sym == SDLK_KP_PERIOD )
-			unicode = SDLK_PERIOD;
-		else if ( event.key.keysym.sym == SDLK_KP_ENTER )
-			unicode = SDLK_RETURN;
-		else if ( event.key.keysym.sym == SDLK_KP_PLUS )
-			unicode = SDLK_PLUS;
-		else if ( event.key.keysym.sym == SDLK_KP_MINUS )
-			unicode = SDLK_MINUS;
-		else if ( event.key.keysym.sym == SDLK_KP_MULTIPLY )
-			unicode = SDLK_ASTERISK;
-		else if ( event.key.keysym.sym == SDLK_KP_DIVIDE )
-			unicode = SDLK_SLASH;
-		else if ( event.key.keysym.sym == SDLK_KP_EQUALS )
-			unicode = SDLK_EQUALS;
-	}
+                    Uint16 unicode = event.key.keysym.sym;
+                    if ((event.key.keysym.mod & KMOD_NUM) == KMOD_NUM) {
+                        if (SDLK_KP_0 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP_9)
+                            unicode = SDLK_0 + (event.key.keysym.sym - SDLK_KP_0);
+                        else if (event.key.keysym.sym == SDLK_KP_PERIOD)
+                            unicode = SDLK_PERIOD;
+                        else if (event.key.keysym.sym == SDLK_KP_ENTER)
+                            unicode = SDLK_RETURN;
+                        else if (event.key.keysym.sym == SDLK_KP_PLUS)
+                            unicode = SDLK_PLUS;
+                        else if (event.key.keysym.sym == SDLK_KP_MINUS)
+                            unicode = SDLK_MINUS;
+                        else if (event.key.keysym.sym == SDLK_KP_MULTIPLY)
+                            unicode = SDLK_ASTERISK;
+                        else if (event.key.keysym.sym == SDLK_KP_DIVIDE)
+                            unicode = SDLK_SLASH;
+                        else if (event.key.keysym.sym == SDLK_KP_EQUALS)
+                            unicode = SDLK_EQUALS;
+                    }
 
-	if (unicode == 0) {
-	  if (gciSpecialHandlerP)
-	    (*gciSpecialHandlerP)(sdlKeyToGucci(event.key.keysym.sym), x, y);
-	}
-	else {
-	  if (gciKeyboardHandlerP)
-	    (*gciKeyboardHandlerP)((unsigned char) unicode, x, y);
-	}
-      }
-	break;
-      case SDL_MOUSEMOTION:
-	if (gciMotionHandlerP) {
-	  /* I have a feeling we should only call this if
-	     a mouse button is depressed */
-	  	  (*gciMotionHandlerP)(event.motion.x, event.motion.y);
-	}
-	if (gciPassiveMotionHandlerP) {
-	  (*gciPassiveMotionHandlerP)(event.motion.x, event.motion.y);
-	}
-	break;
-      case SDL_MOUSEBUTTONDOWN:
-      case SDL_MOUSEBUTTONUP:
-	if (gciMouseHandlerP) {
-	  (*gciMouseHandlerP)(sdlButtonToGucci(event.button.button),
-			      sdlMouseEventToGucci(event.button.type),
-			      event.button.x,
-			      event.button.y);
-	}
-	break;
-      case SDL_QUIT:
-	finished = true;
-	break;
-      case SDL_WINDOWEVENT_EXPOSED:
-      case SDL_WINDOWEVENT_RESIZED:
-	displayDamaged = true;
-	break;
-      default: /* Report an unhandled event */
-	break;
-      }
+                    if (unicode == 0) {
+                        if (gciSpecialHandlerP)
+                            (*gciSpecialHandlerP)(sdlKeyToGucci(event.key.keysym.sym), x, y);
+                    } else {
+                        if (gciKeyboardHandlerP)
+                            (*gciKeyboardHandlerP)((unsigned char) unicode, x, y);
+                    }
+                }
+                    break;
+                case SDL_MOUSEMOTION:
+                    if (gciMotionHandlerP) {
+                        /* I have a feeling we should only call this if
+                           a mouse button is depressed */
+                        (*gciMotionHandlerP)(event.motion.x, event.motion.y);
+                    }
+                    if (gciPassiveMotionHandlerP) {
+                        (*gciPassiveMotionHandlerP)(event.motion.x, event.motion.y);
+                    }
+                    break;
+                case SDL_MOUSEBUTTONDOWN:
+                case SDL_MOUSEBUTTONUP:
+                    if (gciMouseHandlerP) {
+                        (*gciMouseHandlerP)(sdlButtonToGucci(event.button.button),
+                                            sdlMouseEventToGucci(event.button.type),
+                                            event.button.x,
+                                            event.button.y);
+                    }
+                    break;
+                case SDL_QUIT:
+                    finished = true;
+                    break;
+                case SDL_WINDOWEVENT_EXPOSED:
+                case SDL_WINDOWEVENT_RESIZED:
+                    displayDamaged = true;
+                    break;
+                default: /* Report an unhandled event */
+                    break;
+            }
+        }
+
+        if (!finished) {
+            /* Let other processes run */
+            // SDL_Delay(1);
+
+            GciProcessTimerEvents();
+
+            if (gciIdleHandlerP)
+                (*gciIdleHandlerP)();
+
+            //     if (!gciRedisplay) {
+            // 	    SDL_WaitEvent(&event);
+            // 	    SDL_PushEvent(&event);
+            //     }
+        }
     }
-
-	if ( !finished ) {
-		/* Let other processes run */
-		// SDL_Delay(1);
-
-		GciProcessTimerEvents();
-
-		if (gciIdleHandlerP)
-		  (*gciIdleHandlerP)();
-
-	//     if (!gciRedisplay) {
-	// 	    SDL_WaitEvent(&event);
-	// 	    SDL_PushEvent(&event);
-	//     }
-	}
-  }
 }
 
-void GciRestoreScreenSize()
-{
-  if ( _GciIsInitGraphicsLibrary && SDL_WasInit(SDL_INIT_VIDEO) ) {
-    // A try to remove some exit crashes
-    int value = 0;
-    if ( SDL_GL_GetAttribute(SDL_GL_DOUBLEBUFFER,&value) == 0 )
-		if ( value != 0 )
-			SDL_GL_SwapWindow(screen);
+void GciRestoreScreenSize() {
+    if (_GciIsInitGraphicsLibrary && SDL_WasInit(SDL_INIT_VIDEO)) {
+        // A try to remove some exit crashes
+        int value = 0;
+        if (SDL_GL_GetAttribute(SDL_GL_DOUBLEBUFFER, &value) == 0)
+            if (value != 0)
+                SDL_GL_SwapWindow(screen);
 
-    SDL_QuitSubSystem(SDL_INIT_VIDEO);
-  }
-  _GciIsInitGraphicsLibrary = false;
-  finished = true;
+        SDL_QuitSubSystem(SDL_INIT_VIDEO);
+    }
+    _GciIsInitGraphicsLibrary = false;
+    finished = true;
 }
 
-void GciStoreScreenSize ()
-{
+void GciStoreScreenSize() {
 }
 
-bool GciSetScreenSize ( int width, int height,
-                        int bpp, int refresh )
-{
-  return true;
+bool GciSetScreenSize(int width, int height,
+                      int bpp, int refresh) {
+    return true;
 }
 
-void GciResizeGlut ( int width, int height )
-{
+void GciResizeGlut(int width, int height) {
 }
 
-void GciRestoreGlut()
-{
+void GciRestoreGlut() {
 }
 
-static unsigned _GciGetAccurateTime ()
-{
+static unsigned _GciGetAccurateTime() {
 
 #ifdef WIN32
 
-	static bool supportsHighResTime = false;
-	static bool initted = false;
+    static bool supportsHighResTime = false;
+    static bool initted = false;
 
-	static LARGE_INTEGER frequency;
-	static LARGE_INTEGER firstPerformanceCount;
-	static DWORD firstTickCount = 0;
+    static LARGE_INTEGER frequency;
+    static LARGE_INTEGER firstPerformanceCount;
+    static DWORD firstTickCount = 0;
 
-	if ( !initted ) {
-		initted = true;
+    if ( !initted ) {
+        initted = true;
 
-		if ( QueryPerformanceFrequency ( &frequency ) &&
-		     QueryPerformanceCounter ( &firstPerformanceCount ) ) {
+        if ( QueryPerformanceFrequency ( &frequency ) &&
+             QueryPerformanceCounter ( &firstPerformanceCount ) ) {
 
-			supportsHighResTime = true;
-		}
-		else {
-			firstTickCount = GetTickCount();
-		}
-	}
+            supportsHighResTime = true;
+        }
+        else {
+            firstTickCount = GetTickCount();
+        }
+    }
 
-	if ( supportsHighResTime ) {
-		LARGE_INTEGER performanceCount;
-		QueryPerformanceCounter ( &performanceCount );
+    if ( supportsHighResTime ) {
+        LARGE_INTEGER performanceCount;
+        QueryPerformanceCounter ( &performanceCount );
 
-		return (unsigned) ( 1000 * ( performanceCount.QuadPart - firstPerformanceCount.QuadPart ) / frequency.QuadPart );
-	}
-	else {
-		return GetTickCount() - firstTickCount;
-	}
+        return (unsigned) ( 1000 * ( performanceCount.QuadPart - firstPerformanceCount.QuadPart ) / frequency.QuadPart );
+    }
+    else {
+        return GetTickCount() - firstTickCount;
+    }
 
-	/*
-	//return 1000 * ( (float) clock () / (float) CLOCKS_PER_SEC );
+    /*
+    //return 1000 * ( (float) clock () / (float) CLOCKS_PER_SEC );
 
-	LARGE_INTEGER lpFrequency;
-	LARGE_INTEGER lpPerformanceCount;
-	if ( QueryPerformanceFrequency ( &lpFrequency ) != 0 && QueryPerformanceCounter ( &lpPerformanceCount ) != 0 ) {
+    LARGE_INTEGER lpFrequency;
+    LARGE_INTEGER lpPerformanceCount;
+    if ( QueryPerformanceFrequency ( &lpFrequency ) != 0 && QueryPerformanceCounter ( &lpPerformanceCount ) != 0 ) {
 
-		return (unsigned) ( ( lpPerformanceCount.QuadPart * 1000 ) / lpFrequency.QuadPart );
+        return (unsigned) ( ( lpPerformanceCount.QuadPart * 1000 ) / lpFrequency.QuadPart );
 
-	}
+    }
 
-	return GetTickCount ();
-	*/
+    return GetTickCount ();
+    */
 
 #else
 
-	// Linux version
+    // Linux version
 
-	static bool initted = false;
-	static struct timeval startTime;
-	struct timeval tv;
+    static bool initted = false;
+    static struct timeval startTime;
+    struct timeval tv;
 
-	if (!initted) {
-		initted = true;
-		gettimeofday(&startTime, nullptr);
-		return 0;
-	}
+    if (!initted) {
+        initted = true;
+        gettimeofday(&startTime, nullptr);
+        return 0;
+    }
 
-	gettimeofday(&tv, nullptr);
+    gettimeofday(&tv, nullptr);
 
-	long diff_usec = tv.tv_usec - startTime.tv_usec;
-	if (diff_usec < 0) {
-		diff_usec += 1000000;
-		tv.tv_sec --;
-	}
-	long diff_sec = tv.tv_sec - startTime.tv_sec;
+    long diff_usec = tv.tv_usec - startTime.tv_usec;
+    if (diff_usec < 0) {
+        diff_usec += 1000000;
+        tv.tv_sec--;
+    }
+    long diff_sec = tv.tv_sec - startTime.tv_sec;
 
-	return 1000 * diff_sec + diff_usec / 1000;
+    return 1000 * diff_sec + diff_usec / 1000;
 
 #endif
 
@@ -508,7 +505,7 @@ static unsigned _GciGetAccurateTime ()
 
 GciScreenModeList *GciListScreenModes() {
 
-	GciScreenModeList *resolutions = new DArray<GciScreenMode *>;
+    GciScreenModeList *resolutions = new DArray<GciScreenMode *>;
 
     std::vector<SDL_DisplayMode> modes;
 
@@ -520,7 +517,7 @@ GciScreenModeList *GciListScreenModes() {
 
         int modes_count = SDL_GetNumDisplayModes(display_index);
         for (int mode_index = 0; mode_index <= modes_count; mode_index++) {
-            SDL_DisplayMode mode = { SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, nullptr };
+            SDL_DisplayMode mode = {SDL_PIXELFORMAT_UNKNOWN, 0, 0, 0, nullptr};
 
             if (SDL_GetDisplayMode(display_index, mode_index, &mode) == 0) {
                 SDL_Log(" %i bpp\t%i x %i @ %iHz",
@@ -530,112 +527,109 @@ GciScreenModeList *GciListScreenModes() {
                     GciScreenMode *newMode = new GciScreenMode;
                     newMode->w = mode.w;
                     newMode->h = mode.h;
-                    resolutions->PutData( newMode );
+                    resolutions->PutData(newMode);
                 }
             }
         }
     }
 
-	/* Get available fullscreen/hardware modes */
+    /* Get available fullscreen/hardware modes */
 //	modes = SDL_ListModes(nullptr, SDL_WINDOW_FULLSCREEN|SDL_WINDOW_OPENGL);
 
-	/* Check is there are any modes available
-	   and try non-hardware modes if not. */
+    /* Check is there are any modes available
+       and try non-hardware modes if not. */
 //	if(modes == (SDL_Rect **)nullptr){
 //		printf( "SDL Resolutions: not using HW flag.\n" );
 //		modes = SDL_ListModes(nullptr, SDL_WINDOW_FULLSCREEN|SDL_WINDOW_OPENGL);
 //	}
 
-	return resolutions;
+    return resolutions;
 }
 
-GciScreenMode *GciGetClosestScreenMode ( int width, int height ) {
+GciScreenMode *GciGetClosestScreenMode(int width, int height) {
 
-	GciScreenMode *newMode = new GciScreenMode;
-	newMode->w = width;
-	newMode->h = height;
+    GciScreenMode *newMode = new GciScreenMode;
+    newMode->w = width;
+    newMode->h = height;
 
-	SDL_DisplayMode target, closest;
-	target.w = width;
-	target.h = height;
-	target.format = 0; // Don't care
-	target.refresh_rate = 0; // Don't care
-	target.driverdata = nullptr; // Initialize to 0
-	cout << "Requesting " << target.w << "x" << target.h << endl;
+    SDL_DisplayMode target, closest;
+    target.w = width;
+    target.h = height;
+    target.format = 0; // Don't care
+    target.refresh_rate = 0; // Don't care
+    target.driverdata = nullptr; // Initialize to 0
+    cout << "Requesting " << target.w << "x" << target.h << endl;
 
-	if (SDL_GetClosestDisplayMode(0, &target, &closest) == nullptr) {
-	    cout << "No suitable display mode found!" << endl;
-	} else {
-	    cout << "Got a suitable display mode!" << endl;
-	}
+    if (SDL_GetClosestDisplayMode(0, &target, &closest) == nullptr) {
+        cout << "No suitable display mode found!" << endl;
+    } else {
+        cout << "Got a suitable display mode!" << endl;
+    }
 
-	newMode->w = closest.w;
-	newMode->h = closest.h;
+    newMode->w = closest.w;
+    newMode->h = closest.h;
 
-	return newMode;
+    return newMode;
 }
 
 void GciDeleteScreenModeArrayData(GciScreenModeList *modes) {
 
-	if (modes == nullptr) return;
+    if (modes == nullptr) return;
 
-	for ( int i = 0; i < modes->Size(); ++i )
-		if ( modes->ValidIndex( i ) )
-			if ( modes->GetData( i ) )
-				delete modes->GetData( i );
-	modes->Empty();
+    for (int i = 0; i < modes->Size(); ++i)
+        if (modes->ValidIndex(i))
+            if (modes->GetData(i))
+                delete modes->GetData(i);
+    modes->Empty();
 }
 
-void GciSaveScreenshot( const string &file ) {
+void GciSaveScreenshot(const string &file) {
 
-	SDL_Surface *temp;
-	unsigned char *pixels;
-	int i;
+    SDL_Surface *temp;
+    unsigned char *pixels;
+    int i;
 
-	int w = SDL_GetWindowSurface(screen)->w;
-	int h = SDL_GetWindowSurface(screen)->h;
+    int w = SDL_GetWindowSurface(screen)->w;
+    int h = SDL_GetWindowSurface(screen)->h;
 
-	if (!(SDL_GetWindowSurface(screen)->flags & SDL_WINDOW_OPENGL))
-	{
-		//SDL_SaveBMP(temp, file);
-		return;
-	}
+    if (!(SDL_GetWindowSurface(screen)->flags & SDL_WINDOW_OPENGL)) {
+        //SDL_SaveBMP(temp, file);
+        return;
+    }
 
-	temp = SDL_CreateRGBSurface(SDL_SWSURFACE, w, h, 24,
+    temp = SDL_CreateRGBSurface(SDL_SWSURFACE, w, h, 24,
 #if SDL_BYTEORDER == SDL_LIL_ENDIAN
-	0x000000FF, 0x0000FF00, 0x00FF0000, 0
+                                0x000000FF, 0x0000FF00, 0x00FF0000, 0
 #else
-	0x00FF0000, 0x0000FF00, 0x000000FF, 0
+            0x00FF0000, 0x0000FF00, 0x000000FF, 0
 #endif
-	);
-	if (temp == nullptr)
-		return;
+    );
+    if (temp == nullptr)
+        return;
 
-	pixels = (unsigned char *)malloc(3 * w * h);
-	if (pixels == nullptr)
-	{
-		SDL_FreeSurface(temp);
-		return;
-	}
+    pixels = (unsigned char *) malloc(3 * w * h);
+    if (pixels == nullptr) {
+        SDL_FreeSurface(temp);
+        return;
+    }
 
-	glReadPixels(0, 0, w, h, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+    glReadPixels(0, 0, w, h, GL_RGB, GL_UNSIGNED_BYTE, pixels);
 
-	for (i=0; i<h; i++)
-		memcpy(((char *) temp->pixels) + temp->pitch * i, pixels + 3*w * (h-i-1), w*3);
-	free(pixels);
+    for (i = 0; i < h; i++)
+        memcpy(((char *) temp->pixels) + temp->pitch * i, pixels + 3 * w * (h - i - 1), w * 3);
+    free(pixels);
 
-	SDL_SaveBMP(temp, file.c_str());
-	SDL_FreeSurface(temp);
+    SDL_SaveBMP(temp, file.c_str());
+    SDL_FreeSurface(temp);
 }
 
-bool GciAppVisible ()
-{
+bool GciAppVisible() {
 
     if (SDL_GetWindowFlags(screen) & SDL_WINDOW_SHOWN) {
         return true;
     }
 
-	return false;
+    return false;
 
 }
 
