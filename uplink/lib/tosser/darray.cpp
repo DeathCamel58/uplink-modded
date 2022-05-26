@@ -19,7 +19,7 @@ DArray <T> :: DArray ()
     stepsize = 1;
     arraysize = 0;
     dynarray = NULL;
-    shadow = NULL;
+    shadow = nullptr;
     
 }
 
@@ -41,7 +41,7 @@ DArray <T> :: DArray ( const DArray<T>& da )
 	}
 	else {
 		dynarray = NULL;
-		shadow = NULL;
+		shadow = nullptr;
 	}
     
 }
@@ -53,7 +53,7 @@ DArray <T> :: DArray ( int newstepsize )
     stepsize = newstepsize;
     arraysize = 0;
     dynarray = NULL;
-    shadow = NULL;
+    shadow = nullptr;
     
 }
 
@@ -74,10 +74,10 @@ void DArray <T> :: SetSize ( int newsize )
 		arraysize = 0;
 
 		if ( dynarray ) delete [] dynarray;
-		if ( shadow ) delete [] shadow;
+		delete [] shadow;
 
 		dynarray = NULL;
-		shadow = NULL;
+		shadow = nullptr;
 
 	}
 	else if ( newsize > arraysize ) {
@@ -101,7 +101,7 @@ void DArray <T> :: SetSize ( int newsize )
 			tempshadow [a] = 0;
 		
 		if ( dynarray ) delete [] dynarray;
-		if ( shadow ) delete [] shadow;
+		delete [] shadow;
 		
 		dynarray = temparray;
 		shadow = tempshadow;
@@ -121,7 +121,7 @@ void DArray <T> :: SetSize ( int newsize )
 		}
 
 		if ( dynarray ) delete [] dynarray;
-		if ( shadow ) delete [] shadow;
+		delete [] shadow;
 		
 		dynarray = temparray;
 		shadow = tempshadow;
@@ -192,11 +192,10 @@ void DArray <T> :: Empty ()
     if ( dynarray != NULL )
 		delete [] dynarray;
     
-    if ( shadow != NULL )
-		delete [] shadow;
+    delete [] shadow;
     
     dynarray = NULL;
-    shadow = NULL;
+    shadow = nullptr;
     
     arraysize = 0;
 

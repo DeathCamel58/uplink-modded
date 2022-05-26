@@ -21,17 +21,17 @@
 //#endif
 
 
-bool BglOpenZipFile (const string &zipfile, const string &apppath, const string &id = nullptr );
-bool BglOpenZipFile (FILE *file, const string &apppath, const string &id = nullptr );
+bool BglOpenZipFile (const string &zipfile, const string &apppath, const string &id = "" );
+bool BglOpenZipFile (FILE *file, const string &apppath, const string &id = "" );
 
 bool BglFileLoaded  (const string &filename );
-bool BglExtractFile (const string &filename, const string &target = nullptr );
+bool BglExtractFile (const string &filename, const string &target = "" );
 
 void BglCloseZipFile (const string &id );
 
 void BglExtractAllFiles (const string &zipfile );
 
-DArray <char *> *BglListFiles (const string &path, const string &directory = nullptr, const string &filter = nullptr );
+DArray <char *> *BglListFiles (const string &path, const string &directory = "", const string &filter = "" );
 
 void BglCloseAllFiles();
 

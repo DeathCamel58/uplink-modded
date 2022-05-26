@@ -204,7 +204,7 @@ string LogBank::TraceLog (const string &to_ip, const string &logbank_ip, Date *d
 		return logbank_ip;
 
 	else
-		return nullptr;
+		return "";
 
 }
 
