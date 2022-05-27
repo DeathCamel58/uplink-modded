@@ -322,8 +322,10 @@ void GciMainLoop() {
 
                     Uint16 unicode = event.key.keysym.sym;
                     if ((event.key.keysym.mod & KMOD_NUM) == KMOD_NUM) {
-                        if (SDLK_KP_0 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP_9)
-                            unicode = SDLK_0 + (event.key.keysym.sym - SDLK_KP_0);
+                        if (SDLK_KP_1 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP_9)
+                            unicode = SDLK_1 + (event.key.keysym.sym - SDLK_KP_1);
+                        else if (event.key.keysym.sym == SDLK_KP_0)
+                            unicode = SDLK_0;
                         else if (event.key.keysym.sym == SDLK_KP_PERIOD)
                             unicode = SDLK_PERIOD;
                         else if (event.key.keysym.sym == SDLK_KP_ENTER)
