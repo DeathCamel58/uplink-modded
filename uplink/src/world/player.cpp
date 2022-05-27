@@ -70,7 +70,7 @@ void Player::GiveMessage ( Message *message )
 bool Player::IsPlayerAccount (const string &bankip, const string &accno )
 {
 
-	string searchstring = bankip + accno;
+	string searchstring = bankip + " " + accno;
 
 	for ( int i = 0; i < accounts.Size (); ++i )
 		if ( accounts.ValidIndex (i) )
