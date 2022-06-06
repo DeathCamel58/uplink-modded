@@ -330,7 +330,7 @@ void PasswordBreaker::PasswordDraw ( Button *button, bool highlighted, bool clic
 	if ( button->caption != "Select target" ) {
 
 		for ( size_t i = 0; i < button->caption.length(); ++i ) {
-			string caption = to_string( button->caption [i] );
+			string caption = button->caption.substr(i, 1);
 			GciDrawText ( (int) ( xpos + i * 25 ), ypos, caption, BITMAP_15 );
 		}
 
