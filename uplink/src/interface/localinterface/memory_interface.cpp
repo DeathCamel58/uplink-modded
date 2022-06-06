@@ -150,8 +150,9 @@ void MemoryInterface::MemoryBlockDraw ( Button *button, bool highlighted, bool c
 				GciDrawText ( button->x + 30, button->y + 8, data->title );
 
 				if ( data->TYPE == DATATYPE_PROGRAM ) {
-				    // TODO: Only print %1.1f
 					string version = "v" + to_string(data->version);
+					size_t decimalPos = version.find('.');
+					version = version.substr(0, decimalPos + 2);
 					GciDrawText ( button->x + button->width - 23, button->y + 8, version );
 				}
 
