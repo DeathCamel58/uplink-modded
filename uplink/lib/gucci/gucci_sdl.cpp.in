@@ -322,9 +322,9 @@ void GciMainLoop() {
 
                     Uint16 unicode = event.key.keysym.sym;
                     if (
-                            (event.key.keysym.scancode >= SDL_SCANCODE_F1 && event.key.keysym.scancode <= SDL_SCANCODE_NUMLOCKCLEAR) ||
+                            (event.key.keysym.scancode >= SDL_SCANCODE_CAPSLOCK && event.key.keysym.scancode <= SDL_SCANCODE_NUMLOCKCLEAR) ||
                             (event.key.keysym.scancode >= SDL_SCANCODE_LCTRL && event.key.keysym.scancode <= SDL_SCANCODE_RGUI)
-                        ) {
+                            ) {
                         if (gciSpecialHandlerP)
                             (*gciSpecialHandlerP)(sdlKeyToGucci(event.key.keysym.sym), x, y);
                         break;
