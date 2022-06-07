@@ -213,8 +213,14 @@ T LList <T>::GetData ( int index )
 
         for ( int i = 0; i < index; ++i ) {
 
-            if ( current == NULL )
-                return (T) 0;
+            if ( current == NULL ) {
+                previousindex = -1;
+                if (typeid(T) == typeid(string)) {
+                    return T();
+                } else {
+                    return (T) 0;
+                }
+            }
 
             current = current->next;
 
