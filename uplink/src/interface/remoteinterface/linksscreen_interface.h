@@ -21,8 +21,8 @@ protected:
 
 	static int baseoffset;
 
-	LList <char *> fulllist;
-	LList <char *> filteredlist;
+	LList <string> fulllist;
+	LList <string> filteredlist;
 
 	static Image *ilink_tif;
 	static Image *ilink_h_tif;
@@ -63,12 +63,12 @@ protected:
 
 public:
 
-	static void AfterPhoneDialler ( char *ip, char *info );
+	static void AfterPhoneDialler (string &ip, string &info );
 
     LinksScreenInterface ();
     ~LinksScreenInterface () override;
 
-	void SetFullList ( LList <char *> *newfulllist );						            // The list is copied
+	void SetFullList ( LList <string> *newfulllist );						            // The list is copied
 	void SetFullList ();										            			// Uses current filtered list
 	void ApplyFilter (const string &filter );
 

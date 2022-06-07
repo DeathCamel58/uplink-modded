@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 #include <app/miscutils.h>
+#include <sstream>
 
 #include "app/serialise.h"
 #include "app/globals.h"
@@ -136,8 +137,7 @@ void BankAccount::SetBalance ( int newbalance, int newloan )
 void BankAccount::SetOwner (const string &newname )
 {
 	
-	assert( newname.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
+	name = newname;
 
 }
 
@@ -270,7 +270,7 @@ bool BankAccount::HasTransferOccurred (char *s_ip, char *t_ip, int t_accno, int 
 
 }
 
-bool BankAccount::HasTransferOccurred (char *person, int amount ) const
+bool BankAccount::HasTransferOccurred (const string& person, int amount ) const
 {
 
 	char amount_s [16];
@@ -292,7 +292,7 @@ bool BankAccount::HasTransferOccurred (char *person, int amount ) const
 			    UplinkAssert ( al->data3 )
 
                 if ( strcmp ( al->data2, amount_s ) == 0 &&
-				     strcmp ( al->data3, person )   == 0 ) {
+				     al->data3 == person ) {
 
 				    // This is it
 				    return true;
@@ -315,9 +315,9 @@ Person *BankAccount::GetPerson ()
 
 	Player *pl = game->GetWorld ()->GetPlayer ();
 	for ( int i = 0; i < pl->accounts.Size (); ++i ) {
-		char ip [SIZE_VLOCATION_IP];
-		char accno [16];
-		sscanf ( pl->accounts.GetData (i), "%s %s", ip, accno );
+		string ip, accno;
+		stringstream stream(pl->accounts.GetData(i));
+		stream >> ip >> accno;
 
 		BankAccount *ba = BankAccount::GetAccount ( ip, accno );
 		if ( ba == this ) {
@@ -338,7 +338,7 @@ bool BankAccount::Load  ( FILE *file )
 
 	LoadID ( file );
 	
-	if ( !LoadDynamicStringStatic ( name, SIZE_PERSON_NAME, file ) ) return false;
+	if ( !LoadDynamicStringInt ( name, file ) ) return false;
 
 	if ( strcmp( game->GetLoadedSavefileVer(), "SAV59" ) >= 0 ) {
 		if ( !LoadDynamicStringStatic ( password, sizeof(password), file ) ) return false;

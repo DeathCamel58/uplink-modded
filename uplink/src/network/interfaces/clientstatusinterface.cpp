@@ -42,7 +42,7 @@ ClientStatusInterface::ClientStatusInterface()
 ClientStatusInterface::~ClientStatusInterface()
 {
 
-    DeleteLListData ( &news );
+    DeleteLListData ( news );
 
 }
 
@@ -146,8 +146,8 @@ void ClientStatusInterface::WorldPanelDraw ( Button *button, bool highlighted, b
 	for ( int i = 0; i < thisint->news.Size (); ++i ) {
 		if ( thisint->news.ValidIndex (i) ) {
 
-			char *newsitem = thisint->news.GetData (i);
-			UplinkAssert (newsitem)
+			string newsitem = thisint->news.GetData (i);
+			assert(!newsitem.empty());
 
 			text_draw ( x + 10, y + 70 + i * 55, newsitem, button->width + 20 );
 

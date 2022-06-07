@@ -48,14 +48,14 @@ public:
 	void ChangeUplinkScore		( int amount );
 	void ChangeNeuromancerScore ( int amount );
 
-	char *GetUplinkRating	   () const;
-	char *GetNeuromancerRating () const;
+	string GetUplinkRating	   () const;
+	string GetNeuromancerRating () const;
 
 	void SetCreditRating ( int rating );
     void ChangeCreditRating ( int amount );
 
-	static char *GetUplinkRatingString ( int urating );
-	static char *GetNeuromancerRatingString ( int nrating );
+	static string GetUplinkRatingString (int urating );
+	static string GetNeuromancerRatingString (int nrating );
 
 	// Common functions
 

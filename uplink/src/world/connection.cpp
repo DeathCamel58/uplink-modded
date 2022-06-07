@@ -35,11 +35,7 @@ Connection::Connection()
 }
 
 Connection::~Connection()
-{
-                                       
-	DeleteLListData ( &vlocations );            
-
-}
+= default;
 
 void Connection::SetOwner (const string &newowner )
 {
@@ -73,7 +69,6 @@ void Connection::AddOrRemoveVLocation (const string &ip )
 
 	for ( int i = 1; i < vlocations.Size (); ++i )
 		if ( vlocations.GetData (i) == ip ) {
-			delete [] vlocations.GetData (i);
 			vlocations.RemoveData ( i );
 			return;
 		}
@@ -86,9 +81,8 @@ void Connection::AddOrRemoveVLocation (const string &ip )
 void Connection::RemoveLastLocation ()
 {
 	
-    char *lastIP = vlocations.GetData ( vlocations.Size () - 1 );
+    string lastIP = vlocations.GetData ( vlocations.Size () - 1 );
     vlocations.RemoveData ( vlocations.Size () - 1 );
-    delete [] lastIP;
 
 }
 
@@ -103,36 +97,36 @@ bool Connection::LocationIncluded (const string &ip )
 
 }
 
-char *Connection::GetSource ()
+string Connection::GetSource ()
 {
 
 	if ( vlocations.ValidIndex ( 0 ) )
 		return vlocations.GetData ( 0 );
 
 	else
-		return nullptr;
+		return "";
 
 }
 
-char *Connection::GetTarget ()
+string Connection::GetTarget ()
 {
 
 	if ( vlocations.ValidIndex ( 0 ) )
 		return vlocations.GetData ( vlocations.Size () - 1 );
 
 	else
-		return nullptr;
+		return "";
 
 }
 
-char *Connection::GetGhost ()
+string Connection::GetGhost ()
 {
 
 	if ( vlocations.Size () > 1 )						// Must be at least 1 entry
 		return vlocations.GetData ( vlocations.Size () - 2 );
 
 	else
-		return nullptr;
+		return "";
 
 
 }
@@ -247,7 +241,7 @@ void Connection::Connect ()
 				auto *log = new AccessLog ();
 			
 				int logtype = ( i == 0 ) ? LOG_TYPE_BOUNCEBEGIN : LOG_TYPE_BOUNCE;
-				char *fromip = ( i == 0 ) ? (char *) "LOCAL" : vlocations.GetData (i-1);
+				string fromip = ( i == 0 ) ? "LOCAL" : vlocations.GetData (i-1);
 
 				log->SetProperties ( &(game->GetWorld ()->date), fromip, owner,
 									  LOG_NOTSUSPICIOUS, logtype );
@@ -369,8 +363,8 @@ void Connection::Disconnect ()
 
             for ( int i = rumbledindex; i >= 0; --i ) {
 
-                char *rumbledIP = vlocations.GetData (GetSize () - i - 1);
-                UplinkAssert (rumbledIP)
+                string rumbledIP = vlocations.GetData (GetSize () - i - 1);
+                assert(!rumbledIP.empty());
 
                 if ( game->GetWorld ()->GetPlayer ()->HasAccount (rumbledIP) != -1 ) {
 
@@ -400,7 +394,7 @@ void Connection::Disconnect ()
 void Connection::Reset ()
 {
 	
-	DeleteLListData ( &vlocations );
+	DeleteLListData ( vlocations );
     vlocations.Empty ();
 
     AddVLocation ( GetOwner ()->localhost );
@@ -450,7 +444,7 @@ bool Connection::Load ( FILE *file )
 	if ( !FileReadData ( &traceinprogress, sizeof(traceinprogress), 1, file ) ) return false;
 	if ( !FileReadData ( &traceprogress, sizeof(traceprogress), 1, file ) ) return false;
 
-	if ( !LoadLList ( &vlocations, file ) ) return false;
+	if ( !LoadLList ( vlocations, file ) ) return false;
 
 	LoadID_END ( file );
 
@@ -467,7 +461,7 @@ void Connection::Save ( FILE *file )
 	fwrite ( &traceinprogress, sizeof(traceinprogress), 1, file );
 	fwrite ( &traceprogress, sizeof(traceprogress), 1, file );
 
-	SaveLList ( &vlocations, file );
+	SaveLList ( vlocations, file );
 
 	SaveID_END ( file );
 
@@ -480,7 +474,7 @@ void Connection::Print ()
     PrintValue("Owner", owner);
     PrintValue("TraceInProgress", traceinprogress);
     PrintValue("TractProgress", traceprogress);
-	PrintLList ( &vlocations );
+	PrintLList ( vlocations );
 
 }
 	

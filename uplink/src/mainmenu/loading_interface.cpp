@@ -55,7 +55,7 @@ void LoadingInterface::Create ()
 		FILE *file = RsArchiveFileOpen ( filename, "rt" );
 		UplinkAssert (file)
 
-        LList <char *> filenames;
+        LList <string> filenames;
 		while ( !feof (file) ) {
 			char *thisfile = new char [256];
 			fscanf ( file, "%s\n", thisfile );
@@ -77,7 +77,7 @@ void LoadingInterface::Create ()
 		
         // Clear up memory used
 
-        DeleteLListData ( &filenames );
+        DeleteLListData ( filenames );
 
 		EclRegisterButton ( SX(440), SY(450), 200, 15, "Connecting to GATEWAY...", "", "loading_text" );
         EclRegisterButtonCallbacks ( "loading_text", text_draw, nullptr, nullptr, nullptr );

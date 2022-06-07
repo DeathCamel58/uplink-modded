@@ -82,7 +82,7 @@ protected:
 
 public:
     
-    LList <char *> infected;                                        // List of all infected IP addresses
+    LList <string> infected;                                        // List of all infected IP addresses
     bool revelation_releaseuncontrolled;                            // Has the Internet been destroyed?
     bool revelation_releasefailed;                                  // Failed to reach critical mass in time
     bool revelation_arcbusted;                                      // Has ARC been busted?
@@ -192,7 +192,7 @@ public:
 
     void RunRevelationTracer ( char *ip );
 
-    static void RunFaith ( char *ip, float version, bool playerresponsible );
+    static void RunFaith (string &ip, float version, bool playerresponsible );
 
 	float GetVersion_Faith () const;
 	float GetVersion_Revelation () const;
@@ -203,10 +203,10 @@ public:
     bool PlayerCompletedSpecialMission	( int missionID ) const;
 	int GetSpecialMissionsCompleted () const;
     
-    static char *SpecialMissionDescription ( int missionID );
-    static char *SpecialMissionTitle ( int missionID );
+    static string SpecialMissionDescription (int missionID );
+    static string SpecialMissionTitle (int missionID );
     
-	static bool IsPlotCompany ( const char *companyname ); 
+	static bool IsPlotCompany (const string& companyname );
 
 	// 
 	// Common functions

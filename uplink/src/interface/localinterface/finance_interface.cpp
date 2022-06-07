@@ -169,10 +169,9 @@ void FinanceInterface::ClickAccountButton ( Button *button )
 
 		// Get the account details
 	
-		char ip [SIZE_VLOCATION_IP];
-		char accno [16];
-		sscanf ( game->GetWorld ()->GetPlayer ()->accounts.GetData (game->GetWorld ()->GetPlayer ()->currentaccount),
-				 "%s %s", ip, accno );
+		string ip, accno;
+		stringstream stream1(game->GetWorld ()->GetPlayer ()->accounts.GetData (game->GetWorld ()->GetPlayer ()->currentaccount));
+		stream1 >> ip >> accno;
 
 		// Connect to this account computer
 
@@ -197,11 +196,11 @@ void FinanceInterface::ClickAccountButton ( Button *button )
 
 }
 
-void FinanceInterface::AfterPhoneDialler ( char *ip, char *info )
+void FinanceInterface::AfterPhoneDialler (string &ip, string &info )
 {
 
-	UplinkAssert ( ip )
-	UplinkAssert ( info )
+	UplinkAssert ( !ip.empty() )
+	UplinkAssert ( !info.empty() )
 
 	game->GetWorld ()->GetPlayer ()->GetConnection ()->Disconnect ();
 	game->GetWorld ()->GetPlayer ()->GetConnection ()->Reset ();
@@ -259,10 +258,9 @@ void FinanceInterface::Create ()
 
 		for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->accounts.Size (); ++i ) {
 
-			char *accountdetails = game->GetWorld ()->GetPlayer ()->accounts.GetData (i);
-			char ip [SIZE_VLOCATION_IP];
-			char accno [16];
-			sscanf ( accountdetails, "%s %s", ip, accno );
+			string ip, accno;
+			stringstream stream(game->GetWorld ()->GetPlayer ()->accounts.GetData (i));
+			stream >> ip >> accno;
 			
 			string accounttext = "Logging on...";
 
@@ -324,10 +322,9 @@ void FinanceInterface::Update ()
 
 			for ( int i = previousnumaccounts; i < game->GetWorld ()->GetPlayer ()->accounts.Size (); ++i ) {
 
-				char *accountdetails = game->GetWorld ()->GetPlayer ()->accounts.GetData (i);
-				char ip [SIZE_VLOCATION_IP];
-				char accno [16];
-				sscanf ( accountdetails, "%s %s", ip, accno );
+				string ip, accno;
+				stringstream stream(game->GetWorld ()->GetPlayer ()->accounts.GetData (i));
+				stream >> ip >> accno;
 				
 				string accounttext = "Logging on...";
 
@@ -378,9 +375,9 @@ void FinanceInterface::Update ()
 
 			}
 			
-			char ip [SIZE_VLOCATION_IP];
-			char accno [16];
-			sscanf ( game->GetWorld ()->GetPlayer ()->accounts.GetData (i), "%s %s", ip, accno );
+			string ip, accno;
+			stringstream stream(game->GetWorld()->GetPlayer()->accounts.GetData(i));
+			stream >> ip >> accno;
 
 			// Lookup the balance
 
@@ -389,13 +386,11 @@ void FinanceInterface::Update ()
 			if ( oldbalance == -1 ) oldbalance = newbalance;
 			balance += newbalance;
 
-			char newcaption [256];
+			string newcaption = accno + "    " + ip + "    " + to_string(newbalance) + "c";
 			if ( newbalance > oldbalance ) {
-				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc     (+%dc)", accno, ip, newbalance, newbalance - oldbalance )
+				newcaption.append("     (+" + to_string(newbalance - oldbalance) + "c)");
 			} else if ( newbalance < oldbalance ) {
-				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc     (%dc)", accno, ip, newbalance, newbalance - oldbalance )
-			} else {
-				UplinkSnprintf ( newcaption, sizeof ( newcaption ), "%s    %s    %dc", accno, ip, newbalance )
+				newcaption.append("     (" + to_string(newbalance - oldbalance) + "c)");
 			}
 
 			EclGetButton ( name )->SetCaption ( newcaption );

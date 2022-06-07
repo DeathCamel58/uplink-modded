@@ -10,11 +10,11 @@ class NameGenerator
 
 protected:
 
-	static LList <char *> fornames;
-	static LList <char *> surnames;
-	static LList <char *> agentaliases;
-	static LList <char *> companynamesA;
-	static LList <char *> companynamesB;
+	static LList <string> fornames;
+	static LList <string> surnames;
+	static LList <string> agentaliases;
+	static LList <string> companynamesA;
+	static LList <string> companynamesB;
 
 	static void LoadNames ();
 
@@ -23,26 +23,25 @@ public:
 	static void Initialise ();
     static void Shutdown ();
 
-	static char *GenerateCompanyName ();
+	static string GenerateCompanyName ();
 	static string GeneratePersonName ();
-	static char *GenerateAgentAlias ();
-	static char *GenerateBankName ();
+	static string GenerateAgentAlias ();
 		
-	static char *GeneratePassword ();
+	static string GeneratePassword ();
 	static string GenerateEasyPassword ();					// Guessable
-	static char *GenerateComplexPassword ();				// Non dictionary hackable
+	static string GenerateComplexPassword ();				// Non dictionary hackable
 	
-	static char *GenerateDataName (const string &companyname, int DATATYPE );
+	static string GenerateDataName (const string &companyname, int DATATYPE );
 
-    static char *GeneratePublicAccessServerName     (const string &companyname );
-    static char *GenerateAccessTerminalName         (const string &companyname );
-    static char *GenerateInternalServicesServerName (const string &companyname );
-    static char *GenerateCentralMainframeName       (const string &companyname );
-    static char *GenerateInternationalBankName      (const string &companyname );
-    static char *GenerateFileServerName             (const string &companyname );
-    static char *GenerateLANName                    (const string &companyname );
-    static char *GeneratePersonalComputerName       (const string &personname );
-    static char *GenerateVoicePhoneSystemName       (const string &personname );
+    static string GeneratePublicAccessServerName     (const string &companyname );
+    static string GenerateAccessTerminalName         (const string &companyname );
+    static string GenerateInternalServicesServerName (const string &companyname );
+    static string GenerateCentralMainframeName       (const string &companyname );
+    static string GenerateInternationalBankName      (const string &companyname );
+    static string GenerateFileServerName             (const string &companyname );
+    static string GenerateLANName                    (const string &companyname );
+    static string GeneratePersonalComputerName       (const string &personname );
+    static string GenerateVoicePhoneSystemName       (const string &personname );
 };
 
 #endif

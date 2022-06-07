@@ -1,6 +1,7 @@
 
 #include <strstream>
 #include <app/miscutils.h>
+#include <sstream>
 
 #include "app/globals.h"
 #include "app/serialise.h"
@@ -309,12 +310,12 @@ void NotificationEvent::AddInterestOnLoans ()
 
 	for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->accounts.Size (); ++i ) {
 
-		char *fullacc = game->GetWorld ()->GetPlayer ()->accounts.GetData (i);
-		UplinkAssert (fullacc)
+		string fullacc = game->GetWorld ()->GetPlayer ()->accounts.GetData (i);
+		assert(!fullacc.empty());
 
-		char ip [SIZE_VLOCATION_IP];
-		char accno [16];
-		sscanf ( fullacc, "%s %s", ip, accno );
+		string ip, accno;
+		stringstream stream(fullacc);
+		stream >> ip >> accno;
 
 		BankAccount *account = BankAccount::GetAccount ( ip, accno );
         if (account) {
@@ -467,7 +468,7 @@ void NotificationEvent::GiveMissionToNPC ()
 		UplinkAssert (mission)
 
 		if ( agent->rating.uplinkrating >= mission->minuplinkrating && mission->TYPE != MISSION_SPECIAL &&
-			 !( mission->TYPE == MISSION_TRACEUSER && strcmp ( mission->completionA, agent->name ) == 0 ) ) {
+			 !( mission->TYPE == MISSION_TRACEUSER && mission->completionA == agent->name ) ) {
 
 			if ( mission->npcpriority ) {
 				// This is a priority mission - accept it!

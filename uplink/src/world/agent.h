@@ -32,7 +32,7 @@ class Agent : public Person
 	
 public:
 
-	LList <char *> links;					// The agents' "favourites" (IP)
+	LList <string> links;					// The agents' "favourites" (IP)
 	BTree <char *> codes;					// All known access codes, indexed on ip
 	LList <Mission *> missions;				// The agents' missions	
 
@@ -70,7 +70,7 @@ public:
 
 	void EstablishConnection (const string &ip );				// Complexity based on skill
 
-    static bool ParseAccessCode (const string &thecode, string &username, size_t usernamesize, string &password, size_t passwordsize );
+    static bool ParseAccessCode(const string &thecode, string &username, string &password);
 
 	// Common functions
 

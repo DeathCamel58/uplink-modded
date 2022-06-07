@@ -6,6 +6,7 @@
 
 #include <strstream>
 #include <app/miscutils.h>
+#include <sstream>
 
 #include "app/app.h"
 #include "app/globals.h"
@@ -50,7 +51,7 @@ Person::~Person()
 {
 
 	DeleteLListData ( (LList <UplinkObject *> *) &messages );
-	DeleteLListData ( &accounts );
+	DeleteLListData ( accounts );
 
 }
 
@@ -189,16 +190,16 @@ void Person::ChangeBalance (int amount, const string &description )
 
 		// Change the current account
 
-		char *fullcurrentaccount = accounts.GetData (currentaccount);
-		UplinkAssert (fullcurrentaccount)
+		string fullcurrentaccount = accounts.GetData (currentaccount);
+		assert(!fullcurrentaccount.empty());
 
-		char ip [SIZE_VLOCATION_IP];
-		char accno [16];
-		sscanf ( fullcurrentaccount, "%s %s", ip, accno );
+		string ip, accno;
+		stringstream stream(fullcurrentaccount);
+        stream >> ip >> accno;
 
 		BankAccount *ba = BankAccount::GetAccount ( ip, accno );
 		if ( !ba ) {
-			UplinkAbortArgs( "Cannot find bank account, name='%s', ip='%s', accno='%s'", name, ip, accno )
+			UplinkAbortArgs( "Cannot find bank account, name='%s', ip='%s', accno='%s'", name, ip.c_str(), accno.c_str() )
 		}
 		ba->ChangeBalance ( amount, description );
 
@@ -259,9 +260,7 @@ int Person::CreateNewAccount (const string &bankip, const string &accname, const
 
 	// Add it into the person
 
-	size_t newaccountsize = 32;
-	char *newaccount = new char [newaccountsize];
-	UplinkSnprintf ( newaccount, newaccountsize, "%s %d", bankip.c_str(), accountnumber )
+	string newaccount = bankip + " " + to_string(accountnumber);
 	accounts.PutData ( newaccount );
 
 	// Return the account number
@@ -277,9 +276,9 @@ int Person::GetBalance ()
 
 	for ( int i = 0; i < accounts.Size (); ++i ) {
 
-		char ip [SIZE_VLOCATION_IP];
-		char accno [16];
-		sscanf ( accounts.GetData (i), "%s %s", ip, accno );
+		string ip, accno;
+		stringstream stream(accounts.GetData(i));
+		stream >> ip >> accno;
 
 		BankAccount *ba = BankAccount::GetAccount ( ip, accno );
 		UplinkAssert (ba)
@@ -303,7 +302,7 @@ bool Person::HasMessageLink (const string &newip )
 
 	for ( int ii = 0; ii < messages.Size (); ii++ )
 		if ( messages.ValidIndex ( ii ) ) {
-			LList <char*> *links = &(messages.GetData ( ii )->links);
+			LList <string> *links = &(messages.GetData ( ii )->links);
 			for ( int i = 0; i < links->Size () ; i++ )
 				if ( links->ValidIndex ( i ) )
 					if ( newip == links->GetData ( i ) )
@@ -342,7 +341,7 @@ bool Person::Load  ( FILE *file )
 	if ( !FileReadData ( &STATUS, sizeof(STATUS), 1, file ) ) return false;
 
 	if ( !LoadLList ( (LList <UplinkObject *> *) &messages, file ) ) return false;
-	if ( !LoadLList ( &accounts, file ) ) return false;
+	if ( !LoadLList ( accounts, file ) ) return false;
 
 	if ( !connection.Load ( file ) ) return false;
 	if ( !rating.Load ( file ) ) return false;
@@ -371,7 +370,7 @@ void Person::Save  ( FILE *file )
 	fwrite ( &STATUS, sizeof(STATUS), 1, file );
 
 	SaveLList ( (LList <UplinkObject *> *) &messages, file );
-	SaveLList ( &accounts, file );
+	SaveLList ( accounts, file );
 
 	connection.Save ( file );
 	rating.Save ( file );
@@ -396,7 +395,7 @@ void Person::Print ()
     cout << "\tMessages: " << endl;
     PrintLList ( (LList <UplinkObject *> *) &messages );
 
-    PrintLList ( &accounts );
+    PrintLList ( accounts );
     PrintValue("Current Account", currentaccount);
 
     connection.Print ();
@@ -419,7 +418,7 @@ void Person::Update ()
 
 			Message *msg = messages.GetData (0);
 
-			if ( strcmp ( msg->from, "PLAYER" ) == 0 ) {
+			if ( msg->from == "PLAYER" ) {
 
 				// This is a message from the player - most likely a "completed mission" email
 				// But it may be a mail to a "special" company
@@ -427,14 +426,14 @@ void Person::Update ()
 
 				bool handled = false;
 
-				if ( strcmp ( msg->to, "internal@ARC.net" ) == 0 )
+				if ( msg->to == "internal@ARC.net" )
 #ifdef DEMOGAME
                     handled = game->GetWorld ()->demoplotgenerator.PlayerContactsARC ( msg );
 #else
 					handled = game->GetWorld ()->plotgenerator.PlayerContactsARC ( msg );
 #endif
 
-				else if ( strcmp ( msg->to, "internal@Arunmor.net" ) == 0 )
+				else if ( msg->to == "internal@Arunmor.net" )
 					handled = game->GetWorld ()->plotgenerator.PlayerContactsARUNMOR ( msg );
 
 				if ( !handled ) {
@@ -447,7 +446,7 @@ void Person::Update ()
 						UplinkAssert (mis)
 
 						if ( strcmp ( mis->contact, name ) == 0 &&
-                             strstr ( msg->GetBody (), mis->description ) != nullptr &&                // ie the name of the mission appears in your email
+                             msg->GetBody().find(mis->description) != string::npos &&                // ie the name of the mission appears in your email
                              MissionGenerator::IsMissionComplete ( mis, this, msg ) ) {
 
 							game->GetWorld ()->GetPlayer ()->missions.RemoveData (i);

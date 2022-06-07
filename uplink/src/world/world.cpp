@@ -221,7 +221,7 @@ void World::CreateCompany ( Company *company )
 {
 
 	UplinkAssert ( company )
-	UplinkAssert ( company->name )
+	UplinkAssert ( !company->name.empty() )
 
 	companies.PutData ( company->name, company );
 
@@ -325,7 +325,7 @@ Person *World::GetPerson (const string &name )
 
 }
 
-char *World::GetPassword ( int index ) const
+string World::GetPassword (int index ) const
 {
 
 	if ( passwords.ValidIndex ( index ) )

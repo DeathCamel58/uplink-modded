@@ -169,30 +169,17 @@ void ScriptLibrary::Script10 ()
 	// Get the source and target values
 
 	char *source_ip    = comp->ip;
-	char *target_ip    = (char *) EclGetButton ( "t_ip_value 0 0" )->caption.c_str();
-	char *source_accno = (char *) EclGetButton ( "s_accno_value -1 -1" )->caption.c_str();
-	char *target_accno = (char *) EclGetButton ( "t_accno_value 0 0" )->caption.c_str();
-	char *value        = (char *) EclGetButton ( "amount_value 0 0" )->caption.c_str();
+	string target_ip    = EclGetButton ( "t_ip_value 0 0" )->caption;
+	string source_accno = EclGetButton ( "s_accno_value -1 -1" )->caption;
+	string target_accno = EclGetButton ( "t_accno_value 0 0" )->caption;
+	string value        = EclGetButton ( "amount_value 0 0" )->caption;
 
-	if ( strlen( target_ip ) >= SIZE_VLOCATION_IP )
-		target_ip [ SIZE_VLOCATION_IP - 1 ] = '\0';
-
-	if ( strlen( source_accno ) >= 16 )
-		source_accno [ 16 - 1 ] = '\0';
-
-	if ( strlen( target_accno ) >= 16 )
-		target_accno [ 16 - 1 ] = '\0';
-
-	if ( strlen( value ) >= 16 )
-		value [ 16 - 1 ] = '\0';
-
-	int i_value;
-	sscanf ( value, "%d", &i_value );
+	int i_value = stoi(value);
 
 	// Check the player has filled in the correct values
 	
-	if ( strcmp ( target_accno, "Fill this in" ) == 0
-	  || strcmp ( value,		"Fill this in" ) == 0 )
+	if ( target_accno == "Fill this in"
+	  || value == "Fill this in" )
 		return;
 
 	// Prevent if it's not his account and a proxy is running
@@ -237,30 +224,24 @@ void ScriptLibrary::Script11 ()
 	
 	// Get the inputted properties of the new account
 
-	char *name    = (char *) EclGetButton ( "nametext 0 0" )->caption.c_str();
-	char *passwd  = (char *) EclGetButton ( "passwordtext 0 0" )->caption.c_str();
-	char *passwd2 = (char *) EclGetButton ( "passwordtext2 0 0" )->caption.c_str();
+	string name    = EclGetButton ( "nametext 0 0" )->caption;
+	string passwd  = EclGetButton ( "passwordtext 0 0" )->caption;
+	string passwd2 = EclGetButton ( "passwordtext2 0 0" )->caption;
 
-    if ( strcmp ( name, "Fill this in" ) == 0 || strlen ( name ) == 0 ) {
+    if ( name == "Fill this in" || name.empty() ) {
         create_msgbox ( "Error", "You must enter an username" );
         return;
     }
 
-    if ( strlen ( passwd ) == 0 ) {
+    if ( passwd.empty() ) {
         create_msgbox ( "Error", "You must enter a password" );
         return;
     }
 
-	if ( strcmp ( passwd, passwd2 ) != 0 ) {
+	if ( passwd != passwd2 ) {
 		create_msgbox ( "Error", "The two passwords must be identical" );
 		return;
 	}
-
-	if ( strlen( name ) >= 33 )
-		name [ 33 - 1 ] = '\0';
-
-	if ( strlen ( passwd ) >= 33 )
-		passwd [ 33 - 1 ] = '\0';
 
 	// Get the bank computer
 
@@ -274,7 +255,7 @@ void ScriptLibrary::Script11 ()
 
 	for ( int i = 0; i < baccounts->Size(); i++ )
 		if ( baccounts->ValidIndex ( i ) )
-			if ( strcmp ( name, baccounts->GetData ( i )->name ) == 0 ) {
+			if ( name == baccounts->GetData ( i )->name ) {
 				delete baccounts;
 				create_msgbox ( "Error", "You must enter an unique username" );
 				return;
@@ -312,11 +293,11 @@ void ScriptLibrary::Script12 ()
 	
 	// Get the inputted properties of the new account
 
-	char *name    = (char *) EclGetButton ( "nametext 0 0" )->caption.c_str();
-	char *passwd  = (char *) EclGetButton ( "passwordtext 0 0" )->caption.c_str();
-	char *passwd2 = (char *) EclGetButton ( "passwordtext2 0 0" )->caption.c_str();
+	string name    = EclGetButton ( "nametext 0 0" )->caption;
+	string passwd  = EclGetButton ( "passwordtext 0 0" )->caption;
+	string passwd2 = EclGetButton ( "passwordtext2 0 0" )->caption;
 
-	if ( strcmp ( passwd, passwd2 ) != 0 ) {
+	if ( passwd != passwd2 ) {
 		create_msgbox ( "Error", "The two passwords must be identical" );
 		return;
 	}
@@ -327,12 +308,6 @@ void ScriptLibrary::Script12 ()
 	UplinkAssert (comp)
 	
 	// Create the account
-
-	if ( strlen( name ) >= 33 )
-		name [ 33 - 1 ] = '\0';
-
-	if ( strlen ( passwd ) >= 33 )
-		passwd [ 33 - 1 ] = '\0';
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, name );
@@ -462,11 +437,9 @@ void ScriptLibrary::Script16 ()
 
 	// Get the search string
 
-	char name [SIZE_PERSON_NAME];
 	Button *button = EclGetButton ( "name 0 0" );
 	UplinkAssert ( button )
-	strncpy ( name, button->caption.c_str(), sizeof ( name ) );
-	name [ sizeof ( name ) - 1 ] = '\0';
+	string name = button->caption;
 
 	// Run the Academic Record Screen
 
@@ -590,7 +563,7 @@ void ScriptLibrary::Script31 ()
 		// Third time through
 
 	    auto *pd = new PhoneDialler ();
-		pd->DialNumber ( 400, 170, IP_UPLINKPUBLICACCESSSERVER, 1 );    
+		pd->DialNumber ( 400, 170, IP_UPLINKPUBLICACCESSSERVER, 1 );
 
 		// See the next step in script 92
 
@@ -681,18 +654,14 @@ void ScriptLibrary::Script33 ()
 		*/
 
 	char name [SIZE_AGENT_HANDLE];
-	char password [33];
-	char password2 [33];
 	string accesscode;
 
 	strncpy ( name, EclGetButton ( "nametext 0 0" )->caption.c_str(), sizeof( name ) );
 	name [ sizeof( name ) - 1 ] = '\0';
 
-	strncpy ( password, EclGetButton ( "passwordtext 0 0" )->caption.c_str(), sizeof( password ) );
-	password [ sizeof( password ) - 1 ] = '\0';
+	string password = EclGetButton ( "passwordtext 0 0" )->caption;
 
-	strncpy ( password2, EclGetButton ( "passwordtext2 0 0" )->caption.c_str(), sizeof( password2 ) );
-	password2 [ sizeof( password2 ) - 1 ] = '\0';
+	string password2 = EclGetButton ( "passwordtext2 0 0" )->caption;
 
     Computer::GenerateAccessCode(name, password, accesscode);
 
@@ -728,12 +697,12 @@ void ScriptLibrary::Script33 ()
 		return;
 	}
 
-    if ( password[0] == '\x0' ) {
+    if ( password.empty() ) {
         create_msgbox ( "Error", "You must first enter a password" );
         return;
     }
 
-	if ( strcmp ( password, password2 ) != 0 ) {
+	if ( password != password2 ) {
 		create_msgbox ( "Error", "The two passwords must be identical" );
 		return;
 	}
@@ -1622,7 +1591,7 @@ void ScriptLibrary::Script71 ()
         Mission *m = game->GetWorld ()->GetPlayer ()->missions.GetData(i);
         UplinkAssert (m)
 
-        if ( strcmp ( m->description, PlotGenerator::SpecialMissionDescription ( SPECIALMISSION_MOLE ) ) == 0 ) 
+        if ( m->description == PlotGenerator::SpecialMissionDescription ( SPECIALMISSION_MOLE ) )
             return;       
 
     }
@@ -1634,8 +1603,7 @@ void ScriptLibrary::Script71 ()
 
 	// Infer the internal services contact address
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 	// 
 	// Generate a new computer to dump the files to
@@ -1648,7 +1616,7 @@ void ScriptLibrary::Script71 ()
 	// Add in a new account for the player to use
 	//
 
-	char *password = NameGenerator::GeneratePassword ();
+	string password = NameGenerator::GeneratePassword ();
 	char username [12];
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 															'a' + NumberGenerator::RandomNumber ( 26 ),
@@ -1668,7 +1636,7 @@ void ScriptLibrary::Script71 ()
     // Generate the text
     //
 
-    char *description = PlotGenerator::SpecialMissionDescription ( SPECIALMISSION_MOLE );
+    string description = PlotGenerator::SpecialMissionDescription ( SPECIALMISSION_MOLE );
 
     std::ostrstream details;
     details << "We have recently heard a rumour going around that says the complete Uplink Agent "

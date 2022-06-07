@@ -58,7 +58,7 @@ void CompanyUplink::CreateMission ( Mission *mission )
 	
 }
 
-void CompanyUplink::CreateMission ( char *employer, int payment, char *description, char *details, char *fulldetails )
+void CompanyUplink::CreateMission (string employer, int payment, string description, string details, string fulldetails )
 {
 
 	auto *mission = new Mission ();

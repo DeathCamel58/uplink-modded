@@ -38,7 +38,7 @@ Rating::Rating ()
 Rating::~Rating ()
 = default;
 
-char *Rating::GetUplinkRatingString ( int urating )
+string Rating::GetUplinkRatingString (int urating )
 {
 
 	assert( urating >= 0 && urating < NUM_UPLINKRATINGS );
@@ -46,7 +46,7 @@ char *Rating::GetUplinkRatingString ( int urating )
 
 }
 
-char *Rating::GetNeuromancerRatingString ( int nrating )
+string Rating::GetNeuromancerRatingString (int nrating )
 {
 
 	assert( nrating >= 0 && nrating < NUM_NEUROMANCERRATINGS );
@@ -74,7 +74,7 @@ void Rating::SetUplinkRating ( int rating )
 
 }
 
-char *Rating::GetUplinkRating () const
+string Rating::GetUplinkRating () const
 {
 
 	return GetUplinkRatingString ( uplinkrating );
@@ -90,7 +90,7 @@ void Rating::SetNeuromancerRating ( int rating )
 
 }
 
-char *Rating::GetNeuromancerRating () const
+string Rating::GetNeuromancerRating () const
 {
 
 	return GetNeuromancerRatingString ( neuromancerrating );
@@ -215,23 +215,16 @@ void Rating::ChangeUplinkScore ( int amount )
 
 		if ( game->GetWorld ()->GetPerson (owner) ) {
 
-			char *agenthandle = strcmp ( owner, "PLAYER" ) != 0 ? owner : game->GetWorld ()->GetPlayer ()->handle;
+			string agenthandle = strcmp ( owner, "PLAYER" ) != 0 ? owner : game->GetWorld ()->GetPlayer ()->handle;
 
-			std::ostrstream body;
-			body << "Congratulations Agent " << agenthandle
-				 << " - you have reached the next Uplink Rating.\n\n"
-					"Your rating is now " << GetUplinkRating () << "."
-				 << '\x0';
+			string body = "Congratulations Agent " + agenthandle + " - you have reached the next Uplink Rating.\n\nYour rating is now " + GetUplinkRating() + ".";
 
 			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );
 			msg->SetTo ( owner );
 			msg->SetSubject ( "Congratulations" );
-			msg->SetBody ( body.str () );
+			msg->SetBody ( body );
 			msg->Send ();
-
-			body.rdbuf()->freeze( false );
-			//delete [] body.str ();
 
 			// Increase our credit rating
 
@@ -248,24 +241,15 @@ void Rating::ChangeUplinkScore ( int amount )
 
 		if ( game->GetWorld ()->GetPerson (owner) ) {
 
-			char *agenthandle = strcmp ( owner, "PLAYER" ) != 0 ? owner : game->GetWorld ()->GetPlayer ()->handle;
-			std::ostrstream body;
-			body << "This is a warning Agent " << agenthandle << " - your performance recently has been unsatisfactory.\n"
-					"As such we have been forced to review your case, and have decided to decrease your Uplink rating.\n\n"
-					"Your rating is now " << GetUplinkRating () << "."
-					"We hope this is sufficient punishment to make our point clear.\n"
-					"Uplink Corporation will not tolerate failure."
-				 << '\x0';
+			string agenthandle = strcmp ( owner, "PLAYER" ) != 0 ? owner : game->GetWorld ()->GetPlayer ()->handle;
+			string body = "This is a warning Agent " + agenthandle + " - your performance recently has been unsatisfactory.\nAs such we have been forced to review your case, and have decided to decrease your Uplink rating.\n\nYour rating is now " + GetUplinkRating () + ". We hope this is sufficient punishment to make our point clear.\nUplink Corporation will not tolerate failure.";
 
 			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );
 			msg->SetTo ( owner );
 			msg->SetSubject ( "Uplink WARNING" );
-			msg->SetBody ( body.str () );
+			msg->SetBody ( body );
 			msg->Send ();
-
-			body.rdbuf()->freeze( false );
-			//delete [] body.str ();
 
 		}
 
@@ -316,7 +300,7 @@ void Rating::ChangeNeuromancerScore ( int amount )
 			UplinkSnprintf ( body, sizeof ( body ), "Agent %s - your Neuromancer rating appears to have changed.\n\n"
 													"Your rating is now %s.",
 													strcmp ( owner, "PLAYER" ) != 0 ? owner : game->GetWorld ()->GetPlayer ()->handle,
-													GetNeuromancerRating () )
+													GetNeuromancerRating().c_str() )
 
 			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );
@@ -334,10 +318,7 @@ void Rating::ChangeNeuromancerScore ( int amount )
 
 		if ( game->GetWorld ()->GetPerson (owner) ) {
 
-			char body [256];
-			UplinkSnprintf ( body, sizeof ( body ), "It appears your neuromancer rating has changed, in view of your recent actions.\n\n"
-													"Your new rating is %s.",
-													GetNeuromancerRating () )
+			string body = "It appears your neuromancer rating has changed, in view of your recent actions.\n\nYour new rating is " + GetNeuromancerRating() + ".";
 
 			auto *msg = new Message ();
 			msg->SetFrom ( "internal@Uplink.net" );

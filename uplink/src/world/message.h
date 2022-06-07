@@ -28,17 +28,17 @@ class Message : public UplinkObject
 
 protected:
 
-	char *subject;
-	char *body;
+	string subject;
+	string body;
 
 	Data *data;							// An attached file/program
 
 public:
 
-	char to		 [SIZE_PERSON_NAME];
-	char from    [SIZE_PERSON_NAME];
+	string to;
+	string from;
 
-	LList <char *> links;				// All useful ip addresses (to be added to links)
+	LList <string> links;				// All useful ip addresses (to be added to links)
 	BTree <char *> codes;				// Access codes, indexed on ip
 
 	Date date;							// Date of send
@@ -60,8 +60,8 @@ public:
 	void AttachData ( Data *newdata );
 	Data *GetData ();
 
-	char *GetSubject ();
-	char *GetBody	 ();
+	string GetSubject ();
+	string GetBody	 ();
 
 	void Send ();
 

@@ -415,7 +415,7 @@ void DataBank::Update ()
 Data::Data ()
 {
 
-	UplinkStrncpy ( title, "Empty", sizeof ( title ) )
+	title = "Empty";
 	TYPE = DATATYPE_NONE;
 	size = 0;
 	encrypted = 0;
@@ -446,8 +446,7 @@ Data::~Data ()
 void Data::SetTitle (const string &newtitle )
 {
 	
-	assert( newtitle.length() < SIZE_DATA_TITLE );
-	UplinkStrncpy ( title, newtitle.c_str(), sizeof ( title ) )
+	title = newtitle;
 
 }
 
@@ -469,7 +468,7 @@ bool Data::Load ( FILE *file )
 
 	LoadID ( file );
 
-	if ( !LoadDynamicStringStatic ( title, SIZE_DATA_TITLE, file ) ) return false;
+	if ( !LoadDynamicStringInt ( title, file ) ) return false;
 
 	if ( !FileReadData ( &TYPE, sizeof(TYPE), 1, file ) ) return false;
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;

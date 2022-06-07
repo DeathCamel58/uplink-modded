@@ -13,8 +13,8 @@ protected:
 
 	static char buttonnames [][9];
 
-	char *ip;
-	char *infosup;
+	string ip;
+	string infosup;
 
 	int nextscene;
 
@@ -33,7 +33,7 @@ public:
 	bool UpdateSpecial ();
 	bool IsVisible () override;
 
-	void DialNumber ( int x, int y, char *number, int scenario, char *info = nullptr );
+	void DialNumber (int x, int y, const string& number, int scenario, string info = "");
 
 };
 

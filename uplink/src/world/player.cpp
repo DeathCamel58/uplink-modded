@@ -257,8 +257,8 @@ int Player::TimeRemaining ()
 
     for ( int i = numlocations; i >= 0; --i ) {
 
-        char *thisip = GetConnection ()->vlocations.GetData ( i );
-        UplinkAssert (thisip)
+        string thisip = GetConnection ()->vlocations.GetData ( i );
+        assert(!thisip.empty());
         timeremaining += TimeToTrace ( GetRemoteHost ()->ip, thisip );
 
     }
@@ -338,8 +338,8 @@ void Player::Update ()
 
                 // Work out time to next trace
 
-                char *thisip = GetConnection ()->vlocations.GetData ( GetConnection ()->GetSize () - GetConnection ()->traceprogress - 1 );
-                UplinkAssert (thisip)
+                string thisip = GetConnection ()->vlocations.GetData ( GetConnection ()->GetSize () - GetConnection ()->traceprogress - 1 );
+                assert(!thisip.empty());
 
                 int timetonexttrace = TimeToTrace ( GetRemoteHost ()->ip, thisip );
                 timetonexttrace = NumberGenerator::ApplyVariance ( timetonexttrace, (int) ( TRACESPEED_VARIANCE * 100 ) );

@@ -53,7 +53,7 @@ public:
 	char phonenumber [SIZE_VLOCATION_IP];
 
 	LList <Message *> messages;
-	LList <char *> accounts;				// List of [IP ACCNO]
+	LList <string > accounts;				// List of [IP ACCNO]
 	int currentaccount;						// Account for all current transfers
 
 	Connection connection;

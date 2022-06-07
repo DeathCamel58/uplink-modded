@@ -86,11 +86,8 @@ void StatusInterface::Create ()
 		EclRegisterButtonCallbacks ( "status_neuromancerrating", text_draw, nullptr, nullptr, nullptr );
 
 
-        char urating [256];        
-        char nrating [256];
-        UplinkSnprintf ( urating, sizeof ( urating ), "GRADE %d UPLINK AGENT\nRating: %s", NUM_UPLINKRATINGS - game->GetWorld ()->GetPlayer ()->rating.uplinkrating,
-													  game->GetWorld ()->GetPlayer ()->rating.GetUplinkRating () )
-        UplinkSnprintf ( nrating, sizeof ( nrating ), "NEUROMANCER (Unofficial)\nRating: %s", game->GetWorld ()->GetPlayer ()->rating.GetNeuromancerRating () )
+        string urating = "GRADE " + to_string(NUM_UPLINKRATINGS - game->GetWorld ()->GetPlayer ()->rating.uplinkrating) + " UPLINK AGENT\nRating: " + game->GetWorld ()->GetPlayer ()->rating.GetUplinkRating ();
+        string nrating = "NEUROMANCER (Unofficial)\nRating: " + game->GetWorld ()->GetPlayer ()->rating.GetNeuromancerRating ();
 		EclRegisterCaptionChange ( "status_uplinkrating", urating );
 		EclRegisterCaptionChange ( "status_neuromancerrating", nrating );
 
@@ -123,8 +120,7 @@ void StatusInterface::Create ()
             if ( game->GetWorld ()->plotgenerator.PlayerCompletedSpecialMission (i) ) {
 
                 string name = "status_award " + to_string(i);
-                char tooltip [128];
-                UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Completed Special Mission '%s'", game->GetWorld ()->plotgenerator.SpecialMissionTitle (i) )
+                string tooltip = "Completed Special Mission '" + game->GetWorld ()->plotgenerator.SpecialMissionTitle (i) + "'";
                 string filename = "awards/award" + to_string(i) + ".tif";
 
                 EclRegisterButton ( x, y, 16, 16, " ", tooltip, name );                

@@ -37,12 +37,12 @@ class News : public UplinkObject
 
 protected:
 
-	char *details;
+	string details;
 
 public:
 
 	Date date;
-	char headline [SIZE_NEWS_HEADLINE];
+	string headline;
 	
 	int NEWSTYPE;
 	char data1 [SIZE_NEWS_DATA];
@@ -57,7 +57,7 @@ public:
 	void SetHeadline (const string &newheadline );
 	void SetDetails  (const string &newdetails );
 
-	char *GetDetails ();
+	string GetDetails ();
 
 	void SetData (int newNEWSTYPE, const string &newdata1 = "", const string &newdata2 = "" );
 

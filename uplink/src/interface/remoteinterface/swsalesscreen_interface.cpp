@@ -243,13 +243,13 @@ void SWSalesScreenInterface::AcceptClick ( Button *button )
 			    // Special case - HUD upgrades
 			    //
 	
-				if ( strcmp ( sale->title, "HUD_MapShowTrace" ) == 0 ) {
+				if ( sale->title == "HUD_MapShowTrace" ) {
                     game->GetWorld()->GetPlayer()->gateway.GiveHUDUpgrade(HUDUPGRADE_MAPSHOWSTRACE);
-                } else if ( strcmp ( sale->title, "HUD_ConnectionAnalysis" ) == 0 ) {
+                } else if ( sale->title == "HUD_ConnectionAnalysis" ) {
                     game->GetWorld()->GetPlayer()->gateway.GiveHUDUpgrade(HUDUPGRADE_CONNECTIONANALYSIS);
-                } else if ( strcmp ( sale->title, "HUD_IRC-Client" ) == 0 ) {
+                } else if ( sale->title == "HUD_IRC-Client" ) {
                     game->GetWorld()->GetPlayer()->gateway.GiveHUDUpgrade(HUDUPGRADE_IRCCLIENT);
-                } else if ( strcmp ( sale->title, "HUD_LANView" ) == 0 ) {
+                } else if ( sale->title == "HUD_LANView" ) {
                     game->GetWorld()->GetPlayer()->gateway.GiveHUDUpgrade(HUDUPGRADE_LANVIEW);
                 } else {
                     UplinkAbort ("Unrecognised HUD upgrade")

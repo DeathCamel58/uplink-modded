@@ -253,7 +253,7 @@ void Computer::CheckForSecurityBreaches ()
 						Mission *m = game->GetWorld ()->GetPlayer ()->missions.GetData (l);
 						UplinkAssert (m)
 
-						if ( m->TYPE == MISSION_TRACEUSER && strcmp ( m->completionB, ip ) == 0 ) 
+						if ( m->TYPE == MISSION_TRACEUSER && m->completionB == ip )
 							ignoreme = true;
 
 					}
@@ -661,7 +661,7 @@ void Computer::Update ()
             //
             // Disconnect the player if he is connected
 
-            if ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, ip ) == 0 ) {
+            if ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip == ip ) {
 
 	            game->GetWorld ()->GetPlayer ()->connection.Disconnect ();
 	            game->GetWorld ()->GetPlayer ()->connection.Reset ();

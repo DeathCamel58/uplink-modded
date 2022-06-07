@@ -50,9 +50,9 @@ protected:
 	GameObituary *gob;                     // Only used if this is a dead person
 	time_t lastsave;                       // Used in autosaving
 
-	char *loadedSavefileVer;               // The game is/was loaded from a savefile from that version, if NULL assume current
+	string loadedSavefileVer;               // The game is/was loaded from a savefile from that version, if NULL assume current
 
-	char *createdSavefileVer;              // The game was created in a savefile from that version
+	string createdSavefileVer;              // The game was created in a savefile from that version
 
 	int   winningCodeWon;                  // Does what needed to win the code was done?
 	char *winningCodeDesc;                 // Winning code description

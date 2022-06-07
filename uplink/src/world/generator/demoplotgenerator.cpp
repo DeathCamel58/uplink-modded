@@ -115,7 +115,7 @@ Mission *DemoPlotGenerator::Generate_FileCopyMission ()
     while ( !mission ) {
 
 	    while ( !employer1 || !target1 ||
-		    strcmp ( employer1->name, target1->companyname ) == 0 ) {
+		    employer1->name == target1->companyname ) {
 
 		    employer1 = WorldGenerator::GetRandomCompany ();
 		    UplinkAssert (employer1)
@@ -143,7 +143,7 @@ Mission *DemoPlotGenerator::Generate_FileDeleteMission ()
     while ( !mission ) {
 
 	    while ( !employer2 || !target2 ||
-		    strcmp ( employer2->name, target2->companyname ) == 0 ) {
+		    employer2->name == target2->companyname ) {
 
 		    employer2 = WorldGenerator::GetRandomCompany ();
 		    UplinkAssert (employer2)
@@ -348,7 +348,7 @@ void DemoPlotGenerator::PlayerCompletedMission ( Mission *mission )
     UplinkAssert (mission)
 
     if ( mission->TYPE == MISSION_CHANGEDATA &&
-         strcmp ( mission->completionA, IP_ACADEMICDATABASE ) == 0 &&
+         mission->completionA == IP_ACADEMICDATABASE &&
          scene == 0 ) {
 
         //
@@ -367,8 +367,8 @@ void DemoPlotGenerator::PlayerCompletedMission ( Mission *mission )
 
     }
     else if ( mission->TYPE == MISSION_CHANGEDATA &&
-              strcmp ( mission->completionA, IP_SOCIALSECURITYDATABASE ) == 0 &&
-              strcmp ( mission->contact, "internal@ARC.net" ) == 0 ) {
+              mission->completionA == IP_SOCIALSECURITYDATABASE &&
+              mission->contact == "internal@ARC.net" ) {
 
         //
         // Just finished the special social security mission from ARC
@@ -499,34 +499,18 @@ void DemoPlotGenerator::RunScene ( int newscene )
         // The target of the ARC mission dies
         // News story
 
-        std::ostrstream newsdetails;
-        char *agenthandle = NameGenerator::GenerateAgentAlias ();
-        UplinkAssert (agenthandle)
+        string agenthandle = NameGenerator::GenerateAgentAlias ();
+        UplinkAssert (!agenthandle.empty())
 
-        newsdetails << "An Uplink Agent going by the handle of " << agenthandle <<
-                       " has been found dead in his house after an apparent suicide.\n"
-			           "Preliminary forensic analysis suggests he overdosed on sleeping pills.\n\n"
-			           "The agent's real name is " << arcmissiontarget << " and he had been working for the controversial "
-                       "Andromeda Research Corporation, otherwise known as ARC.  ARC have been in the news in previous months, "
-                       "responding to allegations that they have been developing some kind of weapon using the expertise of new and naive Uplink Agents.\n"
-                       "In particular, they have been accused of targeting users of the Demo Uplink Client, "
-                       "who often have little understanding or knowledge of the companies involved.\n\n"
-			           "ARC released a statement earlier today, stating 'He was the best programmer we had ever seen and "
-			           "was a lead player in the project.  For something like this happen is a tradgedy of the greatest order.  "
-			           "Our thoughts go out to this mans family and friends.'\n\n"
-                       "Due to the seriousness of these claims, Uplink Corporation has asked all agents not to accept work from ARC while this issue is resolved."
-                    << '\x0';
+        string newsdetails = "An Uplink Agent going by the handle of " + agenthandle + " has been found dead in his house after an apparent suicide.\nPreliminary forensic analysis suggests he overdosed on sleeping pills.\n\nThe agent's real name is " + arcmissiontarget + " and he had been working for the controversial Andromeda Research Corporation, otherwise known as ARC.  ARC have been in the news in previous months, responding to allegations that they have been developing some kind of weapon using the expertise of new and naive Uplink Agents.\nIn particular, they have been accused of targeting users of the Demo Uplink Client, who often have little understanding or knowledge of the companies involved.\n\nARC released a statement earlier today, stating 'He was the best programmer we had ever seen and was a lead player in the project.  For something like this happen is a tragedy of the greatest order.  Our thoughts go out to this man's family and friends.'\n\nDue to the seriousness of these claims, Uplink Corporation has asked all agents not to accept work from ARC while this issue is resolved.";
 
 	    News *news = new News ();
 	    news->SetHeadline ( "Uplink agent dies in mysterious circumstances" );
-	    news->SetDetails ( newsdetails.str () );
+	    news->SetDetails ( newsdetails );
 
 	    auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	    UplinkAssert (cu)
 	    cu->CreateNews ( news );
-
-		newsdetails.rdbuf()->freeze( false );
-        //delete [] newsdetails.str ();
 
         // Warning mail to all
 

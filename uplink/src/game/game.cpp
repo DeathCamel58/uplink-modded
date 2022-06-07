@@ -44,9 +44,9 @@ Game::Game ()
 	gamespeed = GAMESPEED_PAUSED;
 	gob = nullptr;
 
-	loadedSavefileVer = nullptr;
+	loadedSavefileVer = "";
 
-	createdSavefileVer = nullptr;
+	createdSavefileVer = "";
 
 	winningCodeWon = 0;
 	winningCodeDesc = nullptr;
@@ -66,9 +66,7 @@ Game::~Game ()
 
     delete gob;
 
-    delete [] loadedSavefileVer;
-
-	delete [] createdSavefileVer;
+	createdSavefileVer = "";
 
     delete [] winningCodeDesc;
     delete [] winningCodeExtra;
@@ -83,10 +81,7 @@ void Game::NewGame ()
     delete world;
     delete gob;
 
-
-    delete [] createdSavefileVer;
-	createdSavefileVer = new char [ sizeof( SAVEFILE_VERSION ) + 1 ];
-	UplinkSafeStrcpy ( createdSavefileVer, SAVEFILE_VERSION )
+    createdSavefileVer = SAVEFILE_VERSION;
 
 	// Create a unique winning code
 	winningCodeRandom = 0;
@@ -253,16 +248,10 @@ bool Game::LoadGame ( FILE *file )
 
 	// Check the file version is correct
 
-
-		delete [] loadedSavefileVer;
-	loadedSavefileVer = new char [sizeof (SAVEFILE_VERSION) + 1];
-	if ( !FileReadData ( loadedSavefileVer, sizeof (SAVEFILE_VERSION), 1, file ) ) {
-		loadedSavefileVer [ 0 ] = '\0';
+	if ( !FileReadDataInt(loadedSavefileVer, 6, file) ) {
+		loadedSavefileVer = "";
 	}
-	else {
-		loadedSavefileVer [ sizeof (SAVEFILE_VERSION) ] = '\0';
-	}
-    if ( loadedSavefileVer [ 0 ] == '\0' || strcmp ( loadedSavefileVer, SAVEFILE_VERSION_MIN ) < 0 || strcmp ( loadedSavefileVer, SAVEFILE_VERSION ) > 0 ) {
+    if ( loadedSavefileVer.empty() || loadedSavefileVer.compare(SAVEFILE_VERSION_MIN) < 0 || loadedSavefileVer.compare(SAVEFILE_VERSION) > 0 ) {
 
         //UplinkAbort ( "This save game file is from an older version of Uplink" );        
 
@@ -270,11 +259,7 @@ bool Game::LoadGame ( FILE *file )
 		           app->GetOptions ()->GetOptionValue ("graphics_screenheight") );
         app->GetMainMenu ()->RunScreen ( MAINMENU_LOGIN );
 
-        char message [256];
-        UplinkSnprintf ( message, sizeof ( message ), "Failed to load user profile\n"
-													   "The save file is not compatible\n\n"
-													   "Save file is Version [%s]\n"
-													   "Required Version is between [%s] and [%s]", loadedSavefileVer, SAVEFILE_VERSION_MIN, SAVEFILE_VERSION )
+        string message = "Failed to load user profile\nThe save file is not compatible\n\nSave file is Version [" + loadedSavefileVer + "]\nRequired Version is between [" + SAVEFILE_VERSION_MIN + "] and [" + SAVEFILE_VERSION + "]";
         create_msgbox ( "Error", message );
 
         return false;
@@ -355,7 +340,7 @@ bool Game::Load ( FILE *file )
 
 	if ( strcmp( game->GetLoadedSavefileVer(), "SAV58" ) >= 0 ) {
 
-		if ( !LoadDynamicStringPtr ( &createdSavefileVer, file ) ) return false;
+		if ( !LoadDynamicStringInt( createdSavefileVer, file ) ) return false;
 
 		if ( !FileReadData ( &winningCodeWon, sizeof(winningCodeWon), 1, file ) ) return false;
 		if ( !LoadDynamicStringPtr ( &winningCodeDesc, file ) ) return false;
@@ -467,8 +452,8 @@ void Game::Update ()
 const char *Game::GetLoadedSavefileVer () const
 {
 
-	if ( loadedSavefileVer )
-		return loadedSavefileVer;
+	if ( !loadedSavefileVer.empty() )
+		return loadedSavefileVer.c_str();
 	else
 		return SAVEFILE_VERSION;
 
@@ -479,7 +464,7 @@ void Game::WinCode ( const char *desc, const char *codeExtra )
 
 	UplinkAssert ( desc )
 
-	if ( createdSavefileVer && strcmp( createdSavefileVer, "SAV58" ) >= 0 )
+	if ( !createdSavefileVer.empty() && createdSavefileVer.compare( "SAV58" ) >= 0 )
 		winningCodeWon = 1;
 
 	delete [] winningCodeDesc;

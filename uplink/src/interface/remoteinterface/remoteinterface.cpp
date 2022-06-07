@@ -167,7 +167,7 @@ void RemoteInterface::RunNewLocation ()
 
 		// This computer cannot be connected to from an external location
 
-		char *ipfrom = game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost ();
+		string ipfrom = game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost ();
 		VLocation *vlfrom = game->GetWorld ()->GetVLocation ( ipfrom );
 		UplinkAssert (vlfrom)
 		Computer *compfrom = vlfrom->GetComputer ();

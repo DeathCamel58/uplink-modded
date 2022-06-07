@@ -10,6 +10,8 @@
 #else
 #include <unistd.h>
 #include <app/miscutils.h>
+#include <sstream>
+#include <algorithm>
 
 #endif
 
@@ -45,9 +47,9 @@
 #include "mmgr.h"
 
 
-
-//#define		VERBOSEAI_ENABLED									// Print AI messages
-
+#ifdef _DEBUG
+#define		VERBOSEAI_ENABLED									// Print AI messages
+#endif
 
 
 
@@ -58,7 +60,7 @@ Agent::Agent() : Person ()
 Agent::~Agent()
 {
 
-	DeleteLListData ( &links );
+	DeleteLListData ( links );
 	DeleteBTreeData ( &codes );
 	DeleteLListData ( (LList <UplinkObject *> *) &missions );
 
@@ -113,74 +115,63 @@ void Agent::GiveMission ( Mission *mission )
 
 }
 
-bool Agent::ParseAccessCode (const string &thecode, string &username, size_t usernamesize, string &password, size_t passwordsize )
+/**
+ * Parses an access code to a username and password
+ * Only 2 varieties are permitted:
+ * 1.   ... 'name' .... 'code'
+ * 2.   ... 'code' ....
+ * In other words, names/codes are always enclosed in '
+ * @param thecode The code to parse
+ * @param username The username variable to populate
+ * @param password The password variable to populate
+ * @return `true` if it was successfully parsed
+ */
+bool Agent::ParseAccessCode(const string &thecode, string &username, string &password)
 {
 
-	/*
-		Access Codes
+    //
+    // Count the number of dits
+    //
 
-		Only 2 varieties are permitted:
-		1.   ... 'name' .... 'code'
-		2.   ... 'code' ....
+    size_t numdits = std::count(thecode.begin(), thecode.end(), '\'');
 
-		In other words, names/codes are always enclosed in '
+    //
+    // Deal with each case
+    //
 
-		*/
+    size_t firstDit = thecode.find('\'');
+    size_t lastDit = thecode.find_last_of('\'');
 
-    char fullcode [256];
-    UplinkStrncpy ( fullcode, thecode.c_str(), sizeof ( fullcode ) )
+    if ( numdits == 2 ) {
 
-	//
-	// Count the number of dits
-	//
+        size_t codeLength = lastDit - firstDit - 1;
 
-	int numdits = 0;
-	const char *currentdit = fullcode;
-	while ( strchr ( currentdit, '\'' ) != nullptr ) {
-		currentdit = strchr ( currentdit, '\'' ) + 1;
-		++numdits;
-	}
-
-	//
-	// Deal with each case
-	//
-
-	if ( numdits == 2 ) {
-
-		char *code;
-
-		code = strchr ( fullcode, '\'' ) + 1;
-		*( strchr ( code, '\'' ) ) = '\x0';
+        const string code = thecode.substr(firstDit + 1, codeLength);
 
         username = code;
         password = code;
         return true;
 
-	}
-	else if ( numdits == 4 ) {
+    }
+    else if ( numdits == 4 ) {
 
-		char *name;
-		char *code;
+        size_t secondDit = thecode.find('\'', firstDit + 1);
+        size_t thirdDit = thecode.find('\'', secondDit + 1);
+        size_t usernameLength = secondDit - firstDit - 1;
+        size_t passwordLength = lastDit - thirdDit - 1;
 
-		name = strchr ( fullcode, '\'' ) + 1;
-		code = strchr ( name, '\'' ) + 1;
-		code = strchr ( code, '\'' ) + 1;
-
-		*( strchr ( name, '\'' ) ) = '\x0';
-		*( strchr ( code, '\'' ) ) = '\x0';
-
-        username = name;
-        password = code;
+        username = thecode.substr(firstDit + 1, usernameLength);
+        password = thecode.substr(thirdDit + 1, passwordLength);
         return true;
 
-	}
-	else {
+    }
+    else {
 
         username = "";
         password = "";
         return false;
 
-	}
+    }
 
 }
 
@@ -249,7 +240,7 @@ int Agent::HasAccount  (const string &ip )
 
 			string username;
 			string password;
-			if ( !ParseAccessCode ( code, username, username.size(), password, password.size() ) )
+			if ( !ParseAccessCode(code, username, password))
 				continue;
 
 			// Lookup the computer
@@ -274,8 +265,8 @@ int Agent::HasAccount  (const string &ip )
 				char *securitytext = rec->GetField ( RECORDBANK_SECURITY );
 				if ( securitytext ) {
 
-                    // TODO: Check if this could be a stream
-					sscanf ( securitytext, "%d", &security );
+                    stringstream stream(securitytext);
+                    stream >> security;
 
 					if ( security != -1 && ( securityLevel == -1 || security < securityLevel ) )
 						securityLevel = security;
@@ -386,8 +377,8 @@ void Agent::GiveCode (const string &newip, const string &newcode )
                     string thisusername;
                     string thispassword;
 
-                    bool successA = ParseAccessCode ( newcode, newusername, newusername.size(), newpassword, newpassword.size() );
-                    bool successB = ParseAccessCode ( thiscode, thisusername, thisusername.size(), thispassword, thispassword.size() );
+                    bool successA = ParseAccessCode(newcode, newusername, newpassword);
+                    bool successB = ParseAccessCode(thiscode, thisusername, thispassword);
 
                     if ( successA && successB ) {
 
@@ -453,7 +444,7 @@ bool Agent::HasMissionLink (const string &newip )
 
 	for ( int ii = 0; ii < missions.Size (); ii++ )
 		if ( missions.ValidIndex ( ii ) ) {
-			LList <char*> *links = &(missions.GetData ( ii )->links);
+			LList <string> *links = &(missions.GetData ( ii )->links);
 			for ( int i = 0; i < links->Size () ; i++ )
 				if ( links->ValidIndex ( i ) )
 					if ( newip == links->GetData ( i ) )
@@ -544,10 +535,10 @@ void Agent::AttemptMission_StealFile ()
 	if ( !(missions.GetData (0)) ) return;
 	Mission *m = missions.GetData (0);
 
-	char *targetip = m->completionA;
-	char *filename = m->completionB;
+	string targetip = m->completionA;
+	string filename = m->completionB;
 
-	if ( strcmp ( filename, "ALL" ) == 0 ) {
+	if ( filename == "ALL" ) {
 
 		EstablishConnection ( targetip );
 
@@ -574,10 +565,10 @@ void Agent::AttemptMission_DeleteFile ()
 	if ( !(missions.GetData (0)) ) return;
 	Mission *m = missions.GetData (0);
 
-	char *targetip = m->completionA;
-	char *filename = m->completionB;
+	string targetip = m->completionA;
+	string filename = m->completionB;
 
-	if ( strcmp ( filename, "ALL" ) == 0 ) {
+	if ( filename == "ALL" ) {
 
 		EstablishConnection ( targetip );
 
@@ -605,16 +596,16 @@ void Agent::AttemptMission_ChangeAccount ()
 	if ( !(missions.GetData (0)) ) return;
 	Mission *m = missions.GetData (0);
 
-	char sourceip [SIZE_VLOCATION_IP];
-	char targetip [SIZE_VLOCATION_IP];
-	char sourceaccno [16];
-	char targetaccno [16];
+	string sourceip, targetip, sourceaccno, targetaccno;
 
 	int amount;
 
-	sscanf ( m->completionA, "%s %s", sourceip, sourceaccno );
-	sscanf ( m->completionB, "%s %s", targetip, targetaccno );
-	sscanf ( m->completionC, "%d", &amount );
+	stringstream streamA(m->completionA);
+	streamA >> sourceip >> sourceaccno;
+	stringstream streamB(m->completionB);
+	streamB >> targetip >> targetaccno;
+	stringstream stringC(m->completionC);
+	stringC >> amount;
 
 	EstablishConnection ( sourceip );
 
@@ -636,7 +627,7 @@ void Agent::AttemptMission_TraceUser ()
 	if ( !(missions.GetData (0)) ) return;
 	Mission *m = missions.GetData (0);
 
-	char *hackername = m->completionA;
+	string hackername = m->completionA;
 	Person *hacker = game->GetWorld ()->GetPerson ( hackername );
 	UplinkAssert (hacker)
 
@@ -644,7 +635,7 @@ void Agent::AttemptMission_TraceUser ()
 	// Get the hacked computer system
 	//
 
-	char *compip = m->links.GetData (0);
+	string compip = m->links.GetData (0);
 	VLocation *vl = game->GetWorld ()->GetVLocation ( compip );
 	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
@@ -700,7 +691,7 @@ void Agent::AttemptMission_TraceUser ()
 			// Now look at the log
 
 			if ( al->SUSPICIOUS != LOG_NOTSUSPICIOUS &&
-				 strcmp ( al->fromname, hackername ) == 0 &&
+				 al->fromname == hackername &&
 				 al->TYPE != LOG_TYPE_CONNECTIONOPENED ) {
 
 				// This is by the hacker but can't be investigated further
@@ -712,7 +703,7 @@ void Agent::AttemptMission_TraceUser ()
 			}
 			else if ( al->SUSPICIOUS != LOG_NOTSUSPICIOUS &&
 				 al->TYPE == LOG_TYPE_CONNECTIONOPENED &&
-				 strcmp ( al->fromname, hackername ) == 0 ) {
+				 al->fromname == hackername ) {
 
 				// Now investigated - so set it back to LOG_NOTSUSPICIOUS
 
@@ -820,10 +811,10 @@ void Agent::AttemptMission_RemoveComputer ()
 	if ( !(missions.GetData (0)) ) return;
 	Mission *m = missions.GetData (0);
 
-	char *targetip = m->completionA;
+	string targetip = m->completionA;
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( targetip );
-	UplinkAssert (targetip)
+	UplinkAssert (!targetip.empty())
 	Computer *comp = vl->GetComputer ();
 	UplinkAssert (comp)
 
@@ -875,8 +866,8 @@ void Agent::EstablishConnection (const string &ip )
 	// The date on the logs should remain the same - so they don't get out of sync
 
 	int coverindex = NumberGenerator::RandomNumber ( numbounces - 1 ) + 1;
-	char *fromip = connection.vlocations.GetData (coverindex-1);
-	char *toip   = connection.vlocations.GetData (coverindex);
+	string fromip = connection.vlocations.GetData (coverindex-1);
+	string toip   = connection.vlocations.GetData (coverindex);
 
 	VLocation *vl = game->GetWorld ()->GetVLocation ( toip );
 	UplinkAssert (vl)
@@ -887,7 +878,7 @@ void Agent::EstablishConnection (const string &ip )
 		if ( comp->logbank.logs.ValidIndex (il) ) {
 
 			if ( strcmp ( comp->logbank.logs.GetData (il)->fromname, name ) == 0 &&
-				 strcmp ( comp->logbank.logs.GetData (il)->fromip, fromip ) == 0 ) {
+				 comp->logbank.logs.GetData (il)->fromip == fromip ) {
 
 				Date logdate;
 				logdate.SetDate ( &(comp->logbank.logs.GetData (il)->date) );
@@ -902,7 +893,7 @@ void Agent::EstablishConnection (const string &ip )
 					// Look for a valid log to put in the blank place
 					for ( int is = 0; is < comp->logbank.logs.Size (); ++is ) {
 						if ( comp->logbank.logs.ValidIndex (is) ) {
-							if ( strcmp ( comp->logbank.logs.GetData (is)->fromip, fromip ) != 0 ) {
+							if ( comp->logbank.logs.GetData (is)->fromip != fromip ) {
 
 								AccessLog *copyme = comp->logbank.logs.GetData (is);
 								// This log was made by someone else
@@ -980,7 +971,7 @@ bool Agent::Load ( FILE *file )
 
 	if ( !LoadDynamicStringStatic ( handle, SIZE_AGENT_HANDLE, file ) ) return false;
 
-	if ( !LoadLList ( &links, file ) ) return false;
+	if ( !LoadLList ( links, file ) ) return false;
 	if ( !LoadBTree ( &codes, file ) ) return false;
 	if ( !LoadLList ( (LList <UplinkObject *> *) &missions, file ) ) return false;
 
@@ -1001,7 +992,7 @@ bool Agent::Load ( FILE *file )
 				if ( thiscode && strlen ( thiscode ) < 256 ) {
 					string thisusername;
 					string thispassword;
-					success = ParseAccessCode ( thiscode, thisusername, thisusername.size(), thispassword, thispassword.size() );
+					success = ParseAccessCode(thiscode, thisusername, thispassword);
 
 					if ( success )
 						for ( int ii = (int) strlen ( thiscode ) - 1; ii >= 0; ii-- )
@@ -1035,7 +1026,7 @@ void Agent::Save ( FILE *file )
 
 	SaveDynamicString ( handle, SIZE_AGENT_HANDLE, file );
 
-	SaveLList ( &links, file );
+	SaveLList ( links, file );
 	SaveBTree ( &codes, file );
 	SaveLList ( (LList <UplinkObject *> *) &missions, file );
 
@@ -1050,7 +1041,7 @@ void Agent::Print ()
     PrintValue("Handle", handle);
 	Person::Print ();
 
-	PrintLList ( &links );
+	PrintLList ( links );
 	PrintBTree ( &codes );
 	PrintLList ( (LList <UplinkObject *> *) &missions );
 

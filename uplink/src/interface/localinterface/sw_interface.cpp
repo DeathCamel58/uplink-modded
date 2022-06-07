@@ -53,7 +53,7 @@ void SWInterface::SoftwareClick ( Button *button )
 	for ( int i = 0; i < numfiles; ++i ) {
 
 		if ( db->GetDataFile (i) &&
-			strcmp ( db->GetDataFile (i)->title, softwarename ) == 0 &&
+			db->GetDataFile (i)->title == softwarename &&
 			db->GetDataFile (i)->version == version ) {
 			inmemory = true;
 			break;
@@ -163,7 +163,7 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 
 		// Create a list of all software in memory
 
-		LList <char *> software;				// Bit of a hack - think about this
+		LList <string> software;				// Bit of a hack - think about this
 		LList <float> versions;
 
 		DataBank *db = &(game->GetWorld ()->GetPlayer ()->gateway.databank);
@@ -181,7 +181,7 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 				int existingindex = -1;
 				
 				for ( int si = 0; si < software.Size (); ++si ) {
-					if ( strcmp ( software.GetData (si), db->GetDataFile (di)->title ) == 0 ) {
+					if ( software.GetData (si) == db->GetDataFile (di)->title ) {
 						existingindex = si;
 						break;
 					}
@@ -217,7 +217,7 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 		for ( int si = 0; si < software.Size (); ++si ) {
 	
 			char caption [128];
-			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si), versions.GetData (si) )
+			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si).c_str(), versions.GetData (si) )
 			string tooltip = "Runs this software application";
 			string name = "hud_software " + to_string(si);
 			EclRegisterButton ( x, y, 140, 15, caption, tooltip, name );
@@ -481,7 +481,7 @@ void SWInterface::ToggleVersionMenu (const string &program, int x, int y )
 
 		// Create it
 		
-		LList <char *> software;				// Bit of a hack - think about this
+		LList <string> software;				// Bit of a hack - think about this
 		LList <float> versions;
 
 		DataBank *db = &(game->GetWorld ()->GetPlayer ()->gateway.databank);
@@ -508,7 +508,7 @@ void SWInterface::ToggleVersionMenu (const string &program, int x, int y )
 		for ( int si = 0; si < software.Size (); ++si ) {
 	
 			char caption [128];
-			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si), versions.GetData (si) )
+			UplinkSnprintf ( caption, sizeof ( caption ), "%s v%1.1f", software.GetData (si).c_str(), versions.GetData (si) )
 			string tooltip = "Runs this software application";
 			string name = "hud_version " + to_string(si);
 			EclRegisterButton ( x, y, 120, 15, caption, tooltip, name );

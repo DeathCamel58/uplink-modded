@@ -410,7 +410,7 @@ void SharesListScreenInterface::Create ( ComputerScreen *newcs )
 					if ( company->TYPE == COMPANYTYPE_INDUSTRIAL || 
 						 company->TYPE == COMPANYTYPE_COMMERCIAL ||
 						 company->TYPE == COMPANYTYPE_FINANCIAL )
-						 allshares.PutData ( company->name );
+						 allshares.PutData ( const_cast<char *>(company->name.c_str()) );
 				}
 			}
 

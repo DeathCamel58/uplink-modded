@@ -1,6 +1,7 @@
 #include <cstdio>
 
 #include <strstream>
+#include <sstream>
 
 #include "app/globals.h"
 #include "app/serialise.h"
@@ -301,7 +302,7 @@ void RecordGenerator::GenerateRecord_Academic (const string &personname, int age
 		possiblequals.PutData ( "Media studies" );
 		possiblequals.PutData ( "Sociology" );
 
-		char grades [] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
+		string grades [] = { "A", "B", "C", "D", "E", "F", "G" };
 
 		int numquals = NumberGenerator::RandomNumber ( brains / 10 );
 
@@ -482,7 +483,7 @@ void RecordGenerator::GenerateRecord_Financial (const string &personname, int ag
 
 			if ( target_acc ) {
 
-				if ( strcmp ( target_acc->name, game->GetWorld ()->GetPlayer ()->handle ) != 0 ) {		// Prevent transfers to player
+				if ( target_acc->name != game->GetWorld ()->GetPlayer ()->handle ) {		// Prevent transfers to player
 
 					if ( target_acc != myaccount ) {			// Prevent transfers to my own account
 
@@ -601,12 +602,12 @@ BankAccount *RecordGenerator::GetFinancial (const string &personname )
 	Person *person = game->GetWorld ()->GetPerson ( personname );
 	UplinkAssert ( person )
 
-	char *fullcurrentaccount = person->accounts.GetData (0);
-	UplinkAssert (fullcurrentaccount)
+	string fullcurrentaccount = person->accounts.GetData (0);
+	assert(!fullcurrentaccount.empty());
 
-	char ip [SIZE_VLOCATION_IP];
-	char accno [16];
-	sscanf ( fullcurrentaccount, "%s %s", ip, accno );
+	string ip, accno;
+	stringstream stream(fullcurrentaccount);
+	stream >> ip >> accno;
 
 	BankAccount *ba = BankAccount::GetAccount ( ip, accno );
 	UplinkAssert (ba)

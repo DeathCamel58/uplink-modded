@@ -38,6 +38,11 @@ void PrintLList      ( LList <UplinkObject *> *llist );
 void UpdateLList	 ( LList <UplinkObject *> *llist );
 void DeleteLListData ( LList <UplinkObject *> *llist );
 
+void SaveLList       ( LList <string> &llist, FILE *file );
+bool LoadLList       ( LList <string> &llist, FILE *file );
+void PrintLList		 ( LList <string> &llist );
+void DeleteLListData ( LList <string> &llist );
+
 void SaveLList       ( LList <char *> *llist, FILE *file );
 bool LoadLList       ( LList <char *> *llist, FILE *file );
 void PrintLList		 ( LList <char *> *llist );
@@ -50,6 +55,7 @@ void UpdateDArray	  ( DArray <UplinkObject *> *darray );
 void DeleteDArrayDataD( DArray <UplinkObject *> *darray, const char * file, int line );
 
 void DeleteDArrayDataD( DArray <char *> *darray, const char * file, int line );
+void DeleteDArrayDataD( DArray <string> &darray, const char * file, int line );
 
 void SaveDArray       ( DArray <int> *darray, FILE *file );
 bool LoadDArray       ( DArray <int> *darray, FILE *file );
@@ -129,10 +135,12 @@ UplinkObject *CreateUplinkObject ( int OBJECTID );
 #define MAX_LENGTH_DYMANIC_STRING 16384
 
 void SaveDynamicString     ( char *string, FILE *file );					// Works with NULL
+void SaveDynamicString     (string &string, FILE *file );					// Works with NULL
 void SaveDynamicString     ( char *string, int maxsize, FILE *file );		// Works with NULL
-void SaveDynamicString     ( string *data, int maxsize, fstream *file );		// Works with NULL
+void SaveDynamicString     (string &data, int maxsize, FILE *file );		// Works with NULL
 bool LoadDynamicStringInt  (const char *_file, int _line, char **string, FILE *file );					// Assigns space for string
 bool LoadDynamicStringInt  (const char *_file, int _line, char *string, int maxsize, FILE *file );		// Does not allocate space
+bool LoadDynamicStringInt  (string &data, FILE *file );					// Assigns space for string
 
 #define LoadDynamicStringPtr(string,file) LoadDynamicStringInt(__FILE__,__LINE__,string,file)
 #define LoadDynamicStringStatic(string,maxsize,file) LoadDynamicStringInt(__FILE__,__LINE__,string,maxsize,file)
@@ -142,7 +150,7 @@ bool LoadDynamicStringInt  (const char *_file, int _line, char *string, int maxs
 // Function for reading data from a file
 
 bool FileReadDataInt     (const char *_file, int _line, void * _DstBuf, size_t _ElementSize, size_t _Count, FILE * _File );
-bool FileReadDataInt     ( string & data, size_t _Count, fstream _File );
+bool FileReadDataInt     (string & data, size_t dataSize, FILE *_File );
 bool FileReadNext ( string &data, FILE *file);
 bool FileReadNext ( string &data, fstream *file);
 

@@ -38,7 +38,7 @@ protected:
 	char criminal	 [256];					// Personal data
 	char financial	 [256];					//
 
-	LList <char *> news;					// World data
+	LList <string> news;					// World data
 
 public:
 

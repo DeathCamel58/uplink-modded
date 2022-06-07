@@ -89,11 +89,10 @@ void WorldMapInterface::LocationClick ( Button *button )
 
     if ( !game->GetWorld ()->GetPlayer ()->GetConnection ()->Connected () ) {
         
-        char ip [SIZE_VLOCATION_IP];
+        string ip;
 
-		if ( button->name == "worldmaptempcon" ) {
-			strncpy ( ip, button->caption.c_str(), SIZE_VLOCATION_IP );
-			ip [ SIZE_VLOCATION_IP - 1 ] = '\0';
+		if ( button->name.rfind("worldmaptempcon") == 0 ) {
+			ip = button->caption;
 		}
 		else {
 			//int index;
@@ -157,7 +156,7 @@ void WorldMapInterface::ConnectClick ( Button *button )
 
 }
 
-void WorldMapInterface::AfterPhoneDialler ( char *ip, char *info )
+void WorldMapInterface::AfterPhoneDialler (string &ip, string &info )
 {
 
     game->GetWorld ()->GetPlayer ()->GetConnection ()->Connect ();
@@ -233,7 +232,7 @@ void WorldMapInterface::CancelClick ( Button *button )
 	// Close the screen if we are at home without any half set up connection
 
 	if ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, IP_LOCALHOST ) == 0 &&
-		 strcmp ( game->GetWorld ()->GetPlayer ()->GetConnection ()->GetTarget (), IP_LOCALHOST ) == 0 ) 
+		 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetTarget () == IP_LOCALHOST )
 	
 		 CloseClick ( nullptr );
 
@@ -403,8 +402,8 @@ void WorldMapInterface::DrawWorldMapSmall ( Button *button, bool highlighted, bo
 
         for ( int i = 0; i < game->GetWorld ()->plotgenerator.infected.Size (); ++i ) {
 
-            char *ip = game->GetWorld ()->plotgenerator.infected.GetData (i);
-            UplinkAssert (ip)
+            string ip = game->GetWorld ()->plotgenerator.infected.GetData (i);
+            assert(!ip.empty());
 
             VLocation *vl = game->GetWorld ()->GetVLocation (ip);
             UplinkAssert (vl)
@@ -557,8 +556,8 @@ void WorldMapInterface::DrawWorldMapLarge ( Button *button, bool highlighted, bo
 
         for ( int j = 0; j < game->GetWorld ()->plotgenerator.infected.Size (); ++j ) {
 
-            char *ip = game->GetWorld ()->plotgenerator.infected.GetData (j);
-            UplinkAssert (ip)
+            string ip = game->GetWorld ()->plotgenerator.infected.GetData (j);
+            assert(!ip.empty());
 
             VLocation *vl = game->GetWorld ()->GetVLocation (ip);
             UplinkAssert (vl)
@@ -639,11 +638,10 @@ void WorldMapInterface::DrawLocation ( Button *button, bool highlighted, bool cl
 
     // Get some useful information about this location
 
-    char ip [ SIZE_VLOCATION_IP ];
+    string ip;
 
-	if ( button->name == "worldmaptempcon" ) {
-		strncpy ( ip, button->caption.c_str(), SIZE_VLOCATION_IP );
-		ip [ SIZE_VLOCATION_IP - 1 ] = '\0';
+	if ( button->name.rfind("worldmaptempcon") == 0 ) {
+		ip = button->caption;
 	}
 	else {
 	    //int index;
@@ -716,7 +714,7 @@ void WorldMapInterface::DrawLocation ( Button *button, bool highlighted, bool cl
 		UplinkSnprintf(msg, sizeof ( msg ), "Owner: %s", comp->companyname)
 		int w1 = GciTextWidth(msg) + 10;
 
-		UplinkSnprintf(msg, sizeof ( msg ), "IP: %s", ip)
+		UplinkSnprintf(msg, sizeof ( msg ), "IP: %s", ip.c_str())
 		int w2 = GciTextWidth(msg) + 10;
 
 		int w = w1 > w2 ? w1 : w2;
@@ -751,7 +749,7 @@ void WorldMapInterface::DrawLocation ( Button *button, bool highlighted, bool cl
 		// Draw the text
 
         char line1 [64], line2 [128];
-        UplinkSnprintf ( line1, sizeof ( line1 ), "IP: %s", ip )
+        UplinkSnprintf ( line1, sizeof ( line1 ), "IP: %s", ip.c_str() )
         UplinkSnprintf ( line2, sizeof ( line2 ), "Owner: %s", comp->companyname )
         glColor3f ( 1.0f, 1.0f, 1.0f );
 		GciDrawText ( x + 5, y + 10, line1 );
@@ -921,8 +919,8 @@ void WorldMapInterface::ProgramLayoutEngine()
     // Create all known links
     
     Player *player = game->GetWorld ()->GetPlayer ();
-    LList <char *> &conn = player->connection.vlocations;
-    LList <char *> &links = player->links;
+    LList <string> &conn = player->connection.vlocations;
+    LList <string> &links = player->links;
 	int numtempconbutton = 0;
 
 	bool isWorldmapLarge = ( IsVisibleWorldMapInterface () == WORLDMAP_LARGE );
@@ -1023,7 +1021,7 @@ void WorldMapInterface::ProgramLayoutEnginePartial()
     // Add all temporary links in the connection
     
     Player *player = game->GetWorld ()->GetPlayer ();
-    LList <char *> &conn = player->connection.vlocations;
+    LList <string> &conn = player->connection.vlocations;
 	int numtempconbutton = 0;
 
 	bool isWorldmapLarge = ( IsVisibleWorldMapInterface () == WORLDMAP_LARGE );
@@ -1082,21 +1080,18 @@ void WorldMapInterface::ProgramLayoutEnginePartial()
 void WorldMapInterface::SaveCurrentConnection ()
 {
 
-    DeleteLListData ( &savedconnection );
+    DeleteLListData ( savedconnection );
     savedconnection.Empty ();
 
     Connection *connection = &(game->GetWorld ()->GetPlayer ()->connection);
 
     for ( int i = 0; i < connection->GetSize (); ++i ) {
 
-        char *thisip = connection->vlocations.GetData (i);
-        UplinkAssert (thisip)
+        string thisip = connection->vlocations.GetData (i);
 
-		size_t ipcopysize = SIZE_VLOCATION_IP;
-        char *ipcopy = new char [ipcopysize];
-        UplinkStrncpy ( ipcopy, thisip, ipcopysize )
+        assert(!thisip.empty());
 
-        savedconnection.PutDataAtEnd (ipcopy);
+        savedconnection.PutDataAtEnd (thisip);
 
     }
 
@@ -1116,8 +1111,8 @@ void WorldMapInterface::LoadConnection ()
 
         for ( int i = 0; i < savedconnection.Size (); ++i ) {
 
-            char *ip = savedconnection.GetData (i);
-            UplinkAssert (ip)
+            string ip = savedconnection.GetData (i);
+            assert(!ip.empty());
 
 			// Use a different solution for the missings servers in connection
 		    //VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
@@ -1206,7 +1201,7 @@ void WorldMapInterface::CreateWorldMapInterface_Large ()
     
     // Create all known links
     
-    LList <char *> *links = &(game->GetWorld ()->GetPlayer ()->links);                
+    LList <string> *links = &(game->GetWorld ()->GetPlayer ()->links);
 
     for ( int i = 0; i < links->Size (); ++i ) {
                             
@@ -1290,7 +1285,7 @@ void WorldMapInterface::RemoveWorldMapInterface ()
             EclRemoveButton ( "worldmap_scrollup" );
             EclRemoveButton ( "worldmap_scrolldown" );
 
-            LList <char *> *links = &(game->GetWorld ()->GetPlayer ()->links);                
+            LList <string> *links = &(game->GetWorld ()->GetPlayer ()->links);
 
             for ( int i = 0; i < links->Size (); ++i ) {
 
@@ -1425,7 +1420,7 @@ void WorldMapInterface::ScrollX ( float x )
 
     // Buttons
 
-    LList <char *> *links = &(game->GetWorld ()->GetPlayer ()->links);                
+    LList <string> *links = &(game->GetWorld ()->GetPlayer ()->links);
 
     for ( int i = 0; i < links->Size (); ++i ) {
                             
@@ -1487,7 +1482,7 @@ void WorldMapInterface::ScrollY ( float y )
 
     // Buttons
 
-    LList <char *> *links = &(game->GetWorld ()->GetPlayer ()->links);                
+    LList <string> *links = &(game->GetWorld ()->GetPlayer ()->links);
 
     for ( int i = 0; i < links->Size (); ++i ) {
                             
@@ -1559,7 +1554,7 @@ void WorldMapInterface::SetZoom ( float z )
 
     // Buttons
 
-    LList <char *> *links = &(game->GetWorld ()->GetPlayer ()->links);                
+    LList <string> *links = &(game->GetWorld ()->GetPlayer ()->links);
 
     for ( int i = 0; i < links->Size (); ++i ) {
                             
@@ -1613,7 +1608,7 @@ void WorldMapInterface::CheckLinksChanged()
 {
 	World *world = game->GetWorld ();
 	Player *player = world->GetPlayer();
-    LList <char *> &links = player->links;
+    LList <string> &links = player->links;
 	Connection *connection = &player->connection;
 	LList <Mission *> &missions = player->missions;
 	LList <Message *> &messages = player->messages;
@@ -1624,8 +1619,8 @@ void WorldMapInterface::CheckLinksChanged()
 	int newnbcolored = 0;
 
     for ( int i = 0; i < links.Size (); ++i ) {
-        char *link = links.GetData (i);
-        UplinkAssert (link)
+        string link = links.GetData (i);
+        UplinkAssert (!link.empty())
 
         VLocation *vl = world->GetVLocation (link);
         UplinkAssert (vl)
@@ -1641,12 +1636,12 @@ void WorldMapInterface::CheckLinksChanged()
 	int countTemp = 0;
 
 	for ( int j = 1; j < connection->vlocations.Size (); ++j ) {
-		char *link = connection->vlocations.GetData ( j );
-		UplinkAssert ( link )
+		string link = connection->vlocations.GetData ( j );
+		assert( !link.empty() );
 		VLocation *vl = world->GetVLocation ( link );
 		UplinkAssert ( vl )
-		
-		if ( !vl->displayed || !player->HasLink ( link ) ) 
+
+		if ( !vl->displayed || !player->HasLink ( link ) )
 			++countTemp;
 	}
 
@@ -1679,7 +1674,7 @@ void WorldMapInterface::UpdateAccessLevel ()
 
     // Buttons
 
-    LList <char *> *links = &(game->GetWorld ()->GetPlayer ()->links);                
+    LList <string> *links = &(game->GetWorld ()->GetPlayer ()->links);
 
     for ( int i = 0; i < links->Size (); ++i ) {
                             
@@ -1832,7 +1827,7 @@ bool WorldMapInterface::Load ( FILE *file )
 	
 		LoadID ( file );
 
-		if ( !LoadLList ( &savedconnection, file ) ) return false;
+		if ( !LoadLList ( savedconnection, file ) ) return false;
 
 		LoadID_END ( file );
 
@@ -1847,7 +1842,7 @@ void WorldMapInterface::Save ( FILE *file )
 
 	SaveID ( file );
 	
-	SaveLList ( &savedconnection, file );
+	SaveLList ( savedconnection, file );
 
 	SaveID_END ( file );
 
@@ -1856,7 +1851,7 @@ void WorldMapInterface::Save ( FILE *file )
 void WorldMapInterface::Print ()
 {
 
-	PrintLList ( &savedconnection );
+	PrintLList ( savedconnection );
 
 }
 	

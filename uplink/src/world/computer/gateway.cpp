@@ -38,7 +38,7 @@ Gateway::Gateway ()
 Gateway::~Gateway ()
 {
 
-    DeleteLListData ( &hardware );
+    DeleteLListData ( hardware );
     delete curgatewaydef;
     delete newgatewaydef;
 
@@ -71,7 +71,7 @@ void Gateway::Nuke ()
 
 	SetGatewayStart ();
 
-	DeleteLListData ( &hardware );
+	DeleteLListData ( hardware );
 	hardware.Empty ();
 
 	GiveStartingHardware ();
@@ -173,7 +173,7 @@ void Gateway::ExchangeGatewayComplete ()
 	GatewayDef *newgateway = curgatewaydef;
 	UplinkAssert (newgateway)
 
-	LList <char *> removedItems;
+	LList <string> removedItems;
 
 
 	//
@@ -349,12 +349,9 @@ void Gateway::GiveCPU (const string& CPUName)
 	GatewayDef *gatewaydef = curgatewaydef;
 	UplinkAssert (gatewaydef)
 
-    char *cpucopy = new char [CPUName.length()+1];
-    UplinkSafeStrcpy ( cpucopy, CPUName.c_str() )
-
 	if ( GetNumCPUs () < gatewaydef->maxcpus ) {
 
-		hardware.PutData ( cpucopy );
+		hardware.PutData ( CPUName );
 
 	}
 	else {
@@ -380,10 +377,9 @@ void Gateway::GiveCPU (const string& CPUName)
 		}
 
 		if ( indexSlowest != -1 ) {
-			char *existing = hardware.GetData (indexSlowest);
+			string existing = hardware.GetData (indexSlowest);
             hardware.RemoveData (indexSlowest);
-            delete [] existing;
-			hardware.PutDataAtIndex ( cpucopy, indexSlowest);
+			hardware.PutDataAtIndex ( CPUName, indexSlowest);
 		}
 		else {
 			UplinkAbort ( "Gateway::GiveCPU, there should be a slowest CPU" )
@@ -519,21 +515,18 @@ void Gateway::GiveStartingHardware ()
 
 }
 
-void Gateway::GiveHardware ( char *newhardware )
+void Gateway::GiveHardware (const string& newhardware )
 {
 
-	char *hwtitle = new char [strlen(newhardware)+1];
-	UplinkSafeStrcpy ( hwtitle, newhardware )
-
-	hardware.PutData ( hwtitle );
+	hardware.PutData ( newhardware );
 
 }
 
-bool Gateway::IsHWInstalled (string name )
+bool Gateway::IsHWInstalled (const string& name )
 {
 
 	for ( int i = 0; i < hardware.Size (); ++i )
-		if ( hardware.GetData (i) )
+		if ( !hardware.GetData (i).empty() )
 			if ( name == hardware.GetData (i) )
 				return true;
 
@@ -630,7 +623,7 @@ bool Gateway::Load  ( FILE *file )
 
 	if ( !databank.Load ( file ) ) return false;
 
-	if ( !LoadLList ( &hardware, file ) ) return false;
+	if ( !LoadLList ( hardware, file ) ) return false;
 
 	int old_type = -1;
 	int old_newtype = -1;
@@ -713,7 +706,7 @@ void Gateway::Save  ( FILE *file )
 
 	databank.Save ( file );
 
-	SaveLList ( &hardware, file );
+	SaveLList ( hardware, file );
 
 	UplinkAssert ( curgatewaydef )
 	curgatewaydef->Save ( file );
@@ -755,7 +748,7 @@ void Gateway::Print ()
 
     databank.Print ();
 
-    PrintLList ( &hardware );
+    PrintLList ( hardware );
 
     PrintValue("Modem Speed", modemspeed);
     PrintValue("Memory Size", memorysize);

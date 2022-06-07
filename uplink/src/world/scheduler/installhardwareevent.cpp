@@ -107,8 +107,8 @@ void InstallHardwareEvent::Run ()
             Data *driver = new Data ();
 		    driver->SetDetails ( DATATYPE_PROGRAM, 1, 0, 0, 1.0, SOFTWARETYPE_HWDRIVER );
 
-            if      ( strcmp ( hwsale->title, "Gateway Self Destruct" ) == 0 )      driver->SetTitle ( "Gateway_Nuke" );
-            else if ( strcmp ( hwsale->title, "Gateway Motion Sensor" ) == 0 )      driver->SetTitle ( "Motion_Sensor" );
+            if      ( hwsale->title == "Gateway Self Destruct" )      driver->SetTitle ( "Gateway_Nuke" );
+            else if ( hwsale->title == "Gateway Motion Sensor" )      driver->SetTitle ( "Motion_Sensor" );
 
 		    game->GetWorld ()->GetPlayer ()->gateway.databank.PutData ( driver );
 
@@ -144,9 +144,6 @@ void InstallHardwareEvent::Run ()
 
 	msg->SetBody ( body.str () );
 	msg->Send ();
-
-	body.rdbuf()->freeze( false );
-	//delete [] body.str ();
 
 	//
 	// The engineer walks away

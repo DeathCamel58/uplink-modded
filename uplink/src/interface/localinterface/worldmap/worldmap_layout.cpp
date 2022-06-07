@@ -164,10 +164,10 @@ MapRectangle WorldMapInterfaceObject::GetExtent () const
 
 // ==============================================================================
 
-WorldMapInterfaceLabel::WorldMapInterfaceLabel( 
-    const MapRectangle &mapRect, 
-    WorldMapInterfaceObject *newFeaturePoint, 
-    const char *newCaption)
+WorldMapInterfaceLabel::WorldMapInterfaceLabel(
+        const MapRectangle &mapRect,
+        WorldMapInterfaceObject *newFeaturePoint,
+        const string& newCaption)
 
     : featurePoint(newFeaturePoint),
       caption(""),
@@ -467,11 +467,11 @@ void WorldMapLayout::DeleteLocations()
     locations.Empty();
 }
 
-void WorldMapLayout::AddLocation ( int x, int y, const char *name, const char *ip, bool tempForConnection )
+void WorldMapLayout::AddLocation (int x, int y, const string& name, const string &ip, bool tempForConnection )
 {
-    int locationtype = strcmp ( name, "Gateway" ) == 0 ? 
-                                WORLDMAPOBJECT_GATEWAY :
-                                WORLDMAPOBJECT_LOCATION;
+    int locationtype = name == "Gateway" ?
+                       WORLDMAPOBJECT_GATEWAY :
+                       WORLDMAPOBJECT_LOCATION;
 
     auto *thedot = new WorldMapInterfaceObject ();
     thedot->SetTYPE ( locationtype );

@@ -1,5 +1,6 @@
 
 #include <strstream>
+#include <sstream>
 
 #include "app/globals.h"
 
@@ -132,8 +133,8 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 		// Disconnect user if he is still connected here
 
-		if ( person->GetConnection ()->GetTarget () &&
-			 strcmp ( person->GetConnection ()->GetTarget (), comp->ip ) == 0 ) {
+		if ( !person->GetConnection ()->GetTarget ().empty() &&
+			 person->GetConnection ()->GetTarget () == comp->ip ) {
 
 			person->GetConnection ()->Disconnect ();
 			person->GetConnection ()->Reset ();
@@ -376,7 +377,8 @@ void ConsequenceGenerator::DidntPayFine ( Person *person, Mission *fine )
 	warningdate.AdvanceMinute ( TIME_LEGALACTION_WARNING * -1 );
 
 	int finesize;
-	sscanf ( fine->completionC, "%d", &finesize );
+	stringstream stream(fine->completionC);
+	stream >> finesize;
 
 	if ( strcmp ( person->name, "PLAYER" ) != 0 ) {
 
@@ -477,8 +479,8 @@ void ConsequenceGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 				UplinkAssert (m)
 
 				if ( m->TYPE == MISSION_TRACEUSER &&
-					 strcmp ( m->completionA, hacker->name ) == 0 &&
-					 strcmp ( m->links.GetData (0), comp->ip ) == 0 ) {
+					 m->completionA == hacker->name &&
+					 m->links.GetData (0) == comp->ip ) {
 
 					alreadynoticed = true;
 					break;
@@ -522,15 +524,16 @@ void ConsequenceGenerator::MissionCompleted_StealFile	( Mission *mission, Person
 	UplinkAssert ( mission )
 	UplinkAssert ( person )
 
-	char *ip = mission->completionA;
-	char *filename = mission->completionB;
-	char *filetype = mission->completionE;
+	string ip = mission->completionA;
+	string filename = mission->completionB;
+	string filetype = mission->completionE;
 
     int numfiles;
     int totalfilesize;
-    sscanf ( mission->completionD, "%d %d", &numfiles, &totalfilesize );
+    stringstream stream(mission->completionD);
+    stream >> numfiles >> totalfilesize;
 
-	if ( strcmp (filename, "ALL") == 0 ) {
+	if ( filename == "ALL" ) {
 
 		VLocation *vl = game->GetWorld ()->GetVLocation ( ip );
 		UplinkAssert (vl)
@@ -556,9 +559,9 @@ void ConsequenceGenerator::MissionCompleted_DestroyFile ( Mission *mission, Pers
 	UplinkAssert (mission)
 	UplinkAssert (person)
 
-	char *filename = mission->completionB;
+	string filename = mission->completionB;
 
-	if ( strcmp (filename, "ALL") == 0 ) {
+	if ( filename == "ALL" ) {
 
 		if ( person == game->GetWorld ()->GetPlayer () ||
 			 NumberGenerator::RandomNumber (100) < PROB_GENERATETRACEHACKERMISSION ) {
@@ -582,17 +585,17 @@ void ConsequenceGenerator::MissionCompleted_ChangeAccount ( Mission *mission, Pe
 
 		// Extract values from the mission
 
-		char source_ip [SIZE_VLOCATION_IP];
-		char target_ip [SIZE_VLOCATION_IP];
-		char source_accs [16];
-		char target_accs [16];
+		string source_ip, target_ip, source_accs, target_accs;
 		int amount;
 
 		UplinkAssert (mission)
 
-		sscanf ( mission->completionA, "%s %s", source_ip, source_accs );
-		sscanf ( mission->completionB, "%s %s", target_ip, target_accs );
-		sscanf ( mission->completionC, "%d", &amount );
+		stringstream streamA(mission->completionA);
+		streamA >> source_ip >> source_accs;
+		stringstream streamB(mission->completionB);
+		streamB >> target_ip >> target_accs;
+		stringstream streamC(mission->completionC);
+		streamC >> amount;
 
 		// Get the source and target computers
 
@@ -634,7 +637,7 @@ void ConsequenceGenerator::MissionCompleted_TraceUser ( Mission *mission, Person
 	// Look up the computer that was hacked
 	//
 
-	char *hackedip = mission->links.GetData (0);
+	string hackedip = mission->links.GetData (0);
 	VLocation *vl = game->GetWorld ()->GetVLocation ( hackedip );
 	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
@@ -644,7 +647,7 @@ void ConsequenceGenerator::MissionCompleted_TraceUser ( Mission *mission, Person
 	// Look up the guilty person
 	//
 
-	char *personname = mission->completionA;
+	string personname = mission->completionA;
 	Person *guiltyperson = game->GetWorld ()->GetPerson ( personname );
 	UplinkAssert ( guiltyperson )
 

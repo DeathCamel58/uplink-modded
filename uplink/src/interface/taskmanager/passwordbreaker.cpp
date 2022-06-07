@@ -36,14 +36,14 @@
 #include "mmgr.h"
 
 
-static char alphabet [27] = "abcdefghijklmnopqrstuvwxyz";
+static string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 
 PasswordBreaker::PasswordBreaker () : UplinkTask ()
 {
 
 	length = difficulty = currentchar = 0;
-	caption = password = username = nullptr;
+	caption = password = username = "";
 	found = nullptr;
 
 	targetstring = "";

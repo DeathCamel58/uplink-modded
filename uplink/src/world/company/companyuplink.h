@@ -37,8 +37,8 @@ public:
 	~CompanyUplink() override;
 
 	void CreateMission ( Mission *mission );							
-	void CreateMission ( char *employer, int payment, char *description, 
-						 char *details, char *fulldetails );	
+	void CreateMission (string employer, int payment, string description,
+                        string details, string fulldetails );
 
 	void CreateHWSale ( Sale *newsale );
 	void CreateSWSale ( Sale *newsale );

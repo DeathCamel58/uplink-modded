@@ -20,7 +20,7 @@ VLocation::VLocation()
 {
 	
 	UplinkStrncpy ( ip, "0.0.0.0", sizeof ( ip ) )
-	UplinkStrncpy ( computer, "", sizeof ( computer ) )
+	computer = "";
 
 	x = y = 0;
 	listed = true;
@@ -57,7 +57,7 @@ void VLocation::SetComputer (const string &newcomputer )
 {
 
 	assert( newcomputer.length() < SIZE_COMPUTER_NAME );
-	UplinkStrncpy ( computer, newcomputer.c_str(), sizeof ( computer ) )
+	computer = newcomputer;
 
 //	UplinkAssert ( game->GetWorld ()->GetComputer ( computer ) );
 
@@ -141,7 +141,7 @@ Computer *VLocation::GetComputer ()
         if( tree )
         {
             Computer *comp = tree->data;
-            if( comp && strcmp( comp->ip, ip ) == 0 ) 
+            if( comp && strcmp( comp->ip, ip ) == 0 )
             {
                 return comp;
             }
@@ -169,7 +169,7 @@ bool VLocation::Load ( FILE *file )
 	LoadID ( file );
 
 	if ( !LoadDynamicStringStatic ( ip, SIZE_VLOCATION_IP, file ) ) return false;
-	if ( !LoadDynamicStringStatic ( computer, SIZE_COMPUTER_NAME, file ) ) return false;
+	if ( !LoadDynamicStringInt ( computer, file ) ) return false;
 
 	if ( !FileReadData ( &x, sizeof (x), 1, file ) ) return false;
 	if ( !FileReadData ( &y, sizeof (y), 1, file ) ) return false;

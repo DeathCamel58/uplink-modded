@@ -100,7 +100,7 @@ void DictionaryHacker::Tick ( int n )
 
 					for ( int wordno = 0; wordno < numwords; ++wordno ) {
 
-						if ( game->GetWorld ()->GetPassword ( currentindex ) ) {
+						if ( !game->GetWorld ()->GetPassword ( currentindex ).empty() ) {
 
 							// Test the current word against the password to see if it is correct
 							if ( game->GetWorld ()->GetPassword ( currentindex ) == password ) {
@@ -148,7 +148,7 @@ void DictionaryHacker::Tick ( int n )
 			int percentage = (int)((float) currentindex / (float) game->GetWorld ()->passwords.Size () * 100);
 			string caption = "\nTrying\nWordlist..." + to_string(percentage) + "%%\n-> ";
 			for ( int i = currentindex; i < currentindex + 10; ++i ) {
-				if ( game->GetWorld ()->GetPassword (i) ) {
+				if ( !game->GetWorld ()->GetPassword (i).empty() ) {
 					caption += game->GetWorld ()->GetPassword ( i );
 					caption += "\n";
 				}

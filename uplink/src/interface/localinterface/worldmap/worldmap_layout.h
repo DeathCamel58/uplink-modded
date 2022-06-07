@@ -48,9 +48,9 @@ protected:
 class WorldMapInterfaceLabel : public WorldMapInterfaceObject {
 public:
     
-    WorldMapInterfaceLabel(const MapRectangle &mapRect, 
-			   WorldMapInterfaceObject *newFeaturePoint,
-			   const char *newCaption);
+    WorldMapInterfaceLabel(const MapRectangle &mapRect,
+                           WorldMapInterfaceObject *newFeaturePoint,
+                           const string& newCaption);
     ~WorldMapInterfaceLabel() override;
     
     void SetCaption (const string& newcaption );
@@ -114,7 +114,7 @@ public:
     
     void Reset ();
     void ResetTemp ();
-    void AddLocation ( int x, int y, const char *name, const char *ip = nullptr, bool tempForConnection = false );
+    void AddLocation (int x, int y, const string& name, const string &ip = nullptr, bool tempForConnection = false );
     void DeleteLocationsTemp ();
     
     void PartialLayoutLabels();

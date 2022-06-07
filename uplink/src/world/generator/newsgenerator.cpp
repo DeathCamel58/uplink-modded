@@ -539,7 +539,7 @@ void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 
 }
 
-void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfilesize )
+void NewsGenerator::AllFilesStolen (Computer *comp, string filetype, int totalfilesize )
 {
 
 	UplinkAssert (comp)
@@ -584,7 +584,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 
 	}
 
-	if ( strcmp ( filetype, "SCIENTIFIC" ) == 0 ) {
+	if ( filetype == "SCIENTIFIC" ) {
 
 		headline << "Gigaquads of scientific data copied by hacker";
 
@@ -594,7 +594,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 		part3 << comp->companyname << " will undoubtedly try to discover the corporation behind this theft.";
 
 	}
-	else if ( strcmp ( filetype, "CORPORATE" ) == 0 ) {
+	else if ( filetype == "CORPORATE" ) {
 
 		headline << "No data is secure - GigaQuads stolen in 'impossible' hack";
 
@@ -606,7 +606,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 				 "the corporation that paid him.";
 
 	}
-	else if ( strcmp ( filetype, "CUSTOMER" ) == 0 ) {
+	else if ( filetype == "CUSTOMER" ) {
 
 		headline << "Personal customer data copied by hacker";
 
@@ -617,7 +617,7 @@ void NewsGenerator::AllFilesStolen ( Computer *comp, char *filetype, int totalfi
 				 "in Federal Agents to try and find the corporation responsible.";
 
 	}
-	else if ( strcmp ( filetype, "SOFTWARE" ) == 0 ) {
+	else if ( filetype == "SOFTWARE" ) {
 
 		headline << "Two years of software development - stolen";
 

@@ -30,7 +30,7 @@ class Connection : public UplinkObject
 public:
 
 	char owner [64];
-	LList <char *> vlocations;				// List of IP addresses, source to target order
+	LList <string> vlocations;				// List of IP addresses, source to target order
 
 	bool traceinprogress;
 	int traceprogress;						// 0 = no progress, ... , [size of connection-1] = traced
@@ -52,9 +52,9 @@ public:
 	bool LocationIncluded (const string &ip );
 
 	Person *GetOwner ();
-	char *GetSource ();						// Returns first ip (source machine) or NULL
-	char *GetTarget ();						// Returns final ip (target machine) or NULL
-	char *GetGhost ();						// Returns final - 1 ip (apparent source machine) or NULL
+	string GetSource ();						// Returns first ip (source machine) or NULL
+	string GetTarget ();						// Returns final ip (target machine) or NULL
+	string GetGhost ();						// Returns final - 1 ip (apparent source machine) or NULL
 	int GetSize ();							// Returns number of nodes in connection
 
 	void BeginTrace ();

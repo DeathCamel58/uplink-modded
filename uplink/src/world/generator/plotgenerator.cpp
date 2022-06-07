@@ -42,7 +42,7 @@
 #include "mmgr.h"
 
 
-char *MISSION_TITLE [] = {
+string MISSION_TITLE [] = {
                                 "Backfire",
                                 "Tracer",
                                 "TakeMeToYourLeader",
@@ -58,7 +58,7 @@ char *MISSION_TITLE [] = {
                             };
 
 
-char *MISSION_DESCRIPTION [] = {
+string MISSION_DESCRIPTION [] = {
                                     "Counter attack!",
 								    "Perform a covert installation of a Tracer",
 								    "Help bring the CEO of a major company into custody",
@@ -501,14 +501,14 @@ void PlotGenerator::PlayerCompletesSpecialMission ( int missionID )
 	// Pay him / change ratings
 	// Remove the mission from his list
 
-	const char *title = SpecialMissionDescription (missionID);
+	string title = SpecialMissionDescription (missionID);
 
 	for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->missions.Size (); ++i ) {
 
 		Mission *mis = game->GetWorld ()->GetPlayer ()->missions.GetData (i);
 		UplinkAssert (mis)
 
-		if ( strcmp ( mis->description, title ) == 0 ) {
+		if ( mis->description == title ) {
 
 
 			game->GetWorld ()->GetPlayer ()->ChangeBalance ( mis->payment, "Anonymous donation" );
@@ -517,7 +517,7 @@ void PlotGenerator::PlayerCompletesSpecialMission ( int missionID )
 
 			specialmissionscompleted |= (1 << missionID);
 
-            if ( strcmp ( mis->contact, "internal@ARC.net" ) == 0 )
+            if ( mis->contact == "internal@ARC.net" )
        			game->GetWorld ()->GetPlayer ()->rating.ChangeNeuromancerScore ( mis->difficulty * -1 );
 
             else
@@ -537,14 +537,14 @@ void PlotGenerator::PlayerFailsSpecialMission ( int missionID )
 
     // Remove the mission from his list
 
-	const char *title = SpecialMissionDescription (missionID);
+	string title = SpecialMissionDescription (missionID);
 
 	for ( int i = 0; i < game->GetWorld ()->GetPlayer ()->missions.Size (); ++i ) {
 
 		Mission *mis = game->GetWorld ()->GetPlayer ()->missions.GetData (i);
 		UplinkAssert (mis)
 
-		if ( strcmp ( mis->description, title ) == 0 ) {
+		if ( mis->description == title ) {
 
 			game->GetWorld ()->GetPlayer ()->missions.RemoveData (i);
             delete mis;
@@ -559,7 +559,7 @@ void PlotGenerator::PlayerFailsSpecialMission ( int missionID )
 bool PlotGenerator::RemoveSpecialMission ( int missionID )
 {
 
-	const char *title = SpecialMissionDescription (missionID);
+	string title = SpecialMissionDescription (missionID);
 
     auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
     UplinkAssert ( cu )
@@ -569,7 +569,7 @@ bool PlotGenerator::RemoveSpecialMission ( int missionID )
         Mission *m = cu->missions.GetData (i);
         UplinkAssert (m)
 
-        if ( strcmp ( m->description, title ) == 0 ) {
+        if ( m->description == title ) {
 
             cu->missions.RemoveData ( i );
             delete m;
@@ -649,19 +649,19 @@ bool PlotGenerator::PlayerContactsARC ( Message *msg )
 
         if ( playerloyalty == -1 ) {
 
-            if ( strstr ( msg->GetBody (), SpecialMissionDescription (SPECIALMISSION_DARWIN) ) ) {
+            if ( msg->GetBody().find(SpecialMissionDescription (SPECIALMISSION_DARWIN)) != string::npos ) {
 
                 if ( !completed_darwin )
                     IsMissionComplete_Darwin ();
 
             }
-            else if ( strstr ( msg->GetBody (), SpecialMissionDescription (SPECIALMISSION_SAVEITFORTHEJURY) ) ) {
+            else if ( msg->GetBody().find(SpecialMissionDescription (SPECIALMISSION_SAVEITFORTHEJURY)) != string::npos ) {
 
                 if ( !completed_saveitforthejury )
                     IsMissionComplete_SaveItForTheJury ();
 
             }
-            else if ( strstr ( msg->GetBody (), SpecialMissionDescription (SPECIALMISSION_SHINYHAMMER) ) ) {
+            else if ( msg->GetBody().find(SpecialMissionDescription (SPECIALMISSION_SHINYHAMMER)) != string::npos ) {
 
                 if ( !completed_shinyhammer )
                     IsMissionComplete_ShinyHammer ();
@@ -697,7 +697,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 		Data *attached = msg->GetData ();
 
 		if ( attached && attached->TYPE	== DATATYPE_PROGRAM &&
-			 strcmp ( attached->title, "Revelation" ) == 0 ) {
+			 attached->title == "Revelation" ) {
 
 			version_faith = attached->version;
 
@@ -747,7 +747,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 		Data *attached = msg->GetData ();
 
 		if ( attached && attached->TYPE	== DATATYPE_PROGRAM &&
-			 strcmp ( attached->title, "Revelation" ) == 0 ) {
+			 attached->title == "Revelation" ) {
 
             if ( playerloyalty != 1 && attached->version > version_faith ) {
 
@@ -797,19 +797,19 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 
         // Player might have completed one of our missions
 
-        if ( strstr ( msg->GetBody (), SpecialMissionDescription (SPECIALMISSION_TRACER) ) ) {
+        if ( msg->GetBody().find(SpecialMissionDescription (SPECIALMISSION_TRACER)) != string::npos ) {
 
             if ( !completed_tracer )
                 IsMissionComplete_Tracer ();
 
         }
-        else if ( strstr ( msg->GetBody (), SpecialMissionDescription (SPECIALMISSION_TAKEMETOYOURLEADER) ) ) {
+        else if ( msg->GetBody().find(SpecialMissionDescription (SPECIALMISSION_TAKEMETOYOURLEADER)) != string::npos ) {
 
             if ( !completed_takemetoyourleader )
                 IsMissionComplete_TakeMeToYourLeader ();
 
         }
-        else if ( strstr ( msg->GetBody (), SpecialMissionDescription (SPECIALMISSION_ARCINFILTRATION) ) ) {
+        else if ( msg->GetBody().find(SpecialMissionDescription (SPECIALMISSION_ARCINFILTRATION)) != string::npos ) {
 
             if ( !completed_arcinfiltration )
                 IsMissionComplete_ARCInfiltration ();
@@ -885,7 +885,7 @@ void PlotGenerator::RunRevelation ( char *ip, float version, bool playerresponsi
 
 }
 
-void PlotGenerator::RunFaith ( char *ip, float version, bool playerresponsible )
+void PlotGenerator::RunFaith (string &ip, float version, bool playerresponsible )
 {
 
 #ifndef DEMOGAME
@@ -1167,7 +1167,7 @@ void PlotGenerator::Run_Act1Scene2 ()
 	// Set up a log in on scene4 guys computer
 	//
 
-    char *computername = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
+    string computername = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
 	Computer *comp = game->GetWorld ()->GetComputer ( computername );
 	if ( UplinkIncompatibleSaveGameAssert (comp, __FILE__, __LINE__) )
 		return;
@@ -1391,7 +1391,7 @@ void PlotGenerator::Run_Act1Scene5 ()
 	al->SetData1 ( "Copied file RevelationCoreV0.7" );
 	comp->logbank.AddLog ( al );
 
-    char *hiscomputername = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
+    string hiscomputername = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
 	Computer *hiscomp = game->GetWorld ()->GetComputer ( hiscomputername );
 	if ( UplinkIncompatibleSaveGameAssert (hiscomp, __FILE__, __LINE__) )
 		return;
@@ -1515,7 +1515,7 @@ void PlotGenerator::Run_Act1Scene7 ()
 
         // Make sure that mail doesn't appear on his computer any more
 
-        char *hiscomputername = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
+        string hiscomputername = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
 	    Computer *hiscomp = game->GetWorld ()->GetComputer ( hiscomputername );
 	    if ( UplinkIncompatibleSaveGameAssert (hiscomp, __FILE__, __LINE__) )
 			return;
@@ -1607,11 +1607,9 @@ void PlotGenerator::Run_Act2Scene1 ()
 	// ARC remove act1scene4agents computer
 	// And replace it with a message screen
 
-    char *hiscomputername;
+    string hiscomputername;
 	{
-		char * temp = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
-		hiscomputername = new char[ strlen( temp ) + 1 ];
-		UplinkSafeStrcpy( hiscomputername, temp )
+		hiscomputername = NameGenerator::GeneratePersonalComputerName( act1scene4agent );
 	}
 	Computer *hiscomp = game->GetWorld ()->GetComputer ( hiscomputername );
     if ( UplinkIncompatibleSaveGameAssert (hiscomp, __FILE__, __LINE__) )
@@ -1627,8 +1625,6 @@ void PlotGenerator::Run_Act2Scene1 ()
 	comp->SetTraceAction ( COMPUTER_TRACEACTION_DISCONNECT );
 	comp->SetIsTargetable ( false );
 	comp->SetIP ( ip );
-
-    delete [] hiscomputername;
 
 	auto *ms0 = new MessageScreen ();
 	ms0->SetMainTitle ( "404 error" );
@@ -2838,8 +2834,8 @@ void PlotGenerator::Run_Act5Scene5 ()
             if ( infected.Size () > 0 ) {
 
                 int pos = NumberGenerator::RandomNumber ( infected.Size () );
-                char *ip = infected.GetData (pos);
-                UplinkAssert (ip)
+                string ip = infected.GetData (pos);
+                assert(!ip.empty());
 
                 RunFaith ( ip, version_faith, false );
 
@@ -3287,10 +3283,9 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	// Generate the fields of the mission
     //
 
-	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream fulldetails;
 
-	UplinkStrncpy ( description, SpecialMissionDescription (SPECIALMISSION_ARCINFILTRATION), sizeof ( description ) )
+	string description = SpecialMissionDescription (SPECIALMISSION_ARCINFILTRATION);
 
 	fulldetails << "As you may be aware, ARC are storing most of their Research on their Local Area Network system. "
                    "However, what is not commonly known is that the critical data (ie the research files themselves) "
@@ -3618,12 +3613,7 @@ Mission *PlotGenerator::GenerateMission_SaveItForTheJury ()
     UplinkStrncpy ( saveitforthejury_guytobeframed, poorsod->name, sizeof ( saveitforthejury_guytobeframed ) )
 
     //char *personalcomputername = strdup( NameGenerator::GeneratePersonalComputerName(poorsod->name) );
-	char personalcomputername[MAX_COMPUTERNAME];
-	strncpy( personalcomputername, NameGenerator::GeneratePersonalComputerName(poorsod->name),
-		     MAX_COMPUTERNAME );
-	if ( personalcomputername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		personalcomputername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string personalcomputername = NameGenerator::GeneratePersonalComputerName(poorsod->name);
 
     Computer *personalComputer = game->GetWorld ()->GetComputer ( personalcomputername );
     UplinkAssert (personalComputer)
@@ -3931,13 +3921,13 @@ bool PlotGenerator::IsMissionComplete_ARCInfiltration ()
 
             if ( !thisfile->encrypted ) {
 
-			    if ( strstr ( thisfile->title, "REVELATION" ) != nullptr &&
+			    if ( thisfile->title.find("REVELATION") != string::npos &&
 				     thisfile->encrypted == 0 ) {
 
 				    char unused [64];
 				    int thisfileindex;
 
-				    sscanf ( thisfile->title, "%s %d.dat", unused, &thisfileindex );
+				    sscanf ( thisfile->title.c_str(), "%s %d.dat", unused, &thisfileindex );
 
 				    if ( thisfileindex >= 0 && thisfileindex < numfiles &&
                          !filefound[thisfileindex]) {
@@ -4098,13 +4088,13 @@ bool PlotGenerator::IsMissionComplete_Darwin ()
 
             if ( !thisfile->encrypted ) {
 
-			    if ( strstr ( thisfile->title, "DARWIN" ) != nullptr &&
+			    if ( thisfile->title.find("DARWIN") != string::npos &&
 				     thisfile->encrypted == 0 ) {
 
 				    char unused [64];
 				    int thisfileindex;
 
-				    sscanf ( thisfile->title, "%s %d.dat", unused, &thisfileindex );
+				    sscanf ( thisfile->title.c_str(), "%s %d.dat", unused, &thisfileindex );
 
 				    if ( thisfileindex >= 0 && thisfileindex < numfiles &&
                          !filefound[thisfileindex]) {
@@ -4195,12 +4185,7 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 		return false;
 
     //char *personalcomputername = strdup( NameGenerator::GeneratePersonalComputerName( poorsod->name ) );
-	char personalcomputername[MAX_COMPUTERNAME];
-	strncpy( personalcomputername, NameGenerator::GeneratePersonalComputerName( poorsod->name ),
-		     MAX_COMPUTERNAME );
-	if ( personalcomputername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		personalcomputername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string personalcomputername = NameGenerator::GeneratePersonalComputerName( poorsod->name );
 
     Computer *personalComputer = game->GetWorld ()->GetComputer ( personalcomputername );
     UplinkAssert (personalComputer)
@@ -4278,9 +4263,9 @@ bool PlotGenerator::IsMissionComplete_SaveItForTheJury ()
 			News *news = uplink->news.GetData (i);
 			UplinkAssert (news)
 
-			if ( news->NEWSTYPE == NEWS_TYPE_ARREST && news->data1 && strcmp ( news->data1, poorsod->name ) == 0 ) {
+			if ( news->NEWSTYPE == NEWS_TYPE_ARREST && news->data1 && news->data1 == poorsod->name ) {
 
-				if ( news->data2 && strcmp ( news->data2, comp->ip ) == 0 ) {
+				if ( news->data2 && news->data2 == comp->ip ) {
 
 					success = 2;
 					break;
@@ -4592,8 +4577,8 @@ void PlotGenerator::Disinfected ( char *ip )
 #ifndef DEMOGAME
 
      for ( int i = 0; i < infected.Size (); ++i )
-        if ( infected.GetData (i) )
-            if ( strcmp ( infected.GetData (i), ip ) == 0 )
+        if ( !infected.GetData (i).empty() )
+            if ( infected.GetData (i) == ip )
                 infected.RemoveData (i);
 
      if ( infected.Size () == 0 &&
@@ -4692,7 +4677,12 @@ int PlotGenerator::GetSpecialMissionsCompleted () const
 
 }
 
-char *PlotGenerator::SpecialMissionTitle ( int missionID )
+/**
+ * Gets special mission title of given ID
+ * @param missionID Mission ID to get the title of
+ * @return The title of the special mission
+ */
+string PlotGenerator::SpecialMissionTitle (int missionID )
 {
 
     assert(missionID >= 0);
@@ -4702,7 +4692,12 @@ char *PlotGenerator::SpecialMissionTitle ( int missionID )
 
 }
 
-char *PlotGenerator::SpecialMissionDescription ( int missionID )
+/**
+ * Gets special mission description of given ID
+ * @param missionID Mission ID to get the description of
+ * @return The description of the special mission
+ */
+string PlotGenerator::SpecialMissionDescription ( int missionID )
 {
 
     assert(missionID >= 0);
@@ -4713,12 +4708,12 @@ char *PlotGenerator::SpecialMissionDescription ( int missionID )
 }
 
 /********** Patched by François Gagné **********/
-bool PlotGenerator::IsPlotCompany ( const char *companyname )
+bool PlotGenerator::IsPlotCompany (const string& companyname )
 {
 
-	if ( strcmp ( companyname, "ARC" ) != 0 &&
-	     strcmp ( companyname, "Arunmor" ) != 0 &&
-	     strcmp ( companyname, "Darwin Research Associates" ) != 0 )
+	if ( companyname != "ARC" &&
+	     companyname != "Arunmor" &&
+	     companyname != "Darwin Research Associates" )
 		return false;
 
 	return true;
@@ -4852,7 +4847,7 @@ bool PlotGenerator::Load  ( FILE *file )
 	if ( !FileReadData ( &version_revelation, sizeof(version_revelation), 1, file ) ) return false;
 	if ( !FileReadData ( &version_faith, sizeof(version_faith), 1, file ) ) return false;
 
-    if ( !LoadLList ( &infected, file ) ) return false;
+    if ( !LoadLList ( infected, file ) ) return false;
 
 	LoadID_END ( file );
 
@@ -4897,7 +4892,7 @@ void PlotGenerator::Save  ( FILE *file )
 	fwrite ( &version_revelation, sizeof(version_revelation), 1, file );
 	fwrite ( &version_faith, sizeof(version_faith), 1, file );
 
-    SaveLList ( &infected, file );
+    SaveLList ( infected, file );
 
 	SaveID_END ( file );
 
@@ -4938,7 +4933,7 @@ void PlotGenerator::Print ()
     PrintValue("revelation_arcbusted", revelation_arcbusted);
 
     cout << "\tInfected IP addresses:" << endl;
-    PrintLList ( &infected );
+    PrintLList ( infected );
 
 }
 

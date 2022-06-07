@@ -246,8 +246,7 @@ void HUDInterface::EmailHighlight ( Button *button )
 
 	if ( message ) {
 
-		char tooltip [512];
-		UplinkSnprintf ( tooltip, sizeof ( tooltip ), "'%s', From '%s'", message->GetSubject (), message->from )
+		string tooltip = "'" + message->GetSubject() + "', From '" + message->from + "'";
 
 		button->SetTooltip ( tooltip );
 		button_highlight ( button );
@@ -294,8 +293,7 @@ void HUDInterface::MissionHighlight ( Button *button )
 	
 	if ( mission ) {
 
-		char tooltip [512];
-		UplinkStrncpy ( tooltip, mission->description, sizeof ( tooltip ) )
+		string tooltip = mission->description;
 
 		button->SetTooltip ( tooltip );
 		button_highlight ( button );
@@ -686,10 +684,10 @@ void HUDInterface::Update ()
 
 		// Update the location, date/time 
 
-		char caption [128];
+		string caption;
 		char *date = game->GetWorld ()->date.GetLongString ();
 
-        UplinkStrncpy ( caption, game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, sizeof ( caption ) )
+        caption = game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip;
 
 		EclGetButton ( "hud_location" )->SetCaption ( caption );
 		EclGetButton ( "hud_date" )->SetCaption ( date );

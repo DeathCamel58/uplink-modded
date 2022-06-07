@@ -101,9 +101,7 @@ void FileServerScreenInterface::FileClick ( Button *button )
 	if ( data && memoryindex != -1 ) {
 
 		// Log this access
-		char action [64];
-
-		UplinkSnprintf ( action, sizeof ( action ), "Accessed file %s", data->title )
+		string action = "Accessed file " + data->title;
 		auto *log = new AccessLog ();
 		log->SetProperties ( &(game->GetWorld ()->date), 
 							 game->GetWorld ()->GetPlayer ()->GetConnection ()->GetGhost (), "PLAYER",

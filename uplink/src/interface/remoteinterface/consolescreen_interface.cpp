@@ -344,8 +344,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 
 				if ( data ) {
 
-					char filesummary [128];
-					UplinkSnprintf ( filesummary, sizeof ( filesummary ), "%s    %dGq", data->title, data->size )
+					string filesummary = data->title + "    " + to_string(data->size) + "Gq";
 					PutTextAtStart ( 0, filesummary );
 
 				}
@@ -536,8 +535,7 @@ void ConsoleScreenInterface::RunCommand_DELETEALL (const string &dir )
             for ( int i = 0; i < comp->databank.NumDataFiles(); ++i ) {
                 Data *file = comp->databank.GetDataFile(i);
                 if ( file ) {
-                    char caption [256];
-                    UplinkSnprintf ( caption, sizeof ( caption ), "Deleting %s...", file->title )
+                    string caption = "Deleting " + file->title + "...";
                     queue.PutDataAtStart( new ConsoleCommand ( CMDTYPE_TEXT, caption, TIMEREQUIRED_DELETEONEGIGAQUAD * file->size ) );
                 }
             }
@@ -599,7 +597,9 @@ void ConsoleScreenInterface::RunCommand_RUN	(const string &program, bool actuall
 
 				} else if ( program == "faith" ) {
 
-                    game->GetWorld ()->plotgenerator.RunFaith ( comp->ip, data->version, true );
+				    // TODO: Remove the ip variable
+				    string ip = comp->ip;
+                    game->GetWorld ()->plotgenerator.RunFaith ( ip, data->version, true );
 
                     if ( comp->isinfected_revelation > 0.0 ) {
                         queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Revelation is still running", 0 ) );
@@ -623,7 +623,7 @@ void ConsoleScreenInterface::RunCommand_RUN	(const string &program, bool actuall
 
                     for ( int m = 0; m < comp->databank.NumDataFiles (); ++m ) {
                         Data *data = comp->databank.GetDataFile ( m );
-                        if ( data && strcmp ( data->title, "RevelationTracer" ) == 0 ) {
+                        if ( data && data->title == "RevelationTracer" ) {
                             comp->databank.RemoveDataFile ( m );
                             break;
                         }
@@ -658,8 +658,7 @@ void ConsoleScreenInterface::RunCommand_RUN	(const string &program, bool actuall
 
 					if ( data->TYPE == DATATYPE_PROGRAM ) {
 
-						char text [64];
-						UplinkSnprintf ( text, sizeof ( text ), "Starting program %s...", data->title )
+						string text = "Starting program " + data->title + "...";
 
 						queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_RUNPROGRAM, program, 1000 ) );
 						queue.PutDataAtStart ( new ConsoleCommand ( CMDTYPE_TEXT, "Started.", 0 ) );

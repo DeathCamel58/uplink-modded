@@ -45,9 +45,9 @@ protected:
 
 public:
 
-	char name [SIZE_COMPANY_NAME];
-	char boss [SIZE_PERSON_NAME];
-	char administrator [SIZE_PERSON_NAME];
+	string name;
+	string boss;
+	string administrator;
 
 	int size;
 	int TYPE;

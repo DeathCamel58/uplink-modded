@@ -22,8 +22,7 @@
 Message::Message()
 {
 	
-	subject = nullptr;
-	body = nullptr;
+	subject = body = "";
 
 	SetTo ( " " );
 	SetFrom ( " " );
@@ -37,11 +36,10 @@ Message::Message()
 Message::~Message()
 {
 
-	delete [] subject;
-	delete [] body;
+	subject = body = "";
 	delete data;
 
-    DeleteLListData ( &links );
+    DeleteLListData ( links );
     DeleteBTreeData ( &codes );
 
 }
@@ -49,34 +47,28 @@ Message::~Message()
 void Message::SetTo	(const string &newto )
 {
 
-	assert( newto.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( to, newto.c_str(), sizeof ( to ) )
+	to = newto;
 
 }
 
 void Message::SetFrom (const string &newfrom )
 {
 
-	assert( newfrom.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( from, newfrom.c_str(), sizeof ( from ) )
+	from = newfrom;
 
 }
 
 void Message::SetSubject (const string &newsubject )
 {
 
-	delete [] subject;
-	subject = new char [ newsubject.length() + 1 ];
-	UplinkSafeStrcpy ( subject, newsubject.c_str() )
+	subject = newsubject;
 
 }
 
 void Message::SetBody (const string &newbody )
 {
 
-	delete [] body;
-	body = new char [ newbody.length() + 1 ];
-	UplinkSafeStrcpy ( body, newbody.c_str() )
+    body = newbody;
 
 }
 
@@ -90,11 +82,7 @@ void Message::SetDate ( Date *newdate )
 void Message::GiveLink (const string &ip )
 {
 
-	size_t theipsize = SIZE_VLOCATION_IP;
-	char *theip = new char [theipsize];
-	assert(ip.length() < SIZE_VLOCATION_IP );
-	UplinkStrncpy ( theip, ip.c_str(), theipsize )
-	links.PutData (theip);
+	links.PutData (ip);
 
 }
 
@@ -123,18 +111,18 @@ Data *Message::GetData ()
 
 }
 
-char *Message::GetSubject ()
+string Message::GetSubject ()
 {
 
-	UplinkAssert ( subject )
+	assert( !subject.empty() );
 	return subject;
 
 }
 
-char *Message::GetBody ()
+string Message::GetBody ()
 {
 
-	UplinkAssert ( body )
+	assert( !body.empty() );
 	return body;
 
 }
@@ -170,23 +158,15 @@ bool Message::Load ( FILE *file )
 
 	LoadID ( file );
 
-	if ( !LoadDynamicStringStatic ( to, SIZE_PERSON_NAME, file ) ) return false;
-	if ( !LoadDynamicStringStatic ( from, SIZE_PERSON_NAME, file ) ) return false;
+	if ( !LoadDynamicStringInt ( to, file ) ) return false;
+	if ( !LoadDynamicStringInt ( from, file ) ) return false;
 
-	if ( subject ) {
-		delete [] subject;
-		subject = nullptr;
-	}
-	if ( !LoadDynamicStringPtr ( &subject, file ) ) return false;
-	if ( body ) {
-		delete [] body;
-		body = nullptr;
-	}
-	if ( !LoadDynamicStringPtr ( &body, file ) ) return false;
+	if ( !LoadDynamicStringInt( subject, file ) ) return false;
+	if ( !LoadDynamicStringInt( body, file ) ) return false;
 
 	if ( !date.Load ( file ) ) return false;
 
-	if ( !LoadLList ( &links, file ) ) return false;
+	if ( !LoadLList ( links, file ) ) return false;
 	if ( !LoadBTree ( &codes, file ) ) return false;
 
 	LoadID_END ( file );
@@ -208,7 +188,7 @@ void Message::Save ( FILE *file )
 
 	date.Save ( file );
 
-	SaveLList ( &links, file );
+	SaveLList ( links, file );
 	SaveBTree ( &codes, file );
 
 	SaveID_END ( file );
@@ -224,7 +204,7 @@ void Message::Print ()
     PrintValue("Subject", subject);
     PrintValue("Body", body);
 
-	PrintLList ( &links );
+	PrintLList ( links );
 	PrintBTree ( &codes );
 
 	date.Print ();

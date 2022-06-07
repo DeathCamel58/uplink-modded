@@ -10,8 +10,8 @@
 #include "mmgr.h"
 
 #ifdef _DEBUG
-//#define  SAVEFILE_VERBOSE
-//#define  SAVEFILE_PRINTPROGRESS
+#define  SAVEFILE_VERBOSE
+#define  SAVEFILE_PRINTPROGRESS
 #endif
 
 static int indent;							// Used for formatting Load/Save

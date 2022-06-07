@@ -19,9 +19,9 @@
 Company::Company()
 {
 
-	UplinkStrncpy ( name, " ", sizeof ( name ) )
-	UplinkStrncpy ( boss, "Unlisted", sizeof ( boss ) )
-	UplinkStrncpy ( administrator, "Unlisted", sizeof ( administrator ) )
+	name = " ";
+	boss = "Unlisted";
+	administrator = "Unlisted";
 	size=0;
 	TYPE=0;
 	growth=0;
@@ -40,24 +40,21 @@ Company::~Company()
 void Company::SetName (const string &newname )
 {
 
-	assert( newname.length() < SIZE_COMPANY_NAME );
-	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
+	name = newname;
 
 }
 
 void Company::SetBoss (const string &bossname )
 {
 
-	assert( bossname.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( boss, bossname.c_str(), sizeof ( boss ) )
+	boss = bossname;
 
 }
 
 void Company::SetAdmin (const string &adminname )
 {
 
-	assert( adminname.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( administrator, adminname.c_str(), sizeof ( administrator ) )
+	administrator = adminname;
 
 }
 
@@ -168,9 +165,9 @@ bool Company::Load  ( FILE *file )
 
 	LoadID ( file );
 
-	if ( !LoadDynamicStringStatic ( name, SIZE_COMPANY_NAME, file ) ) return false;
-	if ( !LoadDynamicStringStatic ( boss, SIZE_PERSON_NAME, file ) ) return false;
-	if ( !LoadDynamicStringStatic ( administrator, SIZE_PERSON_NAME, file ) ) return false;
+	if ( !LoadDynamicStringInt( name, file ) ) return false;
+	if ( !LoadDynamicStringInt( boss, file ) ) return false;
+	if ( !LoadDynamicStringInt( administrator, file ) ) return false;
 
 	if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
 	if ( !FileReadData ( &TYPE, sizeof(TYPE), 1, file ) ) return false;

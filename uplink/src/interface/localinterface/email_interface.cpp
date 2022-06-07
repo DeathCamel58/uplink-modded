@@ -153,15 +153,13 @@ void EmailInterface::Create ()
 		EclRegisterButton ( screenw - panelwidth, paneltop + 3, panelwidth - 7, 15, "EMAIL", "Remove the email screen", "email_title" );
 		EclRegisterButtonCallback ( "email_title", TitleClick );
 
-		char from [SIZE_PERSON_NAME + 8];
 		char date [SIZE_DATE_LONG + 8];
-		size_t subjectsize = strlen(message->GetSubject()) + 12;
-		char *subject = new char [subjectsize];
+		string subject;
 		std::ostrstream body;
 
-		UplinkSnprintf ( from, sizeof ( from ), "From : %s", message->from )
+		string from = "From : " + message->from;
 		UplinkSnprintf ( date, sizeof ( date ), "Date : %s", message->date.GetShortString () )
-		UplinkSnprintf ( subject, subjectsize, "Subject : %s", message->GetSubject () )
+		subject = "Subject : " + message->GetSubject();
 
 		body << message->GetBody ();
 
@@ -290,7 +288,7 @@ void EmailInterface::Create ()
         EclRegisterButtonCallback ( "email_reply", EmailReply );
 		EclRegisterButtonCallback ( "email_delete", EmailDelete );		
 
-		delete [] subject;
+		subject = "";
 
 		body.rdbuf()->freeze( false );
 		//delete [] body.str ();

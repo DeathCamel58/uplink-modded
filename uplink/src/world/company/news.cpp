@@ -12,21 +12,17 @@
 News::News ()
 {
 
-	details = nullptr;
+	details = "";
 	NEWSTYPE = NEWS_TYPE_NONE;
 
-    UplinkStrncpy ( headline, " ", sizeof ( headline ) )
+    headline = " ";
     UplinkStrncpy ( data1, " ", sizeof ( data1 ) )
     UplinkStrncpy ( data2, " ", sizeof ( data2 ) )
 
 }
 
 News::~News ()
-{
-
-	delete [] details;
-		
-}
+= default;
 
 void News::SetDate ( Date *newdate )
 {
@@ -38,22 +34,18 @@ void News::SetDate ( Date *newdate )
 void News::SetHeadline (const string &newheadline )
 {
 
-	assert( newheadline.length() < SIZE_NEWS_HEADLINE );
-	UplinkStrncpy ( headline, newheadline.c_str(), sizeof ( headline ) )
+	headline = newheadline;
 
 }
 
 void News::SetDetails (const string &newdetails )
 {
 
-
-	delete [] details;
-	details = new char [newdetails.length()+1];
-	UplinkSafeStrcpy ( details, newdetails.c_str() )
+    details = newdetails;
 
 }
 
-char *News::GetDetails ()
+string News::GetDetails ()
 {
 
 	return details;
@@ -89,11 +81,11 @@ bool News::Load  ( FILE *file )
 	if ( !date.Load ( file ) ) return false;
 	if ( !FileReadData ( &NEWSTYPE,	sizeof(NEWSTYPE), 1, file ) ) return false;
 
-	if ( !LoadDynamicStringStatic ( headline, SIZE_NEWS_HEADLINE, file ) ) return false;
-	if ( !LoadDynamicStringStatic ( data1, SIZE_NEWS_DATA, file ) ) return false;
-	if ( !LoadDynamicStringStatic ( data2, SIZE_NEWS_DATA, file ) ) return false;
+	if ( !LoadDynamicStringInt( headline, file ) ) return false;
+    if ( !LoadDynamicStringStatic ( data1, SIZE_NEWS_DATA, file ) ) return false;
+    if ( !LoadDynamicStringStatic ( data2, SIZE_NEWS_DATA, file ) ) return false;
 
-	if ( !LoadDynamicStringPtr ( &details, file ) ) return false;
+	if ( !LoadDynamicStringInt ( details, file ) ) return false;
 
 	LoadID_END ( file );
 

@@ -32,7 +32,7 @@ class VLocation : public UplinkObject
 public:
 
 	char ip       [SIZE_VLOCATION_IP];				// Unique
-	char computer [SIZE_COMPUTER_NAME];
+	string computer;
 
 	int x, y;					// Physical location on map
 	bool listed;				// Am I publicly listed?

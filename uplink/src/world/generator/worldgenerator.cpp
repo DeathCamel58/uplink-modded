@@ -77,7 +77,7 @@ void WorldGenerator::Initialise()
 		filename = app->GetOptions ()->ThemeFilename ( "worldmaplarge_mask_defcon.tif" );
 	else
 		filename = app->GetOptions ()->ThemeFilename ( "worldmaplarge_mask_new.tif" );
-	worldmapmask->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
+	worldmapmask->LoadTIF ( RsArchiveFileOpen ( filename ) );
 	worldmapmask->Scale ( VIRTUAL_WIDTH, VIRTUAL_HEIGHT );
 	worldmapmask->FlipAroundH ();
 
@@ -194,9 +194,9 @@ void WorldGenerator::GenerateRandomWorld ()
 			Company *company = companies->GetData (i);
 			UplinkAssert (company)
 
-			if ( strcmp ( company->name, "Government" ) != 0 &&
-				 strcmp ( company->name, "Uplink" ) != 0 &&
-				 strcmp ( company->name, "Player" ) != 0 ) {
+			if ( company->name != "Government" &&
+				 company->name != "Uplink" &&
+				 company->name != "Player" ) {
 
 				Person *ceo = GetRandomPerson ();
 				Person *admin = GetRandomPerson ();
@@ -227,7 +227,7 @@ void WorldGenerator::GenerateSimpleStartingMissionA ()
 	Computer *target1 = nullptr;
 
 	while ( !employer1 || !target1 ||
-		strcmp ( employer1->name, target1->companyname ) == 0 ) {
+		employer1->name == target1->companyname ) {
 
 		employer1 = WorldGenerator::GetRandomCompany ();
 		UplinkAssert (employer1)
@@ -253,7 +253,7 @@ void WorldGenerator::GenerateSimpleStartingMissionB ()
 	Computer *target2 = nullptr;
 
 	while ( !employer2 || !target2 ||
-		strcmp ( employer2->name, target2->companyname ) == 0 ) {
+		employer2->name == target2->companyname ) {
 
 		employer2 = WorldGenerator::GetRandomCompany ();
 		UplinkAssert (employer2)
@@ -552,7 +552,7 @@ void WorldGenerator::GenerateCompanyUplink ()
 
 	for ( int is = 0; is < NUM_STARTINGSOFTWAREUPGRADES; ++is ) {
 
-		if ( previoussale && strcmp ( previoussale->title, SOFTWARE_UPGRADES [is].name ) == 0 ) {
+		if ( previoussale && previoussale->title == SOFTWARE_UPGRADES [is].name ) {
 
 			// New version of an existing item
 
@@ -589,7 +589,7 @@ void WorldGenerator::GenerateCompanyUplink ()
 
 	for ( int ih = 0; ih < NUM_STARTINGHARDWAREUPGRADES; ++ih ) {
 
-		if ( previoussale && strcmp ( previoussale->title, HARDWARE_UPGRADES [ih].name ) == 0 ) {
+		if ( previoussale && previoussale->title == HARDWARE_UPGRADES [ih].name ) {
 
 			// New version of an existing item
 
@@ -630,12 +630,7 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 	int x, y;
 	GenerateValidMapPos ( x, y );
     //char *compName = strdup( NameGenerator::GeneratePublicAccessServerName("Uplink") );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GeneratePublicAccessServerName( "Uplink" ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string computername = NameGenerator::GeneratePublicAccessServerName( "Uplink" );
 
 	game->GetWorld ()->CreateVLocation ( IP_UPLINKPUBLICACCESSSERVER, x, y );
     game->GetWorld ()->CreateComputer ( computername, "Uplink", IP_UPLINKPUBLICACCESSSERVER );
@@ -2760,7 +2755,7 @@ Company *WorldGenerator::GenerateCompany (const string &companyname, int size, i
 
 	// Generate contact addresses for this company
 
-    char *contactcomputer = NameGenerator::GeneratePublicAccessServerName( companyname );
+    string contactcomputer = NameGenerator::GeneratePublicAccessServerName( companyname );
 	Computer *comp = game->GetWorld ()->GetComputer ( contactcomputer );
 	UplinkAssert (comp)
 
@@ -2795,7 +2790,7 @@ Company *WorldGenerator::GenerateCompany ()
 Company *WorldGenerator::GenerateCompany_Bank ()
 {
 
-	string companyname = NameGenerator::GenerateBankName ();
+	string companyname = NameGenerator::GenerateCompanyName();
 
 	int size      = (int) NumberGenerator::RandomNormalNumber ( 4, 4 );
 	int growth    = (int) NumberGenerator::RandomNormalNumber ( 10, 20 );
@@ -2812,13 +2807,7 @@ Company *WorldGenerator::GenerateCompany_Bank ()
 Computer *WorldGenerator::GenerateComputer (const string &companyname )
 {
 
-    //char *computername = strdup( NameGenerator::GenerateAccessTerminalName( companyname ) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GenerateAccessTerminalName( companyname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string computername = NameGenerator::GenerateAccessTerminalName( companyname );
 
 	VLocation *vl = GenerateLocation ();
 
@@ -2861,13 +2850,7 @@ Computer  *WorldGenerator::GenerateComputer (const string &companyName, int TYPE
 Computer *WorldGenerator::GeneratePublicAccessServer (const string &companyname )
 {
 
-    //char *computername = strdup( NameGenerator::GeneratePublicAccessServerName( companyname ) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GeneratePublicAccessServerName( companyname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+    string computername = NameGenerator::GeneratePublicAccessServerName( companyname );
 
 
 	VLocation *vl = GenerateLocation ();
@@ -2905,13 +2888,7 @@ Computer *WorldGenerator::GeneratePublicAccessServer (const string &companyname 
 Computer *WorldGenerator::GenerateInternalServicesMachine (const string &companyname )
 {
 
-    //char *computername = strdup( NameGenerator::GenerateInternalServicesServerName( companyname ) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GenerateInternalServicesServerName( companyname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string computername = NameGenerator::GenerateInternalServicesServerName( companyname );
 
 	Company *company = game->GetWorld ()->GetCompany ( companyname );
 	UplinkAssert (company)
@@ -3056,7 +3033,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine (const string &company
 		int size = (int) NumberGenerator::RandomNormalNumber ( 6, 6 );
 		int encrypted = NumberGenerator::RandomNumber ( 2 );
 		int compressed = NumberGenerator::RandomNumber ( 2 );
-		char *datatitle = NameGenerator::GenerateDataName ( companyname, TYPE );
+		string datatitle = NameGenerator::GenerateDataName ( companyname, TYPE );
 
 		Data *data = new Data ();
 		data->SetTitle ( datatitle );
@@ -3095,13 +3072,7 @@ Computer *WorldGenerator::GenerateInternalServicesMachine (const string &company
 Computer *WorldGenerator::GenerateCentralMainframe (const string &companyname )
 {
 
-    //char *computername = strdup( NameGenerator::GenerateCentralMainframeName(companyname) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GenerateCentralMainframeName( companyname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string computername = NameGenerator::GenerateCentralMainframeName( companyname );
 
     Company *company = game->GetWorld ()->GetCompany (companyname);
     UplinkAssert (company)
@@ -3214,7 +3185,7 @@ Computer *WorldGenerator::GenerateCentralMainframe (const string &companyname )
 		int size = (int) NumberGenerator::RandomNormalNumber ( 6, 4 );
 		int encrypted = NumberGenerator::RandomNumber(2);
 		int compressed = NumberGenerator::RandomNumber ( 2 );
-		char *datatitle = NameGenerator::GenerateDataName ( companyname, TYPE );
+		string datatitle = NameGenerator::GenerateDataName ( companyname, TYPE );
 
 		Data *data = new Data ();
 		data->SetTitle ( datatitle );
@@ -3254,12 +3225,7 @@ Computer *WorldGenerator::GeneratePublicBankServer (const string &companyname )
 {
 
     //char *computername = strdup( NameGenerator::GenerateInternationalBankName( companyname ) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GenerateInternationalBankName( companyname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string computername = NameGenerator::GenerateInternationalBankName( companyname );
 
 	VLocation *vl = GenerateLocation ();
 
@@ -3516,12 +3482,7 @@ Computer *WorldGenerator::GenerateEmptyFileServer (const string &companyname )
 {
 
     //char *computername = strdup( NameGenerator::GenerateFileServerName( companyname ) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GenerateFileServerName( companyname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string computername = NameGenerator::GenerateFileServerName( companyname );
 
     Computer *existing = game->GetWorld ()->GetComputer ( computername );
     if ( existing ) return existing;
@@ -3584,13 +3545,7 @@ Computer  *WorldGenerator::GenerateLAN (const string &companyname )
 Computer *WorldGenerator::GeneratePersonalComputer (const string &personname )
 {
 
-    //char *computername = strdup( NameGenerator::GeneratePersonalComputerName( personname ) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GeneratePersonalComputerName( personname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+    string computername = NameGenerator::GeneratePersonalComputerName( personname );
 
 	VLocation *vl = GenerateLocation ();
 	vl->SetListed ( false );
@@ -3623,13 +3578,7 @@ Computer *WorldGenerator::GeneratePersonalComputer (const string &personname )
 Computer *WorldGenerator::GenerateVoicePhoneSystem (const string &personname )
 {
 
-    //char *computername = strdup( NameGenerator::GenerateVoicePhoneSystemName( personname ) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GenerateVoicePhoneSystemName( personname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+    string computername = NameGenerator::GenerateVoicePhoneSystemName( personname );
 
 	int x, y;
 	GenerateValidMapPos ( x, y );
@@ -3771,7 +3720,7 @@ void WorldGenerator::UpdateSoftwareUpgrades ( )
 
 	for ( int is = 0; is < NUM_STARTINGSOFTWAREUPGRADES; ++is ) {
 
-		if ( previoussale && strcmp ( previoussale->title, SOFTWARE_UPGRADES [is].name ) == 0 ) {
+		if ( previoussale && previoussale->title == SOFTWARE_UPGRADES [is].name ) {
 
 			// New version of an existing item
 
@@ -3841,10 +3790,10 @@ Company *WorldGenerator::GetRandomCompany ()
         // Or an Uplink computer
 		// Or a plot company (because it cause problems when the plot as begun)
 
-		if ( strcmp ( comp->name, "Player" ) != 0 &&
-			 strcmp ( comp->name, "Government" ) != 0 &&
-			 strcmp ( comp->name, "Uplink" ) != 0 &&
-             strcmp ( comp->name, "Sample Company" ) != 0 &&
+		if ( comp->name != "Player" &&
+			 comp->name != "Government" &&
+			 comp->name != "Uplink" &&
+             comp->name != "Sample Company" &&
 			 !game->GetWorld()->plotgenerator.IsPlotCompany( comp->name ) &&
 			 comp->TYPE != COMPANYTYPE_UNKNOWN ) {
 			delete comps;
@@ -4129,7 +4078,7 @@ void WorldGenerator::ReplaceAdminCompanies ( Person *person )
 	
 			Company *cp = comps->GetData ( i );
 
-			if ( cp->administrator && strcmp( person->name, cp->administrator ) == 0 ) {
+			if ( !cp->administrator.empty() && person->name == cp->administrator ) {
 
 				Person *newadmin = WorldGenerator::GetRandomPerson ();
 	            UplinkAssert ( newadmin )
@@ -4157,7 +4106,7 @@ void WorldGenerator::ReplaceInvalidCompanyAdmins ( )
 
 			Company *cp = comps->GetData ( i );
 			
-			if ( cp->administrator ) {
+			if ( !cp->administrator.empty() ) {
 			
 				Person *admin = world->GetPerson ( cp->administrator );
 

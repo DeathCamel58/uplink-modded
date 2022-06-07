@@ -55,7 +55,7 @@ public:
 	BTree <Computer *>	 computers;
 	BTree <Person *>	 people;	 
 
-	DArray <char *>		  passwords;					// No need to serialise
+	DArray <string >		  passwords;					// No need to serialise
 	DArray <GatewayDef *> gatewaydefs;					// No need to serialise
 
 public:
@@ -82,7 +82,7 @@ public:
 	Company    *GetCompany	  (const string &name );			//  if the specified object
 	Computer   *GetComputer   (const string &name );			//  is not found in the database
 	Person     *GetPerson     (const string &name );			//  (check before dereferencing)
-	char	   *GetPassword   ( int index ) const;
+	string GetPassword   (int index ) const;
 	GatewayDef *GetGatewayDef (const string &name ) const;
 
 	Player    *GetPlayer     ();						//  Asserts that player exists

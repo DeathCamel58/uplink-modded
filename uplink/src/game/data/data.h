@@ -402,12 +402,12 @@ const int PROB_MISSION_TRACEUSER []         =          {  0,  0,  0,  0,  0,  0,
 
 struct ComputerUpgrade
 {
-	char *name;	
+	string name;
 	int TYPE;								// Unused in HW
 	int cost;
 	int size;
 	int data;								// SW version, HW speed or HW capacity or HW bandwidth etc
-	char *description;
+	string description;
 };
 
 
@@ -456,7 +456,7 @@ const ComputerUpgrade *GetHardwareUpgrade (const string &name );
 
 struct UplinkRating 
 {
-	char *name;
+	string name;
 	int score;
 };
 

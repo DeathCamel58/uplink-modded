@@ -796,7 +796,7 @@ void Tutorial::RunTutorial1 ( int part )
 
 		EclSuperUnHighlight ( "worldmap_close" );
 
-		if ( game->GetWorld ()->GetPlayer ()->messages.Size () > 0 && strcmp ( game->GetWorld ()->GetPlayer ()->messages.GetData ( 0 )->from, "Uplink public access system" ) == 0 ) {
+		if ( game->GetWorld ()->GetPlayer ()->messages.Size () > 0 && game->GetWorld ()->GetPlayer ()->messages.GetData ( 0 )->from == "Uplink public access system" ) {
 
 			EclRegisterCaptionChange ( text, "New emails will queue up in the bottom right\n"
 											 "of the screen.  Click on the email to read it.\n", time_ms*2/3 );
@@ -849,7 +849,7 @@ void Tutorial::RunTutorial1 ( int part )
 	}
 	else if ( part == 25 ) {				// Tut 1 Part 25
 
-		if ( game->GetWorld ()->GetPlayer ()->missions.Size () == 0 || strcmp ( game->GetWorld ()->GetPlayer ()->missions.GetData ( 0 )->employer, "Uplink" ) != 0 ) {
+		if ( game->GetWorld ()->GetPlayer ()->missions.Size () == 0 || game->GetWorld ()->GetPlayer ()->missions.GetData ( 0 )->employer != "Uplink" ) {
 
 			current_part = 28;
 			RunTutorial1 ( 28 );
@@ -2037,7 +2037,7 @@ bool Tutorial::HasCompletedCurrentSection () const
         else if ( current_part == 68 )                  return ( game->GetInterface ()->GetLocalInterface ()->InScreen () == SCREEN_SENDMAIL &&
                                                                  ((SendMailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen () )->sGetMessage () &&
                                                                  ((SendMailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen () )->sGetMessage ()->GetData () &&
-                                                                 strcmp ( ((SendMailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen () )->sGetMessage ()->GetData ()->title, "Uplink test data" ) == 0 );
+                                                                 ((SendMailInterface *) game->GetInterface ()->GetLocalInterface ()->GetInterfaceScreen () )->sGetMessage ()->GetData ()->title == "Uplink test data" );
         else if ( current_part == 69 )                  return ( game->GetInterface ()->GetLocalInterface ()->InScreen () == SCREEN_NONE );
         else                                            return nextclicked;
 

@@ -168,8 +168,7 @@ void HWSalesScreenInterface::DrawHWButton ( Button *button, bool highlighted, bo
 		if ( hasmoney ) 	SetColour ( "DefaultText" );
 		else                SetColour ( "DimmedText" );
 
-		char name [SIZE_SALE_TITLE];		
-        UplinkStrncpy ( name, sale->title, sizeof ( name ) )
+		string name = sale->title;
         string cost = to_string( sv->cost ) + "c";
         GciDrawText ( button->x + 5, button->y + 10, name );
 		GciDrawText ( button->x + 330, button->y + 10, cost );
@@ -314,7 +313,7 @@ void HWSalesScreenInterface::AcceptClick ( Button *button )
 				return;
 			}
 
-			if ( ( strcmp ( sale->title, "Gateway Self Destruct" ) == 0 || strcmp ( sale->title, "Gateway Motion Sensor" ) == 0 ) ) {
+			if ( sale->title == "Gateway Self Destruct" || sale->title == "Gateway Motion Sensor" ) {
 				DataBank *db = &game->GetWorld ()->GetPlayer ()->gateway.databank;
 				int alldatasize = 0;
 				for ( int i = 0; i < db->GetDataSize (); i++ ) {

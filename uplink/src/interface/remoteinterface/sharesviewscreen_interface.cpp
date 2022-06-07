@@ -227,7 +227,7 @@ void SharesViewScreenInterface::SetCompanyName (const string &newcompanyname )
 		if ( month < 0 ) month += 12;
 
 		string bdate = "sharesviewscreen_date " + to_string(it);
-		string bname = "sharesviewscreen_numbers " + it;
+		string bname = "sharesviewscreen_numbers " + to_string(it);
 
 		char date [32];
 		UplinkSnprintf ( date, sizeof ( date ), "%s, %d", Date::GetMonthName ( month + 1 ), month > monthnow ? yearnow - 1 : yearnow )

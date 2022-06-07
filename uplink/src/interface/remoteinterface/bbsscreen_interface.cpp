@@ -242,7 +242,7 @@ void BBSScreenInterface::AcceptClick ( Button *button )
 		// This should be duplicated in the contact button code
 
 		if ( mission->TYPE == MISSION_TRACEUSER &&
-			 strcmp ( mission->completionA, "PLAYER" ) == 0 ) {
+			 mission->completionA == "PLAYER" ) {
 
 			EclRegisterCaptionChange ( "bbs_details", "We cannot allow you to accept this mission, on the specific "
 													  "instructions of the employer." );
@@ -294,7 +294,7 @@ void BBSScreenInterface::ContactClick ( Button *button )
 		// This code is repeated in the accept button code
 
 		if ( mission->TYPE == MISSION_TRACEUSER &&
-			 strcmp ( mission->completionA, "PLAYER" ) == 0 ) {
+			 mission->completionA == "PLAYER" ) {
 
 			EclRegisterCaptionChange ( "bbs_details", "We cannot allow you to contact this employer, "
 													  "on their specific instructions." );

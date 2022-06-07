@@ -65,9 +65,9 @@ LinksScreenInterface::LinksScreenInterface ()
 LinksScreenInterface::~LinksScreenInterface ()
 {
     
-    DeleteLListData ( &fulllist );
+    DeleteLListData ( fulllist );
 	fulllist.Empty ();
-    DeleteLListData ( &filteredlist );
+    DeleteLListData ( filteredlist );
 	filteredlist.Empty ();
 
 	if ( ilink_tif ) {
@@ -112,11 +112,11 @@ void LinksScreenInterface::LinkClick ( Button *button )
     stream >> unused >> fileindex;
 	fileindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
 
 	if ( filteredlist->ValidIndex (fileindex) ) {
 
-		char *ip = filteredlist->GetData (fileindex);
+		string ip = filteredlist->GetData (fileindex);
 
 		game->GetWorld ()->GetPlayer ()->GetConnection ()->Disconnect ();
 		game->GetWorld ()->GetPlayer ()->GetConnection ()->Reset ();
@@ -128,10 +128,10 @@ void LinksScreenInterface::LinkClick ( Button *button )
 
 }
 
-void LinksScreenInterface::AfterPhoneDialler ( char *ip, char *info )
+void LinksScreenInterface::AfterPhoneDialler (string &ip, string &info )
 {
 
-	UplinkAssert ( ip )
+	assert( !ip.empty() );
 
 	game->GetWorld ()->GetPlayer ()->GetConnection ()->Disconnect ();
 	game->GetWorld ()->GetPlayer ()->GetConnection ()->Reset ();
@@ -156,8 +156,8 @@ void LinksScreenInterface::LinkDraw ( Button *button, bool highlighted, bool cli
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;	
-    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : nullptr;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+    string link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : "";
 
 	/*
 		Re above line
@@ -171,7 +171,7 @@ void LinksScreenInterface::LinkDraw ( Button *button, bool highlighted, bool cli
 
     */
 
-	if ( link ) {
+	if ( !link.empty() ) {
 
 		if ( linkindex % 2 == 0 ) {
 
@@ -200,12 +200,12 @@ void LinksScreenInterface::LinkDraw ( Button *button, bool highlighted, bool cli
 
 		GciDrawText ( button->x + 10, button->y + 10, link );
 
-		char caption [SIZE_COMPUTER_NAME];
+		string caption;
 			
 		if ( game->GetWorld ()->GetVLocation ( link ) ) {
-			UplinkStrncpy ( caption, game->GetWorld ()->GetVLocation ( link )->computer, sizeof ( caption ) )
+			caption = game->GetWorld ()->GetVLocation ( link )->computer;
 		} else {
-			UplinkStrncpy ( caption, "This link has expired", sizeof ( caption ) )
+			caption = "This link has expired";
 		}
 
 		GciDrawText ( button->x + 120, button->y + 10, caption );
@@ -233,7 +233,7 @@ void LinksScreenInterface::LinkMouseDown ( Button *button )
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
 
 	if ( filteredlist->ValidIndex (linkindex) ) {
 
@@ -254,7 +254,7 @@ void LinksScreenInterface::LinkMouseMove ( Button *button )
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
 
 	if ( filteredlist->ValidIndex (linkindex) ) {
  
@@ -275,10 +275,10 @@ void LinksScreenInterface::DeleteLinkDraw ( Button *button, bool highlighted, bo
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : nullptr;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+    string link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : "";
 
-	if ( link ) 
+	if ( !link.empty() ) 
 		imagebutton_draw ( button, highlighted, clicked );
 
 	else
@@ -307,11 +307,11 @@ void LinksScreenInterface::DeleteLinkClick ( Button *button )
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-	char *link = filteredlist->ValidIndex (linkindex) ? filteredlist->GetData (linkindex) : nullptr;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+	string link = filteredlist->ValidIndex (linkindex) ? filteredlist->GetData (linkindex) : "";
 
-	if ( link && game->GetWorld ()->GetPlayer ()->HasLink (link) &&
-         strcmp( link, IP_INTERNIC) != 0 ) {
+	if ( !link.empty() && game->GetWorld ()->GetPlayer ()->HasLink (link) &&
+         link != IP_INTERNIC ) {
 
 		game->GetWorld ()->GetPlayer ()->RemoveLink (link);
 
@@ -348,10 +348,10 @@ void LinksScreenInterface::AddLinkDraw ( Button *button, bool highlighted, bool 
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-    char *link = filteredlist->ValidIndex (linkindex) ? filteredlist->GetData (linkindex) : nullptr;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+    string link = filteredlist->ValidIndex (linkindex) ? filteredlist->GetData (linkindex) : "";
 
-	if ( link && !game->GetWorld ()->GetPlayer ()->HasLink (link) ) 
+	if ( !link.empty() && !game->GetWorld ()->GetPlayer ()->HasLink (link) ) 
 		imagebutton_draw ( button, highlighted, clicked );
 
 	else
@@ -373,10 +373,10 @@ void LinksScreenInterface::AddLinkClick ( Button *button )
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : nullptr;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+    string link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : "";
 
-	if ( link && !game->GetWorld ()->GetPlayer ()->HasLink (link) )
+	if ( !link.empty() && !game->GetWorld ()->GetPlayer ()->HasLink (link) )
 		game->GetWorld ()->GetPlayer ()->GiveLink ( link );
 
 }
@@ -392,10 +392,10 @@ void LinksScreenInterface::ShowLinkDraw ( Button *button, bool highlighted, bool
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
-    char *link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : nullptr;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+    string link = filteredlist->ValidIndex(linkindex) ? filteredlist->GetData (linkindex) : "";
 
-    if ( link ) {
+    if ( !link.empty() ) {
 
 	    VLocation *vl = game->GetWorld ()->GetVLocation (link);
 
@@ -408,9 +408,9 @@ void LinksScreenInterface::ShowLinkDraw ( Button *button, bool highlighted, bool
 		else
             clear_draw ( button->x, button->y, button->width, button->height );
 
+    } else {
+        clear_draw(button->x, button->y, button->width, button->height);
     }
-	else
-		clear_draw ( button->x, button->y, button->width, button->height );
 
 }
 
@@ -442,11 +442,11 @@ void LinksScreenInterface::ShowLinkClick ( Button *button )
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
 
-	char *link = filteredlist->GetData (linkindex);
+	string link = filteredlist->GetData (linkindex);
 
-    if ( link ) {
+    if ( !link.empty() ) {
 
 	    VLocation *vl = game->GetWorld ()->GetVLocation (link);
 
@@ -462,7 +462,7 @@ void LinksScreenInterface::ShowLinkClick ( Button *button )
 		}
 
 		UpdateTooltip ( button, vl );
-		tooltip_update ( (char *) button->tooltip.c_str() );
+		tooltip_update ( button->tooltip );
 
     }
 
@@ -479,11 +479,11 @@ void LinksScreenInterface::ShowLinkMouseMove ( Button *button )
     stream >> unused >> linkindex;
 	linkindex += baseoffset;
 
-	LList <char *> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
+	LList <string> *filteredlist = &((LinksScreenInterface *) game->GetInterface ()->GetRemoteInterface ()->GetInterfaceScreen ())->filteredlist;
 
-	char *link = filteredlist->GetData (linkindex);
+	string link = filteredlist->GetData (linkindex);
 
-    if ( link ) {
+    if ( !link.empty() ) {
 
 	    VLocation *vl = game->GetWorld ()->GetVLocation (link);
 
@@ -529,17 +529,16 @@ void LinksScreenInterface::ScrollChange (const string &scrollname, int newValue 
 
 	for ( int i = 0; i < NumLinksOnScreen(); ++i ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "linksscreen_link %d", i )
+		string name = "linksscreen_link " + to_string(i);
 		EclDirtyButton ( name );
 
-   		UplinkSnprintf ( name, sizeof ( name ), "linksscreen_deletelink %d", i )
+   		name = "linksscreen_deletelink " + to_string(i);
     	EclDirtyButton ( name );
 
-        UplinkSnprintf ( name, sizeof ( name ), "linksscreen_addlink %d", i )
+        name = "linksscreen_addlink " + to_string(i);
 		EclDirtyButton ( name );
 
-        UplinkSnprintf ( name, sizeof ( name ), "linksscreen_showlink %d", i )
+        name = "linksscreen_showlink " + to_string(i);
         EclDirtyButton ( name );
 
 	}
@@ -559,22 +558,20 @@ void LinksScreenInterface::CloseClick ( Button *button )
 	
 }
 
-void LinksScreenInterface::SetFullList ( LList <char *> *newfulllist )
+void LinksScreenInterface::SetFullList ( LList <string> *newfulllist )
 {
 
 	UplinkAssert (newfulllist)
 
-    DeleteLListData ( &fulllist );
-    DeleteLListData ( &filteredlist );
+    DeleteLListData ( fulllist );
+    DeleteLListData ( filteredlist );
     
 	fulllist.Empty ();
 	filteredlist.Empty ();
 
     for ( int i = 0; i < newfulllist->Size (); ++i ) {
 
-		size_t copydatasize = SIZE_VLOCATION_IP;
-        char *copydata = new char [copydatasize];
-        UplinkStrncpy ( copydata, newfulllist->GetData (i), copydatasize )
+        string copydata = newfulllist->GetData (i);
         fulllist.PutData ( copydata );
 
     }
@@ -586,14 +583,12 @@ void LinksScreenInterface::SetFullList ( LList <char *> *newfulllist )
 void LinksScreenInterface::SetFullList ()
 {
 
-	DeleteLListData ( &fulllist );
+	DeleteLListData ( fulllist );
     fulllist.Empty ();
 
     for ( int i = 0; i < filteredlist.Size (); ++i ) {
 
-		size_t copydatasize = SIZE_VLOCATION_IP;
-        char *copydata = new char [copydatasize];
-        UplinkStrncpy ( copydata, filteredlist.GetData (i), copydatasize )
+		string copydata = filteredlist.GetData (i);
 		fulllist.PutData ( copydata );
 
     }
@@ -609,7 +604,7 @@ void LinksScreenInterface::ApplyFilter (const string &filter )
 	// Do the filtering
 	//
 
-    DeleteLListData ( &filteredlist );
+    DeleteLListData ( filteredlist );
     filteredlist.Empty ();
 
 	if ( !filter.empty() ) {
@@ -621,17 +616,15 @@ void LinksScreenInterface::ApplyFilter (const string &filter )
 			VLocation *vl = game->GetWorld ()->GetVLocation ( fulllist.GetData (i) );
 
 			if ( !vl ) { 
-				UplinkAbortArgs ( "Cannot find location for ip %s", fulllist.GetData (i) )
+				UplinkAbortArgs ( "Cannot find location for ip %s", fulllist.GetData (i).c_str() )
 			}
 
-			char *computername = vl->computer;
+			string computername = vl->computer;
 			string lowercasename = LowerCaseString ( computername );
 
             if ( lowercasename.find( lowercasefilter ) != string::npos) {
 
-				size_t datacopysize = SIZE_VLOCATION_IP;
-                char *datacopy = new char [datacopysize];
-                UplinkStrncpy ( datacopy, fulllist.GetData (i), datacopysize )
+                string datacopy = fulllist.GetData (i);
 				filteredlist.PutData ( datacopy );
 
             }
@@ -647,9 +640,7 @@ void LinksScreenInterface::ApplyFilter (const string &filter )
 
         for ( int i = 0; i < fulllist.Size (); ++i ) {
 
-			size_t datacopysize = SIZE_VLOCATION_IP;
-            char *datacopy = new char [datacopysize];
-            UplinkStrncpy ( datacopy, fulllist.GetData (i), datacopysize )
+			string datacopy = fulllist.GetData (i);
             filteredlist.PutData ( datacopy );
 
         }
@@ -665,23 +656,20 @@ void LinksScreenInterface::ApplyFilter (const string &filter )
 	int numLinks = NumLinksOnScreen();
 	for ( int ib = 0; ib < numLinks; ++ib ) {
 
-		char name [128];
-		UplinkSnprintf ( name, sizeof ( name ), "linksscreen_link %d", ib )
+		string name = "linksscreen_link " + to_string(ib);
 		EclDirtyButton ( name );
 
 		if ( GetComputerScreen ()->SCREENTYPE == LINKSSCREENTYPE_PLAYERLINKS ) {
 
-    		UplinkSnprintf ( name, sizeof ( name ), "linksscreen_deletelink %d", ib )
+    		name = "linksscreen_deletelink " + to_string(ib);
 	    	EclDirtyButton ( name );
 
-            char displaylink [128];
-            UplinkSnprintf ( displaylink, sizeof ( displaylink ), "linksscreen_showlink %d", ib )
+            string displaylink = "linksscreen_showlink " + to_string(ib);
             EclDirtyButton ( displaylink );
 
-        }
-        else {
+        } else {
 
-		    UplinkSnprintf ( name, sizeof ( name ), "linksscreen_addlink %d", ib )
+		    name = "linksscreen_addlink " + to_string(ib);
 		    EclDirtyButton ( name );
 
         }
@@ -739,8 +727,7 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
 
 		for ( int li = 0; li < numLinks; ++li ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "linksscreen_link %d", li )
+			string name = "linksscreen_link " + to_string(li);
 			EclRegisterButton ( 30, 145 + li * 15, SY(375), 14, "", "Connect to this computer", name );
 			EclRegisterButtonCallbacks ( name, LinkDraw, LinkClick, LinkMouseDown, LinkMouseMove );
 
@@ -748,15 +735,14 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
 
 				// Give the player the option to delete any link
 
-				UplinkSnprintf ( name, sizeof ( name ), "linksscreen_deletelink %d", li )
+				name = "linksscreen_deletelink " + to_string(li);
 				EclRegisterButton ( 15, 145 + li * 15, 13, 13, "", "Delete this link", name );
 				button_assignbitmaps ( name, iclose_tif, iclose_h_tif, iclose_c_tif );
 				EclRegisterButtonCallbacks ( name, DeleteLinkDraw, DeleteLinkClick, button_click, button_highlight );
 
                 // Give the player the option to display the link on the map
 
-                char displaylink [128];
-                UplinkSnprintf ( displaylink, sizeof ( displaylink ), "linksscreen_showlink %d", li )
+                string displaylink = "linksscreen_showlink " + to_string(li);
                 EclRegisterButton ( 34 + SY(375), 145 + li * 15, 13, 13, "", "", displaylink );
                 EclRegisterButtonCallbacks ( displaylink, ShowLinkDraw, ShowLinkClick, button_click, ShowLinkMouseMove );
                 
@@ -765,7 +751,7 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
 
 				// Give the player the option to add this link to his collection
 
-				UplinkSnprintf ( name, sizeof ( name ), "linksscreen_addlink %d", li )
+				name = "linksscreen_addlink " + to_string(li);
 				EclRegisterButton ( 15, 145 + li * 15, 13, 13, "", "Store this link", name );
 				button_assignbitmaps ( name, iadd_tif, iadd_h_tif, iadd_c_tif );
 				EclRegisterButtonCallbacks ( name, AddLinkDraw, AddLinkClick, button_click, button_highlight );
@@ -789,7 +775,7 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
 		}
 		else if ( GetComputerScreen ()->SCREENTYPE == LINKSSCREENTYPE_ALLLINKS ) {
 
-			LList <char *> alllinks;
+			LList <string> alllinks;
 			DArray <VLocation *> *locs = game->GetWorld ()->locations.ConvertToDArray ();
 
 			for ( int i = 0; i < locs->Size (); ++i )
@@ -804,9 +790,9 @@ void LinksScreenInterface::Create ( ComputerScreen *newcs )
 		}
 		else if ( GetComputerScreen ()->SCREENTYPE == LINKSSCREENTYPE_LOCALLINKS ) {
 
-			char *companyname = GetComputerScreen ()->GetComputer ()->companyname;
+			string companyname = GetComputerScreen ()->GetComputer ()->companyname;
 
-			LList <char *> alllinks;
+			LList <string> alllinks;
 			DArray <VLocation *> *locs = game->GetWorld ()->locations.ConvertToDArray ();
 
 			for ( int i = 0; i < locs->Size (); ++i )
@@ -889,23 +875,20 @@ void LinksScreenInterface::Remove ()
 
 		for ( int i = 0; i < NumLinksOnScreen(); ++i ) {
 
-			char name [128];
-			UplinkSnprintf ( name, sizeof ( name ), "linksscreen_link %d", i )
+			string name = "linksscreen_link " + to_string(i);
 			EclRemoveButton ( name );
 
 			if ( GetComputerScreen ()->SCREENTYPE == LINKSSCREENTYPE_PLAYERLINKS ) {
 
-			    UplinkSnprintf ( name, sizeof ( name ), "linksscreen_deletelink %d", i )
+			    name = "linksscreen_deletelink " + to_string(i);
 			    EclRemoveButton ( name );
 
-                char displaylink [128];
-                UplinkSnprintf ( displaylink, sizeof ( displaylink ), "linksscreen_showlink %d", i )
+                string displaylink = "linksscreen_showlink " + to_string(i);
                 EclRemoveButton ( displaylink );
 
-            }
-            else {
+            } else {
 
-			    UplinkSnprintf ( name, sizeof ( name ), "linksscreen_addlink %d", i )
+			    name = "linksscreen_addlink " + to_string(i);
 			    EclRemoveButton ( name );
 
             }

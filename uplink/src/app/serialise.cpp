@@ -447,6 +447,76 @@ void DeleteLListData ( LList <UplinkObject *> *llist )
 
 }
 
+void SaveLList ( LList <string> &llist, FILE *file )
+{
+
+    int size = llist.Size ();
+
+    if ( size > MAX_ITEMS_DATA_STRUCTURE ) {
+        UplinkPrintAbortArgs ( "WARNING: SaveLList, number of items appears to be too big, size=%d, maxsize=%d",
+                               size, MAX_ITEMS_DATA_STRUCTURE )
+        size = MAX_ITEMS_DATA_STRUCTURE;
+    }
+
+    fwrite ( &size, sizeof(size), 1, file );
+
+    for ( int i = 0; i < size; ++i ) {
+        string tmpString = llist.GetData(i);
+        SaveDynamicString(tmpString, file);
+    }
+
+}
+
+bool LoadLList ( LList <string> &llist, FILE *file )
+{
+
+    if ( llist.Size() != 0 ) {
+        UplinkAssert ( llist.Size() != 0 )
+        return false;
+    }
+
+    int size;
+    if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
+
+    if ( size < 0 || size > MAX_ITEMS_DATA_STRUCTURE ) {
+        UplinkPrintAbortArgs ( "WARNING: LoadLList, number of items appears to be wrong, size=%d", size )
+        return false;
+    }
+
+    for ( int i = 0; i < size; ++i ) {
+
+        string stringdata;
+        if ( !LoadDynamicStringInt ( stringdata, file ) ) return false;
+        llist.PutData ( stringdata );
+
+    }
+
+    return true;
+
+}
+
+void PrintLList	( LList <string> &llist )
+{
+
+    for ( int i = 0; i < llist.Size (); ++i ) {
+        if ( !llist.GetData (i).empty() )
+            cout << "Index = " << i << " : " << llist.GetData (i) << endl;
+        else
+            cout << "Index = " << i << " : nullptr" << endl;
+    }
+
+}
+
+/**
+ * Essentially noop
+ * @param llist LList to handle
+ * @note This only exists to provide compatibility with `char *` version of this function
+ */
+void DeleteLListData ( LList <string> &llist )
+{
+
+}
+
 void SaveLList ( LList <char *> *llist, FILE *file )
 {
 
@@ -514,13 +584,13 @@ void DeleteLListData ( LList <char *> *llist )
 
 	UplinkAssert ( llist )
 
-	for ( int i = 0; i < llist->Size (); ++i ) 
+	for ( int i = 0; i < llist->Size (); ++i )
 		if ( llist->GetData (i) )
 			// Even zero length string need to be deleted
 			//if ( strlen(llist->GetData (i)) != 0 )
 			//	if ( strcmp(llist->GetData (i), "") != 0 )
 					delete [] llist->GetData (i);
-					
+
 
 }
 
@@ -697,6 +767,16 @@ void DeleteDArrayDataD( DArray <char *> *darray, const char * file, int line )
 //						DEBUG_PRINTF( "Oops! Tried to delete something that wasn't there [%s (%d)].\n",
 //							file, line );
 					}
+
+}
+
+/**
+ * Essentially noop
+ * @param llist DArray to handle
+ * @note This only exists to provide compatibility with `char *` version of this function
+ */
+void DeleteDArrayDataD( DArray <string> &darray, const char * file, int line )
+{
 
 }
 
@@ -959,11 +1039,72 @@ bool LoadDynamicStringInt (const char *_file, int _line, char *string, int maxsi
 
 }
 
+/**
+ * Loads next data into the given data reference
+ * @param data The string reference to load data into
+ * @param file File to read from
+ * @return true if the data load was successful
+ */
+bool LoadDynamicStringInt(string &data, FILE *file)
+{
+
+    data = "";
+
+    int size;
+    if ( !FileReadData ( &size, sizeof(size), 1, file ) ) return false;
+
+    if ( size == -1 ) {
+
+        // Nothing to do, nullptr string.
+
+    } else if ( size < 0 || size > MAX_LENGTH_DYMANIC_STRING ) {
+
+        cout << "WARNING: LoadDynamicString, size appears to be wrong" << endl;
+        cout << "    Data Size: " + to_string(size) << endl;
+        cout << "    Absolute Max Size :" + to_string(MAX_LENGTH_DYMANIC_STRING) << endl;
+        return false;
+
+    } else {
+
+        if ( !FileReadDataInt ( data, size, file ) ) {
+            return false;
+        }
+
+    }
+
+    return true;
+
+}
+
+/**
+ * Takes variable length input data, and writes it to file
+ * @param string Data to write
+ * @param file FILE to write to
+ */
 void SaveDynamicString ( char *string, FILE *file )
 {
 	SaveDynamicString ( string, -1, file );
 }
 
+/**
+ * Takes variable length input data, and writes it to file
+ * @param string Data to write
+ * @param file FILE to write to
+ */
+void SaveDynamicString (string &data, FILE *file )
+{
+
+    SaveDynamicString (data, -1, file );
+
+}
+
+/**
+ * Takes data with a maximum length, and writes it to file
+ * @param string Data to write
+ * @param maxsize The maximum size of the data, or -1 for undefined max length
+ * @param file FILE to write to
+ * @note If maxsize is -1, the constant MAX_LENGTH_DYNAMIC_STRING is still the maximum allowed string length.
+ */
 void SaveDynamicString ( char *string, int maxsize, FILE *file )
 {
 
@@ -1009,51 +1150,60 @@ void SaveDynamicString ( char *string, int maxsize, FILE *file )
 /**
  * Takes input data, and writes it to file
  * @param data Data to write
- * @param maxsize The maximum size of the data
- * @param file fstream to write to
+ * @param maxsize The maximum size of the data, or -1 for undefined max length
+ * @param file FILE to write to
+ * @note If maxsize is -1, the constant MAX_LENGTH_DYNAMIC_STRING is still the maximum allowed string length.
  */
-void SaveDynamicString ( string *data, int maxsize, fstream *file )
+void SaveDynamicString (string &data, int maxsize, FILE *file )
 {
 
-    if ( !data->empty() ) {
+    if ( !data.empty() ) {
 
         int realmaxsize = MAX_LENGTH_DYMANIC_STRING;
         if ( maxsize > 0 )
             realmaxsize = min ( MAX_LENGTH_DYMANIC_STRING, maxsize );
 
-        int size = (int) ( data->size() + 1 );
+        int size = data.size();
+        char tmpChar[MAX_LENGTH_DYMANIC_STRING]{};
+
         if ( size <= realmaxsize ) {
+            strncpy(tmpChar, data.c_str(), size);
 
-            file->write((char *) size, sizeof(size));
-
-            if (size > 1) {
-                file->write(data->c_str(), size - 1);
-            }
-
-            // Every data element should end with `\0`
+            // Write size of following data to file
+            int sizeWithNull = size + 1;
+            fwrite ( &sizeWithNull, sizeof(sizeWithNull), 1, file );
+            // Write data to file
+            if ( size > 1 )
+                fwrite ( tmpChar, size, 1, file );
+            // Write `\0` to terminate string
             char terminatingchar = '\0';
-            file->write(&terminatingchar, 1);
+            fwrite ( &terminatingchar, 1, 1, file );
 
         }
         else {
 
-            cout << "WARNING: SaveDynamicString: Size appears to be too long." << endl;
+            cout << "WARNING: SaveDynamicString, size appears to be too long." << endl;
+            cout << "    Data Size: " << to_string(size) << endl;
+            cout << "    Max Size: " << to_string(maxsize) << endl;
+            cout << "    Absolute Max Size: " << to_string(MAX_LENGTH_DYMANIC_STRING) << endl;
 
-            file->write( (char *) realmaxsize, sizeof(realmaxsize));
-            if (realmaxsize > 1) {
-                file->write(data->c_str(), realmaxsize - 1);
-            }
 
+            strncpy(tmpChar, data.c_str(), realmaxsize);
+
+            fwrite ( &realmaxsize, sizeof(realmaxsize), 1, file );
+            if ( realmaxsize > 1 )
+                fwrite ( tmpChar, realmaxsize - 1, 1, file );
             char terminatingchar = '\0';
-            file->write(&terminatingchar, 1);
+            fwrite ( &terminatingchar, 1, 1, file );
 
         }
 
-    }
-    else {
-
+    } else {
+        // This correctly writes empty data to file
         int size = -1;
-        file->write((char *) size, 1);
+//        int zero = 0;
+        fwrite ( &size, sizeof(size), 1, file );
+//        fwrite ( &zero, 1, 1, file);
 
     }
 
@@ -1073,25 +1223,21 @@ bool FileReadDataInt (const char *_file, int _line, void * _DstBuf, size_t _Elem
 /**
  * Reads characters from file into data string
  * @param data The string to put data into
- * @param _Count Number of bytes to read
+ * @param dataSize Number of bytes to read
  * @param _File ifstream to read data from
  * @return `true` if data read was successful
  */
-bool FileReadDataInt (string & data, size_t _Count, fstream _File )
+bool FileReadDataInt (string & data, size_t dataSize, FILE *_File )
 {
 
-    char *_dataBuf = new char[_Count];
+    char _dataBuf[dataSize];
 
-    _File.read(_dataBuf, _Count);
+    size_t sizeRead = fread( _dataBuf, dataSize, 1, _File);
+    assert(sizeRead == 1);
 
     data = _dataBuf;
 
-    if (!_File.good()) {
-        cout << "WARNING: FileReadDataInt: Read request is not good." << endl;
-        return false;
-    } else {
-        return true;
-    }
+    return true;
 }
 
 /**

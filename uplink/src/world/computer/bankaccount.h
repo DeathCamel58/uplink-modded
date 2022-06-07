@@ -26,7 +26,7 @@ class BankAccount : public UplinkObject
 
 public:
 	
-	char name [SIZE_PERSON_NAME];
+	string name;
 	char password [64];
 	int security;
 	int accountnumber;
@@ -51,7 +51,7 @@ public:
 	// If partial is true,  it return true if there is a log of the transaction on the target _or_ source account
 	// If partial is false, it return true if there is a log of the transaction on the target _and_ source account
 	bool HasTransferOccurred (char *s_ip, char *t_ip, int t_accno, int amount, bool partial = false ) const;
-	bool HasTransferOccurred (char *person, int amount ) const;								// Has this account received payment from person
+	bool HasTransferOccurred (const string& person, int amount ) const;								// Has this account received payment from person
 
 	Person *GetPerson ();
 

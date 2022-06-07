@@ -72,7 +72,7 @@ void NewsScreenInterface::ClickNewsButton ( Button *button )
         if ( scrollBox ) {
             scrollBox->SetCurrentIndex( 0 );
 
-            char *newDetails = cu->GetNews (index)->GetDetails();
+            string newDetails = cu->GetNews (index)->GetDetails();
             Button *detailsButton = EclGetButton ( "news_details box" );
             UplinkAssert (detailsButton)
         	LList <string> *wrappedtext = wordwraptext ( newDetails, detailsButton->width );
@@ -162,23 +162,13 @@ void NewsScreenInterface::DrawNewsButton ( Button *button, bool highlighted, boo
         // Get the date and subject
 
 		char date [64];
-        char subject [256];        
-		UplinkStrncpy ( subject, news->headline, sizeof ( subject ) )
+        string subject = news->headline;
 		UplinkStrncpy ( date, news->date.GetShortString (), sizeof ( date ) )
 
         // Get the first line of the news story
 
-        char *fulldetails = news->GetDetails ();
-        char *firstendline = strchr ( fulldetails, '\n' );
-        if ( firstendline && firstendline - fulldetails > 255 )
-            firstendline = fulldetails + 255;
-        char details [256];
-        if ( firstendline ) {
-            strncpy ( details, news->GetDetails (), ( firstendline - fulldetails ) + 1 );
-            details[firstendline - fulldetails] = '\x0';                            // Added by Contraband
-        }
-        else
-            UplinkStrncpy ( details, " ", sizeof ( details ) )
+        string fulldetails = news->GetDetails ();
+        string details = fulldetails.substr(0, fulldetails.find('\n'));
 
         // Draw the text items
 

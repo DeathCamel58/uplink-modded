@@ -181,6 +181,7 @@ void EmptyDirectory (const string &directory )
  */
 bool CopyFilePlain (const string &oldfilename, const string &newfilename )
 {
+    MakeDirectory(filesystem::path(newfilename).parent_path());
 
     if (DoesFileExist(oldfilename)) {
         if (filesystem::copy_file(oldfilename, newfilename, filesystem::copy_options::overwrite_existing)) {

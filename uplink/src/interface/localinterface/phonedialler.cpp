@@ -34,8 +34,8 @@ char PhoneDialler::buttonnames [][9] = { "one", "two", "three", "four", "five", 
 PhoneDialler::PhoneDialler ()
 {
 
-	ip = nullptr;
-	infosup = nullptr;
+	ip = "";
+	infosup = "";
 	nextscene = -1;
 	lastupdate = 0;
 	curnumber = -1;
@@ -43,13 +43,7 @@ PhoneDialler::PhoneDialler ()
 }
 
 PhoneDialler::~PhoneDialler ()
-{
-    
-	delete [] ip;
-
-	delete [] infosup;
-
-}
+= default;
 
 void PhoneDialler::Create ( int x, int y )
 {
@@ -110,22 +104,15 @@ void PhoneDialler::Remove ()
 
 }
 
-void PhoneDialler::DialNumber ( int x, int y, char *number, int scenario, char *info /* = nullptr */ )
+void PhoneDialler::DialNumber (int x, int y, const string& number, int scenario, string info )
 {
 
-	UplinkAssert ( number )
+	UplinkAssert ( !number.empty() )
 
-	delete [] ip;
-	ip = new char [ strlen ( number ) + 1 ];
-	UplinkSafeStrcpy ( ip, number )
+	ip = number;
 
-	if ( infosup ) {
-		delete [] infosup;
-		infosup = nullptr;
-	}
-	if ( info ) {
-		infosup = new char [ strlen ( info ) + 1 ];
-		UplinkSafeStrcpy ( infosup, info )
+	if ( !info.empty() ) {
+		infosup = info;
 	}
 
 	nextscene = scenario;
@@ -153,20 +140,19 @@ void PhoneDialler::UpdateDisplay ()
 
 	if ( curnumber != -1 && ( buttonDiallerNumber = EclGetButton ( "dialler_number" ) ) ) {
 	
-		if ( curnumber < (int) strlen ( ip ) ) {
+		if ( curnumber < ip.size() ) {
 
 			char ch;
 			do {
 				ch = ip [ curnumber ];
 				curnumber++;
-			} while ( curnumber < (int) strlen ( ip ) && !( ch >= '1' && ch <= '9' ) );
+			} while ( curnumber < ip.size() && !( ch >= '1' && ch <= '9' ) );
 
 			if ( ch >= '1' && ch <= '9' ) {
 
 				EclHighlightButton ( buttonnames [ ch - '1' ] );
 				
-				char caption [64];
-				UplinkStrncpy ( caption, ip, sizeof ( caption ) )
+				string caption = ip;
 				caption [curnumber] = 0;
 				buttonDiallerNumber->SetCaption ( caption );
 

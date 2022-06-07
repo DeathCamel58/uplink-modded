@@ -4,6 +4,7 @@
 
 #include <strstream>
 #include <app/miscutils.h>
+#include <sstream>
 
 #include "eclipse.h"
 
@@ -101,7 +102,7 @@ void ClientConnection::Handle_ClientCommsInterface ()
 {
 
 	Connection *conn = &(game->GetWorld ()->GetPlayer ()->connection);
-	LList <char *> *links = &(game->GetWorld ()->GetPlayer ()->links);
+	LList <string> *links = &(game->GetWorld ()->GetPlayer ()->links);
 
 	//
 	// Update trace progress
@@ -271,12 +272,12 @@ void ClientConnection::Handle_ClientStatusInterface ()
 
 		for ( int i = 0; i < player->accounts.Size (); ++i ) {
 
-			char *account = player->accounts.GetData (i);
-			UplinkAssert (account)
+			string account = player->accounts.GetData (i);
+			UplinkAssert (!account.empty())
 
-			char ip [SIZE_VLOCATION_IP];
-			char accno [16];
-			sscanf ( account, "%s %s", ip, accno );
+			string ip, accno;
+			stringstream stream(account);
+			stream >> ip >> accno;
 			BankAccount *ba = BankAccount::GetAccount ( ip, accno );
 			UplinkAssert (ba)
 

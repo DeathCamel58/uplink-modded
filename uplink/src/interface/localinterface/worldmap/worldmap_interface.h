@@ -84,7 +84,7 @@ protected:
 protected:
 
     // This stuff handles loading/saving of connections
-    LList <char *> savedconnection;
+    LList <string> savedconnection;
     void SaveCurrentConnection ();
     void LoadConnection ();
 
@@ -109,7 +109,7 @@ public:
     static void CloseWorldMapInterface_Large ();
     static int IsVisibleWorldMapInterface ();					// returns size of map visible
 
-	static void AfterPhoneDialler ( char *ip, char *info );
+	static void AfterPhoneDialler (string &ip, string &info );
     
     WorldMapInterface ();
     ~WorldMapInterface () override;

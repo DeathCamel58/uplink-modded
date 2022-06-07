@@ -68,7 +68,7 @@ public:
 
 	bool npcpriority;					// NPC's will take this one first if this bool is true
 
-	LList <char *> links;				// All useful ip addresses (to be added to links)
+	LList <string> links;				// All useful ip addresses (to be added to links)
 	BTree <char *> codes;				// Access codes, indexed on ip
 
 public:

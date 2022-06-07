@@ -8,6 +8,7 @@
 #endif
 
 #include <strstream>
+#include <sstream>
 
 #include "soundgarden.h"
 #include "redshirt.h"
@@ -211,7 +212,7 @@ Mission *MissionGenerator::Generate_StealFile ( Company *employer )
 		{
 			Computer *target = WorldGenerator::GetRandomLowSecurityComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
 			UplinkAssert (target)
-			if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
+			if ( employer->name == target->companyname ) return nullptr;
 			m = Generate_StealSingleFile ( employer, target );
 			break;
 		}
@@ -222,7 +223,7 @@ Mission *MissionGenerator::Generate_StealFile ( Company *employer )
                                                                    COMPUTER_TYPE_CENTRALMAINFRAME |
                                                                    COMPUTER_TYPE_LAN );
 			UplinkAssert (target)
-			if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
+			if ( employer->name == target->companyname ) return nullptr;
 			m = Generate_StealAllFiles   ( employer, target );
 			break;
 		}
@@ -240,7 +241,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	UplinkAssert (target)
 
 
-	if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
+	if ( employer->name == target->companyname ) return nullptr;
 
 	int difficulty = (int) NumberGenerator::RandomNormalNumber ( MINDIFFICULTY_MISSION_STEALFILE, DIFFICULTY_MISSION_VARIANCE );
 	if ( difficulty < MINDIFFICULTY_MISSION_STEALFILE ) difficulty = MINDIFFICULTY_MISSION_STEALFILE;
@@ -263,7 +264,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 
 	// Create the data to be stolen and add it to the target computer's memory
 
-	char *datatitle = NameGenerator::GenerateDataName ( target->name, DATATYPE_DATA );
+	string datatitle = NameGenerator::GenerateDataName ( target->name, DATATYPE_DATA );
 
 	int encrypted = difficulty < 3 ? 0 : (int) NumberGenerator::RandomNormalNumber ( (float) difficulty, (float) ( difficulty / 2 ) );
     if ( encrypted > 7 ) encrypted = 7;
@@ -285,8 +286,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 
 	// Infer the internal services contact address
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 
 	// Generate the fields of the mission
@@ -310,7 +310,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 			<< '\x0';
 
 
-	fulldetails << "Thankyou for working for " << employer->name << ".\n"
+	fulldetails << "Thank you for working for " << employer->name << ".\n"
 				<< "\n"
 				<< "TARGET COMPUTER DATA :\n"
 				<< "   LOCATION: " << target->name << "\n"
@@ -397,8 +397,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 	// Infer the internal services contact address
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 	//
 	// Generate a new computer to dump the files to
@@ -411,7 +410,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	// Add in a new account for the player to use
 	//
 
-	char *password = NameGenerator::GeneratePassword ();
+	string password = NameGenerator::GeneratePassword ();
 	char username [12];
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
@@ -438,7 +437,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 		*/
 
-	char *missiontypestring [4] = { "rsrch", "corp", "custmr", "softw" };
+	string missiontypestring [4] = { "rsrch", "corp", "custmr", "softw" };
 
 	//
 	// Generate around 10 files to be stolen,
@@ -455,7 +454,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 		char datatitle [64];
 		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%c%c%c%c-%s %d.dat", target->companyname [0], target->companyname [1],
 																	   target->companyname [2], target->companyname [3],
-																		missiontypestring [missiontype-1], i )
+																		missiontypestring [missiontype-1].c_str(), i )
 
 		int size = (int) NumberGenerator::RandomNormalNumber ( 10, 5 );
 		totalsize += size;
@@ -638,7 +637,7 @@ Mission *MissionGenerator::Generate_DestroyFile ( Company *employer )
 		{
 			Computer *target = WorldGenerator::GetRandomLowSecurityComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
 			UplinkAssert (target)
-			if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
+			if ( employer->name == target->companyname ) return nullptr;
 			m = Generate_DestroySingleFile ( employer, target );
 			break;
 		}
@@ -649,7 +648,7 @@ Mission *MissionGenerator::Generate_DestroyFile ( Company *employer )
                                                                    COMPUTER_TYPE_CENTRALMAINFRAME |
                                                                    COMPUTER_TYPE_LAN );
 			UplinkAssert (target)
-			if ( strcmp ( employer->name, target->companyname ) == 0 ) return nullptr;
+			if ( employer->name == target->companyname ) return nullptr;
 			m = Generate_DestroyAllFiles ( employer, target );
 			break;
 		}
@@ -690,7 +689,7 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 
 	// Create the data to be stolen and add it to the target computer's memory
 
-	char *datatitle = NameGenerator::GenerateDataName ( target->name, DATATYPE_DATA );
+	string datatitle = NameGenerator::GenerateDataName ( target->name, DATATYPE_DATA );
 
 	Data *data = new Data ();
 	data->SetTitle ( datatitle );
@@ -707,22 +706,21 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 
 	// Infer the internal services contact address
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 
 	// Generate the fields of the mission
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description;
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
 
 	switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
 
-		case 1 :		UplinkStrncpy ( description, "Find and destroy crucial data on a mainframe", sizeof ( description ) )				break;
-		case 2 :		UplinkStrncpy ( description, "Break into a rival computer system and sabotage files", sizeof ( description ) )		break;
-		case 3 :		UplinkStrncpy ( description, "Hack into a computer and delete key files", sizeof ( description ) )					break;
+		case 1 : description = "Find and destroy crucial data on a mainframe";					break;
+		case 2 : description = "Break into a rival computer system and sabotage files";		break;
+		case 3 : description = "Hack into a computer and delete key files";					break;
 
 	}
 
@@ -732,7 +730,7 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 			<< '\x0';
 
 
-	fulldetails << "Thankyou for working for " << employer->name << ".\n"
+	fulldetails << "Thank you for working for " << employer->name << ".\n"
 				<< "\n"
 				<< "TARGET COMPUTER DATA :\n"
 				<< "   LOCATION: " << target->name << "\n"
@@ -750,7 +748,7 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 	char completionA [SIZE_VLOCATION_IP];
 	char completionB [SIZE_DATA_TITLE];
 	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
-	UplinkStrncpy ( completionB, datatitle, sizeof ( completionB ) )
+	UplinkStrncpy ( completionB, datatitle.c_str(), sizeof ( completionB ) )
 
 	Date postdate;
 	postdate.SetDate ( &(game->GetWorld ()->date) );
@@ -817,13 +815,12 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 
 	// Infer the internal services contact address
 
-	char personname [SIZE_PERSON_NAME];
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 
 	// Generate the fields of the mission
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description;
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
@@ -855,7 +852,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	// All fairly large
 	//
 
-	char *missiontypestring [4] = { "rsrch", "corp", "custmr", "softw" };
+	string missiontypestring [4] = { "rsrch", "corp", "custmr", "softw" };
 	int numfiles = (int) NumberGenerator::RandomNormalNumber ( 10, 5 );
 	int encrypted = (int) NumberGenerator::RandomNormalNumber ( (float) difficulty, (float) difficulty );
 	int totalsize = 0;
@@ -865,7 +862,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 		char datatitle [64];
 		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%c%c%c%c-%s %d.dat", target->companyname [0], target->companyname [1],
 																			   target->companyname [2], target->companyname [3],
-																				missiontypestring [type-1], i )
+																				missiontypestring [type-1].c_str(), i )
 
 		int size = (int) NumberGenerator::RandomNormalNumber ( 10, 5 );
 		totalsize += size;
@@ -894,7 +891,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 
 	if ( type == 1 ) {
 
-		UplinkStrncpy ( description, "Destroy scientific research currently in progress", sizeof ( description ) )
+		description = "Destroy scientific research currently in progress";
 
 		fulldetails << "One of our competitors has unfortunately gained a lead "
 					   "and has nearly completed some scientific research which will "
@@ -908,7 +905,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	}
 	else if ( type == 2 ) {
 
-		UplinkStrncpy ( description, "Destroy corporate data of a rival company", sizeof ( description ) )
+		description = "Destroy corporate data of a rival company";
 
 		fulldetails << "We are becoming tired of the competition provided by a "
 					   "rival firm and we have decided to put an end to their activities.\n"
@@ -920,7 +917,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	}
 	else if ( type == 3 ) {
 
-		UplinkStrncpy ( description, "Destroy customer records on a sales system", sizeof ( description ) )
+		description = "Destroy customer records on a sales system";
 
 		fulldetails << "We are in direct competition with another rival sales system and "
 					   "wish to bring our conflict to a quick end.  Break into their primary "
@@ -931,7 +928,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	}
 	else if ( type == 4 ) {
 
-		UplinkStrncpy ( description, "Destroy rival software in development", sizeof ( description ) )
+		description = "Destroy rival software in development";
 
 		fulldetails << "As you may be aware we are trying to promote our new software system "
 					   "but another corporation has developed a rival tool which we feel may "
@@ -1037,8 +1034,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net"; // Person to send completion email to
 
 	//
 	// Get the account of a person at this bank computer
@@ -1049,7 +1045,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 
 	// Make sure we don't target the player's Uplink bank account
 
-	if ( strcmp ( taccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
+	if ( taccount->name == game->GetWorld ()->GetPlayer ()->handle ) return nullptr;
 
 	//
 	// Fill in the fields of the mission
@@ -1153,7 +1149,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 					<< "Trace this account and find the name of the receiver of this money.";
 
         UplinkStrncpy ( completionB, "TraceTransfer", sizeof ( completionB ) )
-		UplinkStrncpy ( completionC, raccount->name, sizeof ( completionC ) )
+		UplinkStrncpy ( completionC, raccount->name.c_str(), sizeof ( completionC ) )
 
 	}
 	else {
@@ -1261,8 +1257,7 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream details;
@@ -1533,8 +1528,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream details;
@@ -1701,8 +1695,7 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 	char description [SIZE_MISSION_DESCRIPTION];
 	std::ostrstream details;
@@ -1937,8 +1930,7 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 
 	char description [SIZE_MISSION_DESCRIPTION];
@@ -2040,8 +2032,7 @@ Mission *MissionGenerator::Generate_PayFine (Person *person, Company *company, i
 	// Look up a contact at the company
 	//
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", company->name )
+	string personname = "internal@" + company->name + ".net";
 
 	//
 	// Fill in the fields of the mission
@@ -2145,8 +2136,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 
 	char description [SIZE_MISSION_DESCRIPTION];
@@ -2303,7 +2293,7 @@ Mission *MissionGenerator::Generate_TraceHacker ( Mission *completedmission, Per
 	// Look up the computer that was hacked
 	//
 
-	char *hackedip = completedmission->links.GetData (0);
+	string hackedip = completedmission->links.GetData (0);
 	VLocation *vl = game->GetWorld ()->GetVLocation ( hackedip );
 	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
@@ -2343,7 +2333,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 
 	bool provideaccount = (hacked->TYPE == COMPUTER_TYPE_INTERNALSERVICESMACHINE);
 
-	char *password = nullptr;
+	string password;
 	char username [12];
 
 	if ( provideaccount ) {
@@ -2485,8 +2475,7 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 	//
 	// Choose random bank accounts on the
@@ -2503,8 +2492,8 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	// Make sure they aren't player accounts
 	//
 
-	if ( strcmp ( sourceaccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
-	if ( strcmp ( targetaccount->name, game->GetWorld ()->GetPlayer ()->handle ) == 0 ) return nullptr;
+	if ( sourceaccount->name == game->GetWorld ()->GetPlayer ()->handle ) return nullptr;
+	if ( targetaccount->name == game->GetWorld ()->GetPlayer ()->handle ) return nullptr;
 
 
 	int amount_to_transfer = (int) NumberGenerator::RandomNormalNumber ( sourceaccount->balance / 2.0f, sourceaccount->balance * 0.4f );
@@ -2627,8 +2616,7 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 	//
 	// Fill in the fields
@@ -2736,8 +2724,7 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 	payment = payment / 100 * 100;				// Rounds payment to the nearest 100
 
 
-	char personname [SIZE_PERSON_NAME];					// Person to send completion email to
-	UplinkSnprintf ( personname, sizeof ( personname ), "internal@%s.net", employer->name )
+	string personname = "internal@" + employer->name + ".net";
 
 	//
 	// Find the target person
@@ -2850,10 +2837,10 @@ bool MissionGenerator::IsMissionComplete_StealFile ( Mission *mission, Person *p
 
 	UplinkAssert (mission)
 
-	char *ip		= mission->completionA;
-	char *datatitle = mission->completionB;					// Required data title
+	string ip		= mission->completionA;
+	string datatitle = mission->completionB;					// Required data title
 
-	if ( strcmp ( datatitle, "ALL" ) == 0 )
+	if ( datatitle == "ALL" )
 		return IsMissionComplete_StealAllFiles ( mission, person, message );
 
 
@@ -2862,7 +2849,7 @@ bool MissionGenerator::IsMissionComplete_StealFile ( Mission *mission, Person *p
 	Data *msgdata = message->GetData ();
 
 	if ( msgdata
-		 && strcmp ( msgdata->title, datatitle ) == 0
+		 && msgdata->title == datatitle
 		 && msgdata->encrypted == 0 ) {
 
 		MissionCompleted ( mission, person, message );
@@ -2870,7 +2857,7 @@ bool MissionGenerator::IsMissionComplete_StealFile ( Mission *mission, Person *p
 
 	}
 	else if ( msgdata
-		 && strcmp ( msgdata->title, datatitle ) == 0
+		 && msgdata->title == datatitle
 		 && msgdata->encrypted > 0 ) {
 
 		// Message is encrypted
@@ -2929,9 +2916,9 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 	UplinkAssert (person)
 	UplinkAssert (message)
 
-	char *ip		= mission->completionA;
-	char *datatitle = mission->completionB;					// ALL
-	char *ourcompip = mission->completionC;
+	string ip		= mission->completionA;
+	string datatitle = mission->completionB;					// ALL
+	string ourcompip = mission->completionC;
 	int numfiles, datasize;
 	sscanf ( mission->completionD, "%d %d", &numfiles, &datasize );
 	char *datatype	= mission->completionE;
@@ -2951,11 +2938,11 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 
 	char missiontypestring [8];
 
-	if      ( strcmp ( datatype, "SCIENTIFIC" ) == 0 ) {       UplinkStrncpy ( missiontypestring, "rsrch", sizeof ( missiontypestring ) )
-	} else if	( strcmp ( datatype, "RESEARCH" ) == 0 ) {     UplinkStrncpy ( missiontypestring, "rsrch", sizeof ( missiontypestring ) )         // Not needed anymore, but older user files may have this
-	} else if ( strcmp ( datatype, "CORPORATE" ) == 0 ) {      UplinkStrncpy ( missiontypestring, "corp", sizeof ( missiontypestring ) )
-	} else if ( strcmp ( datatype, "CUSTOMER" ) == 0 ) {       UplinkStrncpy ( missiontypestring, "custmr", sizeof ( missiontypestring ) )
-	} else if ( strcmp ( datatype, "SOFTWARE" ) == 0 ) {       UplinkStrncpy ( missiontypestring, "softw", sizeof ( missiontypestring ) )
+	if      ( datatype == "SCIENTIFIC" ) {       UplinkStrncpy ( missiontypestring, "rsrch", sizeof ( missiontypestring ) )
+	} else if	( datatype == "RESEARCH" ) {     UplinkStrncpy ( missiontypestring, "rsrch", sizeof ( missiontypestring ) )         // Not needed anymore, but older user files may have this
+	} else if ( datatype == "CORPORATE" ) {      UplinkStrncpy ( missiontypestring, "corp", sizeof ( missiontypestring ) )
+	} else if ( datatype == "CUSTOMER" ) {       UplinkStrncpy ( missiontypestring, "custmr", sizeof ( missiontypestring ) )
+	} else if ( datatype == "SOFTWARE" ) {       UplinkStrncpy ( missiontypestring, "softw", sizeof ( missiontypestring ) )
 	} else {	UplinkAbort ( "Unrecognised data type" )
 	}
 
@@ -2992,16 +2979,18 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 			Data *thisfile = ourcomp->databank.GetDataFile (i);
 			UplinkAssert (thisfile)
 
-			if ( strstr ( thisfile->title, stolendatatitle ) != nullptr ) {
+			if ( thisfile->title.find(stolendatatitle) != string::npos ) {
 
 				if ( thisfile->encrypted == 0 ) {
 
 					int thisfileindex;
 
-					char *lastspace = strrchr ( thisfile->title, ' ' );
-					if ( lastspace ) {
+                    size_t lastspace = thisfile->title.find_last_of(' ');
+                    if ( lastspace != string::npos ) {
 
-						sscanf ( lastspace, " %d.dat", &thisfileindex );
+                        string tmp = thisfile->title.substr(lastspace + 1);
+                        tmp = tmp.substr(0, tmp.length()-4);
+                        thisfileindex = stoi(tmp);
 
 						if ( thisfileindex >= 0 && thisfileindex < numfiles &&
                              !filefound[thisfileindex]) {
@@ -3102,13 +3091,13 @@ bool MissionGenerator::IsMissionComplete_DestroyFile ( Mission *mission, Person 
 
 	UplinkAssert (mission)
 
-	char *ip = mission->completionA;
-	char *filename = mission->completionB;
+	string ip = mission->completionA;
+	string filename = mission->completionB;
 
 	VLocation *vl = game->GetWorld ()->GetVLocation (ip);
 	UplinkAssert (vl)
 
-	if ( strcmp ( filename, "ALL" ) == 0 ) {
+	if ( filename == "ALL" ) {
 
 		CompanyUplink *uplink = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 		UplinkAssert (uplink)
@@ -3120,7 +3109,7 @@ bool MissionGenerator::IsMissionComplete_DestroyFile ( Mission *mission, Person 
 
 			// method 1 - Delete all files
 
-			if ( news->NEWSTYPE == NEWS_TYPE_DELETED && news->data1 && strcmp ( news->data1, ip ) == 0 ) {
+			if ( news->NEWSTYPE == NEWS_TYPE_DELETED && news->data1 && news->data1 == ip ) {
 
 				MissionCompleted ( mission, person, message );
 				return true;
@@ -3129,7 +3118,7 @@ bool MissionGenerator::IsMissionComplete_DestroyFile ( Mission *mission, Person 
 
 			// method 2 - Destroy the entire computer
 
-			if ( news->NEWSTYPE == NEWS_TYPE_COMPUTERDESTROYED && news->data1 && strcmp ( news->data1, ip ) == 0 ) {
+			if ( news->NEWSTYPE == NEWS_TYPE_COMPUTERDESTROYED && news->data1 && news->data1 == ip ) {
 
 				MissionCompleted ( mission, person, message );
 				return true;
@@ -3229,7 +3218,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
         int actualbalance = source_account->balance;
         char sbalance [64];
         UplinkSnprintf ( sbalance, sizeof ( sbalance ), "%d", actualbalance )
-        if ( strstr ( message->GetBody (), sbalance ) != nullptr ) {
+        if ( message->GetBody().find(sbalance) != string::npos ) {
 
             MissionCompleted ( mission, person, message );
             return true;
@@ -3248,7 +3237,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
         int actualloan = source_account->loan;
         char sloan [64];
         UplinkSnprintf ( sloan, sizeof ( sloan ), "%d", actualloan )
-        if ( strstr ( message->GetBody (), sloan ) != nullptr ) {
+        if ( message->GetBody().find(sloan) != string::npos ) {
 
             MissionCompleted ( mission, person, message );
             return true;
@@ -3262,7 +3251,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
         }
 
     }
-    else if ( strcmp ( field, "TraceTransfer" ) == 0 ) {
+    else if ( field == "TraceTransfer" ) {
 
         string personresponsible = LowerCaseString (mission->completionC);
         assert(!personresponsible.empty());
@@ -3300,9 +3289,9 @@ bool MissionGenerator::IsMissionComplete_ChangeData	( Mission *mission, Person *
 
 	UplinkAssert (mission)
 
-	char *ip			= mission->completionA;
-	char *personname	= mission->completionB;
-	char *fieldname		= mission->completionC;
+	string ip			= mission->completionA;
+	string personname	= mission->completionB;
+	string fieldname	= mission->completionC;
 
 	VLocation *vl = game->GetWorld ()->GetVLocation (ip);
 	UplinkAssert (vl)
@@ -3360,9 +3349,9 @@ bool MissionGenerator::IsMissionComplete_FrameUser ( Mission *mission, Person *p
 	UplinkAssert (person)
 	UplinkAssert (message)
 
-	char *personname = mission->completionA;
-	char *framedfor  = mission->completionB;
-	char *ip		 = mission->completionC;
+	string personname	= mission->completionA;
+	string framedfor	= mission->completionB;
+	string ip			= mission->completionC;
 
 	//
 	// Has the person been arrested?
@@ -3379,12 +3368,12 @@ bool MissionGenerator::IsMissionComplete_FrameUser ( Mission *mission, Person *p
 		News *news = uplink->news.GetData (i);
 		UplinkAssert (news)
 
-		if ( news->NEWSTYPE == NEWS_TYPE_ARREST && news->data1 && strcmp ( news->data1, personname ) == 0 ) {
+		if ( news->NEWSTYPE == NEWS_TYPE_ARREST && news->data1 && news->data1 == personname ) {
 
-			if ( strcmp ( framedfor, "FINANCIAL" ) == 0 || strcmp ( framedfor, "DESTROYALL" ) == 0 ) {
+			if ( framedfor == "FINANCIAL" || framedfor == "DESTROYALL" ) {
 
 				// Make sure he was arrested for hacking this computer
-				arrested = (news->data2 && ip && strcmp ( news->data2, ip ) == 0);
+				arrested = (news->data2 && !ip.empty() && news->data2 == ip);
 				break;
 
 			}
@@ -3410,25 +3399,25 @@ bool MissionGenerator::IsMissionComplete_FrameUser ( Mission *mission, Person *p
 
 		// They have been arrested - but was the crime commited?
 
-		if ( strcmp ( framedfor, "HACKING" ) == 0 ) {								// Bog standard hack
+		if ( framedfor == "HACKING" ) {								// Bog standard hack
 
-			if ( strcmp ( message->from, "PLAYER" ) == 0 )
+			if ( message->from == "PLAYER" )
 				game->GetWorld ()->GetPlayer ()->score_peoplefucked ++;
 
 			MissionCompleted ( mission, person, message );
 			return true;
 
 		}
-		else if ( strcmp ( framedfor, "FINANCIAL" ) == 0 ) {						// Financial fraud
+		else if ( framedfor == "FINANCIAL" ) {						// Financial fraud
 
 			for ( int in = 0; in < uplink->news.Size (); ++in ) {
 
 				News *news = uplink->news.GetData (in);
 				UplinkAssert (news)
 
-				if ( news->NEWSTYPE == NEWS_TYPE_HACKED && news->data1 && ip && strcmp ( news->data1, ip ) == 0 ) {
+				if ( news->NEWSTYPE == NEWS_TYPE_HACKED && news->data1 && !ip.empty() && news->data1 == ip ) {
 
-					if ( strcmp ( message->from, "PLAYER" ) == 0 )
+					if ( message->from == "PLAYER" )
 						game->GetWorld ()->GetPlayer ()->score_peoplefucked ++;
 
 					MissionCompleted ( mission, person, message );
@@ -3439,16 +3428,16 @@ bool MissionGenerator::IsMissionComplete_FrameUser ( Mission *mission, Person *p
 			}
 
 		}
-		else if ( strcmp ( framedfor, "DESTROYALL" ) == 0 ) {						// Destroying all files
+		else if ( framedfor == "DESTROYALL" ) {						// Destroying all files
 
 			for ( int in = 0; in < uplink->news.Size (); ++in ) {
 
 				News *news = uplink->news.GetData (in);
 				UplinkAssert (news)
 
-				if ( news->NEWSTYPE == NEWS_TYPE_DELETED && news->data1 && ip && strcmp ( news->data1, ip ) == 0 ) {
+				if ( news->NEWSTYPE == NEWS_TYPE_DELETED && news->data1 && !ip.empty() && news->data1 == ip ) {
 
-					if ( strcmp ( message->from, "PLAYER" ) == 0 ) {
+					if ( message->from == "PLAYER" ) {
 						game->GetWorld ()->GetPlayer ()->score_peoplefucked ++;
 						game->GetWorld ()->GetPlayer ()->score_systemsfucked ++;
 					}
@@ -3486,7 +3475,7 @@ bool MissionGenerator::IsMissionComplete_TraceUser ( Mission *mission, Person *p
 
 	if ( msgbody.find( personname ) != string::npos ) {
 
-		if ( strcmp ( message->from, "PLAYER" ) == 0 )
+		if ( message->from == "PLAYER" )
 			game->GetWorld ()->GetPlayer ()->score_peoplefucked ++;
 
 		MissionCompleted ( mission, person, message );
@@ -3577,7 +3566,7 @@ bool MissionGenerator::IsMissionComplete_RemoveComputer ( Mission *mission, Pers
 	UplinkAssert (person)
 	UplinkAssert (message)
 
-	char *sourceip = mission->completionA;
+	string sourceip = mission->completionA;
 	VLocation *vl = game->GetWorld ()->GetVLocation ( sourceip );
 	UplinkAssert (vl)
 	Computer *comp = vl->GetComputer ();
@@ -3597,12 +3586,12 @@ bool MissionGenerator::IsMissionComplete_RemoveComputer ( Mission *mission, Pers
 		UplinkAssert (news)
 
 		if ( news->NEWSTYPE == NEWS_TYPE_COMPUTERDESTROYED &&
-			 news->data1 && strcmp ( news->data1, sourceip ) == 0 ) {
+			 news->data1 && news->data1 == sourceip ) {
 
 			// Data bank formatted
 			// System shut down
 
-			if ( strcmp ( message->from, "PLAYER" ) == 0 )
+			if ( message->from == "PLAYER" )
 				game->GetWorld ()->GetPlayer ()->score_systemsfucked ++;
 
 			MissionCompleted ( mission, person, message );
@@ -3610,7 +3599,7 @@ bool MissionGenerator::IsMissionComplete_RemoveComputer ( Mission *mission, Pers
 
 		}
 		else if ( news->NEWSTYPE == NEWS_TYPE_COMPUTERSHUTDOWN &&
-			  	  news->data1 && strcmp ( news->data1, sourceip ) == 0 ) {
+			  	  news->data1 && news->data1 == sourceip ) {
 
 			// System shut down
 			// But files not deleted
@@ -3650,7 +3639,7 @@ bool MissionGenerator::IsMissionComplete_RemoveUser	( Mission *mission, Person *
 	UplinkAssert (person)
 	UplinkAssert (message)
 
-	char *personname = mission->completionA;
+	string personname = mission->completionA;
 
 	//
 	// Look through recent news articles
@@ -3664,9 +3653,9 @@ bool MissionGenerator::IsMissionComplete_RemoveUser	( Mission *mission, Person *
 		News *news = uplink->news.GetData (i);
 		UplinkAssert (news)
 
-		if ( news->NEWSTYPE == NEWS_TYPE_ARREST && news->data1 && strcmp ( news->data1, personname ) == 0 ) {
+		if ( news->NEWSTYPE == NEWS_TYPE_ARREST && news->data1 && news->data1 == personname ) {
 
-			if ( strcmp ( message->from, "PLAYER" ) == 0 )
+			if ( message->from == "PLAYER" )
 				game->GetWorld ()->GetPlayer ()->score_peoplefucked ++;
 
 			MissionCompleted ( mission, person, message );
@@ -3688,7 +3677,7 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 	UplinkAssert (person)
 	UplinkAssert (message)
 
-	char *finedperson = mission->completionA;
+	string finedperson = mission->completionA;
 
 	char target_ip [SIZE_VLOCATION_IP];
 	char target_accno [16];
@@ -3711,11 +3700,11 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 	bool success = target_account->HasTransferOccurred(finedperson, amount);
 	if ( !success ) {
 		Player *pl = game->GetWorld()->GetPlayer();
-		if ( strcmp ( finedperson, pl->handle ) == 0 ) {
+		if ( finedperson == pl->handle ) {
 			for ( int i = 0; i < pl->accounts.Size (); ++i ) {
-				char ip [SIZE_VLOCATION_IP];
-				char accno [16];
-				sscanf ( pl->accounts.GetData (i), "%s %s", ip, accno );
+				string ip, accno;
+				stringstream stream(pl->accounts.GetData(i));
+				stream >> ip >> accno;
 
 				BankAccount *ba = BankAccount::GetAccount ( ip, accno );
 				if ( ba && ( success = target_account->HasTransferOccurred(ba->name, amount) ) )
@@ -3732,9 +3721,6 @@ bool MissionGenerator::IsMissionComplete_PayFine ( Mission *mission, Person *per
 		//	 << mission->GetDetails () << "\n\n"
 		//	 << "We hope this has been a sufficient deterent to hacking "
 		//		"into our systems in future." << '\x0';
-		
-		body << "Payment of your fine has been received for the following offence: \n"
-			 << mission->GetDetails () << "\n" << '\x0';
 
 		auto *m = new Message ();
 		m->SetTo ( message->from );
@@ -3777,7 +3763,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
 
     UplinkAssert (mission)
 
-    if ( strcmp ( mission->description, PlotGenerator::SpecialMissionDescription ( SPECIALMISSION_MOLE ) ) == 0 ) {
+    if ( mission->description == PlotGenerator::SpecialMissionDescription ( SPECIALMISSION_MOLE ) ) {
 
         // First - has the player already done this?
 
@@ -3795,7 +3781,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
 
         }
 
-        char *ourcompip = mission->completionA;
+        string ourcompip = mission->completionA;
 
 	    //
 	    // Lookup the dump computer
@@ -3826,13 +3812,13 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
 			    Data *thisfile = ourcomp->databank.GetDataFile (i);
 			    UplinkAssert (thisfile)
 
-			    if ( strstr ( thisfile->title, "Uplink_Agent_Data" ) != nullptr &&
+			    if ( thisfile->title .find("Uplink_Agent_Data") != string::npos &&
 				     thisfile->encrypted == 0 ) {
 
 				    char unused [64];
 				    int thisfileindex;
 
-				    sscanf ( thisfile->title, "%s %d.dat", unused, &thisfileindex );
+				    sscanf ( thisfile->title.c_str(), "%s %d.dat", unused, &thisfileindex );
 
 				    if ( thisfileindex >= 0 && thisfileindex < numfiles &&
                          !filefound[thisfileindex]) {
@@ -3844,7 +3830,7 @@ bool MissionGenerator::IsMissionComplete_Special ( Mission *mission, Person *per
 
 			    }
 
-                if ( strcmp ( thisfile->title, "Uplink_Agent_List" ) == 0 &&
+                if ( thisfile->title == "Uplink_Agent_List" &&
                     thisfile->encrypted == 0 ) {
 
                     foundprogram = true;
@@ -3997,8 +3983,8 @@ void MissionGenerator::MissionCompleted ( Mission *mission, Person *person, Mess
     // Unselect all of the links on the world map
 
     for ( int i = 0; i < mission->links.Size (); ++i ) {
-        char *ip = mission->links.GetData (i);
-        UplinkAssert (ip)
+        string ip = mission->links.GetData (i);
+        assert(!ip.empty());
         VLocation *vl = game->GetWorld ()->GetVLocation (ip);
         UplinkAssert (vl)
         Computer *comp = vl->GetComputer ();

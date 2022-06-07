@@ -59,7 +59,7 @@ public:
 	int modemspeed;
 	int memorysize;
 
-	LList <char *> hardware;				// Names of all hardware items owned
+	LList <string> hardware;				// Names of all hardware items owned
 
 public:
 
@@ -97,8 +97,8 @@ public:
 	LList <string> *GetSecurity ();
 
 	void GiveStartingHardware ();
-	void GiveHardware  ( char *newhardware );
-	bool IsHWInstalled (string name );
+	void GiveHardware  (const string& newhardware );
+	bool IsHWInstalled (const string& name );
 
 	void GiveStartingSoftware ();
 

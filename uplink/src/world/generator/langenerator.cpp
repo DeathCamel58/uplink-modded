@@ -50,7 +50,7 @@ Computer  *LanGenerator::LoadLAN (const string &filename )
 	if ( thefile.eof() ) {
 
 		thefile.close ();
-		RsArchiveFileClose ( (char *) filename.c_str() );
+		RsArchiveFileClose ( filename );
 		return nullptr;
 
 	}
@@ -85,7 +85,7 @@ Computer  *LanGenerator::LoadLAN (const string &filename )
     if ( game->GetWorld ()->GetVLocation (ip) ) {
         cout << "[Already Loaded]" << endl;
 		thefile.close ();
-		RsArchiveFileClose ( (char *) filename.c_str() );
+		RsArchiveFileClose ( filename.c_str() );
         return nullptr;
     }
 
@@ -95,7 +95,7 @@ Computer  *LanGenerator::LoadLAN (const string &filename )
 	if ( !game->GetWorld()->VerifyVLocation( ip, x, y ) ) {
 		cout << "LanGenerator::LoadLAN WARNING: Location is invalid, ip(" << ip << "), x(" << x << "), y(" << y << ").(" << filename << ")" << endl;
 		thefile.close ();
-		RsArchiveFileClose ( (char *) filename.c_str() );
+		RsArchiveFileClose ( filename.c_str() );
         return nullptr;
 	}
 
@@ -298,7 +298,7 @@ Computer  *LanGenerator::LoadLAN (const string &filename )
 		int size = (int) NumberGenerator::RandomNormalNumber ( 6, 4 );
 		int encrypted = NumberGenerator::RandomNumber ( 2 );
 		int compressed = NumberGenerator::RandomNumber ( 2 );
-		char *datatitle = NameGenerator::GenerateDataName ( companyName, TYPE );
+		string datatitle = NameGenerator::GenerateDataName ( companyName, TYPE );
 
 		Data *data = new Data ();
 		data->SetTitle ( datatitle );
@@ -336,7 +336,7 @@ Computer  *LanGenerator::LoadLAN (const string &filename )
     cout << "done" << endl;
 
 	thefile.close ();
-	RsArchiveFileClose ( (char *) filename.c_str() );
+	RsArchiveFileClose ( filename.c_str() );
 
 	return comp;
 
@@ -349,13 +349,7 @@ Computer  *LanGenerator::GenerateLAN (const string &companyname, int difficulty 
     // Generate the location and computer
     //
 
-    //char *computername = strdup( NameGenerator::GenerateLANName( companyname ) );
-	char computername[MAX_COMPUTERNAME];
-	strncpy( computername, NameGenerator::GenerateLANName( companyname ),
-		     MAX_COMPUTERNAME );
-	if ( computername[MAX_COMPUTERNAME - 1] != '\0' ) {
-		computername[MAX_COMPUTERNAME - 1] = '\0';
-	}
+	string computername = NameGenerator::GenerateLANName( companyname );
 
 	VLocation *vl = WorldGenerator::GenerateLocation ();
     vl->SetListed ( false );
@@ -397,7 +391,7 @@ Computer  *LanGenerator::GenerateLAN (const string &companyname, int difficulty 
 		int size = (int) NumberGenerator::RandomNormalNumber ( 6, 4 );
 		int encrypted = NumberGenerator::RandomNumber ( 2 );
 		int compressed = NumberGenerator::RandomNumber ( 2 );
-		char *datatitle = NameGenerator::GenerateDataName ( companyname, TYPE );
+		string datatitle = NameGenerator::GenerateDataName ( companyname, TYPE );
 
 		Data *data = new Data ();
 		data->SetTitle ( datatitle );
@@ -2092,7 +2086,7 @@ void LanCluster::Merge ( LanCluster *target, LanComputer *comp )
 							if ( locations->GetData(i)->GetOBJECTID() == OID_VLOCATIONSPECIAL ) {
 
 								auto *vl = (VLocationSpecial *) locations->GetData(i);
-								if ( strcmp ( vl->computer, comp->name ) == 0 &&
+								if ( vl->computer == comp->name &&
 									 vl->screenIndex == targetScreenIndex &&
 									 vl->securitySystemIndex < systems.Size () ) {
 
@@ -2195,7 +2189,7 @@ void LanCluster::Merge ( LanComputer *target )
 							if ( locations->GetData(i)->GetOBJECTID() == OID_VLOCATIONSPECIAL ) {
 
 								auto *vl = (VLocationSpecial *) locations->GetData(i);
-								if ( strcmp ( vl->computer, target->name ) == 0 &&
+								if ( vl->computer == target->name &&
 									 vl->screenIndex == targetScreenIndex &&
 									 vl->securitySystemIndex < systems.Size () ) {
 

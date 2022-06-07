@@ -765,18 +765,18 @@ void IRCInterface::Create ()
         if ( !imgSmileyHappy ) {   
             imgSmileyHappy = new Image ();   
             string filename = app->GetOptions ()->ThemeFilename ("irc/smileyhappy.tif");
-            imgSmileyHappy->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
+            imgSmileyHappy->LoadTIF ( RsArchiveFileOpen ( filename ) );
         }
         if ( !imgSmileySad ) {
             imgSmileySad = new Image ();   
             string filename = app->GetOptions ()->ThemeFilename ("irc/smileysad.tif");
-            imgSmileySad->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
+            imgSmileySad->LoadTIF ( RsArchiveFileOpen ( filename ) );
         }
         if ( !imgSmileyWink )
         {   
             string filename = app->GetOptions ()->ThemeFilename ("irc/smileywink.tif");
             imgSmileyWink = new Image ();   
-            imgSmileyWink->LoadTIF ( RsArchiveFileOpen ( (char *) filename.c_str() ) );
+            imgSmileyWink->LoadTIF ( RsArchiveFileOpen ( filename ) );
         }
 
 	}

@@ -114,7 +114,7 @@ void SendMailInterface::ToggleFileList ( int x, int y )
 
 		// Create a list of all files in memory
 
-		LList <char *> software;				// Bit of a hack - think about this
+		LList <string> software;				// Bit of a hack - think about this
 
 		DataBank *db = &(game->GetWorld ()->GetPlayer ()->gateway.databank);
 
@@ -133,8 +133,8 @@ void SendMailInterface::ToggleFileList ( int x, int y )
 
 			for ( int si = 0; si < numfiles; ++si ) {
 
-				char caption [128], name [128];
-				UplinkStrncpy ( caption, software.GetData (si), sizeof ( caption ) )
+				char name [128];
+				string caption = software.GetData (si);
 				string tooltip = "Attach this file to the mail message";
 				UplinkSnprintf ( name, sizeof ( name ), "sendmail_file %d", si )
 				EclRegisterButton ( x, y, 120, 15, caption, tooltip, name );
@@ -198,7 +198,7 @@ void SendMailInterface::ToggleAddressBook ( int x, int y )
 
 				string name = "sendmail_addressbook " + to_string(i);
 
-				char *contact = game->GetWorld ()->GetPlayer ()->missions.GetData (i)->contact;
+				string contact = game->GetWorld ()->GetPlayer ()->missions.GetData (i)->contact;
 
 				EclRegisterButton ( x, y, 140, 15, contact, "Send to this recipient", name );
 				EclRegisterButtonCallbacks ( name, button_draw, AddressClick, button_click, button_highlight );
@@ -405,9 +405,9 @@ void SendMailInterface::Update ()
 		EclGetButton ( "sendmail_subject" )->SetCaption ( m->GetSubject () );
 		EclGetButton ( "sendmail_body box" )->SetCaption ( m->GetBody () );
 
-		char attached [128];
-		if ( m->GetData () ) {    UplinkSnprintf ( attached, sizeof ( attached ), "File: %s", m->GetData ()->title )
-		} else {                  UplinkStrncpy ( attached, "File: None attached", sizeof ( attached ) )
+		string attached;
+		if ( m->GetData () ) {    attached = "File: " + m->GetData ()->title;
+		} else {                  attached = "File: None attached";
 		}
 		EclGetButton ( "sendmail_file" )->SetCaption ( attached );
 		

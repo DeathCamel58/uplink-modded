@@ -86,8 +86,8 @@ void RevelationTracker::Tick ( int n )
 
 				for ( int i = 0; i < game->GetWorld ()->plotgenerator.infected.Size (); ++i ) {
 
-					char *ip = game->GetWorld ()->plotgenerator.infected.GetData (i);
-					UplinkAssert (ip)
+					string ip = game->GetWorld ()->plotgenerator.infected.GetData (i);
+					assert(!ip.empty());
 
 					VLocation *vl = game->GetWorld ()->GetVLocation (ip);
 					UplinkAssert (vl)

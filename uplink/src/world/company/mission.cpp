@@ -59,7 +59,7 @@ Mission::~Mission ()
 
 	delete duedate;
 
-	DeleteLListData ( &links );
+	DeleteLListData ( links );
 	DeleteBTreeData ( &codes );
 
 }
@@ -248,11 +248,7 @@ void Mission::SetAcceptRating ( int newrating )
 void Mission::GiveLink (const string &ip )
 {
 
-	assert( ip.length() < SIZE_VLOCATION_IP );
-	size_t theipsize = SIZE_VLOCATION_IP;
-	char *theip = new char [theipsize];
-	UplinkStrncpy ( theip, ip.c_str(), theipsize )
-	links.PutData ( theip );
+	links.PutData ( ip );
 
 }
 
@@ -357,7 +353,7 @@ bool Mission::Load  ( FILE *file )
 	if ( !LoadDynamicStringPtr ( &howsecure, file ) ) return false;
 	if ( !LoadDynamicStringPtr ( &whoisthetarget, file ) ) return false;
 	
-	if ( !LoadLList ( &links, file ) ) return false;
+	if ( !LoadLList ( links, file ) ) return false;
 	if ( !LoadBTree ( &codes, file ) ) return false;
 
 	bool hasduedate;
@@ -412,7 +408,7 @@ void Mission::Save  ( FILE *file )
 	SaveDynamicString ( howsecure, file );
 	SaveDynamicString ( whoisthetarget, file );
 
-	SaveLList ( &links, file );
+	SaveLList ( links, file );
 	SaveBTree ( &codes, file );
 
 	bool hasduedate = (duedate != nullptr);
@@ -450,7 +446,7 @@ void Mission::Print ()
     PrintValue("WhySoMuchMoney", whysomuchmoney);
     PrintValue("HowSecure", howsecure);
 
-	PrintLList ( &links );
+	PrintLList ( links );
 	PrintBTree ( &codes );
 
 	if ( duedate ) {

@@ -272,8 +272,7 @@ void VoiceAnalyser::SetTarget (UplinkObject *uo, const string &uos, int uoi )
             Data *data = source->GetData (sourceindex);
             UplinkAssert (data)
 
-            char ip[ SIZE_DATA_TITLE + 1 ];
-            sscanf( data->title, "%s", ip );
+            string ip = data->title;
 
             VLocation *loc = game->GetWorld ()->GetVLocation ( ip );
             if ( loc ) {

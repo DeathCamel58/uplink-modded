@@ -17,15 +17,11 @@
 #include "mmgr.h"
 
 
-LList <char *> NameGenerator::fornames;
-LList <char *> NameGenerator::surnames;
-LList <char *> NameGenerator::agentaliases;
-LList <char *> NameGenerator::companynamesA;
-LList <char *> NameGenerator::companynamesB;
-
-
-static char tempname [MAX_COMPUTERNAME];                 // This is used to return string values
-
+LList <string> NameGenerator::fornames;         // A list of all possible forenames
+LList <string> NameGenerator::surnames;         // A list of all possible surnames
+LList <string> NameGenerator::agentaliases;     // A list of all possible agent aliases
+LList <string> NameGenerator::companynamesA;    // A list of all possible starts of company names
+LList <string> NameGenerator::companynamesB;    // A list of all possible endings of company names
 
 void NameGenerator::Initialise ()
 {
@@ -34,11 +30,11 @@ void NameGenerator::Initialise ()
 void NameGenerator::Shutdown ()
 {
 
-    DeleteLListData ( &fornames );
-    DeleteLListData ( &surnames );
-    DeleteLListData ( &agentaliases );
-    DeleteLListData ( &companynamesA );
-    DeleteLListData ( &companynamesB );
+    DeleteLListData ( fornames );
+    DeleteLListData ( surnames );
+    DeleteLListData ( agentaliases );
+    DeleteLListData ( companynamesA );
+    DeleteLListData ( companynamesB );
 
     fornames.Empty ();
     surnames.Empty ();
@@ -48,11 +44,14 @@ void NameGenerator::Shutdown ()
 
 }
 
+/**
+ * Loads all forname, surname, agentaliase, companynameA, and companynameB entries into LLists
+ */
 void NameGenerator::LoadNames ()
 {
 
 	//
-	// Load fornames (only required once)
+	// Load forenames (only required once)
 	//
 
 	char tempName [ 128 ];
@@ -65,14 +64,12 @@ void NameGenerator::LoadNames ()
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
-			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName )
+			string name = tempName;
 			fornames.PutData ( name );
 
 		}
 		
-        char *deleteme = fornames.GetData ( fornames.Size () - 1 );
-        delete [] deleteme;
+        string deleteme = fornames.GetData ( fornames.Size () - 1 );
         fornames.RemoveData ( fornames.Size () - 1 );					// Remove last entry
 
 		RsArchiveFileClose ( "data/fornames.txt", file );
@@ -91,14 +88,12 @@ void NameGenerator::LoadNames ()
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
-			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName )
+			string name = tempName;
 			surnames.PutData ( name );
 
 		}
 
-        char *deleteme = surnames.GetData ( surnames.Size () - 1 );
-        delete [] deleteme;
+        string deleteme = surnames.GetData ( surnames.Size () - 1 );
 		surnames.RemoveData ( surnames.Size () - 1 );					// Remove last entry
 
 		RsArchiveFileClose ( "data/surnames.txt", file );
@@ -117,14 +112,12 @@ void NameGenerator::LoadNames ()
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
-			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName )
+			string name = tempName;
 			agentaliases.PutData ( name );
 
 		}
 
-        char *deleteme = agentaliases.GetData ( agentaliases.Size () - 1 );
-        delete [] deleteme;
+        string deleteme = agentaliases.GetData ( agentaliases.Size () - 1 );
 		agentaliases.RemoveData ( agentaliases.Size () - 1 );					// Remove last entry
 
 		RsArchiveFileClose ( "data/agentaliases.txt", file );
@@ -144,14 +137,12 @@ void NameGenerator::LoadNames ()
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
-			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName )
+			string name = tempName;
 			companynamesA.PutData ( name );
 
 		}
 
-        char *deleteme = companynamesA.GetData ( companynamesA.Size () - 1 );
-        delete [] deleteme;
+        string deleteme = companynamesA.GetData ( companynamesA.Size () - 1 );
 		companynamesA.RemoveData ( companynamesA.Size () - 1 );					// Remove last entry
 
 		RsArchiveFileClose ( "data/companya.txt", file );
@@ -170,14 +161,12 @@ void NameGenerator::LoadNames ()
 		while ( !feof ( file ) ) {
 
 			fscanf ( file, "%s\n", tempName );
-			char *name = new char [ strlen ( tempName ) + 1 ];
-			UplinkSafeStrcpy ( name, tempName )
+			string name = tempName;
 			companynamesB.PutData ( name );
 
 		}
 
-        char *deleteme = companynamesB.GetData ( companynamesB.Size () - 1 );
-        delete [] deleteme;
+        string deleteme = companynamesB.GetData ( companynamesB.Size () - 1 );
 		companynamesB.RemoveData ( companynamesB.Size () - 1 );					// Remove last entry
 
 		RsArchiveFileClose ( "data/companyb.txt", file );
@@ -186,7 +175,11 @@ void NameGenerator::LoadNames ()
 
 }
 
-char *NameGenerator::GenerateCompanyName ()
+/**
+ * Gets a random companynameA and companynameB
+ * @return A random companynameA and companynameB in format "<companynameA> <companynameB>"
+ */
+string NameGenerator::GenerateCompanyName ()
 {
 
 	LoadNames ();
@@ -203,19 +196,20 @@ char *NameGenerator::GenerateCompanyName ()
 
 	// Build the name 
 
-    char *companynameA = companynamesA.GetData (index1);
-    char *companynameB = companynamesB.GetData (index2);
-	char name [SIZE_COMPANY_NAME];
-	UplinkSnprintf ( name, sizeof ( name ), "%s %s", companynameA, companynameB )
+    string companynameA = companynamesA.GetData (index1);
+    string companynameB = companynamesB.GetData (index2);
+	string name = companynameA + " " + companynameB;
 
-	delete [] companynameA;
     companynamesA.RemoveData (index1);
 
-    UplinkStrncpy ( tempname, name, sizeof ( tempname ) )
-	return tempname;
+	return name;
 
 }
 
+/**
+ * Gets a random forname and surname
+ * @return A random forname and surname in format "<forname> <surname>"
+ */
 string NameGenerator::GeneratePersonName ()
 {
 
@@ -229,44 +223,41 @@ string NameGenerator::GeneratePersonName ()
 
 	// Build the name;
 
-    char *forname = fornames.GetData (index_f);
-    char *surname = surnames.GetData (index_s);
-	char name [SIZE_PERSON_NAME];
-	UplinkSnprintf ( name, sizeof ( name ), "%s %s", forname, surname )
+    string forname = fornames.GetData (index_f);
+    string surname = surnames.GetData (index_s);
+	string name = forname + " " + surname;
 
-    delete [] surname;
 	surnames.RemoveData (index_s);
 
-    UplinkStrncpy ( tempname, name, sizeof ( tempname ) )
+    string tempname = name;
 	return tempname;
 
 }
 
-char *NameGenerator::GenerateAgentAlias ()
+/**
+ * Gets a random agent alias from the list of possible aliases
+ * @return A random agent alias
+ */
+string NameGenerator::GenerateAgentAlias ()
 {
 
 	LoadNames ();
 
 	int index = NumberGenerator::RandomNumber ( agentaliases.Size () );
 
-	char *result = agentaliases.GetData (index);
-    UplinkStrncpy ( tempname, result, sizeof ( tempname ) )
+	string result = agentaliases.GetData (index);
 
-    delete [] result;
 	agentaliases.RemoveData (index);
 
-	return tempname;
+	return result;
 
 }
 
-char *NameGenerator::GenerateBankName ()
-{
-
-	return GenerateCompanyName ();
-
-}
-
-char *NameGenerator::GeneratePassword ()
+/**
+ * Gets a password from the list of possible ones
+ * @return The password
+ */
+string NameGenerator::GeneratePassword ()
 {
 
 	int numpasswords = game->GetWorld ()->passwords.Size ();
@@ -300,14 +291,14 @@ string NameGenerator::GenerateEasyPassword ()
 
 }
 
-char *NameGenerator::GenerateComplexPassword ()
+/**
+ * Gets a normal password with up to half of the letters changed
+ * @return The complex password
+ */
+string NameGenerator::GenerateComplexPassword ()
 {
 
-	// Get a normal password
-	// change up to half the letters
-
-	char password [9];
-	UplinkStrncpy ( password, GeneratePassword (), sizeof ( password ) )
+	string password = GeneratePassword();
 
 	int numchanges = NumberGenerator::RandomNumber ( 5 );
 
@@ -316,107 +307,139 @@ char *NameGenerator::GenerateComplexPassword ()
 		int letternumber = NumberGenerator::RandomNumber ( 8 );
 		char newcharacter = NumberGenerator::RandomNumber ( 26 ) + 'a';
 
-		*(password + letternumber) = newcharacter;
+		password[letternumber] = newcharacter;
 
 	}
 
-    UplinkStrncpy ( tempname, password, sizeof ( tempname ) )
-	return tempname;
+	return password;
 
 }
 
-char *NameGenerator::GenerateDataName (const string &companyname, int DATATYPE )
+string NameGenerator::GenerateDataName (const string &companyname, int DATATYPE )
 {
 
 	assert(!companyname.empty());
 
-	char dataname [SIZE_DATA_TITLE];
+	string dataname;
+    string firstThree = companyname.substr(0, 3);
 
 	switch ( DATATYPE ) {
 
 		case DATATYPE_NONE:
 		{
 
-			UplinkSnprintf ( dataname, sizeof ( dataname ), "%c%c%c-file-%d", companyname [0], companyname [1], companyname [2],
-																				NumberGenerator::RandomNumber ( 99999 ) )
+			dataname = firstThree + "-file-" + to_string(NumberGenerator::RandomNumber ( 99999 ));
 			break;
 
 		}
 		case DATATYPE_DATA:
 		{
 			
-			UplinkSnprintf ( dataname, sizeof ( dataname ), "%c%c%c-data-%d", companyname [0], companyname [1], companyname [2],
-																				NumberGenerator::RandomNumber ( 99999 ) )
+			dataname = firstThree + "-data-" + to_string(NumberGenerator::RandomNumber ( 99999 ));
 			break;
 
 		}
 		case DATATYPE_PROGRAM:
 		{
 
-			UplinkSnprintf ( dataname, sizeof ( dataname ), "%c%c%c-prog-%d", companyname [0], companyname [1], companyname [2],
-																				NumberGenerator::RandomNumber ( 99999 ) )
+			dataname = firstThree + "-prog-" + to_string(NumberGenerator::RandomNumber ( 99999 ));
 			break;
 
 		}
 
 	}
 
-    UplinkStrncpy ( tempname, dataname, sizeof ( tempname ) )
-	return tempname;
+	return dataname;
 
 }
 
-char *NameGenerator::GeneratePublicAccessServerName(const string &companyname )
+/**
+ * Gets public access server name of given company
+ * @param companyname Company to get public access server name for
+ * @return The phone system name in the format "<companyname> Public Access Server"
+ */
+string NameGenerator::GeneratePublicAccessServerName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Public Access Server", companyname.c_str() )
-    return tempname;
+    return companyname + " Public Access Server";
 }
 
-char *NameGenerator::GenerateAccessTerminalName(const string &companyname )
+/**
+ * Gets access terminal name of given company
+ * @param companyname Company to get access terminal name for
+ * @return The phone system name in the format "<companyname> Access Terminal"
+ */
+string NameGenerator::GenerateAccessTerminalName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Access Terminal", companyname.c_str() )
-    return tempname;
+    return companyname + " Access Terminal";
 }
 
-char *NameGenerator::GenerateInternalServicesServerName (const string &companyname )
+/**
+ * Gets internal services server name of given company
+ * @param companyname Company to get internal services server name for
+ * @return The phone system name in the format "<companyname> Internal Services Machine"
+ */
+string NameGenerator::GenerateInternalServicesServerName (const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Internal Services Machine", companyname.c_str() )
-    return tempname;  
+    return companyname + " Internal Services Machine";
 }
 
-char *NameGenerator::GenerateCentralMainframeName(const string &companyname )
+/**
+ * Gets central mainframe name of given company
+ * @param companyname Company to get central mainframe name for
+ * @return The phone system name in the format "<companyname> Central Mainframe"
+ */
+string NameGenerator::GenerateCentralMainframeName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Central Mainframe", companyname.c_str() )
-    return tempname;
+    return companyname + " Central Mainframe";
 }
 
-char *NameGenerator::GenerateInternationalBankName(const string &companyname )
+/**
+ * Gets international bank name of given company
+ * @param companyname Company to get international bank name for
+ * @return The phone system name in the format "<companyname> International Bank"
+ */
+string NameGenerator::GenerateInternationalBankName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s International Bank", companyname.c_str() )
-    return tempname;
+    return companyname + " International Bank";
 }
 
-char *NameGenerator::GenerateFileServerName(const string &companyname )
+/**
+ * Gets file server name of given company
+ * @param companyname Company to get file server name for
+ * @return The phone system name in the format "<companyname> File server"
+ */
+string NameGenerator::GenerateFileServerName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s File Server", companyname.c_str() )
-    return tempname;
+    return companyname + " File Server";
 }
 
-char *NameGenerator::GenerateLANName(const string &companyname )
+/**
+ * Gets LAN name of given company
+ * @param companyname Company to get LAN name for
+ * @return The phone system name in the format "<companyname> Local Area Network"
+ */
+string NameGenerator::GenerateLANName(const string &companyname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s Local Area Network", companyname.c_str() )
-    return tempname;
+    return companyname + " Local Area Network";
 }
 
-char *NameGenerator::GeneratePersonalComputerName(const string &personname )
+/**
+ * Gets personal computer name of given person
+ * @param personname Person to get personal computer name for
+ * @return The phone system name in the format "<personname> Personal Computer"
+ */
+string NameGenerator::GeneratePersonalComputerName(const string &personname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Personal Computer", personname.c_str() )
-    return tempname;
+    return personname + " Personal Computer";
 }
 
-char *NameGenerator::GenerateVoicePhoneSystemName(const string &personname )
+/**
+ * Gets voice phone system name of given person
+ * @param personname Person to get voice phone system name for
+ * @return The phone system name in the format "<personname> Voice Phone System"
+ */
+string NameGenerator::GenerateVoicePhoneSystemName(const string &personname )
 {
-    UplinkSnprintf( tempname, sizeof ( tempname ), "%s's Voice Phone System", personname.c_str() )
-    return tempname;
+    return personname + " Voice Phone System";
 }
 
