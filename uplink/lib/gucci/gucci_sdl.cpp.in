@@ -321,33 +321,40 @@ void GciMainLoop() {
                     SDL_GetMouseState(&x, &y);
 
                     Uint16 unicode = event.key.keysym.sym;
-                    if ((event.key.keysym.mod & KMOD_NUM) == KMOD_NUM) {
-                        if (SDLK_KP_1 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP_9)
-                            unicode = SDLK_1 + (event.key.keysym.sym - SDLK_KP_1);
-                        else if (event.key.keysym.sym == SDLK_KP_0)
-                            unicode = SDLK_0;
-                        else if (event.key.keysym.sym == SDLK_KP_PERIOD)
-                            unicode = SDLK_PERIOD;
-                        else if (event.key.keysym.sym == SDLK_KP_ENTER)
-                            unicode = SDLK_RETURN;
-                        else if (event.key.keysym.sym == SDLK_KP_PLUS)
-                            unicode = SDLK_PLUS;
-                        else if (event.key.keysym.sym == SDLK_KP_MINUS)
-                            unicode = SDLK_MINUS;
-                        else if (event.key.keysym.sym == SDLK_KP_MULTIPLY)
-                            unicode = SDLK_ASTERISK;
-                        else if (event.key.keysym.sym == SDLK_KP_DIVIDE)
-                            unicode = SDLK_SLASH;
-                        else if (event.key.keysym.sym == SDLK_KP_EQUALS)
-                            unicode = SDLK_EQUALS;
-                    }
-
-                    if (unicode == 0) {
+                    if (
+                            (event.key.keysym.scancode >= SDL_SCANCODE_F1 && event.key.keysym.scancode <= SDL_SCANCODE_NUMLOCKCLEAR) ||
+                            (event.key.keysym.scancode >= SDL_SCANCODE_LCTRL && event.key.keysym.scancode <= SDL_SCANCODE_RGUI)
+                        ) {
                         if (gciSpecialHandlerP)
                             (*gciSpecialHandlerP)(sdlKeyToGucci(event.key.keysym.sym), x, y);
-                    } else {
-                        if (gciKeyboardHandlerP)
-                            (*gciKeyboardHandlerP)((unsigned char) unicode, x, y);
+                        break;
+                    }
+
+                    if (SDLK_KP_1 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP_9)
+                        unicode = SDLK_1 + (event.key.keysym.sym - SDLK_KP_1);
+                    else if (event.key.keysym.sym == SDLK_KP_0)
+                        unicode = SDLK_0;
+                    else if (event.key.keysym.sym == SDLK_KP_PERIOD)
+                        unicode = SDLK_PERIOD;
+                    else if (event.key.keysym.sym == SDLK_KP_ENTER)
+                        unicode = SDLK_RETURN;
+                    else if (event.key.keysym.sym == SDLK_KP_PLUS)
+                        unicode = SDLK_PLUS;
+                    else if (event.key.keysym.sym == SDLK_KP_MINUS)
+                        unicode = SDLK_MINUS;
+                    else if (event.key.keysym.sym == SDLK_KP_MULTIPLY)
+                        unicode = SDLK_ASTERISK;
+                    else if (event.key.keysym.sym == SDLK_KP_DIVIDE)
+                        unicode = SDLK_SLASH;
+                    else if (event.key.keysym.sym == SDLK_KP_EQUALS)
+                        unicode = SDLK_EQUALS;
+
+                    if (gciKeyboardHandlerP) {
+                        if (event.key.keysym.unused <= 126) {
+                            (*gciKeyboardHandlerP)(event.key.keysym.unused, x, y);
+                        } else {
+                            (*gciKeyboardHandlerP)(unicode, x, y);
+                        }
                     }
                 }
                     break;
@@ -593,11 +600,6 @@ void GciSaveScreenshot(const string &file) {
 
     int w = SDL_GetWindowSurface(screen)->w;
     int h = SDL_GetWindowSurface(screen)->h;
-
-    if (!(SDL_GetWindowSurface(screen)->flags & SDL_WINDOW_OPENGL)) {
-        //SDL_SaveBMP(temp, file);
-        return;
-    }
 
     temp = SDL_CreateRGBSurface(SDL_SWSURFACE, w, h, 24,
 #if SDL_BYTEORDER == SDL_LIL_ENDIAN
