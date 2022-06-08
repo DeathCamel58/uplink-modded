@@ -185,6 +185,9 @@ char *GciInitGraphics(const string &caption, int graphics_flags, int screenWidth
 
     if (debugging) printf("done\n ");
 
+    // Enable text input
+    SDL_StartTextInput();
+
     return nullptr;
 }
 
@@ -312,12 +315,20 @@ void GciMainLoop() {
             (*gciDisplayHandlerP)();
 
         SDL_Event event;
+        int x, y;
 
         /* Check for events */
         while (SDL_PollEvent(&event) && !finished) {  /* Loop until there are no events left on the queue */
             switch (event.type) {  /* Process the appropriate event type */
+                case SDL_TEXTINPUT:
+                    SDL_GetMouseState(&x, &y);
+
+                    if (gciKeyboardHandlerP) {
+                        (*gciKeyboardHandlerP)(event.text.text[0], x, y);
+                    }
+
+                    break;
                 case SDL_KEYDOWN: {
-                    int x, y;
                     SDL_GetMouseState(&x, &y);
 
                     Uint16 unicode = event.key.keysym.sym;
@@ -330,33 +341,11 @@ void GciMainLoop() {
                         break;
                     }
 
-                    if (SDLK_KP_1 <= event.key.keysym.sym && event.key.keysym.sym <= SDLK_KP_9)
-                        unicode = SDLK_1 + (event.key.keysym.sym - SDLK_KP_1);
-                    else if (event.key.keysym.sym == SDLK_KP_0)
-                        unicode = SDLK_0;
-                    else if (event.key.keysym.sym == SDLK_KP_PERIOD)
-                        unicode = SDLK_PERIOD;
-                    else if (event.key.keysym.sym == SDLK_KP_ENTER)
-                        unicode = SDLK_RETURN;
-                    else if (event.key.keysym.sym == SDLK_KP_PLUS)
-                        unicode = SDLK_PLUS;
-                    else if (event.key.keysym.sym == SDLK_KP_MINUS)
-                        unicode = SDLK_MINUS;
-                    else if (event.key.keysym.sym == SDLK_KP_MULTIPLY)
-                        unicode = SDLK_ASTERISK;
-                    else if (event.key.keysym.sym == SDLK_KP_DIVIDE)
-                        unicode = SDLK_SLASH;
-                    else if (event.key.keysym.sym == SDLK_KP_EQUALS)
-                        unicode = SDLK_EQUALS;
-
                     if (gciKeyboardHandlerP) {
-                        if (event.key.keysym.unused <= 126) {
-                            (*gciKeyboardHandlerP)(event.key.keysym.unused, x, y);
-                        } else {
+                        if (unicode <= 32 || unicode >= 126)
                             (*gciKeyboardHandlerP)(unicode, x, y);
                         }
                     }
-                }
                     break;
                 case SDL_MOUSEMOTION:
                     if (gciMotionHandlerP) {
