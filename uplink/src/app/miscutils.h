@@ -21,7 +21,7 @@ bool DoesFileExist          (const string& filename );
 void EmptyDirectory         (const string &directory );
 bool CopyFilePlain          (const string &oldfilename, const string &newfilename );
 bool CopyFileUplink         ( const char *oldfilename, const char *newfilename );
-bool RemoveFile             (const string &filename );
+void RemoveFile             (const string &filename );
 
 DArray <char *> *ListDirectory  ( char *directory, char *filter );
 DArray <char *> *ListSubdirs (const string &directory );

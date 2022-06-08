@@ -223,12 +223,15 @@ bool CopyFileUplink ( const char *oldfilename, const char *newfilename )
 /**
  * Deletes a file
  * @param filename File name to delete
- * @return `true` if file deleted
  */
-bool RemoveFile (const string &filename )
+void RemoveFile (const string &filename )
 {
 
-    filesystem::remove(filename);
+    if (filesystem::exists(filesystem::path(filename))) {
+        filesystem::remove(filename);
+    } else {
+        cout << "Tried to delete \"" << filename << "\", but the path doesn't exist" << endl;
+    }
 
 }
 
