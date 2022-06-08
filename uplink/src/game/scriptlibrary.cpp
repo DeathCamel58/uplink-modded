@@ -969,7 +969,7 @@ void ScriptLibrary::Script40 ()
 	}
 	else {
 
-		// Download is occuring
+		// Download is occurring
 		// Set the percentage done so far
 
 		Button *button = EclGetButton ( "downloadingUOS" );
@@ -977,7 +977,7 @@ void ScriptLibrary::Script40 ()
 
 		int progress = (int) (100.0 * (float) button->width / 200.0);
 
-		string caption = to_string(progress) + " %%";
+		string caption = to_string(progress) + " %";
 		
 		Button *prog = EclGetButton ( "downloadingUOS_prog" );
 		UplinkAssert (prog)

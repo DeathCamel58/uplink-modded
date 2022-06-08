@@ -281,7 +281,7 @@ void TraceTracker::Tick ( int n )
 				else if ( version == 2.0 ) {
 
 					int percent = (int) ( 100 * (float) connection->traceprogress / (float) (connection->GetSize () - 1) );
-					string caption = "Trace: " + to_string(percent) + "%%";
+					string caption = "Trace: " + to_string(percent) + "%";
 					button->SetCaption ( caption );		
 
 				}

@@ -75,10 +75,10 @@ void LoansScreenInterface::IncreaseLoanClick ( Button *button )
 			// Update the interest rate 
 
 			string rate;
-			if		( newloan <= SMALLLOAN_MAX ) {			rate = "(" + to_string(int (100.0 * SMALLLOAN_INTEREST)) + "%% apr)";
-			} else if ( newloan <= MEDIUMLOAN_MAX ) {		rate = "(" + to_string(int (100.0 * MEDIUMLOAN_INTEREST)) + "%% apr)";
-			} else if ( newloan <= LARGELOAN_MAX ) {		rate = "(" + to_string(int (100.0 * LARGELOAN_INTEREST)) + "%% apr)";
-			} else {										rate = "(" + to_string(int (100.0 * MAXLOAN_INTEREST)) + "%% apr)";
+			if		( newloan <= SMALLLOAN_MAX ) {			rate = "(" + to_string(int (100.0 * SMALLLOAN_INTEREST)) + "% apr)";
+			} else if ( newloan <= MEDIUMLOAN_MAX ) {		rate = "(" + to_string(int (100.0 * MEDIUMLOAN_INTEREST)) + "% apr)";
+			} else if ( newloan <= LARGELOAN_MAX ) {		rate = "(" + to_string(int (100.0 * LARGELOAN_INTEREST)) + "% apr)";
+			} else {										rate = "(" + to_string(int (100.0 * MAXLOAN_INTEREST)) + "% apr)";
 			}
 
 			EclGetButton ( "loansscreen_loanrate" )->SetCaption ( rate );
@@ -117,10 +117,10 @@ void LoansScreenInterface::DecreaseLoanClick ( Button *button )
 		// Update the interest rate 
 
 		string rate;
-		if		( newloan <= SMALLLOAN_MAX ) {			rate= "(" + to_string(int (100.0 * SMALLLOAN_INTEREST)) + "%% apr)";
-		} else if ( newloan <= MEDIUMLOAN_MAX ) {		rate= "(" + to_string(int (100.0 * MEDIUMLOAN_INTEREST)) + "%% apr)";
-		} else if ( newloan <= LARGELOAN_MAX ) {		rate= "(" + to_string(int (100.0 * LARGELOAN_INTEREST)) + "%% apr)";
-		} else {										rate= "(" + to_string(int (100.0 * MAXLOAN_INTEREST)) + "%% apr)";
+		if		( newloan <= SMALLLOAN_MAX ) {			rate= "(" + to_string(int (100.0 * SMALLLOAN_INTEREST)) + "% apr)";
+		} else if ( newloan <= MEDIUMLOAN_MAX ) {		rate= "(" + to_string(int (100.0 * MEDIUMLOAN_INTEREST)) + "% apr)";
+		} else if ( newloan <= LARGELOAN_MAX ) {		rate= "(" + to_string(int (100.0 * LARGELOAN_INTEREST)) + "% apr)";
+		} else {										rate= "(" + to_string(int (100.0 * MAXLOAN_INTEREST)) + "% apr)";
 		}
 
 		EclGetButton ( "loansscreen_loanrate" )->SetCaption ( rate );
@@ -251,10 +251,10 @@ void LoansScreenInterface::Create ( ComputerScreen *newcs )
 			// Update the interest rate 
 
 			string rate;
-			if		( account->loan <= SMALLLOAN_MAX ) {		rate = "(" + to_string(int (100.0 * SMALLLOAN_INTEREST)) + "%% apr)";
-			} else if ( account->loan <= MEDIUMLOAN_MAX ) {		rate = "(" + to_string(int (100.0 * MEDIUMLOAN_INTEREST)) + "%% apr)";
-			} else if ( account->loan <= LARGELOAN_MAX ) {		rate = "(" + to_string(int (100.0 * LARGELOAN_INTEREST)) + "%% apr)";
-			} else {											rate = "(" + to_string(int (100.0 * MAXLOAN_INTEREST)) + "%% apr)";
+			if		( account->loan <= SMALLLOAN_MAX ) {		rate = "(" + to_string(int (100.0 * SMALLLOAN_INTEREST)) + "% apr)";
+			} else if ( account->loan <= MEDIUMLOAN_MAX ) {		rate = "(" + to_string(int (100.0 * MEDIUMLOAN_INTEREST)) + "% apr)";
+			} else if ( account->loan <= LARGELOAN_MAX ) {		rate = "(" + to_string(int (100.0 * LARGELOAN_INTEREST)) + "% apr)";
+			} else {											rate = "(" + to_string(int (100.0 * MAXLOAN_INTEREST)) + "% apr)";
 			}
 
 			EclGetButton ( "loansscreen_loanrate" )->SetCaption ( rate );

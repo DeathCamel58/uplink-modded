@@ -495,7 +495,7 @@ void VoiceAnalyser::Tick ( int n )
 			 for ( int count = 0; count < n; ++count ) {
 
 				++progress;      
-				string caption = "Downloading " + to_string( ( progress / numticksrequired ) * 100 ) + "%% ...";
+				string caption = "Downloading " + to_string( ( progress / numticksrequired ) * 100 ) + "% ...";
 				EclRegisterCaptionChange ( textbutton, caption );
 
 				if ( progress >= numticksrequired ) {

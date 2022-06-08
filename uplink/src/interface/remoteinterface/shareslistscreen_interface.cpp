@@ -118,11 +118,11 @@ void SharesListScreenInterface::ShareDraw ( Button *button, bool highlighted, bo
 
 		string currentprice = to_string(company->GetSharePrice()) + " c";
 
-		char changeinprice [16];
+		string changeinprice;
 		if ( company->GetShareChange () != 0 ) {
-			UplinkSnprintf ( changeinprice, sizeof ( changeinprice ), "(%d%%)", company->GetShareChange () )
+			changeinprice = "(" + to_string(company->GetShareChange()) + "%)";
 		} else {
-			UplinkStrncpy ( changeinprice, "-", sizeof ( changeinprice ) )
+			changeinprice = "-";
 		}
 
         // If we own any, put a * by the name

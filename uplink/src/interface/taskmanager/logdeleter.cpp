@@ -526,7 +526,7 @@ void LogDeleter::Tick ( int n )
 
 						++currentreplaceindex;
 						int percentagedone = 100 * (currentreplaceindex - sourceindex) / (source->logs.Size () - sourceindex);
-						string caption = "Shifting logs...(" + to_string(percentagedone) + "%%)";
+						string caption = "Shifting logs...(" + to_string(percentagedone) + "%)";
 						EclRegisterCaptionChange ( sprogress, caption, 0 );
 
 					}

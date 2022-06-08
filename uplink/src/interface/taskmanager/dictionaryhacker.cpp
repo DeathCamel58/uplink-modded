@@ -146,7 +146,7 @@ void DictionaryHacker::Tick ( int n )
 			}
 
 			int percentage = (int)((float) currentindex / (float) game->GetWorld ()->passwords.Size () * 100);
-			string caption = "\nTrying\nWordlist..." + to_string(percentage) + "%%\n-> ";
+			string caption = "\nTrying\nWordlist..." + to_string(percentage) + "%\n-> ";
 			for ( int i = currentindex; i < currentindex + 10; ++i ) {
 				if ( !game->GetWorld ()->GetPassword (i).empty() ) {
 					caption += game->GetWorld ()->GetPassword ( i );
