@@ -41,6 +41,8 @@ protected:
 	static void DeleteEventClick ( Button *button );
     
 	static void FullDetailsCloseClick ( Button *button );
+    static void ScrollChange (const string &scrollname, int newValue );
+    static int NumItemsOnScreen(int height);
 
 public:
 

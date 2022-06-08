@@ -20,6 +20,7 @@
 #include "world/world.h"
 
 #include "interface/interface.h"
+#include <interface/scrollbox.h>
 #include "interface/localinterface/localinterface.h"
 #include "interface/localinterface/evtqueue_interface.h"
 
@@ -187,6 +188,26 @@ void EventQueueInterface::DeleteEventClick ( Button *button )
 
 }
 
+int EventQueueInterface::NumItemsOnScreen(int height)
+{
+    int screenheight = app->GetOptions()->GetOptionValue( "graphics_screenheight" );
+    return height/30;
+}
+
+void EventQueueInterface::ScrollChange (const string &scrollname, int newValue )
+{
+
+    baseoffset = newValue;
+
+    for (int i = 0; i < NumItemsOnScreen(0); ++i ) {
+
+        string name = "evtqueue_event " + to_string(i);
+        EclDirtyButton ( name );
+
+    }
+
+}
+
 void EventQueueInterface::Create ()
 {
 
@@ -197,12 +218,14 @@ void EventQueueInterface::Create ()
 		int paneltop = (int)(100.0 * ( screenw * PANELSIZE / 188.0 )) + 30;
 		int panelwidth = (int)(screenw * PANELSIZE);
 
+        int boxheight = screenh - (paneltop + 85) - 90;
+
 		// Title
 
 		EclRegisterButton ( screenw - panelwidth - 3, paneltop, panelwidth, 15, "EVENT QUEUE", "Remove the screen", "evtqueue_title" );
 		EclRegisterButtonCallback ( "evtqueue_title", TitleClick );
 
-		for ( int i = 0; i < 9; ++i ) {
+		for (int i = 0; i < NumItemsOnScreen(boxheight); ++i ) {
 
 			string name = "evtqueue_event " + to_string( i );
 			EclRegisterButton (  screenw - panelwidth - 3, paneltop + 20 + i * 30, panelwidth - 20, 28, "", "Click to enlarge this event", name );
@@ -215,13 +238,9 @@ void EventQueueInterface::Create ()
 
 		}
 
-		EclRegisterButton ( screenw - 20, paneltop + 20, 15, 15, "^", "Scroll upwards", "evtqueue_scrollup" );
-		EclRegisterButtonCallback ( "evtqueue_scrollup", ScrollUpClick );
-
-		EclRegisterButton ( screenw - 20, paneltop + 38, 15, 9 * 30 - 10, "", "evtqueue_scrollbar" );
-		
-		EclRegisterButton ( screenw - 20, paneltop + 50 + 9 * 30 - 17, 15, 15, "v", "Scroll downwards", "evtqueue_scrolldown" );
-		EclRegisterButtonCallback ( "evtqueue_scrolldown", ScrollDownClick );
+        ScrollBox::CreateScrollBox ("evtqueue_scroll", screenw - 7 - 15, paneltop + 20, 15, NumItemsOnScreen(boxheight) * 30, game->GetWorld ()->scheduler.events.Size(),
+                                    NumItemsOnScreen(
+                                            0), 0, ScrollChange );
 
 	}
 
@@ -234,19 +253,22 @@ void EventQueueInterface::Remove ()
 
 		EclRemoveButton ( "evtqueue_title" );
 
-		for ( int i = 0; i < 9; ++i ) {
-		
-			string name = "evtqueue_event " + to_string( i );
-			EclRemoveButton ( name );
+        int screenw = app->GetOptions ()->GetOptionValue ("graphics_screenwidth");
+        int screenh = app->GetOptions ()->GetOptionValue ("graphics_screenheight");
+        int paneltop = (int)(100.0 * ( screenw * PANELSIZE / 188.0 )) + 30;
+        int boxheight = screenh - (paneltop + 85) - 90;
+
+        for (int i = 0; i < NumItemsOnScreen(boxheight); ++i ) {
+
+            string name = "evtqueue_event " + to_string( i );
+            EclRemoveButton ( name );
 
             string deletename = "evtqueue_deleteevent " + to_string( i );
             EclRemoveButton ( deletename );
 
-		}
+        }
 
-		EclRemoveButton ( "evtqueue_scrollup" );
-		EclRemoveButton ( "evtqueue_scrollbar" );
-		EclRemoveButton ( "evtqueue_scrolldown" );
+        ScrollBox::RemoveScrollBox( "evtqueue_scroll" );
 
 	}
 
