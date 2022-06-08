@@ -323,7 +323,10 @@ void GciMainLoop() {
                 case SDL_TEXTINPUT:
                     SDL_GetMouseState(&x, &y);
 
-                    if (gciKeyboardHandlerP) {
+                    // TODO: Handle larger size characters
+                    //       This is to fix issues reported with cyrillic characters (which would need to be wchar's)
+                    // The strlen comparison ensures that only non-wchar's are passed to input box
+                    if (gciKeyboardHandlerP && strlen(event.text.text) == 1) {
                         (*gciKeyboardHandlerP)(event.text.text[0], x, y);
                     }
 
