@@ -14,6 +14,11 @@ class MemoryInterface : public LocalInterfaceScreen
 
 protected:
 
+    /**
+     * Closes the screen
+     * @param button
+     * @note button is unused
+     */
 	static void TitleClick ( Button *button );
 
 public:

@@ -183,9 +183,10 @@ void WorldMapInterfaceLabel::CalculatePossibleLabelPositions( const MapRectangle
 {
     numPossLabelPos = 0;
     for (int pos = 0; pos < 8; pos++) {
-	SetLabelPosition(pos);
-	if (mapRect.contains(GetExtent()))
-	    possLabelPos[numPossLabelPos++] = pos;
+        SetLabelPosition(pos);
+        if (mapRect.contains(GetExtent())) {
+            possLabelPos[numPossLabelPos++] = pos;
+        }
     }
 }
 
@@ -522,27 +523,27 @@ void WorldMapLayout::StartLayout()
     
     for ( int i = 0; i < labels.Size (); ++i ) {
 	
-	WorldMapInterfaceLabel *l = labels.GetData (i);
-	UplinkAssert (l)
-	l->SetRandomLabelPosition();
-	objective.AddObject(l);
+        WorldMapInterfaceLabel *l = labels.GetData (i);
+        UplinkAssert (l)
+        l->SetRandomLabelPosition();
+        objective.AddObject(l);
     }
     
     for ( int il = 0; il < locations.Size (); ++il ) {
 	
-	WorldMapInterfaceObject *l = locations.GetData (il);
-	UplinkAssert (l)
-	objective.AddObject(l);
-	
-	// Add in feature-point neighbourhood 
-	
-	MapRectangle n = l->GetExtent();
-	n.x1 -= n.width;
-	n.y1 -= n.height;
-	n.width *= 3;
-	n.height *= 3;
-	
-	objective.AddRect(n);
+        WorldMapInterfaceObject *l = locations.GetData (il);
+        UplinkAssert (l)
+        objective.AddObject(l);
+
+        // Add in feature-point neighbourhood
+
+        MapRectangle n = l->GetExtent();
+        n.x1 -= n.width;
+        n.y1 -= n.height;
+        n.width *= 3;
+        n.height *= 3;
+
+        objective.AddRect(n);
     }
     
      E = (float) objective.GetCost();

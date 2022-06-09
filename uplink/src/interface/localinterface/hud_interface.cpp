@@ -383,15 +383,6 @@ void HUDInterface::PauseButtonClick  ( Button *button )
 void HUDInterface::MoveSelecter ( int screenID, int screenindex )
 {
 
-	/*
-				
-	    screenindex is only used in some cases when a particular screenID
-		might not be enough to locate the button - for example the emails
-		at the bottom of the screen (all the same screenID, but different
-		buttons based on index)
-
-		*/
-
 	UnHighlightToolbarButton ();
 
 	switch ( screenID ) {

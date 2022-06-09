@@ -9,13 +9,26 @@
 #include "interface/localinterface/localinterfacescreen.h"
 
 
+//! Screen that displays the user's status
 class StatusInterface : public LocalInterfaceScreen  
 {
 
 protected:
 
+    /**
+     * Renders the section titles
+     * @param button Button for section titles
+     * @param highlighted
+     * @param clicked
+     * @note highlighted and clicked are unused
+     */
 	static void MiniTitleDraw ( Button *button, bool highlighted, bool clicked );
 
+    /**
+     * Closes the screen
+     * @param button Button for the title
+     * @note button is unused
+     */
 	static void TitleClick ( Button *button );
 
 public:

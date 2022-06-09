@@ -104,7 +104,7 @@ void PhoneDialler::Remove ()
 
 }
 
-void PhoneDialler::DialNumber (int x, int y, const string& number, int scenario, string info )
+void PhoneDialler::DialNumber (int x, int y, const string& number, int scenario, const string& info )
 {
 
 	UplinkAssert ( !number.empty() )

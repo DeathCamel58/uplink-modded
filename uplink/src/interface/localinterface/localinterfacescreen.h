@@ -15,11 +15,19 @@
 #include "interface/interfacescreen.h"
 
 
+//! Screen that provides basic functionality of other screens
 class LocalInterfaceScreen : public InterfaceScreen  
 {
 
 protected:
 
+    /**
+     * Renders the background graphics for window
+     * @param button The background button
+     * @param highlighted
+     * @param clicked
+     * @note highlighted and clicked are unused
+     */
 	static void BackgroundDraw ( Button *button, bool highlighted, bool clicked );
 
 public:
@@ -28,6 +36,11 @@ public:
 	~LocalInterfaceScreen() override;
 
 	void Create () override;
+
+	/**
+	 * Creates a screen panel with given height
+	 * @param panelheight Height of the panel to create
+	 */
 	void CreateHeight ( int panelheight );
 	void Remove () override;
 	void Update () override;
@@ -35,7 +48,12 @@ public:
 
 	int  ScreenID () override;
 
-	static LocalInterfaceScreen *GetInterfaceScreen ( int screenID );						// Returns this object, asserts screenID
+	/**
+	 * Gets the screen object, asserts that requested screen ID matches current screen ID
+	 * @param screenID The screen ID to get
+	 * @return The LocalInterfaceScreen object
+	 */
+	static LocalInterfaceScreen *GetInterfaceScreen ( int screenID );
 
 };
 

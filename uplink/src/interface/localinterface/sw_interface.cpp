@@ -139,8 +139,6 @@ void SWInterface::SoftwareDraw ( Button *button, bool highlighted, bool clicked 
 bool SWInterface::HasSoftwareType ( int softwareTYPE )
 {
 
-	// Look through the player's databank to see if this type of program shows up
-
 	DataBank *db = &(game->GetWorld ()->GetPlayer ()->gateway.databank);
 
 	for ( int di = 0; di < db->GetDataSize (); ++di ) {
@@ -260,10 +258,6 @@ void SWInterface::ToggleSubMenu ( int softwareTYPE, int x, int y )
 
 void SWInterface::SoftwareHighlight ( Button *button )
 {
-
-	// Don't do anything immediately, but set some timer events
-	// up so that a list of all versions of this software item
-	// appear in a new sub menu in a few milliseconds
 
 	int index;
     string unused;

@@ -6,8 +6,6 @@
 
 #include <GL/gl.h>
 
-#include <GL/glu.h> /* glu extention library */
-
 #pragma warning( disable:4786 )
 
 #include "redshirt.h"
@@ -37,7 +35,7 @@ bool IRCInterface::connected = false;
 LList <UplinkIRCMessage *> IRCInterface::buffer;
 LList <UplinkIRCUser *> IRCInterface::users;
 
-char IRCInterface::channelName[256];
+string IRCInterface::channelName;
 
 WinsockInit *IRCInterface::winSockInit = nullptr;
 CIrcSession *IRCInterface::cIrcSession = nullptr;
@@ -97,7 +95,7 @@ void IRCInterface::MainTextDraw ( Button *button, bool highlighted, bool clicked
 			int xpos = button->x + 10;
 			int ypos = button->y + 10 + i * 15;
 
-            if ( msg->user ) {
+            if ( !msg->user.empty() ) {
                 glColor3f( COLOUR_USER );
                 GciDrawText ( xpos, ypos, msg->user );
                 xpos += 80;
@@ -122,7 +120,7 @@ void IRCInterface::MainTextDraw ( Button *button, bool highlighted, bool clicked
 
 }
 
-void IRCInterface::AddEmoticons ( int row, char *smiley, Image *imgSmiley )
+void IRCInterface::AddEmoticons (int row, const string& smiley, Image *imgSmiley )
 {
 
     ScrollBox *scrollBox = ScrollBox::GetScrollBox( "ircscroller" );
@@ -143,22 +141,22 @@ void IRCInterface::AddEmoticons ( int row, char *smiley, Image *imgSmiley )
 
 		int xpos = button->x + 10;
 		int ypos = button->y + 10 + row * 15;
-        if ( msg->user ) xpos += 80;
+        if ( !msg->user.empty() ) xpos += 80;
         
         if ( imgSmiley ) {
 
-            char *nextSmiley = strstr ( msg->text, smiley );
-            
-            while ( nextSmiley ) {
-                char textSoFar [2048];
-				size_t lenCopy = min ( (nextSmiley - msg->text) + 1, sizeof ( textSoFar ) );
-                strncpy ( textSoFar, msg->text, lenCopy );
-                //textSoFar [ nextSmiley-msg->text ] = '\x0';
-				textSoFar [ lenCopy - 1 ] = '\x0';
-                int smileyXpos = xpos + GciTextWidth ( textSoFar );
-                nextSmiley = strstr ( (nextSmiley+2), smiley );
+            string textRemaining = msg->text;
+            size_t nextSmiley = textRemaining.find( smiley );
 
-                imgSmiley->Draw ( smileyXpos, ypos - 7 );                
+            while ( nextSmiley != string::npos ) {
+				size_t lenCopy = min ((nextSmiley - msg->text.length()), textRemaining.length() );
+                string beforeSmiley = textRemaining.substr(0, nextSmiley);
+                int smileyXpos = xpos + GciTextWidth ( beforeSmiley );
+                textRemaining = textRemaining.substr(smiley.length(), textRemaining.length());
+
+                imgSmiley->Draw ( smileyXpos, ypos - 7 );
+
+                nextSmiley = textRemaining.find( smiley );
             }
 
         }
@@ -273,8 +271,7 @@ void IRCInterface::ConnectClick ( Button *button )
         uplinkIRCMonitor = new UplinkIRCMonitor( *cIrcSession );
         cIrcSession->AddMonitor( uplinkIRCMonitor );
 
-        int port;
-        sscanf ( EclGetButton("irc_port")->caption.c_str(), "%d", &port );
+        int port = stoi( EclGetButton("irc_port")->caption );
 
         CIrcSessionInfo cIrcSessionInfo;
 
@@ -289,8 +286,7 @@ void IRCInterface::ConnectClick ( Button *button )
 	    cIrcSessionInfo.iIdentServerPort   = 113;
 	    cIrcSessionInfo.sIdentServerType   = "UNIX";
 
-        strncpy ( channelName, EclGetButton("irc_channel")->caption.c_str(), sizeof ( channelName ) );
-		channelName [ sizeof ( channelName ) - 1 ] = '\0';
+        channelName =EclGetButton("irc_channel")->caption;
 
 	    bool success = cIrcSession->Connect( cIrcSessionInfo );
 
@@ -310,37 +306,27 @@ void IRCInterface::PostClick ( Button *button )
 	Button *textButton = EclGetButton ( "irc_inputbox" );
 	UplinkAssert (textButton )
 
-    char newMessage [512];
+    string newMessage;
 
-    if ( textButton->caption[1] == '�' ) {
+    if ( textButton->caption.find("£") == 0 ) {
 
-        // TODO: Fix the snprintf
-//        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "%s", (textButton->caption+2) );
-		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
+        newMessage = textButton->caption.substr(2, textButton->caption.length());
 
     }
     else if ( textButton->caption.find( "/nick" ) != string::npos ) {
 
-        // TODO: Fix the snprintf
-//        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "nick %s: %s", cIrcSession->GetInfo().sNick.c_str(),
-//                                             (textButton->caption+7) );
-		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
+        newMessage = "nick " + cIrcSession->GetInfo().sNick + ": " + textButton->caption.substr(7, textButton->caption.length());
     }
     else if ( textButton->caption.find( "/action" ) != string::npos ) {
 
-        // TODO: Fix the snprintf
-//        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "privmsg %s: %s :%cACTION %s%c", cIrcSession->GetInfo().sNick.c_str(),
-//                                                   channelName, '\x1', (textButton->caption+9), '\x1' );
-		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
+        newMessage = "privmsg " + cIrcSession->GetInfo().sNick + ": " + channelName + " : ACTION " + textButton->caption.substr(9, textButton->caption.length());
     }
     else {
-        // TODO: Fix the snprintf
-//        UplinkIntSnprintf ( newMessage, sizeof ( newMessage ), "privmsg %s: %s :%s", cIrcSession->GetInfo().sNick.c_str(),
-//                                                    channelName, (textButton->caption+1) );
- 		newMessage [ sizeof ( newMessage ) - 1 ] = '\0';
+
+        newMessage = "privmsg " + cIrcSession->GetInfo().sNick + ": " + channelName + " :" + textButton->caption.substr(1, textButton->caption.length());
    }
 
-    (*cIrcSession) << newMessage;
+    (*cIrcSession) << newMessage.c_str();
     
     textButton->SetCaption( " " );
     EclDirtyButton ( "irc_inputbox" );
@@ -361,10 +347,10 @@ void IRCInterface::UserScrollChange (const string &name, int newValue )
 
 }
 
-void IRCInterface::AddText ( char *user, const char *text, float r, float g, float b )
+void IRCInterface::AddText (const string& user, const string& text, float r, float g, float b )
 {
 
-	UplinkAssert (text)
+	assert(!text.empty());
 	
 
 	// Break up the text into word wrapped lines
@@ -387,11 +373,10 @@ void IRCInterface::AddText ( char *user, const char *text, float r, float g, flo
 		
 		for ( int i = 0; i < numLines; ++i ) {
 			string theLine = wrapped->GetData(i);
-			assert(!theLine.empty());
 			if ( !theLine.empty() ) {
 				auto *msg = new UplinkIRCMessage ();
-				char *thisuser = ( i == 0 ? user : nullptr );
-				msg->Set ( thisuser, (char *) theLine.c_str(), r, g, b );
+				string thisuser = ( i == 0 ? user : "" );
+				msg->Set ( thisuser, theLine, r, g, b );
 				buffer.PutDataAtEnd( msg );
 			}
 		}
@@ -449,17 +434,17 @@ void IRCInterface::ResetUsers ()
 
 }
 
-void IRCInterface::AddUser ( char *name )
+void IRCInterface::AddUser (string name )
 {
 
     // Does the user exist already?
 
     UplinkIRCUser *userExists = GetUser (name);
     if ( !userExists && name[0] == '@' )
-		userExists = GetUser ( name + 1 );
+		userExists = GetUser ( name.substr(1, name.size()) );
 
     if ( userExists ) return;
-    if ( strlen(name) < 2 ) return;
+    if ( name.size() < 2 ) return;
 
     // Create the new user
 
@@ -468,7 +453,7 @@ void IRCInterface::AddUser ( char *name )
     // Is he a channel op?
 
     if ( name[0] == '@' ) {
-        user->Set (name+1);
+        user->Set (name.substr(1, name.size()));
         user->status = 1;
     }
     else
@@ -511,13 +496,13 @@ void IRCInterface::AddUser ( char *name )
 
 }
 
-void IRCInterface::RemoveUser ( char *name )
+void IRCInterface::RemoveUser (const string& name )
 {
     
     for ( int i = 0; i < users.Size(); ++i ) {
         UplinkIRCUser *user = users.GetData(i);
         UplinkAssert (user)
-        if ( strcmp ( user->name, name ) == 0 ) {
+        if ( user->name == name ) {
             users.RemoveData( i );
             ScrollBox *scrollBox = ScrollBox::GetScrollBox( "irc_userscroll" );
             if ( scrollBox ) scrollBox->SetNumItems( users.Size() );
@@ -527,13 +512,13 @@ void IRCInterface::RemoveUser ( char *name )
 
 }
 
-UplinkIRCUser *IRCInterface::GetUser ( char *name )
+UplinkIRCUser *IRCInterface::GetUser (const string& name )
 {
 
     for ( int i = 0; i < users.Size(); ++i ) {
         UplinkIRCUser *user = users.GetData(i);
         UplinkAssert (user)
-        if ( strcmp ( user->name, name ) == 0 )
+        if ( user->name == name )
             return user;        
     }
 
@@ -543,33 +528,22 @@ UplinkIRCUser *IRCInterface::GetUser ( char *name )
 
 UplinkIRCMessage::UplinkIRCMessage ()
 {
-	user = nullptr;
-    text = nullptr;
+	user = "";
+    text = "";
 }
 
 UplinkIRCMessage::~UplinkIRCMessage ()
-{
-	delete [] user;
-    delete [] text;
-}
+= default;
 
-void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, float b )
+void UplinkIRCMessage::Set (const string& newuser, const string& newtext, float r, float g, float b )
 {
-	
-    delete [] user;
-    user = nullptr;
 
-    if ( newuser ) {
-        user = new char [strlen(newuser)+1];
-        UplinkSafeStrcpy ( user, newuser )
+    if ( !newuser.empty() ) {
+        user = newuser;
     }
-    
-    delete [] text;
-	text = nullptr;
 
-	if ( newtext ) {
-		text = new char [strlen(newtext)+1];
-		UplinkSafeStrcpy ( text, newtext )
+	if ( !newtext.empty() ) {
+		text = newtext;
 	}
 
 	red = r;
@@ -581,24 +555,20 @@ void UplinkIRCMessage::Set ( char *newuser, char *newtext, float r, float g, flo
 
 UplinkIRCUser::UplinkIRCUser ()
 {
-    name = nullptr;
+    name = "";
     status = 0;
 }
 
 UplinkIRCUser::~UplinkIRCUser ()
-{
-    delete [] name;
-}
+= default;
 
-void UplinkIRCUser::Set ( char *newname )
+void UplinkIRCUser::Set (const string& newname )
 {
 
-    delete [] name;
-    name = nullptr;
-
-    if ( newname ) {
-        name = new char [strlen(newname)+1];
-        UplinkSafeStrcpy ( name, newname )
+    if ( !newname.empty() ) {
+        name = newname;
+    } else {
+        name = "";
     }
 
 }
@@ -845,23 +815,27 @@ int  IRCInterface::ScreenID ()
 }
 
 // This is a safety macro, designed to get a parameter or " " if the param doesn't exist
-#define GETIRCPARAM(n)      pmsg->parameters.size() > n ? (char *) pmsg->parameters[n].c_str() : (char *) " "
+#define GETIRCPARAM(n)      pmsg->parameters.size() > (n) ? (char *) pmsg->parameters[n].c_str() : (char *) " "
+
+string UplinkIRCMonitor::GetIrcParam(const CIrcMessage *pmsg, int n) {
+    if (pmsg->parameters.size() > n) {
+        return pmsg->parameters[n];
+    } else {
+        return "";
+    }
+}
 
 
 void UplinkIRCMonitor::OnIrcDefault( const CIrcMessage* pmsg )
 {                  
 
-    char command [512];
-    UplinkIntSnprintf ( command, sizeof ( command ), "%s : %s", (char *) pmsg->sCommand.c_str(), (char *) pmsg->AsString().c_str() );
-	command [ sizeof ( command ) - 1 ] = '\0';
+    string command = pmsg->sCommand + " : " + pmsg->AsString();
 	// Useless output?
     //IRCInterface::AddText( nullptr, command, 1.0, 1.0, 1.0 );
 
     unsigned int i = 0;
     while ( i < pmsg->parameters.size() ) {
-        char thisParam[512];
-        UplinkIntSnprintf ( thisParam, sizeof ( thisParam ), "Param%d: %s", i, (char *) pmsg->parameters[i].c_str() );
-		thisParam [ sizeof ( thisParam ) - 1 ] = '\0';
+        string thisParam = "Param" + to_string(i) + ": " + pmsg->parameters[i];
 		// Useless output?
         //IRCInterface::AddText( nullptr, thisParam, COLOUR_DEFAULT );
         ++i;
@@ -875,10 +849,8 @@ bool UplinkIRCMonitor::Received_RPL_WELCOME(const CIrcMessage* pmsg)
 
     // We can now join the channel
 
-    char joinCommand[512];
-    UplinkIntSnprintf ( joinCommand, sizeof ( joinCommand ), "join %s: %s", IRCInterface::cIrcSession->GetInfo().sNick.c_str(), IRCInterface::channelName );
-	joinCommand [ sizeof ( joinCommand ) - 1 ] = '\0';
-    (*IRCInterface::cIrcSession) << joinCommand;
+    string joinCommand = "join " + IRCInterface::cIrcSession->GetInfo().sNick + ": " + IRCInterface::channelName;
+    (*IRCInterface::cIrcSession) << joinCommand.c_str();
 
     return true;
 
@@ -890,55 +862,57 @@ bool UplinkIRCMonitor::Received_PRIVMSG (const CIrcMessage* pmsg)
 	if ( pmsg->m_bIncoming == 0 )
 	{
 		// This is a message from us
-		IRCInterface::AddText( GETIRCPARAM(0), GETIRCPARAM(2), COLOUR_TEXT );
+		IRCInterface::AddText(GetIrcParam(pmsg, 0), GetIrcParam(pmsg, 2), COLOUR_TEXT );
 		
 	}
 	else
 	{
 		// This is a message from somebody else
 
-        char *action = strstr ( GETIRCPARAM(1), "ACTION" );
-        char *version = strstr ( GETIRCPARAM(1), "VERSION" );
-        char *ping = strstr ( GETIRCPARAM(1), "PING" );
-        char *finger = strstr ( GETIRCPARAM(1), "FINGER" );
+        string action, version, ping, finger;
 
-        if ( action ) {
+        string tmp;
+        if (GetIrcParam(pmsg, 1).find( "ACTION" ) != string::npos ) {
+            tmp = GetIrcParam(pmsg, 1);
+            tmp = tmp.substr(tmp.find( "ACTION" ), tmp.size() );
+        }
+        if (GetIrcParam(pmsg, 1).find( "VERSION" ) != string::npos ) {
+            tmp = GetIrcParam(pmsg, 1);
+            tmp = tmp.substr(tmp.find( "VERSION" ), tmp.size() );
+        }
+        if (GetIrcParam(pmsg, 1).find( "PING" ) != string::npos ) {
+            tmp = GetIrcParam(pmsg, 1);
+            tmp = tmp.substr(tmp.find( "PING" ), tmp.size() );
+        }
+        if (GetIrcParam(pmsg, 1).find( "FINGER" ) != string::npos ) {
+            tmp = GetIrcParam(pmsg, 1);
+            tmp = tmp.substr(tmp.find( "FINGER" ), tmp.size() );
+        }
 
-		    char parsedMessage[512];
-            char *fullMsg = GETIRCPARAM(1);
-		    UplinkIntSnprintf ( parsedMessage, sizeof( parsedMessage ), "%s %s", (char *) pmsg->prefix.sNick.c_str(), (action + 7) );
-			parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
-		    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_ACTION );
+        if ( !action.empty() ) {
+
+		    string parsedMessage = pmsg->prefix.sNick + " " + action;
+		    IRCInterface::AddText( "", parsedMessage, COLOUR_ACTION );
             
         }
-        else if ( version )
+        else if ( !version.empty() )
         {
-            char reply[512];
-            UplinkIntSnprintf ( reply, sizeof ( reply ), "NOTICE %s: %s :%cVERSION UplinkIRC v%s%c",
-                            IRCInterface::cIrcSession->GetInfo().sNick.c_str(), (char *) pmsg->prefix.sNick.c_str(), '\x1', app->version.c_str(), '\x1' );
-			reply [ sizeof ( reply ) - 1 ] = '\0';
-            (*IRCInterface::cIrcSession) << reply;
+            string reply = "NOTICE " + IRCInterface::cIrcSession->GetInfo().sNick + ": " + pmsg->prefix.sNick + " : VERSION UplinkIRC v" + app->version;
+            (*IRCInterface::cIrcSession) << reply.c_str();
         }
-        else if ( ping )
+        else if ( !ping.empty() )
         {
-            char reply[512];
-            UplinkIntSnprintf ( reply, sizeof ( reply ), "NOTICE %s: %s :%s", 
-                            IRCInterface::cIrcSession->GetInfo().sNick.c_str(), (char *) pmsg->prefix.sNick.c_str(), GETIRCPARAM(1) );
-			reply [ sizeof ( reply ) - 1 ] = '\0';
-            (*IRCInterface::cIrcSession) << reply;
+            string reply = "NOTICE " + IRCInterface::cIrcSession->GetInfo().sNick + ": " + pmsg->prefix.sNick + " :" + GetIrcParam(pmsg, 1);
+            (*IRCInterface::cIrcSession) << reply.c_str();
         }
-        else if ( finger )
+        else if ( !finger.empty() )
         {
-            char reply[512];
-            UplinkIntSnprintf ( reply, sizeof ( reply ), "NOTICE %s: %s :%cFINGER %s running UplinkIRC v%s, www.introversion.co.uk%c", 
-                            IRCInterface::cIrcSession->GetInfo().sNick.c_str(), (char *) pmsg->prefix.sNick.c_str(), 
-                            '\x1', IRCInterface::cIrcSession->GetInfo().sNick.c_str(), app->version.c_str(), '\x1' );
-			reply [ sizeof ( reply ) - 1 ] = '\0';
-            (*IRCInterface::cIrcSession) << reply;
+            string reply = "NOTICE " + IRCInterface::cIrcSession->GetInfo().sNick + ": " + pmsg->prefix.sNick +" : FINGER " + IRCInterface::cIrcSession->GetInfo().sNick + " running UplinkIRC v" + app->version + ", www.introversion.co.uk";
+            (*IRCInterface::cIrcSession) << reply.c_str();
         }
         else {
 
-		    IRCInterface::AddText( (char *) pmsg->prefix.sNick.c_str(), GETIRCPARAM(1), COLOUR_TEXT );
+		    IRCInterface::AddText( pmsg->prefix.sNick, GetIrcParam(pmsg, 1), COLOUR_TEXT );
 
         }
 
@@ -951,14 +925,11 @@ bool UplinkIRCMonitor::Received_PRIVMSG (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_JOIN (const CIrcMessage* pmsg)
 {
 
-	if ( strlen ( pmsg->prefix.sNick.c_str() ) > 0 ) {
-		char parsedMessage1[512];
-		UplinkIntSnprintf ( parsedMessage1, sizeof ( parsedMessage1 ), "%s has joined this channel from %s", 
-									pmsg->prefix.sNick.c_str(), pmsg->prefix.sHost.c_str() );
-		parsedMessage1 [ sizeof ( parsedMessage1 ) - 1 ] = '\0';
+	if ( !pmsg->prefix.sNick.empty() ) {
+		string parsedMessage1 = pmsg->prefix.sNick + " has joined this channel from " + pmsg->prefix.sHost;
 
-		IRCInterface::AddText( nullptr, parsedMessage1, COLOUR_JOINPART );
-		IRCInterface::AddUser( (char *) pmsg->prefix.sNick.c_str() );
+		IRCInterface::AddText( "", parsedMessage1, COLOUR_JOINPART );
+		IRCInterface::AddUser( pmsg->prefix.sNick );
 	}
 
     return true;
@@ -967,13 +938,11 @@ bool UplinkIRCMonitor::Received_JOIN (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_PART (const CIrcMessage* pmsg)
 {
 
-	if ( strlen ( pmsg->prefix.sNick.c_str() ) > 0 ) {
-		char parsedMessage1[512];
-		UplinkIntSnprintf ( parsedMessage1, sizeof ( parsedMessage1 ), "%s has left this channel", pmsg->prefix.sNick.c_str() );
-		parsedMessage1 [ sizeof ( parsedMessage1 ) - 1 ] = '\0';
+	if ( !pmsg->prefix.sNick.empty() ) {
+		string parsedMessage1 = pmsg->prefix.sNick + " has left this channel";
 
-		IRCInterface::AddText( nullptr, parsedMessage1, COLOUR_JOINPART );
-		IRCInterface::RemoveUser( (char *) pmsg->prefix.sNick.c_str() );
+		IRCInterface::AddText( "", parsedMessage1, COLOUR_JOINPART );
+		IRCInterface::RemoveUser( pmsg->prefix.sNick );
 	}
 
     return true;
@@ -982,10 +951,8 @@ bool UplinkIRCMonitor::Received_PART (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_RPL_TOPIC (const CIrcMessage* pmsg)
 {
 
-    char parsedMessage[512];
-    UplinkIntSnprintf ( parsedMessage, sizeof ( parsedMessage ), "The topic is '%s'", GETIRCPARAM(2) );
-	parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
-    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_TOPIC );
+    string parsedMessage = "The topic is '" + GetIrcParam(pmsg, 2) + "'";
+    IRCInterface::AddText( "", parsedMessage, COLOUR_TOPIC );
 
     return true;
 
@@ -994,11 +961,8 @@ bool UplinkIRCMonitor::Received_RPL_TOPIC (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_TOPIC (const CIrcMessage* pmsg)
 {
 
-    char parsedMessage[512];
-    UplinkIntSnprintf ( parsedMessage, sizeof ( parsedMessage ), "%s has changed the topic to '%s'", 
-                            pmsg->prefix.sNick.c_str(), GETIRCPARAM(1) );
-	parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
-    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_TOPIC );
+    string parsedMessage = pmsg->prefix.sNick + " has changed the topic to '" + GetIrcParam(pmsg, 1) + "'";
+    IRCInterface::AddText( "", parsedMessage, COLOUR_TOPIC );
 
     return true;
 
@@ -1051,7 +1015,7 @@ bool UplinkIRCMonitor::Received_RPL_ENDOFNAMES (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_MOTD (const CIrcMessage* pmsg)
 {
 
-    IRCInterface::AddText( "MOTD", GETIRCPARAM(1), COLOUR_MOTD );
+    IRCInterface::AddText( "MOTD", GetIrcParam(pmsg, 1), COLOUR_MOTD );
     return true;
 
 }
@@ -1059,7 +1023,7 @@ bool UplinkIRCMonitor::Received_MOTD (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_RPL_LUSER (const CIrcMessage* pmsg)
 {
 
-    IRCInterface::AddText( nullptr, GETIRCPARAM(1), COLOUR_MOTD );
+    IRCInterface::AddText( "", GetIrcParam(pmsg, 1), COLOUR_MOTD );
     return true;
 
 }
@@ -1067,17 +1031,13 @@ bool UplinkIRCMonitor::Received_RPL_LUSER (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_MODE (const CIrcMessage* pmsg)
 {
 
-    char parsedMessage [512];
-    UplinkIntSnprintf ( parsedMessage, sizeof ( parsedMessage ), "%s sets mode to %s %s", pmsg->prefix.sNick.c_str(), 
-                                                      GETIRCPARAM(1),
-                                                      GETIRCPARAM(2) );
-	parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
+    string parsedMessage = pmsg->prefix.sNick + " sets mode to " + GetIrcParam(pmsg, 2) + " " + GetIrcParam(pmsg, 1);
 
-    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_MODE );
+    IRCInterface::AddText( "", parsedMessage, COLOUR_MODE );
 
-    UplinkIRCUser *user = IRCInterface::GetUser( GETIRCPARAM(2) );
+    UplinkIRCUser *user = IRCInterface::GetUser( GetIrcParam(pmsg, 2) );
     if ( user ) {
-        int newStatus = strchr( GETIRCPARAM(1), '+' ) ? 1 : 0;
+        int newStatus = GetIrcParam(pmsg, 1).find( '+' ) != string::npos ? 1 : 0;
         user->status = newStatus;
     }
 
@@ -1090,15 +1050,12 @@ bool UplinkIRCMonitor::Received_NICK (const CIrcMessage* pmsg)
 
 	OnIrc_NICK ( pmsg );
 
-    char parsedMessage [512];
-    UplinkIntSnprintf ( parsedMessage, sizeof ( parsedMessage ), "%s is now known as %s", pmsg->prefix.sNick.c_str(), 
-                                                      GETIRCPARAM(0) );
-	parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
+    string parsedMessage = pmsg->prefix.sNick + " is now known as " + GetIrcParam(pmsg, 0);
     
-    IRCInterface::AddText( nullptr, parsedMessage, COLOUR_JOINPART );
+    IRCInterface::AddText( "", parsedMessage, COLOUR_JOINPART );
     
-    UplinkIRCUser *user = IRCInterface::GetUser( (char *) pmsg->prefix.sNick.c_str() );
-    if ( user ) user->Set( GETIRCPARAM(0) );
+    UplinkIRCUser *user = IRCInterface::GetUser( pmsg->prefix.sNick );
+    if ( user ) user->Set( GetIrcParam(pmsg, 0) );
 
     // Update the screen
 
@@ -1111,15 +1068,12 @@ bool UplinkIRCMonitor::Received_NICK (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_QUIT (const CIrcMessage* pmsg)
 {
 
-	if ( strlen ( pmsg->prefix.sNick.c_str() ) > 0 ) {
-		char parsedMessage [512];
-		UplinkIntSnprintf ( parsedMessage, sizeof ( parsedMessage ), "%s has quit (%s)", pmsg->prefix.sNick.c_str(), 
-													 GETIRCPARAM(0) );
-		parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
+	if ( !pmsg->prefix.sNick.empty() ) {
+		string parsedMessage = pmsg->prefix.sNick + " has quit (" + GetIrcParam(pmsg, 0) + ")";
 	    
-		IRCInterface::AddText( nullptr, parsedMessage, COLOUR_JOINPART );
+		IRCInterface::AddText( "", parsedMessage, COLOUR_JOINPART );
 
-		IRCInterface::RemoveUser( (char *) pmsg->prefix.sNick.c_str() );
+		IRCInterface::RemoveUser( pmsg->prefix.sNick );
 	}
 
     return true;
@@ -1129,9 +1083,9 @@ bool UplinkIRCMonitor::Received_QUIT (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_ERROR (const CIrcMessage* pmsg)
 {
 
-	IRCInterface::AddText( nullptr, GETIRCPARAM(0), COLOUR_JOINPART );
+	IRCInterface::AddText( "", GetIrcParam(pmsg, 0), COLOUR_JOINPART );
 
-	IRCInterface::AddText( nullptr, "Disconnected", COLOUR_JOINPART );
+	IRCInterface::AddText( "", "Disconnected", COLOUR_JOINPART );
 
 	IRCInterface::cIrcSession->Disconnect ();
 
@@ -1142,14 +1096,11 @@ bool UplinkIRCMonitor::Received_ERROR (const CIrcMessage* pmsg)
 bool UplinkIRCMonitor::Received_ERR_BANNEDFROMCHAN (const CIrcMessage* pmsg)
 {
 
-	if( strcmp ( IRCInterface::cIrcSession->GetInfo().sNick.c_str(), GETIRCPARAM(0) ) == 0 ) {
+	if( IRCInterface::cIrcSession->GetInfo().sNick == GetIrcParam(pmsg, 0) ) {
 
-	    char parsedMessage [512];
-		UplinkIntSnprintf ( parsedMessage, sizeof ( parsedMessage ), "%s : %s", GETIRCPARAM(1), 
-                                                      GETIRCPARAM(2) );
-		parsedMessage [ sizeof ( parsedMessage ) - 1 ] = '\0';
+	    string parsedMessage = GetIrcParam(pmsg, 1) + " : " + GetIrcParam(pmsg, 2);
 
-		IRCInterface::AddText( nullptr, parsedMessage, COLOUR_JOINPART );
+		IRCInterface::AddText( "", parsedMessage, COLOUR_JOINPART );
 
 	}
 

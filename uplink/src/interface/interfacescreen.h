@@ -32,11 +32,32 @@ public:
 	InterfaceScreen();
 	~InterfaceScreen() override;
 
+	/**
+	 * Creates the screen
+	 */
 	virtual void Create ();
+
+	/**
+	 * Removes the screen
+	 */
 	virtual void Remove ();
+
+	/**
+	 * Updates the screen.
+	 * This can update animations, or check if the data on the screen changed.
+	 */
 	void Update () override;
+
+	/**
+	 * Is the screen visible?
+	 * @return true if screen is visible
+	 */
 	virtual bool IsVisible ();
 
+	/**
+	 * Gets the current screen ID
+	 * @return The screen ID
+	 */
 	virtual int  ScreenID ();			
 
 };

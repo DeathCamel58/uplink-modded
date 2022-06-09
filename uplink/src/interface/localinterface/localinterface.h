@@ -1,15 +1,4 @@
 
-/*
-
-  Local Interface class object
-
-	Part of the Interface subsystem
-	Handles the interface projected by our local machine gateway
-	 for example the current date/time, worldmap etc
-
-  */
-
-
 #ifndef included_localinterface_h
 #define included_localinterface_h
 
@@ -46,7 +35,12 @@ class HUDInterface;
 #define  PANELSIZE		 0.29						// Percentage of screen taken up by right panel
 
 
-
+//! Local Interface Class
+/**
+ * Local Interface class object
+ * @note Part of the interface subsystem
+ * @note Handles the interface projected by our local machine gateway (for example, the current date/time, worldmap, etc)
+ */
 class LocalInterface : public UplinkObject  
 {
 
@@ -57,27 +51,76 @@ protected:
 
 public:
 
+    /**
+     * The ID code of the current screen
+     */
 	int currentscreencode;
-	int screenindex;					// Used for eg when SCREENCODE=SCREEN_EMAIL (index of email viewed)
+	/**
+	 * Used for when SCREENCODE=SCREEN_EMAIL (index of email viewed)
+	 */
+	int screenindex;
 
 public:
 
 	LocalInterface();
 	~LocalInterface() override;
-	
+
+	/**
+	 * Close any open screens for current object
+	 */
 	void Reset ();
 
+	/**
+	 * Opens the screen for current object
+	 */
 	void Create ();
+
+	/**
+	 * Close any open screens for current object
+	 */
 	void Remove ();
+
+	/**
+	 * Is there a currently open screen?
+	 * @return true if screen visible
+	 */
 	bool IsVisible ();
 
 
-	int InScreen ();									// Returns id code of current screen
+	/**
+	 * Gets the currently open screen
+	 * @return The ID code of the current screen
+	 */
+	int InScreen ();
+
+	/**
+	 * Changes the current screen
+	 * @param SCREENCODE The ID code of screen to change to
+	 * @param index Index of email viewed
+	 * @note index is only used on email screen
+	 */
 	void RunScreen ( int SCREENCODE, int index = -1 );
+
+	/**
+	 * Check if screen ID code is valid
+	 * @param SCREENCODE The ID code of screen to check
+	 * @param index
+	 * @return true if valid screen
+	 * @note index is unused
+	 */
 	static bool VerifyScreen ( int SCREENCODE, int index = -1 );
 
-	LocalInterfaceScreen *GetInterfaceScreen ();		// Asserts screen
-	HUDInterface *GetHUD ();							// Asserts hud
+	/**
+	 * Asserts screen
+	 * @return The current LocalInterfaceScreen pointer
+	 */
+	LocalInterfaceScreen *GetInterfaceScreen ();
+
+	/**
+	 * Asserts HUD
+	 * @return The current HUDInterface pointer
+	 */
+	HUDInterface *GetHUD ();
 
 
 	// Common functions
