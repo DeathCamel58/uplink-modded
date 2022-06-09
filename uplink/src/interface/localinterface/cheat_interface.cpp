@@ -6,8 +6,26 @@
 
 #include "options/options.h"
 
-#include "interface/localinterface/localinterface.h"
+#include <game/game.h>
+#include <world/computer/computer.h>
+#include <world/generator/worldgenerator.h>
+#include <world/computer/lancomputer.h>
+#include <world/scheduler/shotbyfedsevent.h>
+
+#include "interface/interface.h"
 #include "interface/localinterface/cheat_interface.h"
+#include "interface/localinterface/localinterface.h"
+#include "interface/localinterface/phonedialler.h"
+#include "interface/taskmanager/taskmanager.h"
+#include "interface/remoteinterface/remoteinterface.h"
+#include "interface/remoteinterface/socialsecurityscreen_interface.h"
+
+#include "world/world.h"
+#include "world/player.h"
+#include "world/message.h"
+#include "world/company/mission.h"
+#include "world/computer/computerscreen/dialogscreen.h"
+#include "world/generator/missiongenerator.h"
 
 #include "mmgr.h"
 
@@ -90,13 +108,11 @@ void CheatInterface::RevelationClick ( Button *button )
 void CheatInterface::EndGameClick ( Button *button )
 {
 #ifdef TESTGAME
-	// Simulate a "shot by feds" event in 5 seconds
-
 	Date duedate;
 	duedate.SetDate ( &(game->GetWorld ()->date) );
 	duedate.AdvanceSecond ( 5 );
 	
-	ShotByFedsEvent *event = new ShotByFedsEvent ();
+	auto *event = new ShotByFedsEvent ();
 	event->SetName ( "PLAYER" );
 	event->SetReason ( "clicking on the END GAME button you fucking wanker" );
 	event->SetRunDate ( &duedate );
@@ -116,7 +132,7 @@ void CheatInterface::ShowLANClick ( Button *button )
 	if ( comp->GetOBJECTID () != OID_LANCOMPUTER ) 
 		return;
 	
-	LanComputer *lan = (LanComputer *) comp;
+	auto *lan = (LanComputer *) comp;
 
 	for ( int i = 0; i < lan->systems.Size(); ++i ) {
 		if ( lan->systems.ValidIndex(i) ) {
@@ -152,7 +168,7 @@ void CheatInterface::DebugPrintClick ( Button *button )
 #ifdef TESTGAME
 	app->Print ();
 	EclDebugPrint ();
-	SvbDebugPrint ();
+//	SvbDebugPrint ();
 #endif
 }
 
