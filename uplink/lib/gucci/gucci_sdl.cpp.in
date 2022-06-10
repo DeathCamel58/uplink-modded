@@ -345,7 +345,7 @@ void GciMainLoop() {
                     }
 
                     if (gciKeyboardHandlerP) {
-                        if (unicode <= 32 || unicode >= 126)
+                        if (unicode < 32 || unicode > 126)
                             (*gciKeyboardHandlerP)(unicode, x, y);
                         }
                     }
