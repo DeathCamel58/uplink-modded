@@ -211,7 +211,7 @@ void ObituaryInterface::Create ()
 		EclRegisterButtonCallbacks ( "obituary_livesruined", textbutton_draw, nullptr, nullptr, nullptr );
 		EclRegisterButtonCallbacks ( "obituary_systemsdestroyed", textbutton_draw, nullptr, nullptr, nullptr );
 
-        string score = "Final Score    %" + to_string(gob->score);
+        string score = "Final Score    " + to_string(gob->score);
 
 		EclRegisterButton ( 360, 410, 200, 25, score, "", "obituary_score" );
 		EclRegisterButtonCallbacks ( "obituary_score", LargeTextDraw, nullptr, nullptr, nullptr );
