@@ -15,10 +15,10 @@
 GatewayDef::GatewayDef ()
 {
 
-	UplinkStrncpy ( name, "UnNamed", sizeof ( name ) )
-	UplinkStrncpy ( description, "UnDescribed ;)", sizeof ( description ) )
-    UplinkStrncpy ( filename, "None", sizeof ( filename ) )
-    UplinkStrncpy ( thumbnail, "None", sizeof ( thumbnail ) )
+	name = "UnNamed";
+	description = "UnDescribed ;)";
+    filename = "None";
+    thumbnail = "None";
 	cost = 0;
 	maxcpus = 0;
 	maxmemory = 0;
@@ -37,10 +37,10 @@ GatewayDef::GatewayDef ( const GatewayDef& gd )
    : cpus ( gd.cpus ), memory ( gd.memory ), security ( gd.security )
 {
 
-	memcpy ( name, gd.name, sizeof ( name ) );
-	memcpy ( description, gd.description, sizeof ( description ) );
-	memcpy ( filename, gd.filename, sizeof ( filename ) );
-	memcpy ( thumbnail, gd.thumbnail, sizeof ( thumbnail ) );
+	name = gd.name;
+	description = gd.description;
+	filename = gd.filename;
+	thumbnail = gd.thumbnail;
 	
 	cost = gd.cost;
 	maxcpus = gd.maxcpus;
@@ -101,16 +101,22 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 
 	// Basics
 
-    thefile.getline ( name, SIZE_GATEWAY_NAME );
+	char *tmp1 = new char [SIZE_GATEWAY_NAME];
+    thefile.getline ( tmp1, SIZE_GATEWAY_NAME );
+    name = tmp1;
+    delete[] tmp1;
 
 	thefile >> cost >> maxcpus >> maxmemory >> maxupgrades 
 			>> maxsecurity >> bandwidth >> width >> height >> ws;
 
-	thefile.getline ( description, SIZE_GATEWAY_DESCRIPTION );
+	char *tmp2 = new char [SIZE_GATEWAY_DESCRIPTION];
+	thefile.getline (tmp2, SIZE_GATEWAY_DESCRIPTION );
+	description = tmp2;
+	delete[] tmp2;
 
 	// Changed so users don't get confused about the 'you cannot be caught with this gateway' part
-	if ( strstr ( description, "An embedded broad-band radio transmitter provides total anonymity for the user - you cannot be caught with this gateway." ) )
-		UplinkStrncpy ( description, "A good small all rounder.", sizeof ( description ) )
+	if ( description.find( "An embedded broad-band radio transmitter provides total anonymity for the user - you cannot be caught with this gateway." ) != string::npos );
+		description = "A good small all rounder.";
 
 	// CPU positions
 
@@ -183,32 +189,28 @@ void GatewayDef::LoadGatewayDefinition ( istream &thefile )
 void GatewayDef::SetName (const string &newname )
 {
 
-	assert( newname.length() < SIZE_GATEWAY_NAME );
-	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
+	name = newname;
 		
 }
 
 void GatewayDef::SetDescription (const string &newdescription )
 {
 
-	assert( newdescription.length() < SIZE_GATEWAY_DESCRIPTION );
-	UplinkStrncpy ( description, newdescription.c_str(), sizeof ( description ) )
+	description = newdescription;
 
 }
 
 void GatewayDef::SetFilename (const string &newfilename )
 {
 
-    assert( newfilename.length() < SIZE_GATEWAY_FILENAME );
-    UplinkStrncpy ( filename, newfilename.c_str(), sizeof ( filename ) )
+    filename = newfilename;
 
 }
 
 void GatewayDef::SetThumbnail (const string &newthumbnail )
 {
 
-    assert( newthumbnail.length() < SIZE_GATEWAY_FILENAME );
-    UplinkStrncpy ( thumbnail, newthumbnail.c_str(), sizeof ( thumbnail ) )
+    thumbnail = newthumbnail;
 
 }
 
@@ -279,7 +281,7 @@ int GatewayDef::GatewayDefComparator ( GatewayDef *const *gatewaydef1, GatewayDe
 	else if ( (*gatewaydef1)->cost < (*gatewaydef2)->cost )
 		return -1;
 	else
-		return strcmp ( (*gatewaydef1)->name, (*gatewaydef2)->name );
+		return (*gatewaydef1)->name.compare((*gatewaydef2)->name);
 
 }
 
@@ -378,10 +380,10 @@ bool GatewayDef::Load  ( FILE *file )
 
 	LoadID ( file );
 
-	if ( !LoadDynamicStringStatic ( name,        sizeof(name),        file ) ) return false;
-	if ( !LoadDynamicStringStatic ( description, sizeof(description), file ) ) return false;
-	if ( !LoadDynamicStringStatic ( filename,    sizeof(filename),    file ) ) return false;
-	if ( !LoadDynamicStringStatic ( thumbnail,   sizeof(thumbnail),   file ) ) return false;
+	if ( !LoadDynamicStringInt ( name, file ) ) return false;
+	if ( !LoadDynamicStringInt ( description, file ) ) return false;
+	if ( !LoadDynamicStringInt ( filename, file ) ) return false;
+	if ( !LoadDynamicStringInt ( thumbnail, file ) ) return false;
 
 	if ( !FileReadData ( &cost,        sizeof(cost),        1, file ) ) return false;
 	if ( !FileReadData ( &maxcpus,     sizeof(maxcpus),     1, file ) ) return false;

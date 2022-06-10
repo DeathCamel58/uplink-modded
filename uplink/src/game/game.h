@@ -82,7 +82,7 @@ public:
 	int  GameSpeed () const;
 	bool IsRunning () const;
 	
-	void GameOver ( char *reason );			//  Ends the current game
+	void GameOver (string reason );			//  Ends the current game
     void DemoGameOver ();                   //  This demo game has come to an end
     void WarezGameOver ();                  //  This WAREZ copy has come to an end
 

@@ -26,10 +26,10 @@
 BankRobberyEvent::BankRobberyEvent ()
 {
 
-    UplinkStrncpy ( source_ip, " ", sizeof ( source_ip ) )
-    UplinkStrncpy ( source_accno, " ", sizeof ( source_accno ) )
-    UplinkStrncpy ( target_ip, " ", sizeof ( target_ip ) )
-    UplinkStrncpy ( target_accno, " ", sizeof ( target_accno ) )
+    source_ip = " ";
+    source_accno = " ";
+    target_ip = " ";
+    target_accno = " ";
     amount = 0;
 
 }
@@ -61,8 +61,8 @@ void BankRobberyEvent::Run ()
 
 					if ( al->data1 && al->data2 ) {
 
-						if ( strstr ( al->data1, target_ip )    != nullptr &&
-							 strstr ( al->data1, target_accno ) != nullptr &&
+						if ( strstr ( al->data1, target_ip.c_str() )    != nullptr &&
+							 strstr ( al->data1, target_accno.c_str() ) != nullptr &&
 							 strcmp ( al->data2, amount_s )     == 0 ) {
 
 							rumbled = true;
@@ -98,8 +98,8 @@ void BankRobberyEvent::Run ()
 
 						if ( al->data1 && al->data2 ) {
 
-							if ( strstr ( al->data1, source_ip )    != nullptr &&
-								 strstr ( al->data1, source_accno ) != nullptr &&
+							if ( strstr ( al->data1, source_ip.c_str() )    != nullptr &&
+								 strstr ( al->data1, source_accno.c_str() ) != nullptr &&
 								 strcmp ( al->data2, amount_s )     == 0 ) {
 
 								rumbled = true;
@@ -150,26 +150,18 @@ void BankRobberyEvent::Run ()
 
 }
 
-char *BankRobberyEvent::GetShortString ()
+string BankRobberyEvent::GetShortString ()
 {
-	size_t stringsize = 64;
-    char *string = new char [stringsize];
-    UplinkStrncpy ( string, "Bank Robbery Event", stringsize )
-    return string;
+    return "Bank Robbery Event";
 }
 
-char *BankRobberyEvent::GetLongString ()
+string BankRobberyEvent::GetLongString ()
 {
 
-    std::ostrstream longstring;
-    longstring << "Bank Robbery Event\n"
-               << "Source : " << source_ip << ", " << source_accno << "\n"
-               << "Target : " << target_ip << ", " << target_accno << "\n"
-               << "Amount : " << amount << "\n"
-               << hackdate.GetLongString ()
-               << '\x0';
+    string longstring = "Bank Robbery Event\nSource : " + source_ip + ", " + source_accno + "\nTarget : " + target_ip + ", " + target_accno + "\nAmount : " + to_string(amount) + "\n";
+    longstring += hackdate.GetLongString ();
 
-    return longstring.str ();
+    return longstring;
 
 }
 
@@ -178,10 +170,10 @@ void BankRobberyEvent::SetDetails (const string &newsourceip, const string &news
                                    int newamount, Date *newhackdate )
 {
 
-    UplinkStrncpy ( source_ip, newsourceip.c_str(), sizeof ( source_ip ) )
-    UplinkStrncpy ( source_accno, newsourceaccno.c_str(), sizeof ( source_accno ) )
-    UplinkStrncpy ( target_ip, newtargetip.c_str(), sizeof ( target_ip ) )
-    UplinkStrncpy ( target_accno, newtargetaccno.c_str(), sizeof ( target_accno ) )
+    source_ip = newsourceip;
+    source_accno = newsourceaccno;
+    target_ip = newtargetip;
+    target_accno = newtargetaccno;
 
     amount = newamount;
     hackdate.SetDate ( newhackdate );
@@ -196,32 +188,24 @@ bool BankRobberyEvent::Load  ( FILE *file )
     if ( !UplinkEvent::Load ( file ) ) return false;
 
 	if ( strcmp( game->GetLoadedSavefileVer(), "SAV59" ) >= 0 ) {
-		if ( !LoadDynamicStringStatic ( source_ip, sizeof(source_ip), file ) ) return false;
-		if ( !LoadDynamicStringStatic ( source_accno, sizeof(source_accno), file ) ) return false;
-		if ( !LoadDynamicStringStatic ( target_ip, sizeof(target_ip), file ) ) return false;
-		if ( !LoadDynamicStringStatic ( target_accno, sizeof(target_accno), file ) ) return false;
+		if ( !LoadDynamicStringInt ( source_ip, file ) ) return false;
+		if ( !LoadDynamicStringInt ( source_accno, file ) ) return false;
+		if ( !LoadDynamicStringInt ( target_ip, file ) ) return false;
+		if ( !LoadDynamicStringInt ( target_accno, file ) ) return false;
 	}
 	else {
-		if ( !FileReadData ( source_ip, sizeof(source_ip), 1, file ) ) {
-			source_ip [ sizeof(source_ip) - 1 ] = '\0';
+		if ( !FileReadDataInt ( source_ip, 128, file ) ) {
 			return false;
 		}
-		source_ip [ sizeof(source_ip) - 1 ] = '\0';
-		if ( !FileReadData ( source_accno, sizeof(source_accno), 1, file ) ) {
-			source_accno [ sizeof(source_accno) - 1 ] = '\0';
+		if ( !FileReadDataInt ( source_accno, 128, file ) ) {
 			return false;
 		}
-		source_accno [ sizeof(source_accno) - 1 ] = '\0';
-		if ( !FileReadData ( target_ip, sizeof(target_ip), 1, file ) ) {
-			target_ip [ sizeof(target_ip) - 1 ] = '\0';
+		if ( !FileReadDataInt ( target_ip, 128, file ) ) {
 			return false;
 		}
-		target_ip [ sizeof(target_ip) - 1 ] = '\0';
-		if ( !FileReadData ( target_accno, sizeof(target_accno), 1, file ) ) {
-			target_accno [ sizeof(target_accno) - 1 ] = '\0';
+		if ( !FileReadDataInt ( target_accno, 128, file ) ) {
 			return false;
 		}
-		target_accno [ sizeof(target_accno) - 1 ] = '\0';
 	}
 
     if ( !FileReadData ( &amount, sizeof(amount), 1, file ) ) return false;

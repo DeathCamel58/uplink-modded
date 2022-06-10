@@ -21,11 +21,11 @@ class SeizeGatewayEvent : public UplinkEvent
 
 protected:
 
-	char *reason;
+	string reason;
 
 public:
 
-	char name [SIZE_PERSON_NAME];
+	string name;
 	int gateway_id;							// id number of gateway to seize
 
 public:
@@ -40,8 +40,8 @@ public:
 	void Run () override;
 	void RunWarning () override;
 
-	char *GetShortString () override;
-	char *GetLongString () override;
+	string GetShortString () override;
+	string GetLongString () override;
 
 	// Common functions
 

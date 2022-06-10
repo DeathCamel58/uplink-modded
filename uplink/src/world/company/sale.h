@@ -31,7 +31,7 @@ class Sale : public UplinkObject
 
 public:
 
-	char title [SIZE_SALE_TITLE];
+	string title;
 	int saleTYPE;
 	int swhwTYPE;
 

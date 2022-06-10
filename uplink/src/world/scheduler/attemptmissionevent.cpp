@@ -18,7 +18,7 @@
 AttemptMissionEvent::AttemptMissionEvent ()
 {
 
-	memset ( agentname, 0, sizeof ( agentname ) );
+	agentname = "";
 
 }
 
@@ -38,22 +38,18 @@ void AttemptMissionEvent::Run ()
 void AttemptMissionEvent::SetAgentName (const string &newagentname )
 {
 
-	assert( newagentname.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( agentname, newagentname.c_str(), sizeof ( agentname ) )
+	agentname = newagentname;
 
 }
 
-char *AttemptMissionEvent::GetShortString ()
+string AttemptMissionEvent::GetShortString ()
 {
 
-	size_t shortstringsize = strlen(agentname) + 32;
-	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Attempt Mission for %s", agentname )
-	return shortstring;
+	return "Attempt Mission for " + agentname;
 
 }
 
-char *AttemptMissionEvent::GetLongString ()
+string AttemptMissionEvent::GetLongString ()
 {
 
 	auto *agent = (Agent *) game->GetWorld ()->GetPerson ( agentname );
@@ -62,13 +58,10 @@ char *AttemptMissionEvent::GetLongString ()
 	Mission *m = agent->missions.GetData (0);
 	UplinkAssert (m)
 
-	std::ostrstream longstring;
-	longstring << "Attempt Mission Event:\n"
-			   << "Agent : " << agentname << "\n"
-			   << "Agents next mission : " << m->description
-			   << '\x0';
+	string longstring = "Attempt Mission Event:\nAgent : " + agentname + "\nAgents next mission : ";
+	longstring += m->description;
 
-	return longstring.str ();
+	return longstring;
 
 }
 
@@ -81,14 +74,12 @@ bool AttemptMissionEvent::Load ( FILE *file )
 	if ( !UplinkEvent::Load ( file ) ) return false;
 
 	if ( strcmp( game->GetLoadedSavefileVer(), "SAV59" ) >= 0 ) {
-		if ( !LoadDynamicStringStatic ( agentname, sizeof(agentname), file ) ) return false;
+		if ( !LoadDynamicStringInt ( agentname, file ) ) return false;
 	}
 	else {
-		if ( !FileReadData ( agentname, sizeof(agentname), 1, file ) ) {
-			agentname [ sizeof(agentname) - 1 ] = '\0';
+		if ( !FileReadDataInt ( agentname, SIZE_PERSON_NAME, file ) ) {
 			return false;
 		}
-		agentname [ sizeof(agentname) - 1 ] = '\0';
 	}
 
 	LoadID_END ( file );

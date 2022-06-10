@@ -21,34 +21,26 @@
 ArrestEvent::ArrestEvent ()
 {
 
-	reason = nullptr;
+	reason = "";
 	ip = nullptr;
-	memset ( name, 0, sizeof ( name ) );
+	name = "";
 
 }
 
 ArrestEvent::~ArrestEvent ()
-{
-
-	delete [] reason;
-	delete [] ip;
-
-}
+= default;
 
 void ArrestEvent::SetName (const string &newname )
 {
 
-	assert( newname.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
+	name = newname;
 
 }
 
 void ArrestEvent::SetReason (const string &newreason )
 {
 
-	delete [] reason;
-	reason = new char [newreason.length()+1];
-	UplinkSafeStrcpy ( reason, newreason.c_str() )
+	reason = newreason;
 
 }
 
@@ -84,25 +76,16 @@ void ArrestEvent::Run ()
 
 }
 
-char *ArrestEvent::GetShortString ()
+string ArrestEvent::GetShortString ()
 {
 
-	size_t shortstringsize = strlen(name) + 16;
-	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Arrest for %s", name )
-	return shortstring;
+	return "Arrest for " + name;
 }
 
-char *ArrestEvent::GetLongString ()
+string ArrestEvent::GetLongString ()
 {
 
-	std::ostrstream longstring;
-	longstring << "ArrestEvent:\n"
-			   << "For : " << name << "\n"
-			   << "Reason : " << reason
-			   << '\x0';
-
-	return longstring.str ();
+	return "ArrestEvent:\nFor : " + name + "\nReason : " + reason;
 
 }
 
@@ -115,17 +98,15 @@ bool ArrestEvent::Load  ( FILE *file )
 	if ( !UplinkEvent::Load ( file ) ) return false;
 
 	if ( strcmp( game->GetLoadedSavefileVer(), "SAV59" ) >= 0 ) {
-		if ( !LoadDynamicStringStatic ( name, sizeof(name), file ) ) return false;
+		if ( !LoadDynamicStringInt ( name, file ) ) return false;
 	}
 	else {
-		if ( !FileReadData ( name, sizeof(name), 1, file ) ) {
-			name [ sizeof(name) - 1 ] = '\0';
+		if ( !FileReadDataInt ( name, SIZE_PERSON_NAME, file ) ) {
 			return false;
 		}
-		name [ sizeof(name) - 1 ] = '\0';
 	}
 
-	if ( !LoadDynamicStringPtr ( &reason, file ) ) return false;
+	if ( !LoadDynamicStringInt ( reason, file ) ) return false;
 	if ( !LoadDynamicStringPtr ( &ip, file) ) return false;
 
 	LoadID_END ( file );
@@ -141,7 +122,7 @@ void ArrestEvent::Save  ( FILE *file )
 
 	UplinkEvent::Save ( file );
 
-	SaveDynamicString ( name, sizeof(name), file );
+	SaveDynamicString ( name, SIZE_PERSON_NAME, file );
 
 	SaveDynamicString ( reason, file );
 	SaveDynamicString ( ip, file );

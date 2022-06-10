@@ -72,17 +72,14 @@ void ChangeGatewayEvent::RunWarning ()
 
 }
 
-char *ChangeGatewayEvent::GetShortString ()
+string ChangeGatewayEvent::GetShortString ()
 {
 
-	size_t shortstringsize = 128 + ( (newgatewaydef)? strlen ( newgatewaydef->name ) : 4 );
-	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Exchanging gateway for '%s'", (newgatewaydef)? newgatewaydef->name : "nullptr" )
-	return shortstring;
+	return "Exchanging gateway for '" + ((newgatewaydef)? newgatewaydef->name : "nullptr") + "'";
 		
 }
 
-char *ChangeGatewayEvent::GetLongString ()
+string ChangeGatewayEvent::GetLongString ()
 {
 
 	return GetShortString ();

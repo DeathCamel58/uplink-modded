@@ -17,32 +17,25 @@
 ShotByFedsEvent::ShotByFedsEvent ()
 {
 
-	reason = nullptr;
-	memset ( name, 0, sizeof ( name ) );
+	reason = "";
+	name = "";
 
 }
 
 ShotByFedsEvent::~ShotByFedsEvent ()
-{
-
-	delete [] reason;
-
-}
+= default;
 
 void ShotByFedsEvent::SetName (const string &newname )
 {
 
-	assert( newname.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
+	name = newname;
 
 }
 
 void ShotByFedsEvent::SetReason (const string &newreason )
 {
 
-    delete [] reason;
-	reason = new char [newreason.length()+1];
-	UplinkSafeStrcpy ( reason, newreason.c_str() )
+	reason = newreason;
 
 }
 
@@ -58,25 +51,17 @@ void ShotByFedsEvent::Run ()
 
 }
 
-char *ShotByFedsEvent::GetShortString ()
+string ShotByFedsEvent::GetShortString ()
 {
 
-	size_t shortstringsize = strlen(name) + 32;
-	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "ShotByFeds for %s", name )
-	return shortstring;
+	return "ShotByFeds for " + name;
 
 }
 
-char *ShotByFedsEvent::GetLongString ()
+string ShotByFedsEvent::GetLongString ()
 {
 
-	std::ostrstream longstring;
-	longstring << "Shot By Feds Event\n"
-			   << "For : " << name << "\n"
-			   << "Reason : " << reason
-			   << '\x0';
-	return longstring.str ();
+	return "Shot By Feds Event\nFor : " + name + "\nReason : " + reason;
 
 }
 
@@ -88,16 +73,14 @@ bool ShotByFedsEvent::Load  ( FILE *file )
 	if ( !UplinkEvent::Load ( file ) ) return false;
 
 	if ( strcmp( game->GetLoadedSavefileVer(), "SAV59" ) >= 0 ) {
-		if ( !LoadDynamicStringStatic ( name, sizeof(name), file ) ) return false;
+		if ( !LoadDynamicStringInt ( name, file ) ) return false;
 	}
 	else {
-		if ( !FileReadData ( name, sizeof(name), 1, file ) ) {
-			name [ sizeof(name) - 1 ] = '\0';
+		if ( !FileReadDataInt ( name, SIZE_PERSON_NAME, file ) ) {
 			return false;
 		}
-		name [ sizeof(name) - 1 ] = '\0';
 	}
-	if ( !LoadDynamicStringPtr ( &reason, file ) ) return false;
+	if ( !LoadDynamicStringInt ( reason, file ) ) return false;
 
 	LoadID_END ( file );
 
@@ -112,7 +95,7 @@ void ShotByFedsEvent::Save  ( FILE *file )
 
 	UplinkEvent::Save ( file );
 
-	SaveDynamicString ( name, sizeof(name), file );
+	SaveDynamicString ( name, SIZE_PERSON_NAME, file );
 	SaveDynamicString ( reason, file );
 
 	SaveID_END ( file );

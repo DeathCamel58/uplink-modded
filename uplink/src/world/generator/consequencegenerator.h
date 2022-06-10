@@ -43,10 +43,10 @@ public:
 	// Event processing for all people
 
 	static void CaughtHacking ( Person *person, Computer *comp );
-	static void Arrested	  ( Person *person, Computer *comp, char *reason );
+	static void Arrested	  (Person *person, Computer *comp, const string& reason );
 	static void DidntPayFine  ( Person *person, Mission *fine  );
-	static void ShotByFeds	  ( Person *person, char *reason );
-	static void SeizeGateway  ( Person *person, char *reason );
+	static void ShotByFeds	  (Person *person, string reason );
+	static void SeizeGateway  (Person *person, string reason );
 
 	// Event processing for company computers
 

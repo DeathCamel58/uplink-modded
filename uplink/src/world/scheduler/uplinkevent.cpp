@@ -33,23 +33,17 @@ void UplinkEvent::RunWarning ()
 {
 }
 
-char *UplinkEvent::GetShortString ()
+string UplinkEvent::GetShortString ()
 {
 
-	size_t shortstringsize = 32;
-	char *shortstring = new char [shortstringsize];
-	UplinkStrncpy ( shortstring, "Uplink Event", shortstringsize )
-	return shortstring;
+	return "Uplink Event";
 		
 }
 
-char *UplinkEvent::GetLongString ()
+string UplinkEvent::GetLongString ()
 {
 
-	size_t longstringsize = 32;
-	char *longstring = new char [longstringsize];
-	UplinkStrncpy ( longstring, "Uplink Event", longstringsize )
-	return longstring;
+	return "Uplink Event";
 
 }
 

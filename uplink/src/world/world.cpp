@@ -122,7 +122,7 @@ World::~World()
 	DeleteBTreeData ( (BTree <UplinkObject *> *) &computers );						
 	DeleteBTreeData ( (BTree <UplinkObject *> *) &people );							
 
-    DeleteDArrayData ( &passwords );
+    DeleteDArrayData ( passwords );
 
     for ( int i = 0; i < gatewaydefs.Size (); ++i ) 
         if ( gatewaydefs.ValidIndex (i) )
@@ -345,7 +345,7 @@ GatewayDef *World::GetGatewayDef (const string &name ) const
 		for ( int i = 0; i < gatewaydefs.Size (); ++i ) {
 			if ( gatewaydefs.ValidIndex ( i ) && gatewaydefs.GetData ( i ) ) {
 
-				char *gatewayNameTrim = TrimSpaces ( gatewaydefs.GetData ( i )->name );
+				char *gatewayNameTrim = TrimSpaces ( gatewaydefs.GetData ( i )->name.c_str() );
 				bool equalsname = ( strcmp ( nameTrim, gatewayNameTrim ) == 0 );
 				delete [] gatewayNameTrim;
 				if ( equalsname ) {

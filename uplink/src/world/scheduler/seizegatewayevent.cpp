@@ -23,33 +23,26 @@
 SeizeGatewayEvent::SeizeGatewayEvent ()
 {
 
-	reason = nullptr;
+	reason = "";
 	gateway_id = 0;
-	memset ( name, 0, sizeof ( name ) );
+	name = "";
 
 }
 
 SeizeGatewayEvent::~SeizeGatewayEvent ()
-{
-
-	delete [] reason;
-
-}
+= default;
 
 void SeizeGatewayEvent::SetName (const string &newname )
 {
 
-	assert( newname.length() < SIZE_PERSON_NAME );
-	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
+	name = newname;
 
 }
 
 void SeizeGatewayEvent::SetReason (const string &newreason )
 {
 
-    delete [] reason;
-	reason = new char [newreason.length()+1];
-	UplinkSafeStrcpy ( reason, newreason.c_str() )
+    reason = newreason;
 
 }
 
@@ -72,20 +65,15 @@ void SeizeGatewayEvent::Run ()
 	// If this is the player, then it's GAME OVER
 	//
 
-	if ( strcmp ( name, "PLAYER" ) == 0 ) {
+	if ( name == "PLAYER" ) {
 
 		if ( gateway_id == game->GetWorld ()->GetPlayer ()->gateway.id ) {
 
-			std::ostrstream deathmsg;
+			string deathmsg = "Disavowed by Uplink Corporation at ";
+			deathmsg += game->GetWorld ()->date.GetLongString ();
+			deathmsg += "\nFor " + reason + "\n";
 
-			deathmsg << "Disavowed by Uplink Corporation at " << game->GetWorld ()->date.GetLongString ()
-					 << "\nFor " << reason
-					 << "\n" << '\x0';
-
-			game->GameOver ( deathmsg.str () );
-
-			deathmsg.rdbuf()->freeze( false );
-			//delete [] deathmsg.str ();
+			game->GameOver ( deathmsg );
 
 		}
 		else {
@@ -126,26 +114,17 @@ void SeizeGatewayEvent::RunWarning ()
 
 }
 
-char *SeizeGatewayEvent::GetShortString ()
+string SeizeGatewayEvent::GetShortString ()
 {
 
-	size_t shortstringsize = strlen(name) + 32;
-	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "Seize Gateway of %s", name )
-	return shortstring;
+	return "Seize Gateway of " + name;
 
 }
 
-char *SeizeGatewayEvent::GetLongString ()
+string SeizeGatewayEvent::GetLongString ()
 {
 
-	std::ostrstream longstring;
-	longstring << "Seize Gateway Event\n"
-			   << "For : " << name << "\n"
-			   << "GatewayID : " << gateway_id << "\n"
-			   << "Reason : " << reason
-			   << '\x0';
-	return longstring.str ();
+	return "Seize Gateway Event\nFor : " + name + "\nGatewayID : " + to_string(gateway_id) + "\nReason : " + reason;
 
 }
 
@@ -158,16 +137,14 @@ bool SeizeGatewayEvent::Load  ( FILE *file )
 	if ( !UplinkEvent::Load ( file ) ) return false;
 
 	if ( strcmp( game->GetLoadedSavefileVer(), "SAV59" ) >= 0 ) {
-		if ( !LoadDynamicStringStatic ( name, sizeof(name), file ) ) return false;
+		if ( !LoadDynamicStringInt ( name, file ) ) return false;
 	}
 	else {
-		if ( !FileReadData ( name, sizeof(name), 1, file ) ) {
-			name [ sizeof(name) - 1 ] = '\0';
+		if ( !FileReadDataInt ( name, SIZE_PERSON_NAME, file ) ) {
 			return false;
 		}
-		name [ sizeof(name) - 1 ] = '\0';
 	}
-	if ( !LoadDynamicStringPtr ( &reason, file ) ) return false;
+	if ( !LoadDynamicStringInt ( reason, file ) ) return false;
 	if ( !FileReadData ( &gateway_id, sizeof(gateway_id), 1, file ) ) return false;
 
 	LoadID_END ( file );

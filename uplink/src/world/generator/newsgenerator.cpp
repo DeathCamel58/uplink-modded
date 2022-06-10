@@ -783,11 +783,11 @@ void NewsGenerator::AllFilesDeleted (Computer *comp, const string& filetype )
 
 }
 
-void NewsGenerator::Arrested ( Person *person, Computer *comp, char *reason )
+void NewsGenerator::Arrested (Person *person, Computer *comp, string reason )
 {
 
 	UplinkAssert ( person )
-	UplinkAssert ( reason )
+	UplinkAssert ( !reason.empty() )
 	// comp can be nullptr
 
 

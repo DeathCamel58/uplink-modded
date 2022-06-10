@@ -39,8 +39,8 @@ public:
 	virtual void RunWarning ();				// You can override this
 
 
-	virtual char *GetShortString ();
-	virtual char *GetLongString ();
+	virtual string GetShortString ();
+	virtual string GetLongString ();
 
 	// Common functions
 

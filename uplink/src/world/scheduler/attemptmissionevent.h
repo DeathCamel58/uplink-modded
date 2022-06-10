@@ -20,7 +20,7 @@ class AttemptMissionEvent : public UplinkEvent
 
 public:
 
-	char agentname [SIZE_PERSON_NAME];
+	string agentname;
 
 public:
 
@@ -31,8 +31,8 @@ public:
 
 	void SetAgentName (const string &newagentname );
 
-	char *GetShortString () override;
-	char *GetLongString () override;
+	string GetShortString () override;
+	string GetLongString () override;
 
 	// Common functions
 

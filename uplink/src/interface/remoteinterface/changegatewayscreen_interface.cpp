@@ -456,7 +456,7 @@ void ChangeGatewayScreenInterface::Create ( ComputerScreen *newcs )
 		int sizegatewaydefs = game->GetWorld ()->gatewaydefs.Size ();
 		for ( int ii = 0; ii < sizegatewaydefs; ii++ )
 			if ( game->GetWorld ()->gatewaydefs.ValidIndex ( ii ) )
-				if ( strcmp ( game->GetWorld ()->gatewaydefs.GetData ( ii )->name, gd->name ) == 0 ) {
+				if ( game->GetWorld ()->gatewaydefs.GetData ( ii )->name == gd->name ) {
 					ShowGateway ( ii );
 					break;
 				}

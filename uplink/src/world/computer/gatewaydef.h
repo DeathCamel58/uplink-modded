@@ -56,10 +56,10 @@ public:
 
 	// id information
 
-	char name           [SIZE_GATEWAY_NAME];
-	char description    [SIZE_GATEWAY_DESCRIPTION];
-    char filename       [SIZE_GATEWAY_FILENAME];
-    char thumbnail      [SIZE_GATEWAY_FILENAME];
+	string name;
+	string description;
+    string filename;
+    string thumbnail;
 	
 	// Game data definitions
 

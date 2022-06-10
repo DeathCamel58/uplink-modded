@@ -21,12 +21,12 @@ class ArrestEvent : public UplinkEvent
 
 protected:
 
-	char *reason;
+	string reason;
 	char *ip;							
 
 public:
 
-	char name [SIZE_PERSON_NAME];
+	string name;
 
 public:
 
@@ -39,8 +39,8 @@ public:
 
 	void Run () override;
 
-	char *GetShortString () override;
-	char *GetLongString () override;
+	string GetShortString () override;
+	string GetLongString () override;
 
 	// Common functions
 

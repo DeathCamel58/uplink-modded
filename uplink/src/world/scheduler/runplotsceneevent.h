@@ -33,8 +33,8 @@ public:
 
 	void Run () override;
 
-	char *GetShortString () override;
-	char *GetLongString () override;
+	string GetShortString () override;
+	string GetLongString () override;
 
 	
 	// Common functions

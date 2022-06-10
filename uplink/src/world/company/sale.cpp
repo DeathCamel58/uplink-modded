@@ -14,7 +14,7 @@
 Sale::Sale ()
 {
 
-	UplinkStrncpy ( title, "", sizeof ( title ) )
+	title = "";
 	saleTYPE = SALETYPE_NONE;
 	swhwTYPE = SOFTWARETYPE_NONE;
 
@@ -31,7 +31,7 @@ void Sale::SetTitle (const string &newtitle )
 {
 	
 	assert( newtitle.length() < SIZE_SALE_TITLE );
-	UplinkStrncpy ( title, newtitle.c_str(), sizeof ( title ) )
+	title = newtitle;
 
 }
 
@@ -75,7 +75,7 @@ bool Sale::Load ( FILE *file )
 	
 	LoadID ( file );
 
-	if ( !LoadDynamicStringStatic ( title, SIZE_SALE_TITLE, file ) ) return false;
+	if ( !LoadDynamicStringInt ( title, file ) ) return false;
 
 	if ( !FileReadData ( &saleTYPE, sizeof(saleTYPE), 1, file ) ) return false;
 	if ( !FileReadData ( &swhwTYPE, sizeof(swhwTYPE), 1, file ) ) return false;

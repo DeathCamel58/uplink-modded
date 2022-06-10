@@ -35,29 +35,17 @@ void WarningEvent::Run ()
 
 }
 
-char *WarningEvent::GetShortString ()
+string WarningEvent::GetShortString ()
 {
 
-	size_t shortstringsize = 32;
-	char *shortstring = new char [shortstringsize];
-	UplinkStrncpy ( shortstring, "Warning Event", shortstringsize )
-	return shortstring;
+	return "Warning Event";
 
 }
 
-char *WarningEvent::GetLongString ()
+string WarningEvent::GetLongString ()
 {
 
-	char *eventstring = event->GetLongString ();
-
-	std::ostrstream longstring;
-	longstring << "Warning Event for :\n"
-			   << eventstring
-			   << '\x0';
-
-	delete [] eventstring;
-
-	return longstring.str ();
+	return "Warning Event for :\n" + event->GetLongString ();
 
 }
 

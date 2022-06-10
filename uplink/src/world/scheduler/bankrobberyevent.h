@@ -25,10 +25,10 @@ class BankRobberyEvent : public UplinkEvent
 
 public:
 
-    char source_ip      [128];
-    char source_accno   [128];
-    char target_ip      [128];
-    char target_accno   [128];
+    string source_ip;
+    string source_accno;
+    string target_ip;
+    string target_accno;
     int amount;
     Date hackdate;
 
@@ -43,8 +43,8 @@ public:
                      const string &newtargetip, const string &newtargetaccno,
                      int newamount, Date *newhackdate );
 
-	char *GetShortString () override;
-	char *GetLongString () override;
+	string GetShortString () override;
+	string GetLongString () override;
 
 	// Common functions
 

@@ -107,10 +107,7 @@ void EventQueueInterface::EventDraw ( Button *button, bool highlighted, bool cli
 		GciDrawText ( button->x + 5, button->y + 12, date, HELVETICA_10 );
 
 		// Print a short description
-
-		char *shortdesc = e->GetShortString ();
-		GciDrawText ( button->x + 5, button->y + 24, shortdesc, HELVETICA_10 );
-		delete [] shortdesc;
+		GciDrawText ( button->x + 5, button->y + 24, e->GetShortString (), HELVETICA_10 );
 
 		glDisable ( GL_SCISSOR_TEST );
 
@@ -145,13 +142,10 @@ void EventQueueInterface::EventClick ( Button *button )
 		UplinkAssert (e)
 
 		char *date = e->rundate.GetLongString ();
-		char *longdesc = e->GetLongString ();
 
 		EclRegisterButton ( screenw - panelwidth - 3, paneltop + 20, panelwidth, 15, date, "Click to close", "evtqueue_fulldate" );
 		EclRegisterButtonCallback ( "evtqueue_fulldate", FullDetailsCloseClick );
-		create_stextbox ( screenw - panelwidth - 3, paneltop + 40, panelwidth, 9 * 30, longdesc, "evtqueue_fulldetails" );
-
-		delete [] longdesc;
+		create_stextbox ( screenw - panelwidth - 3, paneltop + 40, panelwidth, 9 * 30, e->GetLongString (), "evtqueue_fulldetails" );
 
 	}
 

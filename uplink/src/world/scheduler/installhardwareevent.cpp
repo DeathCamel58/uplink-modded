@@ -185,25 +185,17 @@ void InstallHardwareEvent::RunWarning ()
 
 }
 
-char *InstallHardwareEvent::GetShortString ()
+string InstallHardwareEvent::GetShortString ()
 {
 
-	size_t shortstringsize = strlen(hwsale->title) + 32;
-	char *shortstring = new char [shortstringsize];
-	UplinkSnprintf ( shortstring, shortstringsize, "HW Install of %s, version %d", hwsale->title, version )
-	return shortstring;
+	return "HW Install of " + hwsale->title + ", version " + to_string( version );
 
 }
 
-char *InstallHardwareEvent::GetLongString ()
+string InstallHardwareEvent::GetLongString ()
 {
 
-	std::ostrstream longstring;
-	longstring << "Install Hardware Event\n"
-			   << "Item : " << hwsale->title << "\n"
-			   << "Version : " << version << "\n"
-			   << '\x0';
-	return longstring.str ();
+	return "Install Hardware Event\nItem : " + hwsale->title + "\nVersion : " + to_string( version ) + "\n";
 
 }
 

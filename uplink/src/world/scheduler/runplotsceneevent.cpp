@@ -42,27 +42,22 @@ void RunPlotSceneEvent::Run ()
 }
 
 
-char *RunPlotSceneEvent::GetShortString ()
+string RunPlotSceneEvent::GetShortString ()
 {
 	
 	return GetLongString ();
 
 }
 
-char *RunPlotSceneEvent::GetLongString ()
+string RunPlotSceneEvent::GetLongString ()
 {
 
-	size_t resultsize = 32;
-	char *result = new char [resultsize];
-
 	if ( act != -1 ) {
-	    UplinkSnprintf ( result, resultsize, "Run Plot Act %d, Scene %d", act, scene )
+	    return "Run Plot Act " + to_string(act) + ", Scene " + to_string(scene);
 
 	} else {
-        UplinkSnprintf ( result, resultsize, "Run Demo Plot Scene %d", scene )
+        return "Run Demo Plot Scene " + to_string(scene);
 	}
-
-	return result;
 
 }
 

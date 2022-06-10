@@ -77,45 +77,41 @@ void NotificationEvent::Run ()
 
 }
 
-char *NotificationEvent::GetShortString ()
+string NotificationEvent::GetShortString ()
 {
-
-	std::ostrstream shortstring;
 
 	switch ( TYPE ) {
 
-		case NOTIFICATIONEVENT_TYPE_GROWCOMPANIES:				shortstring << "Grow companies";				break;
-		case NOTIFICATIONEVENT_TYPE_GENNEWMISSION:				shortstring << "Generate new mission";			break;
-		case NOTIFICATIONEVENT_TYPE_CHECKFORSECURITYBREACHES:	shortstring << "Check for security breaches";	break;
-		case NOTIFICATIONEVENT_TYPE_CHECKMISSIONDUEDATES:		shortstring << "Check mission due dates";		break;
-		case NOTIFICATIONEVENT_TYPE_CHECKRECENTHACKCOUNT:		shortstring << "Check recent hack count";		break;
-		case NOTIFICATIONEVENT_TYPE_GIVEMISSIONTONPC:			shortstring << "Give mission to NPC";			break;
-		case NOTIFICATIONEVENT_TYPE_UPLINKMONTHLYFEE:			shortstring << "Pay Uplink monthly fee";		break;
-		case NOTIFICATIONEVENT_TYPE_EXPIREOLDSTUFF:				shortstring << "Expire old stuff";				break;
-		case NOTIFICATIONEVENT_TYPE_ADDINTERESTONLOANS:			shortstring << "Add Interest to loans";			break;
-        case NOTIFICATIONEVENT_TYPE_DEMOGAMEOVER:               shortstring << "Demo Game Over";                break;
-        case NOTIFICATIONEVENT_TYPE_DEMOGENNEWMISSION:          shortstring << "Demo Generate Mission";         break;
-        case NOTIFICATIONEVENT_TYPE_BUYAGENTLIST:               shortstring << "Buy Agent List";                break;
-        case NOTIFICATIONEVENT_TYPE_AGENTSONLISTDIE:            shortstring << "Agents on list die";            break;
-        case NOTIFICATIONEVENT_TYPE_WAREZGAMEOVER:              shortstring << "Warez Game Over";               break;
+		case NOTIFICATIONEVENT_TYPE_GROWCOMPANIES:				return "Grow companies";
+		case NOTIFICATIONEVENT_TYPE_GENNEWMISSION:				return "Generate new mission";
+		case NOTIFICATIONEVENT_TYPE_CHECKFORSECURITYBREACHES:	return "Check for security breaches";
+		case NOTIFICATIONEVENT_TYPE_CHECKMISSIONDUEDATES:		return "Check mission due dates";
+		case NOTIFICATIONEVENT_TYPE_CHECKRECENTHACKCOUNT:		return "Check recent hack count";
+		case NOTIFICATIONEVENT_TYPE_GIVEMISSIONTONPC:			return "Give mission to NPC";
+		case NOTIFICATIONEVENT_TYPE_UPLINKMONTHLYFEE:			return "Pay Uplink monthly fee";
+		case NOTIFICATIONEVENT_TYPE_EXPIREOLDSTUFF:				return "Expire old stuff";
+		case NOTIFICATIONEVENT_TYPE_ADDINTERESTONLOANS:			return "Add Interest to loans";
+        case NOTIFICATIONEVENT_TYPE_DEMOGAMEOVER:               return "Demo Game Over";
+        case NOTIFICATIONEVENT_TYPE_DEMOGENNEWMISSION:          return "Demo Generate Mission";
+        case NOTIFICATIONEVENT_TYPE_BUYAGENTLIST:               return "Buy Agent List";
+        case NOTIFICATIONEVENT_TYPE_AGENTSONLISTDIE:            return "Agents on list die";
+        case NOTIFICATIONEVENT_TYPE_WAREZGAMEOVER:              return "Warez Game Over";
 
 
 		case NOTIFICATIONEVENT_TYPE_NONE:
 			UplinkWarning ( "Notification event type not specified" )
-			shortstring << "Unknown notification";
+			return "Unknown notification";
 			break;
 
 		default:
 			UplinkAbortArgs ( "Unrecognised notification type: %d", TYPE )
+			return "";
 
 	}
 
-	shortstring << '\x0';
-	return shortstring.str ();
-
 }
 
-char *NotificationEvent::GetLongString ()
+string NotificationEvent::GetLongString ()
 {
 
 	return GetShortString ();
