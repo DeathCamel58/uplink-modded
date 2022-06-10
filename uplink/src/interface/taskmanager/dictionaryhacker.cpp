@@ -38,7 +38,7 @@ DictionaryHacker::DictionaryHacker () : UplinkTask ()
 {
 
 	currentindex = 0;	
-	password = username = nullptr;
+	password = username = "";
 	status = DICTIONARYHACKER_WAITING;
 
 	numticksrequired = 0;
