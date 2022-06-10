@@ -19,6 +19,11 @@ protected:
 
 	static int oldNetworkStatus;
 
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
 	static void CloseClick ( Button *button );
 
 	static void ServerButtonClick ( Button *button );
@@ -40,6 +45,10 @@ public:
 
 	int  ScreenID () override;
 
+	/**
+	 * No clue
+	 * @return true under all conditions
+	 */
 	bool ReturnKeyPressed () override;
 
 };

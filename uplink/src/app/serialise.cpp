@@ -507,11 +507,6 @@ void PrintLList	( LList <string> &llist )
 
 }
 
-/**
- * Essentially noop
- * @param llist LList to handle
- * @note This only exists to provide compatibility with `char *` version of this function
- */
 void DeleteLListData ( LList <string> &llist )
 {
 
@@ -770,11 +765,6 @@ void DeleteDArrayDataD( DArray <char *> *darray, const char * file, int line )
 
 }
 
-/**
- * Essentially noop
- * @param llist DArray to handle
- * @note This only exists to provide compatibility with `char *` version of this function
- */
 void DeleteDArrayDataD( DArray <string> &darray, const char * file, int line )
 {
 
@@ -1039,12 +1029,6 @@ bool LoadDynamicStringInt (const char *_file, int _line, char *string, int maxsi
 
 }
 
-/**
- * Loads next data into the given data reference
- * @param data The string reference to load data into
- * @param file File to read from
- * @return true if the data load was successful
- */
 bool LoadDynamicStringInt(string &data, FILE *file)
 {
 
@@ -1076,21 +1060,11 @@ bool LoadDynamicStringInt(string &data, FILE *file)
 
 }
 
-/**
- * Takes variable length input data, and writes it to file
- * @param string Data to write
- * @param file FILE to write to
- */
 void SaveDynamicString ( char *string, FILE *file )
 {
 	SaveDynamicString ( string, -1, file );
 }
 
-/**
- * Takes variable length input data, and writes it to file
- * @param string Data to write
- * @param file FILE to write to
- */
 void SaveDynamicString (string &data, FILE *file )
 {
 
@@ -1098,13 +1072,6 @@ void SaveDynamicString (string &data, FILE *file )
 
 }
 
-/**
- * Takes data with a maximum length, and writes it to file
- * @param string Data to write
- * @param maxsize The maximum size of the data, or -1 for undefined max length
- * @param file FILE to write to
- * @note If maxsize is -1, the constant MAX_LENGTH_DYNAMIC_STRING is still the maximum allowed string length.
- */
 void SaveDynamicString ( char *string, int maxsize, FILE *file )
 {
 
@@ -1147,13 +1114,6 @@ void SaveDynamicString ( char *string, int maxsize, FILE *file )
 
 }
 
-/**
- * Takes input data, and writes it to file
- * @param data Data to write
- * @param maxsize The maximum size of the data, or -1 for undefined max length
- * @param file FILE to write to
- * @note If maxsize is -1, the constant MAX_LENGTH_DYNAMIC_STRING is still the maximum allowed string length.
- */
 void SaveDynamicString (string &data, int maxsize, FILE *file )
 {
 
@@ -1220,13 +1180,6 @@ bool FileReadDataInt (const char *_file, int _line, void * _DstBuf, size_t _Elem
     return true;
 }
 
-/**
- * Reads characters from file into data string
- * @param data The string to put data into
- * @param dataSize Number of bytes to read
- * @param _File ifstream to read data from
- * @return `true` if data read was successful
- */
 bool FileReadDataInt (string & data, size_t dataSize, FILE *_File )
 {
 
@@ -1240,12 +1193,6 @@ bool FileReadDataInt (string & data, size_t dataSize, FILE *_File )
     return true;
 }
 
-/**
- * Reads in next data element from fstream
- * @param data String to put data into
- * @param file fstream to read from
- * @return `true` if read successful
- */
 bool FileReadNext ( string &data, FILE *file) {
     char currentRead[1];
     char terminatingchar = '\0';
@@ -1273,12 +1220,6 @@ bool FileReadNext ( string &data, FILE *file) {
 
 }
 
-/**
- * Reads in next data element from fstream
- * @param data String to put data into
- * @param file fstream to read from
- * @return `true` if read successful
- */
 bool FileReadNext ( string &data, fstream *file) {
     char *currentRead = new char[1024];
 

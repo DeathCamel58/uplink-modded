@@ -26,11 +26,38 @@ void imagebutton_draw_blend ( Button *button, bool highlighted, bool clicked );
 
 void border_draw ( Button *button );
 void textbutton_draw  ( Button *button, bool highlighted, bool clicked );
+
+/**
+ * Used to append text to button's caption when user interacts with it
+ * @param button The button that received input
+ * @param key The keycode of the input
+ */
 void textbutton_keypress ( Button *button, char key );
 
+/**
+ * Goes through the string and divides it up into several smaller strings, taking into account newline characters, and
+ * the width of the text area.
+ * @param text Text to handle
+ * @param linesize The maximum size of the line in pixels
+ * @return LList with separate lines in separate elements
+ */
 LList <string> *wordwraptext ( const string& text, int linesize );
 
+/**
+ * Takes input text, splits it into lines that fit, then draws to screen
+ * @param x X position of where to draw text
+ * @param y Y position of where to draw text
+ * @param text The text to process and draw
+ * @param linesize The maximum line width of the text
+ */
 void text_draw		  (int x, int y, const string& text, int linesize );
+
+/**
+ * Takes input button, splits the caption into lines that fit, then draws to screen
+ * @param button The button to draw
+ * @param highlighted Should the button be highlighted
+ * @param clicked Is the button clicked
+ */
 void text_draw		  ( Button *button, bool highlighted, bool clicked );
 void textbox_draw     ( Button *button, bool highlighted, bool clicked );
 

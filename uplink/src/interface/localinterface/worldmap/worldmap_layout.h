@@ -57,7 +57,19 @@ public:
      * @note Accepted values of newTYPE: WORLDMAPOBJECT_LABEL, WORLDMAPOBJECT_GATEWAY, WORLDMAPOBJECT_LOCATION
      */
     void SetTYPE ( int newTYPE );
+
+    /**
+     * Sets the position of the object
+     * @param newx X coordinate of object
+     * @param newy Y coordinate of object
+     */
     void SetPosition ( int newx, int newy );
+
+    /**
+     * Sets the position of the object
+     * @param newx X coordinate of object
+     * @param newy Y coordinate of object
+     */
     void SetBasePosition ( int newx, int newy );
 
     /**
@@ -260,7 +272,12 @@ protected:
     /**
      * TODO: Document
      */
-    int mapWidth, mapHeight;
+    int mapWidth;
+
+    /**
+     * TODO: Document
+     */
+    int mapHeight;
 
     /**
      * TODO: Document

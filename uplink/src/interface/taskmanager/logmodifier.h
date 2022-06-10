@@ -47,6 +47,12 @@ protected:
 	static void ProgressDraw	( Button *button, bool highlighted, bool clicked );
 
 	static void BorderClick ( Button *button );
+
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
 	static void CloseClick  ( Button *button );
 	static void CommitClick ( Button *button );
 	

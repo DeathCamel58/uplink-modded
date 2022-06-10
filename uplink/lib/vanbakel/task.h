@@ -1,15 +1,4 @@
 
-/*
-
-  Task Object
-
-	Any task that you wish to run on the VanBakel
-	Task Manager must derive from this class and implement
-	the virtual functions.
-
-  */
-
-
 #ifndef included_task_h
 #define included_task_h
 
@@ -17,32 +6,75 @@
 //#include "slasher.h"
 //#endif
 
-
+//! Base Task Class
+/**
+ * Base Task Class
+ * Any task that you wish to run on the VanBakel Task Manager must derive from this class and implement the virtual functions.
+ */
 class Task  
 {
 
 protected:
 
-	void (*callback) ();			// Called when the task has finished
+    /**
+     * Called when the task has finished
+     */
+	void (*callback) ();
 
 public:
 
 	Task();
 	virtual ~Task();
 
+	/**
+	 * Sets a callback function to run when this task finishes
+	 * @param newcallback The callback function
+	 */
 	void SetCallback ( void (*newcallback) () );
 
-	virtual void Initialise ();     // Called at creation time, neccisary
-	void Tick ();					// Called every clock tick, provided
-	virtual void Tick ( int n );	// n ticks occur, neccisary
+	/**
+	 * Initialise the task
+	 */
+	virtual void Initialise ();
 
-	virtual void CreateInterface ();        // You must provide this
-	virtual void RemoveInterface ();		// You must provice this
-	virtual void ShowInterface ();			// ie bring to front (optional)
+	/**
+	 * Called every clock tick
+	 */
+	void Tick ();
 
-	virtual bool IsInterfaceVisible ();     // You must provide this
+	/**
+	 * Does something when a number of ticks occur
+	 * @param n The number of ticks that have occurred
+	 */
+	virtual void Tick ( int n );
 
-	int GetPID ();							// Looks up PID of this task
+	/**
+	 * Creates the task interface
+	 */
+	virtual void CreateInterface ();
+
+	/**
+	 * Removes the task interface
+	 */
+	virtual void RemoveInterface ();
+
+	/**
+	 * Bring to front
+	 * @note Optional
+	 */
+	virtual void ShowInterface ();
+
+	/**
+	 * Checks if this is visible
+	 * @return true if visible
+	 */
+	virtual bool IsInterfaceVisible ();
+
+	/**
+	 * Looks up the PID of this task
+	 * @return The PID of the task
+	 */
+	int GetPID ();
 
 };
 

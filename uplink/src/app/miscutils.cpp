@@ -55,11 +55,6 @@ char *GetFilePath ( const char *filename )
     
 }
 
-/**
- * Converts a string to lowercase
- * @param thestring The string to change
- * @return The string in all lowercase letters
- */
 string LowerCaseString (const string &thestring )
 {
 
@@ -73,11 +68,6 @@ string LowerCaseString (const string &thestring )
 
 }
 
-/**
- * 
- * @param thestring
- * @return
- */
 string StripCarriageReturns (const string &thestring )
 {
 
@@ -134,10 +124,6 @@ char *TrimSpaces ( const char *thestring )
 
 }
 
-/**
- * Creates given directory
- * @param dirname Directory to create
- */
 void MakeDirectory (const string &dirname )
 {
 
@@ -145,12 +131,6 @@ void MakeDirectory (const string &dirname )
 
 }
 
-
-/**
- * Checks if given filename exists
- * @param filename File name to check
- * @return `true` if file exists
- */
 bool DoesFileExist (const string& filename )
 {
 
@@ -158,10 +138,6 @@ bool DoesFileExist (const string& filename )
 
 }
 
-/**
- * Deletes all files and folders within a directory while preserving directory
- * @param directory Directory to delete everything in
- */
 void EmptyDirectory (const string &directory )
 {
 
@@ -173,12 +149,6 @@ void EmptyDirectory (const string &directory )
 
 }
 
-/**
- * Copies file from one location to another
- * @param oldfilename File path to copy
- * @param newfilename File path to put copy
- * @return `true` on success
- */
 bool CopyFilePlain (const string &oldfilename, const string &newfilename )
 {
     MakeDirectory(filesystem::path(newfilename).parent_path());
@@ -220,10 +190,6 @@ bool CopyFileUplink ( const char *oldfilename, const char *newfilename )
 
 }
 
-/**
- * Deletes a file
- * @param filename File name to delete
- */
 void RemoveFile (const string &filename )
 {
 
@@ -499,10 +465,6 @@ void PrintValue(const string& valuename, time_t value) {
     cout << "\t" << valuename << ": " << value << endl;
 }
 
-/**
- * Prints text centered with `=`
- * @param name Text to print
- */
 void PrintPadded(const string& name) {
     int pad = (60 - name.length()) / 2 - 1;
     string out;

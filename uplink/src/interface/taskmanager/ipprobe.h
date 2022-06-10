@@ -25,6 +25,12 @@ protected:
 protected:
 		
 	static void DisplayDraw ( Button *button, bool highlighted, bool clicked );
+
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
 	static void CloseClick ( Button *button );
 	static void GoClick ( Button *button );
 

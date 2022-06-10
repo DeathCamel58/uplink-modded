@@ -30,6 +30,11 @@ protected:
 	static void DictionaryHackerDraw ( Button *button, bool highlighted, bool clicked );	
 	static void DictionaryHackerClick ( Button *button );
 
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
 	static void CloseClick ( Button *button );
 
 public:

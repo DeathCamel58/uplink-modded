@@ -75,6 +75,11 @@ public:
 	void LoadGame (const string &username );
 	void SaveGame (const string &username ) const;
 	void RetireGame (const string &username ) const;
+
+    /**
+     * Gets all save games
+     * @return DArray of all save game file names
+     */
 	static DArray <string> *ListExistingGames ();
 
 	Options *GetOptions ();

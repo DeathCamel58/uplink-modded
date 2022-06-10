@@ -26,6 +26,12 @@ protected:
 protected:
 
     static void TraceDraw ( Button *button, bool highlighted, bool clicked );
+
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
     static void CloseClick ( Button *button );
 	
     static void AudioDraw ( Button *button, bool highlighted, bool clicked );

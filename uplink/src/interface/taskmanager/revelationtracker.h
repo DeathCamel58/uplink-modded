@@ -26,8 +26,14 @@ protected:
     int height;                                             // In rows
 
 protected:
-    
+
     static void TitleClick ( Button *button );
+
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
     static void CloseClick ( Button *button );
 
     static void MainBoxDraw ( Button *button, bool highlighted, bool clicked );

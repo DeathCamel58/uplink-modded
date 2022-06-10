@@ -30,6 +30,11 @@ protected:
 	static void PasswordDraw ( Button *button, bool highlighted, bool clicked );
 	static void PasswordClick ( Button *button );
 
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
 	static void CloseClick ( Button *button );
 
 public:

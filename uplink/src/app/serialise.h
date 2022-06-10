@@ -41,6 +41,12 @@ void DeleteLListData ( LList <UplinkObject *> *llist );
 void SaveLList       ( LList <string> &llist, FILE *file );
 bool LoadLList       ( LList <string> &llist, FILE *file );
 void PrintLList		 ( LList <string> &llist );
+
+/**
+ * Essentially noop
+ * @param llist LList to handle
+ * @note This only exists to provide compatibility with `char *` version of this function
+ */
 void DeleteLListData ( LList <string> &llist );
 
 void SaveLList       ( LList <char *> *llist, FILE *file );
@@ -55,6 +61,12 @@ void UpdateDArray	  ( DArray <UplinkObject *> *darray );
 void DeleteDArrayDataD( DArray <UplinkObject *> *darray, const char * file, int line );
 
 void DeleteDArrayDataD( DArray <char *> *darray, const char * file, int line );
+
+/**
+ * Essentially noop
+ * @param llist DArray to handle
+ * @note This only exists to provide compatibility with `char *` version of this function
+ */
 void DeleteDArrayDataD( DArray <string> &darray, const char * file, int line );
 
 void SaveDArray       ( DArray <int> *darray, FILE *file );
@@ -134,12 +146,46 @@ UplinkObject *CreateUplinkObject ( int OBJECTID );
 
 #define MAX_LENGTH_DYMANIC_STRING 16384
 
+/**
+ * Takes variable length input data, and writes it to file
+ * @param string Data to write
+ * @param file FILE to write to
+ */
 void SaveDynamicString     ( char *string, FILE *file );					// Works with NULL
+
+/**
+ * Takes variable length input data, and writes it to file
+ * @param string Data to write
+ * @param file FILE to write to
+ */
 void SaveDynamicString     (string &string, FILE *file );					// Works with NULL
+
+/**
+ * Takes data with a maximum length, and writes it to file
+ * @param string Data to write
+ * @param maxsize The maximum size of the data, or -1 for undefined max length
+ * @param file FILE to write to
+ * @note If maxsize is -1, the constant MAX_LENGTH_DYNAMIC_STRING is still the maximum allowed string length.
+ */
 void SaveDynamicString     ( char *string, int maxsize, FILE *file );		// Works with NULL
+
+/**
+ * Takes input data, and writes it to file
+ * @param data Data to write
+ * @param maxsize The maximum size of the data, or -1 for undefined max length
+ * @param file FILE to write to
+ * @note If maxsize is -1, the constant MAX_LENGTH_DYNAMIC_STRING is still the maximum allowed string length.
+ */
 void SaveDynamicString     (string &data, int maxsize, FILE *file );		// Works with NULL
 bool LoadDynamicStringInt  (const char *_file, int _line, char **string, FILE *file );					// Assigns space for string
 bool LoadDynamicStringInt  (const char *_file, int _line, char *string, int maxsize, FILE *file );		// Does not allocate space
+
+/**
+ * Loads next data into the given data reference
+ * @param data The string reference to load data into
+ * @param file File to read from
+ * @return true if the data load was successful
+ */
 bool LoadDynamicStringInt  (string &data, FILE *file );					// Assigns space for string
 
 #define LoadDynamicStringPtr(string,file) LoadDynamicStringInt(__FILE__,__LINE__,string,file)
@@ -150,8 +196,30 @@ bool LoadDynamicStringInt  (string &data, FILE *file );					// Assigns space for
 // Function for reading data from a file
 
 bool FileReadDataInt     (const char *_file, int _line, void * _DstBuf, size_t _ElementSize, size_t _Count, FILE * _File );
+
+/**
+ * Reads characters from file into data string
+ * @param data The string to put data into
+ * @param dataSize Number of bytes to read
+ * @param _File ifstream to read data from
+ * @return `true` if data read was successful
+ */
 bool FileReadDataInt     (string & data, size_t dataSize, FILE *_File );
+
+/**
+ * Reads in next data element from fstream
+ * @param data String to put data into
+ * @param file fstream to read from
+ * @return `true` if read successful
+ */
 bool FileReadNext ( string &data, FILE *file);
+
+/**
+ * Reads in next data element from fstream
+ * @param data String to put data into
+ * @param file fstream to read from
+ * @return `true` if read successful
+ */
 bool FileReadNext ( string &data, fstream *file);
 
 #define FileReadData(_DstBuf,_ElementSize,_Count,_File) FileReadDataInt(__FILE__,__LINE__,_DstBuf,_ElementSize,_Count,_File)

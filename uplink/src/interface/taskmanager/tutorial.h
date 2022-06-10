@@ -23,6 +23,11 @@ class Tutorial : public UplinkTask
 
 protected:
 
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
 	static void CloseClick ( Button *button );
 	static void TitleClick ( Button *button );
 	static void SkipClick ( Button *button );

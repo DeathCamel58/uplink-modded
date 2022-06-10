@@ -115,17 +115,6 @@ void Agent::GiveMission ( Mission *mission )
 
 }
 
-/**
- * Parses an access code to a username and password
- * Only 2 varieties are permitted:
- * 1.   ... 'name' .... 'code'
- * 2.   ... 'code' ....
- * In other words, names/codes are always enclosed in '
- * @param thecode The code to parse
- * @param username The username variable to populate
- * @param password The password variable to populate
- * @return `true` if it was successfully parsed
- */
 bool Agent::ParseAccessCode(const string &thecode, string &username, string &password)
 {
 

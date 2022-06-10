@@ -28,6 +28,12 @@ protected:
 	static void BorderDraw   ( Button *button, bool highlighted, bool clicked );
 
 	static void GoClick		 ( Button *button );
+
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
 	static void CloseClick   ( Button *button );
 
 protected:

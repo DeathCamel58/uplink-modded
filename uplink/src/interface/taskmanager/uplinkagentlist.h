@@ -20,6 +20,12 @@ protected:
     static void ScrollUpClick ( Button *button );
     static void ScrollDownClick ( Button *button );
     static void TitleClick ( Button *button );
+
+    /**
+     * Closes the program
+     * @param button
+     * @note button is unused
+     */
     static void CloseClick ( Button *button );
 
 protected:

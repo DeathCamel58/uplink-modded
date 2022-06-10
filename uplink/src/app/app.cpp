@@ -410,10 +410,6 @@ void App::RetireGame (const string &username ) const
 
 }
 
-/**
- * Gets all save games
- * @return DArray of all save game file names
- */
 DArray <string> *App::ListExistingGames ()
 {
 

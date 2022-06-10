@@ -1,29 +1,31 @@
 
-/*
-
-  Warez Game Over screen
-
-    We've detected you are A FUCKING PIRATING MUTHERFUCKER
-    SO FUCK OFF 
-
-  */
-
-
 #ifndef included_warezgameoverinterface_h
 #define included_warezgameoverinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Warez Game Over screen
+/**
+ * Displays the game over screen on pirated copies of the game
+ * @note Original comment was "We've detected you are A FUCKING PIRATING MUTHERFUCKER SO FUCK OFF"
+ */
 class WarezGameOverInterface : public MainMenuScreen
 {
 
 protected:
 
+    /**
+     * The time that this screen was opened
+     */
 	time_t starttime{};
 
 protected:
 
+    /**
+     * Returns to main menu
+     * @param button
+     * @note button is unused
+     */
 	static void ReturnToMainMenuClick ( Button *button );
 
 public:
