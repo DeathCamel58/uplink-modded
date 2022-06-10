@@ -23,7 +23,7 @@
 SocialSecurityScreenInterface::SocialSecurityScreenInterface ()
 {
 
-	searchname = nullptr;
+	searchname = "";
 	recordindex = -1;
 	lastupdate = 0;
 
