@@ -200,10 +200,10 @@ void AccountScreenInterface::Update ()
 			// Update the interest rate 
 
 			string rate;
-			if        ( account->loan <= SMALLLOAN_MAX ) {		rate = "(" + to_string(100.0 * SMALLLOAN_INTEREST) + "% apr)";
-			} else if ( account->loan <= MEDIUMLOAN_MAX ) {		rate = "(" + to_string(100.0 * MEDIUMLOAN_INTEREST) + "% apr)";
-			} else if ( account->loan <= LARGELOAN_MAX ) {		rate = "(" + to_string(100.0 * LARGELOAN_INTEREST) + "% apr)";
-			} else {											rate = "(" + to_string(100.0 * MAXLOAN_INTEREST) + "% apr)";
+			if        ( account->loan <= SMALLLOAN_MAX ) {		rate = "(" + to_string(int (100.0 * SMALLLOAN_INTEREST)) + "% apr)";
+			} else if ( account->loan <= MEDIUMLOAN_MAX ) {		rate = "(" + to_string(int (100.0 * MEDIUMLOAN_INTEREST)) + "% apr)";
+			} else if ( account->loan <= LARGELOAN_MAX ) {		rate = "(" + to_string(int (100.0 * LARGELOAN_INTEREST)) + "% apr)";
+			} else {											rate = "(" + to_string(int (100.0 * MAXLOAN_INTEREST)) + "% apr)";
 			}
 
 			EclGetButton ( "accountscreen_loanrate" )->SetCaption ( rate );
