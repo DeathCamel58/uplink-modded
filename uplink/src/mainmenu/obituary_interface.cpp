@@ -178,8 +178,7 @@ void ObituaryInterface::Create ()
             if ( gob->specialmissionscompleted & (1 << i) ) {
 
                 string name = "obituary_award " + to_string(i);
-                char tooltip [128];
-                UplinkSnprintf ( tooltip, sizeof ( tooltip ), "Completed Special Mission '%s'", PlotGenerator::SpecialMissionTitle (i) )
+                string tooltip = "Completed Special Mission '" + PlotGenerator::SpecialMissionTitle(i) + "'";
                 string filename = "awards/award" + to_string(i) + ".tif";
 
                 EclRegisterButton ( x, y, 16, 16, " ", tooltip, name );                
