@@ -71,14 +71,6 @@ void Decrypter::MoveTo ( int x, int y, int time_ms )
 void Decrypter::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : DataBank containing data to be decrypted
-		uos : Name of button representing data
-		uoi : index of data
-
-		*/
-
 	if ( status == DECRYPTER_OFF ) {
 
 		if ( uo->GetOBJECTID () == OID_DATABANK ) {

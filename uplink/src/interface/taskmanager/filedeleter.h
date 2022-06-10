@@ -47,7 +47,13 @@ public:
 
 	FileDeleter ();
 	~FileDeleter () override;
-	
+
+	/**
+	 * Sets the target of program
+	 * @param uo DataBank object containing data to be deleted
+	 * @param uos Name of button representing data
+	 * @param uoi Index of data to be deleted
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;				// Centred on top-right of title image
 

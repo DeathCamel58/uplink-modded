@@ -43,6 +43,13 @@ public:
 
 	virtual ~PasswordBreaker();
 
+	/**
+	 * Sets the target of program
+	 * @param uo Target PasswordScreen or UserIDScreen object
+	 * @param uos Name of button with password in
+	 * @param uoi
+	 * @note uoi is unused
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi );
 
 	void Initialise ();     // Called at creation time, neccisary

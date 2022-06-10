@@ -67,14 +67,6 @@ void PasswordBreaker::Initialise ()
 void PasswordBreaker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : Target PasswordScreen or UserIDScreen object
-		uos : name of button with password in
-		uoi : unused
-
-		*/
-
 	targetobject = uo;
 	if ( !targetstring.empty() ) {
 		targetstring = "";

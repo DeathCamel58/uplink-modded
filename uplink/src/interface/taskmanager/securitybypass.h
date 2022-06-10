@@ -109,6 +109,12 @@ public:
 	 */
 	void EndCurrentBypass ();
 
+	/**
+	 * Sets the target of program
+	 * @param uo Security object that belongs to target computer
+	 * @param uos Button name representing system in connection analyser
+	 * @param uoi Index of security system
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;
 

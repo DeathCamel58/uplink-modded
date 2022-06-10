@@ -54,6 +54,13 @@ public:
 	LanScan();
 	~LanScan() override;
 
+	/**
+	 * Don't do anything. The target is gotten from the current remote host
+	 * @param uo
+	 * @param uos
+	 * @param uoi
+	 * @note uo, uos, and uoi are unused
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;							// Origin top left
 

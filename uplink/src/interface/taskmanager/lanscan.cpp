@@ -149,13 +149,6 @@ void LanScan::CloseClick ( Button *button )
 
 void LanScan::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
-
-	/*
-		Don't do anything - we get our target from the current
-		remote host
-
-		*/
-
 }
 
 void LanScan::MoveTo ( int x, int y, int time_ms )

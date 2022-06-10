@@ -18,6 +18,9 @@ class UplinkTask : public Task
 
 protected:
 
+    /**
+     * The object to target
+     */
 	UplinkObject *targetobject;
 	string targetstring;
 	int			  targetint;
@@ -35,6 +38,12 @@ public:
 	void SetVersion ( float newversion );
 	void SetFollowMouse ( bool newfollowmouse );
 
+    /**
+     * Sets the target of the program
+     * @param newtargetobject The object to target
+     * @param newtargetstring
+     * @param targetint
+     */
 	virtual void SetTarget (UplinkObject *newtargetobject, const string &newtargetstring, int targetint );
 	virtual void MoveTo ( int x, int y, int time_ms );	
 	

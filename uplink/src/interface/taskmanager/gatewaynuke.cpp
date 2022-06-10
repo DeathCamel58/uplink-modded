@@ -119,8 +119,6 @@ void GatewayNuke::YesClick ( Button *button )
 
 void GatewayNuke::NoClick ( Button *button )
 {
-	
-	// Abort gate nuke
 
 	int pid;
     string unused;
@@ -164,9 +162,6 @@ GatewayNuke::~GatewayNuke ()
 
 void GatewayNuke::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
-
-	// This doesn't need to be called
-
 }
 
 void GatewayNuke::MoveTo ( int x, int y, int time_ms )

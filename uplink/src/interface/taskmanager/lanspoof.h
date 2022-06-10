@@ -58,6 +58,12 @@ public:
 	LanSpoof();
 	~LanSpoof() override;
 
+	/**
+	 * Sets the target of program
+	 * @param uo LanComputer object
+	 * @param uos Name of button representing system
+	 * @param uoi Index of system in lan computer
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;							// Origin top left
 

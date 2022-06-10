@@ -156,13 +156,6 @@ FirewallDisable::~FirewallDisable ()
 
 void FirewallDisable::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
-
-	/*
-		Don't do anything - we get our target from the current
-		remote host
-
-		*/
-
 }
 
 void FirewallDisable::MoveTo ( int x, int y, int time_ms )

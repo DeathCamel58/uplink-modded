@@ -34,6 +34,13 @@ public:
 	MotionSensor ();
 	~MotionSensor () override;
 
+	/**
+	 * Doesn't do anything, as the target is gotten by getting the player's gateway
+	 * @param uo
+	 * @param uos
+	 * @param uoi
+	 * @note uo, uos, and uoi are unused
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;
 

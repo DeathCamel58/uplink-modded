@@ -141,14 +141,6 @@ void LanProbe::BorderClick ( Button *button )
 void LanProbe::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : LanComputer object
-		uos : Name of button representing system
-		uoi : index of system in lan computer
-
-		*/
-
 	if ( status == LANPROBE_UNUSED || status == LANPROBE_FINISHED ) {
 
 		if ( uo->GetOBJECTID() == OID_LANCOMPUTER ) {

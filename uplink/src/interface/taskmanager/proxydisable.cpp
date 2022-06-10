@@ -157,13 +157,6 @@ ProxyDisable::~ProxyDisable ()
 
 void ProxyDisable::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
-
-	/*
-		Don't do anything - we get our target from the current
-		remote host
-
-		*/
-
 }
 
 void ProxyDisable::MoveTo ( int x, int y, int time_ms )

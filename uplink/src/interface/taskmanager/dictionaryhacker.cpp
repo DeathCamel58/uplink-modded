@@ -201,14 +201,6 @@ void DictionaryHacker::DictionaryHackerClick ( Button *button )
 void DictionaryHacker::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : Target PasswordScreen or UserIDScreen object
-		uos : name of button with password in
-		uoi : unused
-
-		*/
-
 	targetobject = uo;
 	if ( !targetstring.empty() ) {
 		targetstring = "";

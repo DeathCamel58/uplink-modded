@@ -27,7 +27,18 @@ protected:
 
 protected:
 
-	static void DictionaryHackerDraw ( Button *button, bool highlighted, bool clicked );	
+    /**
+     * Renders the background of the program
+     * @param button Button for program
+     * @param highlighted TODO: Document
+     * @param clicked TODO: Document
+     */
+	static void DictionaryHackerDraw ( Button *button, bool highlighted, bool clicked );
+
+	/**
+	 * Sets the program selected to this one
+	 * @param button Button for program
+	 */
 	static void DictionaryHackerClick ( Button *button );
 
     /**
@@ -43,6 +54,13 @@ public:
 
 	~DictionaryHacker() override;
 
+	/**
+	 * Sets the target of program
+	 * @param uo Target PasswordScreen or UserIDScreen object
+	 * @param uos name of button with password in
+	 * @param uoi
+	 * @note uoi is unused
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 
 	void Initialise () override;     // Called at creation time, neccisary

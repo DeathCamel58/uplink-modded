@@ -79,6 +79,12 @@ public:
 	void Initialise () override;
 	void Tick ( int n ) override;
 
+	/**
+	 * Sets the target of program
+	 * @param uo DataBank object containing data to be downloaded
+	 * @param uos Name of button representing downloadable data
+	 * @param uoi Memory index of data in DataBank
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;
 

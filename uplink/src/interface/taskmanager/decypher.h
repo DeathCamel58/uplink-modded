@@ -41,7 +41,14 @@ public:
 
 	Decypher ();
 	~Decypher ();
-	
+
+	/**
+	 * Sets the target of program
+	 * @param uo CypherScreen object (i.e. the screen interface object)
+	 * @param uos Name of button representing data
+	 * @param uoi
+	 * @note uoi is unused
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi );
 	void MoveTo ( int x, int y, int time_ms );				// Centred on top-right of title image
 

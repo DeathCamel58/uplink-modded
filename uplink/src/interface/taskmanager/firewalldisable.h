@@ -52,6 +52,14 @@ public:
 	FirewallDisable ();
 	~FirewallDisable () override;
 
+	/**
+	 * Doesn't do anything.
+	 * @note This program gets the target from the currently connected remote host.
+	 * @param uo
+	 * @param uos
+	 * @param uoi
+	 * @note uo, ois, and uoi are unused
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;
 

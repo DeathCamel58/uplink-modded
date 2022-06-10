@@ -251,14 +251,6 @@ LogModifier::~LogModifier ()
 void LogModifier::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : LogBank object containing AccessLog to be un-deleted
-		uos : Name of button representing data
-		uoi : index of log in logbank
-
-		*/
-
 	UplinkAssert (uo)
 	
 	if ( uo->GetOBJECTID () == OID_LOGBANK ) {

@@ -47,7 +47,13 @@ public:
 
 	Decrypter ();
 	~Decrypter () override;
-	
+
+    /**
+     * Sets the target of program
+     * @param uo DataBank containing data to be decrypted
+     * @param uos Name of button representing data
+     * @param uoi index of data
+     */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;				// Centred on top-right of title image
 

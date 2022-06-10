@@ -72,14 +72,6 @@ void FileDeleter::MoveTo ( int x, int y, int time_ms )
 void FileDeleter::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : DataBank object containing Data to be deleted
-		uos : Name of button representing data
-		uoi : index of data to be deleted
-
-		*/
-
 	if ( status == FILEDELETER_OFF ) {
 
 		if ( uo->GetOBJECTID () == OID_DATABANK ) {

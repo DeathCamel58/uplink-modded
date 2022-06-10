@@ -140,14 +140,6 @@ LanSpoof::~LanSpoof()
 void LanSpoof::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : LanComputer object
-		uos : Name of button representing system
-		uoi : index of system in lan computer
-
-		*/
-
 	if ( status == LANSPOOF_UNUSED || 
 		 status == LANSPOOF_SPOOFED ||
 		 status == LANSPOOF_FAILED ) {

@@ -64,6 +64,12 @@ public:
 	LogModifier ();
 	~LogModifier () override;
 
+	/**
+	 * Sets the target of program
+	 * @param uo LogBank object containing AccessLog to be un-deleted
+	 * @param uos Name of button representing data
+	 * @param uoi Index of log in LogBank
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;							// Origin top left
 

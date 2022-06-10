@@ -255,15 +255,6 @@ void VoiceAnalyser::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 
       if ( uo->GetOBJECTID () == OID_DATABANK ) {
 
-         /*
-            DataBank selected
-
-            uo  : DataBank object containing Data to be downloaded
-            uos : Name of button representing downloadable data
-            uoi : memory index of data in databank
-
-            */
-
          if ( ((DataBank *) uo)->GetData (uoi) ) {
 
             source = (DataBank *) uo;

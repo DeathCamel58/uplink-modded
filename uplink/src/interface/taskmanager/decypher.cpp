@@ -74,14 +74,6 @@ void Decypher::MoveTo ( int x, int y, int time_ms )
 void Decypher::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : CypherScreen object (ie the screen interface object)
-		uos : Name of button representing data
-		uoi : unused
-
-		*/
-
 	if ( status == DECYPHER_OFF ) {
 
 		if ( uo->GetOBJECTID () == OID_CYPHERSCREEN ) {

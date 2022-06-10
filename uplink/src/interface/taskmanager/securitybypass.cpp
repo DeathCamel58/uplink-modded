@@ -237,13 +237,6 @@ void SecurityBypass::EndCurrentBypass ()
 void SecurityBypass::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-		uo  : Security object that belongs to target computer
-		uos : Button name representing system in connection analyser
-		uoi : index of security system 
-
-		*/
-
 	UplinkAssert (uo)
 
 	if ( uo->GetID () == "SECUR" ) {

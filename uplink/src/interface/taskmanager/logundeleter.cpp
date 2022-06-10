@@ -74,14 +74,6 @@ void LogUnDeleter::MoveTo ( int x, int y, int time_ms )
 void LogUnDeleter::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 {
 
-	/*
-
-		uo  : LogBank object containing AccessLog to be un-deleted
-		uos : Name of button representing data
-		uoi : index of log in logbank
-
-		*/
-
 	if ( status == LOGUNDELETER_OFF ) {
 
 		if ( uo->GetOBJECTID () == OID_LOGBANK ) {

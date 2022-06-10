@@ -42,6 +42,13 @@ public:
 
     void UpdateLists ();
 
+    /**
+     * Does nothing
+     * @param uo
+     * @param uos
+     * @param uoi
+     * @note uo, uos, and uoi are unused
+     */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi );
 
 	void Initialise ();     

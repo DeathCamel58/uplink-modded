@@ -50,6 +50,12 @@ public:
 	LogDeleter ();
 	~LogDeleter () override;
 
+	/**
+	 * Sets the target of program
+	 * @param uo LogBank object containing AccessLog to be deleted
+	 * @param uos Name of button representing data
+	 * @param uoi Index of log in LogBank
+	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
 	void MoveTo ( int x, int y, int time_ms ) override;				// Centred on top-right of title image
 
