@@ -24,7 +24,7 @@
 CriminalScreenInterface::CriminalScreenInterface ()
 {
 
-	searchname = nullptr;
+	searchname = "";
 	recordindex = -1;
 	lastupdate = 0;
 
