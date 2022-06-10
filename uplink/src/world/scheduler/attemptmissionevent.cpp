@@ -95,7 +95,7 @@ void AttemptMissionEvent::Save ( FILE *file )
 
 	UplinkEvent::Save ( file );
 
-	SaveDynamicString ( agentname, sizeof(agentname), file );
+	SaveDynamicString ( agentname, agentname.size(), file );
 
 	SaveID_END ( file );
 

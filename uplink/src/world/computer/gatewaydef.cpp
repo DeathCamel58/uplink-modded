@@ -415,10 +415,10 @@ void GatewayDef::Save  ( FILE *file )
 
 	SaveID ( file );
 
-	SaveDynamicString ( name,        sizeof(name),        file );
-	SaveDynamicString ( description, sizeof(description), file );
-	SaveDynamicString ( filename,    sizeof(filename),    file );
-	SaveDynamicString ( thumbnail,   sizeof(thumbnail),   file );
+	SaveDynamicString ( name,        name.size(),        file );
+	SaveDynamicString ( description, description.size(), file );
+	SaveDynamicString ( filename,    filename.size(),    file );
+	SaveDynamicString ( thumbnail,   thumbnail.size(),   file );
 
 	fwrite ( &cost,        sizeof(cost),        1, file );
 	fwrite ( &maxcpus,     sizeof(maxcpus),     1, file );

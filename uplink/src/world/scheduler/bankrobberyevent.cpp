@@ -224,10 +224,10 @@ void BankRobberyEvent::Save  ( FILE *file )
 
     UplinkEvent::Save ( file );
 
-	SaveDynamicString ( source_ip, sizeof(source_ip), file );
-	SaveDynamicString ( source_accno, sizeof(source_accno), file );
-	SaveDynamicString ( target_ip, sizeof(target_ip), file );
-	SaveDynamicString ( target_accno, sizeof(target_accno), file );
+	SaveDynamicString ( source_ip, source_ip.size(), file );
+	SaveDynamicString ( source_accno, source_accno.size(), file );
+	SaveDynamicString ( target_ip, target_ip.size(), file );
+	SaveDynamicString ( target_accno, target_accno.size(), file );
 
     fwrite ( &amount, sizeof(amount), 1, file );
     hackdate.Save ( file );

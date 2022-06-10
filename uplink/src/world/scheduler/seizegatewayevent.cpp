@@ -160,7 +160,7 @@ void SeizeGatewayEvent::Save  ( FILE *file )
 
 	UplinkEvent::Save ( file );
 
-	SaveDynamicString ( name, sizeof(name), file );
+	SaveDynamicString ( name, name.size(), file );
 	SaveDynamicString ( reason, file );
 	fwrite ( &gateway_id, sizeof(gateway_id), 1, file );
 
