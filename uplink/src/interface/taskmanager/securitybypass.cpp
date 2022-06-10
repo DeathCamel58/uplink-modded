@@ -129,7 +129,13 @@ bool SecurityBypass::ShouldDraw ( int pid )
 {
 
 	auto *pb = (SecurityBypass *) SvbGetTask ( pid );
-	if ( !pb || pb->status == 0 ) // 0 = static, 1 = working
+
+	// Don't attempt to draw this if we can't get the task
+	if ( !pb ) {
+        return false;
+	}
+
+	if ( pb->status == 0 ) // 0 = static, 1 = working
 		return true;
 
 	LocalInterface *li = game->GetInterface()->GetLocalInterface();
