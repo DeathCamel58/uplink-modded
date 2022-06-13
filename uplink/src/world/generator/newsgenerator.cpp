@@ -73,7 +73,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 
 			case 3:				headline << "Government held Files compromised for the third time";
 								part1	 << "For the third time in less than a month, the government owned Social Security Database has been hacked.";
-								part4	 << "The system holds key personal data on millions of people and has been the cause of some embarrasment recently "
+								part4	 << "The system holds key personal data on millions of people and has been the cause of some embarrassment recently "
 											"for the government.";
 								part5	 << "The potential for damage on this system is huge, prompting calls by opposition parties for a full "
 											"review of all security protocols.";
@@ -97,7 +97,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 				}
 
 				switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
-					case 1 :		part2	 << "This system has been hacked multiple times in the last month, prompting heavy critisism from some opposition parties.";	break;
+					case 1 :		part2	 << "This system has been hacked multiple times in the last month, prompting heavy criticism from some opposition parties.";	break;
 					case 2 :		part2	 << "This is not the first time this has happened; this system has been tampered with more than once recently.";				break;
 					case 3 :		part2	 << "The Government is once again on the defensive as this system seems to be almost wide open to abuse.";						break;
 				}
@@ -109,7 +109,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 					case 2 :		part1    << "Government maintained Social Security documents have come under attack yet again.";
 									part5	 << "The government is said to be considering many options on how to stop these attacks.";
 									break;
-					case 3 :		part1    << "The Goverment owned Social Security computer has once again been hacked by an unknown Cyber criminal.";
+					case 3 :		part1    << "The Government owned Social Security computer has once again been hacked by an unknown Cyber criminal.";
 									part5	 << "Federal agents have been called in to help catch the criminals responsible for this action.";
 									break;
 				}
@@ -154,7 +154,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 			default:
 
 				switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
-					case 1 :		headline << "Government embarresed over repeated security failures";
+					case 1 :		headline << "Government embarrassed over repeated security failures";
 									part5	 << "The Government has again promised to put a stop to these hacks quickly.";
 									break;
 					case 2 :		headline << "International Academic Database hacked again";
@@ -167,7 +167,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 				}
 
 				switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
-					case 1 :		part2	 << "Security on this computer has been bypassed repeadly in the last month.";			break;
+					case 1 :		part2	 << "Security on this computer has been bypassed repeatedly in the last month.";			break;
 					case 2 :		part2	 << "This attack is the latest in a string of hacks performed in the last month.";		break;
 					case 3 :		part2	 << "Federal agents seem unable to stop a torrent of recent hacks on this system.";		break;
 				}
@@ -176,12 +176,12 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 					case 1 :		part1	 << "The Government Academic Database has been hacked again by an unknown intruder.";
 									part4	 << "The system is used to store the Academic history of millions of people.";
 									break;
-					case 2 :		part1	 << "Hackers have again penetrated the International Acadmic Database.";
+					case 2 :		part1	 << "Hackers have again penetrated the International Academic Database.";
 									part4	 << "In theory a skilled hacker could create new qualifications for any person he wished.";
 									break;
 					case 3 :		part1	 << "The International Academic Database has been attacked by hackers again.";
 									part4	 << "The exact motives of the hackers are not clear, but it is believed they may be running "
-												"some kind of buisiness offering new qualifications for people for a price.";
+												"some kind of business offering new qualifications for people for a price.";
 				}
 
 				break;
@@ -218,7 +218,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
             case 3:             headline << "Hackers take advantage of Global Criminal Database";
                                 part1 << "The Government owned Global Criminal Database system has recently suffered a couple of high security hacks, "
                                          "and it would seem more and more hackers are taking advantage of the system.";
-                                part2 << "For the third time in less than a month a hacker gained adminstrative access to the system and modified "
+                                part2 << "For the third time in less than a month a hacker gained administrative access to the system and modified "
                                          "criminal records within the system.";
                                 part4 << "The Government now believes a group of individuals are offering modifications to personal records such as criminal records "
                                          "for a price, perhaps advertising through the underground anarchist group Uplink Corporation.";
@@ -288,7 +288,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 			case 3 :			headline << comp->name << " hacked for the third time";
 								part1	 << comp->companyname << " are at a loss today as their online trading system, "
 										 << comp->name << " was hacked for the third time in less than a month.";
-								part4	 << "Funds are being illegally transfered but " << comp->companyname << " are unable to "
+								part4	 << "Funds are being illegally transferred but " << comp->companyname << " are unable to "
 											"provide any further details at this time.";
 								part5	 << "Earlier today they issued a statement, saying that Federal Agents had been brought in "
 											"to try to catch these hackers before they cause serious damage.";
@@ -311,7 +311,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 				switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
 					case 1 :		part1	 << "The " << comp->name << " has been attacked and penetrated again by unknown cyber-criminals.";		break;
 					case 2 :		part1	 << "Earlier today the " << comp->name << " system was attacked again by Computer hackers.";			break;
-					case 3 :		part1	 << comp->companyname << " suffered another embarrasing security problem today as their "
+					case 3 :		part1	 << comp->companyname << " suffered another embarrassing security problem today as their "
 											 << comp->name << " system was hacked from an unknown source.";
 				}
 
@@ -445,7 +445,7 @@ void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 							break;
 
 		case 3 :			part2 << "A single hacker is responsible for this high-tech crime.  Moments before the failure "
-							"he hacked into the system and deliberatly brought about its destruction.  The exact method has "
+							"he hacked into the system and deliberately brought about its destruction.  The exact method has "
 							"not yet been determined.";
 							break;
 
@@ -539,7 +539,7 @@ void NewsGenerator::ComputerDestroyed ( Computer *comp, bool filesdeleted )
 
 }
 
-void NewsGenerator::AllFilesStolen (Computer *comp, string filetype, int totalfilesize )
+void NewsGenerator::AllFilesStolen (Computer *comp, const string& filetype, int totalfilesize )
 {
 
 	UplinkAssert (comp)
@@ -575,12 +575,12 @@ void NewsGenerator::AllFilesStolen (Computer *comp, string filetype, int totalfi
 
 		case 3:				part1 << comp->companyname << " are once again reviewing their security procedures after revealing that "
 									"their central mainframe has been compromised for the third time in a month, with massive amounts "
-									"of confidential data being transfered away.";
+									"of confidential data being transferred away.";
 							break;
 
 		default:			part1 << comp->companyname << " have suffered yet another embarrassing security breach, today revealing "
 									"that a massive quantity of private data was stolen from their central mainframe.  This system has "
-									"been targetted repeatedly in recent times.";
+									"been targeted repeatedly in recent times.";
 
 	}
 
@@ -599,7 +599,7 @@ void NewsGenerator::AllFilesStolen (Computer *comp, string filetype, int totalfi
 		headline << "No data is secure - GigaQuads stolen in 'impossible' hack";
 
 		part2 << "It is believed around " << totalfilesize << " Gigaquads of confidential "
-				 "corporate data was stolen by this hacker, and it was probably copied to a temporary fileserver somewhere "
+				 "corporate data was stolen by this hacker, and it was probably copied to a temporary file server somewhere "
 				 "on the web.";
 
 		part3 << comp->companyname << " have said that they are considering all options to catch this hacker, and "
@@ -694,7 +694,7 @@ void NewsGenerator::AllFilesDeleted (Computer *comp, const string& filetype )
 								  "of lost data.";
 							break;
 
-		case 2:				part1 << comp->companyname << " again found themselves in trouble as gigaquds of data where "
+		case 2:				part1 << comp->companyname << " again found themselves in trouble as gigaquads of data where "
 								  "wiped from their system.  In a statement today the company claimed it had evidence "
 								  "that the files where deliberately deleted by a malicious hacker.";
 							break;
@@ -708,7 +708,7 @@ void NewsGenerator::AllFilesDeleted (Computer *comp, const string& filetype )
 
 	if ( filetype == "SCIENTIFIC" ) {
 
-		headline << "Computer failure blaimed for research loss";
+		headline << "Computer failure blamed for research loss";
 
 		part2 << "The data deleted was the combined results of a large scale scientific test, being conducted "
 				 "by " << comp->companyname << " in order to develop new technology.";
@@ -723,7 +723,7 @@ void NewsGenerator::AllFilesDeleted (Computer *comp, const string& filetype )
 		part2 << "The company found that masses of corporate data has been destroyed.";
 
 		part3 << "It is not known how much this will cost the company but there is little doubt that serious damage "
-				 "has been done.  This level of data loss could not occur without serious repurcusions.";
+				 "has been done.  This level of data loss could not occur without serious repercussions.";
 
 	} else if ( filetype == "CUSTOMER" ) {
 
@@ -743,7 +743,7 @@ void NewsGenerator::AllFilesDeleted (Computer *comp, const string& filetype )
 			     "still in development had been deleted, along with all source code and back ups.  It was claimed "
 				 "that the revolutionary software would dominate the market once released.";
 
-		part3 << comp->companyname << " have undoubtably suffered a large loss here, which could cost the company "
+		part3 << comp->companyname << " have undoubtedly suffered a large loss here, which could cost the company "
 				 "millions.";
 
 	}
@@ -783,7 +783,7 @@ void NewsGenerator::AllFilesDeleted (Computer *comp, const string& filetype )
 
 }
 
-void NewsGenerator::Arrested (Person *person, Computer *comp, string reason )
+void NewsGenerator::Arrested (Person *person, Computer *comp, const string& reason )
 {
 
 	UplinkAssert ( person )
@@ -801,10 +801,10 @@ void NewsGenerator::Arrested (Person *person, Computer *comp, string reason )
 
 		   ========================================================== */
 
-	std::ostrstream headline;
-	std::ostrstream part1, part2, part3;
+	string headline;
+	string part1, part2, part3;
 
-	part1 << "Earlier today a man was arrested by Federal Agents for " << reason;
+	part1 = "Earlier today a man was arrested by Federal Agents for " + reason;
 
 	// ================================================================================================================
 	// Civilian caught
@@ -813,20 +813,22 @@ void NewsGenerator::Arrested (Person *person, Computer *comp, string reason )
 	if ( person->rating.uplinkrating == 0 ) {
 
 		switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
-			case 1 :			headline << "Man arrested for Computer Crime";							break;
-			case 2 :			headline << "Police arrest suspect in Computer fraud crime";			break;
-			case 3 :			headline << "Federal agents arrest suspect in dawn raid";				break;
+			case 1 :			headline = "Man arrested for Computer Crime";							break;
+			case 2 :			headline = "Police arrest suspect in Computer fraud crime";			break;
+			case 3 :			headline = "Federal agents arrest suspect in dawn raid";				break;
 		}
 
-		part2 << "The man arrested, who has been named as " << person->name << ", has protested his innocence "
+		part2 = "The man arrested, who has been named as ";
+		part2 += person->name;
+		part2 +=", has protested his innocence "
 				 "from the start, claiming he has no knowledge of Computers at all and could not have "
 				 "committed this crime.";
 
 		switch ( NumberGenerator::RandomNumber ( 2 ) + 1 ) {
-			case 1 :			part3 << "The man will face court in a few months time for these crimes and could serve "
+			case 1 :			part3 = "The man will face court in a few months time for these crimes and could serve "
 										 " several years in jail for this crime.";
 								break;
-			case 2 :			part3 << "This case will go to court and he may face some time in jail.  "
+			case 2 :			part3 = "This case will go to court and he may face some time in jail.  "
 										 "Friends and family today began a campaign to prove his innocence, claiming "
 										 "that he does not have the knowledge or equipment necessary to complete "
 										 "the crimes he is accused of.";
@@ -842,18 +844,21 @@ void NewsGenerator::Arrested (Person *person, Computer *comp, string reason )
 	else if ( person->rating.uplinkrating < 3 ) {
 
 		switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
-			case 1 :			headline << "Amateur hacker caught and arrested";						break;
-			case 2 :			headline << "Federal Agents catch hacker red handed";					break;
-			case 3 :			headline << "Part-time hacker brought to justice";						break;
+			case 1 :			headline = "Amateur hacker caught and arrested";						break;
+			case 2 :			headline = "Federal Agents catch hacker red handed";					break;
+			case 3 :			headline = "Part-time hacker brought to justice";						break;
 		}
 
-		part2 << "The man has been named by Federal Agents as " << person->name << ", and is on record with a "
+		part2 = "The man has been named by Federal Agents as ";
+		part2 += person->name;
+		part2 += ", and is on record with a "
 				 "history of small time computer crime.  Police who arrested him found Computer equipment and "
 				 "hardware for hacking in his house.  It is believed this man was a part-time employee of the "
-				 "underground hacker group Uplink-Corporation, where he went by the hacker alias of "
-				 << ((Agent *) person)->handle << ".";
+				 "underground hacker group Uplink-Corporation, where he went by the hacker alias of ";
+		part2 += ((Agent *) person)->handle;
+		part2 += ".";
 
-		part3 << "He may not get a chance to hack again however, as he could face up to ten years in prison.";
+		part3 = "He may not get a chance to hack again however, as he could face up to ten years in prison.";
 
 	}
 
@@ -864,18 +869,21 @@ void NewsGenerator::Arrested (Person *person, Computer *comp, string reason )
 	else if ( person->rating.uplinkrating < 11 ) {
 
 		switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
-			case 1 :			headline << "Experienced computer hacker finally caught";				break;
-			case 2 :			headline << "Federal Agents catch up with underground Hacker";			break;
-			case 3 :			headline << "High-ranked Uplink Agent arrested";						break;
+			case 1 :			headline = "Experienced computer hacker finally caught";				break;
+			case 2 :			headline = "Federal Agents catch up with underground Hacker";			break;
+			case 3 :			headline = "High-ranked Uplink Agent arrested";						break;
 		}
 
-		part2 << "The man's real name is " << person->name << " and he is a well known player in the underground "
+		part2 = "The man's real name is ";
+		part2 += person->name;
+		part2 += " and he is a well known player in the underground "
 				 "hacker scene.  It is believed he is a full-time freelance hacker, working for several organised "
-				 "groups including the well known Uplink-Corporation, where he went by the hacker alias of "
-				 << ((Agent *) person)->handle << ".";
+				 "groups including the well known Uplink-Corporation, where he went by the hacker alias of ";
+		part2 += ((Agent *) person)->handle;
+		part2 += ".";
 
-		part3 << "Police suspect this man of multiple computer crimes and as such it is believed he will serve "
-			     "between ten and fifteen years inprisonment, and most likely a life ban on the use of computers.";
+		part3 = "Police suspect this man of multiple computer crimes and as such it is believed he will serve "
+			     "between ten and fifteen years imprisonment, and most likely a life ban on the use of computers.";
 
 
 	}
@@ -887,18 +895,21 @@ void NewsGenerator::Arrested (Person *person, Computer *comp, string reason )
 	else {
 
 		switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
-			case 1 :			headline << "Hacker ring-leader arrested in dawn raid";					break;
-			case 2 :			headline << "Police arrest hacker 'Demi-God'";							break;
-			case 3 :			headline << "Federal Agents pleased with arrest of hacker leader";		break;
+			case 1 :			headline = "Hacker ring-leader arrested in dawn raid";					break;
+			case 2 :			headline = "Police arrest hacker 'Demi-God'";							break;
+			case 3 :			headline = "Federal Agents pleased with arrest of hacker leader";		break;
 		}
 
-		part2 << "The man in question is " << person->name << " and he is a well established member of the secretive "
-				 "underground hacker movement Uplink-Corporation, where he worked behind the hacker alias of "
-				 << ((Agent *) person)->handle << ".  His rating is incredibly high, suggesting a long "
+		part2 = "The man in question is ";
+		part2 += person->name;
+		part2 += " and he is a well established member of the secretive "
+				 "underground hacker movement Uplink-Corporation, where he worked behind the hacker alias of ";
+		part2 += ((Agent *) person)->handle;
+		part2 += ".  His rating is incredibly high, suggesting a long "
 				 "history of computer crime.  Police have had a file on this many for several years but have finally "
 				 "caught him red handed.";
 
-		part3 << "Due to the nature of his history, it is believed the prosecution may push for a life sentence for "
+		part3 = "Due to the nature of his history, it is believed the prosecution may push for a life sentence for "
 				 "this man.  The courts are becoming increasingly hostile to hackers and they may decide to deal a "
 				 "heavy punishment to this hacker as a warning to others.";
 
@@ -909,29 +920,12 @@ void NewsGenerator::Arrested (Person *person, Computer *comp, string reason )
 	// Concatenate each part together and post it
 	//
 
-	headline << '\x0';
-	part1 << '\x0';
-	part2 << '\x0';
-	part3 << '\x0';
-
-	std::ostrstream details;
-	details << part1.str () << "\n\n" << part2.str () << "\n\n" << part3.str () << '\x0';
+	string details = part1 + "\n\n" + part2 + "\n\n" + part3;
 
 	News *news = new News ();
-	news->SetHeadline ( headline.str () );
-	news->SetDetails ( details.str () );
+	news->SetHeadline ( headline );
+	news->SetDetails ( details );
 	news->SetData ( NEWS_TYPE_ARREST, person->name, comp ? comp->ip : "" );
-
-	headline.rdbuf()->freeze( false );
-	part1.rdbuf()->freeze( false );
-	part2.rdbuf()->freeze( false );
-	part3.rdbuf()->freeze( false );
-	details.rdbuf()->freeze( false );
-	//delete [] headline.str ();
-	//delete [] part1.str ();
-	//delete [] part2.str ();
-	//delete [] part3.str ();
-	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu)
