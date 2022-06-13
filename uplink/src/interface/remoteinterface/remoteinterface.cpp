@@ -173,7 +173,7 @@ void RemoteInterface::RunNewLocation ()
 		Computer *compfrom = vlfrom->GetComputer ();
 		UplinkAssert (compfrom)
 
-		if ( strcmp ( compfrom->companyname, GetComputerScreen ()->GetComputer ()->companyname ) != 0 ) {
+		if ( compfrom->companyname != GetComputerScreen ()->GetComputer ()->companyname ) {
 
 			game->GetWorld ()->GetPlayer ()->connection.Disconnect ();
 			game->GetWorld ()->GetPlayer ()->connection.Reset ();

@@ -59,7 +59,7 @@ protected:
 
 	int STATUS;
 	int sample[VOICEANALYSER_NUMSAMPLES];
-	char personname [SIZE_PERSON_NAME];
+	string personname;
 	char personip [SIZE_VLOCATION_IP];
 	int timesync;
 	int animsync;

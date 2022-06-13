@@ -3849,7 +3849,7 @@ Computer *WorldGenerator::GetRandomComputer ( int TYPE )
 			UplinkAssert ( comp )
 
 			if ( (comp->TYPE & TYPE) && comp->istargetable && comp->isrunning &&
-				 strcmp(comp->companyname, "Government" ) != 0 )
+				 comp->companyname != "Government" )
 				typecomps->PutData ( comps->GetData (i) );
 
 		}

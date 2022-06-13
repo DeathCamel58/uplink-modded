@@ -507,8 +507,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	char completionD [8];												// Numfiles TotalSize
 	char completionE [16];												// TYPE of data
 
-	char whoisthetarget [128];
-	UplinkSnprintf ( whoisthetarget, sizeof ( whoisthetarget ), "The data is owned by %s", target->companyname )
+	string whoisthetarget = "The data is owned by " + target->companyname;
 
 	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
 	UplinkStrncpy ( completionB, "ALL", sizeof ( completionB ) )
@@ -841,8 +840,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
 	UplinkStrncpy ( completionB, "ALL", sizeof ( completionB ) )
 
-	char whoisthetarget [128];
-	UplinkSnprintf ( whoisthetarget, sizeof ( whoisthetarget ), "The data is owned by %s", target->companyname )
+	string whoisthetarget = "The data is owned by " + target->companyname;
 
 	int type = NumberGenerator::RandomNumber ( 4 ) + 1;
 
@@ -2360,10 +2358,9 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 	// Look up the owner
 	//
 
-	char *companyname = hacked->companyname;
+	string companyname = hacked->companyname;
 
-	char contact [SIZE_PERSON_NAME];
-	UplinkSnprintf ( contact, sizeof ( contact ), "internal@%s.net", companyname )
+	string contact = "internal@" + companyname + ".net";
 
 	//
 	// Fill in the text fields
@@ -2655,8 +2652,7 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 	postdate.AdvanceHour ( NumberGenerator::RandomNumber ( 96 ) * -1 );
 	postdate.AdvanceMinute ( NumberGenerator::RandomNumber ( 60 ) * -1 );
 
-	char whoisthetarget [128];
-	UplinkSnprintf ( whoisthetarget, sizeof ( whoisthetarget ), "The system is owned by %s", target->companyname )
+	string whoisthetarget = "The system is owned by " + target->companyname;
 
 	//
 	// Insert the mission

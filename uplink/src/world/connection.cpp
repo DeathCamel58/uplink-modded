@@ -207,7 +207,7 @@ void Connection::Connect ()
 		SecurityMonitor::BeginAttack ();
         LanMonitor::BeginAttack ();
 
-        if ( strcmp ( comp->companyname, "ARC" ) == 0 ) 
+        if ( comp->companyname == "ARC" )
             game->GetWorld ()->plotgenerator.PlayerVisitsPlotSites ();
 
 	}

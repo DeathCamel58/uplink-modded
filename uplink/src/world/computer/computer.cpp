@@ -39,7 +39,7 @@ Computer::Computer()
 
 	TYPE = COMPUTER_TYPE_UNKNOWN;
 	UplinkStrncpy ( name, "", sizeof ( name ) )
-	UplinkStrncpy ( companyname, "", sizeof ( companyname ) )
+	companyname = "";
 	UplinkStrncpy ( ip, "", sizeof ( ip ) )
 	tracespeed = 0;
 	traceaction = COMPUTER_TRACEACTION_NONE;
@@ -84,7 +84,7 @@ void Computer::SetCompanyName (const string &newname )
 
 		UplinkAssert ( newname.length() < SIZE_COMPANY_NAME )
 		UplinkAssert ( game->GetWorld ()->GetCompany ( newname ) )
-		UplinkStrncpy ( companyname, newname.c_str(), sizeof ( companyname ) )
+		companyname = newname;
 
 	}
 
@@ -531,7 +531,7 @@ bool Computer::Load  ( FILE *file )
 	if ( !FileReadData ( &TYPE, sizeof(TYPE), 1, file ) ) return false;
 
 	if ( !LoadDynamicStringStatic ( name, SIZE_COMPUTER_NAME, file ) ) return false;
-	if ( !LoadDynamicStringStatic ( companyname, SIZE_COMPANY_NAME, file ) ) return false;
+	if ( !LoadDynamicStringInt ( companyname, file ) ) return false;
 	if ( !LoadDynamicStringStatic ( ip, SIZE_VLOCATION_IP, file ) ) return false;
 
 	if ( !FileReadData ( &tracespeed, sizeof(tracespeed), 1, file ) ) return false;

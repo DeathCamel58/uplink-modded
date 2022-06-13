@@ -46,7 +46,7 @@ VoiceAnalyser::VoiceAnalyser ()
 		sample [i] = 0;
 
 	STATUS = VOICEANALYSER_STATUS_NONE;
-	UplinkStrncpy ( personname, " ", sizeof ( personname ) )
+	personname = " ";
 	UplinkStrncpy ( personip, " ", sizeof ( personip ) )
 	timesync = 0;
 	animsync = 0;
@@ -273,7 +273,7 @@ void VoiceAnalyser::SetTarget (UplinkObject *uo, const string &uos, int uoi )
 
                   STATUS = VOICEANALYSER_STATUS_NOTDOWNLOADING;
 
-                  UplinkStrncpy ( personname, comp->companyname, sizeof ( personname ) )
+                  personname = comp->companyname;
                   UplinkStrncpy ( personip, comp->ip, sizeof ( personip ) )
 
                   numticksrequired = (int) ( TICKSREQUIRED_COPY * ((float) data->size / (float) game->GetWorld ()->GetPlayer ()->gateway.GetBandwidth ()) );
@@ -298,7 +298,7 @@ void VoiceAnalyser::SetTarget (UplinkObject *uo, const string &uos, int uoi )
          Data *datacopy = new Data ();
 
          char datatitle[ max ( SIZE_VLOCATION_IP + 1 + SIZE_PERSON_NAME, SIZE_DATA_TITLE ) + 1 ];
-         UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%s %s", personip, personname )
+         UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%s %s", personip, personname.c_str() )
          datatitle[ SIZE_DATA_TITLE - 1 ] = '\0';
 
          datacopy->SetTitle ( datatitle );
@@ -352,7 +352,7 @@ void VoiceAnalyser::Tick ( int n )
 					if ( vps->STATUS == VOICESTATUS_TALKING ) {
 						EclRegisterCaptionChange ( textbutton, "Recording voice pattern..." );
 						STATUS = VOICEANALYSER_STATUS_RECORDING;
-						UplinkStrncpy ( personname, vps->GetComputerScreen ()->GetComputer ()->companyname, sizeof ( personname ) )
+						personname = vps->GetComputerScreen ()->GetComputer ()->companyname;
 						UplinkStrncpy ( personip, vps->GetComputerScreen ()->GetComputer ()->ip, sizeof ( personip ) )
 					}
 

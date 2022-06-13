@@ -77,13 +77,13 @@ public:
 	int TYPE;
 
 	char name		 [SIZE_COMPUTER_NAME];			
-	char companyname [SIZE_COMPANY_NAME];
+	string companyname;
 	char ip			 [SIZE_VLOCATION_IP];
 
 	int tracespeed;
 	int traceaction;
 
-	bool istargetable;								// Can I be targetted by random events
+	bool istargetable;								// Can I be targeted by random events
 	bool isexternallyopen;							// Can someone connect to me from outside my trusted network
 	bool isrunning;
 	float isinfected_revelation;	                // Version number
