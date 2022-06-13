@@ -38,8 +38,7 @@ Computer::Computer()
 {
 
 	TYPE = COMPUTER_TYPE_UNKNOWN;
-	UplinkStrncpy ( name, "", sizeof ( name ) )
-	companyname = "";
+	name = companyname = "";
 	UplinkStrncpy ( ip, "", sizeof ( ip ) )
 	tracespeed = 0;
 	traceaction = COMPUTER_TRACEACTION_NONE;
@@ -72,8 +71,7 @@ void Computer::SetTYPE ( int newTYPE )
 void Computer::SetName (const string &newname )
 {
 
-	UplinkAssert ( newname.length() < SIZE_COMPUTER_NAME )
-	UplinkStrncpy ( name, newname.c_str(), sizeof ( name ) )
+	name = newname;
 
 }
 
@@ -530,7 +528,7 @@ bool Computer::Load  ( FILE *file )
 
 	if ( !FileReadData ( &TYPE, sizeof(TYPE), 1, file ) ) return false;
 
-	if ( !LoadDynamicStringStatic ( name, SIZE_COMPUTER_NAME, file ) ) return false;
+	if ( !LoadDynamicStringInt ( name, file ) ) return false;
 	if ( !LoadDynamicStringInt ( companyname, file ) ) return false;
 	if ( !LoadDynamicStringStatic ( ip, SIZE_VLOCATION_IP, file ) ) return false;
 

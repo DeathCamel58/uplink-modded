@@ -76,7 +76,7 @@ public:
 
 	int TYPE;
 
-	char name		 [SIZE_COMPUTER_NAME];			
+	string name;
 	string companyname;
 	char ip			 [SIZE_VLOCATION_IP];
 

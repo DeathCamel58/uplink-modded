@@ -183,9 +183,8 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 			// Generate a "pay fine" mission
 
-			string reason= "Our system security agents have caught you making unauthorised access to our computer system ";
-            reason += comp->name;
-            reason += ".";
+			string reason= "Our system security agents have caught you making unauthorised access to our computer system "
+			        + comp->name + ".";
 
 			// You have a few days to complete it
 
@@ -225,9 +224,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 		if ( strcmp ( person->name, "PLAYER" ) != 0 ) {
 
-			string reason = "hacking into the ";
-			reason += comp->name;
-			reason += ".\n";
+			string reason = "hacking into the " + comp->name + ".\n";
 
 			auto *event = new ArrestEvent ();
 			event->SetName ( person->name );
@@ -243,9 +240,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 			// This is the player - seize his gateway
 
-			string reason = "Hacking into the ";
-			reason += comp->name;
-			reason += ".\n";
+			string reason = "Hacking into the " + comp->name + ".\n";
 
 			auto *event = new SeizeGatewayEvent ();
 			event->SetName ( person->name );
@@ -276,9 +271,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 		if ( strcmp ( person->name, "PLAYER" ) != 0 ) {
 
-			string reason = "hacking into the ";
-			reason += comp->name;
-			reason += ".\n";
+			string reason = "hacking into the " + comp->name + ".\n";
 
 			auto *event = new ShotByFedsEvent ();
 			event->SetName ( person->name );
@@ -293,9 +286,7 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 			// This is the player - seize his gateway
 
-			string reason = "Hacking into the ";
-			reason += comp->name;
-			reason += ".\n";
+			string reason = "Hacking into the " + comp->name + ".\n";
 
 			auto *event = new SeizeGatewayEvent ();
 			event->SetName ( person->name );

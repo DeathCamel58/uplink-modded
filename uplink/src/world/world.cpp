@@ -231,7 +231,7 @@ void World::CreateComputer ( Computer *computer )
 {
 
 	UplinkAssert (computer)
-	UplinkAssert (computer->name)
+	assert(!computer->name.empty());
 
 	computers.PutData ( computer->name, computer );	
 

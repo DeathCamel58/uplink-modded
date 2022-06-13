@@ -51,7 +51,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	// Social security database
 	// ================================================================================================================
 
-	if ( strcmp ( comp->name, "International Social Security Database" ) == 0 ) {
+	if ( comp->name == "International Social Security Database" ) {
 
 		switch ( comp->NumRecentHacks () ) {
 			case 0:
@@ -124,7 +124,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	// Academic database
 	// ================================================================================================================
 
-	else if ( strcmp ( comp->name, "International Academic Database" ) == 0 ) {
+	else if ( comp->name == "International Academic Database" ) {
 
 		switch ( comp->NumRecentHacks () ) {
 			case 0:
@@ -194,7 +194,7 @@ void NewsGenerator::ComputerHacked ( Computer *comp, AccessLog *al )
 	// Global Criminal Database
 	// ================================================================================================================
 
-    else if ( strcmp ( comp->name, "Global Criminal Database" ) == 0 ) {
+    else if ( comp->name == "Global Criminal Database" ) {
 
         switch ( comp->NumRecentHacks () ) {
 

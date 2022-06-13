@@ -2549,8 +2549,7 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	postdate.AdvanceHour ( NumberGenerator::RandomNumber ( 96 ) * -1 );
 	postdate.AdvanceMinute ( NumberGenerator::RandomNumber ( 60 ) * -1 );
 
-	char whoisthetarget [128];
-	UplinkStrncpy ( whoisthetarget, source->name, sizeof ( whoisthetarget ) )
+	string whoisthetarget = source->name;
 
 	//
 	// Insert the mission
