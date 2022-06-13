@@ -1,5 +1,4 @@
 
-#include <strstream>
 #include <sstream>
 
 #include "app/globals.h"
@@ -101,18 +100,16 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 			char *existing = rec->GetField ( "Convictions" );
 			//UplinkAssert (existing);
 
-			std::ostrstream newconvictions;
+			string newconvictions;
 
-			if ( existing && strstr ( existing, "None" ) == nullptr )
-				newconvictions << existing << "\n";
+			if ( existing && strstr ( existing, "None" ) == nullptr ) {
+                newconvictions += existing;
+                newconvictions += "\n";
+            }
 
-			newconvictions << "Unauthorised systems access\n"
-						   << '\x0';
+			newconvictions += "Unauthorised systems access\n";
 
-			rec->ChangeField ( "Convictions", newconvictions.str () );
-
-			newconvictions.rdbuf()->freeze( false );
-			//delete [] newconvictions.str ();
+			rec->ChangeField ( "Convictions", newconvictions );
 		}
 
 		//
@@ -186,9 +183,9 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 			// Generate a "pay fine" mission
 
-			char reason [128 + SIZE_COMPUTER_NAME];
-			UplinkSnprintf ( reason, sizeof ( reason ), "Our system security agents have caught you making unauthorised access "
-														  "to our computer system %s.", comp->name )
+			string reason= "Our system security agents have caught you making unauthorised access to our computer system ";
+            reason += comp->name;
+            reason += ".";
 
 			// You have a few days to complete it
 
@@ -228,44 +225,36 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 		if ( strcmp ( person->name, "PLAYER" ) != 0 ) {
 
-			std::ostrstream reason;
-			reason << "hacking into the "
-				   << comp->name << ".\n"
-				   << '\x0';
+			string reason = "hacking into the ";
+			reason += comp->name;
+			reason += ".\n";
 
 			auto *event = new ArrestEvent ();
 			event->SetName ( person->name );
-			event->SetReason ( reason.str () );
+			event->SetReason ( reason );
 			event->SetIP ( comp->ip );
 			event->SetRunDate ( &duedate );
 
 			game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( event );
 
-			reason.rdbuf()->freeze( false );
-			//delete [] reason.str ();
-
 		}
 		else {
 
 			// This is the player - seize his gateway
 
-			std::ostrstream reason;
-			reason << "Hacking into the "
-				   << comp->name << ".\n"
-				   << '\x0';
+			string reason = "Hacking into the ";
+			reason += comp->name;
+			reason += ".\n";
 
 			auto *event = new SeizeGatewayEvent ();
 			event->SetName ( person->name );
 			event->SetGatewayID ( game->GetWorld ()->GetPlayer ()->gateway.id );
-			event->SetReason ( reason.str () );
+			event->SetReason ( reason );
 			event->SetRunDate ( &duedate );
 
 			game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( event );
-
-			reason.rdbuf()->freeze( false );
-			//delete [] reason.str ();
 
 		}
 
@@ -287,43 +276,35 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 		if ( strcmp ( person->name, "PLAYER" ) != 0 ) {
 
-			std::ostrstream reason;
-			reason << "hacking into the "
-				   << comp->name << ".\n"
-				   << '\x0';
+			string reason = "hacking into the ";
+			reason += comp->name;
+			reason += ".\n";
 
 			auto *event = new ShotByFedsEvent ();
 			event->SetName ( person->name );
-			event->SetReason ( reason.str () );
+			event->SetReason ( reason );
 			event->SetRunDate ( &duedate );
 
 			game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( event );
-
-			reason.rdbuf()->freeze( false );
-			//delete [] reason.str ();
 
 		}
 		else {
 
 			// This is the player - seize his gateway
 
-			std::ostrstream reason;
-			reason << "Hacking into the "
-				   << comp->name << ".\n"
-				   << '\x0';
+			string reason = "Hacking into the ";
+			reason += comp->name;
+			reason += ".\n";
 
 			auto *event = new SeizeGatewayEvent ();
 			event->SetName ( person->name );
 			event->SetGatewayID ( game->GetWorld ()->GetPlayer ()->gateway.id );
-			event->SetReason ( reason.str () );
+			event->SetReason ( reason );
 			event->SetRunDate ( &duedate );
 
 			game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 			game->GetWorld ()->scheduler.ScheduleEvent ( event );
-
-			reason.rdbuf()->freeze( false );
-			//delete [] reason.str ();
 
 		}
 
@@ -331,15 +312,10 @@ void ConsequenceGenerator::CaughtHacking ( Person *person, Computer *comp )
 
 }
 
-void ConsequenceGenerator::ShotByFeds (Person *person, string reason )
+void ConsequenceGenerator::ShotByFeds (Person *person, const string& reason )
 {
 
 	UplinkAssert (person)
-
-	/*
-		Do something here - news stories etc
-
-		*/
 
 }
 
@@ -347,12 +323,6 @@ void ConsequenceGenerator::Arrested (Person *person, Computer *comp, const strin
 {
 
 	UplinkAssert (person)
-
-	/*
-		For future versions : generate news stories,
-		vendetta's etc from this
-
-		*/
 
 	NewsGenerator::Arrested ( person, comp, reason );
 
@@ -376,68 +346,47 @@ void ConsequenceGenerator::DidntPayFine ( Person *person, Mission *fine )
 	warningdate.SetDate ( &duedate );
 	warningdate.AdvanceMinute ( TIME_LEGALACTION_WARNING * -1 );
 
-	int finesize;
-	stringstream stream(fine->completionC);
-	stream >> finesize;
+	int finesize = stoi(fine->completionC);
 
 	if ( strcmp ( person->name, "PLAYER" ) != 0 ) {
 
 		int jailtime = finesize / 1000;
 
-		std::ostrstream reason;
-		reason << "For refusing to pay a " << finesize << "c fine.\n"
-			   << "Send to jail for " << jailtime << " years.\n"
-			   << '\x0';
+		string reason = "For refusing to pay a " + to_string(finesize) + "c fine.\n"
+			            "Send to jail for " + to_string(jailtime) + " years.\n";
 
 		auto *event = new ArrestEvent ();
 		event->SetName ( person->name );
-		event->SetReason ( reason.str () );
+		event->SetReason ( reason );
 		event->SetRunDate ( &duedate );
 
 		game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( event );
-
-		reason.rdbuf()->freeze( false );
-		//delete [] reason.str ();
 
 	}
 	else {
 
 		// This is the player - seize his gateway
 
-		std::ostrstream reason;
-		reason << "For refusing to pay a " << finesize << "c fine.\n"
-			   << '\x0';
+		string reason = "For refusing to pay a " + to_string(finesize) + "c fine.\n";
 
 		auto *event = new SeizeGatewayEvent ();
 		event->SetName ( person->name );
 		event->SetGatewayID ( game->GetWorld ()->GetPlayer ()->gateway.id );
-		event->SetReason ( reason.str () );
+		event->SetReason ( reason );
 		event->SetRunDate ( &duedate );
 
 		game->GetWorld ()->scheduler.ScheduleWarning ( event, &warningdate );
 		game->GetWorld ()->scheduler.ScheduleEvent ( event );
 
-		reason.rdbuf()->freeze( false );
-		//delete [] reason.str ();
-
 	}
 
 }
 
-void ConsequenceGenerator::SeizeGateway  (Person *person, string reason )
+void ConsequenceGenerator::SeizeGateway  (Person *person, const string& reason )
 {
 
 	UplinkAssert (person)
-
-	/*
-
-		Future versions : This person is now disavowed.  They may come back
-		as a vengeful new agent.
-
-		Re-incarnation!
-
-		*/
 
 }
 
@@ -586,7 +535,7 @@ void ConsequenceGenerator::MissionCompleted_ChangeAccount ( Mission *mission, Pe
 		// Extract values from the mission
 
 		string source_ip, target_ip, source_accs, target_accs;
-		int amount;
+		int amount = stoi(mission->completionC);
 
 		UplinkAssert (mission)
 
@@ -594,8 +543,6 @@ void ConsequenceGenerator::MissionCompleted_ChangeAccount ( Mission *mission, Pe
 		streamA >> source_ip >> source_accs;
 		stringstream streamB(mission->completionB);
 		streamB >> target_ip >> target_accs;
-		stringstream streamC(mission->completionC);
-		streamC >> amount;
 
 		// Get the source and target computers
 

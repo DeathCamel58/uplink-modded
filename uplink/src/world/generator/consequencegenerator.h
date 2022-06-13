@@ -1,21 +1,4 @@
 
-/*
-
-  Consequence Generator
-
-	Responsible for analysing an action that has happened, and 
-	generating subsequence "consequence" actions.
-
-    This class should operate in DATA only - it shouldn't be handling
-	screen flashes, interface changes etc.  Ideally it should stick to 
-	the World module.
-
-	Eg action   : A user is caught performing a hack
-	consequence : His Uplink rating is decreased and he receives a fine
-
-	*/
-
-
 #ifndef included_consequencegenerator_h
 #define included_consequencegenerator_h
 
@@ -32,7 +15,16 @@ class AccessLog;
 
 
 
-
+//! Consqeuence Generator
+/**
+ * This is responsible for analysing an action that has happened, and generating subsequence "consequence" actions.
+ *
+ * Example action: A user is caught performing a hack
+ * Example consequence: User's Uplink rating is decreased, and they receive a fine
+ *
+ * @note This class should operate in DATA only. It shouldn't be handling screen flashes, interface changes, etc.
+ * Ideally, it should stick to the world module.
+ */
 class ConsequenceGenerator
 {
 
@@ -42,22 +34,91 @@ public:
 
 	// Event processing for all people
 
+	/**
+	 * Processes an event where the user was caught hacking. This adds the crime to the criminal record, decreases their
+	 * rating, and triggers the consequence.
+	 * @param person Person who was caught
+	 * @param comp Computer that was hacked
+	 */
 	static void CaughtHacking ( Person *person, Computer *comp );
+
+	/**
+	 * Creates a news story about the arrest
+	 * @param person Person who was arrested
+	 * @param comp Computer that was hacked
+	 * @param reason Reason they were arrested
+	 * @note In future versions: Generate news stories, vendetta's, etc. from this
+	 */
 	static void Arrested	  (Person *person, Computer *comp, const string& reason );
+
+	/**
+	 * Schedules an arrest event or SeizeGateway event
+	 * @param person Person who didn't pa the file
+	 * @param fine The fine mission
+	 */
 	static void DidntPayFine  ( Person *person, Mission *fine  );
-	static void ShotByFeds	  (Person *person, string reason );
-	static void SeizeGateway  (Person *person, string reason );
+
+	/**
+	 * Does nothing
+	 * @param person Person who was shot by the feds
+	 * @param reason
+	 * @note Do something here - news stories, etc.
+	 */
+	static void ShotByFeds	  (Person *person, const string& reason );
+
+	/**
+	 * Does nothing.
+	 * @param person Person whose gateway has been seized
+	 * @param reason
+	 * @note reason is unused
+	 * @note In future versions: This person is now disavowed. They may come back as a vengeful new agent.
+	 */
+	static void SeizeGateway  (Person *person, const string& reason );
 
 	// Event processing for company computers
 
+	/**
+	 * Checks if computer has been hacked, and sometimes generates a trace hacker mission
+	 * @param comp Computer to check for hacks
+	 * @param al AccessLog Access log of hack
+	 */
 	static void ComputerHacked ( Computer *comp, AccessLog *al );
 
 	// Event processing for completed missions
 
+	/**
+	 * Checks if the mission has been completed
+	 * @param mission The mission to check completion of
+	 * @param person The person who is working on the mission
+	 */
 	static void MissionCompleted				( Mission *mission, Person *person );
+
+    /**
+     * Checks if the mission has been completed
+     * @param mission The mission to check completion of
+     * @param person The person who is working on the mission
+     */
 	static void MissionCompleted_StealFile		( Mission *mission, Person *person );
+
+    /**
+     * Checks if the mission has been completed
+     * @param mission The mission to check completion of
+     * @param person The person who is working on the mission
+     */
 	static void MissionCompleted_DestroyFile	( Mission *mission, Person *person );
+
+    /**
+     * Checks if the mission has been completed
+     * @param mission The mission to check completion of
+     * @param person The person who is working on the mission
+     */
 	static void MissionCompleted_ChangeAccount  ( Mission *mission, Person *person );
+
+    /**
+     * Checks if the mission has been completed
+     * @param mission The mission to check completion of
+     * @param person The person who is working on the mission
+     */
 	static void MissionCompleted_TraceUser		( Mission *mission, Person *person );
 
 };
