@@ -31,9 +31,6 @@ void EventScheduler::ScheduleEvent ( UplinkEvent *event )
 {
 
 	UplinkAssert (event)
-
-
-	// Insert this event into the list of events
 	
 	bool inserted = false;
 

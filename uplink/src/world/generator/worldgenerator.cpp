@@ -219,10 +219,6 @@ void WorldGenerator::GenerateRandomWorld ()
 void WorldGenerator::GenerateSimpleStartingMissionA ()
 {
 
-	//
-	// Generate two very easy missions for the player at the start
-	//
-
 	Company *employer1 = nullptr;
 	Computer *target1 = nullptr;
 
@@ -244,10 +240,6 @@ void WorldGenerator::GenerateSimpleStartingMissionA ()
 
 void WorldGenerator::GenerateSimpleStartingMissionB ()
 {
-
-	//
-	// Generate a delete file mission
-	//
 
 	Company *employer2 = nullptr;
 	Computer *target2 = nullptr;
@@ -313,10 +305,6 @@ Player *WorldGenerator::GeneratePlayer (const string &handle )
 
 void WorldGenerator::GenerateLocalMachine ()
 {
-
-	// Create a local machine for players to fall back to
-	// Which can also act as a links screen
-	//
 
 	VLocation *localaddress = game->GetWorld ()->CreateVLocation ( IP_LOCALHOST, 284, 73 );
 	Computer  *localmachine = game->GetWorld ()->CreateComputer ( "Gateway", "Player", IP_LOCALHOST );
@@ -467,10 +455,6 @@ void WorldGenerator::GenerateSpecifics ()
 void WorldGenerator::LoadDynamics ()
 {
 
-    //
-    // Load all LANs from file
-    //
-
     DArray <char *> *files = ListDirectory( "data/lans/", ".txt" );
 
     for ( int k = 0; k< files->Size(); ++k ) {
@@ -489,10 +473,6 @@ void WorldGenerator::LoadDynamics ()
 
 void WorldGenerator::LoadDynamicsGatewayDefs ()
 {
-
-    //
-    // Load additional gateways from the directory
-    //
 
     int numgateways = game->GetWorld()->gatewaydefs.Size();
     DArray <char *> *extraGateways = ListDirectory ( "data/gateways/", ".txt" );

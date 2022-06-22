@@ -45,7 +45,14 @@ public:
      * @param targetint
      */
 	virtual void SetTarget (UplinkObject *newtargetobject, const string &newtargetstring, int targetint );
-	virtual void MoveTo ( int x, int y, int time_ms );	
+
+	/**
+	 * Moves the program to given coordinates over a set period of time
+	 * @param x X coordinate
+	 * @param y Y coordinate
+	 * @param time_ms The time in milliseconds the movement should take
+	 */
+	virtual void MoveTo ( int x, int y, int time_ms );
 	
 };
 

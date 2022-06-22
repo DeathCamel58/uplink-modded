@@ -24,7 +24,7 @@ protected:
 	DataBank *source;	
 	int sourceindex;
 
-	int status;						// 0 = off, 1 = in progress, 2 = fnished
+	int status;						// 0 = off, 1 = in progress, 2 = finished
     bool remotefile;
 
 	int numticksrequired;				
@@ -55,10 +55,10 @@ public:
 	 * @param uoi Index of data to be deleted
 	 */
 	void SetTarget (UplinkObject *uo, const string &uos, int uoi ) override;
-	void MoveTo ( int x, int y, int time_ms ) override;				// Centred on top-right of title image
+	void MoveTo ( int x, int y, int time_ms ) override;
 
-	void Initialise () override;     // Called at creation time, neccisary
-	void Tick ( int n ) override;           // n ticks occur
+	void Initialise () override;
+	void Tick ( int n ) override;
 	
 	void CreateInterface () override;
 	void RemoveInterface () override;

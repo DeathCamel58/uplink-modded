@@ -1,15 +1,4 @@
 
-/*
-
-  Computer class object
-
-	Part of the World sub-system
-	Describes a computer in the Uplink World
-	This computer belongs to one company and is located at a virtual location.
-
-  */
-
-
 #ifndef included_computer_h
 #define included_computer_h
 
@@ -46,7 +35,7 @@
                               COMPUTER_TYPE_VOICEPHONESYSTEM            | \
                               COMPUTER_TYPE_LAN
 
-    
+
 // Trace actions
 
 #define COMPUTER_TRACEACTION_NONE				0
@@ -62,36 +51,83 @@ class ComputerScreen;
 
 // ============================================================================
 
-
-class Computer : public UplinkObject  
+//! Computer class object
+/**
+ * The computer class describes a computer in the uplink world. This computer belongs to one company and is located at a
+ * virtual location.
+ * Part of the world sub-system
+ */
+class Computer : public UplinkObject
 {
 
 protected:
 
+    /**
+     * The number of times this machine was recently hacked
+     */
 	int numrecenthacks;
+
+	/**
+	 * The number of times this machine was hacked this month
+	 */
 	int numhacksthismonth;
+
+	/**
+	 * The number of times this machine was hacked last month
+	 */
 	int numhackslastmonth;
 
 public:
 
+    /**
+     * The type of the computer
+     * @note Valid types are COMPUTER_TYPE_UNKNOWN, COMPUTER_TYPE_PUBLICACCESSSERVER, COMPUTER_TYPE_INTERNALSERVICESMACHINE, COMPUTER_TYPE_CENTRALMAINFRAME, COMPUTER_TYPE_PUBLICBANKSERVER, COMPUTER_TYPE_PERSONALCOMPUTER, COMPUTER_TYPE_VOICEPHONESYSTEM, COMPUTER_TYPE_LAN
+     */
 	int TYPE;
 
+	/**
+	 * The name of this machine
+	 */
 	string name;
+
+	/**
+	 * Name of company that owns this machine
+	 */
 	string companyname;
+
+	/**
+	 * IP of the computer
+	 */
 	char ip			 [SIZE_VLOCATION_IP];
 
 	int tracespeed;
 	int traceaction;
 
-	bool istargetable;								// Can I be targeted by random events
-	bool isexternallyopen;							// Can someone connect to me from outside my trusted network
+	/**
+	 * Can this computer be targeted by random events
+	 */
+	bool istargetable;
+
+	/**
+	 * Can this computer be connected to from outside its trusted network?
+	 */
+	bool isexternallyopen;
 	bool isrunning;
-	float isinfected_revelation;	                // Version number
-    Date infectiondate; 
+
+	/**
+	 * The version of revelation on this machine
+	 * @note 0.0 means that this machine is not running
+	 */
+	float isinfected_revelation;
+
+	/**
+	 * The date of the infection from revelation
+	 */
+    Date infectiondate;
 
 	DArray <ComputerScreen *> screens;
 
-	DataBank   databank;	
+	DataBank   databank;
 	LogBank    logbank;
 	RecordBank recordbank;
 	Security   security;
@@ -101,9 +137,29 @@ public:
 	Computer();
 	~Computer() override;
 
+	/**
+	 * Sets the type of the computer
+	 * @param newTYPE
+	 * @note Possible values for newTYPE are: COMPUTER_TYPE_UNKNOWN, COMPUTER_TYPE_PUBLICACCESSSERVER, COMPUTER_TYPE_INTERNALSERVICESMACHINE, COMPUTER_TYPE_CENTRALMAINFRAME, COMPUTER_TYPE_PUBLICBANKSERVER, COMPUTER_TYPE_PERSONALCOMPUTER, COMPUTER_TYPE_VOICEPHONESYSTEM, COMPUTER_TYPE_LAN
+	 */
 	void SetTYPE        ( int newTYPE );
+
+	/**
+	 * Sets the name of the computer
+	 * @param newname The new name of the computer
+	 */
 	void SetName		(const string &newname );
+
+	/**
+	 * Sets the company name that owns the computer
+	 * @param newname The company that owns the computer
+	 */
 	void SetCompanyName (const string &newname );
+
+	/**
+	 * Sets the IP of the computer
+	 * @param newip The new IP of the computer
+	 */
 	void SetIP			(const string &newip );
 	void SetTraceSpeed  ( int newtracespeed );
 	void SetTraceAction ( int newtraceaction );
@@ -113,18 +169,63 @@ public:
 	void SetIsRunning			( bool value );
 
 	void DisinfectRevelation ();
-	void InfectWithRevelation ( float version );					
+	void InfectWithRevelation ( float version );
 
-	int				AddComputerScreen ( ComputerScreen *cs, int index = -1 );	
+	/**
+	 * Adds a ComputerScreen to this computer
+	 * @param cs The ComputerScreen to add
+	 * @param index The index to add this computer screen at
+	 * @return The index of the added ComputerScreen
+	 */
+	int				AddComputerScreen ( ComputerScreen *cs, int index = -1 );
+
+	/**
+	 * Gets a screen on this computer at an index
+	 * @param index The screen index to get
+	 * @return The ComputerScreen
+	 */
 	ComputerScreen *GetComputerScreen ( int index ) const;
 
 
-	void CheckForSecurityBreaches ();				// Call me frequently
-	void ManageOldLogs ();							// Call me frequently
-    bool ChangeSecurityCodes ();                    // Changes passwords, returns true if changes made
+	/**
+	 * Checks if the machine was hacked, resets the security systems on the machine, and generates a news article for certain hacks
+	 * @note Call me frequently
+	 */
+	void CheckForSecurityBreaches ();
 
-	void AddToRecentHacks ( int n );				// Call when this is hacked
-	void UpdateRecentHacks ();						// Call me 4 times a month
+	/**
+	 * Deletes old logs
+	 * @note Call me frequently
+	 */
+	void ManageOldLogs ();
+
+	/**
+	 * Changes passwords on the machine
+	 * @return true if changes were made
+	 */
+    bool ChangeSecurityCodes ();
+
+    /**
+     * Adds a number of recent hacks to this machine
+     * @param n Number of recent hacks
+     * @note This should be called when the machine is hacked
+     */
+	void AddToRecentHacks ( int n );
+
+	/**
+	 * Updates the number of recent hacks
+	 * @note This is called 4 times a month
+	 * @note Reduces the number of recent hacks by the number last month / 4 (removing all of last months hacks from the count by the end of the month)
+     *
+	 * @note If it is the end of the month, process the changeover to a new month
+	 * @note Also schedules the next check
+	 */
+	void UpdateRecentHacks ();
+
+	/**
+	 * Gets the number of recent hacks on this machine
+	 * @return The number of recent hacks
+	 */
 	int  NumRecentHacks () const;
 
     static void GenerateAccessCode(const string &code, string &result);
@@ -137,7 +238,7 @@ public:
 	void Save  ( FILE *file ) override;
 	void Print () override;
 	void Update () override;
-	
+
 	string GetID () override;
 	int   GetOBJECTID () override;
 

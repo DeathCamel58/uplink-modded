@@ -80,9 +80,9 @@ void Computer::SetCompanyName (const string &newname )
 
 	if ( !newname.empty() ) {
 
-		UplinkAssert ( newname.length() < SIZE_COMPANY_NAME )
-		UplinkAssert ( game->GetWorld ()->GetCompany ( newname ) )
-		companyname = newname;
+		UplinkAssert (newname.length() < SIZE_COMPANY_NAME )
+		UplinkAssert ( game->GetWorld ()->GetCompany (newname ) )
+        companyname = newname;
 
 	}
 
@@ -482,13 +482,6 @@ void Computer::AddToRecentHacks ( int n )
 
 void Computer::UpdateRecentHacks ()
 {
-
-	// This is called 4 times a month 
-	// Reduce the number of recent hacks by the number last month / 4
-	// (removing all of last months hacks from the count by the end of the month)
-
-	// If it is the end of the month, process the changeover to a new month
-	// Also schedule the next check
 
 	if ( game->GetWorld ()->date.GetDay () == 1 ) {
 
