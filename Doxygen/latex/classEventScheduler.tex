@@ -2,7 +2,7 @@
 \label{classEventScheduler}\index{EventScheduler@{EventScheduler}}
 
 
-Event Scheduler Class.  
+Event Scheduler \mbox{\hyperlink{classUplinkObject}{Uplink\+Object}}.  
 
 
 
@@ -56,7 +56,7 @@ string \mbox{\hyperlink{classEventScheduler_a344aaf262445375151ad62dc94e22617}{G
 
 
 \doxysubsection{Detailed Description}
-Event Scheduler Class. 
+Event Scheduler \mbox{\hyperlink{classUplinkObject}{Uplink\+Object}}. 
 
 Responsible for keeping track of all future scheduled events, and running those events at the right time. It is not designed for high accuracy scheduling -\/ events are run within around 10 seconds of their target time. 
 
@@ -138,9 +138,9 @@ Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad68904800
 \doxysubsubsection{\texorpdfstring{ScheduleEvent()}{ScheduleEvent()}}
 {\footnotesize\ttfamily void Event\+Scheduler\+::\+Schedule\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$}]{event }\end{DoxyParamCaption})}
 
-Inserts an Event into the list of events 
+Inserts an \mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} into the list of events 
 \begin{DoxyParams}{Parameters}
-{\em event} & Event to add \\
+{\em event} & \mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} to add \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classEventScheduler_a0c5b83c5db0fb7124e951c06cad94b69}\label{classEventScheduler_a0c5b83c5db0fb7124e951c06cad94b69}} 
@@ -149,9 +149,9 @@ Inserts an Event into the list of events
 \doxysubsubsection{\texorpdfstring{ScheduleWarning()}{ScheduleWarning()}}
 {\footnotesize\ttfamily void Event\+Scheduler\+::\+Schedule\+Warning (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$}]{event,  }\item[{\mbox{\hyperlink{classDate}{Date}} $\ast$}]{date }\end{DoxyParamCaption})}
 
-Schedules a warning of an upcoming Event 
+Schedules a warning of an upcoming \mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} 
 \begin{DoxyParams}{Parameters}
-{\em event} & Event to schedule \\
+{\em event} & \mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} to schedule \\
 \hline
 {\em date} & \mbox{\hyperlink{classDate}{Date}} to give the warning at \\
 \hline
@@ -175,7 +175,7 @@ Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f00
 \doxysubsubsection{\texorpdfstring{events}{events}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$$>$ Event\+Scheduler\+::events}
 
-\mbox{\hyperlink{classLList}{L\+List}} of all events 
+\mbox{\hyperlink{classLList}{L\+List}} of all \mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} items 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

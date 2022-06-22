@@ -9,7 +9,7 @@
 <area shape="rect" id="node8" href="$classFileCopier.html" title=" " alt="" coords="271,259,358,285"/>
 <area shape="rect" id="node9" href="$classFileDeleter.html" title=" " alt="" coords="268,309,361,336"/>
 <area shape="rect" id="node10" href="$classFirewallDisable.html" title=" " alt="" coords="253,360,376,387"/>
-<area shape="rect" id="node11" href="$classGatewayNuke.html" title="Gateway nuke software driver." alt="" coords="258,411,371,437"/>
+<area shape="rect" id="node11" href="$classGatewayNuke.html" title="Gateway nuke software UplinkTask." alt="" coords="258,411,371,437"/>
 <area shape="rect" id="node12" href="$classIPLookup.html" title=" " alt="" coords="275,461,355,488"/>
 <area shape="rect" id="node13" href="$classIPProbe.html" title=" " alt="" coords="279,512,350,539"/>
 <area shape="rect" id="node14" href="$classLanForce.html" title=" " alt="" coords="275,563,355,589"/>
@@ -24,7 +24,7 @@
 <area shape="rect" id="node23" href="$classProxyDisable.html" title=" " alt="" coords="261,1019,369,1045"/>
 <area shape="rect" id="node24" href="$classRevelation.html" title=" " alt="" coords="269,1069,361,1096"/>
 <area shape="rect" id="node25" href="$classRevelationTracker.html" title=" " alt="" coords="245,1120,384,1147"/>
-<area shape="rect" id="node26" href="$classSecurityBypass.html" title="Security Bypass Class." alt="" coords="253,1171,376,1197"/>
+<area shape="rect" id="node26" href="$classSecurityBypass.html" title="Security Bypass UplinkTask." alt="" coords="253,1171,376,1197"/>
 <area shape="rect" id="node27" href="$classTraceTracker.html" title=" " alt="" coords="263,1221,366,1248"/>
 <area shape="rect" id="node28" href="$classTutorial.html" title=" " alt="" coords="279,1272,350,1299"/>
 <area shape="rect" id="node29" href="$classUplinkAgentList.html" title=" " alt="" coords="252,1323,377,1349"/>

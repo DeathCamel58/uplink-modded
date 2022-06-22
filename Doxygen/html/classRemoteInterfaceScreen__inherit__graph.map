@@ -1,5 +1,5 @@
 <map id="RemoteInterfaceScreen" name="RemoteInterfaceScreen">
-<area shape="rect" id="node1" title="RemoteInterfaceScreen class object." alt="" coords="332,917,507,944"/>
+<area shape="rect" id="node1" title="RemoteInterfaceScreen InterfaceScreen." alt="" coords="332,917,507,944"/>
 <area shape="rect" id="node4" href="$classAcademicScreenInterface.html" title=" " alt="" coords="578,5,766,32"/>
 <area shape="rect" id="node5" href="$classAccountScreenInterface.html" title=" " alt="" coords="584,56,760,83"/>
 <area shape="rect" id="node6" href="$classBBSScreenInterface.html" title=" " alt="" coords="597,107,747,133"/>
@@ -37,6 +37,6 @@
 <area shape="rect" id="node38" href="$classUserIDScreenInterface.html" title=" " alt="" coords="588,1728,756,1755"/>
 <area shape="rect" id="node39" href="$classVoiceAnalysisScreenInterface.html" title=" " alt="" coords="565,1779,779,1805"/>
 <area shape="rect" id="node40" href="$classVoicePhoneScreenInterface.html" title=" " alt="" coords="573,1829,771,1856"/>
-<area shape="rect" id="node2" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="160,917,284,944"/>
+<area shape="rect" id="node2" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="160,917,284,944"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,917,112,944"/>
 </map>

@@ -106,79 +106,78 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#define  PANELSIZE       0.29                       // Percentage of screen taken up by right panel</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classLocalInterface.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLocalInterface.html">LocalInterface</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a>  </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a> *screen;   </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classHUDInterface.html">HUDInterface</a> *hud;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classLocalInterface.html#af1fd16cb6ae1bba3f3d2b116f099fd12">   57</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLocalInterface.html#af1fd16cb6ae1bba3f3d2b116f099fd12">currentscreencode</a>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classLocalInterface.html#a21b3b0f90f0c7d51de9e1a1965680f48">   61</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLocalInterface.html#a21b3b0f90f0c7d51de9e1a1965680f48">screenindex</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classLocalInterface.html">LocalInterface</a>();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ~<a class="code" href="classLocalInterface.html">LocalInterface</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a76c6549fd73166d4a63b9bc49d29c6e6">Reset</a> ();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#af12dafb38db31ddd11bf3fe1d834754a">Create</a> ();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a8c34c2c223f9660173ed952b20508f07">Remove</a> ();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classLocalInterface.html#ac2a6f99e1b0a525eb618b650434b6c72">IsVisible</a> ();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classLocalInterface.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLocalInterface.html">LocalInterface</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a>  </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a> *screen;   </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classHUDInterface.html">HUDInterface</a> *hud;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classLocalInterface.html#af1fd16cb6ae1bba3f3d2b116f099fd12">   56</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLocalInterface.html#af1fd16cb6ae1bba3f3d2b116f099fd12">currentscreencode</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classLocalInterface.html#a21b3b0f90f0c7d51de9e1a1965680f48">   60</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLocalInterface.html#a21b3b0f90f0c7d51de9e1a1965680f48">screenindex</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classLocalInterface.html">LocalInterface</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ~<a class="code" href="classLocalInterface.html">LocalInterface</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a76c6549fd73166d4a63b9bc49d29c6e6">Reset</a> ();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#af12dafb38db31ddd11bf3fe1d834754a">Create</a> ();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a8c34c2c223f9660173ed952b20508f07">Remove</a> ();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classLocalInterface.html#ac2a6f99e1b0a525eb618b650434b6c72">IsVisible</a> ();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLocalInterface.html#a0a1784a4f8c292e92e566f96ec38e28a">InScreen</a> ();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a73fdd6482765b52cfdaee5f7e067cc94">RunScreen</a> ( <span class="keywordtype">int</span> SCREENCODE, <span class="keywordtype">int</span> index = -1 );</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classLocalInterface.html#a08ffcb207d35febffab05a0059b2fc97">VerifyScreen</a> ( <span class="keywordtype">int</span> SCREENCODE, <span class="keywordtype">int</span> index = -1 );</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a> *<a class="code" href="classLocalInterface.html#a63856576e584e3e043ddf766ce3d43eb">GetInterfaceScreen</a> ();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <a class="code" href="classHUDInterface.html">HUDInterface</a> *<a class="code" href="classLocalInterface.html#a6517d741353d8f11b96114c26d08d0f1">GetHUD</a> ();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLocalInterface.html#a0a1784a4f8c292e92e566f96ec38e28a">InScreen</a> ();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a73fdd6482765b52cfdaee5f7e067cc94">RunScreen</a> ( <span class="keywordtype">int</span> SCREENCODE, <span class="keywordtype">int</span> index = -1 );</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classLocalInterface.html#a08ffcb207d35febffab05a0059b2fc97">VerifyScreen</a> ( <span class="keywordtype">int</span> SCREENCODE, <span class="keywordtype">int</span> index = -1 );</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a> *<a class="code" href="classLocalInterface.html#a63856576e584e3e043ddf766ce3d43eb">GetInterfaceScreen</a> ();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="classHUDInterface.html">HUDInterface</a> *<a class="code" href="classLocalInterface.html#a6517d741353d8f11b96114c26d08d0f1">GetHUD</a> ();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// Common functions</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classLocalInterface.html#ae944840386d37e713e658eef0cb61d5c">Load</a>   ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a7da8bfaa03b5916c4dbb1bebda5fa500">Save</a>   ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a28e291d87d7ad6885accd20670f0750e">Print</a>  () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#aaae1119ff8f31e5aa54423e6fdcefeff">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classLocalInterface.html#a4463e76d6837ee5b0e0076be9b3963d5">GetID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;};</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classLocalInterface.html#ae944840386d37e713e658eef0cb61d5c">Load</a>   ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a7da8bfaa03b5916c4dbb1bebda5fa500">Save</a>   ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#a28e291d87d7ad6885accd20670f0750e">Print</a>  () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classLocalInterface.html#aaae1119ff8f31e5aa54423e6fdcefeff">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classLocalInterface.html#a4463e76d6837ee5b0e0076be9b3963d5">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;};</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif </span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassLocalInterface_html_a76c6549fd73166d4a63b9bc49d29c6e6"><div class="ttname"><a href="classLocalInterface.html#a76c6549fd73166d4a63b9bc49d29c6e6">LocalInterface::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:65</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a7da8bfaa03b5916c4dbb1bebda5fa500"><div class="ttname"><a href="classLocalInterface.html#a7da8bfaa03b5916c4dbb1bebda5fa500">LocalInterface::Save</a></div><div class="ttdeci">void Save(FILE *file) override</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:276</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a28e291d87d7ad6885accd20670f0750e"><div class="ttname"><a href="classLocalInterface.html#a28e291d87d7ad6885accd20670f0750e">LocalInterface::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:299</div></div>
-<div class="ttc" id="aclassLocalInterface_html_a21b3b0f90f0c7d51de9e1a1965680f48"><div class="ttname"><a href="classLocalInterface.html#a21b3b0f90f0c7d51de9e1a1965680f48">LocalInterface::screenindex</a></div><div class="ttdeci">int screenindex</div><div class="ttdef"><b>Definition:</b> localinterface.h:61</div></div>
+<div class="ttc" id="aclassLocalInterface_html_a21b3b0f90f0c7d51de9e1a1965680f48"><div class="ttname"><a href="classLocalInterface.html#a21b3b0f90f0c7d51de9e1a1965680f48">LocalInterface::screenindex</a></div><div class="ttdeci">int screenindex</div><div class="ttdef"><b>Definition:</b> localinterface.h:60</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a6517d741353d8f11b96114c26d08d0f1"><div class="ttname"><a href="classLocalInterface.html#a6517d741353d8f11b96114c26d08d0f1">LocalInterface::GetHUD</a></div><div class="ttdeci">HUDInterface * GetHUD()</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:247</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a08ffcb207d35febffab05a0059b2fc97"><div class="ttname"><a href="classLocalInterface.html#a08ffcb207d35febffab05a0059b2fc97">LocalInterface::VerifyScreen</a></div><div class="ttdeci">static bool VerifyScreen(int SCREENCODE, int index=-1)</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:199</div></div>
-<div class="ttc" id="aclassLocalInterfaceScreen_html"><div class="ttname"><a href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a></div><div class="ttdoc">Screen that provides basic functionality of other screens.</div><div class="ttdef"><b>Definition:</b> localinterfacescreen.h:19</div></div>
+<div class="ttc" id="aclassLocalInterfaceScreen_html"><div class="ttname"><a href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a></div><div class="ttdoc">InterfaceScreen that provides basic functionality of other InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> localinterfacescreen.h:10</div></div>
 <div class="ttc" id="aclassLocalInterface_html_af12dafb38db31ddd11bf3fe1d834754a"><div class="ttname"><a href="classLocalInterface.html#af12dafb38db31ddd11bf3fe1d834754a">LocalInterface::Create</a></div><div class="ttdeci">void Create()</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:73</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a63856576e584e3e043ddf766ce3d43eb"><div class="ttname"><a href="classLocalInterface.html#a63856576e584e3e043ddf766ce3d43eb">LocalInterface::GetInterfaceScreen</a></div><div class="ttdeci">LocalInterfaceScreen * GetInterfaceScreen()</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:239</div></div>
-<div class="ttc" id="aclassHUDInterface_html"><div class="ttname"><a href="classHUDInterface.html">HUDInterface</a></div><div class="ttdoc">Screen that shows worldmap, main toolbar, services, messages, etc.</div><div class="ttdef"><b>Definition:</b> hud_interface.h:54</div></div>
+<div class="ttc" id="aclassHUDInterface_html"><div class="ttname"><a href="classHUDInterface.html">HUDInterface</a></div><div class="ttdoc">Screen that shows worldmap, main toolbar, services, messages, etc.</div><div class="ttdef"><b>Definition:</b> hud_interface.h:52</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a0a1784a4f8c292e92e566f96ec38e28a"><div class="ttname"><a href="classLocalInterface.html#a0a1784a4f8c292e92e566f96ec38e28a">LocalInterface::InScreen</a></div><div class="ttdeci">int InScreen()</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:228</div></div>
 <div class="ttc" id="aclassUplinkObject_html"><div class="ttname"><a href="classUplinkObject.html">UplinkObject</a></div><div class="ttdoc">UplinkObject base class.</div><div class="ttdef"><b>Definition:</b> uplinkobject.h:18</div></div>
 <div class="ttc" id="aclassLocalInterface_html_aaae1119ff8f31e5aa54423e6fdcefeff"><div class="ttname"><a href="classLocalInterface.html#aaae1119ff8f31e5aa54423e6fdcefeff">LocalInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:308</div></div>
 <div class="ttc" id="aclassLocalInterface_html_ae944840386d37e713e658eef0cb61d5c"><div class="ttname"><a href="classLocalInterface.html#ae944840386d37e713e658eef0cb61d5c">LocalInterface::Load</a></div><div class="ttdeci">bool Load(FILE *file) override</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:255</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a8c34c2c223f9660173ed952b20508f07"><div class="ttname"><a href="classLocalInterface.html#a8c34c2c223f9660173ed952b20508f07">LocalInterface::Remove</a></div><div class="ttdeci">void Remove()</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:81</div></div>
-<div class="ttc" id="aclassLocalInterface_html_af1fd16cb6ae1bba3f3d2b116f099fd12"><div class="ttname"><a href="classLocalInterface.html#af1fd16cb6ae1bba3f3d2b116f099fd12">LocalInterface::currentscreencode</a></div><div class="ttdeci">int currentscreencode</div><div class="ttdef"><b>Definition:</b> localinterface.h:57</div></div>
+<div class="ttc" id="aclassLocalInterface_html_af1fd16cb6ae1bba3f3d2b116f099fd12"><div class="ttname"><a href="classLocalInterface.html#af1fd16cb6ae1bba3f3d2b116f099fd12">LocalInterface::currentscreencode</a></div><div class="ttdeci">int currentscreencode</div><div class="ttdef"><b>Definition:</b> localinterface.h:56</div></div>
 <div class="ttc" id="aclassLocalInterface_html_ac2a6f99e1b0a525eb618b650434b6c72"><div class="ttname"><a href="classLocalInterface.html#ac2a6f99e1b0a525eb618b650434b6c72">LocalInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible()</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:93</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a4463e76d6837ee5b0e0076be9b3963d5"><div class="ttname"><a href="classLocalInterface.html#a4463e76d6837ee5b0e0076be9b3963d5">LocalInterface::GetID</a></div><div class="ttdeci">string GetID() override</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:316</div></div>
 <div class="ttc" id="aclassLocalInterface_html_a73fdd6482765b52cfdaee5f7e067cc94"><div class="ttname"><a href="classLocalInterface.html#a73fdd6482765b52cfdaee5f7e067cc94">LocalInterface::RunScreen</a></div><div class="ttdeci">void RunScreen(int SCREENCODE, int index=-1)</div><div class="ttdef"><b>Definition:</b> localinterface.cpp:100</div></div>
-<div class="ttc" id="aclassLocalInterface_html"><div class="ttname"><a href="classLocalInterface.html">LocalInterface</a></div><div class="ttdoc">Local Interface Class.</div><div class="ttdef"><b>Definition:</b> localinterface.h:44</div></div>
+<div class="ttc" id="aclassLocalInterface_html"><div class="ttname"><a href="classLocalInterface.html">LocalInterface</a></div><div class="ttdoc">Local Interface UplinkObject.</div><div class="ttdef"><b>Definition:</b> localinterface.h:43</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

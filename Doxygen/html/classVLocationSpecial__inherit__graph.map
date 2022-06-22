@@ -1,5 +1,5 @@
 <map id="VLocationSpecial" name="VLocationSpecial">
 <area shape="rect" id="node1" title="Special VLocation." alt="" coords="5,155,139,181"/>
-<area shape="rect" id="node2" href="$classVLocation.html" title="Location in the uplink world." alt="" coords="29,80,115,107"/>
+<area shape="rect" id="node2" href="$classVLocation.html" title="Location UplinkObject in the uplink world." alt="" coords="29,80,115,107"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="19,5,125,32"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="World" name="World">
 <area shape="rect" id="node1" title=" " alt="" coords="2708,1076,2767,1103"/>
 <area shape="rect" id="node2" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="343,824,450,851"/>
-<area shape="rect" id="node4" href="$classComputer.html" title="Computer class object." alt="" coords="2182,567,2269,593"/>
+<area shape="rect" id="node4" href="$classComputer.html" title="Computer class UplinkObject." alt="" coords="2182,567,2269,593"/>
 <area shape="rect" id="node5" href="$classLogBank.html" title=" " alt="" coords="1801,620,1880,647"/>
 <area shape="rect" id="node7" href="$classAccessLog.html" title=" " alt="" coords="939,671,1029,697"/>
 <area shape="rect" id="node8" href="$classDate.html" title=" " alt="" coords="667,1036,720,1063"/>
@@ -14,12 +14,12 @@
 <area shape="rect" id="node24" href="$classSecuritySystem.html" title=" " alt="" coords="631,376,755,403"/>
 <area shape="rect" id="node25" href="$classPlotGenerator.html" title=" " alt="" coords="928,1811,1040,1837"/>
 <area shape="rect" id="node29" href="$classCompany.html" title=" " alt="" coords="651,173,735,200"/>
-<area shape="rect" id="node31" href="$classVLocation.html" title="Location in the uplink world." alt="" coords="650,795,737,821"/>
+<area shape="rect" id="node31" href="$classVLocation.html" title="Location UplinkObject in the uplink world." alt="" coords="650,795,737,821"/>
 <area shape="rect" id="node33" href="$classPerson.html" title=" " alt="" coords="2192,1565,2259,1592"/>
 <area shape="rect" id="node36" href="$classMessage.html" title=" " alt="" coords="944,1507,1024,1533"/>
 <area shape="rect" id="node37" href="$classRating.html" title=" " alt="" coords="787,1665,851,1692"/>
 <area shape="rect" id="node38" href="$classConnection.html" title=" " alt="" coords="937,1453,1031,1480"/>
-<area shape="rect" id="node40" href="$classEventScheduler.html" title="Event Scheduler Class." alt="" coords="2164,1137,2287,1164"/>
+<area shape="rect" id="node40" href="$classEventScheduler.html" title="Event Scheduler UplinkObject." alt="" coords="2164,1137,2287,1164"/>
 <area shape="rect" id="node43" href="$classUplinkEvent.html" title="Uplink Event object." alt="" coords="933,1220,1035,1247"/>
 <area shape="rect" id="node44" href="$classDemoPlotGenerator.html" title=" " alt="" coords="1113,873,1264,900"/>
 <area shape="rect" id="node46" href="$classGatewayDef.html" title=" " alt="" coords="642,1316,745,1343"/>

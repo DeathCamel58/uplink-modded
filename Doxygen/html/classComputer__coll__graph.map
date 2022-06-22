@@ -1,5 +1,5 @@
 <map id="Computer" name="Computer">
-<area shape="rect" id="node1" title="Computer class object." alt="" coords="1641,261,1728,288"/>
+<area shape="rect" id="node1" title="Computer class UplinkObject." alt="" coords="1641,261,1728,288"/>
 <area shape="rect" id="node2" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="194,312,301,339"/>
 <area shape="rect" id="node3" href="$classLogBank.html" title=" " alt="" coords="1427,209,1505,236"/>
 <area shape="rect" id="node5" href="$classAccessLog.html" title=" " alt="" coords="700,209,791,236"/>

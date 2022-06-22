@@ -70,80 +70,77 @@ $(function() {
 <div class="title">sendmail_interface.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// SendMailInterface.h: interface for the SendMailInterface class.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef included_sendmailinterface_h</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define included_sendmailinterface_h</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;localinterfacescreen.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="classMessage.html">Message</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_sendmailinterface_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_sendmailinterface_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;localinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="classMessage.html">Message</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classSendMailInterface.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSendMailInterface.html">SendMailInterface</a> : <span class="keyword">public</span> <a class="code" href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a>  </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classSendMailInterface.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSendMailInterface.html">SendMailInterface</a> : <span class="keyword">public</span> <a class="code" href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a>  </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a40546d7a0c4f1236a106de3a6795351b">TitleClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a98d37ea12bfb62444935533a73daeb54">FileClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a983b734fc7bed1d9b738916f61ce5f24">AttachFileClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a0939f196401d52564ec32c1d19740f24">ClearClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a71a4e798d83e5b6afd9cdc0f0e4c4d90">SendClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSendMailInterface.html#ab22650d5f4ef0ae0f79492d5627abc0c">IsVisibleFileList</a> ();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a2638772459f8c3b3a6222e0932e439ea">ToggleFileList</a> ( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y );    </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#add34a986c0427770f2addf1bc75ebd23">ToClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSendMailInterface.html#a838dced69f6418b3460642fd6f1405db">IsVisibleAddressBook</a> ();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a39cb1173c0da994ff2791c6d0e8afba2">ToggleAddressBook</a> ( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y );</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#adab1a93359a9c8afe91e73369c8348ae">AddressClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classSendMailInterface.html#a1da5ee5661f4558f9476ade3441e802d">   97</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classMessage.html">Message</a> *<a class="code" href="classSendMailInterface.html#a1da5ee5661f4558f9476ade3441e802d">m</a>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classSendMailInterface.html#afb1c9383a175fd996046c81367937a0b">  102</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSendMailInterface.html#afb1c9383a175fd996046c81367937a0b">changed</a>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="classSendMailInterface.html">SendMailInterface</a> ();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    ~<a class="code" href="classSendMailInterface.html">SendMailInterface</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">static</span> <a class="code" href="classMessage.html">Message</a> *<a class="code" href="classSendMailInterface.html#a9db5f11aceb2efe800cc2510ebe58601">sGetMessage</a> ();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#aa724895d76b1604f6211d47cee00ac39">Create</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a60225d6e68e6f549d694ad1d654157dd">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a5b3cfe37d3e8dc09e4077c76770f41c5">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSendMailInterface.html#a3f3128625c9545696d25b577c709d4cd">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a40546d7a0c4f1236a106de3a6795351b">TitleClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a98d37ea12bfb62444935533a73daeb54">FileClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a983b734fc7bed1d9b738916f61ce5f24">AttachFileClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a0939f196401d52564ec32c1d19740f24">ClearClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a71a4e798d83e5b6afd9cdc0f0e4c4d90">SendClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSendMailInterface.html#ab22650d5f4ef0ae0f79492d5627abc0c">IsVisibleFileList</a> ();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a2638772459f8c3b3a6222e0932e439ea">ToggleFileList</a> ( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y );    </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#add34a986c0427770f2addf1bc75ebd23">ToClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSendMailInterface.html#a838dced69f6418b3460642fd6f1405db">IsVisibleAddressBook</a> ();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a39cb1173c0da994ff2791c6d0e8afba2">ToggleAddressBook</a> ( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y );</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#adab1a93359a9c8afe91e73369c8348ae">AddressClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classSendMailInterface.html#a1da5ee5661f4558f9476ade3441e802d">   93</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classMessage.html">Message</a> *<a class="code" href="classSendMailInterface.html#a1da5ee5661f4558f9476ade3441e802d">m</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classSendMailInterface.html#afb1c9383a175fd996046c81367937a0b">   98</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classSendMailInterface.html#afb1c9383a175fd996046c81367937a0b">changed</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classSendMailInterface.html">SendMailInterface</a> ();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    ~<a class="code" href="classSendMailInterface.html">SendMailInterface</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">static</span> <a class="code" href="classMessage.html">Message</a> *<a class="code" href="classSendMailInterface.html#a9db5f11aceb2efe800cc2510ebe58601">sGetMessage</a> ();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#aa724895d76b1604f6211d47cee00ac39">Create</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a60225d6e68e6f549d694ad1d654157dd">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSendMailInterface.html#a5b3cfe37d3e8dc09e4077c76770f41c5">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSendMailInterface.html#a3f3128625c9545696d25b577c709d4cd">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSendMailInterface.html#ae4b970a813ae6f15150ad5a410404c0e">ScreenID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSendMailInterface.html#ae4b970a813ae6f15150ad5a410404c0e">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif </span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassSendMailInterface_html_a983b734fc7bed1d9b738916f61ce5f24"><div class="ttname"><a href="classSendMailInterface.html#a983b734fc7bed1d9b738916f61ce5f24">SendMailInterface::AttachFileClick</a></div><div class="ttdeci">static void AttachFileClick(Button *button)</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:63</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_adab1a93359a9c8afe91e73369c8348ae"><div class="ttname"><a href="classSendMailInterface.html#adab1a93359a9c8afe91e73369c8348ae">SendMailInterface::AddressClick</a></div><div class="ttdeci">static void AddressClick(Button *button)</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:236</div></div>
-<div class="ttc" id="aclassSendMailInterface_html"><div class="ttname"><a href="classSendMailInterface.html">SendMailInterface</a></div><div class="ttdoc">Screen that allows the user to compose an email.</div><div class="ttdef"><b>Definition:</b> sendmail_interface.h:18</div></div>
+<div class="ttc" id="aclassSendMailInterface_html"><div class="ttname"><a href="classSendMailInterface.html">SendMailInterface</a></div><div class="ttdoc">LocalInterfaceScreen that allows the user to compose an email.</div><div class="ttdef"><b>Definition:</b> sendmail_interface.h:14</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_a2638772459f8c3b3a6222e0932e439ea"><div class="ttname"><a href="classSendMailInterface.html#a2638772459f8c3b3a6222e0932e439ea">SendMailInterface::ToggleFileList</a></div><div class="ttdeci">static void ToggleFileList(int x, int y)</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:110</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_a40546d7a0c4f1236a106de3a6795351b"><div class="ttname"><a href="classSendMailInterface.html#a40546d7a0c4f1236a106de3a6795351b">SendMailInterface::TitleClick</a></div><div class="ttdeci">static void TitleClick(Button *button)</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:49</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_a5b3cfe37d3e8dc09e4077c76770f41c5"><div class="ttname"><a href="classSendMailInterface.html#a5b3cfe37d3e8dc09e4077c76770f41c5">SendMailInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:395</div></div>
-<div class="ttc" id="aclassLocalInterfaceScreen_html"><div class="ttname"><a href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a></div><div class="ttdoc">Screen that provides basic functionality of other screens.</div><div class="ttdef"><b>Definition:</b> localinterfacescreen.h:19</div></div>
+<div class="ttc" id="aclassLocalInterfaceScreen_html"><div class="ttname"><a href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a></div><div class="ttdoc">InterfaceScreen that provides basic functionality of other InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> localinterfacescreen.h:10</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_a98d37ea12bfb62444935533a73daeb54"><div class="ttname"><a href="classSendMailInterface.html#a98d37ea12bfb62444935533a73daeb54">SendMailInterface::FileClick</a></div><div class="ttdeci">static void FileClick(Button *button)</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:56</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_ae4b970a813ae6f15150ad5a410404c0e"><div class="ttname"><a href="classSendMailInterface.html#ae4b970a813ae6f15150ad5a410404c0e">SendMailInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:427</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_a3f3128625c9545696d25b577c709d4cd"><div class="ttname"><a href="classSendMailInterface.html#a3f3128625c9545696d25b577c709d4cd">SendMailInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:420</div></div>
@@ -153,12 +150,12 @@ $(function() {
 <div class="ttc" id="aclassSendMailInterface_html_a9db5f11aceb2efe800cc2510ebe58601"><div class="ttname"><a href="classSendMailInterface.html#a9db5f11aceb2efe800cc2510ebe58601">SendMailInterface::sGetMessage</a></div><div class="ttdeci">static Message * sGetMessage()</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:42</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_add34a986c0427770f2addf1bc75ebd23"><div class="ttname"><a href="classSendMailInterface.html#add34a986c0427770f2addf1bc75ebd23">SendMailInterface::ToClick</a></div><div class="ttdeci">static void ToClick(Button *button)</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:171</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_a39cb1173c0da994ff2791c6d0e8afba2"><div class="ttname"><a href="classSendMailInterface.html#a39cb1173c0da994ff2791c6d0e8afba2">SendMailInterface::ToggleAddressBook</a></div><div class="ttdeci">static void ToggleAddressBook(int x, int y)</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:185</div></div>
-<div class="ttc" id="aclassSendMailInterface_html_a1da5ee5661f4558f9476ade3441e802d"><div class="ttname"><a href="classSendMailInterface.html#a1da5ee5661f4558f9476ade3441e802d">SendMailInterface::m</a></div><div class="ttdeci">static Message * m</div><div class="ttdef"><b>Definition:</b> sendmail_interface.h:97</div></div>
+<div class="ttc" id="aclassSendMailInterface_html_a1da5ee5661f4558f9476ade3441e802d"><div class="ttname"><a href="classSendMailInterface.html#a1da5ee5661f4558f9476ade3441e802d">SendMailInterface::m</a></div><div class="ttdeci">static Message * m</div><div class="ttdef"><b>Definition:</b> sendmail_interface.h:93</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_ab22650d5f4ef0ae0f79492d5627abc0c"><div class="ttname"><a href="classSendMailInterface.html#ab22650d5f4ef0ae0f79492d5627abc0c">SendMailInterface::IsVisibleFileList</a></div><div class="ttdeci">static bool IsVisibleFileList()</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:103</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_a60225d6e68e6f549d694ad1d654157dd"><div class="ttname"><a href="classSendMailInterface.html#a60225d6e68e6f549d694ad1d654157dd">SendMailInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:359</div></div>
 <div class="ttc" id="aclassSendMailInterface_html_aa724895d76b1604f6211d47cee00ac39"><div class="ttname"><a href="classSendMailInterface.html#aa724895d76b1604f6211d47cee00ac39">SendMailInterface::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> sendmail_interface.cpp:286</div></div>
 <div class="ttc" id="aclassMessage_html"><div class="ttname"><a href="classMessage.html">Message</a></div><div class="ttdef"><b>Definition:</b> message.h:26</div></div>
-<div class="ttc" id="aclassSendMailInterface_html_afb1c9383a175fd996046c81367937a0b"><div class="ttname"><a href="classSendMailInterface.html#afb1c9383a175fd996046c81367937a0b">SendMailInterface::changed</a></div><div class="ttdeci">static bool changed</div><div class="ttdef"><b>Definition:</b> sendmail_interface.h:102</div></div>
+<div class="ttc" id="aclassSendMailInterface_html_afb1c9383a175fd996046c81367937a0b"><div class="ttname"><a href="classSendMailInterface.html#afb1c9383a175fd996046c81367937a0b">SendMailInterface::changed</a></div><div class="ttdeci">static bool changed</div><div class="ttdef"><b>Definition:</b> sendmail_interface.h:98</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

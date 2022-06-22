@@ -71,13 +71,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classInterface.html" title="Interface class UplinkObject.">Interface</a> for the <a class="el" href="classWorldGenerator.html" title="Interface for the WorldGenerator class.">WorldGenerator</a> class.  
+ <a href="classWorldGenerator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="worldgenerator_8h_source.html">worldgenerator.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for WorldGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWorldGenerator__coll__graph.png" border="0" usemap="#WorldGenerator_coll__map" alt="Collaboration graph"/></div>
 <map name="WorldGenerator_coll__map" id="WorldGenerator_coll__map">
-<area shape="rect" title=" " alt="" coords="5,95,129,121"/>
+<area shape="rect" title="Interface for the WorldGenerator class." alt="" coords="5,95,129,121"/>
 <area shape="rect" href="classImage.html" title=" " alt="" coords="36,5,99,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -218,7 +221,7 @@ Static Protected Attributes</h2></td></tr>
 <tr class="separator:a2820b97a54ffd3e35c4e1fbce4f24649"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classInterface.html">Interface</a> for the <a class="el" href="classWorldGenerator.html">WorldGenerator</a> class </p>
+<div class="textblock"><p><a class="el" href="classInterface.html" title="Interface class UplinkObject.">Interface</a> for the <a class="el" href="classWorldGenerator.html" title="Interface for the WorldGenerator class.">WorldGenerator</a> class. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0ceb044e5fca6cbd727a6916b34625de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ceb044e5fca6cbd727a6916b34625de">&#9670;&nbsp;</a></span>GenerateAgent()</h2>
@@ -242,7 +245,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a random <a class="el" href="classAgent.html" title="Agent class object.">Agent</a> </p><dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classAgent.html" title="Agent class object.">Agent</a> </dd></dl>
+<p>Generates a random <a class="el" href="classAgent.html" title="Agent Person.">Agent</a> </p><dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classAgent.html" title="Agent Person.">Agent</a> </dd></dl>
 
 </div>
 </div>
@@ -295,13 +298,13 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a Central Mainframe for a company </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates a Central Mainframe for a <a class="el" href="classCompany.html">Company</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">companyname</td><td>Name of the company to generate Central Mainframe for </td></tr>
+    <tr><td class="paramname">companyname</td><td>Name of the <a class="el" href="classCompany.html">Company</a> to generate Central Mainframe for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for the Central Mainframe </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for the Central Mainframe </dd></dl>
 
 </div>
 </div>
@@ -327,7 +330,7 @@ Static Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Central Medical Database </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd>
+<p>Generates the Central Medical Database </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd>
 <dd>
 This is unused </dd></dl>
 
@@ -498,7 +501,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Uplink company </p><dl class="section note"><dt>Note</dt><dd>Creates the Bank server, generates all hardware and software items for sale </dd></dl>
+<p>Generates the Uplink <a class="el" href="classCompany.html">Company</a> </p><dl class="section note"><dt>Note</dt><dd>Creates the Bank server, generates all hardware and software items for sale </dd></dl>
 
 </div>
 </div>
@@ -525,13 +528,13 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a random <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for a company </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates a random <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for a <a class="el" href="classCompany.html">Company</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">companyname</td><td>Name of company to generate <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for </td></tr>
+    <tr><td class="paramname">companyname</td><td>Name of <a class="el" href="classCompany.html">Company</a> to generate <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classComputer.html" title="Computer class object.">Computer</a> that was generated </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> that was generated </dd></dl>
 
 </div>
 </div>
@@ -568,14 +571,14 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a specific type of <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for a company </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates a specific type of <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for a <a class="el" href="classCompany.html">Company</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">companyName</td><td>Name of the company to generate the <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for </td></tr>
-    <tr><td class="paramname">TYPE</td><td>The type of the <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </td></tr>
+    <tr><td class="paramname">companyName</td><td>Name of the <a class="el" href="classCompany.html">Company</a> to generate the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for </td></tr>
+    <tr><td class="paramname">TYPE</td><td>The type of the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </dd></dl>
 
 </div>
 </div>
@@ -602,13 +605,13 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates an empty file server for a company </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates an empty file server for a <a class="el" href="classCompany.html">Company</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">companyname</td><td>Name of company to generate empty file server for </td></tr>
+    <tr><td class="paramname">companyname</td><td>Name of <a class="el" href="classCompany.html">Company</a> to generate empty file server for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for the File Server </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for the File Server </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Used in StealResearch missions </dd></dl>
 
 </div>
@@ -635,7 +638,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Global Criminal Database </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Global Criminal Database </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -690,11 +693,11 @@ This is unused </dd></dl>
 </div><div class="memdoc">
 <p>Generates an internal services machine for a company </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">companyname</td><td>Name of the company to generate the internal services machine for </td></tr>
+    <tr><td class="paramname">companyname</td><td>Name of the <a class="el" href="classCompany.html">Company</a> to generate the internal services machine for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for the internal services machine </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for the internal services machine </dd></dl>
 
 </div>
 </div>
@@ -720,7 +723,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the International Academic Database </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the International Academic Database </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -746,7 +749,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the International Social <a class="el" href="classSecurity.html">Security</a> Database </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the International Social <a class="el" href="classSecurity.html">Security</a> Database </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -772,7 +775,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates InterNIC </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates InterNIC </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -798,7 +801,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Introversion server </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Introversion server </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -825,13 +828,13 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates LAN for a company </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates LAN for a <a class="el" href="classCompany.html">Company</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">companyname</td><td>Name of the company to generate the LAN for </td></tr>
+    <tr><td class="paramname">companyname</td><td>Name of the <a class="el" href="classCompany.html">Company</a> to generate the LAN for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The LAN of the company </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The LAN of the <a class="el" href="classCompany.html">Company</a> </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Returns nullptr if companyname is empty </dd></dl>
 
 </div>
@@ -858,7 +861,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Create a local machine for players to fall back to Which can also act as a links screen </p>
+<p>Create a local machine for players to fall back to Which can also act as a <a class="el" href="classLinksScreen.html">LinksScreen</a> </p>
 
 </div>
 </div>
@@ -884,7 +887,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a random <a class="el" href="classVLocation.html" title="Location in the uplink world.">VLocation</a> </p><dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classVLocation.html" title="Location in the uplink world.">VLocation</a> </dd></dl>
+<p>Generates a random <a class="el" href="classVLocation.html" title="Location UplinkObject in the uplink world.">VLocation</a> </p><dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classVLocation.html" title="Location UplinkObject in the uplink world.">VLocation</a> </dd></dl>
 
 </div>
 </div>
@@ -910,7 +913,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the OCP server </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the OCP server </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -963,13 +966,13 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a personal computer </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates a personal <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">personname</td><td>Name of the person to generate the <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for </td></tr>
+    <tr><td class="paramname">personname</td><td>Name of the <a class="el" href="classPerson.html">Person</a> to generate the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The personal <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The personal <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </dd></dl>
 
 </div>
 </div>
@@ -996,14 +999,14 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the player </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates the <a class="el" href="classPlayer.html">Player</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>The handle of the player </td></tr>
+    <tr><td class="paramname">handle</td><td>The handle of the <a class="el" href="classPlayer.html">Player</a> </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classPlayer.html">Player</a> object </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This populates the player's starting links, creates a player bank account, sets ratings, etc </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This populates the <a class="el" href="classPlayer.html">Player</a>'s starting links, creates a player bank account, sets ratings, etc </dd></dl>
 
 </div>
 </div>
@@ -1029,7 +1032,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Protovision server </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Protovision server </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -1056,13 +1059,13 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a public access server for company </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates a public access server for <a class="el" href="classCompany.html">Company</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">companyname</td><td>Name of the company to generate the public access server for </td></tr>
+    <tr><td class="paramname">companyname</td><td>Name of the <a class="el" href="classCompany.html">Company</a> to generate the public access server for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for the public access server </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for the public access server </dd></dl>
 
 </div>
 </div>
@@ -1089,13 +1092,13 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a Public Bank Server for a company </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates a Public Bank Server for a <a class="el" href="classCompany.html">Company</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">companyname</td><td>Name of the company to generate Public Bank Server for </td></tr>
+    <tr><td class="paramname">companyname</td><td>Name of the <a class="el" href="classCompany.html">Company</a> to generate Public Bank Server for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> for the Public Bank Server </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> for the Public Bank Server </dd></dl>
 
 </div>
 </div>
@@ -1121,7 +1124,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates some companies, banks, people, agents, missions, and employment data </p>
+<p>Generates some <a class="el" href="classCompany.html">Company</a>, bank, <a class="el" href="classPerson.html">Person</a>, <a class="el" href="classAgent.html" title="Agent Person.">Agent</a>, <a class="el" href="classMission.html">Mission</a>, and employment data items </p>
 
 </div>
 </div>
@@ -1147,7 +1150,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates two very easy missions for the player at the start </p>
+<p>Generates two very easy <a class="el" href="classMission.html">Mission</a> items for the player at the start </p>
 
 </div>
 </div>
@@ -1173,7 +1176,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generate a delete file mission </p>
+<p>Generate a delete file <a class="el" href="classMission.html">Mission</a> </p>
 
 </div>
 </div>
@@ -1199,7 +1202,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Steve Jackson Games server </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Steve Jackson Games server </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -1225,7 +1228,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Creates the player company, and some specific companies and computers </p><dl class="section note"><dt>Note</dt><dd>This only generates OCP, SJGames, and Introversion when the build is not a DEMOGAME </dd></dl>
+<p>Creates the <a class="el" href="classPlayer.html">Player</a> <a class="el" href="classCompany.html">Company</a>, and some specific <a class="el" href="classCompany.html">Company</a> and <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> items </p><dl class="section note"><dt>Note</dt><dd>This only generates OCP, SJGames, and Introversion when the build is not a DEMOGAME </dd></dl>
 
 </div>
 </div>
@@ -1251,7 +1254,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Stock Market </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Stock Market </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -1277,7 +1280,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Uplink Credits Machine </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Uplink Credits Machine </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -1303,7 +1306,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Uplink Internal Services System </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Uplink Internal Services System </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -1329,7 +1332,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Uplink Public Access Server </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Uplink Public Access Server </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -1355,7 +1358,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates the Uplink Test Machine </p><dl class="section note"><dt>Note</dt><dd>This generates the computer and constructs all screens </dd></dl>
+<p>Generates the Uplink Test Machine </p><dl class="section note"><dt>Note</dt><dd>This generates the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> and constructs all <a class="el" href="classMessageScreen.html">MessageScreen</a> items </dd></dl>
 
 </div>
 </div>
@@ -1427,11 +1430,11 @@ This is unused </dd></dl>
 </div><div class="memdoc">
 <p>Generates a voice phone system </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">personname</td><td>Name of the person to generate the voice phone system for </td></tr>
+    <tr><td class="paramname">personname</td><td>Name of the <a class="el" href="classPerson.html">Person</a> to generate the voice phone system for </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The voice phone system <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The voice phone system <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </dd></dl>
 
 </div>
 </div>
@@ -1457,7 +1460,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets a random <a class="el" href="classAgent.html" title="Agent class object.">Agent</a> </p><dl class="section return"><dt>Returns</dt><dd>The random <a class="el" href="classAgent.html" title="Agent class object.">Agent</a> </dd></dl>
+<p>Gets a random <a class="el" href="classAgent.html" title="Agent Person.">Agent</a> </p><dl class="section return"><dt>Returns</dt><dd>The random <a class="el" href="classAgent.html" title="Agent Person.">Agent</a> </dd></dl>
 
 </div>
 </div>
@@ -1509,7 +1512,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets a random <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </p><dl class="section return"><dt>Returns</dt><dd>The random <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </dd></dl>
+<p>Gets a random <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </p><dl class="section return"><dt>Returns</dt><dd>The random <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </dd></dl>
 
 </div>
 </div>
@@ -1536,13 +1539,13 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets a random <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> of a specific type </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Gets a random <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> of a specific type </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">TYPE</td><td>The bitfield of acceptable computer types </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The random <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The random <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </dd></dl>
 
 </div>
 </div>
@@ -1568,7 +1571,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets a random <a class="el" href="classVLocation.html" title="Location in the uplink world.">VLocation</a> </p><dl class="section return"><dt>Returns</dt><dd>The random <a class="el" href="classVLocation.html" title="Location in the uplink world.">VLocation</a> </dd></dl>
+<p>Gets a random <a class="el" href="classVLocation.html" title="Location UplinkObject in the uplink world.">VLocation</a> </p><dl class="section return"><dt>Returns</dt><dd>The random <a class="el" href="classVLocation.html" title="Location UplinkObject in the uplink world.">VLocation</a> </dd></dl>
 
 </div>
 </div>
@@ -1595,13 +1598,13 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Gets a random, low security <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Gets a random, low security <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">TYPE</td><td>The type of the computer </td></tr>
+    <tr><td class="paramname">TYPE</td><td>The type of the <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The low security <a class="el" href="classComputer.html" title="Computer class object.">Computer</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The low security <a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Computers gotten through this function will not have a proxy or firewall </dd></dl>
 
 </div>
@@ -1732,7 +1735,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Loads all gateways from files </p>
+<p>Loads all <a class="el" href="classGateway.html">Gateway</a> items from files </p>
 
 </div>
 </div>
@@ -1759,9 +1762,9 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>For each company that the person is currently an administrator, replace him with a new administrator </p><dl class="params"><dt>Parameters</dt><dd>
+<p>For each <a class="el" href="classCompany.html">Company</a> that the <a class="el" href="classPerson.html">Person</a> is currently an administrator, replace him with a new administrator </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">person</td><td>The person to replace in companies </td></tr>
+    <tr><td class="paramname">person</td><td>The <a class="el" href="classPerson.html">Person</a> to replace in all <a class="el" href="classCompany.html">Company</a> items </td></tr>
   </table>
   </dd>
 </dl>
@@ -1790,7 +1793,7 @@ This is unused </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Replace all company administrators that are dead or in jail </p>
+<p>Replace all <a class="el" href="classCompany.html">Company</a> administrators that are dead or in jail </p>
 
 </div>
 </div>

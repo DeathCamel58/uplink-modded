@@ -1,4 +1,4 @@
 <map id="App" name="App">
-<area shape="rect" id="node1" title="App Object." alt="" coords="35,80,82,107"/>
+<area shape="rect" id="node1" title="App UplinkObject." alt="" coords="35,80,82,107"/>
 <area shape="rect" id="node2" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,5,112,32"/>
 </map>

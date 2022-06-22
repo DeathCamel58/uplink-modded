@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title=" " alt="" coords="392,667,519,693"/>
 <area shape="rect" id="node2" href="$classCompany.html" title=" " alt="" coords="5,174,89,201"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="217,7,323,33"/>
-<area shape="rect" id="node6" href="$classNews.html" title="News object." alt="" coords="465,235,523,261"/>
+<area shape="rect" id="node6" href="$classNews.html" title="News UplinkObject." alt="" coords="465,235,523,261"/>
 <area shape="rect" id="node7" href="$classDate.html" title=" " alt="" coords="467,113,521,140"/>
 <area shape="rect" id="node11" href="$classSale.html" title=" " alt="" coords="214,325,265,352"/>
 <area shape="rect" id="node13" href="$classSaleVersion.html" title=" " alt="" coords="177,113,275,140"/>

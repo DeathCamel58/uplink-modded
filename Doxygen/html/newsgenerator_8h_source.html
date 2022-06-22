@@ -91,26 +91,26 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Initialise ();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Events related to Company computers</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#a02f1e8bd8bf2e1d0d1a33d58e6f14b15">ComputerHacked</a>      ( <a class="code" href="classComputer.html">Computer</a> *comp, <a class="code" href="classAccessLog.html">AccessLog</a> *al );</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#a1c882df01be4bfab1bcdcd7ac060179e">ComputerDestroyed</a>   ( <a class="code" href="classComputer.html">Computer</a> *comp, <span class="keywordtype">bool</span> filesdeleted );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#ab3536fcc3b6ba4ea8b98a207050d3624">AllFilesStolen</a>      (<a class="code" href="classComputer.html">Computer</a> *comp, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filetype, <span class="keywordtype">int</span> totalfilesize );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#a1773af4265e1bf4b0f3b8c279f4011ab">AllFilesDeleted</a>     (<a class="code" href="classComputer.html">Computer</a> *comp, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filetype );</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// Events related to people</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#a02f1e8bd8bf2e1d0d1a33d58e6f14b15">ComputerHacked</a>      ( <a class="code" href="classComputer.html">Computer</a> *comp, <a class="code" href="classAccessLog.html">AccessLog</a> *al );</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#a1c882df01be4bfab1bcdcd7ac060179e">ComputerDestroyed</a>   ( <a class="code" href="classComputer.html">Computer</a> *comp, <span class="keywordtype">bool</span> filesdeleted );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#ab3536fcc3b6ba4ea8b98a207050d3624">AllFilesStolen</a>      (<a class="code" href="classComputer.html">Computer</a> *comp, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filetype, <span class="keywordtype">int</span> totalfilesize );</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#a1773af4265e1bf4b0f3b8c279f4011ab">AllFilesDeleted</a>     (<a class="code" href="classComputer.html">Computer</a> *comp, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filetype );</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#aeec07704888493c1190d362c5091be5b">Arrested</a> (<a class="code" href="classPerson.html">Person</a> *person, <a class="code" href="classComputer.html">Computer</a> *comp, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; reason );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classNewsGenerator.html#aeec07704888493c1190d362c5091be5b">Arrested</a> (<a class="code" href="classPerson.html">Person</a> *person, <a class="code" href="classComputer.html">Computer</a> *comp, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; reason );</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassNewsGenerator_html_aeec07704888493c1190d362c5091be5b"><div class="ttname"><a href="classNewsGenerator.html#aeec07704888493c1190d362c5091be5b">NewsGenerator::Arrested</a></div><div class="ttdeci">static void Arrested(Person *person, Computer *comp, const string &amp;reason)</div><div class="ttdef"><b>Definition:</b> newsgenerator.cpp:786</div></div>
 <div class="ttc" id="aclassNewsGenerator_html_ab3536fcc3b6ba4ea8b98a207050d3624"><div class="ttname"><a href="classNewsGenerator.html#ab3536fcc3b6ba4ea8b98a207050d3624">NewsGenerator::AllFilesStolen</a></div><div class="ttdeci">static void AllFilesStolen(Computer *comp, const string &amp;filetype, int totalfilesize)</div><div class="ttdef"><b>Definition:</b> newsgenerator.cpp:542</div></div>
@@ -119,7 +119,7 @@ $(function() {
 <div class="ttc" id="aclassNewsGenerator_html_a1c882df01be4bfab1bcdcd7ac060179e"><div class="ttname"><a href="classNewsGenerator.html#a1c882df01be4bfab1bcdcd7ac060179e">NewsGenerator::ComputerDestroyed</a></div><div class="ttdeci">static void ComputerDestroyed(Computer *comp, bool filesdeleted)</div><div class="ttdef"><b>Definition:</b> newsgenerator.cpp:391</div></div>
 <div class="ttc" id="aclassNewsGenerator_html_a1773af4265e1bf4b0f3b8c279f4011ab"><div class="ttname"><a href="classNewsGenerator.html#a1773af4265e1bf4b0f3b8c279f4011ab">NewsGenerator::AllFilesDeleted</a></div><div class="ttdeci">static void AllFilesDeleted(Computer *comp, const string &amp;filetype)</div><div class="ttdef"><b>Definition:</b> newsgenerator.cpp:668</div></div>
 <div class="ttc" id="aclassNewsGenerator_html_a02f1e8bd8bf2e1d0d1a33d58e6f14b15"><div class="ttname"><a href="classNewsGenerator.html#a02f1e8bd8bf2e1d0d1a33d58e6f14b15">NewsGenerator::ComputerHacked</a></div><div class="ttdeci">static void ComputerHacked(Computer *comp, AccessLog *al)</div><div class="ttdef"><b>Definition:</b> newsgenerator.cpp:28</div></div>
-<div class="ttc" id="aclassComputer_html"><div class="ttname"><a href="classComputer.html">Computer</a></div><div class="ttdoc">Computer class object.</div><div class="ttdef"><b>Definition:</b> computer.h:60</div></div>
+<div class="ttc" id="aclassComputer_html"><div class="ttname"><a href="classComputer.html">Computer</a></div><div class="ttdoc">Computer class UplinkObject.</div><div class="ttdef"><b>Definition:</b> computer.h:60</div></div>
 <div class="ttc" id="aclassPerson_html"><div class="ttname"><a href="classPerson.html">Person</a></div><div class="ttdef"><b>Definition:</b> person.h:40</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

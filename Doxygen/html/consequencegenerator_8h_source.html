@@ -85,18 +85,15 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// ============================================================================</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classConsequenceGenerator.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConsequenceGenerator.html">ConsequenceGenerator</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classConsequenceGenerator.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConsequenceGenerator.html">ConsequenceGenerator</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Initialise ();</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Initialise ();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Event processing for all people</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a572eb0aa93b0fa0bf919d7bfdef3335e">CaughtHacking</a> ( <a class="code" href="classPerson.html">Person</a> *person, <a class="code" href="classComputer.html">Computer</a> *comp );</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a7414d2469af1e7a15576e84f3036225e">Arrested</a>      (<a class="code" href="classPerson.html">Person</a> *person, <a class="code" href="classComputer.html">Computer</a> *comp, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; reason );</div>
@@ -107,42 +104,43 @@ $(function() {
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a7c4042580d4c489b3c57962618554552">SeizeGateway</a>  (<a class="code" href="classPerson.html">Person</a> *person, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; reason );</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// Event processing for company computers</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a38170f871e251c1dc8987901b519f738">ComputerHacked</a> ( <a class="code" href="classComputer.html">Computer</a> *comp, <a class="code" href="classAccessLog.html">AccessLog</a> *al );</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// Event processing for completed missions</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#ac169584e9739f4e74d179d5f9563ec1b">MissionCompleted</a>                ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a8dc90c0fb27090a8b9bd896f6340c8ce">MissionCompleted_StealFile</a>      ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#ad93965c82ec043b8595e9e5b310a0d99">MissionCompleted_DestroyFile</a>    ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a7e559a4209b4427c1691be4812f85716">MissionCompleted_ChangeAccount</a>  ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a0948109b091a49ab8b89fc58ca32a0e8">MissionCompleted_TraceUser</a>      ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a38170f871e251c1dc8987901b519f738">ComputerHacked</a> ( <a class="code" href="classComputer.html">Computer</a> *comp, <a class="code" href="classAccessLog.html">AccessLog</a> *al );</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#ac169584e9739f4e74d179d5f9563ec1b">MissionCompleted</a>                ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a8dc90c0fb27090a8b9bd896f6340c8ce">MissionCompleted_StealFile</a>      ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#ad93965c82ec043b8595e9e5b310a0d99">MissionCompleted_DestroyFile</a>    ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a7e559a4209b4427c1691be4812f85716">MissionCompleted_ChangeAccount</a>  ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsequenceGenerator.html#a0948109b091a49ab8b89fc58ca32a0e8">MissionCompleted_TraceUser</a>      ( <a class="code" href="classMission.html">Mission</a> *mission, <a class="code" href="classPerson.html">Person</a> *person );</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassConsequenceGenerator_html_a7c4042580d4c489b3c57962618554552"><div class="ttname"><a href="classConsequenceGenerator.html#a7c4042580d4c489b3c57962618554552">ConsequenceGenerator::SeizeGateway</a></div><div class="ttdeci">static void SeizeGateway(Person *person, const string &amp;reason)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:377</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_a7e559a4209b4427c1691be4812f85716"><div class="ttname"><a href="classConsequenceGenerator.html#a7e559a4209b4427c1691be4812f85716">ConsequenceGenerator::MissionCompleted_ChangeAccount</a></div><div class="ttdeci">static void MissionCompleted_ChangeAccount(Mission *mission, Person *person)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:517</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_a0948109b091a49ab8b89fc58ca32a0e8"><div class="ttname"><a href="classConsequenceGenerator.html#a0948109b091a49ab8b89fc58ca32a0e8">ConsequenceGenerator::MissionCompleted_TraceUser</a></div><div class="ttdeci">static void MissionCompleted_TraceUser(Mission *mission, Person *person)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:568</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_ac169584e9739f4e74d179d5f9563ec1b"><div class="ttname"><a href="classConsequenceGenerator.html#ac169584e9739f4e74d179d5f9563ec1b">ConsequenceGenerator::MissionCompleted</a></div><div class="ttdeci">static void MissionCompleted(Mission *mission, Person *person)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:440</div></div>
 <div class="ttc" id="aclassMission_html"><div class="ttname"><a href="classMission.html">Mission</a></div><div class="ttdef"><b>Definition:</b> mission.h:33</div></div>
-<div class="ttc" id="aclassConsequenceGenerator_html"><div class="ttname"><a href="classConsequenceGenerator.html">ConsequenceGenerator</a></div><div class="ttdoc">Consqeuence Generator.</div><div class="ttdef"><b>Definition:</b> consequencegenerator.h:28</div></div>
+<div class="ttc" id="aclassConsequenceGenerator_html"><div class="ttname"><a href="classConsequenceGenerator.html">ConsequenceGenerator</a></div><div class="ttdoc">Consequence Generator.</div><div class="ttdef"><b>Definition:</b> consequencegenerator.h:26</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_a38170f871e251c1dc8987901b519f738"><div class="ttname"><a href="classConsequenceGenerator.html#a38170f871e251c1dc8987901b519f738">ConsequenceGenerator::ComputerHacked</a></div><div class="ttdeci">static void ComputerHacked(Computer *comp, AccessLog *al)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:385</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_a8dc90c0fb27090a8b9bd896f6340c8ce"><div class="ttname"><a href="classConsequenceGenerator.html#a8dc90c0fb27090a8b9bd896f6340c8ce">ConsequenceGenerator::MissionCompleted_StealFile</a></div><div class="ttdeci">static void MissionCompleted_StealFile(Mission *mission, Person *person)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:461</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_a7414d2469af1e7a15576e84f3036225e"><div class="ttname"><a href="classConsequenceGenerator.html#a7414d2469af1e7a15576e84f3036225e">ConsequenceGenerator::Arrested</a></div><div class="ttdeci">static void Arrested(Person *person, Computer *comp, const string &amp;reason)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:313</div></div>
 <div class="ttc" id="aclassAccessLog_html"><div class="ttname"><a href="classAccessLog.html">AccessLog</a></div><div class="ttdef"><b>Definition:</b> logbank.h:90</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_a8b4cffbd083e48905672450b58593454"><div class="ttname"><a href="classConsequenceGenerator.html#a8b4cffbd083e48905672450b58593454">ConsequenceGenerator::DidntPayFine</a></div><div class="ttdeci">static void DidntPayFine(Person *person, Mission *fine)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:322</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_a572eb0aa93b0fa0bf919d7bfdef3335e"><div class="ttname"><a href="classConsequenceGenerator.html#a572eb0aa93b0fa0bf919d7bfdef3335e">ConsequenceGenerator::CaughtHacking</a></div><div class="ttdeci">static void CaughtHacking(Person *person, Computer *comp)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:39</div></div>
-<div class="ttc" id="aclassComputer_html"><div class="ttname"><a href="classComputer.html">Computer</a></div><div class="ttdoc">Computer class object.</div><div class="ttdef"><b>Definition:</b> computer.h:60</div></div>
+<div class="ttc" id="aclassComputer_html"><div class="ttname"><a href="classComputer.html">Computer</a></div><div class="ttdoc">Computer class UplinkObject.</div><div class="ttdef"><b>Definition:</b> computer.h:60</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_a5c2b9bc3313b890a425b46ce614e981e"><div class="ttname"><a href="classConsequenceGenerator.html#a5c2b9bc3313b890a425b46ce614e981e">ConsequenceGenerator::ShotByFeds</a></div><div class="ttdeci">static void ShotByFeds(Person *person, const string &amp;reason)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:306</div></div>
 <div class="ttc" id="aclassPerson_html"><div class="ttname"><a href="classPerson.html">Person</a></div><div class="ttdef"><b>Definition:</b> person.h:40</div></div>
 <div class="ttc" id="aclassConsequenceGenerator_html_ad93965c82ec043b8595e9e5b310a0d99"><div class="ttname"><a href="classConsequenceGenerator.html#ad93965c82ec043b8595e9e5b310a0d99">ConsequenceGenerator::MissionCompleted_DestroyFile</a></div><div class="ttdeci">static void MissionCompleted_DestroyFile(Mission *mission, Person *person)</div><div class="ttdef"><b>Definition:</b> consequencegenerator.cpp:496</div></div>

@@ -1,6 +1,6 @@
 <map id="RemoteInterfaceScreen" name="RemoteInterfaceScreen">
-<area shape="rect" id="node1" title="RemoteInterfaceScreen class object." alt="" coords="73,184,247,211"/>
-<area shape="rect" id="node2" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="161,95,285,121"/>
+<area shape="rect" id="node1" title="RemoteInterfaceScreen InterfaceScreen." alt="" coords="73,184,247,211"/>
+<area shape="rect" id="node2" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="161,95,285,121"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="23,5,129,32"/>
 <area shape="rect" id="node5" href="$classComputerScreen.html" title=" " alt="" coords="5,95,136,121"/>
 <area shape="rect" id="node4" href="$classDArray.html" title=" " alt="" coords="155,5,291,32"/>

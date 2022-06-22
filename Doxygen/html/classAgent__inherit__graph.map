@@ -1,5 +1,5 @@
 <map id="Agent" name="Agent">
-<area shape="rect" id="node1" title="Agent class object." alt="" coords="29,155,89,181"/>
+<area shape="rect" id="node1" title="Agent Person." alt="" coords="29,155,89,181"/>
 <area shape="rect" id="node4" href="$classPlayer.html" title=" " alt="" coords="27,229,90,256"/>
 <area shape="rect" id="node2" href="$classPerson.html" title=" " alt="" coords="25,80,92,107"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,5,112,32"/>

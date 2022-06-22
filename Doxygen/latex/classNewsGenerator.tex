@@ -14,6 +14,9 @@
 \item 
 \mbox{\Hypertarget{classNewsGenerator_a306c748939a79dfc52518c5e3054ce1d}\label{classNewsGenerator_a306c748939a79dfc52518c5e3054ce1d}} 
 static void {\bfseries Initialise} ()
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Events related to Company computers}\par
+\begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classNewsGenerator_a02f1e8bd8bf2e1d0d1a33d58e6f14b15}{Computer\+Hacked}} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, \mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$al)
 \item 
@@ -22,15 +25,20 @@ static void \mbox{\hyperlink{classNewsGenerator_a1c882df01be4bfab1bcdcd7ac060179
 static void \mbox{\hyperlink{classNewsGenerator_ab3536fcc3b6ba4ea8b98a207050d3624}{All\+Files\+Stolen}} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, const string \&filetype, int totalfilesize)
 \item 
 static void \mbox{\hyperlink{classNewsGenerator_a1773af4265e1bf4b0f3b8c279f4011ab}{All\+Files\+Deleted}} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, const string \&filetype)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Events related to people}\par
+\begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classNewsGenerator_aeec07704888493c1190d362c5091be5b}{Arrested}} (\mbox{\hyperlink{classPerson}{Person}} $\ast$person, \mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, const string \&reason)
 \end{DoxyCompactItemize}
+\end{Indent}
 
 
 \doxysubsection{Detailed Description}
 \mbox{\hyperlink{classNews}{News}} Generator. 
 
-Receives information on important events that have occured (e.\+gg a compan going bust), and generates a news story. Also handles hard-\/coded news events. 
+Receives information on important events that have occurred (e.\+g. a company going bust), and generates a news story. Also handles hard-\/coded news events. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classNewsGenerator_a1773af4265e1bf4b0f3b8c279f4011ab}\label{classNewsGenerator_a1773af4265e1bf4b0f3b8c279f4011ab}} 
@@ -77,7 +85,7 @@ Generates a news story about an arrest
 \begin{DoxyParams}{Parameters}
 {\em person} & \mbox{\hyperlink{classPerson}{Person}} who was arrested \\
 \hline
-{\em comp} & T\+O\+DO\+: Document \\
+{\em comp} & \mbox{\hyperlink{classComputer}{Computer}} T\+O\+DO\+: Document \\
 \hline
 {\em reason} & Reason person was arrested \\
 \hline
@@ -92,7 +100,7 @@ Generates a news story about a computer that was destroyed
 \begin{DoxyParams}{Parameters}
 {\em comp} & \mbox{\hyperlink{classComputer}{Computer}} that was hacked \\
 \hline
-{\em filesdeleted} & true if the files were unabled to be recovered \\
+{\em filesdeleted} & true if the files were unable to be recovered \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classNewsGenerator_a02f1e8bd8bf2e1d0d1a33d58e6f14b15}\label{classNewsGenerator_a02f1e8bd8bf2e1d0d1a33d58e6f14b15}} 
@@ -101,11 +109,11 @@ Generates a news story about a computer that was destroyed
 \doxysubsubsection{\texorpdfstring{ComputerHacked()}{ComputerHacked()}}
 {\footnotesize\ttfamily void News\+Generator\+::\+Computer\+Hacked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputer}{Computer}} $\ast$}]{comp,  }\item[{\mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Generates a news story about a hacked computer whose hacker isn\textquotesingle{}t known 
+Generates a news story about a hacked \mbox{\hyperlink{classComputer}{Computer}} whose hacker isn\textquotesingle{}t known 
 \begin{DoxyParams}{Parameters}
 {\em comp} & \mbox{\hyperlink{classComputer}{Computer}} that was hacked \\
 \hline
-{\em al} & Access Log \\
+{\em al} & \mbox{\hyperlink{classAccessLog}{Access\+Log}} \\
 \hline
 \end{DoxyParams}
 

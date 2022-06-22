@@ -2,6 +2,15 @@
 \label{classInterface}\index{Interface@{Interface}}
 
 
+\mbox{\hyperlink{classInterface}{Interface}} class \mbox{\hyperlink{classUplinkObject}{Uplink\+Object}}.  
+
+
+
+
+{\ttfamily \#include $<$interface.\+h$>$}
+
+
+
 Inheritance diagram for Interface\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,17 +32,13 @@ Collaboration diagram for Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classInterface_aa6e3d8658471d4ab5f35a0380c7f1bf0}\label{classInterface_aa6e3d8658471d4ab5f35a0380c7f1bf0}} 
-void {\bfseries Create} ()
+void \mbox{\hyperlink{classInterface_aa6e3d8658471d4ab5f35a0380c7f1bf0}{Create}} ()
 \item 
-\mbox{\Hypertarget{classInterface_ae98e9dcabf033eba018183b06ee3af8c}\label{classInterface_ae98e9dcabf033eba018183b06ee3af8c}} 
-\mbox{\hyperlink{classLocalInterface}{Local\+Interface}} $\ast$ {\bfseries Get\+Local\+Interface} ()
+\mbox{\hyperlink{classLocalInterface}{Local\+Interface}} $\ast$ \mbox{\hyperlink{classInterface_ae98e9dcabf033eba018183b06ee3af8c}{Get\+Local\+Interface}} ()
 \item 
-\mbox{\Hypertarget{classInterface_aff28635bb25500a4660fb96ed09f75b3}\label{classInterface_aff28635bb25500a4660fb96ed09f75b3}} 
-\mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} $\ast$ {\bfseries Get\+Remote\+Interface} ()
+\mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} $\ast$ \mbox{\hyperlink{classInterface_aff28635bb25500a4660fb96ed09f75b3}{Get\+Remote\+Interface}} ()
 \item 
-\mbox{\Hypertarget{classInterface_ae9aad6080f232d95009fd4300044e02a}\label{classInterface_ae9aad6080f232d95009fd4300044e02a}} 
-\mbox{\hyperlink{classTaskManager}{Task\+Manager}} $\ast$ {\bfseries Get\+Task\+Manager} ()
+\mbox{\hyperlink{classTaskManager}{Task\+Manager}} $\ast$ \mbox{\hyperlink{classInterface_ae9aad6080f232d95009fd4300044e02a}{Get\+Task\+Manager}} ()
 \item 
 bool \mbox{\hyperlink{classInterface_aa3bcbaadc22e801c709b45f7f8dee192}{Load}} (F\+I\+LE $\ast$file) override
 \item 
@@ -48,19 +53,27 @@ string \mbox{\hyperlink{classInterface_a8104f42f6c57319f605792a60c6f668c}{Get\+I
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classInterface_ad90bf81dadbcb3fe12a35957ef46f8bf}\label{classInterface_ad90bf81dadbcb3fe12a35957ef46f8bf}} 
-\mbox{\hyperlink{classLocalInterface}{Local\+Interface}} $\ast$ {\bfseries li}
+\mbox{\hyperlink{classLocalInterface}{Local\+Interface}} $\ast$ \mbox{\hyperlink{classInterface_ad90bf81dadbcb3fe12a35957ef46f8bf}{li}}
 \item 
-\mbox{\Hypertarget{classInterface_a1603612b91ce4ea844698b3a1f8c8250}\label{classInterface_a1603612b91ce4ea844698b3a1f8c8250}} 
-\mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} $\ast$ {\bfseries ri}
+\mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} $\ast$ \mbox{\hyperlink{classInterface_a1603612b91ce4ea844698b3a1f8c8250}{ri}}
 \item 
-\mbox{\Hypertarget{classInterface_a8d79922e03dc4be382176c4a750849dc}\label{classInterface_a8d79922e03dc4be382176c4a750849dc}} 
-\mbox{\hyperlink{classTaskManager}{Task\+Manager}} $\ast$ {\bfseries tm}
+\mbox{\hyperlink{classTaskManager}{Task\+Manager}} $\ast$ \mbox{\hyperlink{classInterface_a8d79922e03dc4be382176c4a750849dc}{tm}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classInterface}{Interface}} class \mbox{\hyperlink{classUplinkObject}{Uplink\+Object}}. 
+
+Responsible for handling all user input including mouse, keyboard, buttons, sounds, animations etc. Includes the main H\+UD, the interface for the current players location and the task manager, as well as a list of all possible \char`\"{}tasks\char`\"{} -\/ eg break password, crack code etc. 
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classInterface_a8104f42f6c57319f605792a60c6f668c}\label{classInterface_a8104f42f6c57319f605792a60c6f668c}} 
+\mbox{\Hypertarget{classInterface_aa6e3d8658471d4ab5f35a0380c7f1bf0}\label{classInterface_aa6e3d8658471d4ab5f35a0380c7f1bf0}} 
+\index{Interface@{Interface}!Create@{Create}}
+\index{Create@{Create}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets and creates the \mbox{\hyperlink{classInterface}{Interface}} \mbox{\Hypertarget{classInterface_a8104f42f6c57319f605792a60c6f668c}\label{classInterface_a8104f42f6c57319f605792a60c6f668c}} 
 \index{Interface@{Interface}!GetID@{GetID}}
 \index{GetID@{GetID}!Interface@{Interface}}
 \doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
@@ -76,6 +89,33 @@ The ID is the type of object this is
 
 Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
 
+\mbox{\Hypertarget{classInterface_ae98e9dcabf033eba018183b06ee3af8c}\label{classInterface_ae98e9dcabf033eba018183b06ee3af8c}} 
+\index{Interface@{Interface}!GetLocalInterface@{GetLocalInterface}}
+\index{GetLocalInterface@{GetLocalInterface}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{GetLocalInterface()}{GetLocalInterface()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLocalInterface}{Local\+Interface}} $\ast$ Interface\+::\+Get\+Local\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asserts that \mbox{\hyperlink{classLocalInterface}{Local\+Interface}} exists and returns it \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLocalInterface}{Local\+Interface}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_aff28635bb25500a4660fb96ed09f75b3}\label{classInterface_aff28635bb25500a4660fb96ed09f75b3}} 
+\index{Interface@{Interface}!GetRemoteInterface@{GetRemoteInterface}}
+\index{GetRemoteInterface@{GetRemoteInterface}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{GetRemoteInterface()}{GetRemoteInterface()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} $\ast$ Interface\+::\+Get\+Remote\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asserts that \mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} exists and returns it \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInterface_ae9aad6080f232d95009fd4300044e02a}\label{classInterface_ae9aad6080f232d95009fd4300044e02a}} 
+\index{Interface@{Interface}!GetTaskManager@{GetTaskManager}}
+\index{GetTaskManager@{GetTaskManager}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{GetTaskManager()}{GetTaskManager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTaskManager}{Task\+Manager}} $\ast$ Interface\+::\+Get\+Task\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asserts that \mbox{\hyperlink{classTaskManager}{Task\+Manager}} exists and returns it \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classTaskManager}{Task\+Manager}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classInterface_aa3bcbaadc22e801c709b45f7f8dee192}\label{classInterface_aa3bcbaadc22e801c709b45f7f8dee192}} 
 \index{Interface@{Interface}!Load@{Load}}
 \index{Load@{Load}!Interface@{Interface}}
@@ -133,6 +173,27 @@ Processes any necessary updates on the object.
 Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classInterface_ad90bf81dadbcb3fe12a35957ef46f8bf}\label{classInterface_ad90bf81dadbcb3fe12a35957ef46f8bf}} 
+\index{Interface@{Interface}!li@{li}}
+\index{li@{li}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{li}{li}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLocalInterface}{Local\+Interface}}$\ast$ Interface\+::li\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\hyperlink{classLocalInterface}{Local\+Interface}} \mbox{\Hypertarget{classInterface_a1603612b91ce4ea844698b3a1f8c8250}\label{classInterface_a1603612b91ce4ea844698b3a1f8c8250}} 
+\index{Interface@{Interface}!ri@{ri}}
+\index{ri@{ri}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{ri}{ri}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}}$\ast$ Interface\+::ri\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} \mbox{\Hypertarget{classInterface_a8d79922e03dc4be382176c4a750849dc}\label{classInterface_a8d79922e03dc4be382176c4a750849dc}} 
+\index{Interface@{Interface}!tm@{tm}}
+\index{tm@{tm}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{tm}{tm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTaskManager}{Task\+Manager}}$\ast$ Interface\+::tm\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\hyperlink{classTaskManager}{Task\+Manager}} 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

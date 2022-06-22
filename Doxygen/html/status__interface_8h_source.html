@@ -70,44 +70,41 @@ $(function() {
 <div class="title">status_interface.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// StatusInterface.h: interface for the StatusInterface class.</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef included_statusinterface_h</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define included_statusinterface_h</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_statusinterface_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_statusinterface_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;interface/localinterface/localinterfacescreen.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;interface/localinterface/localinterfacescreen.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classStatusInterface.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classStatusInterface.html">StatusInterface</a> : <span class="keyword">public</span> <a class="code" href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a>  </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classStatusInterface.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classStatusInterface.html">StatusInterface</a> : <span class="keyword">public</span> <a class="code" href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a>  </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#a75215af98ec9265a7a427667e16947cc">MiniTitleDraw</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#ad4b9bbc1d3c71ad188072d18ce23a5fd">TitleClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#af087322d1ed4c80bef794de464c49dc3">Create</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#a79c2c887099e9c703d72208d65e5b0bf">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#ad31c52e39d868fda2090903bfc57cc9f">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classStatusInterface.html#a28b3ae13695b2bc9c69b621fab2c0a8c">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#a75215af98ec9265a7a427667e16947cc">MiniTitleDraw</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#ad4b9bbc1d3c71ad188072d18ce23a5fd">TitleClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#af087322d1ed4c80bef794de464c49dc3">Create</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#a79c2c887099e9c703d72208d65e5b0bf">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classStatusInterface.html#ad31c52e39d868fda2090903bfc57cc9f">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classStatusInterface.html#a28b3ae13695b2bc9c69b621fab2c0a8c">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classStatusInterface.html#a7f04a728da993e290777105e21d64e16">ScreenID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classStatusInterface.html#a7f04a728da993e290777105e21d64e16">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif </span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassStatusInterface_html_ad4b9bbc1d3c71ad188072d18ce23a5fd"><div class="ttname"><a href="classStatusInterface.html#ad4b9bbc1d3c71ad188072d18ce23a5fd">StatusInterface::TitleClick</a></div><div class="ttdeci">static void TitleClick(Button *button)</div><div class="ttdef"><b>Definition:</b> status_interface.cpp:37</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
 <div class="ttc" id="aclassStatusInterface_html_a75215af98ec9265a7a427667e16947cc"><div class="ttname"><a href="classStatusInterface.html#a75215af98ec9265a7a427667e16947cc">StatusInterface::MiniTitleDraw</a></div><div class="ttdeci">static void MiniTitleDraw(Button *button, bool highlighted, bool clicked)</div><div class="ttdef"><b>Definition:</b> status_interface.cpp:44</div></div>
 <div class="ttc" id="aclassStatusInterface_html_a28b3ae13695b2bc9c69b621fab2c0a8c"><div class="ttname"><a href="classStatusInterface.html#a28b3ae13695b2bc9c69b621fab2c0a8c">StatusInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> status_interface.cpp:186</div></div>
-<div class="ttc" id="aclassLocalInterfaceScreen_html"><div class="ttname"><a href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a></div><div class="ttdoc">Screen that provides basic functionality of other screens.</div><div class="ttdef"><b>Definition:</b> localinterfacescreen.h:19</div></div>
-<div class="ttc" id="aclassStatusInterface_html"><div class="ttname"><a href="classStatusInterface.html">StatusInterface</a></div><div class="ttdoc">Screen that displays the user's status.</div><div class="ttdef"><b>Definition:</b> status_interface.h:13</div></div>
+<div class="ttc" id="aclassLocalInterfaceScreen_html"><div class="ttname"><a href="classLocalInterfaceScreen.html">LocalInterfaceScreen</a></div><div class="ttdoc">InterfaceScreen that provides basic functionality of other InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> localinterfacescreen.h:10</div></div>
+<div class="ttc" id="aclassStatusInterface_html"><div class="ttname"><a href="classStatusInterface.html">StatusInterface</a></div><div class="ttdoc">LocalInterfaceScreen that displays the user's status.</div><div class="ttdef"><b>Definition:</b> status_interface.h:9</div></div>
 <div class="ttc" id="aclassStatusInterface_html_a7f04a728da993e290777105e21d64e16"><div class="ttname"><a href="classStatusInterface.html#a7f04a728da993e290777105e21d64e16">StatusInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> status_interface.cpp:193</div></div>
 <div class="ttc" id="aclassStatusInterface_html_af087322d1ed4c80bef794de464c49dc3"><div class="ttname"><a href="classStatusInterface.html#af087322d1ed4c80bef794de464c49dc3">StatusInterface::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> status_interface.cpp:52</div></div>
 <div class="ttc" id="aclassStatusInterface_html_a79c2c887099e9c703d72208d65e5b0bf"><div class="ttname"><a href="classStatusInterface.html#a79c2c887099e9c703d72208d65e5b0bf">StatusInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> status_interface.cpp:139</div></div>

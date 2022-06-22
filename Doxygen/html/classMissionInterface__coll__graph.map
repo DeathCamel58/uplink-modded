@@ -1,7 +1,7 @@
 <map id="MissionInterface" name="MissionInterface">
-<area shape="rect" id="node1" title="Screen that shows Mission data." alt="" coords="159,427,289,453"/>
-<area shape="rect" id="node2" href="$classLocalInterfaceScreen.html" title="Screen that provides basic functionality of other screens." alt="" coords="75,337,234,364"/>
-<area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="65,233,189,260"/>
+<area shape="rect" id="node1" title="LocalInterfaceScreen that shows Mission data." alt="" coords="159,427,289,453"/>
+<area shape="rect" id="node2" href="$classLocalInterfaceScreen.html" title="InterfaceScreen that provides basic functionality of other InterfaceScreen." alt="" coords="75,337,234,364"/>
+<area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="65,233,189,260"/>
 <area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="192,113,299,140"/>
 <area shape="rect" id="node6" href="$classMission.html" title=" " alt="" coords="268,337,340,364"/>
 <area shape="rect" id="node10" href="$classDate.html" title=" " alt="" coords="213,233,267,260"/>

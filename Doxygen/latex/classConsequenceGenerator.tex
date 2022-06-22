@@ -2,7 +2,7 @@
 \label{classConsequenceGenerator}\index{ConsequenceGenerator@{ConsequenceGenerator}}
 
 
-Consqeuence Generator.  
+Consequence Generator.  
 
 
 
@@ -14,6 +14,9 @@ Consqeuence Generator.
 \item 
 \mbox{\Hypertarget{classConsequenceGenerator_ad0610372b21e7c73b140f39327907b11}\label{classConsequenceGenerator_ad0610372b21e7c73b140f39327907b11}} 
 static void {\bfseries Initialise} ()
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Event processing for all people}\par
+\begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classConsequenceGenerator_a572eb0aa93b0fa0bf919d7bfdef3335e}{Caught\+Hacking}} (\mbox{\hyperlink{classPerson}{Person}} $\ast$person, \mbox{\hyperlink{classComputer}{Computer}} $\ast$comp)
 \item 
@@ -24,8 +27,16 @@ static void \mbox{\hyperlink{classConsequenceGenerator_a8b4cffbd083e48905672450b
 static void \mbox{\hyperlink{classConsequenceGenerator_a5c2b9bc3313b890a425b46ce614e981e}{Shot\+By\+Feds}} (\mbox{\hyperlink{classPerson}{Person}} $\ast$person, const string \&reason)
 \item 
 static void \mbox{\hyperlink{classConsequenceGenerator_a7c4042580d4c489b3c57962618554552}{Seize\+Gateway}} (\mbox{\hyperlink{classPerson}{Person}} $\ast$person, const string \&reason)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Event processing for company computers}\par
+\begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classConsequenceGenerator_a38170f871e251c1dc8987901b519f738}{Computer\+Hacked}} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, \mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$al)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Event processing for completed missions}\par
+\begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classConsequenceGenerator_ac169584e9739f4e74d179d5f9563ec1b}{Mission\+Completed}} (\mbox{\hyperlink{classMission}{Mission}} $\ast$mission, \mbox{\hyperlink{classPerson}{Person}} $\ast$person)
 \item 
@@ -37,10 +48,11 @@ static void \mbox{\hyperlink{classConsequenceGenerator_a7e559a4209b4427c1691be48
 \item 
 static void \mbox{\hyperlink{classConsequenceGenerator_a0948109b091a49ab8b89fc58ca32a0e8}{Mission\+Completed\+\_\+\+Trace\+User}} (\mbox{\hyperlink{classMission}{Mission}} $\ast$mission, \mbox{\hyperlink{classPerson}{Person}} $\ast$person)
 \end{DoxyCompactItemize}
+\end{Indent}
 
 
 \doxysubsection{Detailed Description}
-Consqeuence Generator. 
+Consequence Generator. 
 
 This is responsible for analysing an action that has happened, and generating subsequence \char`\"{}consequence\char`\"{} actions.
 
@@ -93,7 +105,7 @@ Checks if computer has been hacked, and sometimes generates a trace hacker missi
 \begin{DoxyParams}{Parameters}
 {\em comp} & \mbox{\hyperlink{classComputer}{Computer}} to check for hacks \\
 \hline
-{\em al} & \mbox{\hyperlink{classAccessLog}{Access\+Log}} Access log of hack \\
+{\em al} & \mbox{\hyperlink{classAccessLog}{Access\+Log}} of hack \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classConsequenceGenerator_a8b4cffbd083e48905672450b58593454}\label{classConsequenceGenerator_a8b4cffbd083e48905672450b58593454}} 
@@ -106,7 +118,7 @@ Schedules an arrest event or Seize\+Gateway event
 \begin{DoxyParams}{Parameters}
 {\em person} & \mbox{\hyperlink{classPerson}{Person}} who didn\textquotesingle{}t pa the file \\
 \hline
-{\em fine} & The fine mission \\
+{\em fine} & The fine \mbox{\hyperlink{classMission}{Mission}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classConsequenceGenerator_ac169584e9739f4e74d179d5f9563ec1b}\label{classConsequenceGenerator_ac169584e9739f4e74d179d5f9563ec1b}} 
@@ -115,11 +127,11 @@ Schedules an arrest event or Seize\+Gateway event
 \doxysubsubsection{\texorpdfstring{MissionCompleted()}{MissionCompleted()}}
 {\footnotesize\ttfamily void Consequence\+Generator\+::\+Mission\+Completed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMission}{Mission}} $\ast$}]{mission,  }\item[{\mbox{\hyperlink{classPerson}{Person}} $\ast$}]{person }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Checks if the mission has been completed 
+Checks if the \mbox{\hyperlink{classMission}{Mission}} has been completed 
 \begin{DoxyParams}{Parameters}
-{\em mission} & The mission to check completion of \\
+{\em mission} & The \mbox{\hyperlink{classMission}{Mission}} to check completion of \\
 \hline
-{\em person} & The person who is working on the mission \\
+{\em person} & The \mbox{\hyperlink{classPerson}{Person}} who is working on the \mbox{\hyperlink{classMission}{Mission}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classConsequenceGenerator_a7e559a4209b4427c1691be4812f85716}\label{classConsequenceGenerator_a7e559a4209b4427c1691be4812f85716}} 
@@ -128,11 +140,11 @@ Checks if the mission has been completed
 \doxysubsubsection{\texorpdfstring{MissionCompleted\_ChangeAccount()}{MissionCompleted\_ChangeAccount()}}
 {\footnotesize\ttfamily void Consequence\+Generator\+::\+Mission\+Completed\+\_\+\+Change\+Account (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMission}{Mission}} $\ast$}]{mission,  }\item[{\mbox{\hyperlink{classPerson}{Person}} $\ast$}]{person }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Checks if the mission has been completed 
+Checks if the \mbox{\hyperlink{classMission}{Mission}} has been completed 
 \begin{DoxyParams}{Parameters}
-{\em mission} & The mission to check completion of \\
+{\em mission} & The \mbox{\hyperlink{classMission}{Mission}} to check completion of \\
 \hline
-{\em person} & The person who is working on the mission \\
+{\em person} & The \mbox{\hyperlink{classPerson}{Person}} who is working on the \mbox{\hyperlink{classMission}{Mission}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classConsequenceGenerator_ad93965c82ec043b8595e9e5b310a0d99}\label{classConsequenceGenerator_ad93965c82ec043b8595e9e5b310a0d99}} 
@@ -141,11 +153,11 @@ Checks if the mission has been completed
 \doxysubsubsection{\texorpdfstring{MissionCompleted\_DestroyFile()}{MissionCompleted\_DestroyFile()}}
 {\footnotesize\ttfamily void Consequence\+Generator\+::\+Mission\+Completed\+\_\+\+Destroy\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMission}{Mission}} $\ast$}]{mission,  }\item[{\mbox{\hyperlink{classPerson}{Person}} $\ast$}]{person }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Checks if the mission has been completed 
+Checks if the \mbox{\hyperlink{classMission}{Mission}} has been completed 
 \begin{DoxyParams}{Parameters}
-{\em mission} & The mission to check completion of \\
+{\em mission} & The \mbox{\hyperlink{classMission}{Mission}} to check completion of \\
 \hline
-{\em person} & The person who is working on the mission \\
+{\em person} & The \mbox{\hyperlink{classPerson}{Person}} who is working on the \mbox{\hyperlink{classMission}{Mission}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classConsequenceGenerator_a8dc90c0fb27090a8b9bd896f6340c8ce}\label{classConsequenceGenerator_a8dc90c0fb27090a8b9bd896f6340c8ce}} 
@@ -154,11 +166,11 @@ Checks if the mission has been completed
 \doxysubsubsection{\texorpdfstring{MissionCompleted\_StealFile()}{MissionCompleted\_StealFile()}}
 {\footnotesize\ttfamily void Consequence\+Generator\+::\+Mission\+Completed\+\_\+\+Steal\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMission}{Mission}} $\ast$}]{mission,  }\item[{\mbox{\hyperlink{classPerson}{Person}} $\ast$}]{person }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Checks if the mission has been completed 
+Checks if the \mbox{\hyperlink{classMission}{Mission}} has been completed 
 \begin{DoxyParams}{Parameters}
-{\em mission} & The mission to check completion of \\
+{\em mission} & The \mbox{\hyperlink{classMission}{Mission}} to check completion of \\
 \hline
-{\em person} & The person who is working on the mission \\
+{\em person} & The \mbox{\hyperlink{classPerson}{Person}} who is working on the \mbox{\hyperlink{classMission}{Mission}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classConsequenceGenerator_a0948109b091a49ab8b89fc58ca32a0e8}\label{classConsequenceGenerator_a0948109b091a49ab8b89fc58ca32a0e8}} 
@@ -167,11 +179,11 @@ Checks if the mission has been completed
 \doxysubsubsection{\texorpdfstring{MissionCompleted\_TraceUser()}{MissionCompleted\_TraceUser()}}
 {\footnotesize\ttfamily void Consequence\+Generator\+::\+Mission\+Completed\+\_\+\+Trace\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMission}{Mission}} $\ast$}]{mission,  }\item[{\mbox{\hyperlink{classPerson}{Person}} $\ast$}]{person }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Checks if the mission has been completed 
+Checks if the \mbox{\hyperlink{classMission}{Mission}} has been completed 
 \begin{DoxyParams}{Parameters}
-{\em mission} & The mission to check completion of \\
+{\em mission} & The \mbox{\hyperlink{classMission}{Mission}} to check completion of \\
 \hline
-{\em person} & The person who is working on the mission \\
+{\em person} & The \mbox{\hyperlink{classPerson}{Person}} who is working on the \mbox{\hyperlink{classMission}{Mission}} \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classConsequenceGenerator_a7c4042580d4c489b3c57962618554552}\label{classConsequenceGenerator_a7c4042580d4c489b3c57962618554552}} 

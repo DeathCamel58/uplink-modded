@@ -1,7 +1,7 @@
 <map id="EmailInterface" name="EmailInterface">
-<area shape="rect" id="node1" title="Screen that shows emails." alt="" coords="172,412,289,439"/>
-<area shape="rect" id="node2" href="$classLocalInterfaceScreen.html" title="Screen that provides basic functionality of other screens." alt="" coords="81,323,239,349"/>
-<area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="39,233,163,260"/>
+<area shape="rect" id="node1" title="LocalInterfaceScreen that shows emails." alt="" coords="172,412,289,439"/>
+<area shape="rect" id="node2" href="$classLocalInterfaceScreen.html" title="InterfaceScreen that provides basic functionality of other InterfaceScreen." alt="" coords="81,323,239,349"/>
+<area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="39,233,163,260"/>
 <area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="208,113,315,140"/>
 <area shape="rect" id="node6" href="$classMessage.html" title=" " alt="" coords="268,323,348,349"/>
 <area shape="rect" id="node10" href="$classData.html" title=" " alt="" coords="316,233,369,260"/>

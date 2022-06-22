@@ -1,23 +1,23 @@
 <map id="LocalInterfaceScreen" name="LocalInterfaceScreen">
-<area shape="rect" id="node1" title="Screen that provides basic functionality of other screens." alt="" coords="332,436,491,463"/>
-<area shape="rect" id="node4" href="$classAnalyserInterface.html" title="Screen that shows remote host security systems." alt="" coords="549,5,687,32"/>
-<area shape="rect" id="node5" href="$classCheatInterface.html" title="Screen to provide cheats." alt="" coords="559,56,677,83"/>
-<area shape="rect" id="node6" href="$classEmailInterface.html" title="Screen that shows emails." alt="" coords="559,107,677,133"/>
-<area shape="rect" id="node7" href="$classEventQueueInterface.html" title="Screen that shows scheduled events." alt="" coords="539,157,697,184"/>
-<area shape="rect" id="node8" href="$classFinanceInterface.html" title="Screen that shows finances." alt="" coords="553,208,683,235"/>
-<area shape="rect" id="node9" href="$classGatewayInterface.html" title="Screen that shows the current gateway and upgrades." alt="" coords="549,259,687,285"/>
+<area shape="rect" id="node1" title="InterfaceScreen that provides basic functionality of other InterfaceScreen." alt="" coords="332,436,491,463"/>
+<area shape="rect" id="node4" href="$classAnalyserInterface.html" title="LocalInterfaceScreen that shows remote host security systems." alt="" coords="549,5,687,32"/>
+<area shape="rect" id="node5" href="$classCheatInterface.html" title="LocalInterfaceScreen to provide cheats." alt="" coords="559,56,677,83"/>
+<area shape="rect" id="node6" href="$classEmailInterface.html" title="LocalInterfaceScreen that shows emails." alt="" coords="559,107,677,133"/>
+<area shape="rect" id="node7" href="$classEventQueueInterface.html" title="LocalInterfaceScreen that shows scheduled events." alt="" coords="539,157,697,184"/>
+<area shape="rect" id="node8" href="$classFinanceInterface.html" title="LocalInterfaceScreen that shows finances." alt="" coords="553,208,683,235"/>
+<area shape="rect" id="node9" href="$classGatewayInterface.html" title="LocalInterfaceScreen that shows the current gateway and upgrades." alt="" coords="549,259,687,285"/>
 <area shape="rect" id="node10" href="$classHUDInterface.html" title="Screen that shows worldmap, main toolbar, services, messages, etc." alt="" coords="563,309,673,336"/>
-<area shape="rect" id="node11" href="$classHWInterface.html" title="Screen that shows current hardware." alt="" coords="567,360,669,387"/>
-<area shape="rect" id="node12" href="$classIRCInterface.html" title="Screen for the IRC client." alt="" coords="567,411,669,437"/>
-<area shape="rect" id="node13" href="$classKeyboardInterface.html" title="Virtual Keyboard Tool." alt="" coords="547,461,689,488"/>
-<area shape="rect" id="node14" href="$classLanInterface.html" title="Screen that shows LAN of connected machine." alt="" coords="567,512,669,539"/>
-<area shape="rect" id="node15" href="$classMemoryInterface.html" title="Screen that shows memory usage." alt="" coords="551,563,685,589"/>
-<area shape="rect" id="node16" href="$classMissionInterface.html" title="Screen that shows Mission data." alt="" coords="553,613,683,640"/>
-<area shape="rect" id="node17" href="$classPhoneDialler.html" title="Screen that shows the dialer." alt="" coords="565,664,671,691"/>
-<area shape="rect" id="node18" href="$classSendMailInterface.html" title="Screen that allows the user to compose an email." alt="" coords="548,715,688,741"/>
-<area shape="rect" id="node19" href="$classStatusInterface.html" title="Screen that displays the user&#39;s status." alt="" coords="557,765,679,792"/>
-<area shape="rect" id="node20" href="$classSWInterface.html" title="Screen that displays &quot;Start&quot; button." alt="" coords="567,816,669,843"/>
+<area shape="rect" id="node11" href="$classHWInterface.html" title="LocalInterfaceScreen that shows current hardware." alt="" coords="567,360,669,387"/>
+<area shape="rect" id="node12" href="$classIRCInterface.html" title="LocalInterfaceScreen for the IRC client." alt="" coords="567,411,669,437"/>
+<area shape="rect" id="node13" href="$classKeyboardInterface.html" title="LocalInterfaceScreen for the Virtual Keyboard Tool." alt="" coords="547,461,689,488"/>
+<area shape="rect" id="node14" href="$classLanInterface.html" title="LocalInterfaceScreen that shows LAN of connected machine." alt="" coords="567,512,669,539"/>
+<area shape="rect" id="node15" href="$classMemoryInterface.html" title="LocalInterfaceScreen that shows memory usage." alt="" coords="551,563,685,589"/>
+<area shape="rect" id="node16" href="$classMissionInterface.html" title="LocalInterfaceScreen that shows Mission data." alt="" coords="553,613,683,640"/>
+<area shape="rect" id="node17" href="$classPhoneDialler.html" title="LocalInterfaceScreen that shows the dialer." alt="" coords="565,664,671,691"/>
+<area shape="rect" id="node18" href="$classSendMailInterface.html" title="LocalInterfaceScreen that allows the user to compose an email." alt="" coords="548,715,688,741"/>
+<area shape="rect" id="node19" href="$classStatusInterface.html" title="LocalInterfaceScreen that displays the user&#39;s status." alt="" coords="557,765,679,792"/>
+<area shape="rect" id="node20" href="$classSWInterface.html" title="LocalInterfaceScreen that displays &quot;Start&quot; button." alt="" coords="567,816,669,843"/>
 <area shape="rect" id="node21" href="$classWorldMapInterface.html" title="Screen that shows the world map." alt="" coords="545,867,691,893"/>
-<area shape="rect" id="node2" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="160,436,284,463"/>
+<area shape="rect" id="node2" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="160,436,284,463"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,436,112,463"/>
 </map>

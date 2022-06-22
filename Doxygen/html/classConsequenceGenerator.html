@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Consqeuence Generator.  
+<p>Consequence Generator.  
  <a href="classConsequenceGenerator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="consequencegenerator_8h_source.html">consequencegenerator.h</a>&gt;</code></p>
@@ -80,6 +80,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad0610372b21e7c73b140f39327907b11"><td class="memItemLeft" align="right" valign="top"><a id="ad0610372b21e7c73b140f39327907b11"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b> ()</td></tr>
 <tr class="separator:ad0610372b21e7c73b140f39327907b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Event processing for all people</div></td></tr>
 <tr class="memitem:a572eb0aa93b0fa0bf919d7bfdef3335e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConsequenceGenerator.html#a572eb0aa93b0fa0bf919d7bfdef3335e">CaughtHacking</a> (<a class="el" href="classPerson.html">Person</a> *person, <a class="el" href="classComputer.html">Computer</a> *comp)</td></tr>
 <tr class="separator:a572eb0aa93b0fa0bf919d7bfdef3335e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7414d2469af1e7a15576e84f3036225e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConsequenceGenerator.html#a7414d2469af1e7a15576e84f3036225e">Arrested</a> (<a class="el" href="classPerson.html">Person</a> *person, <a class="el" href="classComputer.html">Computer</a> *comp, const string &amp;reason)</td></tr>
@@ -90,8 +91,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
 <tr class="separator:a5c2b9bc3313b890a425b46ce614e981e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c4042580d4c489b3c57962618554552"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConsequenceGenerator.html#a7c4042580d4c489b3c57962618554552">SeizeGateway</a> (<a class="el" href="classPerson.html">Person</a> *person, const string &amp;reason)</td></tr>
 <tr class="separator:a7c4042580d4c489b3c57962618554552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Event processing for company computers</div></td></tr>
 <tr class="memitem:a38170f871e251c1dc8987901b519f738"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConsequenceGenerator.html#a38170f871e251c1dc8987901b519f738">ComputerHacked</a> (<a class="el" href="classComputer.html">Computer</a> *comp, <a class="el" href="classAccessLog.html">AccessLog</a> *al)</td></tr>
 <tr class="separator:a38170f871e251c1dc8987901b519f738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Event processing for completed missions</div></td></tr>
 <tr class="memitem:ac169584e9739f4e74d179d5f9563ec1b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConsequenceGenerator.html#ac169584e9739f4e74d179d5f9563ec1b">MissionCompleted</a> (<a class="el" href="classMission.html">Mission</a> *mission, <a class="el" href="classPerson.html">Person</a> *person)</td></tr>
 <tr class="separator:ac169584e9739f4e74d179d5f9563ec1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dc90c0fb27090a8b9bd896f6340c8ce"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classConsequenceGenerator.html#a8dc90c0fb27090a8b9bd896f6340c8ce">MissionCompleted_StealFile</a> (<a class="el" href="classMission.html">Mission</a> *mission, <a class="el" href="classPerson.html">Person</a> *person)</td></tr>
@@ -104,7 +107,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
 <tr class="separator:a0948109b091a49ab8b89fc58ca32a0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Consqeuence Generator. </p>
+<div class="textblock"><p>Consequence Generator. </p>
 <p>This is responsible for analysing an action that has happened, and generating subsequence "consequence" actions.</p>
 <p>Example action: A user is caught performing a hack Example consequence: User's Uplink rating is decreased, and they receive a fine</p>
 <dl class="section note"><dt>Note</dt><dd>This class should operate in DATA only. It shouldn't be handling screen flashes, interface changes, etc. Ideally, it should stick to the world module. </dd></dl>
@@ -151,7 +154,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
 <p>Creates a news story about the arrest </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">person</td><td><a class="el" href="classPerson.html">Person</a> who was arrested </td></tr>
-    <tr><td class="paramname">comp</td><td><a class="el" href="classComputer.html" title="Computer class object.">Computer</a> that was hacked </td></tr>
+    <tr><td class="paramname">comp</td><td><a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> that was hacked </td></tr>
     <tr><td class="paramname">reason</td><td>Reason they were arrested </td></tr>
   </table>
   </dd>
@@ -196,7 +199,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
 <p>Processes an event where the user was caught hacking. This adds the crime to the criminal record, decreases their rating, and triggers the consequence. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">person</td><td><a class="el" href="classPerson.html">Person</a> who was caught </td></tr>
-    <tr><td class="paramname">comp</td><td><a class="el" href="classComputer.html" title="Computer class object.">Computer</a> that was hacked </td></tr>
+    <tr><td class="paramname">comp</td><td><a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> that was hacked </td></tr>
   </table>
   </dd>
 </dl>
@@ -238,8 +241,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
 </div><div class="memdoc">
 <p>Checks if computer has been hacked, and sometimes generates a trace hacker mission </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">comp</td><td><a class="el" href="classComputer.html" title="Computer class object.">Computer</a> to check for hacks </td></tr>
-    <tr><td class="paramname">al</td><td><a class="el" href="classAccessLog.html">AccessLog</a> Access log of hack </td></tr>
+    <tr><td class="paramname">comp</td><td><a class="el" href="classComputer.html" title="Computer class UplinkObject.">Computer</a> to check for hacks </td></tr>
+    <tr><td class="paramname">al</td><td><a class="el" href="classAccessLog.html">AccessLog</a> of hack </td></tr>
   </table>
   </dd>
 </dl>
@@ -282,7 +285,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
 <p>Schedules an arrest event or SeizeGateway event </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">person</td><td><a class="el" href="classPerson.html">Person</a> who didn't pa the file </td></tr>
-    <tr><td class="paramname">fine</td><td>The fine mission </td></tr>
+    <tr><td class="paramname">fine</td><td>The fine <a class="el" href="classMission.html">Mission</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -322,10 +325,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Checks if the mission has been completed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Checks if the <a class="el" href="classMission.html">Mission</a> has been completed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mission</td><td>The mission to check completion of </td></tr>
-    <tr><td class="paramname">person</td><td>The person who is working on the mission </td></tr>
+    <tr><td class="paramname">mission</td><td>The <a class="el" href="classMission.html">Mission</a> to check completion of </td></tr>
+    <tr><td class="paramname">person</td><td>The <a class="el" href="classPerson.html">Person</a> who is working on the <a class="el" href="classMission.html">Mission</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -365,10 +368,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Checks if the mission has been completed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Checks if the <a class="el" href="classMission.html">Mission</a> has been completed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mission</td><td>The mission to check completion of </td></tr>
-    <tr><td class="paramname">person</td><td>The person who is working on the mission </td></tr>
+    <tr><td class="paramname">mission</td><td>The <a class="el" href="classMission.html">Mission</a> to check completion of </td></tr>
+    <tr><td class="paramname">person</td><td>The <a class="el" href="classPerson.html">Person</a> who is working on the <a class="el" href="classMission.html">Mission</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -408,10 +411,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Checks if the mission has been completed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Checks if the <a class="el" href="classMission.html">Mission</a> has been completed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mission</td><td>The mission to check completion of </td></tr>
-    <tr><td class="paramname">person</td><td>The person who is working on the mission </td></tr>
+    <tr><td class="paramname">mission</td><td>The <a class="el" href="classMission.html">Mission</a> to check completion of </td></tr>
+    <tr><td class="paramname">person</td><td>The <a class="el" href="classPerson.html">Person</a> who is working on the <a class="el" href="classMission.html">Mission</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -451,10 +454,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Checks if the mission has been completed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Checks if the <a class="el" href="classMission.html">Mission</a> has been completed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mission</td><td>The mission to check completion of </td></tr>
-    <tr><td class="paramname">person</td><td>The person who is working on the mission </td></tr>
+    <tr><td class="paramname">mission</td><td>The <a class="el" href="classMission.html">Mission</a> to check completion of </td></tr>
+    <tr><td class="paramname">person</td><td>The <a class="el" href="classPerson.html">Person</a> who is working on the <a class="el" href="classMission.html">Mission</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -494,10 +497,10 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>Initialise</b>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Checks if the mission has been completed </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Checks if the <a class="el" href="classMission.html">Mission</a> has been completed </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mission</td><td>The mission to check completion of </td></tr>
-    <tr><td class="paramname">person</td><td>The person who is working on the mission </td></tr>
+    <tr><td class="paramname">mission</td><td>The <a class="el" href="classMission.html">Mission</a> to check completion of </td></tr>
+    <tr><td class="paramname">person</td><td>The <a class="el" href="classPerson.html">Person</a> who is working on the <a class="el" href="classMission.html">Mission</a> </td></tr>
   </table>
   </dd>
 </dl>

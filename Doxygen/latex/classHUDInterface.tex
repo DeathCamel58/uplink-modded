@@ -60,8 +60,7 @@ static void \mbox{\hyperlink{classHUDInterface_a7e12c26b7a315fb33fe5ff4cfa0ef3ba
 \item 
 static void \mbox{\hyperlink{classHUDInterface_ab9b2787b0025b4e49a06caa631a77acc}{Remove\+Upgrade}} (char upgrade)
 \item 
-\mbox{\Hypertarget{classHUDInterface_a797b0bcc6c51a57bebab68fe7c1534e9}\label{classHUDInterface_a797b0bcc6c51a57bebab68fe7c1534e9}} 
-static \mbox{\hyperlink{structHUDInterfaceUpgrade}{H\+U\+D\+Interface\+Upgrade}} $\ast$ {\bfseries Get\+Upgrade} (char upgrade)
+static \mbox{\hyperlink{structHUDInterfaceUpgrade}{H\+U\+D\+Interface\+Upgrade}} $\ast$ \mbox{\hyperlink{classHUDInterface_a797b0bcc6c51a57bebab68fe7c1534e9}{Get\+Upgrade}} (char upgrade)
 \item 
 static \mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} $\ast$ \mbox{\hyperlink{classHUDInterface_a44fe167c50272e23c0da05a0a9dc8d98}{Get\+H\+UD}} ()
 \item 
@@ -228,7 +227,7 @@ Switches to finance screen
 {\footnotesize\ttfamily \mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} $\ast$ H\+U\+D\+Interface\+::\+Get\+H\+UD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Gets a pointer to the current H\+UD \begin{DoxyReturn}{Returns}
-The H\+UD 
+The \mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classHUDInterface_a2d55032744b9854bef8e439122d24418}\label{classHUDInterface_a2d55032744b9854bef8e439122d24418}} 
 \index{HUDInterface@{HUDInterface}!GetID@{GetID}}
@@ -246,6 +245,20 @@ The ID is the type of object this is
 
 Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
 
+\mbox{\Hypertarget{classHUDInterface_a797b0bcc6c51a57bebab68fe7c1534e9}\label{classHUDInterface_a797b0bcc6c51a57bebab68fe7c1534e9}} 
+\index{HUDInterface@{HUDInterface}!GetUpgrade@{GetUpgrade}}
+\index{GetUpgrade@{GetUpgrade}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{GetUpgrade()}{GetUpgrade()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structHUDInterfaceUpgrade}{H\+U\+D\+Interface\+Upgrade}} $\ast$ H\+U\+D\+Interface\+::\+Get\+Upgrade (\begin{DoxyParamCaption}\item[{char}]{upgrade }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets an upgrade by name 
+\begin{DoxyParams}{Parameters}
+{\em upgrade} & Name of upgrade \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+H\+U\+D\+Interface\+Up\+Grade 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classHUDInterface_ac81f65ef1a5596ef99abb84e7e887fbd}\label{classHUDInterface_ac81f65ef1a5596ef99abb84e7e887fbd}} 
 \index{HUDInterface@{HUDInterface}!HardwareClick@{HardwareClick}}
 \index{HardwareClick@{HardwareClick}!HUDInterface@{HUDInterface}}

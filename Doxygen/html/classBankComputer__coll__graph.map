@@ -1,6 +1,6 @@
 <map id="BankComputer" name="BankComputer">
 <area shape="rect" id="node1" title=" " alt="" coords="2124,455,2243,481"/>
-<area shape="rect" id="node2" href="$classComputer.html" title="Computer class object." alt="" coords="1651,337,1738,364"/>
+<area shape="rect" id="node2" href="$classComputer.html" title="Computer class UplinkObject." alt="" coords="1651,337,1738,364"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="194,336,301,363"/>
 <area shape="rect" id="node4" href="$classLogBank.html" title=" " alt="" coords="1427,449,1505,476"/>
 <area shape="rect" id="node6" href="$classAccessLog.html" title=" " alt="" coords="700,424,791,451"/>
