@@ -17,7 +17,7 @@
 <area shape="rect" id="node18" href="$classSendMailInterface.html" title="LocalInterfaceScreen that allows the user to compose an email." alt="" coords="548,715,688,741"/>
 <area shape="rect" id="node19" href="$classStatusInterface.html" title="LocalInterfaceScreen that displays the user&#39;s status." alt="" coords="557,765,679,792"/>
 <area shape="rect" id="node20" href="$classSWInterface.html" title="LocalInterfaceScreen that displays &quot;Start&quot; button." alt="" coords="567,816,669,843"/>
-<area shape="rect" id="node21" href="$classWorldMapInterface.html" title="Screen that shows the world map." alt="" coords="545,867,691,893"/>
+<area shape="rect" id="node21" href="$classWorldMapInterface.html" title="LocalInterfaceScreen that shows the world map." alt="" coords="545,867,691,893"/>
 <area shape="rect" id="node2" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="160,436,284,463"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,436,112,463"/>
 </map>

@@ -9,7 +9,7 @@
 <area shape="rect" id="node4" href="$classHUDInterface.html" title="Screen that shows worldmap, main toolbar, services, messages, etc." alt="" coords="1957,269,2068,296"/>
 <area shape="rect" id="node5" href="$classLocalInterfaceScreen.html" title="InterfaceScreen that provides basic functionality of other InterfaceScreen." alt="" coords="1380,319,1539,345"/>
 <area shape="rect" id="node8" href="$classSWInterface.html" title="LocalInterfaceScreen that displays &quot;Start&quot; button." alt="" coords="1675,219,1776,245"/>
-<area shape="rect" id="node9" href="$classWorldMapInterface.html" title="Screen that shows the world map." alt="" coords="1653,104,1798,131"/>
+<area shape="rect" id="node9" href="$classWorldMapInterface.html" title="LocalInterfaceScreen that shows the world map." alt="" coords="1653,104,1798,131"/>
 <area shape="rect" id="node24" href="$classGatewayInterface.html" title="LocalInterfaceScreen that shows the current gateway and upgrades." alt="" coords="1656,371,1795,397"/>
 <area shape="rect" id="node26" href="$classRemoteInterfaceScreen.html" title="RemoteInterfaceScreen InterfaceScreen." alt="" coords="1372,523,1547,549"/>
 <area shape="rect" id="node7" href="$classDArray.html" title=" " alt="" coords="657,395,793,421"/>

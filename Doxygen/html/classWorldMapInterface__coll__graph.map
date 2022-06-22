@@ -1,5 +1,5 @@
 <map id="WorldMapInterface" name="WorldMapInterface">
-<area shape="rect" id="node1" title="Screen that shows the world map." alt="" coords="1624,120,1769,147"/>
+<area shape="rect" id="node1" title="LocalInterfaceScreen that shows the world map." alt="" coords="1624,120,1769,147"/>
 <area shape="rect" id="node2" href="$classLocalInterfaceScreen.html" title="InterfaceScreen that provides basic functionality of other InterfaceScreen." alt="" coords="1372,63,1531,89"/>
 <area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="1041,56,1165,83"/>
 <area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="671,56,778,83"/>
