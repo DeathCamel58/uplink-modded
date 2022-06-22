@@ -1,20 +1,13 @@
 
-/*
-
-  Connection Lost Interface
-
-	Appears after your connection from your home PC to your Gateway is lost
-	after you nuke it usually
-
-  */
-
-
 #ifndef included_connectionlostinterface_h
 #define included_connectionlostinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Connection lost interface MainMenuScreen
+/**
+ * Appears after your connection from your home PC to your Gateway is lost after you nuke it usually
+ */
 class ConnectionLostInterface : public MainMenuScreen
 {
 

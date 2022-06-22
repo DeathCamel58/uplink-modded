@@ -4,7 +4,7 @@
 
 #include "mainmenu/mainmenuscreen.h"
 
-//! Warez Game Over MainMenuScreen
+//! Warez game over MainMenuScreen
 /**
  * Displays the game over screen on pirated copies of the game
  * @note Original comment was "We've detected you are A FUCKING PIRATING MUTHERFUCKER SO FUCK OFF"

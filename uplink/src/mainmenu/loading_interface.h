@@ -1,17 +1,10 @@
 
-/*
-
-	Loading Screen Interface
-	
-  */
-
 #ifndef included_loadinginterface_h
 #define included_loadinginterface_h
 
-
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Loading interface MainMenuScreen
 class LoadingInterface : public MainMenuScreen
 {
 

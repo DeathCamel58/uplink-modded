@@ -11,7 +11,7 @@ class Person;
 // ============================================================================
 
 
-//! News Generator
+//! News generator
 /**
  * Receives information on important events that have occurred (e.g. a company going bust), and generates a news story.
  * Also handles hard-coded news events.

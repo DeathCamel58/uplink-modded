@@ -1,13 +1,4 @@
 
-/*
-
-  Graphic Options Screen
-
-	Screen resolution settings etc
-
-  */
-  
-
 #ifndef included_graphicoptionsinterface_h
 #define included_graphicoptionsinterface_h
 
@@ -15,9 +6,10 @@
 
 #include "mainmenu/mainmenuscreen.h"
 
-
-
-
+//! Graphic options MainMenuScreen
+/**
+ * Screen resolution settings etc
+ */
 class GraphicOptionsInterface : public MainMenuScreen
 {
 

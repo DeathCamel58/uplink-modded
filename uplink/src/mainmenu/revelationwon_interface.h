@@ -1,20 +1,13 @@
 
-/*
-
-    Revelation Won Interface
-
-    Revelation has taken over the Internet and totally destroyed it!
-
-
-  */
-
-
 #ifndef included_revelationwoninterface_h
 #define included_revelationwoninterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Revelation won interface MainMenuScreen
+/**
+ * Revelation has taken over the Internet and totally destroyed it!
+ */
 class RevelationWonInterface : public MainMenuScreen
 {
 

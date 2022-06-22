@@ -1,20 +1,13 @@
 
-/*
-
-  Disavowed Interface
-
-	Appears after your connection from your home PC to your Gateway is lost
-	Because you have been disavowed
-
-  */
-
-
 #ifndef included_disavowedinterface_h
 #define included_disavowedinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Disavowed interface MainMenuScreen
+/**
+ * Appears after your connection from your home PC to your Gateway is lost because you have been disavowed
+ */
 class DisavowedInterface : public MainMenuScreen
 {
 

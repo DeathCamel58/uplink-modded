@@ -1,10 +1,4 @@
 
-/*
-
-	Network Options Interface
-
-  */
-
 #ifndef included_networkoptionsinterface_h
 #define included_networkoptionsinterface_h
 
@@ -12,6 +6,7 @@
 
 #include "mainmenu/mainmenuscreen.h"
 
+//! Network options interface MainMenuScreen
 class NetworkOptionsInterface : public MainMenuScreen
 {
 

@@ -1,10 +1,4 @@
 
-/*
-
-	Options Screen Interface	
-
-  */
-
 #ifndef included_optionsinterface_h
 #define included_optionsinterface_h
 
@@ -12,7 +6,7 @@
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Options MainMenuScreen
 class OptionsInterface : public MainMenuScreen
 {
 

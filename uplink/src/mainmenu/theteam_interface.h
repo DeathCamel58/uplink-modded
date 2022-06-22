@@ -1,18 +1,13 @@
 
-/*
-
-	Meet the team!
-	(Secret page)
-	
-  */
-
 #ifndef included_theteaminterface_h
 #define included_theteaminterface_h
 
-
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Team interface MainMenuScreen
+/**
+ * Secret page that introduces the team of developers
+ */
 class TheTeamInterface : public MainMenuScreen
 {
 

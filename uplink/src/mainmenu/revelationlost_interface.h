@@ -1,21 +1,13 @@
 
-/*
-
-    Revelation Lost Interface
-
-    The player tried to use Revelation but failed
-    He is now arrested, along with all of ARC
-
-
-  */
-
-
 #ifndef included_revelationlostinterface_h
 #define included_revelationlostinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Revelation lost interface MainMenuScreen
+/**
+ * The player tried to use Revelation but failed. He is now arrested, along with all of ARC
+ */
 class RevelationLostInterface : public MainMenuScreen
 {
 

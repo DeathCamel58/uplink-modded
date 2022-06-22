@@ -1,14 +1,4 @@
 
-/*
-
-  Theme Interface
-
-	Allows the player to preview and select
-    themes from those available
-
-  */
-  
-
 #ifndef included_themeinterface_h
 #define included_themeinterface_h
 
@@ -16,9 +6,10 @@
 
 #include "mainmenu/mainmenuscreen.h"
 
-
-
-
+//! Theme interface MainMenuScreen
+/**
+ * Allows the player to preview and select themes from those available
+ */
 class ThemeInterface : public MainMenuScreen
 {
 

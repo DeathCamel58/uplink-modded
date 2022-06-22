@@ -1,19 +1,13 @@
 
-/*
-
-  Obituary Interface
-
-	Allows you to view the final condition of a
-	fallen agent
-
-  */
-
 #ifndef included_obituaryinterface_h
 #define included_obituaryinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Obituary interface MainMenuScreen
+/**
+ * Allows you to view the final condition of a fallen agent
+ */
 class ObituaryInterface : public MainMenuScreen
 {
 

@@ -433,7 +433,7 @@ LList <string> *wordwraptext (const string& text, int linesize )
                 string tmpstring = substring.substr(0, linewidth);
 
                 // Find the last occurrence of a space.
-                size_t space = tmpstring.rfind(" ");
+                size_t space = tmpstring.rfind(' ');
                 if (space != string::npos) {
                     // If we found a space, substring to the space
                     tmpstring = substring.substr(0, space);

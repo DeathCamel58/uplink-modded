@@ -1,20 +1,13 @@
 
-/*
-
-  Closing interface
-
-    Shows an advert as Uplink closes down
-
-  */
-
-
 #ifndef included_closinginterface_h
 #define included_closinginterface_h
 
-
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Closing interface MainMenuScreen
+/**
+ * Shows an advert as Uplink Closes down
+ */
 class ClosingInterface : public MainMenuScreen
 {
 

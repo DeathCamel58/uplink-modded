@@ -20,9 +20,13 @@ public:
   
 	static float RandomUniformNumber ();
 
-	static int ApplyVariance ( int num, int variance );					
-				// Applies +-percentage variance to num
-		
+	/**
+	 * Applies a random percentage variance on the given number
+	 * @param num The number to change
+	 * @param variance The maximum percentage change
+	 * @return The number with the variance applied
+	 */
+	static int ApplyVariance ( int num, int variance );
 
 };
 

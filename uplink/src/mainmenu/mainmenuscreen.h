@@ -6,7 +6,7 @@
 
 //! Main Menu Screen base class
 /**
- * All screen accessable via the main menu should be derived from this
+ * All screen accessible via the main menu should be derived from this
  */
 class MainMenuScreen
 {

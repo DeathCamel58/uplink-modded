@@ -1,11 +1,4 @@
 
-/*
-
-	Main Menu controller class
-
-  */
-
-
 #ifndef included_mainmenu_h
 #define included_mainmenu_h
 
@@ -40,8 +33,7 @@ class MainMenuScreen;
 
 // ============================================================================
 
-
-
+//! Main menu controller UplinkObject
 class MainMenu : public UplinkObject  
 {
 

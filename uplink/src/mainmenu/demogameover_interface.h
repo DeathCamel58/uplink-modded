@@ -1,19 +1,13 @@
 
-/*
-
-  Demo Game Over Interface
-
-	Appears when the demo has come to an end
-
-  */
-
-
 #ifndef included_demogameoverinterface_h
 #define included_demogameoverinterface_h
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Demo game over interface MainMenuScreen
+/**
+ * Appears when the demo has come to an end
+ */
 class DemoGameOverInterface : public MainMenuScreen
 {
 

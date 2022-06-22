@@ -96,7 +96,6 @@ public:
 #define		SOFTWARETYPE_HUDUPGRADE 9
 #define		SOFTWARETYPE_OTHER		10
 
-
 class Data : public UplinkObject
 {
 

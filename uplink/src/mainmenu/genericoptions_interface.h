@@ -1,14 +1,4 @@
 
-/*
-
-  Generic Options Screen
-
-	Picks out all options of a certain type
-	and allows you to edit them
-
-  */
-  
-
 #ifndef included_genericoptionsinterface_h
 #define included_genericoptionsinterface_h
 
@@ -16,9 +6,10 @@
 
 #include "mainmenu/mainmenuscreen.h"
 
-
-
-
+//! Generic options MainMenuScreen
+/**
+ * Picks out all options of a certain type and allows you to edit them
+ */
 class GenericOptionsInterface : public MainMenuScreen
 {
 

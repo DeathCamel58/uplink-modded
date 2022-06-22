@@ -1,12 +1,4 @@
 
-/*
-
-	Login Interface
-
-	Essentially the first main menu - Load New Exit etc
-
-  */
-
 #ifndef included_logininterface_h
 #define included_logininterface_h
 
@@ -14,7 +6,10 @@
 
 #include "mainmenu/mainmenuscreen.h"
 
-
+//! Login interface MainMenuScreen
+/**
+ * Essentially the first main menu - Load New Exit etc
+ */
 class LoginInterface : public MainMenuScreen
 {
 
