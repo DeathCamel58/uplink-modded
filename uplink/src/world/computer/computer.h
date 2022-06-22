@@ -116,7 +116,7 @@ public:
 
 	/**
 	 * The version of revelation on this machine
-	 * @note 0.0 means that this machine is not running
+	 * @note 0.0 means that revelation is not running
 	 */
 	float isinfected_revelation;
 
