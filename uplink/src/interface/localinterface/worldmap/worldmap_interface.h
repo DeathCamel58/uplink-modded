@@ -18,7 +18,7 @@
 
 class WorldMapLayout;
 
-//! Screen that shows the world map
+//! LocalInterfaceScreen that shows the world map
 class WorldMapInterface : public LocalInterfaceScreen
 {
 

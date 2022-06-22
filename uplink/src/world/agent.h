@@ -43,7 +43,7 @@ public:
 	LList <Mission *> missions;
 
 	/**
-	 * The name of the agent
+	 * The name of the Agent
 	 */
 	char handle [SIZE_AGENT_HANDLE];
 
@@ -53,56 +53,56 @@ public:
 	~Agent () override;
 
 	/**
-	 * Set the handle of the agent
+	 * Set the handle of the Agent
 	 * @param newhandle Handle to set
 	 */
 	void SetHandle (const string &newhandle );
 
 	/**
-	 * Gives a mission to the agent
+	 * Gives a mission to the Agent
 	 * @param mission Mission to give
 	 */
 	void GiveMission ( Mission *mission );
 
 	/**
-	 * Check if any of the missions have expired
+	 * Check if any of the Mission items have expired
 	 */
 	void CheckMissionDueDates ();
 
 	/**
-	 * Gives a link to the agent
+	 * Gives a link to the Agent
 	 * @param newip IP of the link
 	 */
 	void GiveLink	 (const string &newip );
 
 	/**
-	 * Does the agent have a link?
+	 * Does the Agent have a link?
 	 * @param newip IP of the link
 	 * @return true if the agent has the link
 	 */
 	bool HasLink     (const string &newip );
 
 	/**
-	 * Removes a link from the agent
+	 * Removes a link from the Agent
 	 * @param newip IP of the link
 	 */
 	void RemoveLink  (const string &newip );
 
 	/**
-	 * Give a code to the agent
+	 * Give a code to the Agent
 	 * @param newip IP of the link
 	 * @param newcode Code for the link
 	 */
 	void GiveCode    (const string &newip, const string &newcode );
 
     /**
-     * Gives a message to the player
+     * Gives a message to the Agent
      * @param message Message to give
      */
 	void GiveMessage ( Message *message ) override;
 
 	/**
-	 * Check if agent has an account for given link
+	 * Check if Agent has an account for given link
 	 * @param ip IP of the link
 	 * @return access level or -1
 	 */
@@ -120,39 +120,39 @@ public:
 	int  CreateNewAccount (const string &bankip, const string &accname, const string &password, int balance, int loan ) override;
 
 	/**
-	 * Checks if agent has given link from mission
+	 * Checks if Agent has given link from Mission
 	 * @param newip IP of the link
-	 * @return true if the user has the link, and a mission that needs it
+	 * @return true if the user has the link, and a Mission that needs it
 	 */
 	bool HasMissionLink (const string &newip );
 
 	/**
-	 * Attempts mission 0
+	 * Attempts Mission 0
 	 */
 	void AttemptMission ();
 
 	/**
-	 * Attempts mission to steal a file
+	 * Attempts Mission to steal a file
 	 */
 	void AttemptMission_StealFile ();
 
 	/**
-	 * Attempts mission to delete a file
+	 * Attempts Mission to delete a file
 	 */
     void AttemptMission_DeleteFile ();
 
     /**
-     * Attempts mission to change account
+     * Attempts Mission to change account
      */
 	void AttemptMission_ChangeAccount ();
 
 	/**
-	 * Attempts mission to trace a user
+	 * Attempts Mission to trace a user
 	 */
 	void AttemptMission_TraceUser ();
 
 	/**
-	 * Attempts mission to remove a computer
+	 * Attempts Mission to remove a Computer
 	 */
 	void AttemptMission_RemoveComputer ();
 

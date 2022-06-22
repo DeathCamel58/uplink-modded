@@ -3,10 +3,6 @@
 #ifndef _IRC_H_
 #define	_IRC_H_
 
-/*
-	IRC (RFC #1459) Client Implementation
-*/
-
 #ifdef WIN32
 #pragma warning (disable: 4786)
 #endif
@@ -19,6 +15,7 @@
 #include "CrossThreadsMessagingDevice.h"
 
 ////////////////////////////////////////////////////////////////////
+//! IRC (RFC #1459) Client Implementation
 namespace irc {
 ////////////////////////////////////////////////////////////////////
 
@@ -61,22 +58,66 @@ struct IIrcSessionMonitor
 
 ////////////////////////////////////////////////////////////////////
 
+//! Session Information for IRC Server
 struct CIrcSessionInfo
 {
+    /**
+     * URL of the server
+     */
 	String sServer;
+
+	/**
+	 * Name of the server
+	 */
 	String sServerName;
+
+	/**
+	 * Port of the server
+	 */
 	unsigned int iPort;
+
+	/**
+	 * Nickname of user
+	 */
 	String sNick;
+
+	/**
+	 * User ID of user
+	 */
 	String sUserID;
+
+	/**
+	 * Full name of user
+	 */
 	String sFullName;
+
+	/**
+	 * Password of the user
+	 */
 	String sPassword;
+
+	/**
+	 * Does this use a separate identity server?
+	 */
 	bool bIdentServer;
+
+	/**
+	 * Type of the identity server
+	 * @note This was observed to be `UNIX`
+	 */
 	String sIdentServerType;
+
+	/**
+	 * Identity server port
+	 */
 	unsigned int iIdentServerPort;
 
 	CIrcSessionInfo();
 	CIrcSessionInfo(const CIrcSessionInfo& si);
 
+	/**
+	 * Resets all values of CIrcSessionInfo
+	 */
 	void Reset();
 };
 
@@ -134,7 +175,7 @@ __inline CIrcSession& operator << (CIrcSession& os, const CIrcMessage& m)
 
 ////////////////////////////////////////////////////////////////////
 
-// RFC's Identity Server (RFC #1413)
+//! RFC's Identity Server (RFC #1413)
 class CIrcIdentServer
 {
 public :
