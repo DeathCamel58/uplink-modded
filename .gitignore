@@ -174,3 +174,5 @@ uplink/src/app/globals_defines.h
 uplink/lib/gucci/gucci_sdl.cpp
 uplink/src/html/
 uplink/src/latex/
+
+site/Doxygen

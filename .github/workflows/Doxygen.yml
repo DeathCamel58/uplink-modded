@@ -1,0 +1,25 @@
+name: Build and Deploy Documentation
+on:
+  push:
+    branches:
+      - change-char-to-string
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧
+        run: |
+          sudo apt-get install doxygen -y
+          doxygen uplink/src/Doxyfile
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: pages-site
+          folder: site
