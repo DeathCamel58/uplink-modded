@@ -4,7 +4,6 @@
 
 //#include "stdafx.h"
 
-#include <strstream>
 #include <app/miscutils.h>
 #include <sstream>
 
@@ -216,25 +215,19 @@ void Person::ChangeBalance (int amount, const string &description )
                 Company *company = game->GetWorld ()->GetCompany (comp->companyname);
                 UplinkAssert (company)
 
-                std::ostrstream reason;
-                reason << "It has come to our attention that your bank account below has gone "
-                          "overdrawn, without authorisation.\n\n"
-                       << comp->name << "\n"
-                       << "AccNo: " << accno << "\n"
-                       << '\x0';
+                string reason = "It has come to our attention that your bank account below has gone overdrawn, without authorisation.\n\n"
+                                + comp->name + "\n"
+                               "AccNo: " + accno + "\n";
 
 			    Date *date = new Date ();
 			    date->SetDate ( &(game->GetWorld ()->date) );
 			    date->AdvanceMinute ( TIME_TOPAYLEGALFINE );
 			    date->SetDate ( 0, 0, 0, date->GetDay (), date->GetMonth (), date->GetYear () );			// Round to midnight
 
-                Mission *payfine = MissionGenerator::Generate_PayFine ( this, company, 500, date, reason.str() );
+                Mission *payfine = MissionGenerator::Generate_PayFine ( this, company, 500, date, reason );
                 game->GetWorld ()->GetPlayer ()->GiveMission ( payfine );
 
 				delete date;
-
-				reason.rdbuf()->freeze( false );
-                //delete [] reason.str();
 
             }
         }

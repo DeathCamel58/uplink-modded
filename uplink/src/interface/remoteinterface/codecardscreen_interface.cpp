@@ -10,8 +10,6 @@
 #include <unistd.h>
 #endif
 
-#include <strstream>
-
 #include <GL/gl.h>
 
 #include "eclipse.h"
@@ -308,16 +306,12 @@ void CodeCardScreenInterface::Create ( ComputerScreen *newcs )
 		EclRegisterButton ( 80, 80, 350, 20, GetComputerScreen ()->subtitle, "", "codecard_subtitle" );
 		EclRegisterButtonCallbacks ( "codecard_subtitle", DrawSubTitle, nullptr, nullptr, nullptr );
 
-        std::ostrstream caption;
-        caption << "Your Uplink CD must be verified before account creation can continue.\n"
-                   "You should find a black code card inside the cover in the CD.\n"
-                   "You are now required to enter a code from that card.\n"
-                   "For example, the code at Row Z, Column 15 is 00." << '\x0';
-        EclRegisterButton ( 100, 150, 400, 70, caption.str(), " ", "codecard_text" );
+        string caption = "Your Uplink CD must be verified before account creation can continue.\n"
+                         "You should find a black code card inside the cover in the CD.\n"
+                         "You are now required to enter a code from that card.\n"
+                         "For example, the code at Row Z, Column 15 is 00.";
+        EclRegisterButton ( 100, 150, 400, 70, caption, " ", "codecard_text" );
         EclRegisterButtonCallbacks ( "codecard_text", textbutton_draw, nullptr, nullptr, nullptr );
-
-		caption.rdbuf()->freeze( false );
-        //delete [] caption.str();
 
         string rowcolcaption = "Enter code from Row " + to_string(row + ('A' - 'a')) + ", Column " + to_string( col );
         EclRegisterButton ( 100, 250, 200, 15, rowcolcaption, "codecard_rowcol" );

@@ -3,8 +3,6 @@
 #include <windows.h>
 #endif
 
-#include <strstream>
-
 #include "eclipse.h"
 #include "soundgarden.h"
 #include "redshirt.h"
@@ -98,24 +96,20 @@ void HWInterface::CreateHWInterface ()
 
 		// Hardware devices
 
-		std::ostrstream hardware;	
-		hardware << "DEVICES\n";
+		string hardware = "DEVICES\n";
         LList <string> *security = gateway->GetSecurity ();
         if ( security->Size () == 0 ) 
-            hardware << "None";
+            hardware += "None";
 
         else
             for ( int i = 0; i < security->Size (); ++i ) 
                 if ( security->ValidIndex (i) ) 
-		            hardware << security->GetData (i) << "\n";
-        hardware << '\x0';
+		            hardware += security->GetData (i) + "\n";
 
 		EclRegisterButton ( screenw - panelwidth, paneltop + 130, panelwidth - 10, SY(150), "", "", "hw_hardware" );
 		EclRegisterButtonCallbacks ( "hw_hardware", text_draw, nullptr, nullptr, nullptr );
-		EclRegisterCaptionChange ( "hw_hardware", hardware.str (), 1000 );
-		
-		hardware.rdbuf()->freeze( false );
-		//delete [] hardware.str ();
+		EclRegisterCaptionChange ( "hw_hardware", hardware, 1000 );
+
         delete security;
 
 		// HUD Upgrades installed
@@ -126,20 +120,15 @@ void HWInterface::CreateHWInterface ()
 		EclRegisterButton ( screenw - panelwidth, paneltop + SY(150) + 70, panelwidth - 10, 60, "", "", "hw_hudupgrades" );
 		EclRegisterButtonCallbacks ( "hw_hudupgrades", text_draw, nullptr, nullptr, nullptr );
 
-		std::ostrstream hudupgrades;
+		string hudupgrades;
 
-		if ( !(gateway->HasAnyHUDUpgrade ()) )								hudupgrades << "None\n";
-		if ( gateway->HasHUDUpgrade ( HUDUPGRADE_MAPSHOWSTRACE ) )			hudupgrades << "Show trace on map\n";
-		if ( gateway->HasHUDUpgrade ( HUDUPGRADE_CONNECTIONANALYSIS ) )		hudupgrades << "Connection analysis\n";
-        if ( gateway->HasHUDUpgrade ( HUDUPGRADE_IRCCLIENT ) )              hudupgrades << "IRC Client\n";
-        if ( gateway->HasHUDUpgrade ( HUDUPGRADE_LANVIEW ) )                hudupgrades << "LAN View\n";
+		if ( !(gateway->HasAnyHUDUpgrade ()) )								hudupgrades += "None\n";
+		if ( gateway->HasHUDUpgrade ( HUDUPGRADE_MAPSHOWSTRACE ) )			hudupgrades += "Show trace on map\n";
+		if ( gateway->HasHUDUpgrade ( HUDUPGRADE_CONNECTIONANALYSIS ) )		hudupgrades += "Connection analysis\n";
+        if ( gateway->HasHUDUpgrade ( HUDUPGRADE_IRCCLIENT ) )              hudupgrades += "IRC Client\n";
+        if ( gateway->HasHUDUpgrade ( HUDUPGRADE_LANVIEW ) )                hudupgrades += "LAN View\n";
 
-		hudupgrades << '\x0';
-
-		EclRegisterCaptionChange ( "hw_hudupgrades", hudupgrades.str () );
-
-		hudupgrades.rdbuf()->freeze( false );
-		//delete [] hudupgrades.str ();
+		EclRegisterCaptionChange ( "hw_hudupgrades", hudupgrades );
 
 		// View gateway
 

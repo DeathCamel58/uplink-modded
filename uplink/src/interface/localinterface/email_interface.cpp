@@ -65,23 +65,15 @@ void EmailInterface::EmailReply ( Button *button )
 
 	string contact = em->message->from;
 
-	std::ostrstream body;
-	body << "RE your email\n"
-         << "'" 
-         << em->message->GetSubject ()
-         << "'"
-         << "\n\n"
-         << '\x0';
+	string body = "RE your email\n"
+                  "'" + em->message->GetSubject() + "'\n\n";
 
 	game->GetInterface ()->GetLocalInterface ()->RunScreen ( SCREEN_SENDMAIL );
 	game->GetInterface ()->GetLocalInterface ()->Update ();
 
 	EclRegisterCaptionChange ( "sendmail_to", contact, 1 );						// Should occur instantly
 	EclRegisterCaptionChange ( "sendmail_subject", "RE your email" );
-	EclRegisterCaptionChange ( "sendmail_body box", body.str (), 1000 );
-
-	body.rdbuf()->freeze( false );
-    //delete [] body.str ();
+	EclRegisterCaptionChange ( "sendmail_body box", body, 1000 );
 
 }
 
@@ -186,7 +178,7 @@ void EmailInterface::Create ()
 						body << "- " << message->links.GetData (i) << "(Invalid)\n";
 
 					else 
-						body << "- " << computer->name << "\n";					
+						body << "- " << computer->name << "\n";
 
 				}
 
@@ -211,7 +203,7 @@ void EmailInterface::Create ()
 
 				if ( !vl ) {
 					
-					body << "[" << message->links.GetData (i) << "(Invalid)]\n";					
+					body << "[" << message->links.GetData (i) << "(Invalid)]\n";
 
 				}
 				else {
@@ -219,7 +211,7 @@ void EmailInterface::Create ()
 					Computer *computer = game->GetWorld ()->GetComputer ( vl->computer );
 
 					if ( !computer ) 
-						body << "[" << message->links.GetData (i) << "(Invalid)]\n";					
+						body << "[" << message->links.GetData (i) << "(Invalid)]\n";
 					
 					else 
 						body << "[" << computer->name << "]\n";
@@ -242,7 +234,7 @@ void EmailInterface::Create ()
 		if ( data ) {
 	
 			body << "\n\nData included : \n";
-			body << data->title;			
+			body << data->title;
 
 		}
 

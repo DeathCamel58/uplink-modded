@@ -85,7 +85,7 @@ Computer  *LanGenerator::LoadLAN (const string &filename )
     if ( game->GetWorld ()->GetVLocation (ip) ) {
         cout << "[Already Loaded]" << endl;
 		thefile.close ();
-		RsArchiveFileClose ( filename.c_str() );
+		RsArchiveFileClose ( filename );
         return nullptr;
     }
 
@@ -95,7 +95,7 @@ Computer  *LanGenerator::LoadLAN (const string &filename )
 	if ( !game->GetWorld()->VerifyVLocation( ip, x, y ) ) {
 		cout << "LanGenerator::LoadLAN WARNING: Location is invalid, ip(" << ip << "), x(" << x << "), y(" << y << ").(" << filename << ")" << endl;
 		thefile.close ();
-		RsArchiveFileClose ( filename.c_str() );
+		RsArchiveFileClose ( filename );
         return nullptr;
 	}
 
@@ -1740,8 +1740,7 @@ int LanGenerator::GenerateModem ( LanComputer *comp, LanCluster *cluster, int x,
     //
     // New modem virtual location
 
-	char computername [SIZE_COMPUTER_NAME];
-	UplinkSnprintf ( computername, sizeof ( computername ), "%s LAN Dial Up access", comp->companyname )
+	string computername = comp->companyname + " LAN Dial Up access";
 
 	int mapx, mapy;
     WorldGenerator::GenerateValidMapPos ( mapx, mapy );

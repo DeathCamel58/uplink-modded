@@ -205,13 +205,11 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 	string personname = "internal@ARC.net";					// Person to send completion email to
 
 	string description = "Modify a protected Social Security document";
-	std::ostrstream details;
 	std::ostrstream fulldetails;
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+                     "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+                     "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
     fulldetails << "Thank you for replying Agent.\n"
                 << "We have some work for you which you can get started on immediately.\n"
@@ -297,13 +295,11 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
+	mission->SetDetails		 ( details );
 	mission->SetFullDetails  ( fulldetails.str () );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( false );
 	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
     return mission;

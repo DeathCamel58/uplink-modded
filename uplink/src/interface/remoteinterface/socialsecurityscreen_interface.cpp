@@ -1,6 +1,4 @@
 
-#include <strstream>
-
 #include "app/globals.h"
 #include "app/opengl_interface.h"
 #include "app/miscutils.h"

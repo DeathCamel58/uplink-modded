@@ -1,6 +1,5 @@
 #include <cstdio>
 
-#include <strstream>
 #include <sstream>
 
 #include "app/globals.h"
@@ -141,7 +140,7 @@ void RecordGenerator::GenerateRecord_Criminal (const string &personname, int age
 	// Generate a possible criminal past
 	// Only a small percentage of people have any convictions
 
-	std::ostrstream convictions;
+	string convictions;
 
 	Person *person = game->GetWorld ()->GetPerson ( personname );
 	UplinkAssert (person)
@@ -161,19 +160,19 @@ void RecordGenerator::GenerateRecord_Criminal (const string &personname, int age
 
 				switch ( (int) NumberGenerator::RandomNormalNumber ( 6, 6 ) ) {
 
-					case 0  :			convictions << "Murder\n"; numconv++;					break;
-					case 1  :			convictions << "Armed Robbery\n"; numconv++;			break;
-					case 2  :			convictions << "Robbery\n"; numconv++;					break;
-					case 3  :			convictions << "Petty theft\n"; numconv++;				break;
+					case 0  :			convictions += "Murder\n"; numconv++;					break;
+					case 1  :			convictions += "Armed Robbery\n"; numconv++;			break;
+					case 2  :			convictions += "Robbery\n"; numconv++;					break;
+					case 3  :			convictions += "Petty theft\n"; numconv++;				break;
 					case 4  :
 					case 5  :
 					case 6  :
 					case 7  :	break;
-					case 8  :			convictions << "Disturbing the peace\n"; numconv++;		break;
-					case 9  :			convictions << "Reckless driving\n"; numconv++;			break;
-					case 10 :			convictions << "Man-slaughter\n"; numconv++;			break;
-					case 11 :			convictions << "G-B-H\n"; numconv++;					break;
-					case 12 :			convictions << "Rape\n"; numconv++;						break;
+					case 8  :			convictions += "Disturbing the peace\n"; numconv++;		break;
+					case 9  :			convictions += "Reckless driving\n"; numconv++;			break;
+					case 10 :			convictions += "Man-slaughter\n"; numconv++;			break;
+					case 11 :			convictions += "G-B-H\n"; numconv++;					break;
+					case 12 :			convictions += "Rape\n"; numconv++;						break;
 
 					default :
 						UplinkAbort ( "RecordGenerator::GenerateRecord_Criminal, unrecognised conviction id" )
@@ -184,12 +183,12 @@ void RecordGenerator::GenerateRecord_Criminal (const string &personname, int age
 			}
 
 			if ( numconv == 0 )
-				convictions << "None";
+				convictions += "None";
 
 		}
 		else {
 
-			convictions << "None";
+			convictions += "None";
 
 		}
 
@@ -209,19 +208,19 @@ void RecordGenerator::GenerateRecord_Criminal (const string &personname, int age
 
 				switch ( (int) NumberGenerator::RandomNormalNumber ( 6, 6 ) ) {
 
-					case 0  :			convictions << "High tech fraud\n"; numconv++;							break;
-					case 1  :			convictions << "Willful destruction of data\n"; numconv++;				break;
-					case 2  :			convictions << "Theft of sensitive data\n"; numconv++;					break;
-					case 3  :			convictions << "Unlawful access of classified data\n"; numconv++;		break;
+					case 0  :			convictions += "High tech fraud\n"; numconv++;							break;
+					case 1  :			convictions += "Willful destruction of data\n"; numconv++;				break;
+					case 2  :			convictions += "Theft of sensitive data\n"; numconv++;					break;
+					case 3  :			convictions += "Unlawful access of classified data\n"; numconv++;		break;
 					case 4  :
 					case 5  :
 					case 6  :
 					case 7  :	break;
-					case 8  :			convictions << "Falsifying academic results\n"; numconv++;				break;
-					case 9  :			convictions << "Illegal modification of credit rating\n"; numconv++;	break;
-					case 10 :			convictions << "Illegally transfering funds\n"; numconv++;				break;
-					case 11 :			convictions << "Credit card fraud\n"; numconv++;						break;
-					case 12 :			convictions << "Destruction of financial data\n"; numconv++;			break;
+					case 8  :			convictions += "Falsifying academic results\n"; numconv++;				break;
+					case 9  :			convictions += "Illegal modification of credit rating\n"; numconv++;	break;
+					case 10 :			convictions += "Illegally transfering funds\n"; numconv++;				break;
+					case 11 :			convictions += "Credit card fraud\n"; numconv++;						break;
+					case 12 :			convictions += "Destruction of financial data\n"; numconv++;			break;
 
 					default :
 						UplinkAbort ( "RecordGenerator::GenerateRecord_Criminal, unrecognised conviction id" )
@@ -232,30 +231,25 @@ void RecordGenerator::GenerateRecord_Criminal (const string &personname, int age
 			}
 
 			if ( numconv == 0 )
-				convictions << "None";
+				convictions += "None";
 
 		}
 		else {
 
-			convictions << "None";
+			convictions += "None";
 
 		}
 
 	}
 
-	convictions << '\x0';
-
 	auto *crim = new Record ();
 	crim->AddField ( RECORDBANK_NAME, personname );
-	crim->AddField ( "Convictions", convictions.str () );
+	crim->AddField ( "Convictions", convictions );
 
 	Computer *crimdb = game->GetWorld ()->GetComputer ( "Global Criminal Database" );
 	UplinkAssert ( crimdb )
 
 	crimdb->recordbank.AddRecordSorted ( crim );
-
-	convictions.rdbuf()->freeze( false );
-	//delete [] convictions.str ();
 
 }
 
@@ -281,9 +275,9 @@ void RecordGenerator::GenerateRecord_Academic (const string &personname, int age
 
 	int brains = (int) NumberGenerator::RandomNormalNumber ( 50, 50 );					// 0 = thick, 50 = average, 100 = rocket scientist
 
-	std::ostrstream collegequals;
-	std::ostrstream universityquals;
-	std::ostrstream otherquals;
+	string collegequals;
+	string universityquals;
+	string otherquals;
 
 	if ( age >= 16 ) {
 
@@ -317,7 +311,7 @@ void RecordGenerator::GenerateRecord_Academic (const string &personname, int age
 				if ( grade < 0 ) grade = 0;
 				if ( grade > 6 ) grade = 6;
 
-				collegequals << possiblequals.GetData (thisqualindex) << "      " << grades [grade] << "\n";
+				collegequals += possiblequals.GetData (thisqualindex) + "      " + grades [grade] + "\n";
 
 				possiblequals.RemoveData (thisqualindex);
 
@@ -326,18 +320,16 @@ void RecordGenerator::GenerateRecord_Academic (const string &personname, int age
 		}
 		else {
 
-			collegequals << "None";
+			collegequals += "None";
 
 		}
 
 	}
 	else {
 
-		collegequals << "None";
+		collegequals += "None";
 
 	}
-
-	collegequals << '\x0';
 
 	if ( age >= 21 && brains > 50 ) {
 
@@ -365,17 +357,15 @@ void RecordGenerator::GenerateRecord_Academic (const string &personname, int age
 
 		int degreelevel = 1 + ( 100 - brains ) / 25;
 
-		universityquals << degreesubject << ", Class " << degreelevel;
+		universityquals += degreesubject + ", Class " + to_string(degreelevel);
 
 	}
 	else {
 
 		// Does not have a degree
-		universityquals << "None";
+		universityquals += "None";
 
 	}
-
-	universityquals << '\x0';
 
 	if ( age > 18 && brains > 50 ) {
 
@@ -396,36 +386,27 @@ void RecordGenerator::GenerateRecord_Academic (const string &personname, int age
 
 		}
 
-		otherquals << qualification;
+		otherquals += qualification;
 
 	}
 	else {
 
-		otherquals << "None";
+		otherquals += "None";
 
 	}
-
-	otherquals << '\x0';
 
 
 	auto *rec = new Record ();
 	rec->AddField ( RECORDBANK_NAME, personname );
 	rec->AddField ( "IQ", brains + 50 );
-	rec->AddField ( "College", collegequals.str () );
-	rec->AddField ( "University", universityquals.str () );
-	rec->AddField ( "Other", otherquals.str () );
+	rec->AddField ( "College", collegequals );
+	rec->AddField ( "University", universityquals );
+	rec->AddField ( "Other", otherquals );
 
 	Computer *ac = game->GetWorld ()->GetComputer ( "International Academic Database" );
 	UplinkAssert ( ac )
 
 	ac->recordbank.AddRecordSorted ( rec );
-
-	collegequals.rdbuf()->freeze( false );
-	universityquals.rdbuf()->freeze( false );
-	otherquals.rdbuf()->freeze( false );
-	//delete [] collegequals.str ();
-	//delete [] universityquals.str ();
-	//delete [] otherquals.str ();
 
 }
 

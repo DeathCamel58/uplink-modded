@@ -1,5 +1,4 @@
 
-#include <strstream>
 #include <app/miscutils.h>
 
 #include "soundgarden.h"

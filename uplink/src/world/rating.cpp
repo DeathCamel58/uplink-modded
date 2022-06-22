@@ -1,7 +1,6 @@
 
 //#include "stdafx.h"
 
-#include <strstream>
 #include <app/miscutils.h>
 
 #include "app/globals.h"

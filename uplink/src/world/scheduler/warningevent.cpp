@@ -1,6 +1,4 @@
 
-#include <strstream>
-
 #include "app/globals.h"
 #include "app/serialise.h"
 

@@ -4,8 +4,6 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include <strstream>
-
 #include "gucci.h"
 #include "redshirt.h"
 
@@ -628,18 +626,15 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 	msg1->SetSubTitle ( "About us" );
 	msg1->SetNextPage ( 1 );
 	msg1->SetButtonMessage ( "OK" );
-	std::ostrstream body;
-	body << "Welcome to the Uplink Public Access Server.\n\n"
-			"Uplink Corporation maintains the largest list of freelance agents in the world, and we "
-			"have operated for the last decade with a flawless record of satisfied customers and "
-			"successful agents.  Our company acts as an anonymous job centre, bringing corporations "
-			"together with agents who can work for them.  Our company also provides rental of essential "
-			"gateway computers to all agents, which allow unparalleled security in a high risk environment."
-			"\n\nYou are here because you wish to join this company." << '\x0';
+	string body = "Welcome to the Uplink Public Access Server.\n\n"
+                  "Uplink Corporation maintains the largest list of freelance agents in the world, and we "
+                  "have operated for the last decade with a flawless record of satisfied customers and "
+                  "successful agents.  Our company acts as an anonymous job centre, bringing corporations "
+                  "together with agents who can work for them.  Our company also provides rental of essential "
+                  "gateway computers to all agents, which allow unparalleled security in a high risk environment.\n\n"
+                  "You are here because you wish to join this company.";
 
-	msg1->SetTextMessage ( body.str () );
-	body.rdbuf()->freeze( false );
-	//delete [] body.str ();
+	msg1->SetTextMessage ( body );
 	comp->AddComputerScreen ( msg1, 0 );
 
 	// Screen 1						Main menu
@@ -656,19 +651,16 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 	auto *dlg2 = new DialogScreen ();
 	dlg2->SetMainTitle ( "Uplink" );
 	dlg2->SetSubTitle ( "Registration" );
-	std::ostrstream body2;
-	body2 << "Your Uplink membership package includes : \n\n"
-			 "- A Gateway computer at a secure location.  You will connect to this machine from your home "
-			 "computer when you are working for Uplink.  You can have it upgraded at a later stage if necessary.\n\n"
-			 "- A low interest loan of " << PLAYER_START_BALANCE << " credits with Uplink International Bank, "
-			 "to get you started.\n\n"
-			 "- Access to our Bulletin Board system - the usual place for Uplink Agents to find work.\n\n"
-			 "- You will be officially rated as an Uplink Agent, and we will monitor your progress.  As your "
-			 "rating increases you will find new avenues of work become available." << '\x0';
+	string body2 = "Your Uplink membership package includes : \n\n"
+                   "- A Gateway computer at a secure location.  You will connect to this machine from your home "
+                   "computer when you are working for Uplink.  You can have it upgraded at a later stage if necessary.\n\n"
+                   "- A low interest loan of " + to_string(PLAYER_START_BALANCE) + " credits with Uplink International Bank, "
+                   "to get you started.\n\n"
+                   "- Access to our Bulletin Board system - the usual place for Uplink Agents to find work.\n\n"
+                   "- You will be officially rated as an Uplink Agent, and we will monitor your progress.  As your "
+                   "rating increases you will find new avenues of work become available.";
 
-	dlg2->AddWidget ( "caption1", WIDGET_CAPTION, 100, 110, 380, 270, body2.str (), "" );
-	body2.rdbuf()->freeze( false );
-	//delete [] body2.str ();
+	dlg2->AddWidget ( "caption1", WIDGET_CAPTION, 100, 110, 380, 270, body2, "" );
 	dlg2->AddWidget ( "cancel", WIDGET_NEXTPAGE, 160, 380, 100, 20, "Cancel", "Cancel registration", 1, 0, "", "" );
 	dlg2->AddWidget ( "continue", WIDGET_NEXTPAGE, 270, 380, 100, 20, "Continue", "Continue registration", 3, 0, "", "" );
 	dlg2->SetReturnKeyButton ( "continue" );
@@ -713,18 +705,15 @@ void WorldGenerator::GenerateUplinkPublicAccessServer ()
 	auto *dlg5 = new DialogScreen ();
 	dlg5->SetMainTitle ( "Uplink Registration" );
 	dlg5->SetSubTitle ( "Your Gateway computer" );
-	std::ostrstream body3;
-	body3 <<  "Registration is now taking place.\n\n"
-			  "As part of your membership, we will assign you a Gateway computer system in your chosen "
-			  "server room.  This will act as your jumping off point to the rest of the Net.  When you next "
-			  "log in you will connect directly from your home computer to this gateway machine, and from there "
-			  "to the rest of the world.\n\n"
-			  "Should any of your actions be traced back to your Gateway, Uplink Corporation will disavow any "
-			  "knowledge of your actions and will destroy your account.  Your Gateway machine will also be destroyed.\n\n"
-			  "Rental of your Gateway computer will cost " << COST_UPLINK_PERMONTH << " credits a month." << '\x0';
-	dlg5->AddWidget ( "caption1", WIDGET_CAPTION, 100, 130, 380, 270, body3.str (), "" );
-	body3.rdbuf()->freeze( false );
-	//delete [] body3.str ();
+	string body3 =  "Registration is now taking place.\n\n"
+                    "As part of your membership, we will assign you a Gateway computer system in your chosen "
+                    "server room.  This will act as your jumping off point to the rest of the Net.  When you next "
+                    "log in you will connect directly from your home computer to this gateway machine, and from there "
+                    "to the rest of the world.\n\n"
+                    "Should any of your actions be traced back to your Gateway, Uplink Corporation will disavow any "
+                    "knowledge of your actions and will destroy your account.  Your Gateway machine will also be destroyed.\n\n"
+                    "Rental of your Gateway computer will cost " + to_string(COST_UPLINK_PERMONTH) + " credits a month.";
+	dlg5->AddWidget ( "caption1", WIDGET_CAPTION, 100, 130, 380, 270, body3, "" );
 
 #ifdef TESTGAME
 	dlg5->AddWidget ( "continue", WIDGET_SCRIPTBUTTON, 270, 380, 100, 20, "Done", "Click here when finished", 36, 6, "", "" );
@@ -2172,30 +2161,23 @@ void WorldGenerator::GenerateStockMarket ()
 
 	// Screen 0									( Intro )
 
-    std::ostrstream txtmsg;
-    txtmsg << "Welcome to the International Stock Market trading System.\n"
-			  "This system is open to all, however you will need an access "
-			  "account if you wish to trade in shares.\n\n"
-			  "Select 'new user' from the menu to create a new account.\n"
-			  "Log in as 'guest', password 'guest' to browse share prices.\n"
-			  "Otherwise, use your provided log in name and password.\n\n";
+    string txtmsg = "Welcome to the International Stock Market trading System.\n"
+                    "This system is open to all, however you will need an access account if you wish to trade in shares.\n\n"
+                    "Select 'new user' from the menu to create a new account.\n"
+                    "Log in as 'guest', password 'guest' to browse share prices.\n"
+                    "Otherwise, use your provided log in name and password.\n\n";
 
 #ifdef DEMOGAME
-    txtmsg << "Demo Uplink clients will not be permitted to trade shares.";
+    txtmsg += "Demo Uplink clients will not be permitted to trade shares.";
 #endif
-
-    txtmsg << '\x0';
 
 	auto *ms0 = new MessageScreen ();
 	ms0->SetMainTitle ( comp->name );
 	ms0->SetSubTitle ( "Welcome" );
-	ms0->SetTextMessage ( txtmsg.str () );
+	ms0->SetTextMessage ( txtmsg );
 	ms0->SetButtonMessage ( "OK" );
 	ms0->SetNextPage ( 1 );
 	comp->AddComputerScreen ( ms0, 0 );
-
-    //delete [] txtmsg.str ();
-	txtmsg.rdbuf()->freeze( false );
 
 	// Screen 1									( Main Menu )
 

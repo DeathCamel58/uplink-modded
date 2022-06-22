@@ -1,5 +1,4 @@
 
-#include <strstream>
 #include <app/miscutils.h>
 
 #include "app/serialise.h"

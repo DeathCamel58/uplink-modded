@@ -1,6 +1,5 @@
 // -*- tab-width:4 c-file-style:"cc-mode" -*-
 
-#include <strstream>
 #include <app/miscutils.h>
 
 #include "app/globals.h"
@@ -264,25 +263,19 @@ void Gateway::ExchangeGatewayComplete ()
 
 	if ( removedItems.Size () > 0 ) {
 
-		std::ostrstream removedText;
-		removedText << "Unfortunately, your new gateway does not have enough space to contain "
-					   "all of your old hardware.  As such, we have been forced to remove the "
-					   "following items from your new system :\n\n";
+		string removedText = "Unfortunately, your new gateway does not have enough space to contain "
+                             "all of your old hardware.  As such, we have been forced to remove the "
+                             "following items from your new system :\n\n";
 
 		for ( int i = 0; i < removedItems.Size (); ++i )
-			removedText << removedItems.GetData(i) << "\n";
-
-		removedText << '\x0';
+			removedText += removedItems.GetData(i) + "\n";
 
 		auto *msg = new Message ();
 		msg->SetTo ( "PLAYER" );
 		msg->SetFrom ( "Uplink Corporation" );
 		msg->SetSubject ( "Removed hardware items" );
-		msg->SetBody ( removedText.str () );
+		msg->SetBody ( removedText );
 		msg->Send ();
-
-		removedText.rdbuf()->freeze( false );
-		//delete [] removedText.str ();
 
 	}
 

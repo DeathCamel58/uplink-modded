@@ -83,8 +83,7 @@ void DisconnectedScreenInterface::Create ( ComputerScreen *newcs )
             EclRegisterButton ( 50, 180, 400, 200, "", "", "disconnectedscreen_loginslost" );
             EclRegisterButtonCallbacks ( "disconnectedscreen_loginslost", textbutton_draw, nullptr, nullptr, nullptr );
 
-            std::ostrstream loginslost;
-            loginslost << "Your username and password was revoked on these systems:\n\n";
+            string loginslost = "Your username and password was revoked on these systems:\n\n";
 
             for ( int i = 0; i < DisconnectedScreen::loginslost.Size (); ++i ) {
 
@@ -99,7 +98,7 @@ void DisconnectedScreenInterface::Create ( ComputerScreen *newcs )
 						Computer *comp = vl->GetComputer ();
 						UplinkAssert (comp)
 
-						loginslost << "    - " << comp->name << "\n";
+						loginslost += "    - " + comp->name + "\n";
 
 					}
 
@@ -107,11 +106,7 @@ void DisconnectedScreenInterface::Create ( ComputerScreen *newcs )
 
             }
 
-            loginslost << '\x0';
-            EclRegisterCaptionChange ( "disconnectedscreen_loginslost", loginslost.str (),  2000 );
-            //delete [] loginslost.str ();
-
-			loginslost.rdbuf()->freeze( false );
+            EclRegisterCaptionChange ( "disconnectedscreen_loginslost", loginslost,  2000 );
 
             DisconnectedScreen::ClearLoginsLost ();
 

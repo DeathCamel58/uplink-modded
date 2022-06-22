@@ -3,8 +3,6 @@
 #include <windows.h>
 #endif
 
-#include <strstream>
-
 #include <GL/gl.h>
 
 #include <sstream>
@@ -499,27 +497,23 @@ void ChangeGatewayScreenInterface::CreateAreYouSure ()
 
 	int price = GetGatewayPrice(currentselect);
 
-	std::ostrstream caption;
-	caption << "You have chosen to part exchange your current gateway for a " << newgateway->name << ".\n"
-			   "If you chose to proceed, the money will be deducted from your account and Uplink Corporation "
-			   "will prepare your new gateway.  We will install identical hardware in your new gateway, and "
-			   "we will copy your memory banks from your current system to your new system.\n\n"
-				"This process will take around 24 hours.  After this time, you will have to log off from the Net "
-			   "and log back in again.  You will then be re-routed to your new gateway, and your old one will "
-			   "be immediately dismantled.\n\n";
+	string caption = "You have chosen to part exchange your current gateway for a " + newgateway->name + ".\n"
+                     "If you chose to proceed, the money will be deducted from your account and Uplink Corporation "
+                     "will prepare your new gateway.  We will install identical hardware in your new gateway, and "
+                     "we will copy your memory banks from your current system to your new system.\n\n"
+                     "This process will take around 24 hours.  After this time, you will have to log off from the Net "
+                     "and log back in again.  You will then be re-routed to your new gateway, and your old one will "
+                     "be immediately dismantled.\n\n";
 
 	if ( price < 0 )
-		caption << "Because you are downgrading, you may lose some software or hardware during the transfer.\n";
+		caption += "Because you are downgrading, you may lose some software or hardware during the transfer.\n";
 
-	if ( price > 0 )	caption << "This exchange will cost you " << price << " credits.\n";
-	else				caption << "You will be given " << price * -1 << " credits to balance the exchange.\n";
+	if ( price > 0 )	caption += "This exchange will cost you " + to_string(price) + " credits.\n";
+	else				caption += "You will be given " + to_string(price * -1) + " credits to balance the exchange.\n";
 
-	caption << "Click Proceed to continue or Cancel to abort." << '\x0';
+	caption += "Click Proceed to continue or Cancel to abort.";
 
-	EclRegisterCaptionChange ( "changegateway_text", caption.str(), 8000 );
-	
-	caption.rdbuf()->freeze( false );
-	//delete [] caption.str();
+	EclRegisterCaptionChange ( "changegateway_text", caption, 8000 );
 
 }
 

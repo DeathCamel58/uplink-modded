@@ -1,5 +1,4 @@
 
-#include <strstream>
 #include <app/miscutils.h>
 #include <sstream>
 
@@ -340,24 +339,19 @@ void NotificationEvent::AddInterestOnLoans ()
 			    Computer *comp = vl->GetComputer ();
 			    UplinkAssert (comp)
 
-			    std::ostrstream body;
-			    body << "You have been charged interest on the following account:\n"
-				     << "IP : " << ip << "\n"
-				     << "BANK : " << comp->name << "\n"
-				     << "ACCNO : " << account->accountnumber << "\n\n"
-				     << "You have been charged " << amountpaid << "c extra on your loan."
-				     << "Your new loan is " << account->loan << "c."
-				     << '\x0';
+			    string body = "You have been charged interest on the following account:\n"
+                              "IP : " + ip + "\n"
+                              "BANK : " + comp->name + "\n"
+                              "ACCNO : " + to_string(account->accountnumber) + "\n\n"
+                              "You have been charged " + to_string(amountpaid) + "c extra on your loan."
+                              "Your new loan is " + to_string(account->loan) + "c.";
 
 			    auto *msg = new Message ();
 			    msg->SetFrom ( comp->name );
 			    msg->SetTo ( "PLAYER" );
 			    msg->SetSubject ( "Interest charged" );
-			    msg->SetBody ( body.str () );
+			    msg->SetBody ( body );
 			    msg->Send ();
-
-				body.rdbuf()->freeze( false );
-			    //delete [] body.str ();
 
 		    }
 
@@ -603,24 +597,16 @@ void NotificationEvent::PayUplinkMonthlyFee ()
 
 				person->ChangeBalance ( COST_UPLINK_PERMONTH * -1, "Uplink Corporation : Monthly fee" );
 
-				std::ostrstream body;
-				body << "Uplink Corporation has deducted the standard monthly "
-						"membership fee of " << COST_UPLINK_PERMONTH << " credits from "
-						"you current account.\n\n"
-						"We are confident you will agree that this represents "
-						"incredible value for money and wish you another successful "
-						"and prosperous month with our organisation.\n"
-						"Thank you." << '\x0';
+				string body = "Uplink Corporation has deducted the standard monthly  membership fee of " + to_string(COST_UPLINK_PERMONTH) + " credits from your current account.\n\n"
+                              "We are confident you will agree that this represents incredible value for money and wish you another successful and prosperous month with our organisation.\n"
+                              "Thank you.";
 
 				auto *m = new Message ();
 				m->SetTo ( person->name );
 				m->SetFrom ( "Uplink Corporation" );
 				m->SetSubject ( "Uplink monthly fee deducted" );
-				m->SetBody ( body.str () );
+				m->SetBody ( body );
 				m->Send ();
-
-				body.rdbuf()->freeze( false );
-				//delete [] body.str ();
 
 
 			}
