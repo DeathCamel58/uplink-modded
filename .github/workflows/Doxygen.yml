@@ -15,7 +15,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          sudo apt-get install doxygen -y
+          sudo apt-get install doxygen graphviz -y
           doxygen uplink/src/Doxyfile
 
       - name: Deploy 🚀
