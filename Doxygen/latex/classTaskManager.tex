@@ -1,0 +1,140 @@
+\hypertarget{classTaskManager}{}\doxysection{Task\+Manager Class Reference}
+\label{classTaskManager}\index{TaskManager@{TaskManager}}
+
+
+Inheritance diagram for Task\+Manager\+:
+% FIG 0
+
+
+Collaboration diagram for Task\+Manager\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTaskManager_a389993458f1052ebf76de89fb1fd5024}\label{classTaskManager_a389993458f1052ebf76de89fb1fd5024}} 
+void {\bfseries Run\+Software} (const string \&name, float version)
+\item 
+\mbox{\Hypertarget{classTaskManager_abdaec9b47fae4135dc0cf346064a05d9}\label{classTaskManager_abdaec9b47fae4135dc0cf346064a05d9}} 
+void {\bfseries Set\+Program\+Target} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$newprogramtarget, const string \&targetstring, int targetint)
+\item 
+\mbox{\Hypertarget{classTaskManager_a30c055d80912120aa639a3e269101cb9}\label{classTaskManager_a30c055d80912120aa639a3e269101cb9}} 
+void {\bfseries Set\+Target\+Program} (int newtargetprogram)
+\item 
+\mbox{\Hypertarget{classTaskManager_ac851195a8a36c119f9bfacaf4ce75bc2}\label{classTaskManager_ac851195a8a36c119f9bfacaf4ce75bc2}} 
+bool {\bfseries Is\+Target\+Program\+Last} (int newtargetprogram) const
+\item 
+\mbox{\Hypertarget{classTaskManager_a385e6746411a8d47c654fa7e22faf48b}\label{classTaskManager_a385e6746411a8d47c654fa7e22faf48b}} 
+\mbox{\hyperlink{classUplinkTask}{Uplink\+Task}} $\ast$ {\bfseries Get\+Target\+Program} () const
+\item 
+\mbox{\Hypertarget{classTaskManager_a0bd121acd6bf79687f6622e942ca3f2f}\label{classTaskManager_a0bd121acd6bf79687f6622e942ca3f2f}} 
+string {\bfseries Get\+Target\+Program\+Name} () const
+\item 
+bool \mbox{\hyperlink{classTaskManager_a2331a94cd6c6de64062f7a2808968803}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classTaskManager_abf6d55ab475f9bfb95cd35bbd3577754}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classTaskManager_afea3d29e5dbacb74f0740134ebc4e709}{Print}} () override
+\item 
+void \mbox{\hyperlink{classTaskManager_a7de77ccc6be761eb068868a14ee9150a}{Update}} () override
+\item 
+string \mbox{\hyperlink{classTaskManager_a6b5c84dd0cd8ff27f1d99df4d97ee2ec}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTaskManager_a3cb44f1949f6595685c95adcf61eba9a}\label{classTaskManager_a3cb44f1949f6595685c95adcf61eba9a}} 
+int {\bfseries targetprogram}
+\item 
+\mbox{\Hypertarget{classTaskManager_a12a4d083737e595a2072bbf03f97a028}\label{classTaskManager_a12a4d083737e595a2072bbf03f97a028}} 
+int {\bfseries targetprogramreason}
+\item 
+\mbox{\Hypertarget{classTaskManager_a23f9f3a850bff65885bf2e5bb3efe306}\label{classTaskManager_a23f9f3a850bff65885bf2e5bb3efe306}} 
+int {\bfseries lasttargetprogram}
+\item 
+\mbox{\Hypertarget{classTaskManager_a5cda23a5586d560f923e4981e88fde0b}\label{classTaskManager_a5cda23a5586d560f923e4981e88fde0b}} 
+\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$ {\bfseries programtarget}
+\item 
+\mbox{\Hypertarget{classTaskManager_a1aa36a6e02a7d39dbddb8218f2582ccc}\label{classTaskManager_a1aa36a6e02a7d39dbddb8218f2582ccc}} 
+int {\bfseries lastcycle}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTaskManager_a6b5c84dd0cd8ff27f1d99df4d97ee2ec}\label{classTaskManager_a6b5c84dd0cd8ff27f1d99df4d97ee2ec}} 
+\index{TaskManager@{TaskManager}!GetID@{GetID}}
+\index{GetID@{GetID}!TaskManager@{TaskManager}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Task\+Manager\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classTaskManager_a2331a94cd6c6de64062f7a2808968803}\label{classTaskManager_a2331a94cd6c6de64062f7a2808968803}} 
+\index{TaskManager@{TaskManager}!Load@{Load}}
+\index{Load@{Load}!TaskManager@{TaskManager}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Task\+Manager\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classTaskManager_afea3d29e5dbacb74f0740134ebc4e709}\label{classTaskManager_afea3d29e5dbacb74f0740134ebc4e709}} 
+\index{TaskManager@{TaskManager}!Print@{Print}}
+\index{Print@{Print}!TaskManager@{TaskManager}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Task\+Manager\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classTaskManager_abf6d55ab475f9bfb95cd35bbd3577754}\label{classTaskManager_abf6d55ab475f9bfb95cd35bbd3577754}} 
+\index{TaskManager@{TaskManager}!Save@{Save}}
+\index{Save@{Save}!TaskManager@{TaskManager}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Task\+Manager\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classTaskManager_a7de77ccc6be761eb068868a14ee9150a}\label{classTaskManager_a7de77ccc6be761eb068868a14ee9150a}} 
+\index{TaskManager@{TaskManager}!Update@{Update}}
+\index{Update@{Update}!TaskManager@{TaskManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Task\+Manager\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/taskmanager.\+h\item 
+uplink/src/interface/taskmanager/taskmanager.\+cpp\end{DoxyCompactItemize}

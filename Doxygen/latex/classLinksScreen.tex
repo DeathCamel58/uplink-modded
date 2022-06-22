@@ -1,0 +1,122 @@
+\hypertarget{classLinksScreen}{}\doxysection{Links\+Screen Class Reference}
+\label{classLinksScreen}\index{LinksScreen@{LinksScreen}}
+
+
+Inheritance diagram for Links\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Links\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinksScreen_a66c99b183cb5ad3467d84ae4541a1fef}\label{classLinksScreen_a66c99b183cb5ad3467d84ae4541a1fef}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classLinksScreen_af70c0d8f771584da0c97c281a392dccd}\label{classLinksScreen_af70c0d8f771584da0c97c281a392dccd}} 
+void {\bfseries Set\+Screen\+Type} (int new\+S\+C\+R\+E\+E\+N\+\_\+\+T\+Y\+PE)
+\item 
+bool \mbox{\hyperlink{classLinksScreen_a6c44e80707426c49c6dee7f53e4e9b99}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLinksScreen_a4da98cfc75c6a8ca7c558bc197ffb96a}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLinksScreen_a1f7e6039bad5bb49fb756b9908407722}{Print}} () override
+\item 
+string \mbox{\hyperlink{classLinksScreen_ac920fc6868f9c311426e3645d8d9c43e}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classLinksScreen_a8ae9e7ed0fafd63be6109ff7091badf0}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinksScreen_ac10f720356cdddaa7d689b2ab8899289}\label{classLinksScreen_ac10f720356cdddaa7d689b2ab8899289}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classLinksScreen_a53fdbb5ca226d527a6a675fd274e065a}\label{classLinksScreen_a53fdbb5ca226d527a6a675fd274e065a}} 
+int {\bfseries S\+C\+R\+E\+E\+N\+T\+Y\+PE}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLinksScreen_ac920fc6868f9c311426e3645d8d9c43e}\label{classLinksScreen_ac920fc6868f9c311426e3645d8d9c43e}} 
+\index{LinksScreen@{LinksScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!LinksScreen@{LinksScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Links\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreen_a8ae9e7ed0fafd63be6109ff7091badf0}\label{classLinksScreen_a8ae9e7ed0fafd63be6109ff7091badf0}} 
+\index{LinksScreen@{LinksScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!LinksScreen@{LinksScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Links\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreen_a6c44e80707426c49c6dee7f53e4e9b99}\label{classLinksScreen_a6c44e80707426c49c6dee7f53e4e9b99}} 
+\index{LinksScreen@{LinksScreen}!Load@{Load}}
+\index{Load@{Load}!LinksScreen@{LinksScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Links\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreen_a1f7e6039bad5bb49fb756b9908407722}\label{classLinksScreen_a1f7e6039bad5bb49fb756b9908407722}} 
+\index{LinksScreen@{LinksScreen}!Print@{Print}}
+\index{Print@{Print}!LinksScreen@{LinksScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Links\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreen_a4da98cfc75c6a8ca7c558bc197ffb96a}\label{classLinksScreen_a4da98cfc75c6a8ca7c558bc197ffb96a}} 
+\index{LinksScreen@{LinksScreen}!Save@{Save}}
+\index{Save@{Save}!LinksScreen@{LinksScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Links\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/linksscreen.\+h\item 
+uplink/src/world/computer/computerscreen/linksscreen.\+cpp\end{DoxyCompactItemize}

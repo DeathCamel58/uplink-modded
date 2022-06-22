@@ -1,0 +1,162 @@
+\hypertarget{classCompanyUplink}{}\doxysection{Company\+Uplink Class Reference}
+\label{classCompanyUplink}\index{CompanyUplink@{CompanyUplink}}
+
+
+Inheritance diagram for Company\+Uplink\+:
+% FIG 0
+
+
+Collaboration diagram for Company\+Uplink\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCompanyUplink_ac2b88bef6b6f7b403abb9c8a1aa2e926}\label{classCompanyUplink_ac2b88bef6b6f7b403abb9c8a1aa2e926}} 
+void {\bfseries Create\+Mission} (\mbox{\hyperlink{classMission}{Mission}} $\ast$mission)
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a2f8a58cfe6c23775c556b5ae1ca56f2a}\label{classCompanyUplink_a2f8a58cfe6c23775c556b5ae1ca56f2a}} 
+void {\bfseries Create\+Mission} (const string \&employer, int payment, const string \&description, const string \&details, const string \&fulldetails)
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a6d24422caf4dc698415d77e568e0da07}\label{classCompanyUplink_a6d24422caf4dc698415d77e568e0da07}} 
+void {\bfseries Create\+H\+W\+Sale} (\mbox{\hyperlink{classSale}{Sale}} $\ast$newsale)
+\item 
+\mbox{\Hypertarget{classCompanyUplink_af2f4a247179748e1374d563af3f55597}\label{classCompanyUplink_af2f4a247179748e1374d563af3f55597}} 
+void {\bfseries Create\+S\+W\+Sale} (\mbox{\hyperlink{classSale}{Sale}} $\ast$newsale)
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a0a43949ca4e42e847c7cc60b327fdc5b}\label{classCompanyUplink_a0a43949ca4e42e847c7cc60b327fdc5b}} 
+void {\bfseries Create\+News} (\mbox{\hyperlink{classNews}{News}} $\ast$newnews)
+\item 
+\mbox{\Hypertarget{classCompanyUplink_af193832f00e6f460a9e816b1d661ff24}\label{classCompanyUplink_af193832f00e6f460a9e816b1d661ff24}} 
+\mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Get\+Mission} (int index)
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a40d501b8f2c794f344f1d524db5d0375}\label{classCompanyUplink_a40d501b8f2c794f344f1d524db5d0375}} 
+\mbox{\hyperlink{classSale}{Sale}} $\ast$ {\bfseries Get\+S\+W\+Sale} (int index)
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a39cd13f4176c36b0c25c12778476a24b}\label{classCompanyUplink_a39cd13f4176c36b0c25c12778476a24b}} 
+\mbox{\hyperlink{classSale}{Sale}} $\ast$ {\bfseries Get\+H\+W\+Sale} (int index)
+\item 
+\mbox{\Hypertarget{classCompanyUplink_aee29ab6837d8350939e1257a643af70a}\label{classCompanyUplink_aee29ab6837d8350939e1257a643af70a}} 
+\mbox{\hyperlink{classNews}{News}} $\ast$ {\bfseries Get\+News} (int index)
+\item 
+bool \mbox{\hyperlink{classCompanyUplink_aae148f12d221da4ae92941ae5be95501}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classCompanyUplink_a6b1af1f4d094a324e28c60163d8b0e21}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classCompanyUplink_a73aa61d6fa3ecdccba6ec8f7dd7a02ba}{Print}} () override
+\item 
+void \mbox{\hyperlink{classCompanyUplink_af498c3d889cf6816e16caa07baea4756}{Update}} () override
+\item 
+string \mbox{\hyperlink{classCompanyUplink_a05eb59ccb2cd2ebb52db86d6912f9e61}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classCompanyUplink_a436498b470f8630db0492c28c069b537}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a520dbc6954676022ef74950e0d7cf4c8}\label{classCompanyUplink_a520dbc6954676022ef74950e0d7cf4c8}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classMission}{Mission}} $\ast$ $>$ {\bfseries missions}
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a637f352bf16c1bf8ad22ea0b15114838}\label{classCompanyUplink_a637f352bf16c1bf8ad22ea0b15114838}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classSale}{Sale}} $\ast$ $>$ {\bfseries hw\+\_\+sales}
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a2e7b358deb03b3b4fee880826120e80d}\label{classCompanyUplink_a2e7b358deb03b3b4fee880826120e80d}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classSale}{Sale}} $\ast$ $>$ {\bfseries sw\+\_\+sales}
+\item 
+\mbox{\Hypertarget{classCompanyUplink_a2e884bd448c578c0e9461609c6cac4c5}\label{classCompanyUplink_a2e884bd448c578c0e9461609c6cac4c5}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classNews}{News}} $\ast$ $>$ {\bfseries news}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCompanyUplink_a05eb59ccb2cd2ebb52db86d6912f9e61}\label{classCompanyUplink_a05eb59ccb2cd2ebb52db86d6912f9e61}} 
+\index{CompanyUplink@{CompanyUplink}!GetID@{GetID}}
+\index{GetID@{GetID}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Company\+Uplink\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classCompany_a67b52884a1569b13808f2fa630b08ed1}{Company}}.
+
+\mbox{\Hypertarget{classCompanyUplink_a436498b470f8630db0492c28c069b537}\label{classCompanyUplink_a436498b470f8630db0492c28c069b537}} 
+\index{CompanyUplink@{CompanyUplink}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Company\+Uplink\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classCompany_ae8faeee3c2ea60c3e2d29bbacf76cd66}{Company}}.
+
+\mbox{\Hypertarget{classCompanyUplink_aae148f12d221da4ae92941ae5be95501}\label{classCompanyUplink_aae148f12d221da4ae92941ae5be95501}} 
+\index{CompanyUplink@{CompanyUplink}!Load@{Load}}
+\index{Load@{Load}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Company\+Uplink\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classCompany_a0d40a3e5592bf2f4352d8d191b9036a2}{Company}}.
+
+\mbox{\Hypertarget{classCompanyUplink_a73aa61d6fa3ecdccba6ec8f7dd7a02ba}\label{classCompanyUplink_a73aa61d6fa3ecdccba6ec8f7dd7a02ba}} 
+\index{CompanyUplink@{CompanyUplink}!Print@{Print}}
+\index{Print@{Print}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Company\+Uplink\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classCompany_afdc4015fbf456a752f452357f9e80280}{Company}}.
+
+\mbox{\Hypertarget{classCompanyUplink_a6b1af1f4d094a324e28c60163d8b0e21}\label{classCompanyUplink_a6b1af1f4d094a324e28c60163d8b0e21}} 
+\index{CompanyUplink@{CompanyUplink}!Save@{Save}}
+\index{Save@{Save}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Company\+Uplink\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classCompany_a93006e023f004ac28de099e39fa552e5}{Company}}.
+
+\mbox{\Hypertarget{classCompanyUplink_af498c3d889cf6816e16caa07baea4756}\label{classCompanyUplink_af498c3d889cf6816e16caa07baea4756}} 
+\index{CompanyUplink@{CompanyUplink}!Update@{Update}}
+\index{Update@{Update}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Company\+Uplink\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classCompany_ac07105b1be8feed54b1617a4dafa17a3}{Company}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/company/companyuplink.\+h\item 
+uplink/src/world/company/companyuplink.\+cpp\end{DoxyCompactItemize}

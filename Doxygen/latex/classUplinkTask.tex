@@ -1,0 +1,99 @@
+\hypertarget{classUplinkTask}{}\doxysection{Uplink\+Task Class Reference}
+\label{classUplinkTask}\index{UplinkTask@{UplinkTask}}
+
+
+Inheritance diagram for Uplink\+Task\+:
+% FIG 0
+
+
+Collaboration diagram for Uplink\+Task\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUplinkTask_ab759aaa54e100bd2c30622d3657b137a}\label{classUplinkTask_ab759aaa54e100bd2c30622d3657b137a}} 
+void {\bfseries Set\+Version} (float newversion)
+\item 
+\mbox{\Hypertarget{classUplinkTask_af521efa5d5e0425e77e69fd0065988d2}\label{classUplinkTask_af521efa5d5e0425e77e69fd0065988d2}} 
+void {\bfseries Set\+Follow\+Mouse} (bool newfollowmouse)
+\item 
+virtual void \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$newtargetobject, const string \&newtargetstring, int targetint)
+\item 
+virtual void \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Move\+To}} (int x, int y, int time\+\_\+ms)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUplinkTask_a5753b8ba8a06c5249e57ef08285672cd}\label{classUplinkTask_a5753b8ba8a06c5249e57ef08285672cd}} 
+float {\bfseries version}
+\item 
+\mbox{\Hypertarget{classUplinkTask_a4d02989cb362c174ec4217dba85a557a}\label{classUplinkTask_a4d02989cb362c174ec4217dba85a557a}} 
+bool {\bfseries followmouse}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$ \mbox{\hyperlink{classUplinkTask_a03e9349f77c427d75ac2a1ed678fd5fa}{targetobject}}
+\item 
+\mbox{\Hypertarget{classUplinkTask_a431d8a9db331ea3fd19fbb83e791531e}\label{classUplinkTask_a431d8a9db331ea3fd19fbb83e791531e}} 
+string {\bfseries targetstring}
+\item 
+\mbox{\Hypertarget{classUplinkTask_a1329f3ac049ced2a4b345a8f3d061f0f}\label{classUplinkTask_a1329f3ac049ced2a4b345a8f3d061f0f}} 
+int {\bfseries targetint}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}\label{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}} 
+\index{UplinkTask@{UplinkTask}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!UplinkTask@{UplinkTask}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Uplink\+Task\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classSecurityBypass_a2451e63841e32c63649583a6468a43e4}{Security\+Bypass}}, \mbox{\hyperlink{classVoiceAnalyser_a2dd987cc1231c6a9b009ee764535baf1}{Voice\+Analyser}}, \mbox{\hyperlink{classLogModifier_aac7cb150eb78419be2b312e2b0639477}{Log\+Modifier}}, \mbox{\hyperlink{classTutorial_a6b2aba355f9f4244e647d5dfb2e43208}{Tutorial}}, \mbox{\hyperlink{classLanSpoof_adddc78d07f8ddacdf23b3db66839af8d}{Lan\+Spoof}}, \mbox{\hyperlink{classLanProbe_a674c6123db199d3ea957aaeb2c1b6e24}{Lan\+Probe}}, \mbox{\hyperlink{classLanScan_a9c8dbc9dda00c5923d49f7a5df195336}{Lan\+Scan}}, \mbox{\hyperlink{classFirewallDisable_af378775aecf1ac33969834d039dca37e}{Firewall\+Disable}}, \mbox{\hyperlink{classGatewayNuke_a87637c98a213ed563b66dc6f0f5d6824}{Gateway\+Nuke}}, \mbox{\hyperlink{classFileCopier_a16fe70493e690e145587053d16a6c084}{File\+Copier}}, \mbox{\hyperlink{classProxyDisable_ab0850e63f1c78068d42e3c87067c8c3d}{Proxy\+Disable}}, \mbox{\hyperlink{classLogDeleter_a95c778817b70134d4d90294b0dbc286e}{Log\+Deleter}}, \mbox{\hyperlink{classDecrypter_ab9054aa71571a13292a43708bd0035ba}{Decrypter}}, \mbox{\hyperlink{classFileDeleter_a585d937b066457035ce22ffce48b9679}{File\+Deleter}}, \mbox{\hyperlink{classLanForce_a612a93b28d5d3b0f3f938c40c8db230c}{Lan\+Force}}, \mbox{\hyperlink{classLogUnDeleter_a5a963a3a409a9afef2517047fb1140a9}{Log\+Un\+Deleter}}, \mbox{\hyperlink{classTraceTracker_a7abdc80a9cf8f3a7336e9a5e13aee444}{Trace\+Tracker}}, \mbox{\hyperlink{classRevelationTracker_a78375b4c9e811760b94a9dc478870533}{Revelation\+Tracker}}, \mbox{\hyperlink{classMotionSensor_a1b1fafa74d2d92f865d41ce04939f6f9}{Motion\+Sensor}}, \mbox{\hyperlink{classUplinkAgentList_a12ac60f1edb16dcfb8947402297ed3d0}{Uplink\+Agent\+List}}, and \mbox{\hyperlink{classDecypher_a5adbd982b23c9eebea75b13fd4ac366d}{Decypher}}.
+
+\mbox{\Hypertarget{classUplinkTask_ae953c144491b9f57015fd3108cf35546}\label{classUplinkTask_ae953c144491b9f57015fd3108cf35546}} 
+\index{UplinkTask@{UplinkTask}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!UplinkTask@{UplinkTask}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Uplink\+Task\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{newtargetobject,  }\item[{const string \&}]{newtargetstring,  }\item[{int}]{targetint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the target of the program 
+\begin{DoxyParams}{Parameters}
+{\em newtargetobject} & The object to target \\
+\hline
+{\em newtargetstring} & \\
+\hline
+{\em targetint} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classSecurityBypass_a13c08e94320a613c100af6b3a9956286}{Security\+Bypass}}, \mbox{\hyperlink{classVoiceAnalyser_aca6d44d6006fa341c118e363000860f5}{Voice\+Analyser}}, \mbox{\hyperlink{classLogModifier_a24525f6a46136a803090cc211c0d6fe2}{Log\+Modifier}}, \mbox{\hyperlink{classLanSpoof_acab67ce44e69da2325a518d8c4952961}{Lan\+Spoof}}, \mbox{\hyperlink{classDictionaryHacker_a983dd88a02c3db700e19c2b4b92b5455}{Dictionary\+Hacker}}, \mbox{\hyperlink{classLanProbe_ab216de00051902725d0863dfc4fe1992}{Lan\+Probe}}, \mbox{\hyperlink{classLanScan_af9729590294f8bb024c93f139269c703}{Lan\+Scan}}, \mbox{\hyperlink{classFirewallDisable_a05ae51748945321a7f88b56440184a69}{Firewall\+Disable}}, \mbox{\hyperlink{classGatewayNuke_aac8ad969bfa7e53355c883908049fe7f}{Gateway\+Nuke}}, \mbox{\hyperlink{classFileCopier_a7247b7037fe89e73527dcc7f6cc37f68}{File\+Copier}}, \mbox{\hyperlink{classProxyDisable_ad4385a8b1fbb0be8737f28556c9e29f3}{Proxy\+Disable}}, \mbox{\hyperlink{classLogDeleter_adcb93c84be0069eba1ff7c5e390282b2}{Log\+Deleter}}, \mbox{\hyperlink{classDecrypter_aaa6bfe874769756e95cef0b7aa208bb5}{Decrypter}}, \mbox{\hyperlink{classFileDeleter_a3498ac4bbc3569714af38577908340f0}{File\+Deleter}}, \mbox{\hyperlink{classLanForce_ad09129d689dfab97046bf88cf0135528}{Lan\+Force}}, \mbox{\hyperlink{classLogUnDeleter_a58531958a9157ae8e6f6e212a73b1ac0}{Log\+Un\+Deleter}}, \mbox{\hyperlink{classMotionSensor_aa57ea8db473bfeaeb41db793af01aacd}{Motion\+Sensor}}, \mbox{\hyperlink{classPasswordBreaker_a8f8ef8f3b64f30ec6ab52fe6c8ff8593}{Password\+Breaker}}, \mbox{\hyperlink{classDecypher_a6ddf4887ce19079954152ee96c84aa9f}{Decypher}}, and \mbox{\hyperlink{classUplinkAgentList_a3edcaa034899728d6af870079cc92475}{Uplink\+Agent\+List}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classUplinkTask_a03e9349f77c427d75ac2a1ed678fd5fa}\label{classUplinkTask_a03e9349f77c427d75ac2a1ed678fd5fa}} 
+\index{UplinkTask@{UplinkTask}!targetobject@{targetobject}}
+\index{targetobject@{targetobject}!UplinkTask@{UplinkTask}}
+\doxysubsubsection{\texorpdfstring{targetobject}{targetobject}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUplinkObject}{Uplink\+Object}}$\ast$ Uplink\+Task\+::targetobject\hspace{0.3cm}{\ttfamily [protected]}}
+
+The object to target 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/uplinktask.\+h\item 
+uplink/src/interface/taskmanager/uplinktask.\+cpp\end{DoxyCompactItemize}

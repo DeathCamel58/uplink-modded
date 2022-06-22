@@ -1,0 +1,110 @@
+\hypertarget{classNuclearWarScreenInterface}{}\doxysection{Nuclear\+War\+Screen\+Interface Class Reference}
+\label{classNuclearWarScreenInterface}\index{NuclearWarScreenInterface@{NuclearWarScreenInterface}}
+
+
+Inheritance diagram for Nuclear\+War\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Nuclear\+War\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a44567ecca86465bf9b6b11bc844fbea3}\label{classNuclearWarScreenInterface_a44567ecca86465bf9b6b11bc844fbea3}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a05a2e34efd047cfb78e3906691684b29}\label{classNuclearWarScreenInterface_a05a2e34efd047cfb78e3906691684b29}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classNuclearWarScreenInterface_a5c3e36fb1d52be6683e923df97ec6b88}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classNuclearWarScreenInterface_aa12c6b1b3f0689800a8a99786ed774d3}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classNuclearWarScreenInterface_a1c4a26a0489f773b8a036a36da171b9b}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classNuclearWarScreenInterface_abdc452a2d7e4f226524a98d7bc8e6279}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a0abee9b4fcb8f6a6337fe50fcf033854}\label{classNuclearWarScreenInterface_a0abee9b4fcb8f6a6337fe50fcf033854}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a2eab04e80395342f880906b02c58d1ab}\label{classNuclearWarScreenInterface_a2eab04e80395342f880906b02c58d1ab}} 
+static void {\bfseries Draw\+Black} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a042e09e61ce9dc84a98ffb090e3ddfe2}\label{classNuclearWarScreenInterface_a042e09e61ce9dc84a98ffb090e3ddfe2}} 
+static void {\bfseries Draw\+Location} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a2142040f43fd55eb591685c5148c8e80}\label{classNuclearWarScreenInterface_a2142040f43fd55eb591685c5148c8e80}} 
+static void {\bfseries Click\+Location} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a9abdd30d14a49d5320d64250b128eb24}\label{classNuclearWarScreenInterface_a9abdd30d14a49d5320d64250b128eb24}} 
+static void {\bfseries Draw\+Main\+Map} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a7c996ac9d8e1e9a07f0472844c936e07}\label{classNuclearWarScreenInterface_a7c996ac9d8e1e9a07f0472844c936e07}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNuclearWarScreenInterface_ad964e74d1b3ad2ade1e54d89d184263d}\label{classNuclearWarScreenInterface_ad964e74d1b3ad2ade1e54d89d184263d}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{structNuclearWar__Nuke}{Nuclear\+War\+\_\+\+Nuke}} $\ast$ $>$ {\bfseries nukes}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a1c4a26a0489f773b8a036a36da171b9b}\label{classNuclearWarScreenInterface_a1c4a26a0489f773b8a036a36da171b9b}} 
+\index{NuclearWarScreenInterface@{NuclearWarScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!NuclearWarScreenInterface@{NuclearWarScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Nuclear\+War\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNuclearWarScreenInterface_a5c3e36fb1d52be6683e923df97ec6b88}\label{classNuclearWarScreenInterface_a5c3e36fb1d52be6683e923df97ec6b88}} 
+\index{NuclearWarScreenInterface@{NuclearWarScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!NuclearWarScreenInterface@{NuclearWarScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Nuclear\+War\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNuclearWarScreenInterface_abdc452a2d7e4f226524a98d7bc8e6279}\label{classNuclearWarScreenInterface_abdc452a2d7e4f226524a98d7bc8e6279}} 
+\index{NuclearWarScreenInterface@{NuclearWarScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!NuclearWarScreenInterface@{NuclearWarScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Nuclear\+War\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNuclearWarScreenInterface_aa12c6b1b3f0689800a8a99786ed774d3}\label{classNuclearWarScreenInterface_aa12c6b1b3f0689800a8a99786ed774d3}} 
+\index{NuclearWarScreenInterface@{NuclearWarScreenInterface}!Update@{Update}}
+\index{Update@{Update}!NuclearWarScreenInterface@{NuclearWarScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Nuclear\+War\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/nuclearwarscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/nuclearwarscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,97 @@
+\hypertarget{classClientStatusInterface}{}\doxysection{Client\+Status\+Interface Class Reference}
+\label{classClientStatusInterface}\index{ClientStatusInterface@{ClientStatusInterface}}
+
+
+Inheritance diagram for Client\+Status\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Client\+Status\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_aeb10c5e7873a59026c345c1cba356345}\label{classClientStatusInterface_aeb10c5e7873a59026c345c1cba356345}} 
+void {\bfseries Set\+Hardware} (const string \&newhw)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_aa2226d07106cb41657835b7826e258f7}\label{classClientStatusInterface_aa2226d07106cb41657835b7826e258f7}} 
+void {\bfseries Set\+H\+U\+D\+Upgrades} (const string \&newhud)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a24ee4afc478ffc8c0ef6eb4c39ad2cfb}\label{classClientStatusInterface_a24ee4afc478ffc8c0ef6eb4c39ad2cfb}} 
+void {\bfseries Set\+Connection} (const string \&newconnection)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a627ee2c45393092a5671d4d3d0669617}\label{classClientStatusInterface_a627ee2c45393092a5671d4d3d0669617}} 
+void {\bfseries Set\+Rating} (const string \&newrating)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a30aa15699f16c133089277b6e23f4a45}\label{classClientStatusInterface_a30aa15699f16c133089277b6e23f4a45}} 
+void {\bfseries Set\+Financial} (const string \&newfinancial)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a31fb0e463a75c6b906544f77662a7605}\label{classClientStatusInterface_a31fb0e463a75c6b906544f77662a7605}} 
+void {\bfseries Set\+Criminal} (const string \&newcriminal)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_ae6d08e529de5b133796763714eb91199}\label{classClientStatusInterface_ae6d08e529de5b133796763714eb91199}} 
+void {\bfseries Add\+News\+Story} (const string \&newsstory)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_ad42b7107abc8d4aa048793b1bf74c36c}\label{classClientStatusInterface_ad42b7107abc8d4aa048793b1bf74c36c}} 
+void {\bfseries Create} () override
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a4c3ec818a59a07094f981dc8581ec09a}\label{classClientStatusInterface_a4c3ec818a59a07094f981dc8581ec09a}} 
+void {\bfseries Remove} () override
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_aa60f95be0aee7d848fbff927b10f2398}\label{classClientStatusInterface_aa60f95be0aee7d848fbff927b10f2398}} 
+void {\bfseries Update} () override
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a9d4b7eea423cc65fac25628237a018ca}\label{classClientStatusInterface_a9d4b7eea423cc65fac25628237a018ca}} 
+bool {\bfseries Is\+Visible} () override
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_aa844c9ca106fc41c7b06924a58768440}\label{classClientStatusInterface_aa844c9ca106fc41c7b06924a58768440}} 
+int {\bfseries Screen\+ID} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a7f9d11583135ea27f8b23f813dade5e9}\label{classClientStatusInterface_a7f9d11583135ea27f8b23f813dade5e9}} 
+static void {\bfseries Background\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a3dee0188060081dce9a51c2a03762a9f}\label{classClientStatusInterface_a3dee0188060081dce9a51c2a03762a9f}} 
+static void {\bfseries Gateway\+Panel\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a149eff36b7c79cd5a7710a7ccc2d6728}\label{classClientStatusInterface_a149eff36b7c79cd5a7710a7ccc2d6728}} 
+static void {\bfseries Personal\+Panel\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a7a5e652bcd145f5cc37fef3ecd6a638b}\label{classClientStatusInterface_a7a5e652bcd145f5cc37fef3ecd6a638b}} 
+static void {\bfseries World\+Panel\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a9741c3eb1904092054919d388fcf32ec}\label{classClientStatusInterface_a9741c3eb1904092054919d388fcf32ec}} 
+static void {\bfseries Main\+Menu\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a491b43e79e527a2a98e6e286d8170fe3}\label{classClientStatusInterface_a491b43e79e527a2a98e6e286d8170fe3}} 
+char {\bfseries hardware} \mbox{[}256\mbox{]}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a461526b21029ab9d6fef99cff7d243f4}\label{classClientStatusInterface_a461526b21029ab9d6fef99cff7d243f4}} 
+char {\bfseries hudupgrades} \mbox{[}256\mbox{]}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a5e47093b70300ac00c671df15794f97e}\label{classClientStatusInterface_a5e47093b70300ac00c671df15794f97e}} 
+char {\bfseries connection} \mbox{[}128\mbox{]}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a8968c5c54be4d4764fdc0cf592721bee}\label{classClientStatusInterface_a8968c5c54be4d4764fdc0cf592721bee}} 
+char {\bfseries ratings} \mbox{[}256\mbox{]}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a7a7694ff2cb35230fce567c61ac32a87}\label{classClientStatusInterface_a7a7694ff2cb35230fce567c61ac32a87}} 
+char {\bfseries criminal} \mbox{[}256\mbox{]}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a79a2270e08e772eb01d6f3aca5075405}\label{classClientStatusInterface_a79a2270e08e772eb01d6f3aca5075405}} 
+char {\bfseries financial} \mbox{[}256\mbox{]}
+\item 
+\mbox{\Hypertarget{classClientStatusInterface_a3d0b502b937147e9bd9e63a31d587d33}\label{classClientStatusInterface_a3d0b502b937147e9bd9e63a31d587d33}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries news}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/network/interfaces/clientstatusinterface.\+h\item 
+uplink/src/network/interfaces/clientstatusinterface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,140 @@
+\hypertarget{classStatusInterface}{}\doxysection{Status\+Interface Class Reference}
+\label{classStatusInterface}\index{StatusInterface@{StatusInterface}}
+
+
+Screen that displays the user\textquotesingle{}s status.  
+
+
+
+
+{\ttfamily \#include $<$status\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Status\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Status\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classStatusInterface_af087322d1ed4c80bef794de464c49dc3}{Create}} () override
+\item 
+void \mbox{\hyperlink{classStatusInterface_a79c2c887099e9c703d72208d65e5b0bf}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classStatusInterface_ad31c52e39d868fda2090903bfc57cc9f}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classStatusInterface_a28b3ae13695b2bc9c69b621fab2c0a8c}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classStatusInterface_a7f04a728da993e290777105e21d64e16}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classStatusInterface_a75215af98ec9265a7a427667e16947cc}{Mini\+Title\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classStatusInterface_ad4b9bbc1d3c71ad188072d18ce23a5fd}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that displays the user\textquotesingle{}s status. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStatusInterface_af087322d1ed4c80bef794de464c49dc3}\label{classStatusInterface_af087322d1ed4c80bef794de464c49dc3}} 
+\index{StatusInterface@{StatusInterface}!Create@{Create}}
+\index{Create@{Create}!StatusInterface@{StatusInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Status\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classStatusInterface_a28b3ae13695b2bc9c69b621fab2c0a8c}\label{classStatusInterface_a28b3ae13695b2bc9c69b621fab2c0a8c}} 
+\index{StatusInterface@{StatusInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!StatusInterface@{StatusInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Status\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classStatusInterface_a75215af98ec9265a7a427667e16947cc}\label{classStatusInterface_a75215af98ec9265a7a427667e16947cc}} 
+\index{StatusInterface@{StatusInterface}!MiniTitleDraw@{MiniTitleDraw}}
+\index{MiniTitleDraw@{MiniTitleDraw}!StatusInterface@{StatusInterface}}
+\doxysubsubsection{\texorpdfstring{MiniTitleDraw()}{MiniTitleDraw()}}
+{\footnotesize\ttfamily void Status\+Interface\+::\+Mini\+Title\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the section titles 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for section titles \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classStatusInterface_a79c2c887099e9c703d72208d65e5b0bf}\label{classStatusInterface_a79c2c887099e9c703d72208d65e5b0bf}} 
+\index{StatusInterface@{StatusInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!StatusInterface@{StatusInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Status\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classStatusInterface_a7f04a728da993e290777105e21d64e16}\label{classStatusInterface_a7f04a728da993e290777105e21d64e16}} 
+\index{StatusInterface@{StatusInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!StatusInterface@{StatusInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Status\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classStatusInterface_ad4b9bbc1d3c71ad188072d18ce23a5fd}\label{classStatusInterface_ad4b9bbc1d3c71ad188072d18ce23a5fd}} 
+\index{StatusInterface@{StatusInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!StatusInterface@{StatusInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void Status\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for the title \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classStatusInterface_ad31c52e39d868fda2090903bfc57cc9f}\label{classStatusInterface_ad31c52e39d868fda2090903bfc57cc9f}} 
+\index{StatusInterface@{StatusInterface}!Update@{Update}}
+\index{Update@{Update}!StatusInterface@{StatusInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Status\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}{Local\+Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/status\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/status\+\_\+interface.\+cpp\end{DoxyCompactItemize}

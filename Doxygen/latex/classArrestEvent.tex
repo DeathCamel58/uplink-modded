@@ -1,0 +1,173 @@
+\hypertarget{classArrestEvent}{}\doxysection{Arrest\+Event Class Reference}
+\label{classArrestEvent}\index{ArrestEvent@{ArrestEvent}}
+
+
+Inheritance diagram for Arrest\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for Arrest\+Event\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArrestEvent_a2a28c9ede8e26ba0138a464bc3c25bc8}\label{classArrestEvent_a2a28c9ede8e26ba0138a464bc3c25bc8}} 
+void {\bfseries Set\+Name} (const string \&newname)
+\item 
+\mbox{\Hypertarget{classArrestEvent_a89de5e87e38339ff79417a920dcaff08}\label{classArrestEvent_a89de5e87e38339ff79417a920dcaff08}} 
+void {\bfseries Set\+Reason} (const string \&newreason)
+\item 
+\mbox{\Hypertarget{classArrestEvent_a76e5e8621d141538aaa0ea3309b7dd55}\label{classArrestEvent_a76e5e8621d141538aaa0ea3309b7dd55}} 
+void {\bfseries Set\+IP} (const string \&newip)
+\item 
+void \mbox{\hyperlink{classArrestEvent_a669d0d6a102255b09d2bd13d0a166fcf}{Run}} () override
+\item 
+string \mbox{\hyperlink{classArrestEvent_aa09af53a03767134844e3df2f2436e9f}{Get\+Short\+String}} () override
+\item 
+string \mbox{\hyperlink{classArrestEvent_a4ee7a3e6b1827bc62563ff42667ac7d3}{Get\+Long\+String}} () override
+\item 
+bool \mbox{\hyperlink{classArrestEvent_a77ac4dabdd76943fe89ec4c4b01b4201}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classArrestEvent_a48d125edbeac476a46c6011d16dbf4dd}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classArrestEvent_a76389f10d0925dfea138fa781945ce10}{Print}} () override
+\item 
+string \mbox{\hyperlink{classArrestEvent_a0293669fc4b549358eb69d8c99153c5e}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classArrestEvent_ae39feba9a9d01d2dd832974130571e86}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArrestEvent_a263527b34ccb6b805a52a7c52406d79b}\label{classArrestEvent_a263527b34ccb6b805a52a7c52406d79b}} 
+string {\bfseries name}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArrestEvent_af1b3224e6542988c2aaff3510ce0d7fe}\label{classArrestEvent_af1b3224e6542988c2aaff3510ce0d7fe}} 
+string {\bfseries reason}
+\item 
+\mbox{\Hypertarget{classArrestEvent_a6c433fc003ea4e6680b731bc04e2cd19}\label{classArrestEvent_a6c433fc003ea4e6680b731bc04e2cd19}} 
+char $\ast$ {\bfseries ip}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classArrestEvent_a0293669fc4b549358eb69d8c99153c5e}\label{classArrestEvent_a0293669fc4b549358eb69d8c99153c5e}} 
+\index{ArrestEvent@{ArrestEvent}!GetID@{GetID}}
+\index{GetID@{GetID}!ArrestEvent@{ArrestEvent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Arrest\+Event\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classArrestEvent_a4ee7a3e6b1827bc62563ff42667ac7d3}\label{classArrestEvent_a4ee7a3e6b1827bc62563ff42667ac7d3}} 
+\index{ArrestEvent@{ArrestEvent}!GetLongString@{GetLongString}}
+\index{GetLongString@{GetLongString}!ArrestEvent@{ArrestEvent}}
+\doxysubsubsection{\texorpdfstring{GetLongString()}{GetLongString()}}
+{\footnotesize\ttfamily string Arrest\+Event\+::\+Get\+Long\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the long string version of the event \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classArrestEvent_ae39feba9a9d01d2dd832974130571e86}\label{classArrestEvent_ae39feba9a9d01d2dd832974130571e86}} 
+\index{ArrestEvent@{ArrestEvent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!ArrestEvent@{ArrestEvent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Arrest\+Event\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classArrestEvent_aa09af53a03767134844e3df2f2436e9f}\label{classArrestEvent_aa09af53a03767134844e3df2f2436e9f}} 
+\index{ArrestEvent@{ArrestEvent}!GetShortString@{GetShortString}}
+\index{GetShortString@{GetShortString}!ArrestEvent@{ArrestEvent}}
+\doxysubsubsection{\texorpdfstring{GetShortString()}{GetShortString()}}
+{\footnotesize\ttfamily string Arrest\+Event\+::\+Get\+Short\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the short string version of the event \begin{DoxyReturn}{Returns}
+Short string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classArrestEvent_a77ac4dabdd76943fe89ec4c4b01b4201}\label{classArrestEvent_a77ac4dabdd76943fe89ec4c4b01b4201}} 
+\index{ArrestEvent@{ArrestEvent}!Load@{Load}}
+\index{Load@{Load}!ArrestEvent@{ArrestEvent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Arrest\+Event\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classArrestEvent_a76389f10d0925dfea138fa781945ce10}\label{classArrestEvent_a76389f10d0925dfea138fa781945ce10}} 
+\index{ArrestEvent@{ArrestEvent}!Print@{Print}}
+\index{Print@{Print}!ArrestEvent@{ArrestEvent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Arrest\+Event\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classArrestEvent_a669d0d6a102255b09d2bd13d0a166fcf}\label{classArrestEvent_a669d0d6a102255b09d2bd13d0a166fcf}} 
+\index{ArrestEvent@{ArrestEvent}!Run@{Run}}
+\index{Run@{Run}!ArrestEvent@{ArrestEvent}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Arrest\+Event\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Runs the event 
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classArrestEvent_a48d125edbeac476a46c6011d16dbf4dd}\label{classArrestEvent_a48d125edbeac476a46c6011d16dbf4dd}} 
+\index{ArrestEvent@{ArrestEvent}!Save@{Save}}
+\index{Save@{Save}!ArrestEvent@{ArrestEvent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Arrest\+Event\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/arrestevent.\+h\item 
+uplink/src/world/scheduler/arrestevent.\+cpp\end{DoxyCompactItemize}

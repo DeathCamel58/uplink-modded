@@ -1,0 +1,107 @@
+\hypertarget{classRecordScreenInterface}{}\doxysection{Record\+Screen\+Interface Class Reference}
+\label{classRecordScreenInterface}\index{RecordScreenInterface@{RecordScreenInterface}}
+
+
+Inheritance diagram for Record\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Record\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecordScreenInterface_a5e09ed05ba368d8c1b466ac36b3c77bb}\label{classRecordScreenInterface_a5e09ed05ba368d8c1b466ac36b3c77bb}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classRecordScreenInterface_ab0c9fc2f91b177216e133d509e950784}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classRecordScreenInterface_a36799de298fe86e7c1e5c41c1ad08dec}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classRecordScreenInterface_a42857ea60d0927edd64811483f78d815}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classRecordScreenInterface_aac5f38652b3a5d0f565ef26a0be077d9}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classRecordScreenInterface_a64e8a4fdc433cecdf17eddbb0082cc64}\label{classRecordScreenInterface_a64e8a4fdc433cecdf17eddbb0082cc64}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecordScreenInterface_ac7b8a5354a9b213597b7e8ab7fd69aaf}\label{classRecordScreenInterface_ac7b8a5354a9b213597b7e8ab7fd69aaf}} 
+static void {\bfseries Scroll\+Left\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRecordScreenInterface_a90836db63a07732c45b9f51cd941ae45}\label{classRecordScreenInterface_a90836db63a07732c45b9f51cd941ae45}} 
+static void {\bfseries Scroll\+Right\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRecordScreenInterface_a6fb5e5d97b6b81e943a6d9096e2e55b9}\label{classRecordScreenInterface_a6fb5e5d97b6b81e943a6d9096e2e55b9}} 
+static void {\bfseries Commit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRecordScreenInterface_ac7134e95a1deb32f9dd6afc41811930d}\label{classRecordScreenInterface_ac7134e95a1deb32f9dd6afc41811930d}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRecordScreenInterface_aa72a18642935d5b43ca5119280c8ee44}\label{classRecordScreenInterface_aa72a18642935d5b43ca5119280c8ee44}} 
+static void {\bfseries Create\+Record} (int index)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecordScreenInterface_ae7ce4989284b85137bd9131b41ab6c79}\label{classRecordScreenInterface_ae7ce4989284b85137bd9131b41ab6c79}} 
+static int {\bfseries recordindex} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRecordScreenInterface_a42857ea60d0927edd64811483f78d815}\label{classRecordScreenInterface_a42857ea60d0927edd64811483f78d815}} 
+\index{RecordScreenInterface@{RecordScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!RecordScreenInterface@{RecordScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Record\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRecordScreenInterface_ab0c9fc2f91b177216e133d509e950784}\label{classRecordScreenInterface_ab0c9fc2f91b177216e133d509e950784}} 
+\index{RecordScreenInterface@{RecordScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!RecordScreenInterface@{RecordScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Record\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRecordScreenInterface_aac5f38652b3a5d0f565ef26a0be077d9}\label{classRecordScreenInterface_aac5f38652b3a5d0f565ef26a0be077d9}} 
+\index{RecordScreenInterface@{RecordScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!RecordScreenInterface@{RecordScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Record\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRecordScreenInterface_a36799de298fe86e7c1e5c41c1ad08dec}\label{classRecordScreenInterface_a36799de298fe86e7c1e5c41c1ad08dec}} 
+\index{RecordScreenInterface@{RecordScreenInterface}!Update@{Update}}
+\index{Update@{Update}!RecordScreenInterface@{RecordScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Record\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/recordscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/recordscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,161 @@
+\hypertarget{classTask}{}\doxysection{Task Class Reference}
+\label{classTask}\index{Task@{Task}}
+
+
+Base \mbox{\hyperlink{classTask}{Task}} Class.  
+
+
+
+
+{\ttfamily \#include $<$task.\+h$>$}
+
+
+
+Inheritance diagram for Task\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTask_a770fac9c4501a2ad880a02f605119c87}{Set\+Callback}} (void($\ast$newcallback)())
+\item 
+virtual void \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Initialise}} ()
+\item 
+void \mbox{\hyperlink{classTask_a3d84b51a82f4b01916d7ff993b799788}{Tick}} ()
+\item 
+virtual void \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Tick}} (int n)
+\item 
+virtual void \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Create\+Interface}} ()
+\item 
+virtual void \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Remove\+Interface}} ()
+\item 
+virtual void \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Show\+Interface}} ()
+\item 
+virtual bool \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Is\+Interface\+Visible}} ()
+\item 
+int \mbox{\hyperlink{classTask_aeb7ea1397a300e6027240842f28ac25d}{Get\+P\+ID}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \mbox{\hyperlink{classTask_ab9376944d0205b89ab3fcb86b2dc7d67}{callback}} )()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base \mbox{\hyperlink{classTask}{Task}} Class. 
+
+Base \mbox{\hyperlink{classTask}{Task}} Class Any task that you wish to run on the Van\+Bakel \mbox{\hyperlink{classTask}{Task}} Manager must derive from this class and implement the virtual functions. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTask_afc5a7bb00adc85d7b26f58a2f052923e}\label{classTask_afc5a7bb00adc85d7b26f58a2f052923e}} 
+\index{Task@{Task}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Task\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented in \mbox{\hyperlink{classSecurityBypass_a4d666701ae1a4f0a25b01c11294c155a}{Security\+Bypass}}, \mbox{\hyperlink{classVoiceAnalyser_ae3dd4d9bc1fca69597a0ce28dd5e2a92}{Voice\+Analyser}}, \mbox{\hyperlink{classLogModifier_ac3a53e060e462172f246f054d04110ea}{Log\+Modifier}}, \mbox{\hyperlink{classLanSpoof_a1d3a371c95e5330bc90b4031c89be00e}{Lan\+Spoof}}, \mbox{\hyperlink{classTutorial_a58aedd134895a23256743b0a5f6cebda}{Tutorial}}, \mbox{\hyperlink{classLanProbe_a48d22fefb8123ffc5ef8f0fa43c33495}{Lan\+Probe}}, \mbox{\hyperlink{classLanScan_a9201a50208550e47a4af7e2c78546239}{Lan\+Scan}}, \mbox{\hyperlink{classDictionaryHacker_a07afa82caccc901dfec86f806a91dccf}{Dictionary\+Hacker}}, \mbox{\hyperlink{classFirewallDisable_a79ae121f926855be255a6b70b39c251e}{Firewall\+Disable}}, \mbox{\hyperlink{classGatewayNuke_ae33d725b4db6a64e833ebeba1dfa5a42}{Gateway\+Nuke}}, \mbox{\hyperlink{classFileCopier_af001615633623b263a209c61eaadbd1d}{File\+Copier}}, \mbox{\hyperlink{classProxyDisable_a3278a5588ee0616cb9310c260e5f9fb5}{Proxy\+Disable}}, \mbox{\hyperlink{classLogDeleter_a93d48f436db92a3c1c0fd779a1387475}{Log\+Deleter}}, \mbox{\hyperlink{classDecrypter_a1f12d233358f248d646efe0ad0ce773a}{Decrypter}}, \mbox{\hyperlink{classFileDeleter_a685ab32490fc7ca421f935cbe642814f}{File\+Deleter}}, \mbox{\hyperlink{classLanForce_aa172fd0a68f7e0deb0dbdb3e72353e5d}{Lan\+Force}}, \mbox{\hyperlink{classLogUnDeleter_a36ef717b2809a933c36b3c29d96a0f9a}{Log\+Un\+Deleter}}, \mbox{\hyperlink{classRevelationTracker_a88e7152a7a60ebbc5db6a524dd172571}{Revelation\+Tracker}}, \mbox{\hyperlink{classTraceTracker_a629684d9aeb757334c59acccc2cb182d}{Trace\+Tracker}}, \mbox{\hyperlink{classMotionSensor_a1b91dc40b3d4d39cc3426341ab38fd56}{Motion\+Sensor}}, \mbox{\hyperlink{classIPLookup_acc4473a4681559fbc5896b934222f501}{I\+P\+Lookup}}, \mbox{\hyperlink{classRevelation_a70d3991fc0f5849b60a54ac692d2ecf8}{Revelation}}, \mbox{\hyperlink{classDefrag_a70f69d20ef09c75390b8436b2d4ce6c0}{Defrag}}, \mbox{\hyperlink{classUplinkAgentList_a1a14d8251c5066a0a32131981416c50c}{Uplink\+Agent\+List}}, \mbox{\hyperlink{classDecypher_a57a286e0a8a15b1eefc67371367a2bc3}{Decypher}}, \mbox{\hyperlink{classPasswordBreaker_ac88f599fa83620280875758be8447c74}{Password\+Breaker}}, \mbox{\hyperlink{classIPProbe_aa775b4148cfbd5621ca7e1e8ca7003da}{I\+P\+Probe}}, and \mbox{\hyperlink{classFaith_a8243485f83870c6eedec5735fabb3931}{Faith}}.
+
+\mbox{\Hypertarget{classTask_aeb7ea1397a300e6027240842f28ac25d}\label{classTask_aeb7ea1397a300e6027240842f28ac25d}} 
+\index{Task@{Task}!GetPID@{GetPID}}
+\index{GetPID@{GetPID}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{GetPID()}{GetPID()}}
+{\footnotesize\ttfamily int Task\+::\+Get\+P\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Looks up the P\+ID of this task \begin{DoxyReturn}{Returns}
+The P\+ID of the task 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTask_a3ce6ff4301443e9904e3fe8001828700}\label{classTask_a3ce6ff4301443e9904e3fe8001828700}} 
+\index{Task@{Task}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Task\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented in \mbox{\hyperlink{classSecurityBypass_aa4def9e555520aae46263101b939d1a3}{Security\+Bypass}}, \mbox{\hyperlink{classVoiceAnalyser_ae3d19ed537eba2402086cc6720e2769b}{Voice\+Analyser}}, \mbox{\hyperlink{classLogModifier_a32013551a999a5ff2a47941946475544}{Log\+Modifier}}, \mbox{\hyperlink{classLanSpoof_aed29bc1aff7f2dff750334c66d1cf730}{Lan\+Spoof}}, \mbox{\hyperlink{classLanProbe_ae7127740b0051d8b6f63bcc08bed941d}{Lan\+Probe}}, \mbox{\hyperlink{classLanScan_a2a58098aecd4bb163c2f465c5a5f1a9d}{Lan\+Scan}}, \mbox{\hyperlink{classDictionaryHacker_acc391f6816d3984f6b370724bec08300}{Dictionary\+Hacker}}, \mbox{\hyperlink{classFirewallDisable_a7dc06c80fbf6b5a18360bf9e1a656711}{Firewall\+Disable}}, \mbox{\hyperlink{classGatewayNuke_ae124a29dc07f93461ee455156d2c1ad6}{Gateway\+Nuke}}, \mbox{\hyperlink{classTutorial_abd5550f0f48ad0d3b1de866a09e8802a}{Tutorial}}, \mbox{\hyperlink{classFileCopier_ad4b9dd071ebfff15034c995b32970d61}{File\+Copier}}, \mbox{\hyperlink{classProxyDisable_a044c0ac1df2210952b773424e13b48a4}{Proxy\+Disable}}, \mbox{\hyperlink{classLogDeleter_a8d65c4e4e3566e9791db2d6468974589}{Log\+Deleter}}, \mbox{\hyperlink{classDecrypter_a0fc451265daa9cda202da15ca283a86e}{Decrypter}}, \mbox{\hyperlink{classFileDeleter_ac9856a3489c4abd70cf98e98b69e1003}{File\+Deleter}}, \mbox{\hyperlink{classLanForce_a883f3cdff3ec7e0cb509c9f4ce08c0a4}{Lan\+Force}}, \mbox{\hyperlink{classLogUnDeleter_aef92a02e2fc2fad9024c50a530060a10}{Log\+Un\+Deleter}}, \mbox{\hyperlink{classRevelationTracker_acffd4a9aa68b28adee376aa4c5ecf3ea}{Revelation\+Tracker}}, \mbox{\hyperlink{classMotionSensor_ab9a07ad37488a6e272de5404dd99bbf9}{Motion\+Sensor}}, \mbox{\hyperlink{classTraceTracker_ac065cb3122279645b36fe96ac65296ff}{Trace\+Tracker}}, \mbox{\hyperlink{classIPLookup_aa6685a208a94f695093fe1ff3d157f67}{I\+P\+Lookup}}, \mbox{\hyperlink{classRevelation_ac510252158176d778317b59f4ced9680}{Revelation}}, \mbox{\hyperlink{classDefrag_a9ce302e7a0399adbc1f3ef87ca3a659a}{Defrag}}, \mbox{\hyperlink{classDecypher_a83829f50cce45ad0c322010fb678e68b}{Decypher}}, \mbox{\hyperlink{classPasswordBreaker_a84e3c9873020fe4aa637a6405207177b}{Password\+Breaker}}, \mbox{\hyperlink{classUplinkAgentList_a3cbce3c0b9637eb291b0888d13589fcd}{Uplink\+Agent\+List}}, \mbox{\hyperlink{classIPProbe_a066c71e70b39a54ad36cbd35372b53a1}{I\+P\+Probe}}, and \mbox{\hyperlink{classFaith_a0d5003a9060b84ee6fbef3075508a8b1}{Faith}}.
+
+\mbox{\Hypertarget{classTask_a2f13c630efcc0634e9a4f13b30f104a7}\label{classTask_a2f13c630efcc0634e9a4f13b30f104a7}} 
+\index{Task@{Task}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Task\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classSecurityBypass_ab005611911ce97285938caf2a3a7df21}{Security\+Bypass}}, \mbox{\hyperlink{classVoiceAnalyser_a142c16b4e5c0f7fbd145f776c4491edb}{Voice\+Analyser}}, \mbox{\hyperlink{classLogModifier_ab8b80129ea4480e5d52ad67858ef6dbf}{Log\+Modifier}}, \mbox{\hyperlink{classLanSpoof_ae918724a1487863b0560d220a637609f}{Lan\+Spoof}}, \mbox{\hyperlink{classLanProbe_adaceac274f382fa994dd9cac3e5cee2a}{Lan\+Probe}}, \mbox{\hyperlink{classLanScan_a72f79d977cfe9716d1060e7aadd1edc7}{Lan\+Scan}}, \mbox{\hyperlink{classTutorial_ab31a2e310c3ece7a60293953ca70c3ff}{Tutorial}}, \mbox{\hyperlink{classDictionaryHacker_a3f4d7c5eb4b6e88e714747b73438cab7}{Dictionary\+Hacker}}, \mbox{\hyperlink{classFirewallDisable_aff1dace82390b31d4166ea08b8773287}{Firewall\+Disable}}, \mbox{\hyperlink{classGatewayNuke_a0331dbd0dc3df642c35addfc2db66ca4}{Gateway\+Nuke}}, \mbox{\hyperlink{classFileCopier_a779c0fd3e4c91a576e2a73b7cfc98808}{File\+Copier}}, \mbox{\hyperlink{classProxyDisable_a3e6d020ffcf64d29c17feccd0e5923b5}{Proxy\+Disable}}, \mbox{\hyperlink{classLogDeleter_abbd1e2966cb7cc833cfa190373255376}{Log\+Deleter}}, \mbox{\hyperlink{classDecrypter_a0ab1db8832dd2087e46ecb3c06a1734e}{Decrypter}}, \mbox{\hyperlink{classFileDeleter_a6eb16d8f5897238b2161b031fc6a5871}{File\+Deleter}}, \mbox{\hyperlink{classLanForce_a5caa13ee5481ff2e1717c1aea747d6f6}{Lan\+Force}}, \mbox{\hyperlink{classLogUnDeleter_a32a835821c466db079de0c0be9be87bd}{Log\+Un\+Deleter}}, \mbox{\hyperlink{classRevelationTracker_a5b2a202f55a09403000016cf2bed47e5}{Revelation\+Tracker}}, \mbox{\hyperlink{classTraceTracker_a0ae540d95605441acd483290cbe7af9f}{Trace\+Tracker}}, \mbox{\hyperlink{classMotionSensor_a8e6607d6e23907c0e7190e7e413836bf}{Motion\+Sensor}}, \mbox{\hyperlink{classIPLookup_ad4586a22c9294838dfcbf063ddc91a80}{I\+P\+Lookup}}, \mbox{\hyperlink{classRevelation_a14f519a00a106ae9638ff82ab5073151}{Revelation}}, \mbox{\hyperlink{classDefrag_a3439734e0597459991c53b17c54a2098}{Defrag}}, \mbox{\hyperlink{classUplinkAgentList_a8d603bbe6f8a5cb4601136cce44ecd14}{Uplink\+Agent\+List}}, \mbox{\hyperlink{classDecypher_a49340e2d183bcba178f8c06798eaf6df}{Decypher}}, \mbox{\hyperlink{classPasswordBreaker_a3f0a6f35da577c93f715291fa5d0ec01}{Password\+Breaker}}, \mbox{\hyperlink{classIPProbe_a21b4f1dc84d0da757c435fad47bde47f}{I\+P\+Probe}}, and \mbox{\hyperlink{classFaith_aa0f5e67d37578854cd39e75569d41664}{Faith}}.
+
+\mbox{\Hypertarget{classTask_af5d8d6593953be356bde92514921f879}\label{classTask_af5d8d6593953be356bde92514921f879}} 
+\index{Task@{Task}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Task\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented in \mbox{\hyperlink{classSecurityBypass_a4aa6dcc3b48a168fba5c5808410387e3}{Security\+Bypass}}, \mbox{\hyperlink{classVoiceAnalyser_a3f8443ee4550ec2c59d058f1fc5c4c43}{Voice\+Analyser}}, \mbox{\hyperlink{classLogModifier_a73811d685baf0a84a25fb4f29cfcaec4}{Log\+Modifier}}, \mbox{\hyperlink{classLanSpoof_a8a1a928a86464b410ba734d356565dc7}{Lan\+Spoof}}, \mbox{\hyperlink{classTutorial_a65bc5b72b00f0bac153619ee0ee24979}{Tutorial}}, \mbox{\hyperlink{classLanProbe_a796554b3d9ec361e1abad8d2ca8a3d08}{Lan\+Probe}}, \mbox{\hyperlink{classLanScan_a16cb419e5fba523125c57217dc0f93cf}{Lan\+Scan}}, \mbox{\hyperlink{classDictionaryHacker_ab4a36049abbb9c4e8bac178ecaec8e70}{Dictionary\+Hacker}}, \mbox{\hyperlink{classFirewallDisable_abe3a2cebd63c9254dcb308ea3cdde45b}{Firewall\+Disable}}, \mbox{\hyperlink{classGatewayNuke_aced114ac6801abbd988075a8836ce2e7}{Gateway\+Nuke}}, \mbox{\hyperlink{classFileCopier_a6ba038349ae0e470a01fe812195c7fd3}{File\+Copier}}, \mbox{\hyperlink{classProxyDisable_aeddb37a45b8324b37ce326de6f0074cf}{Proxy\+Disable}}, \mbox{\hyperlink{classLogDeleter_a878a337219bef8fa6a2335723961d787}{Log\+Deleter}}, \mbox{\hyperlink{classDecrypter_ad63077b45a6a557cf3a269f6ff092976}{Decrypter}}, \mbox{\hyperlink{classFileDeleter_a7d788771eaa962e4d70b966055e647f0}{File\+Deleter}}, \mbox{\hyperlink{classLanForce_af9dc467fa58d093d469a60fd950564b6}{Lan\+Force}}, \mbox{\hyperlink{classLogUnDeleter_a9f18f5adac4ab1d327b10fda5c599418}{Log\+Un\+Deleter}}, \mbox{\hyperlink{classRevelationTracker_a6b409b63759502a40d8be7bea5d91c5b}{Revelation\+Tracker}}, \mbox{\hyperlink{classTraceTracker_a8cd9694e83c00126272874065d1d6e87}{Trace\+Tracker}}, \mbox{\hyperlink{classMotionSensor_a265abdb13921974cb559c25e873db0b1}{Motion\+Sensor}}, \mbox{\hyperlink{classIPLookup_aec2e7d0ed64517236ee483c940e02574}{I\+P\+Lookup}}, \mbox{\hyperlink{classRevelation_acd1fbc8ababe17343c624de88349f8f8}{Revelation}}, \mbox{\hyperlink{classDefrag_a0b8c85ae658103ba43a27ac66a56f713}{Defrag}}, \mbox{\hyperlink{classUplinkAgentList_a6a4b94a9aa1b20e149b7628e6b28dbea}{Uplink\+Agent\+List}}, \mbox{\hyperlink{classDecypher_a8f3e4ffb76a959be3bab826f22db5644}{Decypher}}, \mbox{\hyperlink{classPasswordBreaker_af7e6e15503867e499e8e28c5a62c25f0}{Password\+Breaker}}, \mbox{\hyperlink{classIPProbe_ab7c35af7d31b288fc6f3c13074b15e00}{I\+P\+Probe}}, and \mbox{\hyperlink{classFaith_a6bbec36560fc6218c3708a1f4f207c8f}{Faith}}.
+
+\mbox{\Hypertarget{classTask_a770fac9c4501a2ad880a02f605119c87}\label{classTask_a770fac9c4501a2ad880a02f605119c87}} 
+\index{Task@{Task}!SetCallback@{SetCallback}}
+\index{SetCallback@{SetCallback}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{SetCallback()}{SetCallback()}}
+{\footnotesize\ttfamily void Task\+::\+Set\+Callback (\begin{DoxyParamCaption}\item[{void($\ast$)()}]{newcallback }\end{DoxyParamCaption})}
+
+Sets a callback function to run when this task finishes 
+\begin{DoxyParams}{Parameters}
+{\em newcallback} & The callback function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTask_ad93eddd8f638cd6784ce8079c53c39fc}\label{classTask_ad93eddd8f638cd6784ce8079c53c39fc}} 
+\index{Task@{Task}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Task\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented in \mbox{\hyperlink{classSecurityBypass_a836ab63f1adbfa04f751c23d45fad779}{Security\+Bypass}}, \mbox{\hyperlink{classVoiceAnalyser_aa13ce31c05fdca4df28cf82e79b98ebc}{Voice\+Analyser}}, \mbox{\hyperlink{classLogModifier_a69fa84f220f877e13daeb9dbc3996768}{Log\+Modifier}}, \mbox{\hyperlink{classLanSpoof_a530f5124b45b09830057e55703b0ec5d}{Lan\+Spoof}}, \mbox{\hyperlink{classTutorial_ac94a221d254af0182e6bb191a6028fc3}{Tutorial}}, \mbox{\hyperlink{classLanProbe_a4ce51e817dfdfcef78a59fa81eafe21f}{Lan\+Probe}}, \mbox{\hyperlink{classLanScan_ab8e7d6359a5a3d93d54430c122e5a077}{Lan\+Scan}}, \mbox{\hyperlink{classDictionaryHacker_a80bcf0b2d466fe807a2852621561ecc7}{Dictionary\+Hacker}}, \mbox{\hyperlink{classFirewallDisable_a77963821c74a050249f3c5c8b56d8b6b}{Firewall\+Disable}}, \mbox{\hyperlink{classGatewayNuke_ad6ec4e0b7a2221c2cbb3c76eb55a3af6}{Gateway\+Nuke}}, \mbox{\hyperlink{classFileCopier_ac151be5a79c93f1aef80e6abf6415b67}{File\+Copier}}, \mbox{\hyperlink{classProxyDisable_a48a1ff211ac1176c88947420c451a690}{Proxy\+Disable}}, \mbox{\hyperlink{classLogDeleter_a94dae6960d037d6de2666770c0ff68f1}{Log\+Deleter}}, \mbox{\hyperlink{classDecrypter_a805aabe36b5c2d4f033a6b72785a1a7d}{Decrypter}}, \mbox{\hyperlink{classFileDeleter_ad849925412c6d9e6c36cab88dc0f871c}{File\+Deleter}}, \mbox{\hyperlink{classLanForce_a649a3642455c94d0ea6109aef4499f1e}{Lan\+Force}}, \mbox{\hyperlink{classLogUnDeleter_a255afd0bd6b7aa0e392f0697e5170491}{Log\+Un\+Deleter}}, \mbox{\hyperlink{classRevelationTracker_a6d2ac1eea1d09d37669e9137546f9fd3}{Revelation\+Tracker}}, \mbox{\hyperlink{classTraceTracker_a7c366d4519f9c54d4d3814f410e1cd91}{Trace\+Tracker}}, \mbox{\hyperlink{classMotionSensor_affc1fad4d472c70065881842b683e987}{Motion\+Sensor}}, \mbox{\hyperlink{classIPLookup_a2c94eaea656fb92fefa43b97e3192436}{I\+P\+Lookup}}, \mbox{\hyperlink{classRevelation_a1b1049064c953e2f869e3fa3f35c3c61}{Revelation}}, \mbox{\hyperlink{classDefrag_ae4d6d850452b45abb36beaaa11d0fbad}{Defrag}}, \mbox{\hyperlink{classUplinkAgentList_a0fdd45a412d79286b3caa5317e014aa0}{Uplink\+Agent\+List}}, \mbox{\hyperlink{classDecypher_aa40dedeb83bef8b91580b34f83522de1}{Decypher}}, \mbox{\hyperlink{classPasswordBreaker_aec553e99cea817215080a4e290447eb1}{Password\+Breaker}}, \mbox{\hyperlink{classIPProbe_a4ce5a1af4a802e15e1e200a907909322}{I\+P\+Probe}}, and \mbox{\hyperlink{classFaith_ad4d29fe6cfb2b6a7fb94e383472adaa2}{Faith}}.
+
+\mbox{\Hypertarget{classTask_a3d84b51a82f4b01916d7ff993b799788}\label{classTask_a3d84b51a82f4b01916d7ff993b799788}} 
+\index{Task@{Task}!Tick@{Tick}}
+\index{Tick@{Tick}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Task\+::\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Called every clock tick \mbox{\Hypertarget{classTask_a754541c7213ce4a3fd5800b9e092ce3e}\label{classTask_a754541c7213ce4a3fd5800b9e092ce3e}} 
+\index{Task@{Task}!Tick@{Tick}}
+\index{Tick@{Tick}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Task\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classSecurityBypass_a0d22814586f682e3a1483d0a7e6e2f38}{Security\+Bypass}}, \mbox{\hyperlink{classVoiceAnalyser_aa4ecf280073ef3a8239d827d9506b883}{Voice\+Analyser}}, \mbox{\hyperlink{classLogModifier_a382ebf24f7b7ce363b4f490375ed677b}{Log\+Modifier}}, \mbox{\hyperlink{classLanSpoof_a21e4584dbb1e17adbb48153f1658ed23}{Lan\+Spoof}}, \mbox{\hyperlink{classLanProbe_a1e5f09b0cf691775c5326b7174ead9b9}{Lan\+Probe}}, \mbox{\hyperlink{classLanScan_a415805694669bcecbafc7a02dac7597d}{Lan\+Scan}}, \mbox{\hyperlink{classDictionaryHacker_ab46ddf2ad33c9b25ec8d4fdd89f275fb}{Dictionary\+Hacker}}, \mbox{\hyperlink{classFirewallDisable_ac2823c68f11ea79c3f1c5216cc166920}{Firewall\+Disable}}, \mbox{\hyperlink{classGatewayNuke_a1a46202ffc89b4d63011034c57e7f806}{Gateway\+Nuke}}, \mbox{\hyperlink{classTutorial_af32bd4ab9044371e8a58ae7d063a377b}{Tutorial}}, \mbox{\hyperlink{classFileCopier_ab31e8a540b23d311f6277a14e1759f30}{File\+Copier}}, \mbox{\hyperlink{classProxyDisable_a42b9a0b44455e8eeb7e7ca4f8f7a10a8}{Proxy\+Disable}}, \mbox{\hyperlink{classLogDeleter_a4941de3ca1f80c6d0956e748eff7a67a}{Log\+Deleter}}, \mbox{\hyperlink{classDecrypter_a1bd0929e34a48f085667e49bfb13ab9a}{Decrypter}}, \mbox{\hyperlink{classFileDeleter_ae01555c09c2250bb6180957fac545406}{File\+Deleter}}, \mbox{\hyperlink{classLanForce_a4742ddf85a46cd3f59cdf6453d2483cf}{Lan\+Force}}, \mbox{\hyperlink{classLogUnDeleter_a8881ecf0d43063b0e1fbf8a17732ddbb}{Log\+Un\+Deleter}}, \mbox{\hyperlink{classRevelationTracker_a5677aec5415b80f8a177c33efba93e25}{Revelation\+Tracker}}, \mbox{\hyperlink{classMotionSensor_abdb3828c2b4c0c6b41984a1d98184217}{Motion\+Sensor}}, \mbox{\hyperlink{classTraceTracker_a2a2b2f6e239985577e8f99230c169f43}{Trace\+Tracker}}, \mbox{\hyperlink{classIPLookup_a588c2cbd0a71e2480f9dd8b0397cc665}{I\+P\+Lookup}}, \mbox{\hyperlink{classRevelation_a8925518158cd4f51055b14d10a5a1329}{Revelation}}, \mbox{\hyperlink{classDefrag_a1654a9dbb3c416bab0416d46893f64d2}{Defrag}}, \mbox{\hyperlink{classDecypher_ae1e573a9ad5da74c9e7fab48d47c1ed9}{Decypher}}, \mbox{\hyperlink{classPasswordBreaker_aaab10457583ca0a954ea5f982e55a4df}{Password\+Breaker}}, \mbox{\hyperlink{classUplinkAgentList_a2a1d20a5e4689732e2c828d223c3449f}{Uplink\+Agent\+List}}, \mbox{\hyperlink{classIPProbe_a8704e40e33be4868e44172bb95daebb3}{I\+P\+Probe}}, and \mbox{\hyperlink{classFaith_a864ccd38cdad2d53e3fa72f2480774ab}{Faith}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classTask_ab9376944d0205b89ab3fcb86b2dc7d67}\label{classTask_ab9376944d0205b89ab3fcb86b2dc7d67}} 
+\index{Task@{Task}!callback@{callback}}
+\index{callback@{callback}!Task@{Task}}
+\doxysubsubsection{\texorpdfstring{callback}{callback}}
+{\footnotesize\ttfamily void($\ast$ Task\+::callback) ()\hspace{0.3cm}{\ttfamily [protected]}}
+
+Called when the task has finished 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/vanbakel/task.\+h\item 
+uplink/lib/vanbakel/task.\+cpp\end{DoxyCompactItemize}

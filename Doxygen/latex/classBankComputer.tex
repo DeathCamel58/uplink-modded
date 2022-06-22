@@ -1,0 +1,149 @@
+\hypertarget{classBankComputer}{}\doxysection{Bank\+Computer Class Reference}
+\label{classBankComputer}\index{BankComputer@{BankComputer}}
+
+
+Inheritance diagram for Bank\+Computer\+:
+% FIG 0
+
+
+Collaboration diagram for Bank\+Computer\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBankComputer_abfad61d1424ee7a82725f27c6811b972}\label{classBankComputer_abfad61d1424ee7a82725f27c6811b972}} 
+int {\bfseries Generate\+Unique\+Account\+Number} ()
+\item 
+\mbox{\Hypertarget{classBankComputer_a67c312a37bd2e818246927839d62717f}\label{classBankComputer_a67c312a37bd2e818246927839d62717f}} 
+int {\bfseries Create\+Bank\+Account} (\mbox{\hyperlink{classBankAccount}{Bank\+Account}} $\ast$newaccount)
+\item 
+\mbox{\Hypertarget{classBankComputer_a51018c70d9294a9b5e2a8c696824ad80}\label{classBankComputer_a51018c70d9294a9b5e2a8c696824ad80}} 
+int {\bfseries Create\+Bank\+Account} (const string \&\mbox{\hyperlink{classComputer_a230ff4380f9ca778fbfed0acdb8c7260}{name}}, const string \&password, int security, int balance, int loan)
+\item 
+\mbox{\Hypertarget{classBankComputer_a8e038d1903e7a26cdc1216639003e740}\label{classBankComputer_a8e038d1903e7a26cdc1216639003e740}} 
+\mbox{\hyperlink{classBankAccount}{Bank\+Account}} $\ast$ {\bfseries Get\+Random\+Account} ()
+\item 
+bool \mbox{\hyperlink{classBankComputer_a66ae832d4bef6d81cc16af4ac2c00145}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classBankComputer_a1a7be7bf631bcc67b46e77403155e195}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classBankComputer_a28b6e3568675fe22790c1e5e68bef436}{Print}} () override
+\item 
+void \mbox{\hyperlink{classBankComputer_af9ecdb0791c20cd375e38f1f99b95277}{Update}} () override
+\item 
+string \mbox{\hyperlink{classBankComputer_a6d7c2416117b98d170855e5b9b5b13c9}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classBankComputer_a1444fd18f4dab7b4dafb842768a58355}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBankComputer_aa1565f0da9097d28b3e9c2add2ef7f89}\label{classBankComputer_aa1565f0da9097d28b3e9c2add2ef7f89}} 
+static void {\bfseries Close\+Account} (int accno)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBankComputer_a2927b2ea48ee3747448ea2ba8b8e79b4}\label{classBankComputer_a2927b2ea48ee3747448ea2ba8b8e79b4}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ \mbox{\hyperlink{classBankAccount}{Bank\+Account}} $\ast$ $>$ {\bfseries accounts}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBankComputer_aa62e1495b6ac94cba296bd358e229714}\label{classBankComputer_aa62e1495b6ac94cba296bd358e229714}} 
+int {\bfseries previousaccno}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBankComputer_a6d7c2416117b98d170855e5b9b5b13c9}\label{classBankComputer_a6d7c2416117b98d170855e5b9b5b13c9}} 
+\index{BankComputer@{BankComputer}!GetID@{GetID}}
+\index{GetID@{GetID}!BankComputer@{BankComputer}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Bank\+Computer\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankComputer_a1444fd18f4dab7b4dafb842768a58355}\label{classBankComputer_a1444fd18f4dab7b4dafb842768a58355}} 
+\index{BankComputer@{BankComputer}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!BankComputer@{BankComputer}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Bank\+Computer\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankComputer_a66ae832d4bef6d81cc16af4ac2c00145}\label{classBankComputer_a66ae832d4bef6d81cc16af4ac2c00145}} 
+\index{BankComputer@{BankComputer}!Load@{Load}}
+\index{Load@{Load}!BankComputer@{BankComputer}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Bank\+Computer\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankComputer_a28b6e3568675fe22790c1e5e68bef436}\label{classBankComputer_a28b6e3568675fe22790c1e5e68bef436}} 
+\index{BankComputer@{BankComputer}!Print@{Print}}
+\index{Print@{Print}!BankComputer@{BankComputer}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Bank\+Computer\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankComputer_a1a7be7bf631bcc67b46e77403155e195}\label{classBankComputer_a1a7be7bf631bcc67b46e77403155e195}} 
+\index{BankComputer@{BankComputer}!Save@{Save}}
+\index{Save@{Save}!BankComputer@{BankComputer}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Bank\+Computer\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankComputer_af9ecdb0791c20cd375e38f1f99b95277}\label{classBankComputer_af9ecdb0791c20cd375e38f1f99b95277}} 
+\index{BankComputer@{BankComputer}!Update@{Update}}
+\index{Update@{Update}!BankComputer@{BankComputer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Bank\+Computer\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/bankcomputer.\+h\item 
+uplink/src/world/computer/bankcomputer.\+cpp\end{DoxyCompactItemize}

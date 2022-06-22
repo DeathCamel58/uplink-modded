@@ -1,0 +1,117 @@
+\hypertarget{classButton}{}\doxysection{Button Class Reference}
+\label{classButton}\index{Button@{Button}}
+
+
+Collaboration diagram for Button\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classButton_a021ea2ab030b696ecbb6d305d66d13b0}\label{classButton_a021ea2ab030b696ecbb6d305d66d13b0}} 
+{\bfseries Button} (int newx, int newy, int newwidth, int newheight, const string \&newcaption, const string \&newname)
+\item 
+\mbox{\Hypertarget{classButton_a440e72f104431247c45cb126f808a88f}\label{classButton_a440e72f104431247c45cb126f808a88f}} 
+void {\bfseries Set\+Properties} (int newx, int newy, int newwidth, int newheight, const string \&newcaption, const string \&newname)
+\item 
+\mbox{\Hypertarget{classButton_ab62781487aaaaaebf046c8483d3c4d27}\label{classButton_ab62781487aaaaaebf046c8483d3c4d27}} 
+void {\bfseries Set\+Caption} (const string \&newcaption)
+\item 
+\mbox{\Hypertarget{classButton_a770448ca9a76cb6ac53ae85109f6cd05}\label{classButton_a770448ca9a76cb6ac53ae85109f6cd05}} 
+void {\bfseries Set\+Tooltip} (const string \&newtooltip)
+\item 
+\mbox{\Hypertarget{classButton_ae71ab1c4a5e697c16608107860625096}\label{classButton_ae71ab1c4a5e697c16608107860625096}} 
+void {\bfseries Set\+Standard\+Image} (\mbox{\hyperlink{classImage}{Image}} $\ast$newimage)
+\item 
+\mbox{\Hypertarget{classButton_a55bce7eb21247fc8fb64566e2757ba46}\label{classButton_a55bce7eb21247fc8fb64566e2757ba46}} 
+void {\bfseries Set\+Images} (\mbox{\hyperlink{classImage}{Image}} $\ast$newstandard, \mbox{\hyperlink{classImage}{Image}} $\ast$newhighlighted, \mbox{\hyperlink{classImage}{Image}} $\ast$newclicked)
+\item 
+\mbox{\Hypertarget{classButton_aabc0f1983f42c9221123d37224c76853}\label{classButton_aabc0f1983f42c9221123d37224c76853}} 
+void {\bfseries Register\+Draw\+Function} (void($\ast$newdraw)(\mbox{\hyperlink{classButton}{Button}} $\ast$, bool, bool))
+\item 
+\mbox{\Hypertarget{classButton_af8481bcfcc57cf62a2deefebea2eaba3}\label{classButton_af8481bcfcc57cf62a2deefebea2eaba3}} 
+void {\bfseries Register\+Mouse\+Up\+Function} (void($\ast$newmouseup)(\mbox{\hyperlink{classButton}{Button}} $\ast$))
+\item 
+\mbox{\Hypertarget{classButton_aeabe503b98aaa6a7a5b9c6ac5f78f2c2}\label{classButton_aeabe503b98aaa6a7a5b9c6ac5f78f2c2}} 
+void {\bfseries Register\+Mouse\+Down\+Function} (void($\ast$newmousedown)(\mbox{\hyperlink{classButton}{Button}} $\ast$))
+\item 
+\mbox{\Hypertarget{classButton_aa7edf10b88e615f667f841acfec1c329}\label{classButton_aa7edf10b88e615f667f841acfec1c329}} 
+void {\bfseries Register\+Mouse\+Move\+Function} (void($\ast$newmousemove)(\mbox{\hyperlink{classButton}{Button}} $\ast$))
+\item 
+\mbox{\Hypertarget{classButton_a8171f5526e4038e2392e70dac023859f}\label{classButton_a8171f5526e4038e2392e70dac023859f}} 
+void {\bfseries Dirty} ()
+\item 
+\mbox{\Hypertarget{classButton_a492a91aa8eff5bca165ea643b2183105}\label{classButton_a492a91aa8eff5bca165ea643b2183105}} 
+void {\bfseries Draw} (bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classButton_a1d1c1dc0e5431a17a5ff018aa7691036}\label{classButton_a1d1c1dc0e5431a17a5ff018aa7691036}} 
+void {\bfseries Mouse\+Up} ()
+\item 
+\mbox{\Hypertarget{classButton_aa46ad032654838507c0530d110de2b82}\label{classButton_aa46ad032654838507c0530d110de2b82}} 
+void {\bfseries Mouse\+Down} ()
+\item 
+\mbox{\Hypertarget{classButton_af224e0021ea62b941f2d25d2d5185add}\label{classButton_af224e0021ea62b941f2d25d2d5185add}} 
+void {\bfseries Mouse\+Move} ()
+\item 
+\mbox{\Hypertarget{classButton_a90f0cf3bd3a16060cfcda279795da311}\label{classButton_a90f0cf3bd3a16060cfcda279795da311}} 
+void {\bfseries Debug\+Print} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classButton_a2ec3bc40025b64b44319e7464164d61f}\label{classButton_a2ec3bc40025b64b44319e7464164d61f}} 
+int {\bfseries x}
+\item 
+\mbox{\Hypertarget{classButton_afff35ce0c47f662c3b096e5b644648a5}\label{classButton_afff35ce0c47f662c3b096e5b644648a5}} 
+int {\bfseries y}
+\item 
+\mbox{\Hypertarget{classButton_a94051f6f79d4436d8a268a81b828863a}\label{classButton_a94051f6f79d4436d8a268a81b828863a}} 
+int {\bfseries width}
+\item 
+\mbox{\Hypertarget{classButton_a1c43732d529541e53c6b83607bdc5673}\label{classButton_a1c43732d529541e53c6b83607bdc5673}} 
+int {\bfseries height}
+\item 
+\mbox{\Hypertarget{classButton_a265d7cb5d80829f7195344f773069c0b}\label{classButton_a265d7cb5d80829f7195344f773069c0b}} 
+string {\bfseries caption}
+\item 
+\mbox{\Hypertarget{classButton_a9a79182881bfd9a9e35aafd9dab955ae}\label{classButton_a9a79182881bfd9a9e35aafd9dab955ae}} 
+string {\bfseries name}
+\item 
+\mbox{\Hypertarget{classButton_adc06082d657048644bc50788d79d5a4d}\label{classButton_adc06082d657048644bc50788d79d5a4d}} 
+string {\bfseries tooltip}
+\item 
+\mbox{\Hypertarget{classButton_a8a54b815b132d9a2a9d58532c6cf6d9b}\label{classButton_a8a54b815b132d9a2a9d58532c6cf6d9b}} 
+int {\bfseries userinfo}
+\item 
+\mbox{\Hypertarget{classButton_a952be3b27b49882b54fa5edac92951ff}\label{classButton_a952be3b27b49882b54fa5edac92951ff}} 
+bool {\bfseries dirty}
+\item 
+\mbox{\Hypertarget{classButton_ac9258092d34850b03cce99b7ee607b23}\label{classButton_ac9258092d34850b03cce99b7ee607b23}} 
+\mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries image\+\_\+standard}
+\item 
+\mbox{\Hypertarget{classButton_a738797005080053d6d34a04e793ceacb}\label{classButton_a738797005080053d6d34a04e793ceacb}} 
+\mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries image\+\_\+highlighted}
+\item 
+\mbox{\Hypertarget{classButton_aaa0246341e3eaefc754ac55f534f1432}\label{classButton_aaa0246341e3eaefc754ac55f534f1432}} 
+\mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries image\+\_\+clicked}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classButton_a27be51752cebacde6b32fda1d4aa1d86}\label{classButton_a27be51752cebacde6b32fda1d4aa1d86}} 
+void($\ast$ {\bfseries draw} )(\mbox{\hyperlink{classButton}{Button}} $\ast$, bool, bool)
+\item 
+\mbox{\Hypertarget{classButton_a40988c716c102112be32cec13f0be54c}\label{classButton_a40988c716c102112be32cec13f0be54c}} 
+void($\ast$ {\bfseries mousedown} )(\mbox{\hyperlink{classButton}{Button}} $\ast$)
+\item 
+\mbox{\Hypertarget{classButton_a3bf5790a3fe8ffb3fb77c4dcb5a874aa}\label{classButton_a3bf5790a3fe8ffb3fb77c4dcb5a874aa}} 
+void($\ast$ {\bfseries mouseup} )(\mbox{\hyperlink{classButton}{Button}} $\ast$)
+\item 
+\mbox{\Hypertarget{classButton_a0719cb009abd8d58652dc72953f28998}\label{classButton_a0719cb009abd8d58652dc72953f28998}} 
+void($\ast$ {\bfseries mousemove} )(\mbox{\hyperlink{classButton}{Button}} $\ast$)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/eclipse/button.\+h\item 
+uplink/lib/eclipse/button.\+cpp\end{DoxyCompactItemize}

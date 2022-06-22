@@ -1,0 +1,173 @@
+\hypertarget{classConsoleScreenInterface}{}\doxysection{Console\+Screen\+Interface Class Reference}
+\label{classConsoleScreenInterface}\index{ConsoleScreenInterface@{ConsoleScreenInterface}}
+
+
+Inheritance diagram for Console\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Console\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a719e228823ba80121e07476e4d3c5712}\label{classConsoleScreenInterface_a719e228823ba80121e07476e4d3c5712}} 
+void {\bfseries Add\+User} (const string \&name)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a3c5b53989e1e34b0624ed9efbdafb873}\label{classConsoleScreenInterface_a3c5b53989e1e34b0624ed9efbdafb873}} 
+void {\bfseries Set\+Current\+Dir} (const string \&newcurrentdir)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_abc2a52f30bc8a678e0a128f2951acbad}\label{classConsoleScreenInterface_abc2a52f30bc8a678e0a128f2951acbad}} 
+void {\bfseries Put\+Text} (int userid, const string \&text)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a9daec2cdfcac691c20eafc15adf38137}\label{classConsoleScreenInterface_a9daec2cdfcac691c20eafc15adf38137}} 
+void {\bfseries Put\+Text\+At\+Start} (int userid, const string \&text)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a2d3b3eff07908b344e8d10c8bb5f6916}\label{classConsoleScreenInterface_a2d3b3eff07908b344e8d10c8bb5f6916}} 
+void {\bfseries Run\+Command} (const string \&command)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_aceb8c3a495f8c85776286e0b116731a9}\label{classConsoleScreenInterface_aceb8c3a495f8c85776286e0b116731a9}} 
+void {\bfseries Run\+Command} (\mbox{\hyperlink{classConsoleCommand}{Console\+Command}} $\ast$cc)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a38d7bbcb1a7eb6d6cb40576302ebfeb3}\label{classConsoleScreenInterface_a38d7bbcb1a7eb6d6cb40576302ebfeb3}} 
+void {\bfseries Run\+Command\+\_\+\+T\+E\+XT} (const string \&text)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a4ceefcf3b4ac3dc915a866362eac78b9}\label{classConsoleScreenInterface_a4ceefcf3b4ac3dc915a866362eac78b9}} 
+void {\bfseries Run\+Command\+\_\+\+D\+IR} ()
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_ad0fb63ab2ed5a0a64037b0db93b1df7f}\label{classConsoleScreenInterface_ad0fb63ab2ed5a0a64037b0db93b1df7f}} 
+void {\bfseries Run\+Command\+\_\+\+H\+E\+LP} ()
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_ae8620964097759495471e5a70bba5b81}\label{classConsoleScreenInterface_ae8620964097759495471e5a70bba5b81}} 
+void {\bfseries Run\+Command\+\_\+\+E\+X\+IT} ()
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_aa119076354f805a82dd294b63b899b01}\label{classConsoleScreenInterface_aa119076354f805a82dd294b63b899b01}} 
+void {\bfseries Run\+Command\+\_\+\+D\+E\+L\+E\+T\+E\+A\+LL} (const string \&dir)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_aea17fc8b22ff7f6c93024fc02725d31f}\label{classConsoleScreenInterface_aea17fc8b22ff7f6c93024fc02725d31f}} 
+void {\bfseries Run\+Command\+\_\+\+R\+UN} (const string \&program, bool actuallyrun)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a6f86f313963e46e1dc75294ee80ec708}\label{classConsoleScreenInterface_a6f86f313963e46e1dc75294ee80ec708}} 
+void {\bfseries Run\+Command\+\_\+\+S\+H\+U\+T\+D\+O\+WN} ()
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a979fd160628decb8227d5d8f84db450f}\label{classConsoleScreenInterface_a979fd160628decb8227d5d8f84db450f}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classConsoleScreenInterface_a4fed5eb5985e08d83f2377e2e9ce464a}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classConsoleScreenInterface_a3f23576a7da8a8d27c95cc14067b51e4}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classConsoleScreenInterface_a7192d709cbd37ad06ffbb1a31d586342}{Is\+Visible}} () override
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a5673c25251ded7299201b6ae4bff1c99}\label{classConsoleScreenInterface_a5673c25251ded7299201b6ae4bff1c99}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+int \mbox{\hyperlink{classConsoleScreenInterface_a7592c8771a79b31bd460f9257583605f}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_aa2bfd01d42ae191316ab75d914847a3a}\label{classConsoleScreenInterface_aa2bfd01d42ae191316ab75d914847a3a}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a0db6cc032b5f060a8f5cdee2cd88416f}\label{classConsoleScreenInterface_a0db6cc032b5f060a8f5cdee2cd88416f}} 
+static void {\bfseries Run\+Command\+\_\+\+D\+I\+S\+C\+O\+N\+N\+E\+CT} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a4dd22266f68e0a258b058bffb5e63f60}\label{classConsoleScreenInterface_a4dd22266f68e0a258b058bffb5e63f60}} 
+static bool {\bfseries Is\+Visible\+Interface} ()
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_aeb1b92aae22d4fe22be9773941c7b1ed}\label{classConsoleScreenInterface_aeb1b92aae22d4fe22be9773941c7b1ed}} 
+static void {\bfseries Waiting\+Callback} ()
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_aec21ff9cb833653c4e1ee2c3783efe04}\label{classConsoleScreenInterface_aec21ff9cb833653c4e1ee2c3783efe04}} 
+static void {\bfseries Type\+Here\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_abb38e0f257aa406c431f17f55035a97b}\label{classConsoleScreenInterface_abb38e0f257aa406c431f17f55035a97b}} 
+static void {\bfseries Post\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a7851d4a268a19cca9fcaea725291d0d5}\label{classConsoleScreenInterface_a7851d4a268a19cca9fcaea725291d0d5}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a195f0389389e21550478447de6a566f4}\label{classConsoleScreenInterface_a195f0389389e21550478447de6a566f4}} 
+static void {\bfseries Message\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a019e6584eded083b474cdae750c107dc}\label{classConsoleScreenInterface_a019e6584eded083b474cdae750c107dc}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ char $\ast$ $>$ {\bfseries users}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a9cc7f1f94ee5a89f1866774f32d7c905}\label{classConsoleScreenInterface_a9cc7f1f94ee5a89f1866774f32d7c905}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classConsoleCommand}{Console\+Command}} $\ast$ $>$ {\bfseries queue}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_ac4869f2160c037b2f169c7371fb39130}\label{classConsoleScreenInterface_ac4869f2160c037b2f169c7371fb39130}} 
+bool {\bfseries waiting}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_ad8f806692606a60ea1276d820cbd2f0a}\label{classConsoleScreenInterface_ad8f806692606a60ea1276d820cbd2f0a}} 
+int {\bfseries timesync}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_a9d4a4013232beeb6b8bc90bbfa166627}\label{classConsoleScreenInterface_a9d4a4013232beeb6b8bc90bbfa166627}} 
+string {\bfseries currentdir}
+\item 
+\mbox{\Hypertarget{classConsoleScreenInterface_ab3477dc40a7e87df93af7e62d47974cc}\label{classConsoleScreenInterface_ab3477dc40a7e87df93af7e62d47974cc}} 
+bool {\bfseries deleted\+\_\+sys}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConsoleScreenInterface_a7192d709cbd37ad06ffbb1a31d586342}\label{classConsoleScreenInterface_a7192d709cbd37ad06ffbb1a31d586342}} 
+\index{ConsoleScreenInterface@{ConsoleScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!ConsoleScreenInterface@{ConsoleScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Console\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classConsoleScreenInterface_a4fed5eb5985e08d83f2377e2e9ce464a}\label{classConsoleScreenInterface_a4fed5eb5985e08d83f2377e2e9ce464a}} 
+\index{ConsoleScreenInterface@{ConsoleScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!ConsoleScreenInterface@{ConsoleScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Console\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classConsoleScreenInterface_a7592c8771a79b31bd460f9257583605f}\label{classConsoleScreenInterface_a7592c8771a79b31bd460f9257583605f}} 
+\index{ConsoleScreenInterface@{ConsoleScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!ConsoleScreenInterface@{ConsoleScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Console\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classConsoleScreenInterface_a3f23576a7da8a8d27c95cc14067b51e4}\label{classConsoleScreenInterface_a3f23576a7da8a8d27c95cc14067b51e4}} 
+\index{ConsoleScreenInterface@{ConsoleScreenInterface}!Update@{Update}}
+\index{Update@{Update}!ConsoleScreenInterface@{ConsoleScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Console\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/consolescreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/consolescreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

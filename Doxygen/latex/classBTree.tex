@@ -1,0 +1,90 @@
+\hypertarget{classBTree}{}\doxysection{B\+Tree$<$ T $>$ Class Template Reference}
+\label{classBTree}\index{BTree$<$ T $>$@{BTree$<$ T $>$}}
+
+
+Collaboration diagram for B\+Tree$<$ T $>$\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBTree_a4b2dc8ec9db58b3a2d512ce1ec02311a}\label{classBTree_a4b2dc8ec9db58b3a2d512ce1ec02311a}} 
+{\bfseries B\+Tree} (const string \&newid, const T \&newdata)
+\item 
+\mbox{\Hypertarget{classBTree_ad0bc3bdb842b610260cc6eda6e9f3be5}\label{classBTree_ad0bc3bdb842b610260cc6eda6e9f3be5}} 
+{\bfseries B\+Tree} (const \mbox{\hyperlink{classBTree}{B\+Tree}}$<$ T $>$ \&copy)
+\item 
+\mbox{\Hypertarget{classBTree_a72501a2b266f0155c81439fa71468448}\label{classBTree_a72501a2b266f0155c81439fa71468448}} 
+void {\bfseries Copy} (const \mbox{\hyperlink{classBTree}{B\+Tree}}$<$ T $>$ \&copy)
+\item 
+\mbox{\Hypertarget{classBTree_ae5c9660045111b0dda9345d65cd7c4a2}\label{classBTree_ae5c9660045111b0dda9345d65cd7c4a2}} 
+void {\bfseries Put\+Data} (const string \&newid, const T \&newdata)
+\item 
+\mbox{\Hypertarget{classBTree_a05945249c77af04daae871a4649cad17}\label{classBTree_a05945249c77af04daae871a4649cad17}} 
+void {\bfseries Remove\+Data} (const string \&newid)
+\item 
+\mbox{\Hypertarget{classBTree_a8c98a9ac75350795530c8ff42eeeafa7}\label{classBTree_a8c98a9ac75350795530c8ff42eeeafa7}} 
+void {\bfseries Remove\+Data} (const string \&newid, const T \&newdata)
+\item 
+\mbox{\Hypertarget{classBTree_a4876eb08ab4eab1042a0dd911ba96613}\label{classBTree_a4876eb08ab4eab1042a0dd911ba96613}} 
+T {\bfseries Get\+Data} (const string \&searchid)
+\item 
+\mbox{\Hypertarget{classBTree_a4adee33694a85f05d559530b385aa91d}\label{classBTree_a4adee33694a85f05d559530b385aa91d}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}} $\ast$ {\bfseries Lookup\+Tree} (const string \&searchid)
+\item 
+\mbox{\Hypertarget{classBTree_ac6a3a13dd44a430288cbf5e8ca93f38e}\label{classBTree_ac6a3a13dd44a430288cbf5e8ca93f38e}} 
+void {\bfseries Empty} ()
+\item 
+\mbox{\Hypertarget{classBTree_a81de197b27de169e50fe7fadbba426d7}\label{classBTree_a81de197b27de169e50fe7fadbba426d7}} 
+int {\bfseries Size} () const
+\item 
+\mbox{\Hypertarget{classBTree_a46e3591f6343f08178219490e37db758}\label{classBTree_a46e3591f6343f08178219490e37db758}} 
+void {\bfseries Print} ()
+\item 
+\mbox{\Hypertarget{classBTree_a4188736ac690938afd3c78f607d05414}\label{classBTree_a4188736ac690938afd3c78f607d05414}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}} $\ast$ {\bfseries Left} () const
+\item 
+\mbox{\Hypertarget{classBTree_a24c0e315e887edfd6ff444d0e5d796f4}\label{classBTree_a24c0e315e887edfd6ff444d0e5d796f4}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}} $\ast$ {\bfseries Right} () const
+\item 
+\mbox{\Hypertarget{classBTree_a937939f4c2ea0cf889d34a37ca9e0ce4}\label{classBTree_a937939f4c2ea0cf889d34a37ca9e0ce4}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ T $>$ $\ast$ {\bfseries Convert\+To\+D\+Array} ()
+\item 
+\mbox{\Hypertarget{classBTree_a13dd5d1f8fd7b86dcaf8b7ea539c5159}\label{classBTree_a13dd5d1f8fd7b86dcaf8b7ea539c5159}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ char $\ast$ $>$ $\ast$ {\bfseries Convert\+Index\+To\+D\+Array} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBTree_a68e8a91f80a99b4f04f14d38657a4fae}\label{classBTree_a68e8a91f80a99b4f04f14d38657a4fae}} 
+string {\bfseries id}
+\item 
+\mbox{\Hypertarget{classBTree_a2649b5a83795b71ea1240135be14b6c4}\label{classBTree_a2649b5a83795b71ea1240135be14b6c4}} 
+T {\bfseries data}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBTree_a0c86d4a7c9f03ae6f1581da191bba579}\label{classBTree_a0c86d4a7c9f03ae6f1581da191bba579}} 
+void {\bfseries Recursive\+Convert\+To\+D\+Array} (\mbox{\hyperlink{classDArray}{D\+Array}}$<$ T $>$ $\ast$darray, \mbox{\hyperlink{classBTree}{B\+Tree}}$<$ T $>$ $\ast$btree)
+\item 
+\mbox{\Hypertarget{classBTree_a2541ce17f2e87e200ce50358e8388431}\label{classBTree_a2541ce17f2e87e200ce50358e8388431}} 
+void {\bfseries Recursive\+Convert\+Index\+To\+D\+Array} (\mbox{\hyperlink{classDArray}{D\+Array}}$<$ char $\ast$ $>$ $\ast$darray, \mbox{\hyperlink{classBTree}{B\+Tree}}$<$ T $>$ $\ast$btree)
+\item 
+\mbox{\Hypertarget{classBTree_ac122ae61a3eb2cdc271ff7ca75b1c103}\label{classBTree_ac122ae61a3eb2cdc271ff7ca75b1c103}} 
+void {\bfseries Append\+Right} (\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ T $>$ $\ast$tempright)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBTree_abf711a06d76d7d0801e0588d3d950c33}\label{classBTree_abf711a06d76d7d0801e0588d3d950c33}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}} $\ast$ {\bfseries ltree}
+\item 
+\mbox{\Hypertarget{classBTree_a5b9da14a6c12af1238337e565e831b47}\label{classBTree_a5b9da14a6c12af1238337e565e831b47}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}} $\ast$ {\bfseries rtree}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/tosser/tosser.\+h\item 
+uplink/lib/tosser/btree.\+cpp\end{DoxyCompactItemize}

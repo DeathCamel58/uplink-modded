@@ -1,0 +1,140 @@
+\hypertarget{classIPLookup}{}\doxysection{I\+P\+Lookup Class Reference}
+\label{classIPLookup}\index{IPLookup@{IPLookup}}
+
+
+Inheritance diagram for I\+P\+Lookup\+:
+% FIG 0
+
+
+Collaboration diagram for I\+P\+Lookup\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classIPLookup_aa6685a208a94f695093fe1ff3d157f67}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classIPLookup_a588c2cbd0a71e2480f9dd8b0397cc665}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classIPLookup_acc4473a4681559fbc5896b934222f501}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classIPLookup_aec2e7d0ed64517236ee483c940e02574}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classIPLookup_a2c94eaea656fb92fefa43b97e3192436}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classIPLookup_ad4586a22c9294838dfcbf063ddc91a80}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIPLookup_ae9b35bf37ba7ce68e1a00fa4581db9fb}\label{classIPLookup_ae9b35bf37ba7ce68e1a00fa4581db9fb}} 
+static void {\bfseries Display\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classIPLookup_a219b196df33b80530f0a50180ffe65b1}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classIPLookup_a72b394bd9c3f7ebba706e25f803272bf}\label{classIPLookup_a72b394bd9c3f7ebba706e25f803272bf}} 
+static void {\bfseries Go\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classIPLookup_a8a3e08d806e2575cf7983832ed7d1314}\label{classIPLookup_a8a3e08d806e2575cf7983832ed7d1314}} 
+int {\bfseries status}
+\item 
+\mbox{\Hypertarget{classIPLookup_ac57d3b0ef01f8c54be433e07e106f75c}\label{classIPLookup_ac57d3b0ef01f8c54be433e07e106f75c}} 
+time\+\_\+t {\bfseries timeout}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIPLookup_a219b196df33b80530f0a50180ffe65b1}\label{classIPLookup_a219b196df33b80530f0a50180ffe65b1}} 
+\index{IPLookup@{IPLookup}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!IPLookup@{IPLookup}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void I\+P\+Lookup\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classIPLookup_acc4473a4681559fbc5896b934222f501}\label{classIPLookup_acc4473a4681559fbc5896b934222f501}} 
+\index{IPLookup@{IPLookup}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!IPLookup@{IPLookup}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void I\+P\+Lookup\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classIPLookup_aa6685a208a94f695093fe1ff3d157f67}\label{classIPLookup_aa6685a208a94f695093fe1ff3d157f67}} 
+\index{IPLookup@{IPLookup}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!IPLookup@{IPLookup}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void I\+P\+Lookup\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classIPLookup_ad4586a22c9294838dfcbf063ddc91a80}\label{classIPLookup_ad4586a22c9294838dfcbf063ddc91a80}} 
+\index{IPLookup@{IPLookup}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!IPLookup@{IPLookup}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool I\+P\+Lookup\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classIPLookup_aec2e7d0ed64517236ee483c940e02574}\label{classIPLookup_aec2e7d0ed64517236ee483c940e02574}} 
+\index{IPLookup@{IPLookup}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!IPLookup@{IPLookup}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void I\+P\+Lookup\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classIPLookup_a2c94eaea656fb92fefa43b97e3192436}\label{classIPLookup_a2c94eaea656fb92fefa43b97e3192436}} 
+\index{IPLookup@{IPLookup}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!IPLookup@{IPLookup}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void I\+P\+Lookup\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classIPLookup_a588c2cbd0a71e2480f9dd8b0397cc665}\label{classIPLookup_a588c2cbd0a71e2480f9dd8b0397cc665}} 
+\index{IPLookup@{IPLookup}!Tick@{Tick}}
+\index{Tick@{Tick}!IPLookup@{IPLookup}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void I\+P\+Lookup\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/iplookup.\+h\item 
+uplink/src/interface/taskmanager/iplookup.\+cpp\end{DoxyCompactItemize}

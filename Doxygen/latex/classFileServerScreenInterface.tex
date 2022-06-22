@@ -1,0 +1,131 @@
+\hypertarget{classFileServerScreenInterface}{}\doxysection{File\+Server\+Screen\+Interface Class Reference}
+\label{classFileServerScreenInterface}\index{FileServerScreenInterface@{FileServerScreenInterface}}
+
+
+Inheritance diagram for File\+Server\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for File\+Server\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_a83288c34e1ec3328b24e938e4668e1cf}\label{classFileServerScreenInterface_a83288c34e1ec3328b24e938e4668e1cf}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classFileServerScreenInterface_a77120cf7156177cb9d0c6b467691d9c0}{Create}} () override
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_a4cf5c3f828286ca911eebc8672bea116}\label{classFileServerScreenInterface_a4cf5c3f828286ca911eebc8672bea116}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classFileServerScreenInterface_ac4be8d6e2d1399ff9d05e66ca561f95b}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classFileServerScreenInterface_aaaf7150cfeb26a9497323c1fc0815c35}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classFileServerScreenInterface_a6992f92c67974f438c6c3e17dea8f439}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classFileServerScreenInterface_ae8a2b2eea53300e3c9a6498c1f5425fc}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_acddadf95db0dd27e0e41826170a1887a}\label{classFileServerScreenInterface_acddadf95db0dd27e0e41826170a1887a}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_a2b68658374b54732be722971c8a6f728}\label{classFileServerScreenInterface_a2b68658374b54732be722971c8a6f728}} 
+static void {\bfseries File\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_a91ffb91685d390546047aa85b78ae2b2}\label{classFileServerScreenInterface_a91ffb91685d390546047aa85b78ae2b2}} 
+static int {\bfseries Get\+Nb\+Rows\+Display\+Data\+Bank} (\mbox{\hyperlink{classDataBank}{Data\+Bank}} $\ast$db)
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_a63dbe7f4ee41412f358ff6f614c1da2b}\label{classFileServerScreenInterface_a63dbe7f4ee41412f358ff6f614c1da2b}} 
+static int {\bfseries Get\+Info\+Row\+Display\+Data\+Bank} (\mbox{\hyperlink{classDataBank}{Data\+Bank}} $\ast$db, int fileindex, \mbox{\hyperlink{classData}{Data}} $\ast$$\ast$data, int $\ast$size, int $\ast$memoryindex)
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_a82f826efc6657a00f45d3d6fb01ae943}\label{classFileServerScreenInterface_a82f826efc6657a00f45d3d6fb01ae943}} 
+static void {\bfseries Create\+Scroll\+Bar} (int nb\+Items)
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_a7445b8001d3b2419e3543b0d499f84bc}\label{classFileServerScreenInterface_a7445b8001d3b2419e3543b0d499f84bc}} 
+static void {\bfseries Scroll\+Change} (const string \&scrollname, int new\+Value)
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_ae794ff17fbdf7212db91f0b62c9f07f8}\label{classFileServerScreenInterface_ae794ff17fbdf7212db91f0b62c9f07f8}} 
+static void {\bfseries File\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_aef69ada4200edacc18af062222cb2ee8}\label{classFileServerScreenInterface_aef69ada4200edacc18af062222cb2ee8}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_aabba5f7c1a69ef385aa172a5c4ca164e}\label{classFileServerScreenInterface_aabba5f7c1a69ef385aa172a5c4ca164e}} 
+static int {\bfseries baseoffset} = 0
+\item 
+\mbox{\Hypertarget{classFileServerScreenInterface_af8139ba25c5ef119e5ef3bb460229a97}\label{classFileServerScreenInterface_af8139ba25c5ef119e5ef3bb460229a97}} 
+static int {\bfseries previousnumfiles} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileServerScreenInterface_a77120cf7156177cb9d0c6b467691d9c0}\label{classFileServerScreenInterface_a77120cf7156177cb9d0c6b467691d9c0}} 
+\index{FileServerScreenInterface@{FileServerScreenInterface}!Create@{Create}}
+\index{Create@{Create}!FileServerScreenInterface@{FileServerScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void File\+Server\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFileServerScreenInterface_a6992f92c67974f438c6c3e17dea8f439}\label{classFileServerScreenInterface_a6992f92c67974f438c6c3e17dea8f439}} 
+\index{FileServerScreenInterface@{FileServerScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!FileServerScreenInterface@{FileServerScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool File\+Server\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFileServerScreenInterface_ac4be8d6e2d1399ff9d05e66ca561f95b}\label{classFileServerScreenInterface_ac4be8d6e2d1399ff9d05e66ca561f95b}} 
+\index{FileServerScreenInterface@{FileServerScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!FileServerScreenInterface@{FileServerScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void File\+Server\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFileServerScreenInterface_ae8a2b2eea53300e3c9a6498c1f5425fc}\label{classFileServerScreenInterface_ae8a2b2eea53300e3c9a6498c1f5425fc}} 
+\index{FileServerScreenInterface@{FileServerScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!FileServerScreenInterface@{FileServerScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int File\+Server\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFileServerScreenInterface_aaaf7150cfeb26a9497323c1fc0815c35}\label{classFileServerScreenInterface_aaaf7150cfeb26a9497323c1fc0815c35}} 
+\index{FileServerScreenInterface@{FileServerScreenInterface}!Update@{Update}}
+\index{Update@{Update}!FileServerScreenInterface@{FileServerScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void File\+Server\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/fileserverscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/fileserverscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

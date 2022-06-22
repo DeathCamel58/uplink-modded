@@ -1,0 +1,110 @@
+\hypertarget{classCompanyInfoScreenInterface}{}\doxysection{Company\+Info\+Screen\+Interface Class Reference}
+\label{classCompanyInfoScreenInterface}\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+
+
+Inheritance diagram for Company\+Info\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Company\+Info\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a284e6cd36a7636521038d07b85e3cad6}\label{classCompanyInfoScreenInterface_a284e6cd36a7636521038d07b85e3cad6}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classCompanyInfoScreenInterface_a8ed3751e25d1c541be83edcbb0d51f7c}{Create}} () override
+\item 
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a83b9e2544313d58906c76e2b5708d1eb}\label{classCompanyInfoScreenInterface_a83b9e2544313d58906c76e2b5708d1eb}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classCompanyInfoScreenInterface_a0c57568b390705fd17233ac0a02ed8cd}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classCompanyInfoScreenInterface_ad12da9c0a09a2c08b2060337efe86d5e}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classCompanyInfoScreenInterface_adbef30428f961653b752623532a802f6}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classCompanyInfoScreenInterface_a75d7456f3dee39278bc5d28903203dfc}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a0370ff1e9b80bdd5447d3800517cf282}\label{classCompanyInfoScreenInterface_a0370ff1e9b80bdd5447d3800517cf282}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a8b9e5f5e34c4bcaf22181fc8147600a1}\label{classCompanyInfoScreenInterface_a8b9e5f5e34c4bcaf22181fc8147600a1}} 
+static void {\bfseries Md\+Add\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a601051253cffd591e054a49771ed648f}\label{classCompanyInfoScreenInterface_a601051253cffd591e054a49771ed648f}} 
+static void {\bfseries Admin\+Add\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a95ce0760e9a99c663d4d4d5a988ca810}\label{classCompanyInfoScreenInterface_a95ce0760e9a99c663d4d4d5a988ca810}} 
+static void {\bfseries Back\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a8ed3751e25d1c541be83edcbb0d51f7c}\label{classCompanyInfoScreenInterface_a8ed3751e25d1c541be83edcbb0d51f7c}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!Create@{Create}}
+\index{Create@{Create}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Company\+Info\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_adbef30428f961653b752623532a802f6}\label{classCompanyInfoScreenInterface_adbef30428f961653b752623532a802f6}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Company\+Info\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a0c57568b390705fd17233ac0a02ed8cd}\label{classCompanyInfoScreenInterface_a0c57568b390705fd17233ac0a02ed8cd}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Company\+Info\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a75d7456f3dee39278bc5d28903203dfc}\label{classCompanyInfoScreenInterface_a75d7456f3dee39278bc5d28903203dfc}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Company\+Info\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_ad12da9c0a09a2c08b2060337efe86d5e}\label{classCompanyInfoScreenInterface_ad12da9c0a09a2c08b2060337efe86d5e}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!Update@{Update}}
+\index{Update@{Update}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Company\+Info\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/companyinfoscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/companyinfoscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

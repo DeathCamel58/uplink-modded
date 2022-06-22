@@ -1,0 +1,191 @@
+\hypertarget{classDataBank}{}\doxysection{Data\+Bank Class Reference}
+\label{classDataBank}\index{DataBank@{DataBank}}
+
+
+Inheritance diagram for Data\+Bank\+:
+% FIG 0
+
+
+Collaboration diagram for Data\+Bank\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataBank_a61cadee8095847c762fcabf9baa8669c}\label{classDataBank_a61cadee8095847c762fcabf9baa8669c}} 
+void {\bfseries Set\+Size} (int newsize)
+\item 
+\mbox{\Hypertarget{classDataBank_a22544597ab934f8eb5a294c8f117d32f}\label{classDataBank_a22544597ab934f8eb5a294c8f117d32f}} 
+int {\bfseries Get\+Size} ()
+\item 
+\mbox{\Hypertarget{classDataBank_a69db8540dbe5116bad7bac6f2d8f933f}\label{classDataBank_a69db8540dbe5116bad7bac6f2d8f933f}} 
+int {\bfseries Num\+Data\+Files} ()
+\item 
+\mbox{\Hypertarget{classDataBank_af2506c75826371555f8fa9b368b2162b}\label{classDataBank_af2506c75826371555f8fa9b368b2162b}} 
+int {\bfseries Get\+Data\+Size} ()
+\item 
+\mbox{\Hypertarget{classDataBank_ae3c23fec8cbb0bb1cafa8dc5957fd343}\label{classDataBank_ae3c23fec8cbb0bb1cafa8dc5957fd343}} 
+bool {\bfseries Put\+Data} (\mbox{\hyperlink{classData}{Data}} $\ast$newdata)
+\item 
+\mbox{\Hypertarget{classDataBank_a3278e6c446ea2536e3c9c4ef93ceea44}\label{classDataBank_a3278e6c446ea2536e3c9c4ef93ceea44}} 
+void {\bfseries Insert\+Data} (\mbox{\hyperlink{classData}{Data}} $\ast$newdata)
+\item 
+\mbox{\Hypertarget{classDataBank_ac3f7736d91aa49df981c64fa466caa38}\label{classDataBank_ac3f7736d91aa49df981c64fa466caa38}} 
+void {\bfseries Put\+Data} (\mbox{\hyperlink{classData}{Data}} $\ast$newdata, int memoryindex)
+\item 
+\mbox{\Hypertarget{classDataBank_a694b0ba93977f2119f3503e997af19c0}\label{classDataBank_a694b0ba93977f2119f3503e997af19c0}} 
+void {\bfseries Remove\+Data} (int memoryindex)
+\item 
+\mbox{\Hypertarget{classDataBank_a778a323395c6eae8134c4679a140556c}\label{classDataBank_a778a323395c6eae8134c4679a140556c}} 
+void {\bfseries Remove\+Data\+File} (int dataindex)
+\item 
+\mbox{\Hypertarget{classDataBank_afe2bdcfb457d2d463306504ae64efc86}\label{classDataBank_afe2bdcfb457d2d463306504ae64efc86}} 
+int {\bfseries Is\+Valid\+Placement} (\mbox{\hyperlink{classData}{Data}} $\ast$newdata, int memoryindex)
+\item 
+\mbox{\Hypertarget{classDataBank_af24a8e8a5a32d0db9635c7cbaca07c9d}\label{classDataBank_af24a8e8a5a32d0db9635c7cbaca07c9d}} 
+int {\bfseries Find\+Valid\+Placement} (\mbox{\hyperlink{classData}{Data}} $\ast$newdata)
+\item 
+\mbox{\Hypertarget{classDataBank_aad36a262c8af01bcb41129aed5d519de}\label{classDataBank_aad36a262c8af01bcb41129aed5d519de}} 
+\mbox{\hyperlink{classData}{Data}} $\ast$ {\bfseries Get\+Data} (int memoryindex)
+\item 
+\mbox{\Hypertarget{classDataBank_a93a028ff638721322b025cf74e0ee3c7}\label{classDataBank_a93a028ff638721322b025cf74e0ee3c7}} 
+\mbox{\hyperlink{classData}{Data}} $\ast$ {\bfseries Get\+Data\+File} (int dataindex)
+\item 
+\mbox{\Hypertarget{classDataBank_ac393076b83a7399258a7805daa7ace89}\label{classDataBank_ac393076b83a7399258a7805daa7ace89}} 
+\mbox{\hyperlink{classData}{Data}} $\ast$ {\bfseries Get\+Data} (const string \&title)
+\item 
+\mbox{\Hypertarget{classDataBank_a364ec9105f3a0c69ac90f6042ccebc21}\label{classDataBank_a364ec9105f3a0c69ac90f6042ccebc21}} 
+bool {\bfseries Contains\+Data} (const string \&title, float version=-\/1.\+0f)
+\item 
+\mbox{\Hypertarget{classDataBank_a33e7415cf8ff9fef0d8cb16552a514a8}\label{classDataBank_a33e7415cf8ff9fef0d8cb16552a514a8}} 
+int {\bfseries Get\+Data\+Index} (int memoryindex)
+\item 
+\mbox{\Hypertarget{classDataBank_a17fcba5035e0ba1380a88bfc0c7a5bef}\label{classDataBank_a17fcba5035e0ba1380a88bfc0c7a5bef}} 
+int {\bfseries Get\+Memory\+Index} (int dataindex)
+\item 
+\mbox{\Hypertarget{classDataBank_a0032041ca8ef8598bd8fe77e22813499}\label{classDataBank_a0032041ca8ef8598bd8fe77e22813499}} 
+void {\bfseries Format} ()
+\item 
+\mbox{\Hypertarget{classDataBank_a1c5a9f539ac7601637d355e49a9c4a3b}\label{classDataBank_a1c5a9f539ac7601637d355e49a9c4a3b}} 
+void {\bfseries Randomize\+Data\+Placement} ()
+\item 
+bool \mbox{\hyperlink{classDataBank_acd4248f4ea0ffef994a43c9aee7516f1}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classDataBank_a09de83946c32fd8d487b96f241b30d9a}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classDataBank_a386ead87b354d2eaf917dc75367f8e9a}{Print}} () override
+\item 
+void \mbox{\hyperlink{classDataBank_a677667f1c3c7b2c73e28d174271a57b2}{Update}} () override
+\item 
+string \mbox{\hyperlink{classDataBank_a3f9ac9594dbb1df9e5f5f980d125891d}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classDataBank_aa7d1ea0104f40ecbf9f14337174df97d}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataBank_ad4075a74df6831d4f7c04fb144d1f8fd}\label{classDataBank_ad4075a74df6831d4f7c04fb144d1f8fd}} 
+bool {\bfseries formatted}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDataBank_a6654f3626233330866ff3502ce59ff79}\label{classDataBank_a6654f3626233330866ff3502ce59ff79}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classData}{Data}} $\ast$ $>$ {\bfseries data}
+\item 
+\mbox{\Hypertarget{classDataBank_a38b3e46f4cfaa2cdb80cd3c14ddfe709}\label{classDataBank_a38b3e46f4cfaa2cdb80cd3c14ddfe709}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ int $>$ {\bfseries memory}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDataBank_a3f9ac9594dbb1df9e5f5f980d125891d}\label{classDataBank_a3f9ac9594dbb1df9e5f5f980d125891d}} 
+\index{DataBank@{DataBank}!GetID@{GetID}}
+\index{GetID@{GetID}!DataBank@{DataBank}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Data\+Bank\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDataBank_aa7d1ea0104f40ecbf9f14337174df97d}\label{classDataBank_aa7d1ea0104f40ecbf9f14337174df97d}} 
+\index{DataBank@{DataBank}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!DataBank@{DataBank}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Data\+Bank\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDataBank_acd4248f4ea0ffef994a43c9aee7516f1}\label{classDataBank_acd4248f4ea0ffef994a43c9aee7516f1}} 
+\index{DataBank@{DataBank}!Load@{Load}}
+\index{Load@{Load}!DataBank@{DataBank}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Data\+Bank\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDataBank_a386ead87b354d2eaf917dc75367f8e9a}\label{classDataBank_a386ead87b354d2eaf917dc75367f8e9a}} 
+\index{DataBank@{DataBank}!Print@{Print}}
+\index{Print@{Print}!DataBank@{DataBank}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Data\+Bank\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDataBank_a09de83946c32fd8d487b96f241b30d9a}\label{classDataBank_a09de83946c32fd8d487b96f241b30d9a}} 
+\index{DataBank@{DataBank}!Save@{Save}}
+\index{Save@{Save}!DataBank@{DataBank}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Data\+Bank\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDataBank_a677667f1c3c7b2c73e28d174271a57b2}\label{classDataBank_a677667f1c3c7b2c73e28d174271a57b2}} 
+\index{DataBank@{DataBank}!Update@{Update}}
+\index{Update@{Update}!DataBank@{DataBank}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Data\+Bank\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/databank.\+h\item 
+uplink/src/world/computer/databank.\+cpp\end{DoxyCompactItemize}

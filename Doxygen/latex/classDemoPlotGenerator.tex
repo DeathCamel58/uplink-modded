@@ -1,0 +1,158 @@
+\hypertarget{classDemoPlotGenerator}{}\doxysection{Demo\+Plot\+Generator Class Reference}
+\label{classDemoPlotGenerator}\index{DemoPlotGenerator@{DemoPlotGenerator}}
+
+
+Inheritance diagram for Demo\+Plot\+Generator\+:
+% FIG 0
+
+
+Collaboration diagram for Demo\+Plot\+Generator\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_ac78eed7cc132b26b1312b1e3d278497f}\label{classDemoPlotGenerator_ac78eed7cc132b26b1312b1e3d278497f}} 
+void {\bfseries Initialise} ()
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_a31c6e5e825562d855e0b2f1107c32df2}\label{classDemoPlotGenerator_a31c6e5e825562d855e0b2f1107c32df2}} 
+void {\bfseries Player\+Rating\+Change} ()
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_a3d7cc8a5bb2f0e048307115b03d1a098}\label{classDemoPlotGenerator_a3d7cc8a5bb2f0e048307115b03d1a098}} 
+void {\bfseries Player\+Completed\+Mission} (\mbox{\hyperlink{classMission}{Mission}} $\ast$mission)
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_a31f9e14f45e2ffad712229683057b130}\label{classDemoPlotGenerator_a31f9e14f45e2ffad712229683057b130}} 
+bool {\bfseries Player\+Contacts\+A\+RC} (\mbox{\hyperlink{classMessage}{Message}} $\ast$msg)
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_a7abb7961cf7c33a7032d1f4455ed5a5e}\label{classDemoPlotGenerator_a7abb7961cf7c33a7032d1f4455ed5a5e}} 
+void {\bfseries Run\+Scene} (int scene)
+\item 
+bool \mbox{\hyperlink{classDemoPlotGenerator_a46d510146f6154dd9cf9e77fdc433a24}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classDemoPlotGenerator_a2c7dfb670650d8f53ff01bd2099f3c79}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classDemoPlotGenerator_ade74143797f61bc8a67b341c20e1ba18}{Print}} () override
+\item 
+void \mbox{\hyperlink{classDemoPlotGenerator_ae0772f2f2c9b60246b9b66b72608710f}{Update}} () override
+\item 
+string \mbox{\hyperlink{classDemoPlotGenerator_ad0fd39770568d297e18127969aed72e2}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_a9311a0292097c497a92e26104e0a62e8}\label{classDemoPlotGenerator_a9311a0292097c497a92e26104e0a62e8}} 
+static void {\bfseries Generate\+New\+Mission} (bool randomdate=false)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_a68b019839f8a4724f84624b47520e7c3}\label{classDemoPlotGenerator_a68b019839f8a4724f84624b47520e7c3}} 
+\mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+\_\+\+Change\+Social\+Record\+A\+RC} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_adba2a55e179433d4eca817616640ccc5}\label{classDemoPlotGenerator_adba2a55e179433d4eca817616640ccc5}} 
+static void {\bfseries Move\+New\+Mission\+To\+Random\+Location} (\mbox{\hyperlink{classMission}{Mission}} $\ast$mission)
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_ab1c5c332dd49d129f200f2341a4cb130}\label{classDemoPlotGenerator_ab1c5c332dd49d129f200f2341a4cb130}} 
+static bool {\bfseries Num\+Available\+Missions} (int missiontype)
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_aacef34d0afe3761ca53660f5d8080190}\label{classDemoPlotGenerator_aacef34d0afe3761ca53660f5d8080190}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+\_\+\+File\+Copy\+Mission} ()
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_a2239ba3e79bac2e4f0e46835298d8371}\label{classDemoPlotGenerator_a2239ba3e79bac2e4f0e46835298d8371}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+\_\+\+File\+Delete\+Mission} ()
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_ad8652923b5e44cf64e20cad1cd99f4b8}\label{classDemoPlotGenerator_ad8652923b5e44cf64e20cad1cd99f4b8}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+\_\+\+Change\+Academic\+Mission} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_a628d73e8b584d7bf1e328de751ee9221}\label{classDemoPlotGenerator_a628d73e8b584d7bf1e328de751ee9221}} 
+int {\bfseries scene}
+\item 
+\mbox{\Hypertarget{classDemoPlotGenerator_aac19ddfa554d0cd0ab62ffe9cd10114e}\label{classDemoPlotGenerator_aac19ddfa554d0cd0ab62ffe9cd10114e}} 
+char {\bfseries arcmissiontarget} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDemoPlotGenerator_ad0fd39770568d297e18127969aed72e2}\label{classDemoPlotGenerator_ad0fd39770568d297e18127969aed72e2}} 
+\index{DemoPlotGenerator@{DemoPlotGenerator}!GetID@{GetID}}
+\index{GetID@{GetID}!DemoPlotGenerator@{DemoPlotGenerator}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Demo\+Plot\+Generator\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDemoPlotGenerator_a46d510146f6154dd9cf9e77fdc433a24}\label{classDemoPlotGenerator_a46d510146f6154dd9cf9e77fdc433a24}} 
+\index{DemoPlotGenerator@{DemoPlotGenerator}!Load@{Load}}
+\index{Load@{Load}!DemoPlotGenerator@{DemoPlotGenerator}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Demo\+Plot\+Generator\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDemoPlotGenerator_ade74143797f61bc8a67b341c20e1ba18}\label{classDemoPlotGenerator_ade74143797f61bc8a67b341c20e1ba18}} 
+\index{DemoPlotGenerator@{DemoPlotGenerator}!Print@{Print}}
+\index{Print@{Print}!DemoPlotGenerator@{DemoPlotGenerator}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Demo\+Plot\+Generator\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDemoPlotGenerator_a2c7dfb670650d8f53ff01bd2099f3c79}\label{classDemoPlotGenerator_a2c7dfb670650d8f53ff01bd2099f3c79}} 
+\index{DemoPlotGenerator@{DemoPlotGenerator}!Save@{Save}}
+\index{Save@{Save}!DemoPlotGenerator@{DemoPlotGenerator}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Demo\+Plot\+Generator\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classDemoPlotGenerator_ae0772f2f2c9b60246b9b66b72608710f}\label{classDemoPlotGenerator_ae0772f2f2c9b60246b9b66b72608710f}} 
+\index{DemoPlotGenerator@{DemoPlotGenerator}!Update@{Update}}
+\index{Update@{Update}!DemoPlotGenerator@{DemoPlotGenerator}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Demo\+Plot\+Generator\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/generator/demoplotgenerator.\+h\item 
+uplink/src/world/generator/demoplotgenerator.\+cpp\end{DoxyCompactItemize}

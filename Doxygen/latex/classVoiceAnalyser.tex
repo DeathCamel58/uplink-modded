@@ -1,0 +1,224 @@
+\hypertarget{classVoiceAnalyser}{}\doxysection{Voice\+Analyser Class Reference}
+\label{classVoiceAnalyser}\index{VoiceAnalyser@{VoiceAnalyser}}
+
+
+Inheritance diagram for Voice\+Analyser\+:
+% FIG 0
+
+
+Collaboration diagram for Voice\+Analyser\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classVoiceAnalyser_ae3d19ed537eba2402086cc6720e2769b}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classVoiceAnalyser_aa4ecf280073ef3a8239d827d9506b883}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classVoiceAnalyser_aca6d44d6006fa341c118e363000860f5}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classVoiceAnalyser_a2dd987cc1231c6a9b009ee764535baf1}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classVoiceAnalyser_ae3dd4d9bc1fca69597a0ce28dd5e2a92}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classVoiceAnalyser_a3f8443ee4550ec2c59d058f1fc5c4c43}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classVoiceAnalyser_aa13ce31c05fdca4df28cf82e79b98ebc}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classVoiceAnalyser_a142c16b4e5c0f7fbd145f776c4491edb}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classVoiceAnalyser_af9bb92672a092c883e710e0a5c034204}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_a66251b76e32089ad80b39c7deaaeff9f}\label{classVoiceAnalyser_a66251b76e32089ad80b39c7deaaeff9f}} 
+static void {\bfseries Title\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_a982c66c2e24ed586cadbe89d92a54388}\label{classVoiceAnalyser_a982c66c2e24ed586cadbe89d92a54388}} 
+static void {\bfseries Main\+Text\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_a388bc3937b7e98498f6a2b5aa3739242}\label{classVoiceAnalyser_a388bc3937b7e98498f6a2b5aa3739242}} 
+static void {\bfseries Draw\+Analysis} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_a6d40bcc0bd774cf7712570adb6cff843}\label{classVoiceAnalyser_a6d40bcc0bd774cf7712570adb6cff843}} 
+static void {\bfseries Play\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_ae052e729cb0c17da75bfb4f3c49968d3}\label{classVoiceAnalyser_ae052e729cb0c17da75bfb4f3c49968d3}} 
+static void {\bfseries Play\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_aa8037a3e2ede28d4171b08760281b16c}\label{classVoiceAnalyser_aa8037a3e2ede28d4171b08760281b16c}} 
+static void {\bfseries Play\+Mouse\+Move} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_a13da82ec1634f2ad0a5d9ab43d4cb19e}\label{classVoiceAnalyser_a13da82ec1634f2ad0a5d9ab43d4cb19e}} 
+static void {\bfseries Play\+Mouse\+Down} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_a102ab958304706c3e4aeb401b433b8b2}\label{classVoiceAnalyser_a102ab958304706c3e4aeb401b433b8b2}} 
+int {\bfseries S\+T\+A\+T\+US}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_afd8a484bdd8c7e9503f0d0ee46340266}\label{classVoiceAnalyser_afd8a484bdd8c7e9503f0d0ee46340266}} 
+int {\bfseries sample} \mbox{[}V\+O\+I\+C\+E\+A\+N\+A\+L\+Y\+S\+E\+R\+\_\+\+N\+U\+M\+S\+A\+M\+P\+L\+ES\mbox{]}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_ac6be4354d40b00b6f4e8b0e53e3c8232}\label{classVoiceAnalyser_ac6be4354d40b00b6f4e8b0e53e3c8232}} 
+string {\bfseries personname}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_acece423d06ccf449dfa7592596e2edb4}\label{classVoiceAnalyser_acece423d06ccf449dfa7592596e2edb4}} 
+char {\bfseries personip} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_aa5c0e0a1109359df14a42abf3576e834}\label{classVoiceAnalyser_aa5c0e0a1109359df14a42abf3576e834}} 
+int {\bfseries timesync}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_ae010bb9cf8c3aa96755a0dd2d2a90241}\label{classVoiceAnalyser_ae010bb9cf8c3aa96755a0dd2d2a90241}} 
+int {\bfseries animsync}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_aceaad6cd758515ea9c925e6752a5e1cd}\label{classVoiceAnalyser_aceaad6cd758515ea9c925e6752a5e1cd}} 
+\mbox{\hyperlink{classDataBank}{Data\+Bank}} $\ast$ {\bfseries source}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_a5f1a138926edd76223ef98db035842b0}\label{classVoiceAnalyser_a5f1a138926edd76223ef98db035842b0}} 
+int {\bfseries sourceindex}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_af4e06bd2e9716223820a2d623934a632}\label{classVoiceAnalyser_af4e06bd2e9716223820a2d623934a632}} 
+bool {\bfseries remotefile}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_ad0327c63fbaa0c4e2e314f3c835cdf33}\label{classVoiceAnalyser_ad0327c63fbaa0c4e2e314f3c835cdf33}} 
+int {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classVoiceAnalyser_af97d1f474a39a95039f6a5404628f9e1}\label{classVoiceAnalyser_af97d1f474a39a95039f6a5404628f9e1}} 
+int {\bfseries progress}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVoiceAnalyser_af9bb92672a092c883e710e0a5c034204}\label{classVoiceAnalyser_af9bb92672a092c883e710e0a5c034204}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Voice\+Analyser\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classVoiceAnalyser_ae3dd4d9bc1fca69597a0ce28dd5e2a92}\label{classVoiceAnalyser_ae3dd4d9bc1fca69597a0ce28dd5e2a92}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Voice\+Analyser\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classVoiceAnalyser_ae3d19ed537eba2402086cc6720e2769b}\label{classVoiceAnalyser_ae3d19ed537eba2402086cc6720e2769b}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Voice\+Analyser\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classVoiceAnalyser_a142c16b4e5c0f7fbd145f776c4491edb}\label{classVoiceAnalyser_a142c16b4e5c0f7fbd145f776c4491edb}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Voice\+Analyser\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classVoiceAnalyser_a2dd987cc1231c6a9b009ee764535baf1}\label{classVoiceAnalyser_a2dd987cc1231c6a9b009ee764535baf1}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Voice\+Analyser\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classVoiceAnalyser_a3f8443ee4550ec2c59d058f1fc5c4c43}\label{classVoiceAnalyser_a3f8443ee4550ec2c59d058f1fc5c4c43}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Voice\+Analyser\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classVoiceAnalyser_aca6d44d6006fa341c118e363000860f5}\label{classVoiceAnalyser_aca6d44d6006fa341c118e363000860f5}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Voice\+Analyser\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classDataBank}{Data\+Bank}} object containing data to be downloaded \\
+\hline
+{\em uos} & Name of button representing downloadable data \\
+\hline
+{\em uoi} & Memory index of data in \mbox{\hyperlink{classDataBank}{Data\+Bank}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classVoiceAnalyser_aa13ce31c05fdca4df28cf82e79b98ebc}\label{classVoiceAnalyser_aa13ce31c05fdca4df28cf82e79b98ebc}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Voice\+Analyser\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classVoiceAnalyser_aa4ecf280073ef3a8239d827d9506b883}\label{classVoiceAnalyser_aa4ecf280073ef3a8239d827d9506b883}} 
+\index{VoiceAnalyser@{VoiceAnalyser}!Tick@{Tick}}
+\index{Tick@{Tick}!VoiceAnalyser@{VoiceAnalyser}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Voice\+Analyser\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/voiceanalyser.\+h\item 
+uplink/src/interface/taskmanager/voiceanalyser.\+cpp\end{DoxyCompactItemize}

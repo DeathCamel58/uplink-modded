@@ -1,0 +1,221 @@
+\hypertarget{classMapRectangle}{}\doxysection{Map\+Rectangle Class Reference}
+\label{classMapRectangle}\index{MapRectangle@{MapRectangle}}
+
+
+Object for rectangles on world map.  
+
+
+
+
+{\ttfamily \#include $<$rectangle.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMapRectangle_a814851b01a0c4c79b051af240411fe71}{Map\+Rectangle}} (int x, int y, int \mbox{\hyperlink{classMapRectangle_a4e8daa42839cd3e6893502b8623e85fc}{width}}, int \mbox{\hyperlink{classMapRectangle_a6baa9d184138c5f6cd90255a757f44c8}{height}})
+\item 
+int \mbox{\hyperlink{classMapRectangle_a31ada0c905447831a752ea8777b2242a}{x2}} () const
+\item 
+int \mbox{\hyperlink{classMapRectangle_ae1f29e69f50888ceab8b1b675a1b3f71}{y2}} () const
+\item 
+\mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \mbox{\hyperlink{classMapRectangle_a6ca47f84edfcdf595b9ada98ea0290f5}{intersection}} (const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&o) const
+\item 
+bool \mbox{\hyperlink{classMapRectangle_a5c66b90d059874373cb43519a3612fe2}{is\+Null}} () const
+\item 
+bool \mbox{\hyperlink{classMapRectangle_aaf8defe84298aa49c7e08202eeaf59f6}{intersects}} (const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&o) const
+\item 
+bool \mbox{\hyperlink{classMapRectangle_af115c52c52ff6a830299654afee965a3}{operator==}} (const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&o) const
+\item 
+bool \mbox{\hyperlink{classMapRectangle_adb4c51d1519ed7330caeaa3e814bfa12}{contains}} (const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&o) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classMapRectangle_ad997c028a765746da729b48ed2245586}{Min}} (int a, int b)
+\item 
+static int \mbox{\hyperlink{classMapRectangle_a5afc043ca29284b8b4707700c1a7abe7}{Max}} (int a, int b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classMapRectangle_ac48f418f801dc8c1953e57b0ba3789ea}{x1}}
+\item 
+int \mbox{\hyperlink{classMapRectangle_ade9f84b6873f3efad1f5b9774010daae}{y1}}
+\item 
+int \mbox{\hyperlink{classMapRectangle_a4e8daa42839cd3e6893502b8623e85fc}{width}}
+\item 
+int \mbox{\hyperlink{classMapRectangle_a6baa9d184138c5f6cd90255a757f44c8}{height}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object for rectangles on world map. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMapRectangle_a814851b01a0c4c79b051af240411fe71}\label{classMapRectangle_a814851b01a0c4c79b051af240411fe71}} 
+\index{MapRectangle@{MapRectangle}!MapRectangle@{MapRectangle}}
+\index{MapRectangle@{MapRectangle}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{MapRectangle()}{MapRectangle()}}
+{\footnotesize\ttfamily Map\+Rectangle\+::\+Map\+Rectangle (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Initializes a rectangle 
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left X coordinate \\
+\hline
+{\em y} & Top left Y coordinate \\
+\hline
+{\em width} & Width of rectangle \\
+\hline
+{\em height} & Height of rectangle \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMapRectangle_adb4c51d1519ed7330caeaa3e814bfa12}\label{classMapRectangle_adb4c51d1519ed7330caeaa3e814bfa12}} 
+\index{MapRectangle@{MapRectangle}!contains@{contains}}
+\index{contains@{contains}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily bool Map\+Rectangle\+::contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&}]{o }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if given rectangle is fully contained by this rectangle 
+\begin{DoxyParams}{Parameters}
+{\em o} & Rectangle to check if fully contained \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if fully contained 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMapRectangle_a6ca47f84edfcdf595b9ada98ea0290f5}\label{classMapRectangle_a6ca47f84edfcdf595b9ada98ea0290f5}} 
+\index{MapRectangle@{MapRectangle}!intersection@{intersection}}
+\index{intersection@{intersection}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{intersection()}{intersection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} Map\+Rectangle\+::intersection (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&}]{o }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get rectangle of intersection between two rectangles 
+\begin{DoxyParams}{Parameters}
+{\em o} & Rectangle to check for intersection with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A rectangle that matches position and size of intersection 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMapRectangle_aaf8defe84298aa49c7e08202eeaf59f6}\label{classMapRectangle_aaf8defe84298aa49c7e08202eeaf59f6}} 
+\index{MapRectangle@{MapRectangle}!intersects@{intersects}}
+\index{intersects@{intersects}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{intersects()}{intersects()}}
+{\footnotesize\ttfamily bool Map\+Rectangle\+::intersects (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&}]{o }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if two rectangles intersect 
+\begin{DoxyParams}{Parameters}
+{\em o} & The rectangle to check for intersection \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the rectangles intersect 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMapRectangle_a5c66b90d059874373cb43519a3612fe2}\label{classMapRectangle_a5c66b90d059874373cb43519a3612fe2}} 
+\index{MapRectangle@{MapRectangle}!isNull@{isNull}}
+\index{isNull@{isNull}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{isNull()}{isNull()}}
+{\footnotesize\ttfamily bool Map\+Rectangle\+::is\+Null (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if the rectangle has both a width and height \begin{DoxyReturn}{Returns}
+true if both width and height are set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMapRectangle_a5afc043ca29284b8b4707700c1a7abe7}\label{classMapRectangle_a5afc043ca29284b8b4707700c1a7abe7}} 
+\index{MapRectangle@{MapRectangle}!Max@{Max}}
+\index{Max@{Max}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{Max()}{Max()}}
+{\footnotesize\ttfamily static int Map\+Rectangle\+::\+Max (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Gets the larger of two numbers 
+\begin{DoxyParams}{Parameters}
+{\em a} & First number \\
+\hline
+{\em b} & Second number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The smaller number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMapRectangle_ad997c028a765746da729b48ed2245586}\label{classMapRectangle_ad997c028a765746da729b48ed2245586}} 
+\index{MapRectangle@{MapRectangle}!Min@{Min}}
+\index{Min@{Min}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{Min()}{Min()}}
+{\footnotesize\ttfamily static int Map\+Rectangle\+::\+Min (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Gets the smaller of two numbers 
+\begin{DoxyParams}{Parameters}
+{\em a} & First number \\
+\hline
+{\em b} & Second number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The smaller number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMapRectangle_af115c52c52ff6a830299654afee965a3}\label{classMapRectangle_af115c52c52ff6a830299654afee965a3}} 
+\index{MapRectangle@{MapRectangle}!operator==@{operator==}}
+\index{operator==@{operator==}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Map\+Rectangle\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&}]{o }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Check if given rectangle is the same as current rectangle 
+\begin{DoxyParams}{Parameters}
+{\em o} & Rectangle to check if same \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if rectangles are the same 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMapRectangle_a31ada0c905447831a752ea8777b2242a}\label{classMapRectangle_a31ada0c905447831a752ea8777b2242a}} 
+\index{MapRectangle@{MapRectangle}!x2@{x2}}
+\index{x2@{x2}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{x2()}{x2()}}
+{\footnotesize\ttfamily int Map\+Rectangle\+::x2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets bottom right X coordinate of rectangle \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMapRectangle_ae1f29e69f50888ceab8b1b675a1b3f71}\label{classMapRectangle_ae1f29e69f50888ceab8b1b675a1b3f71}} 
+\index{MapRectangle@{MapRectangle}!y2@{y2}}
+\index{y2@{y2}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{y2()}{y2()}}
+{\footnotesize\ttfamily int Map\+Rectangle\+::y2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets bottom right Y coordinate of rectangle \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMapRectangle_a6baa9d184138c5f6cd90255a757f44c8}\label{classMapRectangle_a6baa9d184138c5f6cd90255a757f44c8}} 
+\index{MapRectangle@{MapRectangle}!height@{height}}
+\index{height@{height}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily int Map\+Rectangle\+::height}
+
+The height of the rectangle \mbox{\Hypertarget{classMapRectangle_a4e8daa42839cd3e6893502b8623e85fc}\label{classMapRectangle_a4e8daa42839cd3e6893502b8623e85fc}} 
+\index{MapRectangle@{MapRectangle}!width@{width}}
+\index{width@{width}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily int Map\+Rectangle\+::width}
+
+The width of the rectangle \mbox{\Hypertarget{classMapRectangle_ac48f418f801dc8c1953e57b0ba3789ea}\label{classMapRectangle_ac48f418f801dc8c1953e57b0ba3789ea}} 
+\index{MapRectangle@{MapRectangle}!x1@{x1}}
+\index{x1@{x1}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{x1}{x1}}
+{\footnotesize\ttfamily int Map\+Rectangle\+::x1}
+
+Top left X coordinate of rectangle \mbox{\Hypertarget{classMapRectangle_ade9f84b6873f3efad1f5b9774010daae}\label{classMapRectangle_ade9f84b6873f3efad1f5b9774010daae}} 
+\index{MapRectangle@{MapRectangle}!y1@{y1}}
+\index{y1@{y1}!MapRectangle@{MapRectangle}}
+\doxysubsubsection{\texorpdfstring{y1}{y1}}
+{\footnotesize\ttfamily int Map\+Rectangle\+::y1}
+
+Top left Y coordinate of rectangle 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/worldmap/rectangle.\+h\end{DoxyCompactItemize}

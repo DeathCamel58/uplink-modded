@@ -1,0 +1,125 @@
+\hypertarget{classHighSecurityScreen}{}\doxysection{High\+Security\+Screen Class Reference}
+\label{classHighSecurityScreen}\index{HighSecurityScreen@{HighSecurityScreen}}
+
+
+Inheritance diagram for High\+Security\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for High\+Security\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHighSecurityScreen_ac71b68a5f9f3f710ab327f0e9623b1ff}\label{classHighSecurityScreen_ac71b68a5f9f3f710ab327f0e9623b1ff}} 
+void {\bfseries Add\+System} (const string \&name, int page)
+\item 
+\mbox{\Hypertarget{classHighSecurityScreen_a4fd892b0c80ae337d77141d0f40f37d8}\label{classHighSecurityScreen_a4fd892b0c80ae337d77141d0f40f37d8}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classHighSecurityScreen_ab86f845c52ab1902c06059d33146ba3f}\label{classHighSecurityScreen_ab86f845c52ab1902c06059d33146ba3f}} 
+void {\bfseries Reset\+Security} ()
+\item 
+bool \mbox{\hyperlink{classHighSecurityScreen_a801f39d59e9d8363c18bd203079ca785}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classHighSecurityScreen_aebb625eae4773da7de87f0065822047e}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classHighSecurityScreen_a2f50d155f0b094bf16a46e38e80acc43}{Print}} () override
+\item 
+string \mbox{\hyperlink{classHighSecurityScreen_a7d24485c11f89c5e4f832a6d7bbe7b38}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classHighSecurityScreen_a2475a885106c977a6e57399b3a3841e7}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHighSecurityScreen_aa23ad9e46b1edb8dc498459327a5a79b}\label{classHighSecurityScreen_aa23ad9e46b1edb8dc498459327a5a79b}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classMenuScreenOption}{Menu\+Screen\+Option}} $\ast$ $>$ {\bfseries systems}
+\item 
+\mbox{\Hypertarget{classHighSecurityScreen_a808b8da7a4fae3628987ad01911c71df}\label{classHighSecurityScreen_a808b8da7a4fae3628987ad01911c71df}} 
+int {\bfseries nextpage}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHighSecurityScreen_a7d24485c11f89c5e4f832a6d7bbe7b38}\label{classHighSecurityScreen_a7d24485c11f89c5e4f832a6d7bbe7b38}} 
+\index{HighSecurityScreen@{HighSecurityScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!HighSecurityScreen@{HighSecurityScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string High\+Security\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classHighSecurityScreen_a2475a885106c977a6e57399b3a3841e7}\label{classHighSecurityScreen_a2475a885106c977a6e57399b3a3841e7}} 
+\index{HighSecurityScreen@{HighSecurityScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!HighSecurityScreen@{HighSecurityScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int High\+Security\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classHighSecurityScreen_a801f39d59e9d8363c18bd203079ca785}\label{classHighSecurityScreen_a801f39d59e9d8363c18bd203079ca785}} 
+\index{HighSecurityScreen@{HighSecurityScreen}!Load@{Load}}
+\index{Load@{Load}!HighSecurityScreen@{HighSecurityScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool High\+Security\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classHighSecurityScreen_a2f50d155f0b094bf16a46e38e80acc43}\label{classHighSecurityScreen_a2f50d155f0b094bf16a46e38e80acc43}} 
+\index{HighSecurityScreen@{HighSecurityScreen}!Print@{Print}}
+\index{Print@{Print}!HighSecurityScreen@{HighSecurityScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void High\+Security\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classHighSecurityScreen_aebb625eae4773da7de87f0065822047e}\label{classHighSecurityScreen_aebb625eae4773da7de87f0065822047e}} 
+\index{HighSecurityScreen@{HighSecurityScreen}!Save@{Save}}
+\index{Save@{Save}!HighSecurityScreen@{HighSecurityScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void High\+Security\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/highsecurityscreen.\+h\item 
+uplink/src/world/computer/computerscreen/highsecurityscreen.\+cpp\end{DoxyCompactItemize}

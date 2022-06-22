@@ -1,0 +1,264 @@
+\hypertarget{classLocalInterface}{}\doxysection{Local\+Interface Class Reference}
+\label{classLocalInterface}\index{LocalInterface@{LocalInterface}}
+
+
+Local \mbox{\hyperlink{classInterface}{Interface}} Class.  
+
+
+
+
+{\ttfamily \#include $<$localinterface.\+h$>$}
+
+
+
+Inheritance diagram for Local\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Local\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLocalInterface_a76c6549fd73166d4a63b9bc49d29c6e6}{Reset}} ()
+\item 
+void \mbox{\hyperlink{classLocalInterface_af12dafb38db31ddd11bf3fe1d834754a}{Create}} ()
+\item 
+void \mbox{\hyperlink{classLocalInterface_a8c34c2c223f9660173ed952b20508f07}{Remove}} ()
+\item 
+bool \mbox{\hyperlink{classLocalInterface_ac2a6f99e1b0a525eb618b650434b6c72}{Is\+Visible}} ()
+\item 
+int \mbox{\hyperlink{classLocalInterface_a0a1784a4f8c292e92e566f96ec38e28a}{In\+Screen}} ()
+\item 
+void \mbox{\hyperlink{classLocalInterface_a73fdd6482765b52cfdaee5f7e067cc94}{Run\+Screen}} (int S\+C\+R\+E\+E\+N\+C\+O\+DE, int index=-\/1)
+\item 
+\mbox{\hyperlink{classLocalInterfaceScreen}{Local\+Interface\+Screen}} $\ast$ \mbox{\hyperlink{classLocalInterface_a63856576e584e3e043ddf766ce3d43eb}{Get\+Interface\+Screen}} ()
+\item 
+\mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} $\ast$ \mbox{\hyperlink{classLocalInterface_a6517d741353d8f11b96114c26d08d0f1}{Get\+H\+UD}} ()
+\item 
+bool \mbox{\hyperlink{classLocalInterface_ae944840386d37e713e658eef0cb61d5c}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLocalInterface_a7da8bfaa03b5916c4dbb1bebda5fa500}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLocalInterface_a28e291d87d7ad6885accd20670f0750e}{Print}} () override
+\item 
+void \mbox{\hyperlink{classLocalInterface_aaae1119ff8f31e5aa54423e6fdcefeff}{Update}} () override
+\item 
+string \mbox{\hyperlink{classLocalInterface_a4463e76d6837ee5b0e0076be9b3963d5}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classLocalInterface_a08ffcb207d35febffab05a0059b2fc97}{Verify\+Screen}} (int S\+C\+R\+E\+E\+N\+C\+O\+DE, int index=-\/1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classLocalInterface_af1fd16cb6ae1bba3f3d2b116f099fd12}{currentscreencode}}
+\item 
+int \mbox{\hyperlink{classLocalInterface_a21b3b0f90f0c7d51de9e1a1965680f48}{screenindex}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLocalInterface_a767bb6bea94f5d4ed5e901fe8842fd91}\label{classLocalInterface_a767bb6bea94f5d4ed5e901fe8842fd91}} 
+\mbox{\hyperlink{classLocalInterfaceScreen}{Local\+Interface\+Screen}} $\ast$ {\bfseries screen}
+\item 
+\mbox{\Hypertarget{classLocalInterface_a43c8b6821d96a1df0c128bd78f983195}\label{classLocalInterface_a43c8b6821d96a1df0c128bd78f983195}} 
+\mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} $\ast$ {\bfseries hud}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Local \mbox{\hyperlink{classInterface}{Interface}} Class. 
+
+Local \mbox{\hyperlink{classInterface}{Interface}} class object \begin{DoxyNote}{Note}
+Part of the interface subsystem 
+
+Handles the interface projected by our local machine gateway (for example, the current date/time, worldmap, etc) 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLocalInterface_af12dafb38db31ddd11bf3fe1d834754a}\label{classLocalInterface_af12dafb38db31ddd11bf3fe1d834754a}} 
+\index{LocalInterface@{LocalInterface}!Create@{Create}}
+\index{Create@{Create}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Local\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Opens the screen for current object \mbox{\Hypertarget{classLocalInterface_a6517d741353d8f11b96114c26d08d0f1}\label{classLocalInterface_a6517d741353d8f11b96114c26d08d0f1}} 
+\index{LocalInterface@{LocalInterface}!GetHUD@{GetHUD}}
+\index{GetHUD@{GetHUD}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{GetHUD()}{GetHUD()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} $\ast$ Local\+Interface\+::\+Get\+H\+UD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asserts H\+UD \begin{DoxyReturn}{Returns}
+The current \mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} pointer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLocalInterface_a4463e76d6837ee5b0e0076be9b3963d5}\label{classLocalInterface_a4463e76d6837ee5b0e0076be9b3963d5}} 
+\index{LocalInterface@{LocalInterface}!GetID@{GetID}}
+\index{GetID@{GetID}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Local\+Interface\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLocalInterface_a63856576e584e3e043ddf766ce3d43eb}\label{classLocalInterface_a63856576e584e3e043ddf766ce3d43eb}} 
+\index{LocalInterface@{LocalInterface}!GetInterfaceScreen@{GetInterfaceScreen}}
+\index{GetInterfaceScreen@{GetInterfaceScreen}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{GetInterfaceScreen()}{GetInterfaceScreen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLocalInterfaceScreen}{Local\+Interface\+Screen}} $\ast$ Local\+Interface\+::\+Get\+Interface\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Asserts screen \begin{DoxyReturn}{Returns}
+The current \mbox{\hyperlink{classLocalInterfaceScreen}{Local\+Interface\+Screen}} pointer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLocalInterface_a0a1784a4f8c292e92e566f96ec38e28a}\label{classLocalInterface_a0a1784a4f8c292e92e566f96ec38e28a}} 
+\index{LocalInterface@{LocalInterface}!InScreen@{InScreen}}
+\index{InScreen@{InScreen}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{InScreen()}{InScreen()}}
+{\footnotesize\ttfamily int Local\+Interface\+::\+In\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the currently open screen \begin{DoxyReturn}{Returns}
+The ID code of the current screen 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLocalInterface_ac2a6f99e1b0a525eb618b650434b6c72}\label{classLocalInterface_ac2a6f99e1b0a525eb618b650434b6c72}} 
+\index{LocalInterface@{LocalInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Local\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Is there a currently open screen? \begin{DoxyReturn}{Returns}
+true if screen visible 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLocalInterface_ae944840386d37e713e658eef0cb61d5c}\label{classLocalInterface_ae944840386d37e713e658eef0cb61d5c}} 
+\index{LocalInterface@{LocalInterface}!Load@{Load}}
+\index{Load@{Load}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Local\+Interface\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLocalInterface_a28e291d87d7ad6885accd20670f0750e}\label{classLocalInterface_a28e291d87d7ad6885accd20670f0750e}} 
+\index{LocalInterface@{LocalInterface}!Print@{Print}}
+\index{Print@{Print}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Local\+Interface\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLocalInterface_a8c34c2c223f9660173ed952b20508f07}\label{classLocalInterface_a8c34c2c223f9660173ed952b20508f07}} 
+\index{LocalInterface@{LocalInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Local\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Close any open screens for current object \mbox{\Hypertarget{classLocalInterface_a76c6549fd73166d4a63b9bc49d29c6e6}\label{classLocalInterface_a76c6549fd73166d4a63b9bc49d29c6e6}} 
+\index{LocalInterface@{LocalInterface}!Reset@{Reset}}
+\index{Reset@{Reset}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void Local\+Interface\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Close any open screens for current object \mbox{\Hypertarget{classLocalInterface_a73fdd6482765b52cfdaee5f7e067cc94}\label{classLocalInterface_a73fdd6482765b52cfdaee5f7e067cc94}} 
+\index{LocalInterface@{LocalInterface}!RunScreen@{RunScreen}}
+\index{RunScreen@{RunScreen}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{RunScreen()}{RunScreen()}}
+{\footnotesize\ttfamily void Local\+Interface\+::\+Run\+Screen (\begin{DoxyParamCaption}\item[{int}]{S\+C\+R\+E\+E\+N\+C\+O\+DE,  }\item[{int}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Changes the current screen 
+\begin{DoxyParams}{Parameters}
+{\em S\+C\+R\+E\+E\+N\+C\+O\+DE} & The ID code of screen to change to \\
+\hline
+{\em index} & Index of email viewed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+index is only used on email screen 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLocalInterface_a7da8bfaa03b5916c4dbb1bebda5fa500}\label{classLocalInterface_a7da8bfaa03b5916c4dbb1bebda5fa500}} 
+\index{LocalInterface@{LocalInterface}!Save@{Save}}
+\index{Save@{Save}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Local\+Interface\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLocalInterface_aaae1119ff8f31e5aa54423e6fdcefeff}\label{classLocalInterface_aaae1119ff8f31e5aa54423e6fdcefeff}} 
+\index{LocalInterface@{LocalInterface}!Update@{Update}}
+\index{Update@{Update}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Local\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLocalInterface_a08ffcb207d35febffab05a0059b2fc97}\label{classLocalInterface_a08ffcb207d35febffab05a0059b2fc97}} 
+\index{LocalInterface@{LocalInterface}!VerifyScreen@{VerifyScreen}}
+\index{VerifyScreen@{VerifyScreen}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{VerifyScreen()}{VerifyScreen()}}
+{\footnotesize\ttfamily bool Local\+Interface\+::\+Verify\+Screen (\begin{DoxyParamCaption}\item[{int}]{S\+C\+R\+E\+E\+N\+C\+O\+DE,  }\item[{int}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Check if screen ID code is valid 
+\begin{DoxyParams}{Parameters}
+{\em S\+C\+R\+E\+E\+N\+C\+O\+DE} & The ID code of screen to check \\
+\hline
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if valid screen 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+index is unused 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLocalInterface_af1fd16cb6ae1bba3f3d2b116f099fd12}\label{classLocalInterface_af1fd16cb6ae1bba3f3d2b116f099fd12}} 
+\index{LocalInterface@{LocalInterface}!currentscreencode@{currentscreencode}}
+\index{currentscreencode@{currentscreencode}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{currentscreencode}{currentscreencode}}
+{\footnotesize\ttfamily int Local\+Interface\+::currentscreencode}
+
+The ID code of the current screen \mbox{\Hypertarget{classLocalInterface_a21b3b0f90f0c7d51de9e1a1965680f48}\label{classLocalInterface_a21b3b0f90f0c7d51de9e1a1965680f48}} 
+\index{LocalInterface@{LocalInterface}!screenindex@{screenindex}}
+\index{screenindex@{screenindex}!LocalInterface@{LocalInterface}}
+\doxysubsubsection{\texorpdfstring{screenindex}{screenindex}}
+{\footnotesize\ttfamily int Local\+Interface\+::screenindex}
+
+Used for when S\+C\+R\+E\+E\+N\+C\+O\+DE=S\+C\+R\+E\+E\+N\+\_\+\+E\+M\+A\+IL (index of email viewed) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/localinterface.\+h\item 
+uplink/src/interface/localinterface/localinterface.\+cpp\end{DoxyCompactItemize}

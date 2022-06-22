@@ -1,0 +1,134 @@
+\hypertarget{classGraphicOptionsInterface}{}\doxysection{Graphic\+Options\+Interface Class Reference}
+\label{classGraphicOptionsInterface}\index{GraphicOptionsInterface@{GraphicOptionsInterface}}
+
+
+Inheritance diagram for Graphic\+Options\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Graphic\+Options\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a7c7bff98d0409cbcd97dd77a695bfc15}\label{classGraphicOptionsInterface_a7c7bff98d0409cbcd97dd77a695bfc15}} 
+void {\bfseries Set\+Option\+T\+Y\+PE} (char $\ast$newtype)
+\item 
+void \mbox{\hyperlink{classGraphicOptionsInterface_a8ae550cee37269ea07aef40a4e0aa82d}{Create}} () override
+\item 
+void \mbox{\hyperlink{classGraphicOptionsInterface_a259ea3d99205e0fc29a1a2e638863181}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classGraphicOptionsInterface_abe1bd4438c9a07d0856004cfcccf9b92}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classGraphicOptionsInterface_a252fc06e275a85a8aaa161378e9b03ef}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_aa5087e354e6e949255bc34ada19f7c96}\label{classGraphicOptionsInterface_aa5087e354e6e949255bc34ada19f7c96}} 
+static bool {\bfseries Change\+Option\+Value} (const string \&option, int newvalue)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_aa8fccf848b9b85ff7feba82709e515a0}\label{classGraphicOptionsInterface_aa8fccf848b9b85ff7feba82709e515a0}} 
+static void {\bfseries Apply\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a4605603daa6085bc72ea0ea46fc53ab9}\label{classGraphicOptionsInterface_a4605603daa6085bc72ea0ea46fc53ab9}} 
+static void {\bfseries Return\+To\+Main\+Menu\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a0b9147430a64a5a942768b3f0e96b626}\label{classGraphicOptionsInterface_a0b9147430a64a5a942768b3f0e96b626}} 
+static void {\bfseries Toggle\+Box\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a0a8a0037b01cf074c0e812e6bb62c055}\label{classGraphicOptionsInterface_a0a8a0037b01cf074c0e812e6bb62c055}} 
+static void {\bfseries Toggle\+Box\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a33228102b44606b1ab66fd9d84fc4922}\label{classGraphicOptionsInterface_a33228102b44606b1ab66fd9d84fc4922}} 
+static void {\bfseries Screen\+Option\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a0398ca52db368521a5a42cddecb4653b}\label{classGraphicOptionsInterface_a0398ca52db368521a5a42cddecb4653b}} 
+static void {\bfseries Screen\+Option\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a7a360f134911dced0db969ef81414c0e}\label{classGraphicOptionsInterface_a7a360f134911dced0db969ef81414c0e}} 
+static void {\bfseries Exit\+Game\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a5efb2f43da6ef76c363b8527cfdeec39}\label{classGraphicOptionsInterface_a5efb2f43da6ef76c363b8527cfdeec39}} 
+char {\bfseries option\+T\+Y\+PE} \mbox{[}16\mbox{]} \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_ac566cc87c4fb8a9ad2b63e775336052c}\label{classGraphicOptionsInterface_ac566cc87c4fb8a9ad2b63e775336052c}} 
+static int {\bfseries new\+Screen\+Width} = 0
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_aa4cb53d4f719f912fb1629760db9c2d4}\label{classGraphicOptionsInterface_aa4cb53d4f719f912fb1629760db9c2d4}} 
+static int {\bfseries new\+Screen\+Height} = 0
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_a89e3962ddb60ccd2b70e5787f706c1b5}\label{classGraphicOptionsInterface_a89e3962ddb60ccd2b70e5787f706c1b5}} 
+static int {\bfseries new\+Colour\+Depth} = 0
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_ac996b467ddf21b2ceecf42547441f032}\label{classGraphicOptionsInterface_ac996b467ddf21b2ceecf42547441f032}} 
+static int {\bfseries new\+Refresh} = 0
+\item 
+\mbox{\Hypertarget{classGraphicOptionsInterface_ab9f10fa9e08e14aedb342387d8b8b4f8}\label{classGraphicOptionsInterface_ab9f10fa9e08e14aedb342387d8b8b4f8}} 
+static bool {\bfseries screen\+Settings\+Changed} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraphicOptionsInterface_a8ae550cee37269ea07aef40a4e0aa82d}\label{classGraphicOptionsInterface_a8ae550cee37269ea07aef40a4e0aa82d}} 
+\index{GraphicOptionsInterface@{GraphicOptionsInterface}!Create@{Create}}
+\index{Create@{Create}!GraphicOptionsInterface@{GraphicOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Graphic\+Options\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Create the screen 
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_af836bc645d44f74a7095de5c38f3f9e4}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classGraphicOptionsInterface_abe1bd4438c9a07d0856004cfcccf9b92}\label{classGraphicOptionsInterface_abe1bd4438c9a07d0856004cfcccf9b92}} 
+\index{GraphicOptionsInterface@{GraphicOptionsInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!GraphicOptionsInterface@{GraphicOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Graphic\+Options\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen currently visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a8f3c79bc2a8722c1fe9ac71dbc415565}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classGraphicOptionsInterface_a252fc06e275a85a8aaa161378e9b03ef}\label{classGraphicOptionsInterface_a252fc06e275a85a8aaa161378e9b03ef}} 
+\index{GraphicOptionsInterface@{GraphicOptionsInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!GraphicOptionsInterface@{GraphicOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Graphic\+Options\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the ID of the screen \begin{DoxyReturn}{Returns}
+ID of the screen 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a17c38b7fdc70881cc04432b9b0f0b35c}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classGraphicOptionsInterface_a259ea3d99205e0fc29a1a2e638863181}\label{classGraphicOptionsInterface_a259ea3d99205e0fc29a1a2e638863181}} 
+\index{GraphicOptionsInterface@{GraphicOptionsInterface}!Update@{Update}}
+\index{Update@{Update}!GraphicOptionsInterface@{GraphicOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Graphic\+Options\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Update the screen 
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a9ac397e461a12c55a7ea56d8a4d6806e}{Main\+Menu\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/mainmenu/graphicoptions\+\_\+interface.\+h\item 
+uplink/src/mainmenu/graphicoptions\+\_\+interface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,127 @@
+\hypertarget{classRevelation}{}\doxysection{Revelation Class Reference}
+\label{classRevelation}\index{Revelation@{Revelation}}
+
+
+Inheritance diagram for Revelation\+:
+% FIG 0
+
+
+Collaboration diagram for Revelation\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRevelation_ac510252158176d778317b59f4ced9680}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classRevelation_a8925518158cd4f51055b14d10a5a1329}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classRevelation_a70d3991fc0f5849b60a54ac692d2ecf8}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classRevelation_acd1fbc8ababe17343c624de88349f8f8}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classRevelation_a1b1049064c953e2f869e3fa3f35c3c61}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classRevelation_a14f519a00a106ae9638ff82ab5073151}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRevelation_afb75c14b6f6f4ce82c69e75cece73e1e}\label{classRevelation_afb75c14b6f6f4ce82c69e75cece73e1e}} 
+static void {\bfseries Draw\+Revelation} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRevelation_a23a25b4ce868cd9541b39ed07a922088}\label{classRevelation_a23a25b4ce868cd9541b39ed07a922088}} 
+time\+\_\+t {\bfseries timesync}
+\item 
+\mbox{\Hypertarget{classRevelation_a7ff7a2c9102dcb841c76fe7ff3b07a2d}\label{classRevelation_a7ff7a2c9102dcb841c76fe7ff3b07a2d}} 
+int {\bfseries animationtime}
+\item 
+\mbox{\Hypertarget{classRevelation_a88f559b58d61bfc996916c8ee6504c29}\label{classRevelation_a88f559b58d61bfc996916c8ee6504c29}} 
+int {\bfseries nextnumber}
+\item 
+\mbox{\Hypertarget{classRevelation_a428aa49817e3022061bfd9395c4e2859}\label{classRevelation_a428aa49817e3022061bfd9395c4e2859}} 
+int {\bfseries numcopies}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRevelation_a70d3991fc0f5849b60a54ac692d2ecf8}\label{classRevelation_a70d3991fc0f5849b60a54ac692d2ecf8}} 
+\index{Revelation@{Revelation}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!Revelation@{Revelation}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Revelation\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classRevelation_ac510252158176d778317b59f4ced9680}\label{classRevelation_ac510252158176d778317b59f4ced9680}} 
+\index{Revelation@{Revelation}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!Revelation@{Revelation}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Revelation\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classRevelation_a14f519a00a106ae9638ff82ab5073151}\label{classRevelation_a14f519a00a106ae9638ff82ab5073151}} 
+\index{Revelation@{Revelation}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!Revelation@{Revelation}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Revelation\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classRevelation_acd1fbc8ababe17343c624de88349f8f8}\label{classRevelation_acd1fbc8ababe17343c624de88349f8f8}} 
+\index{Revelation@{Revelation}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!Revelation@{Revelation}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Revelation\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classRevelation_a1b1049064c953e2f869e3fa3f35c3c61}\label{classRevelation_a1b1049064c953e2f869e3fa3f35c3c61}} 
+\index{Revelation@{Revelation}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!Revelation@{Revelation}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Revelation\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classRevelation_a8925518158cd4f51055b14d10a5a1329}\label{classRevelation_a8925518158cd4f51055b14d10a5a1329}} 
+\index{Revelation@{Revelation}!Tick@{Tick}}
+\index{Tick@{Tick}!Revelation@{Revelation}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Revelation\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/revelation.\+h\item 
+uplink/src/interface/taskmanager/revelation.\+cpp\end{DoxyCompactItemize}

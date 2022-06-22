@@ -1,0 +1,513 @@
+\hypertarget{classLanInterface}{}\doxysection{Lan\+Interface Class Reference}
+\label{classLanInterface}\index{LanInterface@{LanInterface}}
+
+
+Screen that shows L\+AN of connected machine.  
+
+
+
+
+{\ttfamily \#include $<$lan\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Lan\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Lan\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLanInterface_a74d20830582658881c149337243f8da7}{Create\+Layout}} ()
+\item 
+void \mbox{\hyperlink{classLanInterface_ace501dc33c4ae39cf7311307e4246986}{Position\+Layout}} ()
+\item 
+void \mbox{\hyperlink{classLanInterface_ad6ba15e31910d7b7752d6b81afc68d49}{Select\+System}} (int system\+Index)
+\item 
+void \mbox{\hyperlink{classLanInterface_a509e09ee1216348919bd1047de40585f}{Create}} () override
+\item 
+void \mbox{\hyperlink{classLanInterface_afded821b08e5c5dd970b472c1194afce}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classLanInterface_a5afeda3824455a0a28a0d9b377e6ddfa}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classLanInterface_abcf9a2fc672c2f3704c1b69137eb2701}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classLanInterface_a19361a1ff0ba34be3e30d35e942357dd}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classLanInterface_a291ea348b8eec8472adce2165c9861a2}{Remove\+Layout}} ()
+\item 
+static \mbox{\hyperlink{structLanInterfaceObject}{Lan\+Interface\+Object}} $\ast$ \mbox{\hyperlink{classLanInterface_a9da9bfcc5c024cc62a0ae1afdef7d742}{Get\+Lan\+Interface\+Object}} (int T\+Y\+PE)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classLanInterface_aefc81c7eb4b75b94b2a7d4cd403f29c0}{Title\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a1c8a342c152c0202e841e02ded45f3e0}{Panel\+Background\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a31355e8f27d9b4afb628c852c4ac13ea}{Lan\+System\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a0a5408962542f10fb019dfa9e8a010e5}{Lan\+System\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_ad9eaa5358d8e38a93154ace7fc3a3cdc}{Lan\+System\+Mouse\+Move}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a8cc96186f571ad3ad4806ae90ce6eea5}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a459a35975705fdb294075723033cfd39}{Lan\+Background\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLanInterface_a5c7a8e509f7d733c14a2271afa92dd01}\label{classLanInterface_a5c7a8e509f7d733c14a2271afa92dd01}} 
+static void {\bfseries Lan\+Background\+Mouse\+Move} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a3d45ceb73bfc7c44857201cab5cd0b0f}{Connect\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a9bbe04274f8c16232dcd66acc74cd711}{Connect\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_adbd25b18f6bef44dbbfaebebcd9af9ae}{Connect\+Mouse\+Move}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a51c66cc2a782e051123b58155b1227c1}{Cancel\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a024d5cb3bacafc66cb2369517b4bbb47}{Back\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classLanInterface_acb751481c001b28f4789f7d06415ff16}{Back\+Mouse\+Move}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a20fb471df73af212772f56df3fcafb85}{Back\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_a8ec2c9145441488f1ed67635b60b4dc9}{Generate\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLanInterface_aa2428fb23fb8b4281d3fc335205ca6e9}{Draw\+Link}} (\mbox{\hyperlink{classLanComputerLink}{Lan\+Computer\+Link}} $\ast$link, float fromX, float fromY, float toX, float toY)
+\item 
+static void \mbox{\hyperlink{classLanInterface_aea52f551a65099336c7a8ef344337930}{Scroll\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{classLanInterface_aceaf0bf66a051b730180abc24d46b390}{ip}} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classLanInterfaceHighlight}{Lan\+Interface\+Highlight}} $\ast$ $>$ \mbox{\hyperlink{classLanInterface_ac7a6da99f40483cb2a1c42a1cea0ca23}{highlights}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structLanInterfaceObject}{Lan\+Interface\+Object}} \mbox{\hyperlink{classLanInterface_abc78f44ddfc7b5bb879b6856edc03bb7}{lan\+Interface\+Objects}} \mbox{[}L\+A\+N\+S\+Y\+S\+T\+E\+M\+\_\+\+N\+U\+M\+T\+Y\+P\+ES\mbox{]}
+\item 
+static int \mbox{\hyperlink{classLanInterface_ac597412aeeab5f948edddfecf326285c}{offsetX}} = 0
+\item 
+static int \mbox{\hyperlink{classLanInterface_a8384d55db42bfc49aec862e8cd60446e}{offsetY}} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows L\+AN of connected machine. 
+
+Local \mbox{\hyperlink{classInterface}{Interface}} screen Allows you to view a Local Area \mbox{\hyperlink{classNetwork}{Network}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLanInterface_a20fb471df73af212772f56df3fcafb85}\label{classLanInterface_a20fb471df73af212772f56df3fcafb85}} 
+\index{LanInterface@{LanInterface}!BackClick@{BackClick}}
+\index{BackClick@{BackClick}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{BackClick()}{BackClick()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Back\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+T\+O\+DO\+: Document 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a024d5cb3bacafc66cb2369517b4bbb47}\label{classLanInterface_a024d5cb3bacafc66cb2369517b4bbb47}} 
+\index{LanInterface@{LanInterface}!BackDraw@{BackDraw}}
+\index{BackDraw@{BackDraw}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{BackDraw()}{BackDraw()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Back\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+T\+O\+DO\+: Document 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_acb751481c001b28f4789f7d06415ff16}\label{classLanInterface_acb751481c001b28f4789f7d06415ff16}} 
+\index{LanInterface@{LanInterface}!BackMouseMove@{BackMouseMove}}
+\index{BackMouseMove@{BackMouseMove}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{BackMouseMove()}{BackMouseMove()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Back\+Mouse\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+T\+O\+DO\+: Document 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a51c66cc2a782e051123b58155b1227c1}\label{classLanInterface_a51c66cc2a782e051123b58155b1227c1}} 
+\index{LanInterface@{LanInterface}!CancelClick@{CancelClick}}
+\index{CancelClick@{CancelClick}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{CancelClick()}{CancelClick()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Cancel\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+T\+O\+DO\+: Document 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLanInterface_a9bbe04274f8c16232dcd66acc74cd711}\label{classLanInterface_a9bbe04274f8c16232dcd66acc74cd711}} 
+\index{LanInterface@{LanInterface}!ConnectClick@{ConnectClick}}
+\index{ConnectClick@{ConnectClick}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectClick()}{ConnectClick()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Connect\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Connects player to system clicked on 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for system clicked on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a3d45ceb73bfc7c44857201cab5cd0b0f}\label{classLanInterface_a3d45ceb73bfc7c44857201cab5cd0b0f}} 
+\index{LanInterface@{LanInterface}!ConnectDraw@{ConnectDraw}}
+\index{ConnectDraw@{ConnectDraw}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectDraw()}{ConnectDraw()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Connect\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders a system in L\+AN 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for system \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_adbd25b18f6bef44dbbfaebebcd9af9ae}\label{classLanInterface_adbd25b18f6bef44dbbfaebebcd9af9ae}} 
+\index{LanInterface@{LanInterface}!ConnectMouseMove@{ConnectMouseMove}}
+\index{ConnectMouseMove@{ConnectMouseMove}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectMouseMove()}{ConnectMouseMove()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Connect\+Mouse\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Highlights the L\+AN item currently hovered over 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} hovered over \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a509e09ee1216348919bd1047de40585f}\label{classLanInterface_a509e09ee1216348919bd1047de40585f}} 
+\index{LanInterface@{LanInterface}!Create@{Create}}
+\index{Create@{Create}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLanInterface_a74d20830582658881c149337243f8da7}\label{classLanInterface_a74d20830582658881c149337243f8da7}} 
+\index{LanInterface@{LanInterface}!CreateLayout@{CreateLayout}}
+\index{CreateLayout@{CreateLayout}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{CreateLayout()}{CreateLayout()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Create\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Render the layout and center on current connection \mbox{\Hypertarget{classLanInterface_aa2428fb23fb8b4281d3fc335205ca6e9}\label{classLanInterface_aa2428fb23fb8b4281d3fc335205ca6e9}} 
+\index{LanInterface@{LanInterface}!DrawLink@{DrawLink}}
+\index{DrawLink@{DrawLink}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{DrawLink()}{DrawLink()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Draw\+Link (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLanComputerLink}{Lan\+Computer\+Link}} $\ast$}]{link,  }\item[{float}]{fromX,  }\item[{float}]{fromY,  }\item[{float}]{toX,  }\item[{float}]{toY }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders a link between two points 
+\begin{DoxyParams}{Parameters}
+{\em link} & The link to draw \\
+\hline
+{\em fromX} & Starting X coordinate \\
+\hline
+{\em fromY} & Starting Y coordinate \\
+\hline
+{\em toX} & Ending X coordinate \\
+\hline
+{\em toY} & Ending Y coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a8ec2c9145441488f1ed67635b60b4dc9}\label{classLanInterface_a8ec2c9145441488f1ed67635b60b4dc9}} 
+\index{LanInterface@{LanInterface}!GenerateClick@{GenerateClick}}
+\index{GenerateClick@{GenerateClick}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{GenerateClick()}{GenerateClick()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Generate\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+T\+O\+DO\+: Document 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a9da9bfcc5c024cc62a0ae1afdef7d742}\label{classLanInterface_a9da9bfcc5c024cc62a0ae1afdef7d742}} 
+\index{LanInterface@{LanInterface}!GetLanInterfaceObject@{GetLanInterfaceObject}}
+\index{GetLanInterfaceObject@{GetLanInterfaceObject}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{GetLanInterfaceObject()}{GetLanInterfaceObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLanInterfaceObject}{Lan\+Interface\+Object}} $\ast$ Lan\+Interface\+::\+Get\+Lan\+Interface\+Object (\begin{DoxyParamCaption}\item[{int}]{T\+Y\+PE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: Document 
+\begin{DoxyParams}{Parameters}
+{\em T\+Y\+PE} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLanInterface_abcf9a2fc672c2f3704c1b69137eb2701}\label{classLanInterface_abcf9a2fc672c2f3704c1b69137eb2701}} 
+\index{LanInterface@{LanInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Lan\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLanInterface_a459a35975705fdb294075723033cfd39}\label{classLanInterface_a459a35975705fdb294075723033cfd39}} 
+\index{LanInterface@{LanInterface}!LanBackgroundDraw@{LanBackgroundDraw}}
+\index{LanBackgroundDraw@{LanBackgroundDraw}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{LanBackgroundDraw()}{LanBackgroundDraw()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Lan\+Background\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders background of L\+AN system 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} of L\+AN system \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLanInterface_a0a5408962542f10fb019dfa9e8a010e5}\label{classLanInterface_a0a5408962542f10fb019dfa9e8a010e5}} 
+\index{LanInterface@{LanInterface}!LanSystemClick@{LanSystemClick}}
+\index{LanSystemClick@{LanSystemClick}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{LanSystemClick()}{LanSystemClick()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Lan\+System\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Sets clicked button to the target of the program, and runs it 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} that was clicked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a31355e8f27d9b4afb628c852c4ac13ea}\label{classLanInterface_a31355e8f27d9b4afb628c852c4ac13ea}} 
+\index{LanInterface@{LanInterface}!LanSystemDraw@{LanSystemDraw}}
+\index{LanSystemDraw@{LanSystemDraw}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{LanSystemDraw()}{LanSystemDraw()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Lan\+System\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the L\+AN system 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} of system \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLanInterface_ad9eaa5358d8e38a93154ace7fc3a3cdc}\label{classLanInterface_ad9eaa5358d8e38a93154ace7fc3a3cdc}} 
+\index{LanInterface@{LanInterface}!LanSystemMouseMove@{LanSystemMouseMove}}
+\index{LanSystemMouseMove@{LanSystemMouseMove}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{LanSystemMouseMove()}{LanSystemMouseMove()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Lan\+System\+Mouse\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Sets tooltip of hovered L\+AN item 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} that was hovered over \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a1c8a342c152c0202e841e02ded45f3e0}\label{classLanInterface_a1c8a342c152c0202e841e02ded45f3e0}} 
+\index{LanInterface@{LanInterface}!PanelBackgroundDraw@{PanelBackgroundDraw}}
+\index{PanelBackgroundDraw@{PanelBackgroundDraw}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{PanelBackgroundDraw()}{PanelBackgroundDraw()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Panel\+Background\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the background of the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & button for background \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLanInterface_ace501dc33c4ae39cf7311307e4246986}\label{classLanInterface_ace501dc33c4ae39cf7311307e4246986}} 
+\index{LanInterface@{LanInterface}!PositionLayout@{PositionLayout}}
+\index{PositionLayout@{PositionLayout}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{PositionLayout()}{PositionLayout()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Position\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Repositions all buttons \mbox{\Hypertarget{classLanInterface_afded821b08e5c5dd970b472c1194afce}\label{classLanInterface_afded821b08e5c5dd970b472c1194afce}} 
+\index{LanInterface@{LanInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLanInterface_a291ea348b8eec8472adce2165c9861a2}\label{classLanInterface_a291ea348b8eec8472adce2165c9861a2}} 
+\index{LanInterface@{LanInterface}!RemoveLayout@{RemoveLayout}}
+\index{RemoveLayout@{RemoveLayout}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{RemoveLayout()}{RemoveLayout()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Remove\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Remove the L\+AN from the display \mbox{\Hypertarget{classLanInterface_a19361a1ff0ba34be3e30d35e942357dd}\label{classLanInterface_a19361a1ff0ba34be3e30d35e942357dd}} 
+\index{LanInterface@{LanInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Lan\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLanInterface_aea52f551a65099336c7a8ef344337930}\label{classLanInterface_aea52f551a65099336c7a8ef344337930}} 
+\index{LanInterface@{LanInterface}!ScrollClick@{ScrollClick}}
+\index{ScrollClick@{ScrollClick}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{ScrollClick()}{ScrollClick()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Scroll\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Moves the displayed L\+AN within the viewport 
+\begin{DoxyParams}{Parameters}
+{\em button} & The clicked button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_ad6ba15e31910d7b7752d6b81afc68d49}\label{classLanInterface_ad6ba15e31910d7b7752d6b81afc68d49}} 
+\index{LanInterface@{LanInterface}!SelectSystem@{SelectSystem}}
+\index{SelectSystem@{SelectSystem}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{SelectSystem()}{SelectSystem()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Select\+System (\begin{DoxyParamCaption}\item[{int}]{system\+Index }\end{DoxyParamCaption})}
+
+Connect to another system 
+\begin{DoxyParams}{Parameters}
+{\em system\+Index} & Index of system to switch to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLanInterface_a8cc96186f571ad3ad4806ae90ce6eea5}\label{classLanInterface_a8cc96186f571ad3ad4806ae90ce6eea5}} 
+\index{LanInterface@{LanInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLanInterface_aefc81c7eb4b75b94b2a7d4cd403f29c0}\label{classLanInterface_aefc81c7eb4b75b94b2a7d4cd403f29c0}} 
+\index{LanInterface@{LanInterface}!TitleDraw@{TitleDraw}}
+\index{TitleDraw@{TitleDraw}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{TitleDraw()}{TitleDraw()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Title\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the title of the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for title \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLanInterface_a5afeda3824455a0a28a0d9b377e6ddfa}\label{classLanInterface_a5afeda3824455a0a28a0d9b377e6ddfa}} 
+\index{LanInterface@{LanInterface}!Update@{Update}}
+\index{Update@{Update}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Lan\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classLanInterface_ac7a6da99f40483cb2a1c42a1cea0ca23}\label{classLanInterface_ac7a6da99f40483cb2a1c42a1cea0ca23}} 
+\index{LanInterface@{LanInterface}!highlights@{highlights}}
+\index{highlights@{highlights}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{highlights}{highlights}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classLanInterfaceHighlight}{Lan\+Interface\+Highlight}} $\ast$$>$ Lan\+Interface\+::highlights\hspace{0.3cm}{\ttfamily [protected]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classLanInterface_aceaf0bf66a051b730180abc24d46b390}\label{classLanInterface_aceaf0bf66a051b730180abc24d46b390}} 
+\index{LanInterface@{LanInterface}!ip@{ip}}
+\index{ip@{ip}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{ip}{ip}}
+{\footnotesize\ttfamily char Lan\+Interface\+::ip\mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+The IP of the system \mbox{\Hypertarget{classLanInterface_abc78f44ddfc7b5bb879b6856edc03bb7}\label{classLanInterface_abc78f44ddfc7b5bb879b6856edc03bb7}} 
+\index{LanInterface@{LanInterface}!lanInterfaceObjects@{lanInterfaceObjects}}
+\index{lanInterfaceObjects@{lanInterfaceObjects}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{lanInterfaceObjects}{lanInterfaceObjects}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLanInterfaceObject}{Lan\+Interface\+Object}} Lan\+Interface\+::lan\+Interface\+Objects\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ }
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{stringliteral}{"None"},                     \textcolor{stringliteral}{" "},                        0,  0,  \textcolor{stringliteral}{"None"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Router"},                   \textcolor{stringliteral}{"lan/router.tif"},           48, 32, \textcolor{stringliteral}{"A router.\(\backslash\)n\(\backslash\)nThe public entry point to this LAN. The main external Internet connection runs through here."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Hub"},                      \textcolor{stringliteral}{"lan/hub.tif"},              48, 20, \textcolor{stringliteral}{"A hub.\(\backslash\)n\(\backslash\)nConnects numerous seperate systems together."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Switch"},                   \textcolor{stringliteral}{"lan/hub.tif"},              48, 20, \textcolor{stringliteral}{"A switch.\(\backslash\)n\(\backslash\)nConnects two computer systems together."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Terminal"},                 \textcolor{stringliteral}{"lan/terminal.tif"},         38, 37, \textcolor{stringliteral}{"A terminal.\(\backslash\)n\(\backslash\)nA system inside the company, used by the employees."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Main Server"},              \textcolor{stringliteral}{"lan/centralsystem.tif"},    72, 51, \textcolor{stringliteral}{"A main server.\(\backslash\)n\(\backslash\)nThe central controlling computer system."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Mail Server"},              \textcolor{stringliteral}{"lan/mailserver.tif"},       48, 51, \textcolor{stringliteral}{"A mail server.\(\backslash\)n\(\backslash\)nStores employees personal emails, messages and address books."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"File Server"},              \textcolor{stringliteral}{"lan/mailserver.tif"},       48, 51, \textcolor{stringliteral}{"A file server.\(\backslash\)n\(\backslash\)nThe central file repository of the Network."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Authentication Server"},    \textcolor{stringliteral}{"lan/authentication.tif"},   48, 51, \textcolor{stringliteral}{"An authentication server\(\backslash\)n\(\backslash\)nDirectly controls the status of a Lock system, permitting or denying access."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Lock"},                     \textcolor{stringliteral}{"lan/lock.tif"},             32, 32, \textcolor{stringliteral}{"A lock.\(\backslash\)n\(\backslash\)nPrevents any access to the systems behind the lock when activated."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Isolation Bridge"},         \textcolor{stringliteral}{"lan/isolation.tif"},        32, 32, \textcolor{stringliteral}{"An isolation bridge\(\backslash\)n\(\backslash\)nToggles the status of two Lock systems on the network."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Modem"},                    \textcolor{stringliteral}{"lan/modem.tif"},            32, 32, \textcolor{stringliteral}{"A modem.\(\backslash\)n\(\backslash\)nCan be used as an external access point to the network."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Session Key Server"},       \textcolor{stringliteral}{"lan/session.tif"},          32, 32, \textcolor{stringliteral}{"A session key server"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Wireless Transmitter"},     \textcolor{stringliteral}{"lan/radiotrans.tif"},       32, 32, \textcolor{stringliteral}{"A Wireless LAN transmitter.\(\backslash\)n\(\backslash\)nCan be used to connect to a Wireless receiver on the network."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Wireless Receiver"},        \textcolor{stringliteral}{"lan/radiorec.tif"},         32, 32, \textcolor{stringliteral}{"A Wireless LAN receiver.\(\backslash\)n\(\backslash\)nCan be accessed by a Wireless transmitter on the network."},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Fax Printer"},              \textcolor{stringliteral}{"lan/hub.tif"},              48, 20, \textcolor{stringliteral}{"A fax printer"},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"Log Server"},               \textcolor{stringliteral}{"lan/centralsystem.tif"},    72, 51, \textcolor{stringliteral}{"A log server.  Stores all access logs for this LAN."}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+An array of all objects in L\+AN \mbox{\Hypertarget{classLanInterface_ac597412aeeab5f948edddfecf326285c}\label{classLanInterface_ac597412aeeab5f948edddfecf326285c}} 
+\index{LanInterface@{LanInterface}!offsetX@{offsetX}}
+\index{offsetX@{offsetX}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{offsetX}{offsetX}}
+{\footnotesize\ttfamily int Lan\+Interface\+::offsetX = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The X offset of the system \mbox{\Hypertarget{classLanInterface_a8384d55db42bfc49aec862e8cd60446e}\label{classLanInterface_a8384d55db42bfc49aec862e8cd60446e}} 
+\index{LanInterface@{LanInterface}!offsetY@{offsetY}}
+\index{offsetY@{offsetY}!LanInterface@{LanInterface}}
+\doxysubsubsection{\texorpdfstring{offsetY}{offsetY}}
+{\footnotesize\ttfamily int Lan\+Interface\+::offsetY = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The Y offset of the system 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/lan\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/lan\+\_\+interface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,119 @@
+\hypertarget{classSocialSecurityScreenInterface}{}\doxysection{Social\+Security\+Screen\+Interface Class Reference}
+\label{classSocialSecurityScreenInterface}\index{SocialSecurityScreenInterface@{SocialSecurityScreenInterface}}
+
+
+Inheritance diagram for Social\+Security\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Social\+Security\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a69ae23fd44dc08c66049be2233a5ac92}\label{classSocialSecurityScreenInterface_a69ae23fd44dc08c66049be2233a5ac92}} 
+void {\bfseries Set\+Search\+Name} (const string \&newsearchname)
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a25317e16ed8ce9bac1d51abb69caffc0}\label{classSocialSecurityScreenInterface_a25317e16ed8ce9bac1d51abb69caffc0}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classSocialSecurityScreenInterface_acaa10e9381158417e86c71b3ea0ca803}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classSocialSecurityScreenInterface_a2d7f1799b7daf10ef23a3419287c085c}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classSocialSecurityScreenInterface_a830c530d3019c1f1ff2321bc114c7c07}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classSocialSecurityScreenInterface_a9703863c3d381baac8c9f925af3bda74}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_ab1d95288ef1863635e6e16f5bd293e16}\label{classSocialSecurityScreenInterface_ab1d95288ef1863635e6e16f5bd293e16}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a124ae17d65fa51c4f9129cffc530b319}\label{classSocialSecurityScreenInterface_a124ae17d65fa51c4f9129cffc530b319}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_ade05ba8deb5c50d434d63678082f5d34}\label{classSocialSecurityScreenInterface_ade05ba8deb5c50d434d63678082f5d34}} 
+void {\bfseries Update\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a892512870010125b9f4151e20b80080a}\label{classSocialSecurityScreenInterface_a892512870010125b9f4151e20b80080a}} 
+static void {\bfseries Details\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a8ca87caceb7fc43bd1b7b35dc3dfb857}\label{classSocialSecurityScreenInterface_a8ca87caceb7fc43bd1b7b35dc3dfb857}} 
+static void {\bfseries Commit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a213e975d0039593e05099efe5696fdf4}\label{classSocialSecurityScreenInterface_a213e975d0039593e05099efe5696fdf4}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_aed2a1184e47aca97da06939c84032fa4}\label{classSocialSecurityScreenInterface_aed2a1184e47aca97da06939c84032fa4}} 
+string {\bfseries searchname}
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_ac77301f1fd589f229f089575e49faa66}\label{classSocialSecurityScreenInterface_ac77301f1fd589f229f089575e49faa66}} 
+int {\bfseries recordindex}
+\item 
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_aa41e327185fdb0e661e575f29bb93c59}\label{classSocialSecurityScreenInterface_aa41e327185fdb0e661e575f29bb93c59}} 
+int {\bfseries lastupdate}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a830c530d3019c1f1ff2321bc114c7c07}\label{classSocialSecurityScreenInterface_a830c530d3019c1f1ff2321bc114c7c07}} 
+\index{SocialSecurityScreenInterface@{SocialSecurityScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!SocialSecurityScreenInterface@{SocialSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Social\+Security\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_acaa10e9381158417e86c71b3ea0ca803}\label{classSocialSecurityScreenInterface_acaa10e9381158417e86c71b3ea0ca803}} 
+\index{SocialSecurityScreenInterface@{SocialSecurityScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!SocialSecurityScreenInterface@{SocialSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Social\+Security\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a9703863c3d381baac8c9f925af3bda74}\label{classSocialSecurityScreenInterface_a9703863c3d381baac8c9f925af3bda74}} 
+\index{SocialSecurityScreenInterface@{SocialSecurityScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!SocialSecurityScreenInterface@{SocialSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Social\+Security\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a2d7f1799b7daf10ef23a3419287c085c}\label{classSocialSecurityScreenInterface_a2d7f1799b7daf10ef23a3419287c085c}} 
+\index{SocialSecurityScreenInterface@{SocialSecurityScreenInterface}!Update@{Update}}
+\index{Update@{Update}!SocialSecurityScreenInterface@{SocialSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Social\+Security\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}{Remote\+Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/socialsecurityscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/socialsecurityscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

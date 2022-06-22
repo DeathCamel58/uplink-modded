@@ -1,0 +1,173 @@
+\hypertarget{classMessage}{}\doxysection{Message Class Reference}
+\label{classMessage}\index{Message@{Message}}
+
+
+Inheritance diagram for Message\+:
+% FIG 0
+
+
+Collaboration diagram for Message\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMessage_a8421e66d363aa0e880d7d558de980e7d}\label{classMessage_a8421e66d363aa0e880d7d558de980e7d}} 
+void {\bfseries Set\+To} (const string \&newto)
+\item 
+\mbox{\Hypertarget{classMessage_a5593ecc777ebb42c565eecbd7a142897}\label{classMessage_a5593ecc777ebb42c565eecbd7a142897}} 
+void {\bfseries Set\+From} (const string \&newfrom)
+\item 
+\mbox{\Hypertarget{classMessage_a0b0fa821194b512241294a2dae60e3ee}\label{classMessage_a0b0fa821194b512241294a2dae60e3ee}} 
+void {\bfseries Set\+Subject} (const string \&newsubject)
+\item 
+\mbox{\Hypertarget{classMessage_a347cc67e2d72f48032428cb2ebbd9fff}\label{classMessage_a347cc67e2d72f48032428cb2ebbd9fff}} 
+void {\bfseries Set\+Body} (const string \&newbody)
+\item 
+\mbox{\Hypertarget{classMessage_aea20702f63658e025cb9ee2e0feaf66c}\label{classMessage_aea20702f63658e025cb9ee2e0feaf66c}} 
+void {\bfseries Set\+Date} (\mbox{\hyperlink{classDate}{Date}} $\ast$newdate)
+\item 
+\mbox{\Hypertarget{classMessage_ab1cf0fbf857a59fee83587a579728b48}\label{classMessage_ab1cf0fbf857a59fee83587a579728b48}} 
+void {\bfseries Give\+Link} (const string \&ip)
+\item 
+\mbox{\Hypertarget{classMessage_a2cefb21ad842dce12ffa26fe4f157d9f}\label{classMessage_a2cefb21ad842dce12ffa26fe4f157d9f}} 
+void {\bfseries Give\+Code} (const string \&ip, const string \&code)
+\item 
+\mbox{\Hypertarget{classMessage_a5de7148a41bd3272d4003dc61cb36786}\label{classMessage_a5de7148a41bd3272d4003dc61cb36786}} 
+void {\bfseries Attach\+Data} (\mbox{\hyperlink{classData}{Data}} $\ast$newdata)
+\item 
+\mbox{\Hypertarget{classMessage_a13a36089f392718f9186eeaebaf4225c}\label{classMessage_a13a36089f392718f9186eeaebaf4225c}} 
+\mbox{\hyperlink{classData}{Data}} $\ast$ {\bfseries Get\+Data} ()
+\item 
+\mbox{\Hypertarget{classMessage_aab7b0d29bbfd422c2e45e0c85047928a}\label{classMessage_aab7b0d29bbfd422c2e45e0c85047928a}} 
+string {\bfseries Get\+Subject} ()
+\item 
+\mbox{\Hypertarget{classMessage_aa47827bbd6fbfe61d561e693f37b7983}\label{classMessage_aa47827bbd6fbfe61d561e693f37b7983}} 
+string {\bfseries Get\+Body} ()
+\item 
+\mbox{\Hypertarget{classMessage_aca3250cdc698629aed747e17279d7899}\label{classMessage_aca3250cdc698629aed747e17279d7899}} 
+void {\bfseries Send} ()
+\item 
+bool \mbox{\hyperlink{classMessage_a2b31802b1dc9b92655d3cc891a8cbf72}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classMessage_ae42e1555e0bac312766dce78a28cc180}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classMessage_a20066b92ffa6150406bad1be54e08831}{Print}} () override
+\item 
+string \mbox{\hyperlink{classMessage_a043b5493305f048320391b726a0ccae8}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classMessage_a70c76cf2ca9b32d695c9f61b4b60888a}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMessage_a00340ee43bdf59cd37174dfaf217b55b}\label{classMessage_a00340ee43bdf59cd37174dfaf217b55b}} 
+string {\bfseries to}
+\item 
+\mbox{\Hypertarget{classMessage_a55d5ead0f375bdccc0a3d7ca063c33f2}\label{classMessage_a55d5ead0f375bdccc0a3d7ca063c33f2}} 
+string {\bfseries from}
+\item 
+\mbox{\Hypertarget{classMessage_a68c0c592f482af5406702b8ef2ce34e4}\label{classMessage_a68c0c592f482af5406702b8ef2ce34e4}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries links}
+\item 
+\mbox{\Hypertarget{classMessage_ac96bccaf6f1aad0e89148e93218b22bb}\label{classMessage_ac96bccaf6f1aad0e89148e93218b22bb}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ char $\ast$ $>$ {\bfseries codes}
+\item 
+\mbox{\Hypertarget{classMessage_aa3bc60df3511432c1611c41c36d312ca}\label{classMessage_aa3bc60df3511432c1611c41c36d312ca}} 
+\mbox{\hyperlink{classDate}{Date}} {\bfseries date}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMessage_a44111cde284d5a95f213103fd425d6d6}\label{classMessage_a44111cde284d5a95f213103fd425d6d6}} 
+string {\bfseries subject}
+\item 
+\mbox{\Hypertarget{classMessage_ae635b33dbb51d5cedb4f78b45e9b4a01}\label{classMessage_ae635b33dbb51d5cedb4f78b45e9b4a01}} 
+string {\bfseries body}
+\item 
+\mbox{\Hypertarget{classMessage_ad0c2127a0fdd45c1981ef764cddb3ea7}\label{classMessage_ad0c2127a0fdd45c1981ef764cddb3ea7}} 
+\mbox{\hyperlink{classData}{Data}} $\ast$ {\bfseries data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMessage_a043b5493305f048320391b726a0ccae8}\label{classMessage_a043b5493305f048320391b726a0ccae8}} 
+\index{Message@{Message}!GetID@{GetID}}
+\index{GetID@{GetID}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Message\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMessage_a70c76cf2ca9b32d695c9f61b4b60888a}\label{classMessage_a70c76cf2ca9b32d695c9f61b4b60888a}} 
+\index{Message@{Message}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Message\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMessage_a2b31802b1dc9b92655d3cc891a8cbf72}\label{classMessage_a2b31802b1dc9b92655d3cc891a8cbf72}} 
+\index{Message@{Message}!Load@{Load}}
+\index{Load@{Load}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Message\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMessage_a20066b92ffa6150406bad1be54e08831}\label{classMessage_a20066b92ffa6150406bad1be54e08831}} 
+\index{Message@{Message}!Print@{Print}}
+\index{Print@{Print}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Message\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMessage_ae42e1555e0bac312766dce78a28cc180}\label{classMessage_ae42e1555e0bac312766dce78a28cc180}} 
+\index{Message@{Message}!Save@{Save}}
+\index{Save@{Save}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Message\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/message.\+h\item 
+uplink/src/world/message.\+cpp\end{DoxyCompactItemize}

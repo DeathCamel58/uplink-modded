@@ -1,0 +1,155 @@
+\hypertarget{classRecordBank}{}\doxysection{Record\+Bank Class Reference}
+\label{classRecordBank}\index{RecordBank@{RecordBank}}
+
+
+Inheritance diagram for Record\+Bank\+:
+% FIG 0
+
+
+Collaboration diagram for Record\+Bank\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecordBank_abb6a2a7904524a402a42fd241ce8f1c6}\label{classRecordBank_abb6a2a7904524a402a42fd241ce8f1c6}} 
+void {\bfseries Add\+Record} (\mbox{\hyperlink{classRecord}{Record}} $\ast$newrecord)
+\item 
+\mbox{\Hypertarget{classRecordBank_a4ace989f06355f95179d8470402eb4f9}\label{classRecordBank_a4ace989f06355f95179d8470402eb4f9}} 
+void {\bfseries Add\+Record\+Sorted} (\mbox{\hyperlink{classRecord}{Record}} $\ast$newrecord, const string \&sortfield=R\+E\+C\+O\+R\+D\+B\+A\+N\+K\+\_\+\+N\+A\+ME)
+\item 
+\mbox{\Hypertarget{classRecordBank_a47c9a821263bcb8579b75ece86b8ffed}\label{classRecordBank_a47c9a821263bcb8579b75ece86b8ffed}} 
+\mbox{\hyperlink{classRecord}{Record}} $\ast$ {\bfseries Get\+Record} (int index)
+\item 
+\mbox{\Hypertarget{classRecordBank_ac0ee2d788b5b4c7355d60190bc56c128}\label{classRecordBank_ac0ee2d788b5b4c7355d60190bc56c128}} 
+\mbox{\hyperlink{classRecord}{Record}} $\ast$ {\bfseries Get\+Record} (const string \&query)
+\item 
+\mbox{\Hypertarget{classRecordBank_a5876c5908773d2c760241f381a979429}\label{classRecordBank_a5876c5908773d2c760241f381a979429}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classRecord}{Record}} $\ast$ $>$ $\ast$ {\bfseries Get\+Records} (const string \&query)
+\item 
+\mbox{\Hypertarget{classRecordBank_a509b9356abb185f9edf46fdbe3321557}\label{classRecordBank_a509b9356abb185f9edf46fdbe3321557}} 
+\mbox{\hyperlink{classRecord}{Record}} $\ast$ {\bfseries Get\+Random\+Record} (const string \&query)
+\item 
+\mbox{\Hypertarget{classRecordBank_a8ca45c892388c90e526cd5bc6575dfd4}\label{classRecordBank_a8ca45c892388c90e526cd5bc6575dfd4}} 
+\mbox{\hyperlink{classRecord}{Record}} $\ast$ {\bfseries Get\+Record\+From\+Name} (const string \&name)
+\item 
+\mbox{\Hypertarget{classRecordBank_a9645a6c55e3899c8bcd7e1faf2040054}\label{classRecordBank_a9645a6c55e3899c8bcd7e1faf2040054}} 
+\mbox{\hyperlink{classRecord}{Record}} $\ast$ {\bfseries Get\+Record\+From\+Name\+Password} (const string \&name, const string \&password)
+\item 
+\mbox{\Hypertarget{classRecordBank_a3db8d6059feb7b3fb0dea478e999ecbe}\label{classRecordBank_a3db8d6059feb7b3fb0dea478e999ecbe}} 
+\mbox{\hyperlink{classRecord}{Record}} $\ast$ {\bfseries Get\+Record\+From\+Account\+Number} (const string \&acc\+No)
+\item 
+\mbox{\Hypertarget{classRecordBank_aa3a31826e2eab8abfea5047f989d28a7}\label{classRecordBank_aa3a31826e2eab8abfea5047f989d28a7}} 
+int {\bfseries Find\+Next\+Record\+Index\+Name\+Not\+System\+Account} (int curindex=-\/1)
+\item 
+bool \mbox{\hyperlink{classRecordBank_ac27f862aae0017f19bb5344b317be8a1}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classRecordBank_af1d37b2980e64348665863d35e75d8fa}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classRecordBank_ace3b58220bfe0e34f30f7e4505625e6b}{Print}} () override
+\item 
+void \mbox{\hyperlink{classRecordBank_abdd75d5feafe53464466d8c58a219f36}{Update}} () override
+\item 
+string \mbox{\hyperlink{classRecordBank_a49a9098dee9533868f2a83e8a126b73c}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classRecordBank_af480b2e9350c3301931fd5542759314e}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecordBank_a72f183cfec8cb33275213eef6cf9b7c9}\label{classRecordBank_a72f183cfec8cb33275213eef6cf9b7c9}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classRecord}{Record}} $\ast$ $>$ {\bfseries records}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRecordBank_a49a9098dee9533868f2a83e8a126b73c}\label{classRecordBank_a49a9098dee9533868f2a83e8a126b73c}} 
+\index{RecordBank@{RecordBank}!GetID@{GetID}}
+\index{GetID@{GetID}!RecordBank@{RecordBank}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Record\+Bank\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecordBank_af480b2e9350c3301931fd5542759314e}\label{classRecordBank_af480b2e9350c3301931fd5542759314e}} 
+\index{RecordBank@{RecordBank}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!RecordBank@{RecordBank}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Record\+Bank\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecordBank_ac27f862aae0017f19bb5344b317be8a1}\label{classRecordBank_ac27f862aae0017f19bb5344b317be8a1}} 
+\index{RecordBank@{RecordBank}!Load@{Load}}
+\index{Load@{Load}!RecordBank@{RecordBank}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Record\+Bank\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecordBank_ace3b58220bfe0e34f30f7e4505625e6b}\label{classRecordBank_ace3b58220bfe0e34f30f7e4505625e6b}} 
+\index{RecordBank@{RecordBank}!Print@{Print}}
+\index{Print@{Print}!RecordBank@{RecordBank}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Record\+Bank\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecordBank_af1d37b2980e64348665863d35e75d8fa}\label{classRecordBank_af1d37b2980e64348665863d35e75d8fa}} 
+\index{RecordBank@{RecordBank}!Save@{Save}}
+\index{Save@{Save}!RecordBank@{RecordBank}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Record\+Bank\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecordBank_abdd75d5feafe53464466d8c58a219f36}\label{classRecordBank_abdd75d5feafe53464466d8c58a219f36}} 
+\index{RecordBank@{RecordBank}!Update@{Update}}
+\index{Update@{Update}!RecordBank@{RecordBank}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Record\+Bank\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/recordbank.\+h\item 
+uplink/src/world/computer/recordbank.\+cpp\end{DoxyCompactItemize}

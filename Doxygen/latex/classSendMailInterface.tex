@@ -1,0 +1,286 @@
+\hypertarget{classSendMailInterface}{}\doxysection{Send\+Mail\+Interface Class Reference}
+\label{classSendMailInterface}\index{SendMailInterface@{SendMailInterface}}
+
+
+Screen that allows the user to compose an email.  
+
+
+
+
+{\ttfamily \#include $<$sendmail\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Send\+Mail\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Send\+Mail\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSendMailInterface_aa724895d76b1604f6211d47cee00ac39}{Create}} () override
+\item 
+void \mbox{\hyperlink{classSendMailInterface_a60225d6e68e6f549d694ad1d654157dd}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classSendMailInterface_a5b3cfe37d3e8dc09e4077c76770f41c5}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classSendMailInterface_a3f3128625c9545696d25b577c709d4cd}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classSendMailInterface_ae4b970a813ae6f15150ad5a410404c0e}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classMessage}{Message}} $\ast$ \mbox{\hyperlink{classSendMailInterface_a9db5f11aceb2efe800cc2510ebe58601}{s\+Get\+Message}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_a40546d7a0c4f1236a106de3a6795351b}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_a98d37ea12bfb62444935533a73daeb54}{File\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_a983b734fc7bed1d9b738916f61ce5f24}{Attach\+File\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_a0939f196401d52564ec32c1d19740f24}{Clear\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_a71a4e798d83e5b6afd9cdc0f0e4c4d90}{Send\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static bool \mbox{\hyperlink{classSendMailInterface_ab22650d5f4ef0ae0f79492d5627abc0c}{Is\+Visible\+File\+List}} ()
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_a2638772459f8c3b3a6222e0932e439ea}{Toggle\+File\+List}} (int x, int y)
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_add34a986c0427770f2addf1bc75ebd23}{To\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static bool \mbox{\hyperlink{classSendMailInterface_a838dced69f6418b3460642fd6f1405db}{Is\+Visible\+Address\+Book}} ()
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_a39cb1173c0da994ff2791c6d0e8afba2}{Toggle\+Address\+Book}} (int x, int y)
+\item 
+static void \mbox{\hyperlink{classSendMailInterface_adab1a93359a9c8afe91e73369c8348ae}{Address\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classMessage}{Message}} $\ast$ \mbox{\hyperlink{classSendMailInterface_a1da5ee5661f4558f9476ade3441e802d}{m}} = new \mbox{\hyperlink{classMessage}{Message}}()
+\item 
+static bool \mbox{\hyperlink{classSendMailInterface_afb1c9383a175fd996046c81367937a0b}{changed}} = false
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that allows the user to compose an email. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSendMailInterface_adab1a93359a9c8afe91e73369c8348ae}\label{classSendMailInterface_adab1a93359a9c8afe91e73369c8348ae}} 
+\index{SendMailInterface@{SendMailInterface}!AddressClick@{AddressClick}}
+\index{AddressClick@{AddressClick}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{AddressClick()}{AddressClick()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Address\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Sets the email to the clicked address 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for address \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSendMailInterface_a983b734fc7bed1d9b738916f61ce5f24}\label{classSendMailInterface_a983b734fc7bed1d9b738916f61ce5f24}} 
+\index{SendMailInterface@{SendMailInterface}!AttachFileClick@{AttachFileClick}}
+\index{AttachFileClick@{AttachFileClick}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{AttachFileClick()}{AttachFileClick()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Attach\+File\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Attaches the file to email 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for a file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSendMailInterface_a0939f196401d52564ec32c1d19740f24}\label{classSendMailInterface_a0939f196401d52564ec32c1d19740f24}} 
+\index{SendMailInterface@{SendMailInterface}!ClearClick@{ClearClick}}
+\index{ClearClick@{ClearClick}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{ClearClick()}{ClearClick()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Clear\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Clears all boxes in the send mail interface 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to clear interface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSendMailInterface_aa724895d76b1604f6211d47cee00ac39}\label{classSendMailInterface_aa724895d76b1604f6211d47cee00ac39}} 
+\index{SendMailInterface@{SendMailInterface}!Create@{Create}}
+\index{Create@{Create}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSendMailInterface_a98d37ea12bfb62444935533a73daeb54}\label{classSendMailInterface_a98d37ea12bfb62444935533a73daeb54}} 
+\index{SendMailInterface@{SendMailInterface}!FileClick@{FileClick}}
+\index{FileClick@{FileClick}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{FileClick()}{FileClick()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+File\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Toggles the file list 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} used to toggle the file list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSendMailInterface_a3f3128625c9545696d25b577c709d4cd}\label{classSendMailInterface_a3f3128625c9545696d25b577c709d4cd}} 
+\index{SendMailInterface@{SendMailInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Send\+Mail\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSendMailInterface_a838dced69f6418b3460642fd6f1405db}\label{classSendMailInterface_a838dced69f6418b3460642fd6f1405db}} 
+\index{SendMailInterface@{SendMailInterface}!IsVisibleAddressBook@{IsVisibleAddressBook}}
+\index{IsVisibleAddressBook@{IsVisibleAddressBook}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisibleAddressBook()}{IsVisibleAddressBook()}}
+{\footnotesize\ttfamily bool Send\+Mail\+Interface\+::\+Is\+Visible\+Address\+Book (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Is the address list currently open \begin{DoxyReturn}{Returns}
+true if it is 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSendMailInterface_ab22650d5f4ef0ae0f79492d5627abc0c}\label{classSendMailInterface_ab22650d5f4ef0ae0f79492d5627abc0c}} 
+\index{SendMailInterface@{SendMailInterface}!IsVisibleFileList@{IsVisibleFileList}}
+\index{IsVisibleFileList@{IsVisibleFileList}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisibleFileList()}{IsVisibleFileList()}}
+{\footnotesize\ttfamily bool Send\+Mail\+Interface\+::\+Is\+Visible\+File\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Is the file list currently open \begin{DoxyReturn}{Returns}
+true if it is 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSendMailInterface_a60225d6e68e6f549d694ad1d654157dd}\label{classSendMailInterface_a60225d6e68e6f549d694ad1d654157dd}} 
+\index{SendMailInterface@{SendMailInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSendMailInterface_ae4b970a813ae6f15150ad5a410404c0e}\label{classSendMailInterface_ae4b970a813ae6f15150ad5a410404c0e}} 
+\index{SendMailInterface@{SendMailInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Send\+Mail\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSendMailInterface_a71a4e798d83e5b6afd9cdc0f0e4c4d90}\label{classSendMailInterface_a71a4e798d83e5b6afd9cdc0f0e4c4d90}} 
+\index{SendMailInterface@{SendMailInterface}!SendClick@{SendClick}}
+\index{SendClick@{SendClick}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{SendClick()}{SendClick()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Send\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Sends the current email 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to send email \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSendMailInterface_a9db5f11aceb2efe800cc2510ebe58601}\label{classSendMailInterface_a9db5f11aceb2efe800cc2510ebe58601}} 
+\index{SendMailInterface@{SendMailInterface}!sGetMessage@{sGetMessage}}
+\index{sGetMessage@{sGetMessage}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{sGetMessage()}{sGetMessage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMessage}{Message}} $\ast$ Send\+Mail\+Interface\+::s\+Get\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets the message \begin{DoxyReturn}{Returns}
+The message 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSendMailInterface_a40546d7a0c4f1236a106de3a6795351b}\label{classSendMailInterface_a40546d7a0c4f1236a106de3a6795351b}} 
+\index{SendMailInterface@{SendMailInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSendMailInterface_add34a986c0427770f2addf1bc75ebd23}\label{classSendMailInterface_add34a986c0427770f2addf1bc75ebd23}} 
+\index{SendMailInterface@{SendMailInterface}!ToClick@{ToClick}}
+\index{ToClick@{ToClick}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{ToClick()}{ToClick()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+To\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Toggles the address list 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} used to toggle the address click \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSendMailInterface_a39cb1173c0da994ff2791c6d0e8afba2}\label{classSendMailInterface_a39cb1173c0da994ff2791c6d0e8afba2}} 
+\index{SendMailInterface@{SendMailInterface}!ToggleAddressBook@{ToggleAddressBook}}
+\index{ToggleAddressBook@{ToggleAddressBook}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{ToggleAddressBook()}{ToggleAddressBook()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Toggle\+Address\+Book (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Creates/\+Destroys the address list window 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinates \\
+\hline
+{\em y} & Y coordinates \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSendMailInterface_a2638772459f8c3b3a6222e0932e439ea}\label{classSendMailInterface_a2638772459f8c3b3a6222e0932e439ea}} 
+\index{SendMailInterface@{SendMailInterface}!ToggleFileList@{ToggleFileList}}
+\index{ToggleFileList@{ToggleFileList}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{ToggleFileList()}{ToggleFileList()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Toggle\+File\+List (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Creates/\+Destroys the file list window 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSendMailInterface_a5b3cfe37d3e8dc09e4077c76770f41c5}\label{classSendMailInterface_a5b3cfe37d3e8dc09e4077c76770f41c5}} 
+\index{SendMailInterface@{SendMailInterface}!Update@{Update}}
+\index{Update@{Update}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Send\+Mail\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}{Local\+Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSendMailInterface_afb1c9383a175fd996046c81367937a0b}\label{classSendMailInterface_afb1c9383a175fd996046c81367937a0b}} 
+\index{SendMailInterface@{SendMailInterface}!changed@{changed}}
+\index{changed@{changed}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{changed}{changed}}
+{\footnotesize\ttfamily bool Send\+Mail\+Interface\+::changed = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Has the message changed? \mbox{\Hypertarget{classSendMailInterface_a1da5ee5661f4558f9476ade3441e802d}\label{classSendMailInterface_a1da5ee5661f4558f9476ade3441e802d}} 
+\index{SendMailInterface@{SendMailInterface}!m@{m}}
+\index{m@{m}!SendMailInterface@{SendMailInterface}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMessage}{Message}} $\ast$ Send\+Mail\+Interface\+::m = new \mbox{\hyperlink{classMessage}{Message}}()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The message being composed 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/sendmail\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/sendmail\+\_\+interface.\+cpp\end{DoxyCompactItemize}

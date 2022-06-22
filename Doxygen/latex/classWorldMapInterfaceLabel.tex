@@ -1,0 +1,230 @@
+\hypertarget{classWorldMapInterfaceLabel}{}\doxysection{World\+Map\+Interface\+Label Class Reference}
+\label{classWorldMapInterfaceLabel}\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+
+
+The label for the object on the world map.  
+
+
+
+
+{\ttfamily \#include $<$worldmap\+\_\+layout.\+h$>$}
+
+
+
+Inheritance diagram for World\+Map\+Interface\+Label\+:
+% FIG 0
+
+
+Collaboration diagram for World\+Map\+Interface\+Label\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_a01424afc9fd60d02f4c9972e9d8bffc8}\label{classWorldMapInterfaceLabel_a01424afc9fd60d02f4c9972e9d8bffc8}} 
+{\bfseries World\+Map\+Interface\+Label} (const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&map\+Rect, \mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}} $\ast$new\+Feature\+Point, const string \&new\+Caption)
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceLabel_ae17552972e7f7172a7fb5b96815fdd58}{Set\+Caption}} (const string \&newcaption)
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceLabel_ac03e72eb03950d49fdf7687fb06d70c8}{Set\+Label\+Position}} (int n)
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceLabel_ad5ea3cf8cc678bbffd82e63d44baf702}{Set\+Random\+Label\+Position}} ()
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceLabel_a25589e5f0fab73ff266e3fe0b3e65ac1}{Get\+Label\+Position}} () const
+\item 
+\mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \mbox{\hyperlink{classWorldMapInterfaceLabel_a63deebc3b16d74a764d9d7761bbc29ae}{Get\+Extent}} () const override
+\item 
+bool \mbox{\hyperlink{classWorldMapInterfaceLabel_ace0241ddba56247205c45746dbb0068c}{Overlaps}} (\mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}} $\ast$label) const
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceLabel_ae537a267f184a1d277f0501683f564f3}{Draw}} (int x\+Offset=0, int y\+Offset=0, float zoom=1.\+0) override
+\item 
+string \mbox{\hyperlink{classWorldMapInterfaceLabel_a69aaceefacbd1fcb91335f244aeff68e}{Get\+Caption}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceLabel_a4aaffd2d505de6dfdee61aba9b527861}{Calculate\+Width}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceLabel_aedeaf89acf72d66469c210e9244e7d25}{Calculate\+Possible\+Label\+Positions}} (const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&map\+Rect)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classWorldMapInterfaceLabel_a65e9ab749f9bc9f248cf75ede3df47bf}{caption}}
+\item 
+\mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}} $\ast$ \mbox{\hyperlink{classWorldMapInterfaceLabel_a1090dffae37f65c68b712a26aabbe370}{feature\+Point}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceLabel_ab0974e9be1cb27059cdea4081c960846}{label\+Pos}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceLabel_aa4791ebcf8366e07fa492edbb07f6992}{label\+Width}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceLabel_a1df80bf6d359418dc26d958bb666238f}{num\+Poss\+Label\+Pos}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceLabel_a8e5e4238870935ca51eba803bba76e2e}{poss\+Label\+Pos}} \mbox{[}8\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The label for the object on the world map. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_aedeaf89acf72d66469c210e9244e7d25}\label{classWorldMapInterfaceLabel_aedeaf89acf72d66469c210e9244e7d25}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!CalculatePossibleLabelPositions@{CalculatePossibleLabelPositions}}
+\index{CalculatePossibleLabelPositions@{CalculatePossibleLabelPositions}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{CalculatePossibleLabelPositions()}{CalculatePossibleLabelPositions()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Label\+::\+Calculate\+Possible\+Label\+Positions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&}]{map\+Rect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Calculates all valid label positions 
+\begin{DoxyParams}{Parameters}
+{\em map\+Rect} & The map rectangle to ensure label is fully within \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_a4aaffd2d505de6dfdee61aba9b527861}\label{classWorldMapInterfaceLabel_a4aaffd2d505de6dfdee61aba9b527861}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!CalculateWidth@{CalculateWidth}}
+\index{CalculateWidth@{CalculateWidth}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{CalculateWidth()}{CalculateWidth()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Label\+::\+Calculate\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Calculates the width of the label based on the text in label \mbox{\Hypertarget{classWorldMapInterfaceLabel_ae537a267f184a1d277f0501683f564f3}\label{classWorldMapInterfaceLabel_ae537a267f184a1d277f0501683f564f3}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!Draw@{Draw}}
+\index{Draw@{Draw}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Label\+::\+Draw (\begin{DoxyParamCaption}\item[{int}]{x\+Offset = {\ttfamily 0},  }\item[{int}]{y\+Offset = {\ttfamily 0},  }\item[{float}]{zoom = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Renders the object on the map 
+\begin{DoxyParams}{Parameters}
+{\em x\+Offset} & The X offset to render the object at \\
+\hline
+{\em y\+Offset} & The Y offset to render the object at \\
+\hline
+{\em zoom} & A multiplier to use when calculating the final render coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+zoom is not used in any calls to this function 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classWorldMapInterfaceObject_a7795b019c56468796f34978e1e657685}{World\+Map\+Interface\+Object}}.
+
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_a69aaceefacbd1fcb91335f244aeff68e}\label{classWorldMapInterfaceLabel_a69aaceefacbd1fcb91335f244aeff68e}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!GetCaption@{GetCaption}}
+\index{GetCaption@{GetCaption}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{GetCaption()}{GetCaption()}}
+{\footnotesize\ttfamily string World\+Map\+Interface\+Label\+::\+Get\+Caption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the text in the label \begin{DoxyReturn}{Returns}
+The text in the label 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_a63deebc3b16d74a764d9d7761bbc29ae}\label{classWorldMapInterfaceLabel_a63deebc3b16d74a764d9d7761bbc29ae}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!GetExtent@{GetExtent}}
+\index{GetExtent@{GetExtent}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{GetExtent()}{GetExtent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} World\+Map\+Interface\+Label\+::\+Get\+Extent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the rectangle for the position and size of this object \begin{DoxyReturn}{Returns}
+The rectangle for position and size 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classWorldMapInterfaceObject_a5a41450d97294936040a516a2b6e10ec}{World\+Map\+Interface\+Object}}.
+
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_a25589e5f0fab73ff266e3fe0b3e65ac1}\label{classWorldMapInterfaceLabel_a25589e5f0fab73ff266e3fe0b3e65ac1}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!GetLabelPosition@{GetLabelPosition}}
+\index{GetLabelPosition@{GetLabelPosition}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{GetLabelPosition()}{GetLabelPosition()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Label\+::\+Get\+Label\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the label position \begin{DoxyReturn}{Returns}
+Label position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_ace0241ddba56247205c45746dbb0068c}\label{classWorldMapInterfaceLabel_ace0241ddba56247205c45746dbb0068c}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!Overlaps@{Overlaps}}
+\index{Overlaps@{Overlaps}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{Overlaps()}{Overlaps()}}
+{\footnotesize\ttfamily bool World\+Map\+Interface\+Label\+::\+Overlaps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}} $\ast$}]{label }\end{DoxyParamCaption}) const}
+
+Check if this label is overlapped by another label 
+\begin{DoxyParams}{Parameters}
+{\em label} & Label to check collision with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if two labels collide 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_ae17552972e7f7172a7fb5b96815fdd58}\label{classWorldMapInterfaceLabel_ae17552972e7f7172a7fb5b96815fdd58}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!SetCaption@{SetCaption}}
+\index{SetCaption@{SetCaption}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{SetCaption()}{SetCaption()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Label\+::\+Set\+Caption (\begin{DoxyParamCaption}\item[{const string \&}]{newcaption }\end{DoxyParamCaption})}
+
+Sets the text to display in label 
+\begin{DoxyParams}{Parameters}
+{\em newcaption} & Text to display \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_ac03e72eb03950d49fdf7687fb06d70c8}\label{classWorldMapInterfaceLabel_ac03e72eb03950d49fdf7687fb06d70c8}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!SetLabelPosition@{SetLabelPosition}}
+\index{SetLabelPosition@{SetLabelPosition}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{SetLabelPosition()}{SetLabelPosition()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Label\+::\+Set\+Label\+Position (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+Sets the label position 
+\begin{DoxyParams}{Parameters}
+{\em n} & Position location index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_ad5ea3cf8cc678bbffd82e63d44baf702}\label{classWorldMapInterfaceLabel_ad5ea3cf8cc678bbffd82e63d44baf702}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!SetRandomLabelPosition@{SetRandomLabelPosition}}
+\index{SetRandomLabelPosition@{SetRandomLabelPosition}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{SetRandomLabelPosition()}{SetRandomLabelPosition()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Label\+::\+Set\+Random\+Label\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets the label position to a random one 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_a65e9ab749f9bc9f248cf75ede3df47bf}\label{classWorldMapInterfaceLabel_a65e9ab749f9bc9f248cf75ede3df47bf}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!caption@{caption}}
+\index{caption@{caption}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{caption}{caption}}
+{\footnotesize\ttfamily string World\+Map\+Interface\+Label\+::caption\hspace{0.3cm}{\ttfamily [protected]}}
+
+Text to display in label \mbox{\Hypertarget{classWorldMapInterfaceLabel_a1090dffae37f65c68b712a26aabbe370}\label{classWorldMapInterfaceLabel_a1090dffae37f65c68b712a26aabbe370}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!featurePoint@{featurePoint}}
+\index{featurePoint@{featurePoint}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{featurePoint}{featurePoint}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}}$\ast$ World\+Map\+Interface\+Label\+::feature\+Point\hspace{0.3cm}{\ttfamily [protected]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classWorldMapInterfaceLabel_ab0974e9be1cb27059cdea4081c960846}\label{classWorldMapInterfaceLabel_ab0974e9be1cb27059cdea4081c960846}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!labelPos@{labelPos}}
+\index{labelPos@{labelPos}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{labelPos}{labelPos}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Label\+::label\+Pos\hspace{0.3cm}{\ttfamily [protected]}}
+
+Position location index \begin{DoxyNote}{Note}
+0 is top center, 1 is bottom center, 2 is bottom right, 3 is right, 4 is top right, 5 is top left, 6 is left, 7 is bottom left 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterfaceLabel_aa4791ebcf8366e07fa492edbb07f6992}\label{classWorldMapInterfaceLabel_aa4791ebcf8366e07fa492edbb07f6992}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!labelWidth@{labelWidth}}
+\index{labelWidth@{labelWidth}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{labelWidth}{labelWidth}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Label\+::label\+Width\hspace{0.3cm}{\ttfamily [protected]}}
+
+Width of the text in the label \mbox{\Hypertarget{classWorldMapInterfaceLabel_a1df80bf6d359418dc26d958bb666238f}\label{classWorldMapInterfaceLabel_a1df80bf6d359418dc26d958bb666238f}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!numPossLabelPos@{numPossLabelPos}}
+\index{numPossLabelPos@{numPossLabelPos}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{numPossLabelPos}{numPossLabelPos}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Label\+::num\+Poss\+Label\+Pos\hspace{0.3cm}{\ttfamily [protected]}}
+
+Number of valid, possible label placements \mbox{\Hypertarget{classWorldMapInterfaceLabel_a8e5e4238870935ca51eba803bba76e2e}\label{classWorldMapInterfaceLabel_a8e5e4238870935ca51eba803bba76e2e}} 
+\index{WorldMapInterfaceLabel@{WorldMapInterfaceLabel}!possLabelPos@{possLabelPos}}
+\index{possLabelPos@{possLabelPos}!WorldMapInterfaceLabel@{WorldMapInterfaceLabel}}
+\doxysubsubsection{\texorpdfstring{possLabelPos}{possLabelPos}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Label\+::poss\+Label\+Pos\mbox{[}8\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+All valid label positions that are fully within the world map window 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/worldmap/worldmap\+\_\+layout.\+h\item 
+uplink/src/interface/localinterface/worldmap/worldmap\+\_\+layout.\+cpp\end{DoxyCompactItemize}

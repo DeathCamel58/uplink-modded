@@ -1,0 +1,200 @@
+\hypertarget{classFileCopier}{}\doxysection{File\+Copier Class Reference}
+\label{classFileCopier}\index{FileCopier@{FileCopier}}
+
+
+Inheritance diagram for File\+Copier\+:
+% FIG 0
+
+
+Collaboration diagram for File\+Copier\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileCopier_afdb8fb29684771e8ab8d5e477c111c94}\label{classFileCopier_afdb8fb29684771e8ab8d5e477c111c94}} 
+int {\bfseries Get\+State} () const
+\item 
+void \mbox{\hyperlink{classFileCopier_a7247b7037fe89e73527dcc7f6cc37f68}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classFileCopier_a16fe70493e690e145587053d16a6c084}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classFileCopier_ad4b9dd071ebfff15034c995b32970d61}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classFileCopier_ab31e8a540b23d311f6277a14e1759f30}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classFileCopier_af001615633623b263a209c61eaadbd1d}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classFileCopier_a6ba038349ae0e470a01fe812195c7fd3}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classFileCopier_ac151be5a79c93f1aef80e6abf6415b67}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classFileCopier_a779c0fd3e4c91a576e2a73b7cfc98808}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileCopier_a8ce7953b8565a97a7fda9cf09f6852b4}\label{classFileCopier_a8ce7953b8565a97a7fda9cf09f6852b4}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classFileCopier_a66324e8cd40c33799b8d2b1810d1b006}\label{classFileCopier_a66324e8cd40c33799b8d2b1810d1b006}} 
+static void {\bfseries Progress\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classFileCopier_a8065748c0a3e05c530d0333a57cda80a}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classFileCopier_a8448f9f6b57c80ed809bd1afcd062720}\label{classFileCopier_a8448f9f6b57c80ed809bd1afcd062720}} 
+static void {\bfseries Border\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileCopier_a0364963af28234127f84aba591f409dd}\label{classFileCopier_a0364963af28234127f84aba591f409dd}} 
+\mbox{\hyperlink{classDataBank}{Data\+Bank}} $\ast$ {\bfseries source}
+\item 
+\mbox{\Hypertarget{classFileCopier_aac949e84ace8bcc82475fa4f5540920c}\label{classFileCopier_aac949e84ace8bcc82475fa4f5540920c}} 
+int {\bfseries sourceindex}
+\item 
+\mbox{\Hypertarget{classFileCopier_a027488ed013925a403df4e7fc1fd4cdb}\label{classFileCopier_a027488ed013925a403df4e7fc1fd4cdb}} 
+int {\bfseries downloading}
+\item 
+\mbox{\Hypertarget{classFileCopier_aeee8685ae5938fefb34300e84f91ffda}\label{classFileCopier_aeee8685ae5938fefb34300e84f91ffda}} 
+bool {\bfseries remotefile}
+\item 
+\mbox{\Hypertarget{classFileCopier_a570a556853694ab155b5d2a81ff34ffd}\label{classFileCopier_a570a556853694ab155b5d2a81ff34ffd}} 
+int {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classFileCopier_a50c38bb1e3f598d84c012b48e12af4e2}\label{classFileCopier_a50c38bb1e3f598d84c012b48e12af4e2}} 
+int {\bfseries progress}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileCopier_a8065748c0a3e05c530d0333a57cda80a}\label{classFileCopier_a8065748c0a3e05c530d0333a57cda80a}} 
+\index{FileCopier@{FileCopier}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void File\+Copier\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classFileCopier_af001615633623b263a209c61eaadbd1d}\label{classFileCopier_af001615633623b263a209c61eaadbd1d}} 
+\index{FileCopier@{FileCopier}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void File\+Copier\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classFileCopier_ad4b9dd071ebfff15034c995b32970d61}\label{classFileCopier_ad4b9dd071ebfff15034c995b32970d61}} 
+\index{FileCopier@{FileCopier}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void File\+Copier\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classFileCopier_a779c0fd3e4c91a576e2a73b7cfc98808}\label{classFileCopier_a779c0fd3e4c91a576e2a73b7cfc98808}} 
+\index{FileCopier@{FileCopier}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool File\+Copier\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classFileCopier_a16fe70493e690e145587053d16a6c084}\label{classFileCopier_a16fe70493e690e145587053d16a6c084}} 
+\index{FileCopier@{FileCopier}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void File\+Copier\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classFileCopier_a6ba038349ae0e470a01fe812195c7fd3}\label{classFileCopier_a6ba038349ae0e470a01fe812195c7fd3}} 
+\index{FileCopier@{FileCopier}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void File\+Copier\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classFileCopier_a7247b7037fe89e73527dcc7f6cc37f68}\label{classFileCopier_a7247b7037fe89e73527dcc7f6cc37f68}} 
+\index{FileCopier@{FileCopier}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void File\+Copier\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classDataBank}{Data\+Bank}} selected \\
+\hline
+{\em uos} & Name of button representing downloadable data \\
+\hline
+{\em uoi} & Memory index of data in \mbox{\hyperlink{classDataBank}{Data\+Bank}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classFileCopier_ac151be5a79c93f1aef80e6abf6415b67}\label{classFileCopier_ac151be5a79c93f1aef80e6abf6415b67}} 
+\index{FileCopier@{FileCopier}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void File\+Copier\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classFileCopier_ab31e8a540b23d311f6277a14e1759f30}\label{classFileCopier_ab31e8a540b23d311f6277a14e1759f30}} 
+\index{FileCopier@{FileCopier}!Tick@{Tick}}
+\index{Tick@{Tick}!FileCopier@{FileCopier}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void File\+Copier\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/filecopier.\+h\item 
+uplink/src/interface/taskmanager/filecopier.\+cpp\end{DoxyCompactItemize}

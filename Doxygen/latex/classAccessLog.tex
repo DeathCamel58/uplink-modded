@@ -1,0 +1,161 @@
+\hypertarget{classAccessLog}{}\doxysection{Access\+Log Class Reference}
+\label{classAccessLog}\index{AccessLog@{AccessLog}}
+
+
+Inheritance diagram for Access\+Log\+:
+% FIG 0
+
+
+Collaboration diagram for Access\+Log\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccessLog_a5ec18b10063e377e4adc02db85e5e088}\label{classAccessLog_a5ec18b10063e377e4adc02db85e5e088}} 
+void {\bfseries Set\+Properties} (\mbox{\hyperlink{classDate}{Date}} $\ast$newdate, const string \&newfromip, const string \&newfromname, int new\+S\+U\+S\+P\+I\+C\+I\+O\+US=L\+O\+G\+\_\+\+N\+O\+T\+S\+U\+S\+P\+I\+C\+I\+O\+US, int new\+T\+Y\+PE=L\+O\+G\+\_\+\+T\+Y\+P\+E\+\_\+\+T\+E\+XT)
+\item 
+\mbox{\Hypertarget{classAccessLog_afa9cea46c4d4ba334f7be37f78a094e4}\label{classAccessLog_afa9cea46c4d4ba334f7be37f78a094e4}} 
+void {\bfseries Set\+Properties} (\mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$copyme)
+\item 
+\mbox{\Hypertarget{classAccessLog_aef63dab9ea9267ea6d3c02a965a47d0c}\label{classAccessLog_aef63dab9ea9267ea6d3c02a965a47d0c}} 
+void {\bfseries Set\+T\+Y\+PE} (int new\+T\+Y\+PE)
+\item 
+\mbox{\Hypertarget{classAccessLog_a310ddf44011f1fcdfde2b87dbb81e214}\label{classAccessLog_a310ddf44011f1fcdfde2b87dbb81e214}} 
+void {\bfseries Set\+From\+IP} (const string \&newfromip)
+\item 
+\mbox{\Hypertarget{classAccessLog_a763686d92911c8847f3dc1f1b8bf2c1d}\label{classAccessLog_a763686d92911c8847f3dc1f1b8bf2c1d}} 
+void {\bfseries Set\+Suspicious} (int new\+S\+U\+S\+P\+I\+C\+I\+O\+US)
+\item 
+\mbox{\Hypertarget{classAccessLog_a88ad0c822ca237b24648ecb4e5598c0a}\label{classAccessLog_a88ad0c822ca237b24648ecb4e5598c0a}} 
+void {\bfseries Set\+Data1} (const string \&newdata)
+\item 
+\mbox{\Hypertarget{classAccessLog_aa330ad419a0f1bc2e1ee1c55b0589edf}\label{classAccessLog_aa330ad419a0f1bc2e1ee1c55b0589edf}} 
+void {\bfseries Set\+Data2} (const string \&newdata)
+\item 
+\mbox{\Hypertarget{classAccessLog_aa24e1970cb753b4cc7ba66ae7b81b61f}\label{classAccessLog_aa24e1970cb753b4cc7ba66ae7b81b61f}} 
+void {\bfseries Set\+Data3} (const string \&newdata)
+\item 
+\mbox{\Hypertarget{classAccessLog_aed36cc1b7ecea182fccd4f8cf2414e05}\label{classAccessLog_aed36cc1b7ecea182fccd4f8cf2414e05}} 
+char $\ast$ {\bfseries Get\+Description} ()
+\item 
+bool \mbox{\hyperlink{classAccessLog_a06b7738903b73947bbb80b4e41a8c620}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classAccessLog_a823d3d308a2838b76ff411f9930ccba9}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classAccessLog_ab0401b62be8e53428de149d314cb1ec0}{Print}} () override
+\item 
+string \mbox{\hyperlink{classAccessLog_a0caffb2337803381b60ad5e69de4f1ca}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classAccessLog_a884fa5b45e7bcf36514fc3c52e0da7a2}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccessLog_a7e5a527bf23cabfffa31bcbf7ee56aef}\label{classAccessLog_a7e5a527bf23cabfffa31bcbf7ee56aef}} 
+int {\bfseries T\+Y\+PE}
+\item 
+\mbox{\Hypertarget{classAccessLog_a939e01605779b546af1655e9aa417221}\label{classAccessLog_a939e01605779b546af1655e9aa417221}} 
+\mbox{\hyperlink{classDate}{Date}} {\bfseries date}
+\item 
+\mbox{\Hypertarget{classAccessLog_ac3b6583ed959a7c170a06634eeff87c5}\label{classAccessLog_ac3b6583ed959a7c170a06634eeff87c5}} 
+char {\bfseries fromip} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classAccessLog_a1257a8e2f9fe0ab703a7ddc2637beb4c}\label{classAccessLog_a1257a8e2f9fe0ab703a7ddc2637beb4c}} 
+char {\bfseries fromname} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classAccessLog_a36aa61f892b18ced8b9e8cdb0a89ca42}\label{classAccessLog_a36aa61f892b18ced8b9e8cdb0a89ca42}} 
+int {\bfseries S\+U\+S\+P\+I\+C\+I\+O\+US}
+\item 
+\mbox{\Hypertarget{classAccessLog_a40363d323483440c9fbf111c71ba0476}\label{classAccessLog_a40363d323483440c9fbf111c71ba0476}} 
+char $\ast$ {\bfseries data1}
+\item 
+\mbox{\Hypertarget{classAccessLog_a69e1b6611da414bf6ae3a511c5cf169a}\label{classAccessLog_a69e1b6611da414bf6ae3a511c5cf169a}} 
+char $\ast$ {\bfseries data2}
+\item 
+\mbox{\Hypertarget{classAccessLog_a8a2f072650359ae884aff5278189c307}\label{classAccessLog_a8a2f072650359ae884aff5278189c307}} 
+char $\ast$ {\bfseries data3}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAccessLog_a0caffb2337803381b60ad5e69de4f1ca}\label{classAccessLog_a0caffb2337803381b60ad5e69de4f1ca}} 
+\index{AccessLog@{AccessLog}!GetID@{GetID}}
+\index{GetID@{GetID}!AccessLog@{AccessLog}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Access\+Log\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classAccessLog_a884fa5b45e7bcf36514fc3c52e0da7a2}\label{classAccessLog_a884fa5b45e7bcf36514fc3c52e0da7a2}} 
+\index{AccessLog@{AccessLog}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!AccessLog@{AccessLog}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Access\+Log\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classAccessLog_a06b7738903b73947bbb80b4e41a8c620}\label{classAccessLog_a06b7738903b73947bbb80b4e41a8c620}} 
+\index{AccessLog@{AccessLog}!Load@{Load}}
+\index{Load@{Load}!AccessLog@{AccessLog}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Access\+Log\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classAccessLog_ab0401b62be8e53428de149d314cb1ec0}\label{classAccessLog_ab0401b62be8e53428de149d314cb1ec0}} 
+\index{AccessLog@{AccessLog}!Print@{Print}}
+\index{Print@{Print}!AccessLog@{AccessLog}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Access\+Log\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classAccessLog_a823d3d308a2838b76ff411f9930ccba9}\label{classAccessLog_a823d3d308a2838b76ff411f9930ccba9}} 
+\index{AccessLog@{AccessLog}!Save@{Save}}
+\index{Save@{Save}!AccessLog@{AccessLog}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Access\+Log\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/logbank.\+h\item 
+uplink/src/world/computer/logbank.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,191 @@
+\hypertarget{classDecypher}{}\doxysection{Decypher Class Reference}
+\label{classDecypher}\index{Decypher@{Decypher}}
+
+
+Inheritance diagram for Decypher\+:
+% FIG 0
+
+
+Collaboration diagram for Decypher\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDecypher_a6ddf4887ce19079954152ee96c84aa9f}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi)
+\item 
+void \mbox{\hyperlink{classDecypher_a5adbd982b23c9eebea75b13fd4ac366d}{Move\+To}} (int x, int y, int time\+\_\+ms)
+\item 
+void \mbox{\hyperlink{classDecypher_a83829f50cce45ad0c322010fb678e68b}{Initialise}} ()
+\item 
+void \mbox{\hyperlink{classDecypher_ae1e573a9ad5da74c9e7fab48d47c1ed9}{Tick}} (int n)
+\item 
+void \mbox{\hyperlink{classDecypher_a57a286e0a8a15b1eefc67371367a2bc3}{Create\+Interface}} ()
+\item 
+void \mbox{\hyperlink{classDecypher_a8f3e4ffb76a959be3bab826f22db5644}{Remove\+Interface}} ()
+\item 
+void \mbox{\hyperlink{classDecypher_aa40dedeb83bef8b91580b34f83522de1}{Show\+Interface}} ()
+\item 
+bool \mbox{\hyperlink{classDecypher_a49340e2d183bcba178f8c06798eaf6df}{Is\+Interface\+Visible}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDecypher_a57414894ae25dbc0e04a63dd51bf90d3}\label{classDecypher_a57414894ae25dbc0e04a63dd51bf90d3}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classDecypher_a1797b1d87d6d4e03d93c2eba7c58eadd}\label{classDecypher_a1797b1d87d6d4e03d93c2eba7c58eadd}} 
+static void {\bfseries Progress\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classDecypher_a18d71233acfa9b83db5455a337521c57}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classDecypher_a4cfd23075b29b96872ed1f66fdbe10f5}\label{classDecypher_a4cfd23075b29b96872ed1f66fdbe10f5}} 
+static void {\bfseries Border\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDecypher_a622e1e39ecc597f9df16ee99fbe33111}\label{classDecypher_a622e1e39ecc597f9df16ee99fbe33111}} 
+int {\bfseries status}
+\item 
+\mbox{\Hypertarget{classDecypher_a30082209d345dcec0f2ed45854e57c79}\label{classDecypher_a30082209d345dcec0f2ed45854e57c79}} 
+int {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classDecypher_aa3576ae558ebb810e4d2ac8d77d627f8}\label{classDecypher_aa3576ae558ebb810e4d2ac8d77d627f8}} 
+int {\bfseries progress}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDecypher_a18d71233acfa9b83db5455a337521c57}\label{classDecypher_a18d71233acfa9b83db5455a337521c57}} 
+\index{Decypher@{Decypher}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Decypher\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classDecypher_a57a286e0a8a15b1eefc67371367a2bc3}\label{classDecypher_a57a286e0a8a15b1eefc67371367a2bc3}} 
+\index{Decypher@{Decypher}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Decypher\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classDecypher_a83829f50cce45ad0c322010fb678e68b}\label{classDecypher_a83829f50cce45ad0c322010fb678e68b}} 
+\index{Decypher@{Decypher}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Decypher\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classDecypher_a49340e2d183bcba178f8c06798eaf6df}\label{classDecypher_a49340e2d183bcba178f8c06798eaf6df}} 
+\index{Decypher@{Decypher}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Decypher\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classDecypher_a5adbd982b23c9eebea75b13fd4ac366d}\label{classDecypher_a5adbd982b23c9eebea75b13fd4ac366d}} 
+\index{Decypher@{Decypher}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Decypher\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classDecypher_a8f3e4ffb76a959be3bab826f22db5644}\label{classDecypher_a8f3e4ffb76a959be3bab826f22db5644}} 
+\index{Decypher@{Decypher}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Decypher\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classDecypher_a6ddf4887ce19079954152ee96c84aa9f}\label{classDecypher_a6ddf4887ce19079954152ee96c84aa9f}} 
+\index{Decypher@{Decypher}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Decypher\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classCypherScreen}{Cypher\+Screen}} object (i.\+e. the screen interface object) \\
+\hline
+{\em uos} & Name of button representing data \\
+\hline
+{\em uoi} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+uoi is unused 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classDecypher_aa40dedeb83bef8b91580b34f83522de1}\label{classDecypher_aa40dedeb83bef8b91580b34f83522de1}} 
+\index{Decypher@{Decypher}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Decypher\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classDecypher_ae1e573a9ad5da74c9e7fab48d47c1ed9}\label{classDecypher_ae1e573a9ad5da74c9e7fab48d47c1ed9}} 
+\index{Decypher@{Decypher}!Tick@{Tick}}
+\index{Tick@{Tick}!Decypher@{Decypher}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Decypher\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/decypher.\+h\item 
+uplink/src/interface/taskmanager/decypher.\+cpp\end{DoxyCompactItemize}

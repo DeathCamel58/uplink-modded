@@ -1,0 +1,191 @@
+\hypertarget{classWarningEvent}{}\doxysection{Warning\+Event Class Reference}
+\label{classWarningEvent}\index{WarningEvent@{WarningEvent}}
+
+
+Warning event.  
+
+
+
+
+{\ttfamily \#include $<$warningevent.\+h$>$}
+
+
+
+Inheritance diagram for Warning\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for Warning\+Event\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWarningEvent_ab1e21e3afb4f10f1f9d2f3d455a3fd3f}{Set\+Event}} (\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$newevent)
+\item 
+void \mbox{\hyperlink{classWarningEvent_a7077dc03e9550f16542837121d3bc044}{Run}} () override
+\item 
+string \mbox{\hyperlink{classWarningEvent_af928671369daf63c5ecbba5f1bad33bc}{Get\+Short\+String}} () override
+\item 
+string \mbox{\hyperlink{classWarningEvent_a48f22873fa111a6b2b3554dfce4d4523}{Get\+Long\+String}} () override
+\item 
+bool \mbox{\hyperlink{classWarningEvent_aebe503ea853ac6669c95901cdd872d82}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classWarningEvent_aa5b5ce672fdc626007e04d04a5d9d1fe}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classWarningEvent_a97f6ab9c99cf0e2b153b5030a2bb9d73}{Print}} () override
+\item 
+string \mbox{\hyperlink{classWarningEvent_a8dc8042d0316a57d6be53b74e4e336f4}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classWarningEvent_a959f060aa83b029d8d721905f008d54b}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$ \mbox{\hyperlink{classWarningEvent_a2b9d2eaf78e3bad3b1eacde5ddaa631c}{event}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Warning event. 
+
+Warning event Triggered as a warning that another Uplink Event is about to happen e.\+g. Your gateway will be seized in 10 minutes 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWarningEvent_a8dc8042d0316a57d6be53b74e4e336f4}\label{classWarningEvent_a8dc8042d0316a57d6be53b74e4e336f4}} 
+\index{WarningEvent@{WarningEvent}!GetID@{GetID}}
+\index{GetID@{GetID}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Warning\+Event\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a4d04daba16c81b215abe6ba24f397dca}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classWarningEvent_a48f22873fa111a6b2b3554dfce4d4523}\label{classWarningEvent_a48f22873fa111a6b2b3554dfce4d4523}} 
+\index{WarningEvent@{WarningEvent}!GetLongString@{GetLongString}}
+\index{GetLongString@{GetLongString}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{GetLongString()}{GetLongString()}}
+{\footnotesize\ttfamily string Warning\+Event\+::\+Get\+Long\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the long string version of the event \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classWarningEvent_a959f060aa83b029d8d721905f008d54b}\label{classWarningEvent_a959f060aa83b029d8d721905f008d54b}} 
+\index{WarningEvent@{WarningEvent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Warning\+Event\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a68d9644b54c11f01332581b068549bc0}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classWarningEvent_af928671369daf63c5ecbba5f1bad33bc}\label{classWarningEvent_af928671369daf63c5ecbba5f1bad33bc}} 
+\index{WarningEvent@{WarningEvent}!GetShortString@{GetShortString}}
+\index{GetShortString@{GetShortString}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{GetShortString()}{GetShortString()}}
+{\footnotesize\ttfamily string Warning\+Event\+::\+Get\+Short\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the short string version of the event \begin{DoxyReturn}{Returns}
+Short string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classWarningEvent_aebe503ea853ac6669c95901cdd872d82}\label{classWarningEvent_aebe503ea853ac6669c95901cdd872d82}} 
+\index{WarningEvent@{WarningEvent}!Load@{Load}}
+\index{Load@{Load}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Warning\+Event\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_ac5cb2d18f2a47258828990bb04881131}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classWarningEvent_a97f6ab9c99cf0e2b153b5030a2bb9d73}\label{classWarningEvent_a97f6ab9c99cf0e2b153b5030a2bb9d73}} 
+\index{WarningEvent@{WarningEvent}!Print@{Print}}
+\index{Print@{Print}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Warning\+Event\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a0074123413978f1d9254dfa570735bb1}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classWarningEvent_a7077dc03e9550f16542837121d3bc044}\label{classWarningEvent_a7077dc03e9550f16542837121d3bc044}} 
+\index{WarningEvent@{WarningEvent}!Run@{Run}}
+\index{Run@{Run}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Warning\+Event\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Runs the event 
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classWarningEvent_aa5b5ce672fdc626007e04d04a5d9d1fe}\label{classWarningEvent_aa5b5ce672fdc626007e04d04a5d9d1fe}} 
+\index{WarningEvent@{WarningEvent}!Save@{Save}}
+\index{Save@{Save}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Warning\+Event\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_adc25f6f2bd74c8d46f18020b8095f3a5}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classWarningEvent_ab1e21e3afb4f10f1f9d2f3d455a3fd3f}\label{classWarningEvent_ab1e21e3afb4f10f1f9d2f3d455a3fd3f}} 
+\index{WarningEvent@{WarningEvent}!SetEvent@{SetEvent}}
+\index{SetEvent@{SetEvent}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{SetEvent()}{SetEvent()}}
+{\footnotesize\ttfamily void Warning\+Event\+::\+Set\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$}]{newevent }\end{DoxyParamCaption})}
+
+Sets the event to warn about 
+\begin{DoxyParams}{Parameters}
+{\em newevent} & Event to warn about \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWarningEvent_a2b9d2eaf78e3bad3b1eacde5ddaa631c}\label{classWarningEvent_a2b9d2eaf78e3bad3b1eacde5ddaa631c}} 
+\index{WarningEvent@{WarningEvent}!event@{event}}
+\index{event@{event}!WarningEvent@{WarningEvent}}
+\doxysubsubsection{\texorpdfstring{event}{event}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}}$\ast$ Warning\+Event\+::event\hspace{0.3cm}{\ttfamily [protected]}}
+
+The event that is going to occur 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/warningevent.\+h\item 
+uplink/src/world/scheduler/warningevent.\+cpp\end{DoxyCompactItemize}

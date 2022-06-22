@@ -1,0 +1,205 @@
+\hypertarget{classEmailInterface}{}\doxysection{Email\+Interface Class Reference}
+\label{classEmailInterface}\index{EmailInterface@{EmailInterface}}
+
+
+Screen that shows emails.  
+
+
+
+
+{\ttfamily \#include $<$email\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Email\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Email\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEmailInterface_a538e8e5534b2f1b36007a596d9eae303}{Set\+Message}} (int \mbox{\hyperlink{classEmailInterface_afb796277455bc27ec4fa75bd7b92011d}{index}})
+\item 
+void \mbox{\hyperlink{classEmailInterface_ac606fe0e4886ab65981e5cb3e3e1e264}{Create}} () override
+\item 
+void \mbox{\hyperlink{classEmailInterface_aed85638f5ff6881f5087647d1e6f94bb}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classEmailInterface_ab6c7c03d582e61147b3ce4e431478d15}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classEmailInterface_a5a1caf90f7fc4cb36959c25a4b0e562c}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classEmailInterface_a1fb3505012929e96d37ef5f3445de22a}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classEmailInterface_a23b24c8a828ffcdb13f0508bd6310c26}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classEmailInterface_a244828947ab146ae168604f2a2a34ae8}{Email\+Close}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classEmailInterface_aeec98b470b3055543ca37c424b548791}{Email\+Reply}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classEmailInterface_a3c5236ac497d4319c75d339307e5af9d}{Email\+Delete}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classEmailInterface_afb796277455bc27ec4fa75bd7b92011d}{index}}
+\item 
+time\+\_\+t \mbox{\hyperlink{classEmailInterface_abaccb3a9df55e5508a47432d008a58e3}{timesync}}
+\item 
+\mbox{\hyperlink{classMessage}{Message}} $\ast$ \mbox{\hyperlink{classEmailInterface_a14bc14d97437a1a5170f409594e5a937}{message}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows emails. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEmailInterface_ac606fe0e4886ab65981e5cb3e3e1e264}\label{classEmailInterface_ac606fe0e4886ab65981e5cb3e3e1e264}} 
+\index{EmailInterface@{EmailInterface}!Create@{Create}}
+\index{Create@{Create}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Email\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classEmailInterface_a244828947ab146ae168604f2a2a34ae8}\label{classEmailInterface_a244828947ab146ae168604f2a2a34ae8}} 
+\index{EmailInterface@{EmailInterface}!EmailClose@{EmailClose}}
+\index{EmailClose@{EmailClose}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{EmailClose()}{EmailClose()}}
+{\footnotesize\ttfamily void Email\+Interface\+::\+Email\+Close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEmailInterface_a3c5236ac497d4319c75d339307e5af9d}\label{classEmailInterface_a3c5236ac497d4319c75d339307e5af9d}} 
+\index{EmailInterface@{EmailInterface}!EmailDelete@{EmailDelete}}
+\index{EmailDelete@{EmailDelete}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{EmailDelete()}{EmailDelete()}}
+{\footnotesize\ttfamily void Email\+Interface\+::\+Email\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Deletes the currently open email 
+\begin{DoxyParams}{Parameters}
+{\em button} & The delete button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEmailInterface_aeec98b470b3055543ca37c424b548791}\label{classEmailInterface_aeec98b470b3055543ca37c424b548791}} 
+\index{EmailInterface@{EmailInterface}!EmailReply@{EmailReply}}
+\index{EmailReply@{EmailReply}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{EmailReply()}{EmailReply()}}
+{\footnotesize\ttfamily void Email\+Interface\+::\+Email\+Reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Changes currently open screen to the Send Mail interface with the email set to reply to the current one 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classEmailInterface_a5a1caf90f7fc4cb36959c25a4b0e562c}\label{classEmailInterface_a5a1caf90f7fc4cb36959c25a4b0e562c}} 
+\index{EmailInterface@{EmailInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Email\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classEmailInterface_aed85638f5ff6881f5087647d1e6f94bb}\label{classEmailInterface_aed85638f5ff6881f5087647d1e6f94bb}} 
+\index{EmailInterface@{EmailInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Email\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classEmailInterface_a1fb3505012929e96d37ef5f3445de22a}\label{classEmailInterface_a1fb3505012929e96d37ef5f3445de22a}} 
+\index{EmailInterface@{EmailInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Email\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classEmailInterface_a538e8e5534b2f1b36007a596d9eae303}\label{classEmailInterface_a538e8e5534b2f1b36007a596d9eae303}} 
+\index{EmailInterface@{EmailInterface}!SetMessage@{SetMessage}}
+\index{SetMessage@{SetMessage}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{SetMessage()}{SetMessage()}}
+{\footnotesize\ttfamily void Email\+Interface\+::\+Set\+Message (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Sets the message to the message of email at given index 
+\begin{DoxyParams}{Parameters}
+{\em index} & index of email to get the message of \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEmailInterface_a23b24c8a828ffcdb13f0508bd6310c26}\label{classEmailInterface_a23b24c8a828ffcdb13f0508bd6310c26}} 
+\index{EmailInterface@{EmailInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void Email\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEmailInterface_ab6c7c03d582e61147b3ce4e431478d15}\label{classEmailInterface_ab6c7c03d582e61147b3ce4e431478d15}} 
+\index{EmailInterface@{EmailInterface}!Update@{Update}}
+\index{Update@{Update}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Email\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEmailInterface_afb796277455bc27ec4fa75bd7b92011d}\label{classEmailInterface_afb796277455bc27ec4fa75bd7b92011d}} 
+\index{EmailInterface@{EmailInterface}!index@{index}}
+\index{index@{index}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily int Email\+Interface\+::index\hspace{0.3cm}{\ttfamily [protected]}}
+
+The index of the email \begin{DoxyNote}{Note}
+The game shows these in descending order. 0 is on the right in the game. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classEmailInterface_a14bc14d97437a1a5170f409594e5a937}\label{classEmailInterface_a14bc14d97437a1a5170f409594e5a937}} 
+\index{EmailInterface@{EmailInterface}!message@{message}}
+\index{message@{message}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMessage}{Message}}$\ast$ Email\+Interface\+::message\hspace{0.3cm}{\ttfamily [protected]}}
+
+The message in the current email \mbox{\Hypertarget{classEmailInterface_abaccb3a9df55e5508a47432d008a58e3}\label{classEmailInterface_abaccb3a9df55e5508a47432d008a58e3}} 
+\index{EmailInterface@{EmailInterface}!timesync@{timesync}}
+\index{timesync@{timesync}!EmailInterface@{EmailInterface}}
+\doxysubsubsection{\texorpdfstring{timesync}{timesync}}
+{\footnotesize\ttfamily time\+\_\+t Email\+Interface\+::timesync\hspace{0.3cm}{\ttfamily [protected]}}
+
+The next time to update the screen at 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/email\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/email\+\_\+interface.\+cpp\end{DoxyCompactItemize}

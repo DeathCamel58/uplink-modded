@@ -1,0 +1,134 @@
+\hypertarget{classLogScreenInterface}{}\doxysection{Log\+Screen\+Interface Class Reference}
+\label{classLogScreenInterface}\index{LogScreenInterface@{LogScreenInterface}}
+
+
+Inheritance diagram for Log\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Log\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_a57480d796c7b1a393a73dbc4b4d87181}\label{classLogScreenInterface_a57480d796c7b1a393a73dbc4b4d87181}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classLogScreenInterface_a49483ca3dcd044c17c14d21745e50959}{Create}} () override
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_af0bea171d61fde557666f0487d60cdff}\label{classLogScreenInterface_af0bea171d61fde557666f0487d60cdff}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classLogScreenInterface_a2c36e2cfdea995547eb321abc5f6727d}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classLogScreenInterface_a07ee6033f835c345d69f515050c15d16}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classLogScreenInterface_a0ae49f0b4f9e647a284dac846511e141}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classLogScreenInterface_acef70998224ab14c87345603c352ff4a}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_a30a6dcb40b2d6a6940b0d22bc992c1ff}\label{classLogScreenInterface_a30a6dcb40b2d6a6940b0d22bc992c1ff}} 
+\mbox{\hyperlink{classLogScreen}{Log\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_ad66720bab9854511707ba0b0bdc822c7}\label{classLogScreenInterface_ad66720bab9854511707ba0b0bdc822c7}} 
+static void {\bfseries Log\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_ab9c2779dd4e6a62af6334e366e2d3282}\label{classLogScreenInterface_ab9c2779dd4e6a62af6334e366e2d3282}} 
+static int {\bfseries Get\+Nb\+Items} (\mbox{\hyperlink{classDArray}{D\+Array}}$<$ class \mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$ $>$ $\ast$logs)
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_a81a882661d40b8e7f42631e3d0b26a1d}\label{classLogScreenInterface_a81a882661d40b8e7f42631e3d0b26a1d}} 
+static int {\bfseries Get\+First\+Item} (\mbox{\hyperlink{classDArray}{D\+Array}}$<$ class \mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$ $>$ $\ast$logs)
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_a926f4a92c370dc05f7aa4eed0ccbbb74}\label{classLogScreenInterface_a926f4a92c370dc05f7aa4eed0ccbbb74}} 
+static int {\bfseries Get\+Last\+Item} (\mbox{\hyperlink{classDArray}{D\+Array}}$<$ class \mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$ $>$ $\ast$logs)
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_a4a32ff42d2b816525228bfad80b21f61}\label{classLogScreenInterface_a4a32ff42d2b816525228bfad80b21f61}} 
+static void {\bfseries Create\+Scroll\+Bar} (int nb\+Items)
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_aa5dc1db4257352bb7b7c94785243302b}\label{classLogScreenInterface_aa5dc1db4257352bb7b7c94785243302b}} 
+static void {\bfseries Scroll\+Change} (const string \&scrollname, int new\+Value)
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_a62770a4432d1f8e7d46cb3f993765776}\label{classLogScreenInterface_a62770a4432d1f8e7d46cb3f993765776}} 
+static void {\bfseries Log\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_acec0e9153b2c13fce50f3aa94ee07e2c}\label{classLogScreenInterface_acec0e9153b2c13fce50f3aa94ee07e2c}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_abb877187640850c7af6b5fd4c177d931}\label{classLogScreenInterface_abb877187640850c7af6b5fd4c177d931}} 
+static int {\bfseries baseoffset} = 0
+\item 
+\mbox{\Hypertarget{classLogScreenInterface_af782f29b0689375b4591318a4d52dd7e}\label{classLogScreenInterface_af782f29b0689375b4591318a4d52dd7e}} 
+static int {\bfseries previousnumlogs} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogScreenInterface_a49483ca3dcd044c17c14d21745e50959}\label{classLogScreenInterface_a49483ca3dcd044c17c14d21745e50959}} 
+\index{LogScreenInterface@{LogScreenInterface}!Create@{Create}}
+\index{Create@{Create}!LogScreenInterface@{LogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Log\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreenInterface_a0ae49f0b4f9e647a284dac846511e141}\label{classLogScreenInterface_a0ae49f0b4f9e647a284dac846511e141}} 
+\index{LogScreenInterface@{LogScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!LogScreenInterface@{LogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Log\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreenInterface_a2c36e2cfdea995547eb321abc5f6727d}\label{classLogScreenInterface_a2c36e2cfdea995547eb321abc5f6727d}} 
+\index{LogScreenInterface@{LogScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!LogScreenInterface@{LogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Log\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreenInterface_acef70998224ab14c87345603c352ff4a}\label{classLogScreenInterface_acef70998224ab14c87345603c352ff4a}} 
+\index{LogScreenInterface@{LogScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!LogScreenInterface@{LogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Log\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreenInterface_a07ee6033f835c345d69f515050c15d16}\label{classLogScreenInterface_a07ee6033f835c345d69f515050c15d16}} 
+\index{LogScreenInterface@{LogScreenInterface}!Update@{Update}}
+\index{Update@{Update}!LogScreenInterface@{LogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Log\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/logscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/logscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

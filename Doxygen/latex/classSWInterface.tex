@@ -1,0 +1,344 @@
+\hypertarget{classSWInterface}{}\doxysection{S\+W\+Interface Class Reference}
+\label{classSWInterface}\index{SWInterface@{SWInterface}}
+
+
+Screen that displays \char`\"{}\+Start\char`\"{} button.  
+
+
+
+
+{\ttfamily \#include $<$sw\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for S\+W\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for S\+W\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSWInterface_af0122e530be36a1b31c809a1fc3a3fd9}{Create}} () override
+\item 
+void \mbox{\hyperlink{classSWInterface_ad534b976817b8679c486eb115c40d981}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classSWInterface_aa4887d7b89f4555915e9781b713a3332}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classSWInterface_a634e5768e9df7df130c9bf033b5e64b1}{Is\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classSWInterface_a1c5b9583ee1aa09a326671e7241abe55}{Toggle\+Software\+Menu}} ()
+\item 
+static bool \mbox{\hyperlink{classSWInterface_a2d3df8ab9314b76a0faa9be64aad033e}{Is\+Visible\+Software\+Menu}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classSWInterface_a606ddb540fd176f53071d76f3508342d}{Software\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSWInterface_a86470fdf12e12102249c7a8e3adfd2c5}{Software\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classSWInterface_a497700eaa74e96ba1cd7aec487e6a59a}{Software\+Highlight}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static bool \mbox{\hyperlink{classSWInterface_a17f0b8b35adb3dcffc13f2342e0619c3}{Has\+Software\+Type}} (int software\+T\+Y\+PE)
+\item 
+static void \mbox{\hyperlink{classSWInterface_a127f6c5ac93fb08b190a1cd0dd6be264}{Toggle\+Sub\+Menu}} (int software\+T\+Y\+PE, int x, int y)
+\item 
+static bool \mbox{\hyperlink{classSWInterface_a0fdedc51afd1a7193012b971283112e4}{Is\+Visible\+Sub\+Menu}} (int software\+T\+Y\+PE)
+\item 
+static bool \mbox{\hyperlink{classSWInterface_a7562d5c0714eda06d067169bbeeffad6}{Has\+Version\+Menu}} (const string \&program)
+\item 
+static void \mbox{\hyperlink{classSWInterface_a645ef86dbbdc65d6f74facf638aaf097}{Toggle\+Version\+Menu}} (const string \&program, int x, int y)
+\item 
+static bool \mbox{\hyperlink{classSWInterface_a7832557b26bcb99bf66c923c0c841aa2}{Is\+Visible\+Version\+Menu}} (const string \&program)
+\item 
+static void \mbox{\hyperlink{classSWInterface_aaf9a6c9a34f5c90e71abefa0bc4061ab}{Start\+Menu\+Item\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classSWInterface_ae4f0bacd3e0987758bbc478de0313352}{Start\+Menu\+Item\+Highlight}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSWInterface_afd2f937baf4505eab5ee74b6f9441d55}{Start\+Menu\+Item\+Draw\+Unavailable}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classSWInterface_ab01a3303ed4f40aba9622fd98b080fee}{Start\+Menu\+Item\+Highlight\+Unavailable}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classSWInterface_a4b95bc78165d6326ca1c9f2ed68428b3}{currentsubmenu}} = S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+N\+O\+NE
+\item 
+\mbox{\Hypertarget{classSWInterface_ad8ed660652b06811ca4f41b74db3ca87}\label{classSWInterface_ad8ed660652b06811ca4f41b74db3ca87}} 
+static int {\bfseries currentprogrambutton} = -\/1
+\item 
+static int \mbox{\hyperlink{classSWInterface_af82d6e4c8bba18520361b2fde55bf59b}{timesync}} = -\/1
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that displays \char`\"{}\+Start\char`\"{} button. 
+
+This also handles all menus that come off of the \char`\"{}\+Start\char`\"{} button 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSWInterface_af0122e530be36a1b31c809a1fc3a3fd9}\label{classSWInterface_af0122e530be36a1b31c809a1fc3a3fd9}} 
+\index{SWInterface@{SWInterface}!Create@{Create}}
+\index{Create@{Create}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSWInterface_a17f0b8b35adb3dcffc13f2342e0619c3}\label{classSWInterface_a17f0b8b35adb3dcffc13f2342e0619c3}} 
+\index{SWInterface@{SWInterface}!HasSoftwareType@{HasSoftwareType}}
+\index{HasSoftwareType@{HasSoftwareType}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{HasSoftwareType()}{HasSoftwareType()}}
+{\footnotesize\ttfamily bool S\+W\+Interface\+::\+Has\+Software\+Type (\begin{DoxyParamCaption}\item[{int}]{software\+T\+Y\+PE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Look through the player\textquotesingle{}s databank to see if this type of program shows up 
+\begin{DoxyParams}{Parameters}
+{\em software\+T\+Y\+PE} & Software type to look for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if user has it 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSWInterface_a7562d5c0714eda06d067169bbeeffad6}\label{classSWInterface_a7562d5c0714eda06d067169bbeeffad6}} 
+\index{SWInterface@{SWInterface}!HasVersionMenu@{HasVersionMenu}}
+\index{HasVersionMenu@{HasVersionMenu}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{HasVersionMenu()}{HasVersionMenu()}}
+{\footnotesize\ttfamily bool S\+W\+Interface\+::\+Has\+Version\+Menu (\begin{DoxyParamCaption}\item[{const string \&}]{program }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Does the player have more than one version of a software? 
+\begin{DoxyParams}{Parameters}
+{\em program} & Program to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if they have more than one version 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSWInterface_a634e5768e9df7df130c9bf033b5e64b1}\label{classSWInterface_a634e5768e9df7df130c9bf033b5e64b1}} 
+\index{SWInterface@{SWInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool S\+W\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSWInterface_a2d3df8ab9314b76a0faa9be64aad033e}\label{classSWInterface_a2d3df8ab9314b76a0faa9be64aad033e}} 
+\index{SWInterface@{SWInterface}!IsVisibleSoftwareMenu@{IsVisibleSoftwareMenu}}
+\index{IsVisibleSoftwareMenu@{IsVisibleSoftwareMenu}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisibleSoftwareMenu()}{IsVisibleSoftwareMenu()}}
+{\footnotesize\ttfamily bool S\+W\+Interface\+::\+Is\+Visible\+Software\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is the main software menu visible? \begin{DoxyReturn}{Returns}
+true if it is 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSWInterface_a0fdedc51afd1a7193012b971283112e4}\label{classSWInterface_a0fdedc51afd1a7193012b971283112e4}} 
+\index{SWInterface@{SWInterface}!IsVisibleSubMenu@{IsVisibleSubMenu}}
+\index{IsVisibleSubMenu@{IsVisibleSubMenu}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisibleSubMenu()}{IsVisibleSubMenu()}}
+{\footnotesize\ttfamily bool S\+W\+Interface\+::\+Is\+Visible\+Sub\+Menu (\begin{DoxyParamCaption}\item[{int}]{software\+T\+Y\+PE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Is the submenu visible 
+\begin{DoxyParams}{Parameters}
+{\em software\+T\+Y\+PE} & Software submenu to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSWInterface_a7832557b26bcb99bf66c923c0c841aa2}\label{classSWInterface_a7832557b26bcb99bf66c923c0c841aa2}} 
+\index{SWInterface@{SWInterface}!IsVisibleVersionMenu@{IsVisibleVersionMenu}}
+\index{IsVisibleVersionMenu@{IsVisibleVersionMenu}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisibleVersionMenu()}{IsVisibleVersionMenu()}}
+{\footnotesize\ttfamily bool S\+W\+Interface\+::\+Is\+Visible\+Version\+Menu (\begin{DoxyParamCaption}\item[{const string \&}]{program }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Is the version menu open? 
+\begin{DoxyParams}{Parameters}
+{\em program} & Program submenu to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if submenu is open 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSWInterface_ad534b976817b8679c486eb115c40d981}\label{classSWInterface_ad534b976817b8679c486eb115c40d981}} 
+\index{SWInterface@{SWInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSWInterface_a606ddb540fd176f53071d76f3508342d}\label{classSWInterface_a606ddb540fd176f53071d76f3508342d}} 
+\index{SWInterface@{SWInterface}!SoftwareClick@{SoftwareClick}}
+\index{SoftwareClick@{SoftwareClick}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{SoftwareClick()}{SoftwareClick()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Software\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Runs currently selected software 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for current software \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_a86470fdf12e12102249c7a8e3adfd2c5}\label{classSWInterface_a86470fdf12e12102249c7a8e3adfd2c5}} 
+\index{SWInterface@{SWInterface}!SoftwareDraw@{SoftwareDraw}}
+\index{SoftwareDraw@{SoftwareDraw}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{SoftwareDraw()}{SoftwareDraw()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Software\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Render the button in the software list 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_a497700eaa74e96ba1cd7aec487e6a59a}\label{classSWInterface_a497700eaa74e96ba1cd7aec487e6a59a}} 
+\index{SWInterface@{SWInterface}!SoftwareHighlight@{SoftwareHighlight}}
+\index{SoftwareHighlight@{SoftwareHighlight}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{SoftwareHighlight()}{SoftwareHighlight()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Software\+Highlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\begin{DoxyVerb}Don't do anything immediately, but set some timer events up so that a list of all versions of this software item appear in a new sub menu in a few milliseconds
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to highlight \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_aaf9a6c9a34f5c90e71abefa0bc4061ab}\label{classSWInterface_aaf9a6c9a34f5c90e71abefa0bc4061ab}} 
+\index{SWInterface@{SWInterface}!StartMenuItemDraw@{StartMenuItemDraw}}
+\index{StartMenuItemDraw@{StartMenuItemDraw}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{StartMenuItemDraw()}{StartMenuItemDraw()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Start\+Menu\+Item\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders an item in the start menu 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to render \\
+\hline
+{\em highlighted} & If the button should be highlighted \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_afd2f937baf4505eab5ee74b6f9441d55}\label{classSWInterface_afd2f937baf4505eab5ee74b6f9441d55}} 
+\index{SWInterface@{SWInterface}!StartMenuItemDrawUnavailable@{StartMenuItemDrawUnavailable}}
+\index{StartMenuItemDrawUnavailable@{StartMenuItemDrawUnavailable}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{StartMenuItemDrawUnavailable()}{StartMenuItemDrawUnavailable()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Start\+Menu\+Item\+Draw\+Unavailable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders a software category item with no submenu 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to render \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked\+T\+O\+DO} & Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_ae4f0bacd3e0987758bbc478de0313352}\label{classSWInterface_ae4f0bacd3e0987758bbc478de0313352}} 
+\index{SWInterface@{SWInterface}!StartMenuItemHighlight@{StartMenuItemHighlight}}
+\index{StartMenuItemHighlight@{StartMenuItemHighlight}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{StartMenuItemHighlight()}{StartMenuItemHighlight()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Start\+Menu\+Item\+Highlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the submenu of an item if it doesn\textquotesingle{}t exist 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} hovered over \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_ab01a3303ed4f40aba9622fd98b080fee}\label{classSWInterface_ab01a3303ed4f40aba9622fd98b080fee}} 
+\index{SWInterface@{SWInterface}!StartMenuItemHighlightUnavailable@{StartMenuItemHighlightUnavailable}}
+\index{StartMenuItemHighlightUnavailable@{StartMenuItemHighlightUnavailable}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{StartMenuItemHighlightUnavailable()}{StartMenuItemHighlightUnavailable()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Start\+Menu\+Item\+Highlight\+Unavailable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Highlight a software category item with no submenu 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to render \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_a1c5b9583ee1aa09a326671e7241abe55}\label{classSWInterface_a1c5b9583ee1aa09a326671e7241abe55}} 
+\index{SWInterface@{SWInterface}!ToggleSoftwareMenu@{ToggleSoftwareMenu}}
+\index{ToggleSoftwareMenu@{ToggleSoftwareMenu}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{ToggleSoftwareMenu()}{ToggleSoftwareMenu()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Toggle\+Software\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Toggles the main software menu \begin{DoxyNote}{Note}
+This only renders the main menu, not the submenus 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSWInterface_a127f6c5ac93fb08b190a1cd0dd6be264}\label{classSWInterface_a127f6c5ac93fb08b190a1cd0dd6be264}} 
+\index{SWInterface@{SWInterface}!ToggleSubMenu@{ToggleSubMenu}}
+\index{ToggleSubMenu@{ToggleSubMenu}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{ToggleSubMenu()}{ToggleSubMenu()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Toggle\+Sub\+Menu (\begin{DoxyParamCaption}\item[{int}]{software\+T\+Y\+PE,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Toggles a software type submenu open and closed, and renders all elements in the submenu 
+\begin{DoxyParams}{Parameters}
+{\em software\+T\+Y\+PE} & Software type for submenu \\
+\hline
+{\em x} & X coordinate of bottom left of submenu \\
+\hline
+{\em y} & Y coordinate of bottom left of submenu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_a645ef86dbbdc65d6f74facf638aaf097}\label{classSWInterface_a645ef86dbbdc65d6f74facf638aaf097}} 
+\index{SWInterface@{SWInterface}!ToggleVersionMenu@{ToggleVersionMenu}}
+\index{ToggleVersionMenu@{ToggleVersionMenu}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{ToggleVersionMenu()}{ToggleVersionMenu()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Toggle\+Version\+Menu (\begin{DoxyParamCaption}\item[{const string \&}]{program,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Toggles a submenu open and closed for a version list, and renders all elements in the submenu 
+\begin{DoxyParams}{Parameters}
+{\em program} & Program to open submenu for \\
+\hline
+{\em x} & X coordinate of submenu \\
+\hline
+{\em y} & Y coordinate of submenu \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSWInterface_aa4887d7b89f4555915e9781b713a3332}\label{classSWInterface_aa4887d7b89f4555915e9781b713a3332}} 
+\index{SWInterface@{SWInterface}!Update@{Update}}
+\index{Update@{Update}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void S\+W\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}{Local\+Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSWInterface_a4b95bc78165d6326ca1c9f2ed68428b3}\label{classSWInterface_a4b95bc78165d6326ca1c9f2ed68428b3}} 
+\index{SWInterface@{SWInterface}!currentsubmenu@{currentsubmenu}}
+\index{currentsubmenu@{currentsubmenu}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{currentsubmenu}{currentsubmenu}}
+{\footnotesize\ttfamily int S\+W\+Interface\+::currentsubmenu = S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+N\+O\+NE\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The currently open sub menu \mbox{\Hypertarget{classSWInterface_af82d6e4c8bba18520361b2fde55bf59b}\label{classSWInterface_af82d6e4c8bba18520361b2fde55bf59b}} 
+\index{SWInterface@{SWInterface}!timesync@{timesync}}
+\index{timesync@{timesync}!SWInterface@{SWInterface}}
+\doxysubsubsection{\texorpdfstring{timesync}{timesync}}
+{\footnotesize\ttfamily int S\+W\+Interface\+::timesync = -\/1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The next time to update the menu at 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/sw\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/sw\+\_\+interface.\+cpp\end{DoxyCompactItemize}

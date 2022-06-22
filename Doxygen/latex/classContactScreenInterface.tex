@@ -1,0 +1,161 @@
+\hypertarget{classContactScreenInterface}{}\doxysection{Contact\+Screen\+Interface Class Reference}
+\label{classContactScreenInterface}\index{ContactScreenInterface@{ContactScreenInterface}}
+
+
+Inheritance diagram for Contact\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Contact\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a3987a92dcb3a903877cfb709ff1c1de8}\label{classContactScreenInterface_a3987a92dcb3a903877cfb709ff1c1de8}} 
+void {\bfseries Set\+T\+Y\+PE} (int new\+T\+Y\+PE)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a23447094426b0d9baf175b4c1f1ba84f}\label{classContactScreenInterface_a23447094426b0d9baf175b4c1f1ba84f}} 
+void {\bfseries Set\+Mission} (\mbox{\hyperlink{classMission}{Mission}} $\ast$newmission)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a533c6b721c44722282e6644a663610b6}\label{classContactScreenInterface_a533c6b721c44722282e6644a663610b6}} 
+void {\bfseries Add\+User} (char $\ast$name)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_ac33355cf9c35af5cb0850d3355f38269}\label{classContactScreenInterface_ac33355cf9c35af5cb0850d3355f38269}} 
+void {\bfseries Add\+Question} (const string \&question, int index=-\/1)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a916fa9797bcace444e879b7ebd8af700}\label{classContactScreenInterface_a916fa9797bcace444e879b7ebd8af700}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a8b138d92dbad40df5b7d2fa7422a4cdb}\label{classContactScreenInterface_a8b138d92dbad40df5b7d2fa7422a4cdb}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classContactScreenInterface_a7881b8bcc1350cd42fe46389e5c12342}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classContactScreenInterface_ae103eee15362c4cb0c0ca599c63795e7}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classContactScreenInterface_ac8c7521493032d52b007fe23fb822292}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classContactScreenInterface_af625055a24981914b2c3ca05ae8b668f}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a7ffa0f2a5793d150adb1931ae9f1753f}\label{classContactScreenInterface_a7ffa0f2a5793d150adb1931ae9f1753f}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a8e0a798b8dd97513113ca16c3075d2c1}\label{classContactScreenInterface_a8e0a798b8dd97513113ca16c3075d2c1}} 
+static void {\bfseries Put\+Message} (int userid, const string \&message)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_ad41f4a63071e30c4465520ed38ac86c4}\label{classContactScreenInterface_ad41f4a63071e30c4465520ed38ac86c4}} 
+static void {\bfseries Ask\+Question} (int index)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_aeb434626191b1d53635d652f29d2aafd}\label{classContactScreenInterface_aeb434626191b1d53635d652f29d2aafd}} 
+static void {\bfseries Waiting\+Callback} ()
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a6ae014e537f3c4a3d76fa3c3954d5bcc}\label{classContactScreenInterface_a6ae014e537f3c4a3d76fa3c3954d5bcc}} 
+static void {\bfseries Type\+Here\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a0dd2d94f85267a56c7c77cef52cd5212}\label{classContactScreenInterface_a0dd2d94f85267a56c7c77cef52cd5212}} 
+static void {\bfseries Post\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a569be6b2db7b99d5abc47cd9ebe43fea}\label{classContactScreenInterface_a569be6b2db7b99d5abc47cd9ebe43fea}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a2cb03925d3ed19f084cd677b8c1f2c22}\label{classContactScreenInterface_a2cb03925d3ed19f084cd677b8c1f2c22}} 
+static void {\bfseries Message\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_ad74a4ebcd4efb705fd86965600bb8315}\label{classContactScreenInterface_ad74a4ebcd4efb705fd86965600bb8315}} 
+static void {\bfseries Question\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_ab9bfbf00c8fd49fe67255f2f54a7ed06}\label{classContactScreenInterface_ab9bfbf00c8fd49fe67255f2f54a7ed06}} 
+static void {\bfseries Question\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a0a83cb4a3ce898f6591f6ddbb2167228}\label{classContactScreenInterface_a0a83cb4a3ce898f6591f6ddbb2167228}} 
+int {\bfseries T\+Y\+PE}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a7f41888ee42e3abdfc38cb1015d865d7}\label{classContactScreenInterface_a7f41888ee42e3abdfc38cb1015d865d7}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ char $\ast$ $>$ {\bfseries users}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a7c5fd5bf3bf6d329fee8921304343bf6}\label{classContactScreenInterface_a7c5fd5bf3bf6d329fee8921304343bf6}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ char $\ast$ $>$ {\bfseries messagequeue}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_ab8f9ad27d2eff6b9ed263b04a08c42c3}\label{classContactScreenInterface_ab8f9ad27d2eff6b9ed263b04a08c42c3}} 
+bool {\bfseries waiting}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a126b2bb916f87dd9861585cbbd1ba611}\label{classContactScreenInterface_a126b2bb916f87dd9861585cbbd1ba611}} 
+int {\bfseries numquestions}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a6d909aa6743780097deb98467b01371d}\label{classContactScreenInterface_a6d909aa6743780097deb98467b01371d}} 
+\mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries mission}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_ade53f4cad8f88e177d36698f3effafbc}\label{classContactScreenInterface_ade53f4cad8f88e177d36698f3effafbc}} 
+int {\bfseries origionalpayment}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a2d3af59fda5f2f63cbd947c4a7a30944}\label{classContactScreenInterface_a2d3af59fda5f2f63cbd947c4a7a30944}} 
+int {\bfseries origionalpaymentmethod}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a4a207dd25e94ecd05037794dae1003ba}\label{classContactScreenInterface_a4a207dd25e94ecd05037794dae1003ba}} 
+bool {\bfseries askedpayment}
+\item 
+\mbox{\Hypertarget{classContactScreenInterface_a44f2c48eba5d5de15e12ac51bfeea2a2}\label{classContactScreenInterface_a44f2c48eba5d5de15e12ac51bfeea2a2}} 
+bool {\bfseries askedpaymentmethod}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classContactScreenInterface_ac8c7521493032d52b007fe23fb822292}\label{classContactScreenInterface_ac8c7521493032d52b007fe23fb822292}} 
+\index{ContactScreenInterface@{ContactScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!ContactScreenInterface@{ContactScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Contact\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classContactScreenInterface_a7881b8bcc1350cd42fe46389e5c12342}\label{classContactScreenInterface_a7881b8bcc1350cd42fe46389e5c12342}} 
+\index{ContactScreenInterface@{ContactScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!ContactScreenInterface@{ContactScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Contact\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classContactScreenInterface_af625055a24981914b2c3ca05ae8b668f}\label{classContactScreenInterface_af625055a24981914b2c3ca05ae8b668f}} 
+\index{ContactScreenInterface@{ContactScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!ContactScreenInterface@{ContactScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Contact\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classContactScreenInterface_ae103eee15362c4cb0c0ca599c63795e7}\label{classContactScreenInterface_ae103eee15362c4cb0c0ca599c63795e7}} 
+\index{ContactScreenInterface@{ContactScreenInterface}!Update@{Update}}
+\index{Update@{Update}!ContactScreenInterface@{ContactScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Contact\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/contactscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/contactscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

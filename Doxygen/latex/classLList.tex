@@ -1,0 +1,248 @@
+\hypertarget{classLList}{}\doxysection{L\+List$<$ T $>$ Class Template Reference}
+\label{classLList}\index{LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLList_a6dd4ddf7c5f4f2c881920d6371161849}{Put\+Data}} (const T \&newdata)
+\item 
+void \mbox{\hyperlink{classLList_ab8944677dcedec95480b211c3df91cec}{Put\+Data\+At\+End}} (const T \&newdata)
+\item 
+void \mbox{\hyperlink{classLList_a786e3789b72f3cedf6e62d45a091b308}{Put\+Data\+At\+Start}} (const T \&newdata)
+\item 
+void \mbox{\hyperlink{classLList_ae22c1c400d86464f7d5ce1032d8ee569}{Put\+Data\+At\+Index}} (const T \&newdata, int index)
+\item 
+T \mbox{\hyperlink{classLList_afd8a572a667f65f39776215669a0927b}{Get\+Data}} (int index)
+\item 
+void \mbox{\hyperlink{classLList_a02aac156b1626ca8e01278b663e5ac09}{Remove\+Data}} (int index)
+\item 
+int \mbox{\hyperlink{classLList_a97f8ccdec9e871404effa96dc606a839}{Find\+Data}} (const T \&data)
+\item 
+int \mbox{\hyperlink{classLList_ae704bc1f75153916275e5e3566f57a67}{Size}} ()
+\item 
+bool \mbox{\hyperlink{classLList_afa8464adc988630e2e72986b3dc587f2}{Valid\+Index}} (int index)
+\item 
+void \mbox{\hyperlink{classLList_ad376d2041982d5ac522c1823e1795d12}{Empty}} ()
+\item 
+T \mbox{\hyperlink{classLList_a724539c5558712965ff065b89de6b8fb}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLList_a26546796c405f08ba4c67e53115806b0}\label{classLList_a26546796c405f08ba4c67e53115806b0}} 
+\mbox{\hyperlink{classLListItem}{L\+List\+Item}}$<$ T $>$ $\ast$ {\bfseries first}
+\item 
+\mbox{\Hypertarget{classLList_a70caf09477fd359fecfa4f0d1acde5b1}\label{classLList_a70caf09477fd359fecfa4f0d1acde5b1}} 
+\mbox{\hyperlink{classLListItem}{L\+List\+Item}}$<$ T $>$ $\ast$ {\bfseries last}
+\item 
+\mbox{\Hypertarget{classLList_a0c77ba48d2cac19e7de5e5aa0cc6c0fc}\label{classLList_a0c77ba48d2cac19e7de5e5aa0cc6c0fc}} 
+\mbox{\hyperlink{classLListItem}{L\+List\+Item}}$<$ T $>$ $\ast$ {\bfseries previous}
+\item 
+\mbox{\Hypertarget{classLList_a25e023381f197fe4bf98f0fa9fd26c22}\label{classLList_a25e023381f197fe4bf98f0fa9fd26c22}} 
+int {\bfseries previousindex}
+\item 
+\mbox{\Hypertarget{classLList_a76b49ef84cfbb560110f5e4b6335c51b}\label{classLList_a76b49ef84cfbb560110f5e4b6335c51b}} 
+int {\bfseries numitems}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLList_ad376d2041982d5ac522c1823e1795d12}\label{classLList_ad376d2041982d5ac522c1823e1795d12}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!Empty@{Empty}}
+\index{Empty@{Empty}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Empty()}{Empty()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Empty}
+
+Deletes all items in \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{classLList_a97f8ccdec9e871404effa96dc606a839}\label{classLList_a97f8ccdec9e871404effa96dc606a839}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!FindData@{FindData}}
+\index{FindData@{FindData}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FindData()}{FindData()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::\mbox{\hyperlink{structFindData}{Find\+Data}} (\begin{DoxyParamCaption}\item[{const T \&}]{data }\end{DoxyParamCaption})}
+
+Finds where the data is in an \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \mbox{\hyperlink{classData}{Data}} to look for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the data in the \mbox{\hyperlink{classLList}{L\+List}}, {\ttfamily -\/1} if it doesn\textquotesingle{}t exist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLList_afd8a572a667f65f39776215669a0927b}\label{classLList_afd8a572a667f65f39776215669a0927b}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!GetData@{GetData}}
+\index{GetData@{GetData}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetData()}{GetData()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Get\+Data (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Returns data from given index in \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to get data from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data at given index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLList_a724539c5558712965ff065b89de6b8fb}\label{classLList_a724539c5558712965ff065b89de6b8fb}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Returns data from given index in \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to get data from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data at given index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLList_a6dd4ddf7c5f4f2c881920d6371161849}\label{classLList_a6dd4ddf7c5f4f2c881920d6371161849}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!PutData@{PutData}}
+\index{PutData@{PutData}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{PutData()}{PutData()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Put\+Data (\begin{DoxyParamCaption}\item[{const T \&}]{newdata }\end{DoxyParamCaption})}
+
+Appends data to \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em newdata} & \mbox{\hyperlink{classData}{Data}} to insert \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLList_ab8944677dcedec95480b211c3df91cec}\label{classLList_ab8944677dcedec95480b211c3df91cec}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!PutDataAtEnd@{PutDataAtEnd}}
+\index{PutDataAtEnd@{PutDataAtEnd}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{PutDataAtEnd()}{PutDataAtEnd()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Put\+Data\+At\+End (\begin{DoxyParamCaption}\item[{const T \&}]{newdata }\end{DoxyParamCaption})}
+
+Appends data to \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em newdata} & \mbox{\hyperlink{classData}{Data}} to insert \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLList_ae22c1c400d86464f7d5ce1032d8ee569}\label{classLList_ae22c1c400d86464f7d5ce1032d8ee569}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!PutDataAtIndex@{PutDataAtIndex}}
+\index{PutDataAtIndex@{PutDataAtIndex}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{PutDataAtIndex()}{PutDataAtIndex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Put\+Data\+At\+Index (\begin{DoxyParamCaption}\item[{const T \&}]{newdata,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+Inserts data at index of \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em newdata} & \mbox{\hyperlink{classData}{Data}} to insert \\
+\hline
+{\em index} & Index to insert data at \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLList_a786e3789b72f3cedf6e62d45a091b308}\label{classLList_a786e3789b72f3cedf6e62d45a091b308}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!PutDataAtStart@{PutDataAtStart}}
+\index{PutDataAtStart@{PutDataAtStart}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{PutDataAtStart()}{PutDataAtStart()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Put\+Data\+At\+Start (\begin{DoxyParamCaption}\item[{const T \&}]{newdata }\end{DoxyParamCaption})}
+
+Prepends data to \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em newdata} & \mbox{\hyperlink{classData}{Data}} to insert \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLList_a02aac156b1626ca8e01278b663e5ac09}\label{classLList_a02aac156b1626ca8e01278b663e5ac09}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!RemoveData@{RemoveData}}
+\index{RemoveData@{RemoveData}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveData()}{RemoveData()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Remove\+Data (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Deletes an index in an \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to delete in \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLList_ae704bc1f75153916275e5e3566f57a67}\label{classLList_ae704bc1f75153916275e5e3566f57a67}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!Size@{Size}}
+\index{Size@{Size}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Size()}{Size()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Size}
+
+Gets the number of \mbox{\hyperlink{classLList}{L\+List}} items 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Number of items in \mbox{\hyperlink{classLList}{L\+List}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLList_afa8464adc988630e2e72986b3dc587f2}\label{classLList_afa8464adc988630e2e72986b3dc587f2}} 
+\index{LList$<$ T $>$@{LList$<$ T $>$}!ValidIndex@{ValidIndex}}
+\index{ValidIndex@{ValidIndex}!LList$<$ T $>$@{LList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ValidIndex()}{ValidIndex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classLList}{L\+List}}$<$ T $>$\+::Valid\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Checks if the index exists in the \mbox{\hyperlink{classLList}{L\+List}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the \mbox{\hyperlink{classLList}{L\+List}} \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to check if exists \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if index exists 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/tosser/tosser.\+h\item 
+uplink/lib/tosser/llist.\+cpp\end{DoxyCompactItemize}

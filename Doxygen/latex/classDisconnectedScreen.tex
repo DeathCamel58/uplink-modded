@@ -1,0 +1,137 @@
+\hypertarget{classDisconnectedScreen}{}\doxysection{Disconnected\+Screen Class Reference}
+\label{classDisconnectedScreen}\index{DisconnectedScreen@{DisconnectedScreen}}
+
+
+Inheritance diagram for Disconnected\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Disconnected\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDisconnectedScreen_a1e4d1bc90822594d3168f00ec23ab7ad}\label{classDisconnectedScreen_a1e4d1bc90822594d3168f00ec23ab7ad}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classDisconnectedScreen_ac2e65b36b2be6ce82d24d2336f525d1a}\label{classDisconnectedScreen_ac2e65b36b2be6ce82d24d2336f525d1a}} 
+void {\bfseries Set\+Text\+Message} (const string \&newtextmessage)
+\item 
+bool \mbox{\hyperlink{classDisconnectedScreen_a0c8e36b24f435ce56fdc7edce74e68f9}{Load}} (F\+I\+LE $\ast$file)
+\item 
+void \mbox{\hyperlink{classDisconnectedScreen_a8370cccebb02cdfb06cf2ecaa0b5f09b}{Save}} (F\+I\+LE $\ast$file)
+\item 
+void \mbox{\hyperlink{classDisconnectedScreen_a440420c50402bed689a205a998179b48}{Print}} ()
+\item 
+string \mbox{\hyperlink{classDisconnectedScreen_a0a2283f5dc03eda2a6e165792f3ed932}{Get\+ID}} ()
+\item 
+int \mbox{\hyperlink{classDisconnectedScreen_ac6c5a958c884b79a84c986574446bf41}{Get\+O\+B\+J\+E\+C\+T\+ID}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDisconnectedScreen_ab3c1695a55dca209fb098007e2b73c46}\label{classDisconnectedScreen_ab3c1695a55dca209fb098007e2b73c46}} 
+static void {\bfseries Add\+Login\+Lost} (char $\ast$ip)
+\item 
+\mbox{\Hypertarget{classDisconnectedScreen_ad22c4829b196c1f1c7b4c7dd3ac5b024}\label{classDisconnectedScreen_ad22c4829b196c1f1c7b4c7dd3ac5b024}} 
+static void {\bfseries Clear\+Logins\+Lost} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDisconnectedScreen_a6483d25f79bc7d65f2de60da156b4efc}\label{classDisconnectedScreen_a6483d25f79bc7d65f2de60da156b4efc}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classDisconnectedScreen_abce67931a796db739f0d1024224d3433}\label{classDisconnectedScreen_abce67931a796db739f0d1024224d3433}} 
+char $\ast$ {\bfseries textmessage}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDisconnectedScreen_abe4f6b9b5ec15ba06360bdb253a2d9bd}\label{classDisconnectedScreen_abe4f6b9b5ec15ba06360bdb253a2d9bd}} 
+static \mbox{\hyperlink{classDArray}{D\+Array}}$<$ char $\ast$ $>$ {\bfseries loginslost}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDisconnectedScreen_a0a2283f5dc03eda2a6e165792f3ed932}\label{classDisconnectedScreen_a0a2283f5dc03eda2a6e165792f3ed932}} 
+\index{DisconnectedScreen@{DisconnectedScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!DisconnectedScreen@{DisconnectedScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Disconnected\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classDisconnectedScreen_ac6c5a958c884b79a84c986574446bf41}\label{classDisconnectedScreen_ac6c5a958c884b79a84c986574446bf41}} 
+\index{DisconnectedScreen@{DisconnectedScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!DisconnectedScreen@{DisconnectedScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Disconnected\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classDisconnectedScreen_a0c8e36b24f435ce56fdc7edce74e68f9}\label{classDisconnectedScreen_a0c8e36b24f435ce56fdc7edce74e68f9}} 
+\index{DisconnectedScreen@{DisconnectedScreen}!Load@{Load}}
+\index{Load@{Load}!DisconnectedScreen@{DisconnectedScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Disconnected\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classDisconnectedScreen_a440420c50402bed689a205a998179b48}\label{classDisconnectedScreen_a440420c50402bed689a205a998179b48}} 
+\index{DisconnectedScreen@{DisconnectedScreen}!Print@{Print}}
+\index{Print@{Print}!DisconnectedScreen@{DisconnectedScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Disconnected\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classDisconnectedScreen_a8370cccebb02cdfb06cf2ecaa0b5f09b}\label{classDisconnectedScreen_a8370cccebb02cdfb06cf2ecaa0b5f09b}} 
+\index{DisconnectedScreen@{DisconnectedScreen}!Save@{Save}}
+\index{Save@{Save}!DisconnectedScreen@{DisconnectedScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Disconnected\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/disconnectedscreen.\+h\item 
+uplink/src/world/computer/computerscreen/disconnectedscreen.\+cpp\end{DoxyCompactItemize}

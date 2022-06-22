@@ -1,0 +1,116 @@
+\hypertarget{classView}{}\doxysection{View Class Reference}
+\label{classView}\index{View@{View}}
+
+
+Inheritance diagram for View\+:
+% FIG 0
+
+
+Collaboration diagram for View\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classView_a0ef3921dedb2727e2c120c3ea842cd60}\label{classView_a0ef3921dedb2727e2c120c3ea842cd60}} 
+void {\bfseries Initialise} ()
+\item 
+\mbox{\Hypertarget{classView_a4047d54ee196ced68d681eefe800aad8}\label{classView_a4047d54ee196ced68d681eefe800aad8}} 
+void {\bfseries Draw} ()
+\item 
+bool \mbox{\hyperlink{classView_a695cee5039d6d46b65df7f7bc0b2a912}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classView_ac0a6f9ef26a48f9e4d0b3787b198546f}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classView_a2db414b59ed68e54d8efc48806e60bc1}{Print}} () override
+\item 
+void \mbox{\hyperlink{classView_a31ef228baabb720e203f37fa6aca3f1d}{Update}} () override
+\item 
+string \mbox{\hyperlink{classView_a25c3616de34d027c209606eaa08d74c6}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classView_a2995286ffddf23ad1b1aa3e049b541a7}\label{classView_a2995286ffddf23ad1b1aa3e049b541a7}} 
+\mbox{\hyperlink{classFrameRate}{Frame\+Rate}} {\bfseries fps}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classView_a25c3616de34d027c209606eaa08d74c6}\label{classView_a25c3616de34d027c209606eaa08d74c6}} 
+\index{View@{View}!GetID@{GetID}}
+\index{GetID@{GetID}!View@{View}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string View\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classView_a695cee5039d6d46b65df7f7bc0b2a912}\label{classView_a695cee5039d6d46b65df7f7bc0b2a912}} 
+\index{View@{View}!Load@{Load}}
+\index{Load@{Load}!View@{View}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool View\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classView_a2db414b59ed68e54d8efc48806e60bc1}\label{classView_a2db414b59ed68e54d8efc48806e60bc1}} 
+\index{View@{View}!Print@{Print}}
+\index{Print@{Print}!View@{View}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void View\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classView_ac0a6f9ef26a48f9e4d0b3787b198546f}\label{classView_ac0a6f9ef26a48f9e4d0b3787b198546f}} 
+\index{View@{View}!Save@{Save}}
+\index{Save@{Save}!View@{View}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void View\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classView_a31ef228baabb720e203f37fa6aca3f1d}\label{classView_a31ef228baabb720e203f37fa6aca3f1d}} 
+\index{View@{View}!Update@{Update}}
+\index{Update@{Update}!View@{View}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void View\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/view/view.\+h\item 
+uplink/src/view/view.\+cpp\end{DoxyCompactItemize}

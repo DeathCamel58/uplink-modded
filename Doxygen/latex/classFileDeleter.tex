@@ -1,0 +1,197 @@
+\hypertarget{classFileDeleter}{}\doxysection{File\+Deleter Class Reference}
+\label{classFileDeleter}\index{FileDeleter@{FileDeleter}}
+
+
+Inheritance diagram for File\+Deleter\+:
+% FIG 0
+
+
+Collaboration diagram for File\+Deleter\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFileDeleter_a3498ac4bbc3569714af38577908340f0}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classFileDeleter_a585d937b066457035ce22ffce48b9679}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classFileDeleter_ac9856a3489c4abd70cf98e98b69e1003}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classFileDeleter_ae01555c09c2250bb6180957fac545406}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classFileDeleter_a685ab32490fc7ca421f935cbe642814f}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classFileDeleter_a7d788771eaa962e4d70b966055e647f0}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classFileDeleter_ad849925412c6d9e6c36cab88dc0f871c}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classFileDeleter_a6eb16d8f5897238b2161b031fc6a5871}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileDeleter_aaaee19ad8b16647f93f0db58c42e9817}\label{classFileDeleter_aaaee19ad8b16647f93f0db58c42e9817}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classFileDeleter_ae70ef49f4ffe521eacf1f5ce46e9fdee}\label{classFileDeleter_ae70ef49f4ffe521eacf1f5ce46e9fdee}} 
+static void {\bfseries Progress\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classFileDeleter_afcd1b64fdb1166041253715a1ed2fed0}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classFileDeleter_a936c3bffa000b7ab7b79f69a57204a3a}\label{classFileDeleter_a936c3bffa000b7ab7b79f69a57204a3a}} 
+static void {\bfseries Border\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFileDeleter_a15b1d0dcb2da7ed69ec7274919d202e5}\label{classFileDeleter_a15b1d0dcb2da7ed69ec7274919d202e5}} 
+\mbox{\hyperlink{classDataBank}{Data\+Bank}} $\ast$ {\bfseries source}
+\item 
+\mbox{\Hypertarget{classFileDeleter_ac220ea08f24b2bb377ce52d5d90bc21a}\label{classFileDeleter_ac220ea08f24b2bb377ce52d5d90bc21a}} 
+int {\bfseries sourceindex}
+\item 
+\mbox{\Hypertarget{classFileDeleter_abf194b63686a3e98670858fe317d328d}\label{classFileDeleter_abf194b63686a3e98670858fe317d328d}} 
+int {\bfseries status}
+\item 
+\mbox{\Hypertarget{classFileDeleter_a937d2d7f4f588c82982c8bfacaf856af}\label{classFileDeleter_a937d2d7f4f588c82982c8bfacaf856af}} 
+bool {\bfseries remotefile}
+\item 
+\mbox{\Hypertarget{classFileDeleter_a2850f76a3c50410ea3e7219b373d7f02}\label{classFileDeleter_a2850f76a3c50410ea3e7219b373d7f02}} 
+int {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classFileDeleter_a32972746b3b22a2fb096f0eaaca39aba}\label{classFileDeleter_a32972746b3b22a2fb096f0eaaca39aba}} 
+int {\bfseries progress}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFileDeleter_afcd1b64fdb1166041253715a1ed2fed0}\label{classFileDeleter_afcd1b64fdb1166041253715a1ed2fed0}} 
+\index{FileDeleter@{FileDeleter}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void File\+Deleter\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classFileDeleter_a685ab32490fc7ca421f935cbe642814f}\label{classFileDeleter_a685ab32490fc7ca421f935cbe642814f}} 
+\index{FileDeleter@{FileDeleter}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void File\+Deleter\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classFileDeleter_ac9856a3489c4abd70cf98e98b69e1003}\label{classFileDeleter_ac9856a3489c4abd70cf98e98b69e1003}} 
+\index{FileDeleter@{FileDeleter}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void File\+Deleter\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classFileDeleter_a6eb16d8f5897238b2161b031fc6a5871}\label{classFileDeleter_a6eb16d8f5897238b2161b031fc6a5871}} 
+\index{FileDeleter@{FileDeleter}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool File\+Deleter\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classFileDeleter_a585d937b066457035ce22ffce48b9679}\label{classFileDeleter_a585d937b066457035ce22ffce48b9679}} 
+\index{FileDeleter@{FileDeleter}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void File\+Deleter\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classFileDeleter_a7d788771eaa962e4d70b966055e647f0}\label{classFileDeleter_a7d788771eaa962e4d70b966055e647f0}} 
+\index{FileDeleter@{FileDeleter}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void File\+Deleter\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classFileDeleter_a3498ac4bbc3569714af38577908340f0}\label{classFileDeleter_a3498ac4bbc3569714af38577908340f0}} 
+\index{FileDeleter@{FileDeleter}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void File\+Deleter\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classDataBank}{Data\+Bank}} object containing data to be deleted \\
+\hline
+{\em uos} & Name of button representing data \\
+\hline
+{\em uoi} & Index of data to be deleted \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classFileDeleter_ad849925412c6d9e6c36cab88dc0f871c}\label{classFileDeleter_ad849925412c6d9e6c36cab88dc0f871c}} 
+\index{FileDeleter@{FileDeleter}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void File\+Deleter\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classFileDeleter_ae01555c09c2250bb6180957fac545406}\label{classFileDeleter_ae01555c09c2250bb6180957fac545406}} 
+\index{FileDeleter@{FileDeleter}!Tick@{Tick}}
+\index{Tick@{Tick}!FileDeleter@{FileDeleter}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void File\+Deleter\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/filedeleter.\+h\item 
+uplink/src/interface/taskmanager/filedeleter.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,113 @@
+\hypertarget{classAccountScreenInterface}{}\doxysection{Account\+Screen\+Interface Class Reference}
+\label{classAccountScreenInterface}\index{AccountScreenInterface@{AccountScreenInterface}}
+
+
+Inheritance diagram for Account\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Account\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccountScreenInterface_a7c7a14d3912d4f722238a7b622ea97bf}\label{classAccountScreenInterface_a7c7a14d3912d4f722238a7b622ea97bf}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classAccountScreenInterface_a7ae85ba2e32567a8862446911dc1b134}{Create}} () override
+\item 
+\mbox{\Hypertarget{classAccountScreenInterface_aa8eb97062fe2c24fea5c0d4ae75794cf}\label{classAccountScreenInterface_aa8eb97062fe2c24fea5c0d4ae75794cf}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classAccountScreenInterface_a3fe4193598c53c20e56ba255c2f0d3ae}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classAccountScreenInterface_a2e3f8d1dad4f6d74df250316659700e7}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classAccountScreenInterface_a4822598698258827d73f6324a9f77873}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classAccountScreenInterface_a740bdbc728731cec0cbebe63024e7184}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classAccountScreenInterface_a91078ea3aabfe14ce8ffd29f6b83e959}\label{classAccountScreenInterface_a91078ea3aabfe14ce8ffd29f6b83e959}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccountScreenInterface_a4c6638b24dfe468c76b8a20c505bddbc}\label{classAccountScreenInterface_a4c6638b24dfe468c76b8a20c505bddbc}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAccountScreenInterface_a21d7041940ea36630a2739787212bca3}\label{classAccountScreenInterface_a21d7041940ea36630a2739787212bca3}} 
+\mbox{\hyperlink{classBankAccount}{Bank\+Account}} $\ast$ {\bfseries account}
+\item 
+\mbox{\Hypertarget{classAccountScreenInterface_a0fe328a4fe1d903f431afd31d0d9600c}\label{classAccountScreenInterface_a0fe328a4fe1d903f431afd31d0d9600c}} 
+time\+\_\+t {\bfseries lastupdate}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAccountScreenInterface_a7ae85ba2e32567a8862446911dc1b134}\label{classAccountScreenInterface_a7ae85ba2e32567a8862446911dc1b134}} 
+\index{AccountScreenInterface@{AccountScreenInterface}!Create@{Create}}
+\index{Create@{Create}!AccountScreenInterface@{AccountScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Account\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAccountScreenInterface_a4822598698258827d73f6324a9f77873}\label{classAccountScreenInterface_a4822598698258827d73f6324a9f77873}} 
+\index{AccountScreenInterface@{AccountScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!AccountScreenInterface@{AccountScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Account\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAccountScreenInterface_a3fe4193598c53c20e56ba255c2f0d3ae}\label{classAccountScreenInterface_a3fe4193598c53c20e56ba255c2f0d3ae}} 
+\index{AccountScreenInterface@{AccountScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!AccountScreenInterface@{AccountScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Account\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAccountScreenInterface_a740bdbc728731cec0cbebe63024e7184}\label{classAccountScreenInterface_a740bdbc728731cec0cbebe63024e7184}} 
+\index{AccountScreenInterface@{AccountScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!AccountScreenInterface@{AccountScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Account\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAccountScreenInterface_a2e3f8d1dad4f6d74df250316659700e7}\label{classAccountScreenInterface_a2e3f8d1dad4f6d74df250316659700e7}} 
+\index{AccountScreenInterface@{AccountScreenInterface}!Update@{Update}}
+\index{Update@{Update}!AccountScreenInterface@{AccountScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Account\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/accountscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/accountscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

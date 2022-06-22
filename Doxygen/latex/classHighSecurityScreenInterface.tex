@@ -1,0 +1,101 @@
+\hypertarget{classHighSecurityScreenInterface}{}\doxysection{High\+Security\+Screen\+Interface Class Reference}
+\label{classHighSecurityScreenInterface}\index{HighSecurityScreenInterface@{HighSecurityScreenInterface}}
+
+
+Inheritance diagram for High\+Security\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for High\+Security\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHighSecurityScreenInterface_aec20fdada7ca115b5cfe6bb13f91970f}\label{classHighSecurityScreenInterface_aec20fdada7ca115b5cfe6bb13f91970f}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classHighSecurityScreenInterface_a9085898acca9c954a54214207aaa533c}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classHighSecurityScreenInterface_a5fa4f23b0e1c28bd49f55797c42a7288}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classHighSecurityScreenInterface_ac8576c7a4beaa8d182b5eb3774877b34}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classHighSecurityScreenInterface_aca27f62148f741d4be97bb8cff91d246}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classHighSecurityScreenInterface_a575cf8fd1a48d1cac8441cd1a1329185}\label{classHighSecurityScreenInterface_a575cf8fd1a48d1cac8441cd1a1329185}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classHighSecurityScreenInterface_a10d206aceb5194ad9cf1da2388d38ad1}\label{classHighSecurityScreenInterface_a10d206aceb5194ad9cf1da2388d38ad1}} 
+\mbox{\hyperlink{classHighSecurityScreen}{High\+Security\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHighSecurityScreenInterface_af6264af4b7127d93846f71bbe2c6ba8b}\label{classHighSecurityScreenInterface_af6264af4b7127d93846f71bbe2c6ba8b}} 
+static void {\bfseries System\+Title\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classHighSecurityScreenInterface_adde54d531807a2a627c6b01d3af94b3d}\label{classHighSecurityScreenInterface_adde54d531807a2a627c6b01d3af94b3d}} 
+static void {\bfseries System\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHighSecurityScreenInterface_ab080a27c8af2d35fa336163fedb67fc9}\label{classHighSecurityScreenInterface_ab080a27c8af2d35fa336163fedb67fc9}} 
+static void {\bfseries Bypass\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHighSecurityScreenInterface_a05f40b7d5492fb1a51e5af6004d6e5a1}\label{classHighSecurityScreenInterface_a05f40b7d5492fb1a51e5af6004d6e5a1}} 
+static void {\bfseries Proceed\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHighSecurityScreenInterface_ac8576c7a4beaa8d182b5eb3774877b34}\label{classHighSecurityScreenInterface_ac8576c7a4beaa8d182b5eb3774877b34}} 
+\index{HighSecurityScreenInterface@{HighSecurityScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!HighSecurityScreenInterface@{HighSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool High\+Security\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHighSecurityScreenInterface_a9085898acca9c954a54214207aaa533c}\label{classHighSecurityScreenInterface_a9085898acca9c954a54214207aaa533c}} 
+\index{HighSecurityScreenInterface@{HighSecurityScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!HighSecurityScreenInterface@{HighSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void High\+Security\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHighSecurityScreenInterface_aca27f62148f741d4be97bb8cff91d246}\label{classHighSecurityScreenInterface_aca27f62148f741d4be97bb8cff91d246}} 
+\index{HighSecurityScreenInterface@{HighSecurityScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!HighSecurityScreenInterface@{HighSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int High\+Security\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHighSecurityScreenInterface_a5fa4f23b0e1c28bd49f55797c42a7288}\label{classHighSecurityScreenInterface_a5fa4f23b0e1c28bd49f55797c42a7288}} 
+\index{HighSecurityScreenInterface@{HighSecurityScreenInterface}!Update@{Update}}
+\index{Update@{Update}!HighSecurityScreenInterface@{HighSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void High\+Security\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/highsecurityscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/highsecurityscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

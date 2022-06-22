@@ -1,0 +1,122 @@
+\hypertarget{classNewsScreenInterface}{}\doxysection{News\+Screen\+Interface Class Reference}
+\label{classNewsScreenInterface}\index{NewsScreenInterface@{NewsScreenInterface}}
+
+
+Inheritance diagram for News\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for News\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_aa8aa2aab880af98b8421c5549eaacc6a}\label{classNewsScreenInterface_aa8aa2aab880af98b8421c5549eaacc6a}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_a6eebf763089ea09b8a40d868fff889be}\label{classNewsScreenInterface_a6eebf763089ea09b8a40d868fff889be}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classNewsScreenInterface_accd2545ee9a0cceafbea9b9f76d45efc}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classNewsScreenInterface_ad292db78f42fd9c78b73c7ec012d8e1a}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classNewsScreenInterface_a754dfbd09d585b0a1f4c1f6fd1a1c612}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classNewsScreenInterface_a9729ab7daca7c353b6d0c69a1e454618}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_ac131022d79ac6ba456948a26ffa3b935}\label{classNewsScreenInterface_ac131022d79ac6ba456948a26ffa3b935}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_a18687f4f308a7f60db1fde5b11ac449d}\label{classNewsScreenInterface_a18687f4f308a7f60db1fde5b11ac449d}} 
+static void {\bfseries Draw\+News\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_aef69b64ec629ef4dfcf3403e9d71679a}\label{classNewsScreenInterface_aef69b64ec629ef4dfcf3403e9d71679a}} 
+static void {\bfseries Click\+News\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_ad5ab744b37d127ccbf2110b295a81aef}\label{classNewsScreenInterface_ad5ab744b37d127ccbf2110b295a81aef}} 
+static void {\bfseries Mousedown\+News\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_a118ddf4b354d793bd6e950092492f833}\label{classNewsScreenInterface_a118ddf4b354d793bd6e950092492f833}} 
+static void {\bfseries Highlight\+News\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_af4b2b370bea69118fc6c74b63f480ec5}\label{classNewsScreenInterface_af4b2b370bea69118fc6c74b63f480ec5}} 
+static void {\bfseries Draw\+Details} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_ab1aeb1a53993cfe417a85dd2cd5f681e}\label{classNewsScreenInterface_ab1aeb1a53993cfe417a85dd2cd5f681e}} 
+static void {\bfseries Exit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_af417379d07f9e288b85f70ea8683a326}\label{classNewsScreenInterface_af417379d07f9e288b85f70ea8683a326}} 
+static void {\bfseries Scroll\+Change} (const string \&scrollname, int new\+Value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_a645f0925038f4ce72ffd63edf8b76db7}\label{classNewsScreenInterface_a645f0925038f4ce72ffd63edf8b76db7}} 
+static int {\bfseries baseoffset} = 0
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_a7113bd80d796575d6eff6dd5dd6b604e}\label{classNewsScreenInterface_a7113bd80d796575d6eff6dd5dd6b604e}} 
+static int {\bfseries currentselect} = -\/1
+\item 
+\mbox{\Hypertarget{classNewsScreenInterface_a4c86f11bcb12d7528774e8db73066db4}\label{classNewsScreenInterface_a4c86f11bcb12d7528774e8db73066db4}} 
+static int {\bfseries previousnummessages} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNewsScreenInterface_a754dfbd09d585b0a1f4c1f6fd1a1c612}\label{classNewsScreenInterface_a754dfbd09d585b0a1f4c1f6fd1a1c612}} 
+\index{NewsScreenInterface@{NewsScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!NewsScreenInterface@{NewsScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool News\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNewsScreenInterface_accd2545ee9a0cceafbea9b9f76d45efc}\label{classNewsScreenInterface_accd2545ee9a0cceafbea9b9f76d45efc}} 
+\index{NewsScreenInterface@{NewsScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!NewsScreenInterface@{NewsScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void News\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNewsScreenInterface_a9729ab7daca7c353b6d0c69a1e454618}\label{classNewsScreenInterface_a9729ab7daca7c353b6d0c69a1e454618}} 
+\index{NewsScreenInterface@{NewsScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!NewsScreenInterface@{NewsScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int News\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNewsScreenInterface_ad292db78f42fd9c78b73c7ec012d8e1a}\label{classNewsScreenInterface_ad292db78f42fd9c78b73c7ec012d8e1a}} 
+\index{NewsScreenInterface@{NewsScreenInterface}!Update@{Update}}
+\index{Update@{Update}!NewsScreenInterface@{NewsScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void News\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/newsscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/newsscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

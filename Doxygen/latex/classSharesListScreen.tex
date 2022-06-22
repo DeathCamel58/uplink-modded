@@ -1,0 +1,128 @@
+\hypertarget{classSharesListScreen}{}\doxysection{Shares\+List\+Screen Class Reference}
+\label{classSharesListScreen}\index{SharesListScreen@{SharesListScreen}}
+
+
+Inheritance diagram for Shares\+List\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Shares\+List\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSharesListScreen_a0e97050e0b3d67a661a8a7b948dc1c41}\label{classSharesListScreen_a0e97050e0b3d67a661a8a7b948dc1c41}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classSharesListScreen_a951577c9dc6ab8d80a7742416bd59847}\label{classSharesListScreen_a951577c9dc6ab8d80a7742416bd59847}} 
+void {\bfseries Set\+View\+Page} (int newviewpage)
+\item 
+\mbox{\Hypertarget{classSharesListScreen_a02e516aec73a538f9416a007083ce331}\label{classSharesListScreen_a02e516aec73a538f9416a007083ce331}} 
+void {\bfseries Set\+Screen\+Type} (int new\+S\+C\+R\+E\+E\+N\+\_\+\+T\+Y\+PE)
+\item 
+bool \mbox{\hyperlink{classSharesListScreen_a433b23275ec1181ce494373cbcaf8569}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classSharesListScreen_a341b1399cc6f5d2fd778eb0766c536c6}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classSharesListScreen_aae3bf2d490533eb576b7e7615b141f52}{Print}} () override
+\item 
+string \mbox{\hyperlink{classSharesListScreen_a3503de639d085feb57f3d123aba67895}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classSharesListScreen_abbdb036709bdde6d53a16e1f69cb016c}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSharesListScreen_aa5392bd8b47107b1ea1a56e956db36f2}\label{classSharesListScreen_aa5392bd8b47107b1ea1a56e956db36f2}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classSharesListScreen_a2603e020658a52cd5c35e0879fccef70}\label{classSharesListScreen_a2603e020658a52cd5c35e0879fccef70}} 
+int {\bfseries viewpage}
+\item 
+\mbox{\Hypertarget{classSharesListScreen_a789ff430a690001eea759dc41970db61}\label{classSharesListScreen_a789ff430a690001eea759dc41970db61}} 
+int {\bfseries S\+C\+R\+E\+E\+N\+T\+Y\+PE}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSharesListScreen_a3503de639d085feb57f3d123aba67895}\label{classSharesListScreen_a3503de639d085feb57f3d123aba67895}} 
+\index{SharesListScreen@{SharesListScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!SharesListScreen@{SharesListScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Shares\+List\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreen_abbdb036709bdde6d53a16e1f69cb016c}\label{classSharesListScreen_abbdb036709bdde6d53a16e1f69cb016c}} 
+\index{SharesListScreen@{SharesListScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!SharesListScreen@{SharesListScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Shares\+List\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreen_a433b23275ec1181ce494373cbcaf8569}\label{classSharesListScreen_a433b23275ec1181ce494373cbcaf8569}} 
+\index{SharesListScreen@{SharesListScreen}!Load@{Load}}
+\index{Load@{Load}!SharesListScreen@{SharesListScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Shares\+List\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreen_aae3bf2d490533eb576b7e7615b141f52}\label{classSharesListScreen_aae3bf2d490533eb576b7e7615b141f52}} 
+\index{SharesListScreen@{SharesListScreen}!Print@{Print}}
+\index{Print@{Print}!SharesListScreen@{SharesListScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Shares\+List\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreen_a341b1399cc6f5d2fd778eb0766c536c6}\label{classSharesListScreen_a341b1399cc6f5d2fd778eb0766c536c6}} 
+\index{SharesListScreen@{SharesListScreen}!Save@{Save}}
+\index{Save@{Save}!SharesListScreen@{SharesListScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Shares\+List\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/shareslistscreen.\+h\item 
+uplink/src/world/computer/computerscreen/shareslistscreen.\+cpp\end{DoxyCompactItemize}

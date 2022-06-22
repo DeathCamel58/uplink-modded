@@ -1,0 +1,152 @@
+\hypertarget{classOption}{}\doxysection{Option Class Reference}
+\label{classOption}\index{Option@{Option}}
+
+
+Inheritance diagram for Option\+:
+% FIG 0
+
+
+Collaboration diagram for Option\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOption_af54fce10ba136062a1694764e8db10af}\label{classOption_af54fce10ba136062a1694764e8db10af}} 
+void {\bfseries Set\+Name} (const string \&newname)
+\item 
+\mbox{\Hypertarget{classOption_ae1a1e01c6d49dbabfa9d3a31422f897b}\label{classOption_ae1a1e01c6d49dbabfa9d3a31422f897b}} 
+void {\bfseries Set\+Tooltip} (const string \&newtooltip)
+\item 
+\mbox{\Hypertarget{classOption_a81d661a1dff4b156966da27504d3d941}\label{classOption_a81d661a1dff4b156966da27504d3d941}} 
+void {\bfseries Set\+Yes\+Or\+No} (bool newyesorno)
+\item 
+\mbox{\Hypertarget{classOption_a2aecf2aa5dec0fe91a35ee35036464c2}\label{classOption_a2aecf2aa5dec0fe91a35ee35036464c2}} 
+void {\bfseries Set\+Visible} (bool newvisible)
+\item 
+\mbox{\Hypertarget{classOption_aa2850fb70bfd9e6502932eb789cd8964}\label{classOption_aa2850fb70bfd9e6502932eb789cd8964}} 
+void {\bfseries Set\+Value} (int newvalue)
+\item 
+bool \mbox{\hyperlink{classOption_a8c12a3007cfc964831abf2765bfa8c59}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classOption_a72745a8fdbbe1feb930164444b1862d1}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classOption_a9dfa73c1041a6b0a86f117345ee02e8d}{Print}} () override
+\item 
+void \mbox{\hyperlink{classOption_a40dd6672bfc768ccbb9f98a02dd1c104}{Update}} () override
+\item 
+string \mbox{\hyperlink{classOption_ada113116301de9690d64574ae07194b7}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classOption_aa9524b27b9247cb3d5a5187707b00ffe}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classOption_a53f0dea48adc3260d96890483bee5f3d}\label{classOption_a53f0dea48adc3260d96890483bee5f3d}} 
+char {\bfseries name} \mbox{[}S\+I\+Z\+E\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classOption_aad67773c3d9840f1d8bd404284ab429a}\label{classOption_aad67773c3d9840f1d8bd404284ab429a}} 
+char {\bfseries tooltip} \mbox{[}S\+I\+Z\+E\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+T\+O\+O\+L\+T\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classOption_ab89043e10472121dce19dc98318caf8b}\label{classOption_ab89043e10472121dce19dc98318caf8b}} 
+bool {\bfseries yesorno}
+\item 
+\mbox{\Hypertarget{classOption_aa7aaeeec56ecd8f732950062f6d5c834}\label{classOption_aa7aaeeec56ecd8f732950062f6d5c834}} 
+bool {\bfseries visible}
+\item 
+\mbox{\Hypertarget{classOption_a25b70c7d3f726d7cf7e5bc5e316451dd}\label{classOption_a25b70c7d3f726d7cf7e5bc5e316451dd}} 
+int {\bfseries value}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOption_ada113116301de9690d64574ae07194b7}\label{classOption_ada113116301de9690d64574ae07194b7}} 
+\index{Option@{Option}!GetID@{GetID}}
+\index{GetID@{GetID}!Option@{Option}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Option\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classOption_aa9524b27b9247cb3d5a5187707b00ffe}\label{classOption_aa9524b27b9247cb3d5a5187707b00ffe}} 
+\index{Option@{Option}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Option@{Option}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Option\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classOption_a8c12a3007cfc964831abf2765bfa8c59}\label{classOption_a8c12a3007cfc964831abf2765bfa8c59}} 
+\index{Option@{Option}!Load@{Load}}
+\index{Load@{Load}!Option@{Option}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Option\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classOption_a9dfa73c1041a6b0a86f117345ee02e8d}\label{classOption_a9dfa73c1041a6b0a86f117345ee02e8d}} 
+\index{Option@{Option}!Print@{Print}}
+\index{Print@{Print}!Option@{Option}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Option\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classOption_a72745a8fdbbe1feb930164444b1862d1}\label{classOption_a72745a8fdbbe1feb930164444b1862d1}} 
+\index{Option@{Option}!Save@{Save}}
+\index{Save@{Save}!Option@{Option}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Option\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classOption_a40dd6672bfc768ccbb9f98a02dd1c104}\label{classOption_a40dd6672bfc768ccbb9f98a02dd1c104}} 
+\index{Option@{Option}!Update@{Update}}
+\index{Update@{Update}!Option@{Option}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Option\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/options/options.\+h\item 
+uplink/src/options/options.\+cpp\end{DoxyCompactItemize}

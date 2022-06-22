@@ -1,0 +1,146 @@
+\hypertarget{classNetworkClient}{}\doxysection{Network\+Client Class Reference}
+\label{classNetworkClient}\index{NetworkClient@{NetworkClient}}
+
+
+Inheritance diagram for Network\+Client\+:
+% FIG 0
+
+
+Collaboration diagram for Network\+Client\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkClient_ad7deb8fbd337a800f278acbaeb1774bd}\label{classNetworkClient_ad7deb8fbd337a800f278acbaeb1774bd}} 
+bool {\bfseries Start\+Client} (char $\ast$ip)
+\item 
+\mbox{\Hypertarget{classNetworkClient_aaab2dc3cfc5b0e10d7bbab97b6943b14}\label{classNetworkClient_aaab2dc3cfc5b0e10d7bbab97b6943b14}} 
+bool {\bfseries Stop\+Client} ()
+\item 
+\mbox{\Hypertarget{classNetworkClient_ab17d1c4382a5b3cecb3edc121d666fe9}\label{classNetworkClient_ab17d1c4382a5b3cecb3edc121d666fe9}} 
+void {\bfseries Set\+Client\+Type} (int newtype)
+\item 
+\mbox{\Hypertarget{classNetworkClient_a0d1e2e23fd183abc3ae36ebbfd0f4df7}\label{classNetworkClient_a0d1e2e23fd183abc3ae36ebbfd0f4df7}} 
+int {\bfseries In\+Screen} ()
+\item 
+\mbox{\Hypertarget{classNetworkClient_a24e8df209f3cb3ef284bbf09885a1cc6}\label{classNetworkClient_a24e8df209f3cb3ef284bbf09885a1cc6}} 
+void {\bfseries Run\+Screen} (int S\+C\+R\+E\+E\+N\+C\+O\+DE)
+\item 
+\mbox{\Hypertarget{classNetworkClient_a869e9dde76788c0efc8e56b717e23580}\label{classNetworkClient_a869e9dde76788c0efc8e56b717e23580}} 
+\mbox{\hyperlink{classNetworkScreen}{Network\+Screen}} $\ast$ {\bfseries Get\+Network\+Screen} ()
+\item 
+bool \mbox{\hyperlink{classNetworkClient_ab145473c1302a5ef1a835e5db4774865}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classNetworkClient_a71a58908417dbc2d757e0946132b798e}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classNetworkClient_a1dc80b517503de2405bb2846ea271c0e}{Print}} () override
+\item 
+void \mbox{\hyperlink{classNetworkClient_a4088357768abde1683c9aeedd77da5b1}{Update}} () override
+\item 
+string \mbox{\hyperlink{classNetworkClient_ab372801408084b1cb484ce24698ecf91}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkClient_a52ff64641f4b9c2ac88015a0e0b82ac0}\label{classNetworkClient_a52ff64641f4b9c2ac88015a0e0b82ac0}} 
+void {\bfseries Handle\+\_\+\+Client\+Comms\+Data} (char $\ast$buffer)
+\item 
+\mbox{\Hypertarget{classNetworkClient_ae65e6ce657a4d91a9a94bd202882e173}\label{classNetworkClient_ae65e6ce657a4d91a9a94bd202882e173}} 
+void {\bfseries Handle\+\_\+\+Client\+Status\+Data} (char $\ast$buffer)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkClient_a9c457016a38b7ddc2ab3699814dbae99}\label{classNetworkClient_a9c457016a38b7ddc2ab3699814dbae99}} 
+S\+O\+C\+K\+ET {\bfseries socket}
+\item 
+\mbox{\Hypertarget{classNetworkClient_a65b64cb51ee102dfec9ba4e96687d6ef}\label{classNetworkClient_a65b64cb51ee102dfec9ba4e96687d6ef}} 
+int {\bfseries clienttype}
+\item 
+\mbox{\Hypertarget{classNetworkClient_a885ee804dc6cc5cb206640e3d0203fc1}\label{classNetworkClient_a885ee804dc6cc5cb206640e3d0203fc1}} 
+int {\bfseries currentscreencode}
+\item 
+\mbox{\Hypertarget{classNetworkClient_ab21b5454a568172d5c30b6cfd322a538}\label{classNetworkClient_ab21b5454a568172d5c30b6cfd322a538}} 
+\mbox{\hyperlink{classNetworkScreen}{Network\+Screen}} $\ast$ {\bfseries screen}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworkClient_ab372801408084b1cb484ce24698ecf91}\label{classNetworkClient_ab372801408084b1cb484ce24698ecf91}} 
+\index{NetworkClient@{NetworkClient}!GetID@{GetID}}
+\index{GetID@{GetID}!NetworkClient@{NetworkClient}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Network\+Client\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNetworkClient_ab145473c1302a5ef1a835e5db4774865}\label{classNetworkClient_ab145473c1302a5ef1a835e5db4774865}} 
+\index{NetworkClient@{NetworkClient}!Load@{Load}}
+\index{Load@{Load}!NetworkClient@{NetworkClient}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Network\+Client\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNetworkClient_a1dc80b517503de2405bb2846ea271c0e}\label{classNetworkClient_a1dc80b517503de2405bb2846ea271c0e}} 
+\index{NetworkClient@{NetworkClient}!Print@{Print}}
+\index{Print@{Print}!NetworkClient@{NetworkClient}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Network\+Client\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNetworkClient_a71a58908417dbc2d757e0946132b798e}\label{classNetworkClient_a71a58908417dbc2d757e0946132b798e}} 
+\index{NetworkClient@{NetworkClient}!Save@{Save}}
+\index{Save@{Save}!NetworkClient@{NetworkClient}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Network\+Client\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNetworkClient_a4088357768abde1683c9aeedd77da5b1}\label{classNetworkClient_a4088357768abde1683c9aeedd77da5b1}} 
+\index{NetworkClient@{NetworkClient}!Update@{Update}}
+\index{Update@{Update}!NetworkClient@{NetworkClient}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Network\+Client\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/network/networkclient.\+h\item 
+uplink/src/network/networkclient.\+cpp\end{DoxyCompactItemize}

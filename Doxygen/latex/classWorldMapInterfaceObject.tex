@@ -1,0 +1,223 @@
+\hypertarget{classWorldMapInterfaceObject}{}\doxysection{World\+Map\+Interface\+Object Class Reference}
+\label{classWorldMapInterfaceObject}\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+
+
+{\ttfamily \#include $<$worldmap\+\_\+layout.\+h$>$}
+
+
+
+Inheritance diagram for World\+Map\+Interface\+Object\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceObject_ab89764810c1782238fb9cff0f684c881}{Set\+T\+Y\+PE}} (int new\+T\+Y\+PE)
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceObject_a1f5d68866ff01d395815b3108a95f9e1}{Set\+Position}} (int newx, int newy)
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceObject_a49aca759e0966205d6a81156fe6bc05a}{Set\+Base\+Position}} (int newx, int newy)
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceObject_a34a76793fecbfb05fa6344796aaf95ab}{Set\+IP}} (const string \&newip)
+\item 
+void \mbox{\hyperlink{classWorldMapInterfaceObject_ace3b5a32233d59097f1027ead50b04e0}{Check\+IP}} ()
+\item 
+virtual void \mbox{\hyperlink{classWorldMapInterfaceObject_a7795b019c56468796f34978e1e657685}{Draw}} (int x\+Offset=0, int y\+Offset=0, float zoom=1.\+0)
+\item 
+virtual \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \mbox{\hyperlink{classWorldMapInterfaceObject_a5a41450d97294936040a516a2b6e10ec}{Get\+Extent}} () const
+\item 
+string \mbox{\hyperlink{classWorldMapInterfaceObject_aa1863594f63e903e8b807a83beb6bba3}{Get\+IP}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceObject_ad899a4f6c67e40fa54fb54f95d67244b}{T\+Y\+PE}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceObject_a22be240c41e7ab2ec343b8fa0460f951}{x}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceObject_a0957de9f72962a29207588bcb1e8110f}{y}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceObject_a50d46cce294a956e8fb5e79886f72ba2}{baseX}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterfaceObject_af1ede0c92400bff5f9b78b313338f9da}{baseY}}
+\item 
+bool \mbox{\hyperlink{classWorldMapInterfaceObject_a9274b7876cc001ecca960908fe672471}{temp\+For\+Connection}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classWorldMapInterfaceObject_abe306a012374bc045a9d108ae0a4efbe}{ip}}
+\item 
+bool \mbox{\hyperlink{classWorldMapInterfaceObject_a94e141bd1c579a32962daf4655448dd4}{is\+Mission}}
+\item 
+bool \mbox{\hyperlink{classWorldMapInterfaceObject_a594de5fd21c1befaaba9d353ec80a8bc}{is\+Colored}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An individual item to display on the world map 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorldMapInterfaceObject_ace3b5a32233d59097f1027ead50b04e0}\label{classWorldMapInterfaceObject_ace3b5a32233d59097f1027ead50b04e0}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!CheckIP@{CheckIP}}
+\index{CheckIP@{CheckIP}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{CheckIP()}{CheckIP()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Object\+::\+Check\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks if object needs is part of a mission or needs to be colored based on IP \mbox{\Hypertarget{classWorldMapInterfaceObject_a7795b019c56468796f34978e1e657685}\label{classWorldMapInterfaceObject_a7795b019c56468796f34978e1e657685}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!Draw@{Draw}}
+\index{Draw@{Draw}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Object\+::\+Draw (\begin{DoxyParamCaption}\item[{int}]{x\+Offset = {\ttfamily 0},  }\item[{int}]{y\+Offset = {\ttfamily 0},  }\item[{float}]{zoom = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Renders the object on the map 
+\begin{DoxyParams}{Parameters}
+{\em x\+Offset} & The X offset to render the object at \\
+\hline
+{\em y\+Offset} & The Y offset to render the object at \\
+\hline
+{\em zoom} & A multiplier to use when calculating the final render coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+zoom is not used in any calls to this function 
+\end{DoxyNote}
+
+
+Reimplemented in \mbox{\hyperlink{classWorldMapInterfaceLabel_ae537a267f184a1d277f0501683f564f3}{World\+Map\+Interface\+Label}}.
+
+\mbox{\Hypertarget{classWorldMapInterfaceObject_a5a41450d97294936040a516a2b6e10ec}\label{classWorldMapInterfaceObject_a5a41450d97294936040a516a2b6e10ec}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!GetExtent@{GetExtent}}
+\index{GetExtent@{GetExtent}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{GetExtent()}{GetExtent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} World\+Map\+Interface\+Object\+::\+Get\+Extent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the rectangle for the position and size of this object \begin{DoxyReturn}{Returns}
+The rectangle for position and size 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classWorldMapInterfaceLabel_a63deebc3b16d74a764d9d7761bbc29ae}{World\+Map\+Interface\+Label}}.
+
+\mbox{\Hypertarget{classWorldMapInterfaceObject_aa1863594f63e903e8b807a83beb6bba3}\label{classWorldMapInterfaceObject_aa1863594f63e903e8b807a83beb6bba3}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!GetIP@{GetIP}}
+\index{GetIP@{GetIP}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{GetIP()}{GetIP()}}
+{\footnotesize\ttfamily string World\+Map\+Interface\+Object\+::\+Get\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the IP of the object \begin{DoxyReturn}{Returns}
+The IP of the object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterfaceObject_a49aca759e0966205d6a81156fe6bc05a}\label{classWorldMapInterfaceObject_a49aca759e0966205d6a81156fe6bc05a}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!SetBasePosition@{SetBasePosition}}
+\index{SetBasePosition@{SetBasePosition}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{SetBasePosition()}{SetBasePosition()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Object\+::\+Set\+Base\+Position (\begin{DoxyParamCaption}\item[{int}]{newx,  }\item[{int}]{newy }\end{DoxyParamCaption})}
+
+Sets the position of the object 
+\begin{DoxyParams}{Parameters}
+{\em newx} & X coordinate of object \\
+\hline
+{\em newy} & Y coordinate of object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterfaceObject_a34a76793fecbfb05fa6344796aaf95ab}\label{classWorldMapInterfaceObject_a34a76793fecbfb05fa6344796aaf95ab}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!SetIP@{SetIP}}
+\index{SetIP@{SetIP}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{SetIP()}{SetIP()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Object\+::\+Set\+IP (\begin{DoxyParamCaption}\item[{const string \&}]{newip }\end{DoxyParamCaption})}
+
+Sets the IP of the object 
+\begin{DoxyParams}{Parameters}
+{\em newip} & IP to set it to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterfaceObject_a1f5d68866ff01d395815b3108a95f9e1}\label{classWorldMapInterfaceObject_a1f5d68866ff01d395815b3108a95f9e1}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Object\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{int}]{newx,  }\item[{int}]{newy }\end{DoxyParamCaption})}
+
+Sets the position of the object 
+\begin{DoxyParams}{Parameters}
+{\em newx} & X coordinate of object \\
+\hline
+{\em newy} & Y coordinate of object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterfaceObject_ab89764810c1782238fb9cff0f684c881}\label{classWorldMapInterfaceObject_ab89764810c1782238fb9cff0f684c881}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!SetTYPE@{SetTYPE}}
+\index{SetTYPE@{SetTYPE}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{SetTYPE()}{SetTYPE()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+Object\+::\+Set\+T\+Y\+PE (\begin{DoxyParamCaption}\item[{int}]{new\+T\+Y\+PE }\end{DoxyParamCaption})}
+
+Sets the type of object 
+\begin{DoxyParams}{Parameters}
+{\em new\+T\+Y\+PE} & Type of object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Accepted values of new\+T\+Y\+PE\+: W\+O\+R\+L\+D\+M\+A\+P\+O\+B\+J\+E\+C\+T\+\_\+\+L\+A\+B\+EL, W\+O\+R\+L\+D\+M\+A\+P\+O\+B\+J\+E\+C\+T\+\_\+\+G\+A\+T\+E\+W\+AY, W\+O\+R\+L\+D\+M\+A\+P\+O\+B\+J\+E\+C\+T\+\_\+\+L\+O\+C\+A\+T\+I\+ON 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWorldMapInterfaceObject_a50d46cce294a956e8fb5e79886f72ba2}\label{classWorldMapInterfaceObject_a50d46cce294a956e8fb5e79886f72ba2}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!baseX@{baseX}}
+\index{baseX@{baseX}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{baseX}{baseX}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Object\+::baseX}
+
+X coordinate of object \mbox{\Hypertarget{classWorldMapInterfaceObject_af1ede0c92400bff5f9b78b313338f9da}\label{classWorldMapInterfaceObject_af1ede0c92400bff5f9b78b313338f9da}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!baseY@{baseY}}
+\index{baseY@{baseY}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{baseY}{baseY}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Object\+::baseY}
+
+Y coordinate of object \mbox{\Hypertarget{classWorldMapInterfaceObject_abe306a012374bc045a9d108ae0a4efbe}\label{classWorldMapInterfaceObject_abe306a012374bc045a9d108ae0a4efbe}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!ip@{ip}}
+\index{ip@{ip}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{ip}{ip}}
+{\footnotesize\ttfamily string World\+Map\+Interface\+Object\+::ip\hspace{0.3cm}{\ttfamily [protected]}}
+
+The IP of the object \mbox{\Hypertarget{classWorldMapInterfaceObject_a594de5fd21c1befaaba9d353ec80a8bc}\label{classWorldMapInterfaceObject_a594de5fd21c1befaaba9d353ec80a8bc}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!isColored@{isColored}}
+\index{isColored@{isColored}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{isColored}{isColored}}
+{\footnotesize\ttfamily bool World\+Map\+Interface\+Object\+::is\+Colored\hspace{0.3cm}{\ttfamily [protected]}}
+
+Is this object colored \mbox{\Hypertarget{classWorldMapInterfaceObject_a94e141bd1c579a32962daf4655448dd4}\label{classWorldMapInterfaceObject_a94e141bd1c579a32962daf4655448dd4}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!isMission@{isMission}}
+\index{isMission@{isMission}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{isMission}{isMission}}
+{\footnotesize\ttfamily bool World\+Map\+Interface\+Object\+::is\+Mission\hspace{0.3cm}{\ttfamily [protected]}}
+
+Is this object related to a mission \mbox{\Hypertarget{classWorldMapInterfaceObject_a9274b7876cc001ecca960908fe672471}\label{classWorldMapInterfaceObject_a9274b7876cc001ecca960908fe672471}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!tempForConnection@{tempForConnection}}
+\index{tempForConnection@{tempForConnection}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{tempForConnection}{tempForConnection}}
+{\footnotesize\ttfamily bool World\+Map\+Interface\+Object\+::temp\+For\+Connection}
+
+If the connection requires a server that isn\textquotesingle{}t on the map, this will be true \mbox{\Hypertarget{classWorldMapInterfaceObject_ad899a4f6c67e40fa54fb54f95d67244b}\label{classWorldMapInterfaceObject_ad899a4f6c67e40fa54fb54f95d67244b}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!TYPE@{TYPE}}
+\index{TYPE@{TYPE}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{TYPE}{TYPE}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Object\+::\+T\+Y\+PE}
+
+The machine type \mbox{\Hypertarget{classWorldMapInterfaceObject_a22be240c41e7ab2ec343b8fa0460f951}\label{classWorldMapInterfaceObject_a22be240c41e7ab2ec343b8fa0460f951}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!x@{x}}
+\index{x@{x}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Object\+::x}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classWorldMapInterfaceObject_a0957de9f72962a29207588bcb1e8110f}\label{classWorldMapInterfaceObject_a0957de9f72962a29207588bcb1e8110f}} 
+\index{WorldMapInterfaceObject@{WorldMapInterfaceObject}!y@{y}}
+\index{y@{y}!WorldMapInterfaceObject@{WorldMapInterfaceObject}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+Object\+::y}
+
+T\+O\+DO\+: Document 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/worldmap/worldmap\+\_\+layout.\+h\item 
+uplink/src/interface/localinterface/worldmap/worldmap\+\_\+layout.\+cpp\end{DoxyCompactItemize}

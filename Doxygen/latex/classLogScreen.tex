@@ -1,0 +1,125 @@
+\hypertarget{classLogScreen}{}\doxysection{Log\+Screen Class Reference}
+\label{classLogScreen}\index{LogScreen@{LogScreen}}
+
+
+Inheritance diagram for Log\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Log\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogScreen_aba357078cb6960ade8d2dd52abe5e255}\label{classLogScreen_aba357078cb6960ade8d2dd52abe5e255}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classLogScreen_aa8610c3baa28f3cf7b49a0546a00ae5c}\label{classLogScreen_aa8610c3baa28f3cf7b49a0546a00ae5c}} 
+void {\bfseries Set\+T\+A\+R\+G\+ET} (int new\+T\+A\+R\+G\+ET)
+\item 
+\mbox{\Hypertarget{classLogScreen_a3de768e5a6f20cf86cf34f099699cf81}\label{classLogScreen_a3de768e5a6f20cf86cf34f099699cf81}} 
+\mbox{\hyperlink{classLogBank}{Log\+Bank}} $\ast$ {\bfseries Get\+Target\+Log\+Bank} () const
+\item 
+bool \mbox{\hyperlink{classLogScreen_aba11c4aa73fb1ebb4625cfb529d98acf}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLogScreen_ad35462c3fd0f0691d6ca94cef2a94c5d}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLogScreen_aecec092cf4eac84353e316d54da3254a}{Print}} () override
+\item 
+string \mbox{\hyperlink{classLogScreen_a63885bd735c4360b2ec471f25af90aa8}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classLogScreen_a94e6c524531508df104fc24abd5aa44d}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogScreen_a2cd89661f4680d426b94c385591950ae}\label{classLogScreen_a2cd89661f4680d426b94c385591950ae}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classLogScreen_aaf63996376ec56efc3936f2b9e63a41e}\label{classLogScreen_aaf63996376ec56efc3936f2b9e63a41e}} 
+int {\bfseries T\+A\+R\+G\+ET}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogScreen_a63885bd735c4360b2ec471f25af90aa8}\label{classLogScreen_a63885bd735c4360b2ec471f25af90aa8}} 
+\index{LogScreen@{LogScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!LogScreen@{LogScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Log\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreen_a94e6c524531508df104fc24abd5aa44d}\label{classLogScreen_a94e6c524531508df104fc24abd5aa44d}} 
+\index{LogScreen@{LogScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!LogScreen@{LogScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Log\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreen_aba11c4aa73fb1ebb4625cfb529d98acf}\label{classLogScreen_aba11c4aa73fb1ebb4625cfb529d98acf}} 
+\index{LogScreen@{LogScreen}!Load@{Load}}
+\index{Load@{Load}!LogScreen@{LogScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Log\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreen_aecec092cf4eac84353e316d54da3254a}\label{classLogScreen_aecec092cf4eac84353e316d54da3254a}} 
+\index{LogScreen@{LogScreen}!Print@{Print}}
+\index{Print@{Print}!LogScreen@{LogScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Log\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreen_ad35462c3fd0f0691d6ca94cef2a94c5d}\label{classLogScreen_ad35462c3fd0f0691d6ca94cef2a94c5d}} 
+\index{LogScreen@{LogScreen}!Save@{Save}}
+\index{Save@{Save}!LogScreen@{LogScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Log\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/logscreen.\+h\item 
+uplink/src/world/computer/computerscreen/logscreen.\+cpp\end{DoxyCompactItemize}

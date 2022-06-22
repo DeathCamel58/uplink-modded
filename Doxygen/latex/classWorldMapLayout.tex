@@ -1,0 +1,269 @@
+\hypertarget{classWorldMapLayout}{}\doxysection{World\+Map\+Layout Class Reference}
+\label{classWorldMapLayout}\index{WorldMapLayout@{WorldMapLayout}}
+
+
+The world map layout.  
+
+
+
+
+{\ttfamily \#include $<$worldmap\+\_\+layout.\+h$>$}
+
+
+
+Collaboration diagram for World\+Map\+Layout\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWorldMapLayout_adbc4b63f1e86b6ba1d2d35c4273b4eea}\label{classWorldMapLayout_adbc4b63f1e86b6ba1d2d35c4273b4eea}} 
+{\bfseries World\+Map\+Layout} (const \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \&new\+Map\+Rectangle)
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_aa2b636b855d31f6e7a0117585aa92881}{Reset}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_ae1938449c598bf1cfb7d8fe81a795c09}{Reset\+Temp}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_aa44abfa1bb5999d3691eea9944a60b22}{Add\+Location}} (int x, int y, const string \&name, const string \&ip=\char`\"{}\char`\"{}, bool temp\+For\+Connection=false)
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_aa1cbd96a167e859b5abac5658bf34e59}{Delete\+Locations\+Temp}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_a3579077345bb2a497dbe910f089a233f}{Partial\+Layout\+Labels}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_af0e445bd8e3a2cce4f2efcf53739cba0}{Full\+Layout\+Labels}} ()
+\item 
+bool \mbox{\hyperlink{classWorldMapLayout_a213773556dd3124fa41b27e3a6004d6a}{Is\+Layout\+Complete}} () const
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}} $\ast$ $>$ \& \mbox{\hyperlink{classWorldMapLayout_a59d1ab654d763c9614393755cde2ab8e}{Get\+Locations}} ()
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classWorldMapInterfaceLabel}{World\+Map\+Interface\+Label}} $\ast$ $>$ \& \mbox{\hyperlink{classWorldMapLayout_a9c196d17ed3176ea9cf7552a6f066bfc}{Get\+Labels}} ()
+\item 
+int \mbox{\hyperlink{classWorldMapLayout_a2588d464c1311e446139d14e8371c3ee}{Get\+Count\+Location\+Temp}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_aaed7f7a5e7f6cece17f7658cd7696acf}{Check\+I\+Ps}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_a23a2804a8713275b96b725d562cfb2dd}{Start\+Layout}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_ae75d49874e84848cc58ca61c9f23740d}{Delete\+Locations}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapLayout_a135a007126cfe4875119560d1238b8de}{Reset\+Layout\+Parameters}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classWorldMapLayout_a08fd7fdef8f588bc338b6875cdcda508}{iteration}}
+\item 
+int \mbox{\hyperlink{classWorldMapLayout_a13618cacd473f9c98105fffd070c944a}{move\+Number}}
+\item 
+int \mbox{\hyperlink{classWorldMapLayout_a1dac5156ebc0de005af18d1b27b0ac85}{num\+Good\+Moves}}
+\item 
+float \mbox{\hyperlink{classWorldMapLayout_ac88ca3da5ebcd81505ba867b0a8eee13}{T}}
+\item 
+float \mbox{\hyperlink{classWorldMapLayout_a29ae1f89716851ab5b3a0a9d44f66cb8}{E}}
+\item 
+bool \mbox{\hyperlink{classWorldMapLayout_aa5ef3e8c98ccf1633b074ebefb2749dd}{layout\+Complete}}
+\item 
+bool \mbox{\hyperlink{classWorldMapLayout_aa681ee5d47375a5ae685aec2514377f7}{layout\+Started}}
+\item 
+\mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \mbox{\hyperlink{classWorldMapLayout_acf3cdeee877a21cb0e1ca03b631a1b20}{map\+Rectangle}}
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}} $\ast$ $>$ \mbox{\hyperlink{classWorldMapLayout_af8888080e5d9c1c8191b7e49dc036f2f}{locations}}
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classWorldMapInterfaceLabel}{World\+Map\+Interface\+Label}} $\ast$ $>$ \mbox{\hyperlink{classWorldMapLayout_aaf1033db679d2197a1a02ec21f0f319a}{labels}}
+\item 
+\mbox{\hyperlink{classWorldMapObjectiveFunction}{World\+Map\+Objective\+Function}} \mbox{\hyperlink{classWorldMapLayout_abc2621e4d869b769bdf20c1bfa67d6fe}{objective}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The world map layout. 
+
+This world map layout is rendered to the screen in the maximized world map view 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorldMapLayout_aa44abfa1bb5999d3691eea9944a60b22}\label{classWorldMapLayout_aa44abfa1bb5999d3691eea9944a60b22}} 
+\index{WorldMapLayout@{WorldMapLayout}!AddLocation@{AddLocation}}
+\index{AddLocation@{AddLocation}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{AddLocation()}{AddLocation()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Add\+Location (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{const string \&}]{name,  }\item[{const string \&}]{ip = {\ttfamily \char`\"{}\char`\"{}},  }\item[{bool}]{temp\+For\+Connection = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Adds a location to the world map 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate of location \\
+\hline
+{\em y} & Y coordinate of location \\
+\hline
+{\em name} & The label text \\
+\hline
+{\em ip} & The IP of the location \\
+\hline
+{\em temp\+For\+Connection} & Should this location only exist for the current connection? \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapLayout_aaed7f7a5e7f6cece17f7658cd7696acf}\label{classWorldMapLayout_aaed7f7a5e7f6cece17f7658cd7696acf}} 
+\index{WorldMapLayout@{WorldMapLayout}!CheckIPs@{CheckIPs}}
+\index{CheckIPs@{CheckIPs}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{CheckIPs()}{CheckIPs()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Check\+I\+Ps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if any locations are part of a mission or are colored \mbox{\Hypertarget{classWorldMapLayout_ae75d49874e84848cc58ca61c9f23740d}\label{classWorldMapLayout_ae75d49874e84848cc58ca61c9f23740d}} 
+\index{WorldMapLayout@{WorldMapLayout}!DeleteLocations@{DeleteLocations}}
+\index{DeleteLocations@{DeleteLocations}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{DeleteLocations()}{DeleteLocations()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Delete\+Locations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Deletes all locations and labels on map \mbox{\Hypertarget{classWorldMapLayout_aa1cbd96a167e859b5abac5658bf34e59}\label{classWorldMapLayout_aa1cbd96a167e859b5abac5658bf34e59}} 
+\index{WorldMapLayout@{WorldMapLayout}!DeleteLocationsTemp@{DeleteLocationsTemp}}
+\index{DeleteLocationsTemp@{DeleteLocationsTemp}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{DeleteLocationsTemp()}{DeleteLocationsTemp()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Delete\+Locations\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deletes temporary locations \mbox{\Hypertarget{classWorldMapLayout_af0e445bd8e3a2cce4f2efcf53739cba0}\label{classWorldMapLayout_af0e445bd8e3a2cce4f2efcf53739cba0}} 
+\index{WorldMapLayout@{WorldMapLayout}!FullLayoutLabels@{FullLayoutLabels}}
+\index{FullLayoutLabels@{FullLayoutLabels}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{FullLayoutLabels()}{FullLayoutLabels()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Full\+Layout\+Labels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classWorldMapLayout_a2588d464c1311e446139d14e8371c3ee}\label{classWorldMapLayout_a2588d464c1311e446139d14e8371c3ee}} 
+\index{WorldMapLayout@{WorldMapLayout}!GetCountLocationTemp@{GetCountLocationTemp}}
+\index{GetCountLocationTemp@{GetCountLocationTemp}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{GetCountLocationTemp()}{GetCountLocationTemp()}}
+{\footnotesize\ttfamily int World\+Map\+Layout\+::\+Get\+Count\+Location\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the number of locations that only exist for current connection on the map \begin{DoxyReturn}{Returns}
+Number of temporary locations 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapLayout_a9c196d17ed3176ea9cf7552a6f066bfc}\label{classWorldMapLayout_a9c196d17ed3176ea9cf7552a6f066bfc}} 
+\index{WorldMapLayout@{WorldMapLayout}!GetLabels@{GetLabels}}
+\index{GetLabels@{GetLabels}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{GetLabels()}{GetLabels()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classWorldMapInterfaceLabel}{World\+Map\+Interface\+Label}} $\ast$ $>$ \& World\+Map\+Layout\+::\+Get\+Labels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets all labels on the map \begin{DoxyReturn}{Returns}
+All labels on map 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapLayout_a59d1ab654d763c9614393755cde2ab8e}\label{classWorldMapLayout_a59d1ab654d763c9614393755cde2ab8e}} 
+\index{WorldMapLayout@{WorldMapLayout}!GetLocations@{GetLocations}}
+\index{GetLocations@{GetLocations}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{GetLocations()}{GetLocations()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}} $\ast$ $>$ \& World\+Map\+Layout\+::\+Get\+Locations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets all locations on the map \begin{DoxyReturn}{Returns}
+All locations on map 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapLayout_a213773556dd3124fa41b27e3a6004d6a}\label{classWorldMapLayout_a213773556dd3124fa41b27e3a6004d6a}} 
+\index{WorldMapLayout@{WorldMapLayout}!IsLayoutComplete@{IsLayoutComplete}}
+\index{IsLayoutComplete@{IsLayoutComplete}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{IsLayoutComplete()}{IsLayoutComplete()}}
+{\footnotesize\ttfamily bool World\+Map\+Layout\+::\+Is\+Layout\+Complete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Is the layout done being rendered \begin{DoxyReturn}{Returns}
+true if layout is fully rendered 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapLayout_a3579077345bb2a497dbe910f089a233f}\label{classWorldMapLayout_a3579077345bb2a497dbe910f089a233f}} 
+\index{WorldMapLayout@{WorldMapLayout}!PartialLayoutLabels@{PartialLayoutLabels}}
+\index{PartialLayoutLabels@{PartialLayoutLabels}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{PartialLayoutLabels()}{PartialLayoutLabels()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Partial\+Layout\+Labels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classWorldMapLayout_aa2b636b855d31f6e7a0117585aa92881}\label{classWorldMapLayout_aa2b636b855d31f6e7a0117585aa92881}} 
+\index{WorldMapLayout@{WorldMapLayout}!Reset@{Reset}}
+\index{Reset@{Reset}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets the world map \mbox{\Hypertarget{classWorldMapLayout_a135a007126cfe4875119560d1238b8de}\label{classWorldMapLayout_a135a007126cfe4875119560d1238b8de}} 
+\index{WorldMapLayout@{WorldMapLayout}!ResetLayoutParameters@{ResetLayoutParameters}}
+\index{ResetLayoutParameters@{ResetLayoutParameters}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{ResetLayoutParameters()}{ResetLayoutParameters()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Reset\+Layout\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Resets the map \mbox{\Hypertarget{classWorldMapLayout_ae1938449c598bf1cfb7d8fe81a795c09}\label{classWorldMapLayout_ae1938449c598bf1cfb7d8fe81a795c09}} 
+\index{WorldMapLayout@{WorldMapLayout}!ResetTemp@{ResetTemp}}
+\index{ResetTemp@{ResetTemp}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{ResetTemp()}{ResetTemp()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Reset\+Temp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Does nothing \mbox{\Hypertarget{classWorldMapLayout_a23a2804a8713275b96b725d562cfb2dd}\label{classWorldMapLayout_a23a2804a8713275b96b725d562cfb2dd}} 
+\index{WorldMapLayout@{WorldMapLayout}!StartLayout@{StartLayout}}
+\index{StartLayout@{StartLayout}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{StartLayout()}{StartLayout()}}
+{\footnotesize\ttfamily void World\+Map\+Layout\+::\+Start\+Layout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Renders all locations and labels 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWorldMapLayout_a29ae1f89716851ab5b3a0a9d44f66cb8}\label{classWorldMapLayout_a29ae1f89716851ab5b3a0a9d44f66cb8}} 
+\index{WorldMapLayout@{WorldMapLayout}!E@{E}}
+\index{E@{E}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{E}{E}}
+{\footnotesize\ttfamily float World\+Map\+Layout\+::E\hspace{0.3cm}{\ttfamily [protected]}}
+
+Current value of the objective function \mbox{\Hypertarget{classWorldMapLayout_a08fd7fdef8f588bc338b6875cdcda508}\label{classWorldMapLayout_a08fd7fdef8f588bc338b6875cdcda508}} 
+\index{WorldMapLayout@{WorldMapLayout}!iteration@{iteration}}
+\index{iteration@{iteration}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{iteration}{iteration}}
+{\footnotesize\ttfamily int World\+Map\+Layout\+::iteration\hspace{0.3cm}{\ttfamily [protected]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classWorldMapLayout_aaf1033db679d2197a1a02ec21f0f319a}\label{classWorldMapLayout_aaf1033db679d2197a1a02ec21f0f319a}} 
+\index{WorldMapLayout@{WorldMapLayout}!labels@{labels}}
+\index{labels@{labels}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{labels}{labels}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classWorldMapInterfaceLabel}{World\+Map\+Interface\+Label}} $\ast$$>$ World\+Map\+Layout\+::labels\hspace{0.3cm}{\ttfamily [protected]}}
+
+Labels in the map \mbox{\Hypertarget{classWorldMapLayout_aa5ef3e8c98ccf1633b074ebefb2749dd}\label{classWorldMapLayout_aa5ef3e8c98ccf1633b074ebefb2749dd}} 
+\index{WorldMapLayout@{WorldMapLayout}!layoutComplete@{layoutComplete}}
+\index{layoutComplete@{layoutComplete}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{layoutComplete}{layoutComplete}}
+{\footnotesize\ttfamily bool World\+Map\+Layout\+::layout\+Complete\hspace{0.3cm}{\ttfamily [protected]}}
+
+Is the layout fully rendered \mbox{\Hypertarget{classWorldMapLayout_aa681ee5d47375a5ae685aec2514377f7}\label{classWorldMapLayout_aa681ee5d47375a5ae685aec2514377f7}} 
+\index{WorldMapLayout@{WorldMapLayout}!layoutStarted@{layoutStarted}}
+\index{layoutStarted@{layoutStarted}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{layoutStarted}{layoutStarted}}
+{\footnotesize\ttfamily bool World\+Map\+Layout\+::layout\+Started\hspace{0.3cm}{\ttfamily [protected]}}
+
+Has the rendering of the layout started? \mbox{\Hypertarget{classWorldMapLayout_af8888080e5d9c1c8191b7e49dc036f2f}\label{classWorldMapLayout_af8888080e5d9c1c8191b7e49dc036f2f}} 
+\index{WorldMapLayout@{WorldMapLayout}!locations@{locations}}
+\index{locations@{locations}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{locations}{locations}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classWorldMapInterfaceObject}{World\+Map\+Interface\+Object}} $\ast$$>$ World\+Map\+Layout\+::locations\hspace{0.3cm}{\ttfamily [protected]}}
+
+Locations in the map \mbox{\Hypertarget{classWorldMapLayout_acf3cdeee877a21cb0e1ca03b631a1b20}\label{classWorldMapLayout_acf3cdeee877a21cb0e1ca03b631a1b20}} 
+\index{WorldMapLayout@{WorldMapLayout}!mapRectangle@{mapRectangle}}
+\index{mapRectangle@{mapRectangle}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{mapRectangle}{mapRectangle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} World\+Map\+Layout\+::map\+Rectangle\hspace{0.3cm}{\ttfamily [protected]}}
+
+The rectangle of the map \mbox{\Hypertarget{classWorldMapLayout_a13618cacd473f9c98105fffd070c944a}\label{classWorldMapLayout_a13618cacd473f9c98105fffd070c944a}} 
+\index{WorldMapLayout@{WorldMapLayout}!moveNumber@{moveNumber}}
+\index{moveNumber@{moveNumber}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{moveNumber}{moveNumber}}
+{\footnotesize\ttfamily int World\+Map\+Layout\+::move\+Number\hspace{0.3cm}{\ttfamily [protected]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classWorldMapLayout_a1dac5156ebc0de005af18d1b27b0ac85}\label{classWorldMapLayout_a1dac5156ebc0de005af18d1b27b0ac85}} 
+\index{WorldMapLayout@{WorldMapLayout}!numGoodMoves@{numGoodMoves}}
+\index{numGoodMoves@{numGoodMoves}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{numGoodMoves}{numGoodMoves}}
+{\footnotesize\ttfamily int World\+Map\+Layout\+::num\+Good\+Moves\hspace{0.3cm}{\ttfamily [protected]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classWorldMapLayout_abc2621e4d869b769bdf20c1bfa67d6fe}\label{classWorldMapLayout_abc2621e4d869b769bdf20c1bfa67d6fe}} 
+\index{WorldMapLayout@{WorldMapLayout}!objective@{objective}}
+\index{objective@{objective}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{objective}{objective}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWorldMapObjectiveFunction}{World\+Map\+Objective\+Function}} World\+Map\+Layout\+::objective\hspace{0.3cm}{\ttfamily [protected]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classWorldMapLayout_ac88ca3da5ebcd81505ba867b0a8eee13}\label{classWorldMapLayout_ac88ca3da5ebcd81505ba867b0a8eee13}} 
+\index{WorldMapLayout@{WorldMapLayout}!T@{T}}
+\index{T@{T}!WorldMapLayout@{WorldMapLayout}}
+\doxysubsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily float World\+Map\+Layout\+::T\hspace{0.3cm}{\ttfamily [protected]}}
+
+The temperature 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/worldmap/worldmap\+\_\+layout.\+h\item 
+uplink/src/interface/localinterface/worldmap/worldmap\+\_\+layout.\+cpp\end{DoxyCompactItemize}

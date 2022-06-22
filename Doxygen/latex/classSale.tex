@@ -1,0 +1,149 @@
+\hypertarget{classSale}{}\doxysection{Sale Class Reference}
+\label{classSale}\index{Sale@{Sale}}
+
+
+Inheritance diagram for Sale\+:
+% FIG 0
+
+
+Collaboration diagram for Sale\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSale_aeef1c7d3f7382de84cdea8cd076707a8}\label{classSale_aeef1c7d3f7382de84cdea8cd076707a8}} 
+void {\bfseries Set\+Title} (const string \&newtitle)
+\item 
+\mbox{\Hypertarget{classSale_aea4eaa1a0ad3386e67a208a77725c980}\label{classSale_aea4eaa1a0ad3386e67a208a77725c980}} 
+void {\bfseries Set\+Sale\+T\+Y\+PE} (int new\+T\+Y\+PE)
+\item 
+\mbox{\Hypertarget{classSale_a91ee76b0945d3bbbabec7be308dcb41d}\label{classSale_a91ee76b0945d3bbbabec7be308dcb41d}} 
+void {\bfseries Set\+Swhw\+T\+Y\+PE} (int new\+Swhw\+T\+Y\+PE)
+\item 
+\mbox{\Hypertarget{classSale_a720dedf495673f9b942703bb4407df4f}\label{classSale_a720dedf495673f9b942703bb4407df4f}} 
+void {\bfseries Add\+Version} (const string \&details, int cost, int size, int data)
+\item 
+\mbox{\Hypertarget{classSale_a66bfb11b6dd0b520ab1356ba7fd8eed1}\label{classSale_a66bfb11b6dd0b520ab1356ba7fd8eed1}} 
+\mbox{\hyperlink{classSaleVersion}{Sale\+Version}} $\ast$ {\bfseries Get\+Version} (int index) const
+\item 
+bool \mbox{\hyperlink{classSale_a63aebf71ad9e104dae550cb41b524022}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classSale_abcff54281c0bb2007fc1efa915ce1144}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classSale_a5903fc74241dc3bac0cf8a1c10e63131}{Print}} () override
+\item 
+void \mbox{\hyperlink{classSale_a528e3791b4263c081e87f98a3f1b570e}{Update}} () override
+\item 
+string \mbox{\hyperlink{classSale_ab11ca256318e588ecfd10ee025633e35}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classSale_a4f293ab2ae47f5e5ac8fad706913cd74}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSale_a5396d7f1b94d180d8c8277e726a98d11}\label{classSale_a5396d7f1b94d180d8c8277e726a98d11}} 
+string {\bfseries title}
+\item 
+\mbox{\Hypertarget{classSale_a8ba9c376e3780bab01a6a3bbf01ea40d}\label{classSale_a8ba9c376e3780bab01a6a3bbf01ea40d}} 
+int {\bfseries sale\+T\+Y\+PE}
+\item 
+\mbox{\Hypertarget{classSale_a2faf6c20ad1bcb3edd844279ad82bb70}\label{classSale_a2faf6c20ad1bcb3edd844279ad82bb70}} 
+int {\bfseries swhw\+T\+Y\+PE}
+\item 
+\mbox{\Hypertarget{classSale_a09c9dbe30ddbccab10b025a59e7ca281}\label{classSale_a09c9dbe30ddbccab10b025a59e7ca281}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classSaleVersion}{Sale\+Version}} $\ast$ $>$ {\bfseries versions}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSale_ab11ca256318e588ecfd10ee025633e35}\label{classSale_ab11ca256318e588ecfd10ee025633e35}} 
+\index{Sale@{Sale}!GetID@{GetID}}
+\index{GetID@{GetID}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Sale\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSale_a4f293ab2ae47f5e5ac8fad706913cd74}\label{classSale_a4f293ab2ae47f5e5ac8fad706913cd74}} 
+\index{Sale@{Sale}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Sale\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSale_a63aebf71ad9e104dae550cb41b524022}\label{classSale_a63aebf71ad9e104dae550cb41b524022}} 
+\index{Sale@{Sale}!Load@{Load}}
+\index{Load@{Load}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Sale\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSale_a5903fc74241dc3bac0cf8a1c10e63131}\label{classSale_a5903fc74241dc3bac0cf8a1c10e63131}} 
+\index{Sale@{Sale}!Print@{Print}}
+\index{Print@{Print}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Sale\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSale_abcff54281c0bb2007fc1efa915ce1144}\label{classSale_abcff54281c0bb2007fc1efa915ce1144}} 
+\index{Sale@{Sale}!Save@{Save}}
+\index{Save@{Save}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Sale\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSale_a528e3791b4263c081e87f98a3f1b570e}\label{classSale_a528e3791b4263c081e87f98a3f1b570e}} 
+\index{Sale@{Sale}!Update@{Update}}
+\index{Update@{Update}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Sale\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/company/sale.\+h\item 
+uplink/src/world/company/sale.\+cpp\end{DoxyCompactItemize}

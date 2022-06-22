@@ -1,0 +1,92 @@
+\hypertarget{classImage}{}\doxysection{Image Class Reference}
+\label{classImage}\index{Image@{Image}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImage_aa44ed77d00d96d2c878b050835f828c4}\label{classImage_aa44ed77d00d96d2c878b050835f828c4}} 
+{\bfseries Image} (const \mbox{\hyperlink{classImage}{Image}} \&img)
+\item 
+\mbox{\Hypertarget{classImage_a426cb6f64beabc78459d4e570a063c6f}\label{classImage_a426cb6f64beabc78459d4e570a063c6f}} 
+void {\bfseries Load\+R\+AW} (const std\+::string \&filename, int sizex, int sizey)
+\item 
+\mbox{\Hypertarget{classImage_acd3980e661c11d585a2639c5f54f9f65}\label{classImage_acd3980e661c11d585a2639c5f54f9f65}} 
+void {\bfseries Load\+T\+IF} (const std\+::string \&filename)
+\item 
+\mbox{\Hypertarget{classImage_a2917790d362ab9b8f9ef7b4e7fd9462c}\label{classImage_a2917790d362ab9b8f9ef7b4e7fd9462c}} 
+unsigned char $\ast$ {\bfseries Get\+R\+G\+B\+Pixels} ()
+\item 
+\mbox{\Hypertarget{classImage_ac187212d28c7a12149d7984b9789254b}\label{classImage_ac187212d28c7a12149d7984b9789254b}} 
+void {\bfseries Set\+Alpha} (float newalpha)
+\item 
+\mbox{\Hypertarget{classImage_ad70e69ccd139fdcb37910619a42c6f1a}\label{classImage_ad70e69ccd139fdcb37910619a42c6f1a}} 
+void {\bfseries Set\+Alpha\+Border} (float newalpha, float r, float g, float b)
+\item 
+\mbox{\Hypertarget{classImage_a6098a41110085fc62338cc264fe33126}\label{classImage_a6098a41110085fc62338cc264fe33126}} 
+float {\bfseries Get\+Alpha} () const
+\item 
+\mbox{\Hypertarget{classImage_a191889676e394b6eba27e994edb7e02d}\label{classImage_a191889676e394b6eba27e994edb7e02d}} 
+int {\bfseries Width} () const
+\item 
+\mbox{\Hypertarget{classImage_a617543a57fd7abf1a4a052539fe35807}\label{classImage_a617543a57fd7abf1a4a052539fe35807}} 
+int {\bfseries Height} () const
+\item 
+\mbox{\Hypertarget{classImage_aa1fde5b6a40493698931557bf06bdaa2}\label{classImage_aa1fde5b6a40493698931557bf06bdaa2}} 
+void {\bfseries Flip\+AroundH} ()
+\item 
+\mbox{\Hypertarget{classImage_a726a306ea12901332c019084b31998c9}\label{classImage_a726a306ea12901332c019084b31998c9}} 
+void {\bfseries Scale} (int newwidth, int newheight)
+\item 
+\mbox{\Hypertarget{classImage_ac76147d72dc07ddaa52e8ec85cbd2807}\label{classImage_ac76147d72dc07ddaa52e8ec85cbd2807}} 
+void {\bfseries Scale\+To\+Open\+GL} ()
+\item 
+\mbox{\Hypertarget{classImage_a4ce2296d4eb139488e6f2b0a1b3f9c18}\label{classImage_a4ce2296d4eb139488e6f2b0a1b3f9c18}} 
+void {\bfseries Draw} (int x, int y) const
+\item 
+\mbox{\Hypertarget{classImage_a9c93fc27d24ef355d617a10c9bd376d1}\label{classImage_a9c93fc27d24ef355d617a10c9bd376d1}} 
+void {\bfseries Draw\+Blend} (int x, int y) const
+\item 
+\mbox{\Hypertarget{classImage_a1080b70d57781ed52fa235d27fffe133}\label{classImage_a1080b70d57781ed52fa235d27fffe133}} 
+void {\bfseries Create\+Error\+Bitmap} ()
+\item 
+\mbox{\Hypertarget{classImage_aa567e85c4f77d9d4e98896fceda01944}\label{classImage_aa567e85c4f77d9d4e98896fceda01944}} 
+char {\bfseries Get\+PixelR} (int x, int y) const
+\item 
+\mbox{\Hypertarget{classImage_a61ce109f5c9a20fe34b96386a0d441c9}\label{classImage_a61ce109f5c9a20fe34b96386a0d441c9}} 
+char {\bfseries Get\+PixelG} (int x, int y) const
+\item 
+\mbox{\Hypertarget{classImage_ac33066b2bb332d6ceb48512125a8c2d0}\label{classImage_ac33066b2bb332d6ceb48512125a8c2d0}} 
+char {\bfseries Get\+PixelB} (int x, int y) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImage_a53c11e948bb6960eb23d94e2eaea628f}\label{classImage_a53c11e948bb6960eb23d94e2eaea628f}} 
+unsigned char $\ast$ {\bfseries pixels}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImage_a50029dc511ac3ade083d501e6cb4dd76}\label{classImage_a50029dc511ac3ade083d501e6cb4dd76}} 
+void {\bfseries Set\+Alpha\+Border\+Rec} (int x, int y, unsigned char a, unsigned char r, unsigned char g, unsigned char b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classImage_ab8d12f635013c04159cd4d3d972bac88}\label{classImage_ab8d12f635013c04159cd4d3d972bac88}} 
+int {\bfseries width}
+\item 
+\mbox{\Hypertarget{classImage_a51df43db420c9c0b57536cb2dd36de5c}\label{classImage_a51df43db420c9c0b57536cb2dd36de5c}} 
+int {\bfseries height}
+\item 
+\mbox{\Hypertarget{classImage_a0da0b838455b7959cb0054d86c9ed614}\label{classImage_a0da0b838455b7959cb0054d86c9ed614}} 
+char {\bfseries alpha}
+\item 
+\mbox{\Hypertarget{classImage_aea5595f7b76839f0b1dd2e5d5e266d97}\label{classImage_aea5595f7b76839f0b1dd2e5d5e266d97}} 
+unsigned char $\ast$ {\bfseries rgb\+\_\+pixels}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/gucci/image.\+h\item 
+uplink/lib/gucci/image.\+cpp\end{DoxyCompactItemize}

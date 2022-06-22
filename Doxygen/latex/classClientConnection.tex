@@ -1,0 +1,188 @@
+\hypertarget{classClientConnection}{}\doxysection{Client\+Connection Class Reference}
+\label{classClientConnection}\index{ClientConnection@{ClientConnection}}
+
+
+Inheritance diagram for Client\+Connection\+:
+% FIG 0
+
+
+Collaboration diagram for Client\+Connection\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClientConnection_a89eb01cec8f49f4dc78c2e2f7f45bfab}\label{classClientConnection_a89eb01cec8f49f4dc78c2e2f7f45bfab}} 
+void {\bfseries Set\+Socket} (S\+O\+C\+K\+ET socket)
+\item 
+\mbox{\Hypertarget{classClientConnection_a96f5d7e914e6b2e2e114cbd96195a3a5}\label{classClientConnection_a96f5d7e914e6b2e2e114cbd96195a3a5}} 
+void {\bfseries Set\+Client\+Type} (int newclienttype)
+\item 
+\mbox{\Hypertarget{classClientConnection_aeff928ec72366ca50935934e87db3eb4}\label{classClientConnection_aeff928ec72366ca50935934e87db3eb4}} 
+void {\bfseries Set\+Connection\+Time} (int newtime)
+\item 
+\mbox{\Hypertarget{classClientConnection_a2b564babd0839ec972ddf78612c16075}\label{classClientConnection_a2b564babd0839ec972ddf78612c16075}} 
+void {\bfseries Set\+Index} (int newindex)
+\item 
+\mbox{\Hypertarget{classClientConnection_a7839717ada4dec2915b591cb8c0f5c41}\label{classClientConnection_a7839717ada4dec2915b591cb8c0f5c41}} 
+int {\bfseries Time\+Active} () const
+\item 
+bool \mbox{\hyperlink{classClientConnection_a00abc6cc3dcefddad7659a38ddd2e307}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classClientConnection_ab74045132556558f63e882728d5b59d9}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classClientConnection_a509ff77bf9c5996fc5f283403c6443f4}{Print}} () override
+\item 
+void \mbox{\hyperlink{classClientConnection_aae8eb064bfef4eb445c8f720a1259095}{Update}} () override
+\item 
+string \mbox{\hyperlink{classClientConnection_adcccdfdf96971f0d70d7b93fa1aa57ab}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClientConnection_a6b1f1baa7a1d6d9901f4963c55b76b8b}\label{classClientConnection_a6b1f1baa7a1d6d9901f4963c55b76b8b}} 
+S\+O\+C\+K\+ET {\bfseries socket}
+\item 
+\mbox{\Hypertarget{classClientConnection_a00f6cb2d869366782fed2015af4c90bd}\label{classClientConnection_a00f6cb2d869366782fed2015af4c90bd}} 
+int {\bfseries clienttype}
+\item 
+\mbox{\Hypertarget{classClientConnection_ac992d1bd17a7baa06da62a918e6f4be9}\label{classClientConnection_ac992d1bd17a7baa06da62a918e6f4be9}} 
+int {\bfseries connectiontime}
+\item 
+\mbox{\Hypertarget{classClientConnection_a59b8658f7fcdf30e5732ce1d04f6efdf}\label{classClientConnection_a59b8658f7fcdf30e5732ce1d04f6efdf}} 
+int {\bfseries previousupdate}
+\item 
+\mbox{\Hypertarget{classClientConnection_afcaf344fdd052b57f91ed467ad489b6a}\label{classClientConnection_afcaf344fdd052b57f91ed467ad489b6a}} 
+int {\bfseries index}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClientConnection_ae04e44b657e469975ff51ca7eafc655e}\label{classClientConnection_ae04e44b657e469975ff51ca7eafc655e}} 
+void {\bfseries Handle\+\_\+\+Client\+Comms\+Interface} ()
+\item 
+\mbox{\Hypertarget{classClientConnection_a2605135fc17c1a6b5a8383d95a866630}\label{classClientConnection_a2605135fc17c1a6b5a8383d95a866630}} 
+void {\bfseries Handle\+\_\+\+Client\+Status\+Interface} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classClientConnection_a2a1854eb528ccd02b72a6344033ba4c7}\label{classClientConnection_a2a1854eb528ccd02b72a6344033ba4c7}} 
+int {\bfseries connectionsize}
+\item 
+\mbox{\Hypertarget{classClientConnection_a220803dd73fa550c9378c25c5d10cfbc}\label{classClientConnection_a220803dd73fa550c9378c25c5d10cfbc}} 
+int {\bfseries traceprogress}
+\item 
+\mbox{\Hypertarget{classClientConnection_ae27ed6716721d2e7d0fa6501c8fd0167}\label{classClientConnection_ae27ed6716721d2e7d0fa6501c8fd0167}} 
+int {\bfseries numlinks}
+\item 
+\mbox{\Hypertarget{classClientConnection_a6c134f4dfe6777de0c242aa199342377}\label{classClientConnection_a6c134f4dfe6777de0c242aa199342377}} 
+bool {\bfseries sentgateway}
+\item 
+\mbox{\Hypertarget{classClientConnection_a3bc17992a788c2a3296ee26eb3701b0b}\label{classClientConnection_a3bc17992a788c2a3296ee26eb3701b0b}} 
+\mbox{\hyperlink{classDate}{Date}} {\bfseries lastnewsdate}
+\item 
+\mbox{\Hypertarget{classClientConnection_a0f5e689a73d6402b8fe9c34f3106bf2f}\label{classClientConnection_a0f5e689a73d6402b8fe9c34f3106bf2f}} 
+\mbox{\hyperlink{classRating}{Rating}} {\bfseries rating}
+\item 
+\mbox{\Hypertarget{classClientConnection_aedf5c3409674a2589890e225d8582b9c}\label{classClientConnection_aedf5c3409674a2589890e225d8582b9c}} 
+int {\bfseries balance}
+\item 
+\mbox{\Hypertarget{classClientConnection_abe506474bd6eb278f7fd8c44b832f0a8}\label{classClientConnection_abe506474bd6eb278f7fd8c44b832f0a8}} 
+int {\bfseries numaccounts}
+\item 
+\mbox{\Hypertarget{classClientConnection_ad3e43bbfde02bcf17ff6cae8abfd1f43}\label{classClientConnection_ad3e43bbfde02bcf17ff6cae8abfd1f43}} 
+char {\bfseries convictions} \mbox{[}256\mbox{]}
+\item 
+\mbox{\Hypertarget{classClientConnection_ae194907f085635bfca1b9756710d59f8}\label{classClientConnection_ae194907f085635bfca1b9756710d59f8}} 
+char {\bfseries hudupgrades}
+\item 
+\mbox{\Hypertarget{classClientConnection_a9b307415ddc629cef385ae9d477717db}\label{classClientConnection_a9b307415ddc629cef385ae9d477717db}} 
+int {\bfseries cpumodemmemory}
+\item 
+\mbox{\Hypertarget{classClientConnection_aadac7da68f09bcd761ae1b7d8937ca73}\label{classClientConnection_aadac7da68f09bcd761ae1b7d8937ca73}} 
+int {\bfseries numhwitems}
+\item 
+\mbox{\Hypertarget{classClientConnection_a900d68779f68abf64af1dee90dcf69d5}\label{classClientConnection_a900d68779f68abf64af1dee90dcf69d5}} 
+char {\bfseries ip} \mbox{[}128\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classClientConnection_adcccdfdf96971f0d70d7b93fa1aa57ab}\label{classClientConnection_adcccdfdf96971f0d70d7b93fa1aa57ab}} 
+\index{ClientConnection@{ClientConnection}!GetID@{GetID}}
+\index{GetID@{GetID}!ClientConnection@{ClientConnection}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Client\+Connection\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classClientConnection_a00abc6cc3dcefddad7659a38ddd2e307}\label{classClientConnection_a00abc6cc3dcefddad7659a38ddd2e307}} 
+\index{ClientConnection@{ClientConnection}!Load@{Load}}
+\index{Load@{Load}!ClientConnection@{ClientConnection}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Client\+Connection\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classClientConnection_a509ff77bf9c5996fc5f283403c6443f4}\label{classClientConnection_a509ff77bf9c5996fc5f283403c6443f4}} 
+\index{ClientConnection@{ClientConnection}!Print@{Print}}
+\index{Print@{Print}!ClientConnection@{ClientConnection}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Client\+Connection\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classClientConnection_ab74045132556558f63e882728d5b59d9}\label{classClientConnection_ab74045132556558f63e882728d5b59d9}} 
+\index{ClientConnection@{ClientConnection}!Save@{Save}}
+\index{Save@{Save}!ClientConnection@{ClientConnection}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Client\+Connection\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classClientConnection_aae8eb064bfef4eb445c8f720a1259095}\label{classClientConnection_aae8eb064bfef4eb445c8f720a1259095}} 
+\index{ClientConnection@{ClientConnection}!Update@{Update}}
+\index{Update@{Update}!ClientConnection@{ClientConnection}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Client\+Connection\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/network/clientconnection.\+h\item 
+uplink/src/network/clientconnection.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,194 @@
+\hypertarget{classLanSpoof}{}\doxysection{Lan\+Spoof Class Reference}
+\label{classLanSpoof}\index{LanSpoof@{LanSpoof}}
+
+
+Inheritance diagram for Lan\+Spoof\+:
+% FIG 0
+
+
+Collaboration diagram for Lan\+Spoof\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLanSpoof_acab67ce44e69da2325a518d8c4952961}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classLanSpoof_adddc78d07f8ddacdf23b3db66839af8d}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classLanSpoof_aed29bc1aff7f2dff750334c66d1cf730}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classLanSpoof_a21e4584dbb1e17adbb48153f1658ed23}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classLanSpoof_a1d3a371c95e5330bc90b4031c89be00e}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classLanSpoof_a8a1a928a86464b410ba734d356565dc7}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classLanSpoof_a530f5124b45b09830057e55703b0ec5d}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classLanSpoof_ae918724a1487863b0560d220a637609f}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanSpoof_a70ef3524a0e240982cd7e9a260db44e1}\label{classLanSpoof_a70ef3524a0e240982cd7e9a260db44e1}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLanSpoof_ac61efee5c74102a139d38a229fc24037}\label{classLanSpoof_ac61efee5c74102a139d38a229fc24037}} 
+static void {\bfseries Progress\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classLanSpoof_a4642b919029e6d57cf26fc5015669cc2}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLanSpoof_a0a09ff0949279f8fe640fb3c3228a421}\label{classLanSpoof_a0a09ff0949279f8fe640fb3c3228a421}} 
+static void {\bfseries Border\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanSpoof_a4a1d07bb0628af0bc7d158b807cf3fa1}\label{classLanSpoof_a4a1d07bb0628af0bc7d158b807cf3fa1}} 
+int {\bfseries status}
+\item 
+\mbox{\Hypertarget{classLanSpoof_aacf1438b97ad821d51e9504bed50961b}\label{classLanSpoof_aacf1438b97ad821d51e9504bed50961b}} 
+int {\bfseries progress}
+\item 
+\mbox{\Hypertarget{classLanSpoof_a300ffa723fb002a58b26a2ff84d081a9}\label{classLanSpoof_a300ffa723fb002a58b26a2ff84d081a9}} 
+int {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classLanSpoof_acacd29ba0e1b79df7473067650c162d2}\label{classLanSpoof_acacd29ba0e1b79df7473067650c162d2}} 
+\mbox{\hyperlink{classLanComputer}{Lan\+Computer}} $\ast$ {\bfseries comp}
+\item 
+\mbox{\Hypertarget{classLanSpoof_aa224b07970c8355ad3a46e03264d408f}\label{classLanSpoof_aa224b07970c8355ad3a46e03264d408f}} 
+int {\bfseries system\+Index}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLanSpoof_a4642b919029e6d57cf26fc5015669cc2}\label{classLanSpoof_a4642b919029e6d57cf26fc5015669cc2}} 
+\index{LanSpoof@{LanSpoof}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Lan\+Spoof\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLanSpoof_a1d3a371c95e5330bc90b4031c89be00e}\label{classLanSpoof_a1d3a371c95e5330bc90b4031c89be00e}} 
+\index{LanSpoof@{LanSpoof}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Lan\+Spoof\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classLanSpoof_aed29bc1aff7f2dff750334c66d1cf730}\label{classLanSpoof_aed29bc1aff7f2dff750334c66d1cf730}} 
+\index{LanSpoof@{LanSpoof}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Lan\+Spoof\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classLanSpoof_ae918724a1487863b0560d220a637609f}\label{classLanSpoof_ae918724a1487863b0560d220a637609f}} 
+\index{LanSpoof@{LanSpoof}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Lan\+Spoof\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classLanSpoof_adddc78d07f8ddacdf23b3db66839af8d}\label{classLanSpoof_adddc78d07f8ddacdf23b3db66839af8d}} 
+\index{LanSpoof@{LanSpoof}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Lan\+Spoof\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classLanSpoof_a8a1a928a86464b410ba734d356565dc7}\label{classLanSpoof_a8a1a928a86464b410ba734d356565dc7}} 
+\index{LanSpoof@{LanSpoof}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Lan\+Spoof\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classLanSpoof_acab67ce44e69da2325a518d8c4952961}\label{classLanSpoof_acab67ce44e69da2325a518d8c4952961}} 
+\index{LanSpoof@{LanSpoof}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Lan\+Spoof\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classLanComputer}{Lan\+Computer}} object \\
+\hline
+{\em uos} & Name of button representing system \\
+\hline
+{\em uoi} & Index of system in lan computer \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classLanSpoof_a530f5124b45b09830057e55703b0ec5d}\label{classLanSpoof_a530f5124b45b09830057e55703b0ec5d}} 
+\index{LanSpoof@{LanSpoof}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Lan\+Spoof\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classLanSpoof_a21e4584dbb1e17adbb48153f1658ed23}\label{classLanSpoof_a21e4584dbb1e17adbb48153f1658ed23}} 
+\index{LanSpoof@{LanSpoof}!Tick@{Tick}}
+\index{Tick@{Tick}!LanSpoof@{LanSpoof}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Lan\+Spoof\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/lanspoof.\+h\item 
+uplink/src/interface/taskmanager/lanspoof.\+cpp\end{DoxyCompactItemize}

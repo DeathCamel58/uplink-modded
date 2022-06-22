@@ -1,0 +1,140 @@
+\hypertarget{classLogBank}{}\doxysection{Log\+Bank Class Reference}
+\label{classLogBank}\index{LogBank@{LogBank}}
+
+
+Inheritance diagram for Log\+Bank\+:
+% FIG 0
+
+
+Collaboration diagram for Log\+Bank\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogBank_a7c737cedafc69b5b02fce5893013071f}\label{classLogBank_a7c737cedafc69b5b02fce5893013071f}} 
+void {\bfseries Add\+Log} (\mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$log, int index=-\/1)
+\item 
+\mbox{\Hypertarget{classLogBank_a0a53214439a62c43b6e569acfc704b4e}\label{classLogBank_a0a53214439a62c43b6e569acfc704b4e}} 
+bool {\bfseries Log\+Modified} (int index) const
+\item 
+\mbox{\Hypertarget{classLogBank_a2f737d09bb280edd94b13b01b1805b36}\label{classLogBank_a2f737d09bb280edd94b13b01b1805b36}} 
+string {\bfseries Trace\+Log} (const string \&to\+\_\+ip, const string \&logbank\+\_\+ip, \mbox{\hyperlink{classDate}{Date}} $\ast$date, int uplinkrating)
+\item 
+\mbox{\Hypertarget{classLogBank_a3552ba13fd6c6d175a778dcb8f846559}\label{classLogBank_a3552ba13fd6c6d175a778dcb8f846559}} 
+void {\bfseries Empty} ()
+\item 
+bool \mbox{\hyperlink{classLogBank_abc2b486375823b97d57c1f18b4bffd65}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLogBank_a5264a08c1e1da26e345d3f6bf93f3645}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLogBank_a7def1e5528f695d9de220e05a7cacfc2}{Print}} () override
+\item 
+void \mbox{\hyperlink{classLogBank_ac0f788220a3885d0c84f08910f85de0c}{Update}} () override
+\item 
+string \mbox{\hyperlink{classLogBank_a1d718622ea162d91a2107c84fdc10ddf}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classLogBank_adbfc3cacfc7bf7fd64f086ef6701731d}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogBank_aaab9f66c8c34d05a504acc2616084c27}\label{classLogBank_aaab9f66c8c34d05a504acc2616084c27}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$ $>$ {\bfseries logs}
+\item 
+\mbox{\Hypertarget{classLogBank_a3f20ce84d6f2bb56d9b6deff85c4651c}\label{classLogBank_a3f20ce84d6f2bb56d9b6deff85c4651c}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$ $>$ {\bfseries internallogs}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogBank_a1d718622ea162d91a2107c84fdc10ddf}\label{classLogBank_a1d718622ea162d91a2107c84fdc10ddf}} 
+\index{LogBank@{LogBank}!GetID@{GetID}}
+\index{GetID@{GetID}!LogBank@{LogBank}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Log\+Bank\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLogBank_adbfc3cacfc7bf7fd64f086ef6701731d}\label{classLogBank_adbfc3cacfc7bf7fd64f086ef6701731d}} 
+\index{LogBank@{LogBank}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!LogBank@{LogBank}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Log\+Bank\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLogBank_abc2b486375823b97d57c1f18b4bffd65}\label{classLogBank_abc2b486375823b97d57c1f18b4bffd65}} 
+\index{LogBank@{LogBank}!Load@{Load}}
+\index{Load@{Load}!LogBank@{LogBank}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Log\+Bank\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLogBank_a7def1e5528f695d9de220e05a7cacfc2}\label{classLogBank_a7def1e5528f695d9de220e05a7cacfc2}} 
+\index{LogBank@{LogBank}!Print@{Print}}
+\index{Print@{Print}!LogBank@{LogBank}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Log\+Bank\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLogBank_a5264a08c1e1da26e345d3f6bf93f3645}\label{classLogBank_a5264a08c1e1da26e345d3f6bf93f3645}} 
+\index{LogBank@{LogBank}!Save@{Save}}
+\index{Save@{Save}!LogBank@{LogBank}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Log\+Bank\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLogBank_ac0f788220a3885d0c84f08910f85de0c}\label{classLogBank_ac0f788220a3885d0c84f08910f85de0c}} 
+\index{LogBank@{LogBank}!Update@{Update}}
+\index{Update@{Update}!LogBank@{LogBank}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Log\+Bank\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/logbank.\+h\item 
+uplink/src/world/computer/logbank.\+cpp\end{DoxyCompactItemize}

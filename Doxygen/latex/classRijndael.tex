@@ -1,0 +1,28 @@
+\hypertarget{classRijndael}{}\doxysection{Rijndael Class Reference}
+\label{classRijndael}\index{Rijndael@{Rijndael}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRijndael_ad97528c46aaa42ffaf6d48a60d242a75}\label{classRijndael_ad97528c46aaa42ffaf6d48a60d242a75}} 
+enum {\bfseries Direction} \{ {\bfseries Encrypt}, 
+{\bfseries Decrypt}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRijndael_a4f07601b925a7eff472e4e2dc4ee1f06}\label{classRijndael_a4f07601b925a7eff472e4e2dc4ee1f06}} 
+void {\bfseries init} (Direction dir, const byte $\ast$key, byte $\ast$init\+Vector)
+\item 
+\mbox{\Hypertarget{classRijndael_a771ed30e34b28720493845f694e47615}\label{classRijndael_a771ed30e34b28720493845f694e47615}} 
+int {\bfseries block\+Encrypt} (const byte $\ast$input, int input\+Len, byte $\ast$out\+Buffer)
+\item 
+\mbox{\Hypertarget{classRijndael_a7b80b257a187510cdb2b208729db45ab}\label{classRijndael_a7b80b257a187510cdb2b208729db45ab}} 
+int {\bfseries block\+Decrypt} (const byte $\ast$input, int input\+Len, byte $\ast$out\+Buffer)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/unrar/rijndael.\+hpp\item 
+uplink/lib/unrar/rijndael.\+cpp\end{DoxyCompactItemize}

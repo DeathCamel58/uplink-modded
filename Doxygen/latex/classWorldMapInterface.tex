@@ -1,0 +1,845 @@
+\hypertarget{classWorldMapInterface}{}\doxysection{World\+Map\+Interface Class Reference}
+\label{classWorldMapInterface}\index{WorldMapInterface@{WorldMapInterface}}
+
+
+Screen that shows the world map.  
+
+
+
+
+{\ttfamily \#include $<$worldmap\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for World\+Map\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for World\+Map\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a63aba9a78117922a9015c745d0228fc8}{Create}} () override
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a03190ffe3a97ce2c57909f4b13b8fc34}{Create}} (int S\+I\+ZE)
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a03381d521d05812dd9ac4040ab1eaf7f}{Update}} () override
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a8ba248950eb68d3e73acebcb9f51b2d0}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classWorldMapInterface_a3621e2b35b43bb18ca09cb87bd5223ba}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classWorldMapInterface_afc74d9b7cd7787da1e683637ac249dce}{Screen\+ID}} () override
+\item 
+bool \mbox{\hyperlink{classWorldMapInterface_ac6ef6ae48c1d2f42d08ebfe4962c5b39}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a550fc863f38e41e9947b964be8dbaab3}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a87fe71dc9e91184b724fe8395577a299}{Print}} () override
+\item 
+string \mbox{\hyperlink{classWorldMapInterface_a1c5337eaf789d4e5da0d75a7575857f4}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a434ca741aeee13be82c649aa16e35b41}{Create\+World\+Map\+Interface}} (int S\+I\+ZE)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a5f9fc6acc8ff9273e0ef556d91559143}{Create\+World\+Map\+Interface\+\_\+\+Small}} ()
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a53c41028ca2918b1a51ce760f21153da}{Create\+World\+Map\+Interface\+\_\+\+Large}} ()
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a5c174a46c1bc2a79c2b5ca73e338c843}{Close\+World\+Map\+Interface\+\_\+\+Large}} ()
+\item 
+static int \mbox{\hyperlink{classWorldMapInterface_ac3bb509844a4a509d1c25e7afa2e2882}{Is\+Visible\+World\+Map\+Interface}} ()
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a1c1c23a322f2f51d198ac5f8deb85f16}{After\+Phone\+Dialler}} (string \&ip, string \&info)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_afedfc743654c89c886e1d0bc29db2f75}{Program\+Layout\+Engine}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a24da5ae3ab6938cde20f5eb5206e752d}{Program\+Layout\+Engine\+Partial}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a80ee5927564f3ab0ffea3c0824b34b57}{Draw\+All\+Objects}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a5bdd936eccde816c66b920111e3eecc0}{Check\+Links\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_a2defd7fdcfbb82979c55af24d186b309}{Save\+Current\+Connection}} ()
+\item 
+void \mbox{\hyperlink{classWorldMapInterface_ad4d9a12d8337c5e9962c833b07e01b73}{Load\+Connection}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a937f912fc1d59d5bfbdd98bf51c05666}{Cycle\+Stipple\+Pattern}} ()
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_acd203f90af182b087ffd962e5ddc1588}{Remove\+World\+Map\+Interface}} ()
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_aa3bc6c7b3679a2813347c8f77a57a136}{Full\+Screen\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a9758d17f9929b87f087d6dcb05e064a2}{Location\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_ab5c4390e9dfc64e2b459d7765dd5207d}{Connect\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a79f9e294f0461ac8c6d8ef3e7e49d214}{Connect\+Mouse\+Move}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_ae5d2f46cc2df739bc5667c5beda32649}{Connect\+Mouse\+Down}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a7b0495f6d7b58529bd153287573bd90d}{Connect\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a1dacdedc95834f9c7ec95427bc05bf25}{Cancel\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classWorldMapInterface_a1358b916e5f0a530fd1950d035d42295}\label{classWorldMapInterface_a1358b916e5f0a530fd1950d035d42295}} 
+static void {\bfseries Trace\+Advance\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_ae68e56c684101f5e94f0561694ce00e7}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a2e5c30659d0ad9d163170c2ff0b68f3c}{Save\+Connection\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_ab5b787effb6ada210c35ba92ed8f905c}{Load\+Connection\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_afdb8189f359c31a5fe89deaa241867f0}{Zoom\+In\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_ac684121e3761ba036192aabeac942e5a}{Zoom\+Out\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_af81e0221b3f86d789948323deb79bd7e}{Zoom\+Button\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a6a079a10b2a4d5223f71a28568b36dbc}{Zoom\+Button\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_aa180d9a0c29bde37ffa6910320b5b58a}{Draw\+World\+Map\+Small}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_af53545091bcbd72362da922f5e84a33d}{Draw\+World\+Map\+Large}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_afd7b6ac79cb152fa4edec335e40fd8be}{Draw\+Location}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static int \mbox{\hyperlink{classWorldMapInterface_a012ce2e7616636c5a347a3f26337a9dd}{Get\+ScaledX}} (int x, int S\+I\+ZE)
+\item 
+static int \mbox{\hyperlink{classWorldMapInterface_acfb7d3406640981856ed7f102d953517}{Get\+ScaledY}} (int y, int S\+I\+ZE)
+\item 
+static \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} \mbox{\hyperlink{classWorldMapInterface_aff3a97ffc3381cfd4c041cb30912e3ef}{Get\+Large\+Map\+Rect}} ()
+\item 
+static int \mbox{\hyperlink{classWorldMapInterface_a82e2d953f078101206160356866757e0}{Get\+Large\+Map\+X1}} ()
+\item 
+static int \mbox{\hyperlink{classWorldMapInterface_a6a169779d59295c5f9ea39e895243873}{Get\+Large\+Map\+Y1}} ()
+\item 
+static int \mbox{\hyperlink{classWorldMapInterface_a1f4c7bb7124b28305c7d1dfed4d25018}{Get\+Large\+Map\+Width}} ()
+\item 
+static int \mbox{\hyperlink{classWorldMapInterface_aaadc644aff8cf42de2f74d106d7827e0}{Get\+Large\+Map\+Height}} ()
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_aa478432cd1e18be97143a5597a45d670}{Update\+Access\+Level}} ()
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_af4c39cd93a8058d2e4f868020611c125}{Remove\+Temp\+Connection\+Button}} ()
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_ad5b61e8ef2c78ac9fb2b2f73fe30ef7b}{ScrollX}} (float x)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_ad042e732015a2124bff7cc06a89faa81}{ScrollY}} (float y)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_abc3e239cd68d52cb181aff47277d5f98}{Set\+Zoom}} (float z)
+\item 
+static void \mbox{\hyperlink{classWorldMapInterface_a7aaaf661cb6e8b2282e612dc67a8c626}{Change\+Zoom}} (float z)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWorldMapLayout}{World\+Map\+Layout}} $\ast$ \mbox{\hyperlink{classWorldMapInterface_a68b20c320c124869316a9587ad6a304b}{layout}}
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ \mbox{\hyperlink{classWorldMapInterface_a9ba5f15f37010312ab20be309f399c37}{savedconnection}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterface_a7ca292d6dbf5a042eaf44fea88259c1e}{nbmissions}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterface_a4da3e5dbbb05cb1e8209400ec36eaccf}{nbmessages}}
+\item 
+int \mbox{\hyperlink{classWorldMapInterface_a090e58bbf437994ce5a890105dc7f501}{nbcolored}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classWorldMapInterface_ae2072aaf34581c0e22e8f8df66674f98}{stipplepattern}} = S\+T\+I\+P\+P\+LE \mbox{[}0\mbox{]}
+\item 
+static float \mbox{\hyperlink{classWorldMapInterface_a0f9b11a44ee107c671add42292c6595c}{scrollX}} = 0.\+0f
+\item 
+static float \mbox{\hyperlink{classWorldMapInterface_a3375b2783ef97debb696c76cc4aeeb9a}{scrollY}} = 0.\+0f
+\item 
+static float \mbox{\hyperlink{classWorldMapInterface_acc9fed602c2a91ea7ed0f4c1a5c022ef}{zoom}} = 1.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows the world map. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorldMapInterface_a1c1c23a322f2f51d198ac5f8deb85f16}\label{classWorldMapInterface_a1c1c23a322f2f51d198ac5f8deb85f16}} 
+\index{WorldMapInterface@{WorldMapInterface}!AfterPhoneDialler@{AfterPhoneDialler}}
+\index{AfterPhoneDialler@{AfterPhoneDialler}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{AfterPhoneDialler()}{AfterPhoneDialler()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+After\+Phone\+Dialler (\begin{DoxyParamCaption}\item[{string \&}]{ip,  }\item[{string \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Connects to computer after the phone dialer 
+\begin{DoxyParams}{Parameters}
+{\em ip} & \\
+\hline
+{\em info} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_a1dacdedc95834f9c7ec95427bc05bf25}\label{classWorldMapInterface_a1dacdedc95834f9c7ec95427bc05bf25}} 
+\index{WorldMapInterface@{WorldMapInterface}!CancelClick@{CancelClick}}
+\index{CancelClick@{CancelClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{CancelClick()}{CancelClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Cancel\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Clears any half set up connection, closes screen if no half set up connection exists 
+\begin{DoxyParams}{Parameters}
+{\em button} & Cancel button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_a7aaaf661cb6e8b2282e612dc67a8c626}\label{classWorldMapInterface_a7aaaf661cb6e8b2282e612dc67a8c626}} 
+\index{WorldMapInterface@{WorldMapInterface}!ChangeZoom@{ChangeZoom}}
+\index{ChangeZoom@{ChangeZoom}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ChangeZoom()}{ChangeZoom()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Change\+Zoom (\begin{DoxyParamCaption}\item[{float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Changes the zoom level 
+\begin{DoxyParams}{Parameters}
+{\em z} & Zoom level to go to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_a5bdd936eccde816c66b920111e3eecc0}\label{classWorldMapInterface_a5bdd936eccde816c66b920111e3eecc0}} 
+\index{WorldMapInterface@{WorldMapInterface}!CheckLinksChanged@{CheckLinksChanged}}
+\index{CheckLinksChanged@{CheckLinksChanged}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{CheckLinksChanged()}{CheckLinksChanged()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Check\+Links\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+If the number of links in connection changed, re-\/render all objects in layout \mbox{\Hypertarget{classWorldMapInterface_ae68e56c684101f5e94f0561694ce00e7}\label{classWorldMapInterface_ae68e56c684101f5e94f0561694ce00e7}} 
+\index{WorldMapInterface@{WorldMapInterface}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_a5c174a46c1bc2a79c2b5ca73e338c843}\label{classWorldMapInterface_a5c174a46c1bc2a79c2b5ca73e338c843}} 
+\index{WorldMapInterface@{WorldMapInterface}!CloseWorldMapInterface\_Large@{CloseWorldMapInterface\_Large}}
+\index{CloseWorldMapInterface\_Large@{CloseWorldMapInterface\_Large}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{CloseWorldMapInterface\_Large()}{CloseWorldMapInterface\_Large()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Close\+World\+Map\+Interface\+\_\+\+Large (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Closes the large world map, and renders the small one \mbox{\Hypertarget{classWorldMapInterface_ab5c4390e9dfc64e2b459d7765dd5207d}\label{classWorldMapInterface_ab5c4390e9dfc64e2b459d7765dd5207d}} 
+\index{WorldMapInterface@{WorldMapInterface}!ConnectClick@{ConnectClick}}
+\index{ConnectClick@{ConnectClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectClick()}{ConnectClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Connect\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Starts the connection 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_a7b0495f6d7b58529bd153287573bd90d}\label{classWorldMapInterface_a7b0495f6d7b58529bd153287573bd90d}} 
+\index{WorldMapInterface@{WorldMapInterface}!ConnectDraw@{ConnectDraw}}
+\index{ConnectDraw@{ConnectDraw}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectDraw()}{ConnectDraw()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Connect\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the connect/disconnect button 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to draw \\
+\hline
+{\em highlighted} & Is the button highlighted \\
+\hline
+{\em clicked} & Is the button being clicked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_ae5d2f46cc2df739bc5667c5beda32649}\label{classWorldMapInterface_ae5d2f46cc2df739bc5667c5beda32649}} 
+\index{WorldMapInterface@{WorldMapInterface}!ConnectMouseDown@{ConnectMouseDown}}
+\index{ConnectMouseDown@{ConnectMouseDown}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectMouseDown()}{ConnectMouseDown()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Connect\+Mouse\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Plays sound and calls button callback 
+\begin{DoxyParams}{Parameters}
+{\em button} & Connect button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_a79f9e294f0461ac8c6d8ef3e7e49d214}\label{classWorldMapInterface_a79f9e294f0461ac8c6d8ef3e7e49d214}} 
+\index{WorldMapInterface@{WorldMapInterface}!ConnectMouseMove@{ConnectMouseMove}}
+\index{ConnectMouseMove@{ConnectMouseMove}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectMouseMove()}{ConnectMouseMove()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Connect\+Mouse\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Updates the tooltip when hovering connect button 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} hovered over \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_a63aba9a78117922a9015c745d0228fc8}\label{classWorldMapInterface_a63aba9a78117922a9015c745d0228fc8}} 
+\index{WorldMapInterface@{WorldMapInterface}!Create@{Create}}
+\index{Create@{Create}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_a03190ffe3a97ce2c57909f4b13b8fc34}\label{classWorldMapInterface_a03190ffe3a97ce2c57909f4b13b8fc34}} 
+\index{WorldMapInterface@{WorldMapInterface}!Create@{Create}}
+\index{Create@{Create}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{int}]{S\+I\+ZE }\end{DoxyParamCaption})}
+
+Renders the world map in certain size 
+\begin{DoxyParams}{Parameters}
+{\em S\+I\+ZE} & Size of world map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Possible values for S\+I\+ZE are W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+S\+M\+A\+LL and W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+L\+A\+R\+GE 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_a434ca741aeee13be82c649aa16e35b41}\label{classWorldMapInterface_a434ca741aeee13be82c649aa16e35b41}} 
+\index{WorldMapInterface@{WorldMapInterface}!CreateWorldMapInterface@{CreateWorldMapInterface}}
+\index{CreateWorldMapInterface@{CreateWorldMapInterface}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{CreateWorldMapInterface()}{CreateWorldMapInterface()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Create\+World\+Map\+Interface (\begin{DoxyParamCaption}\item[{int}]{S\+I\+ZE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Re-\/renders the world map in certain size 
+\begin{DoxyParams}{Parameters}
+{\em S\+I\+ZE} & Size of world map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Possible values for S\+I\+ZE are W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+S\+M\+A\+LL and W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+L\+A\+R\+GE 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_a53c41028ca2918b1a51ce760f21153da}\label{classWorldMapInterface_a53c41028ca2918b1a51ce760f21153da}} 
+\index{WorldMapInterface@{WorldMapInterface}!CreateWorldMapInterface\_Large@{CreateWorldMapInterface\_Large}}
+\index{CreateWorldMapInterface\_Large@{CreateWorldMapInterface\_Large}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{CreateWorldMapInterface\_Large()}{CreateWorldMapInterface\_Large()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Create\+World\+Map\+Interface\+\_\+\+Large (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Renders the large world map \mbox{\Hypertarget{classWorldMapInterface_a5f9fc6acc8ff9273e0ef556d91559143}\label{classWorldMapInterface_a5f9fc6acc8ff9273e0ef556d91559143}} 
+\index{WorldMapInterface@{WorldMapInterface}!CreateWorldMapInterface\_Small@{CreateWorldMapInterface\_Small}}
+\index{CreateWorldMapInterface\_Small@{CreateWorldMapInterface\_Small}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{CreateWorldMapInterface\_Small()}{CreateWorldMapInterface\_Small()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Create\+World\+Map\+Interface\+\_\+\+Small (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Renders the small world map \mbox{\Hypertarget{classWorldMapInterface_a937f912fc1d59d5bfbdd98bf51c05666}\label{classWorldMapInterface_a937f912fc1d59d5bfbdd98bf51c05666}} 
+\index{WorldMapInterface@{WorldMapInterface}!CycleStipplePattern@{CycleStipplePattern}}
+\index{CycleStipplePattern@{CycleStipplePattern}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{CycleStipplePattern()}{CycleStipplePattern()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Cycle\+Stipple\+Pattern (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Cycles the stipplepattern \mbox{\Hypertarget{classWorldMapInterface_a80ee5927564f3ab0ffea3c0824b34b57}\label{classWorldMapInterface_a80ee5927564f3ab0ffea3c0824b34b57}} 
+\index{WorldMapInterface@{WorldMapInterface}!DrawAllObjects@{DrawAllObjects}}
+\index{DrawAllObjects@{DrawAllObjects}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{DrawAllObjects()}{DrawAllObjects()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Draw\+All\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Renders all objects in the layout \mbox{\Hypertarget{classWorldMapInterface_afd7b6ac79cb152fa4edec335e40fd8be}\label{classWorldMapInterface_afd7b6ac79cb152fa4edec335e40fd8be}} 
+\index{WorldMapInterface@{WorldMapInterface}!DrawLocation@{DrawLocation}}
+\index{DrawLocation@{DrawLocation}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{DrawLocation()}{DrawLocation()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Draw\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders a location 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for location \\
+\hline
+{\em highlighted} & Is the button highlighted? \\
+\hline
+{\em clicked} & Is the button clicked? \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_af53545091bcbd72362da922f5e84a33d}\label{classWorldMapInterface_af53545091bcbd72362da922f5e84a33d}} 
+\index{WorldMapInterface@{WorldMapInterface}!DrawWorldMapLarge@{DrawWorldMapLarge}}
+\index{DrawWorldMapLarge@{DrawWorldMapLarge}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{DrawWorldMapLarge()}{DrawWorldMapLarge()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Draw\+World\+Map\+Large (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the large world map 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button that stores the world map \\
+\hline
+{\em highlighted} & Should the button be highlighted? \\
+\hline
+{\em clicked} & Is the button clicked? \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_aa180d9a0c29bde37ffa6910320b5b58a}\label{classWorldMapInterface_aa180d9a0c29bde37ffa6910320b5b58a}} 
+\index{WorldMapInterface@{WorldMapInterface}!DrawWorldMapSmall@{DrawWorldMapSmall}}
+\index{DrawWorldMapSmall@{DrawWorldMapSmall}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{DrawWorldMapSmall()}{DrawWorldMapSmall()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Draw\+World\+Map\+Small (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the small world map in top right 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button that stores the world map \\
+\hline
+{\em highlighted} & Should the button be highlighted? \\
+\hline
+{\em clicked} & Is the button clicked? \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_aa3bc6c7b3679a2813347c8f77a57a136}\label{classWorldMapInterface_aa3bc6c7b3679a2813347c8f77a57a136}} 
+\index{WorldMapInterface@{WorldMapInterface}!FullScreenClick@{FullScreenClick}}
+\index{FullScreenClick@{FullScreenClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{FullScreenClick()}{FullScreenClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Full\+Screen\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Maximizes the world map 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_a1c5337eaf789d4e5da0d75a7575857f4}\label{classWorldMapInterface_a1c5337eaf789d4e5da0d75a7575857f4}} 
+\index{WorldMapInterface@{WorldMapInterface}!GetID@{GetID}}
+\index{GetID@{GetID}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string World\+Map\+Interface\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_aaadc644aff8cf42de2f74d106d7827e0}\label{classWorldMapInterface_aaadc644aff8cf42de2f74d106d7827e0}} 
+\index{WorldMapInterface@{WorldMapInterface}!GetLargeMapHeight@{GetLargeMapHeight}}
+\index{GetLargeMapHeight@{GetLargeMapHeight}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{GetLargeMapHeight()}{GetLargeMapHeight()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::\+Get\+Large\+Map\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Gets the height of the large map rectangle \begin{DoxyReturn}{Returns}
+height of large map rectangle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterface_aff3a97ffc3381cfd4c041cb30912e3ef}\label{classWorldMapInterface_aff3a97ffc3381cfd4c041cb30912e3ef}} 
+\index{WorldMapInterface@{WorldMapInterface}!GetLargeMapRect@{GetLargeMapRect}}
+\index{GetLargeMapRect@{GetLargeMapRect}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{GetLargeMapRect()}{GetLargeMapRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMapRectangle}{Map\+Rectangle}} World\+Map\+Interface\+::\+Get\+Large\+Map\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Get the rectangle of the large map \begin{DoxyReturn}{Returns}
+The rectangle of the large map 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterface_a1f4c7bb7124b28305c7d1dfed4d25018}\label{classWorldMapInterface_a1f4c7bb7124b28305c7d1dfed4d25018}} 
+\index{WorldMapInterface@{WorldMapInterface}!GetLargeMapWidth@{GetLargeMapWidth}}
+\index{GetLargeMapWidth@{GetLargeMapWidth}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{GetLargeMapWidth()}{GetLargeMapWidth()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::\+Get\+Large\+Map\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Gets the width of the large map rectangle \begin{DoxyReturn}{Returns}
+width of large map rectangle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterface_a82e2d953f078101206160356866757e0}\label{classWorldMapInterface_a82e2d953f078101206160356866757e0}} 
+\index{WorldMapInterface@{WorldMapInterface}!GetLargeMapX1@{GetLargeMapX1}}
+\index{GetLargeMapX1@{GetLargeMapX1}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{GetLargeMapX1()}{GetLargeMapX1()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::\+Get\+Large\+Map\+X1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Gets the top left X coordinate of the large map rectangle \begin{DoxyReturn}{Returns}
+The top left X coordinate 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterface_a6a169779d59295c5f9ea39e895243873}\label{classWorldMapInterface_a6a169779d59295c5f9ea39e895243873}} 
+\index{WorldMapInterface@{WorldMapInterface}!GetLargeMapY1@{GetLargeMapY1}}
+\index{GetLargeMapY1@{GetLargeMapY1}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{GetLargeMapY1()}{GetLargeMapY1()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::\+Get\+Large\+Map\+Y1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Gets the top left Y coordinate of the large map rectangle \begin{DoxyReturn}{Returns}
+The top left Y coordinate 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldMapInterface_a012ce2e7616636c5a347a3f26337a9dd}\label{classWorldMapInterface_a012ce2e7616636c5a347a3f26337a9dd}} 
+\index{WorldMapInterface@{WorldMapInterface}!GetScaledX@{GetScaledX}}
+\index{GetScaledX@{GetScaledX}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{GetScaledX()}{GetScaledX()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::\+Get\+ScaledX (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{S\+I\+ZE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Get the X that should be used when rendering for given map size 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate of stored location \\
+\hline
+{\em S\+I\+ZE} & The size of the world map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The X coordinate that should be used 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+S\+I\+ZE can be either W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+S\+M\+A\+LL or W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+L\+A\+R\+GE 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_acfb7d3406640981856ed7f102d953517}\label{classWorldMapInterface_acfb7d3406640981856ed7f102d953517}} 
+\index{WorldMapInterface@{WorldMapInterface}!GetScaledY@{GetScaledY}}
+\index{GetScaledY@{GetScaledY}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{GetScaledY()}{GetScaledY()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::\+Get\+ScaledY (\begin{DoxyParamCaption}\item[{int}]{y,  }\item[{int}]{S\+I\+ZE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Get the Y that should be used when rendering for given map size 
+\begin{DoxyParams}{Parameters}
+{\em y} & Y coordinate of stored location \\
+\hline
+{\em S\+I\+ZE} & The size of the world map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Y coordinate that should be used 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+S\+I\+ZE can be either W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+S\+M\+A\+LL or W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+L\+A\+R\+GE 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_a3621e2b35b43bb18ca09cb87bd5223ba}\label{classWorldMapInterface_a3621e2b35b43bb18ca09cb87bd5223ba}} 
+\index{WorldMapInterface@{WorldMapInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool World\+Map\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_ac3bb509844a4a509d1c25e7afa2e2882}\label{classWorldMapInterface_ac3bb509844a4a509d1c25e7afa2e2882}} 
+\index{WorldMapInterface@{WorldMapInterface}!IsVisibleWorldMapInterface@{IsVisibleWorldMapInterface}}
+\index{IsVisibleWorldMapInterface@{IsVisibleWorldMapInterface}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisibleWorldMapInterface()}{IsVisibleWorldMapInterface()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::\+Is\+Visible\+World\+Map\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the size of the map visible \begin{DoxyReturn}{Returns}
+The size of the map visible 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Possible return values are W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+S\+M\+A\+LL and W\+O\+R\+L\+D\+M\+A\+P\+\_\+\+L\+A\+R\+GE 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_ac6ef6ae48c1d2f42d08ebfe4962c5b39}\label{classWorldMapInterface_ac6ef6ae48c1d2f42d08ebfe4962c5b39}} 
+\index{WorldMapInterface@{WorldMapInterface}!Load@{Load}}
+\index{Load@{Load}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool World\+Map\+Interface\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_ad4d9a12d8337c5e9962c833b07e01b73}\label{classWorldMapInterface_ad4d9a12d8337c5e9962c833b07e01b73}} 
+\index{WorldMapInterface@{WorldMapInterface}!LoadConnection@{LoadConnection}}
+\index{LoadConnection@{LoadConnection}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{LoadConnection()}{LoadConnection()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Load\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Load the saved connection \mbox{\Hypertarget{classWorldMapInterface_ab5b787effb6ada210c35ba92ed8f905c}\label{classWorldMapInterface_ab5b787effb6ada210c35ba92ed8f905c}} 
+\index{WorldMapInterface@{WorldMapInterface}!LoadConnectionClick@{LoadConnectionClick}}
+\index{LoadConnectionClick@{LoadConnectionClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{LoadConnectionClick()}{LoadConnectionClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Load\+Connection\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Load saved connection into current connection 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_a9758d17f9929b87f087d6dcb05e064a2}\label{classWorldMapInterface_a9758d17f9929b87f087d6dcb05e064a2}} 
+\index{WorldMapInterface@{WorldMapInterface}!LocationClick@{LocationClick}}
+\index{LocationClick@{LocationClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{LocationClick()}{LocationClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Location\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Adds or removes a location from the connection 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for location \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_a87fe71dc9e91184b724fe8395577a299}\label{classWorldMapInterface_a87fe71dc9e91184b724fe8395577a299}} 
+\index{WorldMapInterface@{WorldMapInterface}!Print@{Print}}
+\index{Print@{Print}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_afedfc743654c89c886e1d0bc29db2f75}\label{classWorldMapInterface_afedfc743654c89c886e1d0bc29db2f75}} 
+\index{WorldMapInterface@{WorldMapInterface}!ProgramLayoutEngine@{ProgramLayoutEngine}}
+\index{ProgramLayoutEngine@{ProgramLayoutEngine}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ProgramLayoutEngine()}{ProgramLayoutEngine()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Program\+Layout\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Loads all links and locations into the layout \mbox{\Hypertarget{classWorldMapInterface_a24da5ae3ab6938cde20f5eb5206e752d}\label{classWorldMapInterface_a24da5ae3ab6938cde20f5eb5206e752d}} 
+\index{WorldMapInterface@{WorldMapInterface}!ProgramLayoutEnginePartial@{ProgramLayoutEnginePartial}}
+\index{ProgramLayoutEnginePartial@{ProgramLayoutEnginePartial}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ProgramLayoutEnginePartial()}{ProgramLayoutEnginePartial()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Program\+Layout\+Engine\+Partial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Loads in temporary links and locations into the layout \mbox{\Hypertarget{classWorldMapInterface_a8ba248950eb68d3e73acebcb9f51b2d0}\label{classWorldMapInterface_a8ba248950eb68d3e73acebcb9f51b2d0}} 
+\index{WorldMapInterface@{WorldMapInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_af4c39cd93a8058d2e4f868020611c125}\label{classWorldMapInterface_af4c39cd93a8058d2e4f868020611c125}} 
+\index{WorldMapInterface@{WorldMapInterface}!RemoveTempConnectionButton@{RemoveTempConnectionButton}}
+\index{RemoveTempConnectionButton@{RemoveTempConnectionButton}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{RemoveTempConnectionButton()}{RemoveTempConnectionButton()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Remove\+Temp\+Connection\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Removes all temporary links from layout \mbox{\Hypertarget{classWorldMapInterface_acd203f90af182b087ffd962e5ddc1588}\label{classWorldMapInterface_acd203f90af182b087ffd962e5ddc1588}} 
+\index{WorldMapInterface@{WorldMapInterface}!RemoveWorldMapInterface@{RemoveWorldMapInterface}}
+\index{RemoveWorldMapInterface@{RemoveWorldMapInterface}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{RemoveWorldMapInterface()}{RemoveWorldMapInterface()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Remove\+World\+Map\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Removes the world map \mbox{\Hypertarget{classWorldMapInterface_a550fc863f38e41e9947b964be8dbaab3}\label{classWorldMapInterface_a550fc863f38e41e9947b964be8dbaab3}} 
+\index{WorldMapInterface@{WorldMapInterface}!Save@{Save}}
+\index{Save@{Save}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_a2e5c30659d0ad9d163170c2ff0b68f3c}\label{classWorldMapInterface_a2e5c30659d0ad9d163170c2ff0b68f3c}} 
+\index{WorldMapInterface@{WorldMapInterface}!SaveConnectionClick@{SaveConnectionClick}}
+\index{SaveConnectionClick@{SaveConnectionClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{SaveConnectionClick()}{SaveConnectionClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Save\+Connection\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Saves the current connection 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_a2defd7fdcfbb82979c55af24d186b309}\label{classWorldMapInterface_a2defd7fdcfbb82979c55af24d186b309}} 
+\index{WorldMapInterface@{WorldMapInterface}!SaveCurrentConnection@{SaveCurrentConnection}}
+\index{SaveCurrentConnection@{SaveCurrentConnection}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{SaveCurrentConnection()}{SaveCurrentConnection()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Save\+Current\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Save the current connection \mbox{\Hypertarget{classWorldMapInterface_afc74d9b7cd7787da1e683637ac249dce}\label{classWorldMapInterface_afc74d9b7cd7787da1e683637ac249dce}} 
+\index{WorldMapInterface@{WorldMapInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_ad5b61e8ef2c78ac9fb2b2f73fe30ef7b}\label{classWorldMapInterface_ad5b61e8ef2c78ac9fb2b2f73fe30ef7b}} 
+\index{WorldMapInterface@{WorldMapInterface}!ScrollX@{ScrollX}}
+\index{ScrollX@{ScrollX}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ScrollX()}{ScrollX()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+ScrollX (\begin{DoxyParamCaption}\item[{float}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Change the position of the map at the current zoom level 
+\begin{DoxyParams}{Parameters}
+{\em x} & How far to move the map on the X axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is called when cursor is in the left or right section of the world map 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_ad042e732015a2124bff7cc06a89faa81}\label{classWorldMapInterface_ad042e732015a2124bff7cc06a89faa81}} 
+\index{WorldMapInterface@{WorldMapInterface}!ScrollY@{ScrollY}}
+\index{ScrollY@{ScrollY}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ScrollY()}{ScrollY()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+ScrollY (\begin{DoxyParamCaption}\item[{float}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Change the position of the map at the current zoom level 
+\begin{DoxyParams}{Parameters}
+{\em y} & How far to move the map on the Y axis \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is called when cursor is in the top or bottom section of the world map 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_abc3e239cd68d52cb181aff47277d5f98}\label{classWorldMapInterface_abc3e239cd68d52cb181aff47277d5f98}} 
+\index{WorldMapInterface@{WorldMapInterface}!SetZoom@{SetZoom}}
+\index{SetZoom@{SetZoom}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{SetZoom()}{SetZoom()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Set\+Zoom (\begin{DoxyParamCaption}\item[{float}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Re-\/renders the world map at certain zoom level 
+\begin{DoxyParams}{Parameters}
+{\em z} & Zoom level \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_a03381d521d05812dd9ac4040ab1eaf7f}\label{classWorldMapInterface_a03381d521d05812dd9ac4040ab1eaf7f}} 
+\index{WorldMapInterface@{WorldMapInterface}!Update@{Update}}
+\index{Update@{Update}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classWorldMapInterface_aa478432cd1e18be97143a5597a45d670}\label{classWorldMapInterface_aa478432cd1e18be97143a5597a45d670}} 
+\index{WorldMapInterface@{WorldMapInterface}!UpdateAccessLevel@{UpdateAccessLevel}}
+\index{UpdateAccessLevel@{UpdateAccessLevel}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{UpdateAccessLevel()}{UpdateAccessLevel()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Update\+Access\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Updates all locations with whether or not user has an account on that system \mbox{\Hypertarget{classWorldMapInterface_af81e0221b3f86d789948323deb79bd7e}\label{classWorldMapInterface_af81e0221b3f86d789948323deb79bd7e}} 
+\index{WorldMapInterface@{WorldMapInterface}!ZoomButtonClick@{ZoomButtonClick}}
+\index{ZoomButtonClick@{ZoomButtonClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ZoomButtonClick()}{ZoomButtonClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Zoom\+Button\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Jumps the zoom to a set zoom 
+\begin{DoxyParams}{Parameters}
+{\em button} & The zoom slider \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_a6a079a10b2a4d5223f71a28568b36dbc}\label{classWorldMapInterface_a6a079a10b2a4d5223f71a28568b36dbc}} 
+\index{WorldMapInterface@{WorldMapInterface}!ZoomButtonDraw@{ZoomButtonDraw}}
+\index{ZoomButtonDraw@{ZoomButtonDraw}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ZoomButtonDraw()}{ZoomButtonDraw()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Zoom\+Button\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the zoom slider 
+\begin{DoxyParams}{Parameters}
+{\em button} & The zoom slider \\
+\hline
+{\em highlighted} & Is the button highlighted? \\
+\hline
+{\em clicked} & Is the button clicked? \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldMapInterface_afdb8189f359c31a5fe89deaa241867f0}\label{classWorldMapInterface_afdb8189f359c31a5fe89deaa241867f0}} 
+\index{WorldMapInterface@{WorldMapInterface}!ZoomInClick@{ZoomInClick}}
+\index{ZoomInClick@{ZoomInClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ZoomInClick()}{ZoomInClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Zoom\+In\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Zooms the world map in 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldMapInterface_ac684121e3761ba036192aabeac942e5a}\label{classWorldMapInterface_ac684121e3761ba036192aabeac942e5a}} 
+\index{WorldMapInterface@{WorldMapInterface}!ZoomOutClick@{ZoomOutClick}}
+\index{ZoomOutClick@{ZoomOutClick}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{ZoomOutClick()}{ZoomOutClick()}}
+{\footnotesize\ttfamily void World\+Map\+Interface\+::\+Zoom\+Out\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Zooms the world map out 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWorldMapInterface_a68b20c320c124869316a9587ad6a304b}\label{classWorldMapInterface_a68b20c320c124869316a9587ad6a304b}} 
+\index{WorldMapInterface@{WorldMapInterface}!layout@{layout}}
+\index{layout@{layout}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{layout}{layout}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWorldMapLayout}{World\+Map\+Layout}}$\ast$ World\+Map\+Interface\+::layout\hspace{0.3cm}{\ttfamily [protected]}}
+
+The layout of the view \mbox{\Hypertarget{classWorldMapInterface_a090e58bbf437994ce5a890105dc7f501}\label{classWorldMapInterface_a090e58bbf437994ce5a890105dc7f501}} 
+\index{WorldMapInterface@{WorldMapInterface}!nbcolored@{nbcolored}}
+\index{nbcolored@{nbcolored}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{nbcolored}{nbcolored}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::nbcolored\hspace{0.3cm}{\ttfamily [protected]}}
+
+Number of colored links \mbox{\Hypertarget{classWorldMapInterface_a4da3e5dbbb05cb1e8209400ec36eaccf}\label{classWorldMapInterface_a4da3e5dbbb05cb1e8209400ec36eaccf}} 
+\index{WorldMapInterface@{WorldMapInterface}!nbmessages@{nbmessages}}
+\index{nbmessages@{nbmessages}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{nbmessages}{nbmessages}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::nbmessages\hspace{0.3cm}{\ttfamily [protected]}}
+
+Number of messages \mbox{\Hypertarget{classWorldMapInterface_a7ca292d6dbf5a042eaf44fea88259c1e}\label{classWorldMapInterface_a7ca292d6dbf5a042eaf44fea88259c1e}} 
+\index{WorldMapInterface@{WorldMapInterface}!nbmissions@{nbmissions}}
+\index{nbmissions@{nbmissions}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{nbmissions}{nbmissions}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::nbmissions\hspace{0.3cm}{\ttfamily [protected]}}
+
+Number of missions \mbox{\Hypertarget{classWorldMapInterface_a9ba5f15f37010312ab20be309f399c37}\label{classWorldMapInterface_a9ba5f15f37010312ab20be309f399c37}} 
+\index{WorldMapInterface@{WorldMapInterface}!savedconnection@{savedconnection}}
+\index{savedconnection@{savedconnection}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{savedconnection}{savedconnection}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$string$>$ World\+Map\+Interface\+::savedconnection\hspace{0.3cm}{\ttfamily [protected]}}
+
+The saved connection \mbox{\Hypertarget{classWorldMapInterface_a0f9b11a44ee107c671add42292c6595c}\label{classWorldMapInterface_a0f9b11a44ee107c671add42292c6595c}} 
+\index{WorldMapInterface@{WorldMapInterface}!scrollX@{scrollX}}
+\index{scrollX@{scrollX}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{scrollX}{scrollX}}
+{\footnotesize\ttfamily float World\+Map\+Interface\+::scrollX = 0.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The X position we\textquotesingle{}re at in the world map \mbox{\Hypertarget{classWorldMapInterface_a3375b2783ef97debb696c76cc4aeeb9a}\label{classWorldMapInterface_a3375b2783ef97debb696c76cc4aeeb9a}} 
+\index{WorldMapInterface@{WorldMapInterface}!scrollY@{scrollY}}
+\index{scrollY@{scrollY}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{scrollY}{scrollY}}
+{\footnotesize\ttfamily float World\+Map\+Interface\+::scrollY = 0.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The Y position we\textquotesingle{}re at in the world map \mbox{\Hypertarget{classWorldMapInterface_ae2072aaf34581c0e22e8f8df66674f98}\label{classWorldMapInterface_ae2072aaf34581c0e22e8f8df66674f98}} 
+\index{WorldMapInterface@{WorldMapInterface}!stipplepattern@{stipplepattern}}
+\index{stipplepattern@{stipplepattern}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{stipplepattern}{stipplepattern}}
+{\footnotesize\ttfamily int World\+Map\+Interface\+::stipplepattern = S\+T\+I\+P\+P\+LE \mbox{[}0\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Moving dots pattern \mbox{\Hypertarget{classWorldMapInterface_acc9fed602c2a91ea7ed0f4c1a5c022ef}\label{classWorldMapInterface_acc9fed602c2a91ea7ed0f4c1a5c022ef}} 
+\index{WorldMapInterface@{WorldMapInterface}!zoom@{zoom}}
+\index{zoom@{zoom}!WorldMapInterface@{WorldMapInterface}}
+\doxysubsubsection{\texorpdfstring{zoom}{zoom}}
+{\footnotesize\ttfamily float World\+Map\+Interface\+::zoom = 1.\+0f\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The zoom level 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/worldmap/worldmap\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/worldmap/worldmap\+\_\+interface.\+cpp\end{DoxyCompactItemize}

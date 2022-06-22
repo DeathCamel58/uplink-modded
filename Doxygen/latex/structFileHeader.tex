@@ -1,0 +1,96 @@
+\hypertarget{structFileHeader}{}\doxysection{File\+Header Struct Reference}
+\label{structFileHeader}\index{FileHeader@{FileHeader}}
+
+
+Inheritance diagram for File\+Header\+:
+% FIG 0
+
+
+Collaboration diagram for File\+Header\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structFileHeader_a3b2f2c143a1f8254a63b650822bfa554}\label{structFileHeader_a3b2f2c143a1f8254a63b650822bfa554}} 
+void {\bfseries Clear} (int Sub\+Data\+Size)
+\item 
+\mbox{\Hypertarget{structFileHeader_ad889a34882f468cf57a472b4d7357916}\label{structFileHeader_ad889a34882f468cf57a472b4d7357916}} 
+bool {\bfseries Cmp\+Name} (const char $\ast$Name)
+\item 
+\mbox{\Hypertarget{structFileHeader_a30611ab983d5982b3720f0f297f5205c}\label{structFileHeader_a30611ab983d5982b3720f0f297f5205c}} 
+\mbox{\hyperlink{structFileHeader}{File\+Header}} \& {\bfseries operator=} (\mbox{\hyperlink{structFileHeader}{File\+Header}} \&hd)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structFileHeader_a8522e15dd6bb8e331dfd22e1f72ed9a3}\label{structFileHeader_a8522e15dd6bb8e331dfd22e1f72ed9a3}} 
+uint {\bfseries Unp\+Size}
+\item 
+\mbox{\Hypertarget{structFileHeader_acfba02173c7ab6813720030dca602ce4}\label{structFileHeader_acfba02173c7ab6813720030dca602ce4}} 
+byte {\bfseries Host\+OS}
+\item 
+\mbox{\Hypertarget{structFileHeader_a33aa89dc8a1406752c28ddb6e25167e2}\label{structFileHeader_a33aa89dc8a1406752c28ddb6e25167e2}} 
+uint {\bfseries File\+C\+RC}
+\item 
+\mbox{\Hypertarget{structFileHeader_af50742777c9c6a0dfd374015736ced8b}\label{structFileHeader_af50742777c9c6a0dfd374015736ced8b}} 
+uint {\bfseries File\+Time}
+\item 
+\mbox{\Hypertarget{structFileHeader_a93cc842061209a5621e8cc995075178e}\label{structFileHeader_a93cc842061209a5621e8cc995075178e}} 
+byte {\bfseries Unp\+Ver}
+\item 
+\mbox{\Hypertarget{structFileHeader_a72a2b2af097d0268ef9e18e8e18e3ba7}\label{structFileHeader_a72a2b2af097d0268ef9e18e8e18e3ba7}} 
+byte {\bfseries Method}
+\item 
+\mbox{\Hypertarget{structFileHeader_a3b93d683023108786e5f41d7c5f0b72e}\label{structFileHeader_a3b93d683023108786e5f41d7c5f0b72e}} 
+ushort {\bfseries Name\+Size}
+\item 
+\mbox{\Hypertarget{structFileHeader_ab9a2ddcf811e7ae580014bca931ce012}\label{structFileHeader_ab9a2ddcf811e7ae580014bca931ce012}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint {\bfseries FileAttr}\\
+\>uint {\bfseries SubFlags}\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{structFileHeader_ac84d8341c1635e0e969232b83533a4a0}\label{structFileHeader_ac84d8341c1635e0e969232b83533a4a0}} 
+uint {\bfseries High\+Pack\+Size}
+\item 
+\mbox{\Hypertarget{structFileHeader_abc7511a308607e4ca0a43952ce034fea}\label{structFileHeader_abc7511a308607e4ca0a43952ce034fea}} 
+uint {\bfseries High\+Unp\+Size}
+\item 
+\mbox{\Hypertarget{structFileHeader_a55f1028c28e452debab78582df25d1cd}\label{structFileHeader_a55f1028c28e452debab78582df25d1cd}} 
+char {\bfseries File\+Name} \mbox{[}NM\mbox{]}
+\item 
+\mbox{\Hypertarget{structFileHeader_a76786fbb1426d57adbf9642ad69a70ca}\label{structFileHeader_a76786fbb1426d57adbf9642ad69a70ca}} 
+wchar {\bfseries File\+NameW} \mbox{[}NM\mbox{]}
+\item 
+\mbox{\Hypertarget{structFileHeader_ab233d66624d5d2599afa67e7da75f648}\label{structFileHeader_ab233d66624d5d2599afa67e7da75f648}} 
+\mbox{\hyperlink{classArray}{Array}}$<$ byte $>$ {\bfseries Sub\+Data}
+\item 
+\mbox{\Hypertarget{structFileHeader_a9e543079bb0dbadb4b82c0ee85a4f5ba}\label{structFileHeader_a9e543079bb0dbadb4b82c0ee85a4f5ba}} 
+byte {\bfseries Salt} \mbox{[}S\+A\+L\+T\+\_\+\+S\+I\+ZE\mbox{]}
+\item 
+\mbox{\Hypertarget{structFileHeader_ac3832136560d3f982141f815984f637c}\label{structFileHeader_ac3832136560d3f982141f815984f637c}} 
+\mbox{\hyperlink{classRarTime}{Rar\+Time}} {\bfseries mtime}
+\item 
+\mbox{\Hypertarget{structFileHeader_a4a3e06349dce2d56db21c7625e54b351}\label{structFileHeader_a4a3e06349dce2d56db21c7625e54b351}} 
+\mbox{\hyperlink{classRarTime}{Rar\+Time}} {\bfseries ctime}
+\item 
+\mbox{\Hypertarget{structFileHeader_a007f826e5e2500d116163fdd5053858d}\label{structFileHeader_a007f826e5e2500d116163fdd5053858d}} 
+\mbox{\hyperlink{classRarTime}{Rar\+Time}} {\bfseries atime}
+\item 
+\mbox{\Hypertarget{structFileHeader_ad100aeacb58dea2c1704fdee6f15bf5e}\label{structFileHeader_ad100aeacb58dea2c1704fdee6f15bf5e}} 
+\mbox{\hyperlink{classRarTime}{Rar\+Time}} {\bfseries arctime}
+\item 
+\mbox{\Hypertarget{structFileHeader_a38bb03ecc41a3caf688b3b46cf7880b0}\label{structFileHeader_a38bb03ecc41a3caf688b3b46cf7880b0}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Full\+Pack\+Size}
+\item 
+\mbox{\Hypertarget{structFileHeader_a278a03880c7848f2d0d34898d0cb3290}\label{structFileHeader_a278a03880c7848f2d0d34898d0cb3290}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Full\+Unp\+Size}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/unrar/headers.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,122 @@
+\hypertarget{classGenericScreen}{}\doxysection{Generic\+Screen Class Reference}
+\label{classGenericScreen}\index{GenericScreen@{GenericScreen}}
+
+
+Inheritance diagram for Generic\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Generic\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGenericScreen_a9df2f62419516d05c45b242a30c3e3c7}\label{classGenericScreen_a9df2f62419516d05c45b242a30c3e3c7}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classGenericScreen_a0930c30ddf47ff057949a1495c009734}\label{classGenericScreen_a0930c30ddf47ff057949a1495c009734}} 
+void {\bfseries Set\+Screen\+Type} (int new\+S\+C\+R\+E\+E\+N\+\_\+\+T\+Y\+PE)
+\item 
+bool \mbox{\hyperlink{classGenericScreen_aec36ef0dd2af11f4b57c40f8f7b49af2}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classGenericScreen_adb30e6774a7d18dc7800d8a754c5458a}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classGenericScreen_aaa108254855d192b2de2a0cf66e6ed7d}{Print}} () override
+\item 
+string \mbox{\hyperlink{classGenericScreen_a1a071b685e66025584516a1a732ad043}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classGenericScreen_a72952451e71da99d3939622f053a24ea}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGenericScreen_a56f9e8893409363a9b8a2f718ef5b9b3}\label{classGenericScreen_a56f9e8893409363a9b8a2f718ef5b9b3}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classGenericScreen_a251255fa0beb07aa6f670473dd0ec7f4}\label{classGenericScreen_a251255fa0beb07aa6f670473dd0ec7f4}} 
+int {\bfseries S\+C\+R\+E\+E\+N\+\_\+\+T\+Y\+PE}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGenericScreen_a1a071b685e66025584516a1a732ad043}\label{classGenericScreen_a1a071b685e66025584516a1a732ad043}} 
+\index{GenericScreen@{GenericScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!GenericScreen@{GenericScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Generic\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classGenericScreen_a72952451e71da99d3939622f053a24ea}\label{classGenericScreen_a72952451e71da99d3939622f053a24ea}} 
+\index{GenericScreen@{GenericScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!GenericScreen@{GenericScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Generic\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classGenericScreen_aec36ef0dd2af11f4b57c40f8f7b49af2}\label{classGenericScreen_aec36ef0dd2af11f4b57c40f8f7b49af2}} 
+\index{GenericScreen@{GenericScreen}!Load@{Load}}
+\index{Load@{Load}!GenericScreen@{GenericScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Generic\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classGenericScreen_aaa108254855d192b2de2a0cf66e6ed7d}\label{classGenericScreen_aaa108254855d192b2de2a0cf66e6ed7d}} 
+\index{GenericScreen@{GenericScreen}!Print@{Print}}
+\index{Print@{Print}!GenericScreen@{GenericScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Generic\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classGenericScreen_adb30e6774a7d18dc7800d8a754c5458a}\label{classGenericScreen_adb30e6774a7d18dc7800d8a754c5458a}} 
+\index{GenericScreen@{GenericScreen}!Save@{Save}}
+\index{Save@{Save}!GenericScreen@{GenericScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Generic\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/genericscreen.\+h\item 
+uplink/src/world/computer/computerscreen/genericscreen.\+cpp\end{DoxyCompactItemize}

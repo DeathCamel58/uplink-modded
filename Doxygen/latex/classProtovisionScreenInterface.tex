@@ -1,0 +1,110 @@
+\hypertarget{classProtovisionScreenInterface}{}\doxysection{Protovision\+Screen\+Interface Class Reference}
+\label{classProtovisionScreenInterface}\index{ProtovisionScreenInterface@{ProtovisionScreenInterface}}
+
+
+Inheritance diagram for Protovision\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Protovision\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProtovisionScreenInterface_af7658b923326abf0a428c397a87b93db}\label{classProtovisionScreenInterface_af7658b923326abf0a428c397a87b93db}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classProtovisionScreenInterface_a8bd061e842504320b5b845fb7266f698}{Create}} () override
+\item 
+\mbox{\Hypertarget{classProtovisionScreenInterface_a35859ea8f39779f44321afe17ab7558d}\label{classProtovisionScreenInterface_a35859ea8f39779f44321afe17ab7558d}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classProtovisionScreenInterface_afa81c8b2387ab842d5ee575e08cb05c4}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classProtovisionScreenInterface_a849d6ef0bd613dfe2bc8b761a2ff3487}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classProtovisionScreenInterface_a8ec5372b8aade2d230fa10374b43ee14}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classProtovisionScreenInterface_a7dd9e57c8e90785e43fb9362a3b7a91e}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classProtovisionScreenInterface_a54ebfd9c56995a832bd300749b9d4dda}\label{classProtovisionScreenInterface_a54ebfd9c56995a832bd300749b9d4dda}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProtovisionScreenInterface_a986a4cf4e17b30c21dcce84ad1fdfe3e}\label{classProtovisionScreenInterface_a986a4cf4e17b30c21dcce84ad1fdfe3e}} 
+static void {\bfseries Close} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classProtovisionScreenInterface_a5774135a411387f2e082a4028ec69bfa}\label{classProtovisionScreenInterface_a5774135a411387f2e082a4028ec69bfa}} 
+static void {\bfseries Nuclear\+War\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classProtovisionScreenInterface_ab62344709523bf294479c95f909b1902}\label{classProtovisionScreenInterface_ab62344709523bf294479c95f909b1902}} 
+static void {\bfseries Nuclear\+War} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProtovisionScreenInterface_a8bd061e842504320b5b845fb7266f698}\label{classProtovisionScreenInterface_a8bd061e842504320b5b845fb7266f698}} 
+\index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!Create@{Create}}
+\index{Create@{Create}!ProtovisionScreenInterface@{ProtovisionScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Protovision\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classProtovisionScreenInterface_a8ec5372b8aade2d230fa10374b43ee14}\label{classProtovisionScreenInterface_a8ec5372b8aade2d230fa10374b43ee14}} 
+\index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!ProtovisionScreenInterface@{ProtovisionScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Protovision\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classProtovisionScreenInterface_afa81c8b2387ab842d5ee575e08cb05c4}\label{classProtovisionScreenInterface_afa81c8b2387ab842d5ee575e08cb05c4}} 
+\index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!ProtovisionScreenInterface@{ProtovisionScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Protovision\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classProtovisionScreenInterface_a7dd9e57c8e90785e43fb9362a3b7a91e}\label{classProtovisionScreenInterface_a7dd9e57c8e90785e43fb9362a3b7a91e}} 
+\index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!ProtovisionScreenInterface@{ProtovisionScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Protovision\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classProtovisionScreenInterface_a849d6ef0bd613dfe2bc8b761a2ff3487}\label{classProtovisionScreenInterface_a849d6ef0bd613dfe2bc8b761a2ff3487}} 
+\index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!Update@{Update}}
+\index{Update@{Update}!ProtovisionScreenInterface@{ProtovisionScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Protovision\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/protovisionscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/protovisionscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

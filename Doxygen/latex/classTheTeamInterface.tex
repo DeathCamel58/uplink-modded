@@ -1,0 +1,116 @@
+\hypertarget{classTheTeamInterface}{}\doxysection{The\+Team\+Interface Class Reference}
+\label{classTheTeamInterface}\index{TheTeamInterface@{TheTeamInterface}}
+
+
+Inheritance diagram for The\+Team\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for The\+Team\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTheTeamInterface_afafe46bbf66f99e8884060c2f118a39a}{Create}} () override
+\item 
+void \mbox{\hyperlink{classTheTeamInterface_aa3587826357f59222566b291e131cf12}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classTheTeamInterface_acf70ac927a1b4bf80e7d99b9bbcfb40a}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classTheTeamInterface_a74a0d268d7247b10bd760c1f2d342f12}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classTheTeamInterface_a1fe36acbe63a761c8d605eae8c1e52c3}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTheTeamInterface_ae1008fcbde521b97772726b62c84eb12}\label{classTheTeamInterface_ae1008fcbde521b97772726b62c84eb12}} 
+static void {\bfseries Name\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classTheTeamInterface_af484278c2d35282830e2dea5110ead18}\label{classTheTeamInterface_af484278c2d35282830e2dea5110ead18}} 
+static void {\bfseries Text\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classTheTeamInterface_a955a3fedfc354a45e03748cc0e6e0272}\label{classTheTeamInterface_a955a3fedfc354a45e03748cc0e6e0272}} 
+static void {\bfseries Team\+Member\+Highlight} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classTheTeamInterface_a1c3f4fe5df4faf015ecb9201719a1db5}\label{classTheTeamInterface_a1c3f4fe5df4faf015ecb9201719a1db5}} 
+static void {\bfseries Exit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classTheTeamInterface_afefd553c539cf9be9dddc942e3125110}\label{classTheTeamInterface_afefd553c539cf9be9dddc942e3125110}} 
+static void {\bfseries Merge\+Caption} (const string \&button\+Name, string target\+Caption)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTheTeamInterface_a342920e7843e3b17bfd4c8b9f1e66603}\label{classTheTeamInterface_a342920e7843e3b17bfd4c8b9f1e66603}} 
+int {\bfseries targetindex}
+\item 
+\mbox{\Hypertarget{classTheTeamInterface_a594f9e5f21a4237300097428f48e18c4}\label{classTheTeamInterface_a594f9e5f21a4237300097428f48e18c4}} 
+int {\bfseries timesync}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTheTeamInterface_afafe46bbf66f99e8884060c2f118a39a}\label{classTheTeamInterface_afafe46bbf66f99e8884060c2f118a39a}} 
+\index{TheTeamInterface@{TheTeamInterface}!Create@{Create}}
+\index{Create@{Create}!TheTeamInterface@{TheTeamInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void The\+Team\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Create the screen 
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_af836bc645d44f74a7095de5c38f3f9e4}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classTheTeamInterface_a74a0d268d7247b10bd760c1f2d342f12}\label{classTheTeamInterface_a74a0d268d7247b10bd760c1f2d342f12}} 
+\index{TheTeamInterface@{TheTeamInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!TheTeamInterface@{TheTeamInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool The\+Team\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen currently visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a8f3c79bc2a8722c1fe9ac71dbc415565}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classTheTeamInterface_aa3587826357f59222566b291e131cf12}\label{classTheTeamInterface_aa3587826357f59222566b291e131cf12}} 
+\index{TheTeamInterface@{TheTeamInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!TheTeamInterface@{TheTeamInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void The\+Team\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Destroy the screen 
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a72531e7cc526b412144a2ad5af3206aa}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classTheTeamInterface_a1fe36acbe63a761c8d605eae8c1e52c3}\label{classTheTeamInterface_a1fe36acbe63a761c8d605eae8c1e52c3}} 
+\index{TheTeamInterface@{TheTeamInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!TheTeamInterface@{TheTeamInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int The\+Team\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the ID of the screen \begin{DoxyReturn}{Returns}
+ID of the screen 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a17c38b7fdc70881cc04432b9b0f0b35c}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classTheTeamInterface_acf70ac927a1b4bf80e7d99b9bbcfb40a}\label{classTheTeamInterface_acf70ac927a1b4bf80e7d99b9bbcfb40a}} 
+\index{TheTeamInterface@{TheTeamInterface}!Update@{Update}}
+\index{Update@{Update}!TheTeamInterface@{TheTeamInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void The\+Team\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Update the screen 
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a9ac397e461a12c55a7ea56d8a4d6806e}{Main\+Menu\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/mainmenu/theteam\+\_\+interface.\+h\item 
+uplink/src/mainmenu/theteam\+\_\+interface.\+cpp\end{DoxyCompactItemize}

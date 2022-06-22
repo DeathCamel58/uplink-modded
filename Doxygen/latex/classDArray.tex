@@ -1,0 +1,80 @@
+\hypertarget{classDArray}{}\doxysection{D\+Array$<$ T $>$ Class Template Reference}
+\label{classDArray}\index{DArray$<$ T $>$@{DArray$<$ T $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDArray_af0500ed26020c2e3c14e622193128740}\label{classDArray_af0500ed26020c2e3c14e622193128740}} 
+typedef int($\ast$ {\bfseries Comparator}) (const T $\ast$data1, const T $\ast$data2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDArray_a7c8840e0fdfe6803b03c24d88571cc77}\label{classDArray_a7c8840e0fdfe6803b03c24d88571cc77}} 
+{\bfseries D\+Array} (const \mbox{\hyperlink{classDArray}{D\+Array}}$<$ T $>$ \&da)
+\item 
+\mbox{\Hypertarget{classDArray_ad2d86967a29cfce88274a1f0efca8a2e}\label{classDArray_ad2d86967a29cfce88274a1f0efca8a2e}} 
+{\bfseries D\+Array} (int newstepsize)
+\item 
+\mbox{\Hypertarget{classDArray_a1bd33cd2aa617f4efdbb3ba3a5f11238}\label{classDArray_a1bd33cd2aa617f4efdbb3ba3a5f11238}} 
+void {\bfseries Set\+Size} (int newsize)
+\item 
+\mbox{\Hypertarget{classDArray_a0b52dab1b8daccf06cae85cf8fe405fe}\label{classDArray_a0b52dab1b8daccf06cae85cf8fe405fe}} 
+void {\bfseries Set\+Step\+Size} (int newstepsize)
+\item 
+\mbox{\Hypertarget{classDArray_af33cfbd306cdc6481e64c9b99a429f72}\label{classDArray_af33cfbd306cdc6481e64c9b99a429f72}} 
+int {\bfseries Put\+Data} (const T \&newdata)
+\item 
+\mbox{\Hypertarget{classDArray_a8b8efabcb3fd874345a0a30b17915e8e}\label{classDArray_a8b8efabcb3fd874345a0a30b17915e8e}} 
+void {\bfseries Put\+Data} (const T \&newdata, int index)
+\item 
+\mbox{\Hypertarget{classDArray_ac412d74868ce6a924f39fb2bcf235a6a}\label{classDArray_ac412d74868ce6a924f39fb2bcf235a6a}} 
+T {\bfseries Get\+Data} (int index) const
+\item 
+\mbox{\Hypertarget{classDArray_a3a700d0655f9bad98ace8e68ba6007db}\label{classDArray_a3a700d0655f9bad98ace8e68ba6007db}} 
+void {\bfseries Change\+Data} (const T \&newdata, int index)
+\item 
+\mbox{\Hypertarget{classDArray_a2aa59caf2d0a4a26c7d7519ca6d0bee1}\label{classDArray_a2aa59caf2d0a4a26c7d7519ca6d0bee1}} 
+void {\bfseries Remove\+Data} (int index)
+\item 
+\mbox{\Hypertarget{classDArray_aab2ef16a3ff53772463a663606ef0117}\label{classDArray_aab2ef16a3ff53772463a663606ef0117}} 
+int {\bfseries Find\+Data} (const T \&data) const
+\item 
+\mbox{\Hypertarget{classDArray_aa2572f31c7a97849a90f61bba279e2e0}\label{classDArray_aa2572f31c7a97849a90f61bba279e2e0}} 
+int {\bfseries Num\+Used} () const
+\item 
+\mbox{\Hypertarget{classDArray_a8b3ea4994fc9299f03e335eb08d44bb2}\label{classDArray_a8b3ea4994fc9299f03e335eb08d44bb2}} 
+int {\bfseries Size} () const
+\item 
+\mbox{\Hypertarget{classDArray_a7539698a0ed37a653912fdc63e0d3490}\label{classDArray_a7539698a0ed37a653912fdc63e0d3490}} 
+bool {\bfseries Valid\+Index} (int index) const
+\item 
+\mbox{\Hypertarget{classDArray_a8395cf67d1773dc72d1b1d519f793874}\label{classDArray_a8395cf67d1773dc72d1b1d519f793874}} 
+void {\bfseries Empty} ()
+\item 
+\mbox{\Hypertarget{classDArray_ac837a6810deffe71843d1b85de767961}\label{classDArray_ac837a6810deffe71843d1b85de767961}} 
+T \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (int index)
+\item 
+\mbox{\Hypertarget{classDArray_a719b40edef13117634d449e20a037e4d}\label{classDArray_a719b40edef13117634d449e20a037e4d}} 
+void {\bfseries Sort} (Comparator comp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDArray_a3d5a2f505cc292495371053d6de4936e}\label{classDArray_a3d5a2f505cc292495371053d6de4936e}} 
+int {\bfseries stepsize}
+\item 
+\mbox{\Hypertarget{classDArray_a6125d6863258513a2ed2388cb8eeb9e3}\label{classDArray_a6125d6863258513a2ed2388cb8eeb9e3}} 
+int {\bfseries arraysize}
+\item 
+\mbox{\Hypertarget{classDArray_a6b56ec629f9d11de215e32d6e5940745}\label{classDArray_a6b56ec629f9d11de215e32d6e5940745}} 
+T $\ast$ {\bfseries dynarray}
+\item 
+\mbox{\Hypertarget{classDArray_a2aee6d757e1831c6245ce7f90c8710e3}\label{classDArray_a2aee6d757e1831c6245ce7f90c8710e3}} 
+char $\ast$ {\bfseries shadow}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/tosser/tosser.\+h\item 
+uplink/lib/tosser/darray.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,164 @@
+\hypertarget{classBankAccount}{}\doxysection{Bank\+Account Class Reference}
+\label{classBankAccount}\index{BankAccount@{BankAccount}}
+
+
+Inheritance diagram for Bank\+Account\+:
+% FIG 0
+
+
+Collaboration diagram for Bank\+Account\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBankAccount_a5bf99fd9a2d4f25aa7d59486682359e3}\label{classBankAccount_a5bf99fd9a2d4f25aa7d59486682359e3}} 
+void {\bfseries Set\+Owner} (const string \&newname)
+\item 
+\mbox{\Hypertarget{classBankAccount_a7b34457db674802a17db1f7fb43f0637}\label{classBankAccount_a7b34457db674802a17db1f7fb43f0637}} 
+void {\bfseries Set\+Security} (const string \&newpassword, int newsecurity)
+\item 
+\mbox{\Hypertarget{classBankAccount_a1c794aca1b2a4da8985fb42d8a0755ae}\label{classBankAccount_a1c794aca1b2a4da8985fb42d8a0755ae}} 
+void {\bfseries Set\+Acc\+Number} (int newaccnumber)
+\item 
+\mbox{\Hypertarget{classBankAccount_a070f765ae5e8e6d70ffea74f93902b33}\label{classBankAccount_a070f765ae5e8e6d70ffea74f93902b33}} 
+void {\bfseries Set\+Balance} (int newbalance, int newloan)
+\item 
+\mbox{\Hypertarget{classBankAccount_a358c1c2e684151e1c3b454c31e59a44e}\label{classBankAccount_a358c1c2e684151e1c3b454c31e59a44e}} 
+void {\bfseries Change\+Balance} (int amount, const string \&description=\char`\"{}\char`\"{})
+\item 
+\mbox{\Hypertarget{classBankAccount_a885dc068d09b0d8476ac08d29f1d075d}\label{classBankAccount_a885dc068d09b0d8476ac08d29f1d075d}} 
+bool {\bfseries Has\+Transfer\+Occurred} (char $\ast$s\+\_\+ip, char $\ast$t\+\_\+ip, int t\+\_\+accno, int amount, bool partial=false) const
+\item 
+\mbox{\Hypertarget{classBankAccount_ab1d96374e17caeebad373cf94380ab14}\label{classBankAccount_ab1d96374e17caeebad373cf94380ab14}} 
+bool {\bfseries Has\+Transfer\+Occurred} (const string \&person, int amount) const
+\item 
+\mbox{\Hypertarget{classBankAccount_a38787bf18cc332dad31580e63ddf5d68}\label{classBankAccount_a38787bf18cc332dad31580e63ddf5d68}} 
+\mbox{\hyperlink{classPerson}{Person}} $\ast$ {\bfseries Get\+Person} ()
+\item 
+bool \mbox{\hyperlink{classBankAccount_afa9468f7d397a6a465281520ad1fefe7}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classBankAccount_a5f5bc4e55ec533cfd12efcd5296dd798}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classBankAccount_ae26420cae820b1792d063a41661eee3c}{Print}} () override
+\item 
+string \mbox{\hyperlink{classBankAccount_a167eaa4ecc0575fa3d670fc010ce0a46}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classBankAccount_a061b39e76f2c96adb7a9fe7304e875ee}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBankAccount_a5597169eb2fde9e2069dddb83b3bfda4}\label{classBankAccount_a5597169eb2fde9e2069dddb83b3bfda4}} 
+static \mbox{\hyperlink{classBankAccount}{Bank\+Account}} $\ast$ {\bfseries Get\+Account} (const string \&bankip, const string \&accno)
+\item 
+\mbox{\Hypertarget{classBankAccount_a3a0c43100a5703d16c84e5c1a70cd94b}\label{classBankAccount_a3a0c43100a5703d16c84e5c1a70cd94b}} 
+static bool {\bfseries Transfer\+Money} (const string \&source\+\_\+ip, const string \&source\+\_\+accno, const string \&target\+\_\+ip, const string \&target\+\_\+accno, int amount, \mbox{\hyperlink{classPerson}{Person}} $\ast$person)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBankAccount_a5a3d0aef832496e6c2b01b00bff40f41}\label{classBankAccount_a5a3d0aef832496e6c2b01b00bff40f41}} 
+string {\bfseries name}
+\item 
+\mbox{\Hypertarget{classBankAccount_a85c3d701d5e668238adae603fafd864a}\label{classBankAccount_a85c3d701d5e668238adae603fafd864a}} 
+char {\bfseries password} \mbox{[}64\mbox{]}
+\item 
+\mbox{\Hypertarget{classBankAccount_aa8713db3366587b06ac177127d731aad}\label{classBankAccount_aa8713db3366587b06ac177127d731aad}} 
+int {\bfseries security}
+\item 
+\mbox{\Hypertarget{classBankAccount_a63cd3a84563639371ac3877de62b3e62}\label{classBankAccount_a63cd3a84563639371ac3877de62b3e62}} 
+int {\bfseries accountnumber}
+\item 
+\mbox{\Hypertarget{classBankAccount_a3abd516f30c2e2615b91c1a6865ed380}\label{classBankAccount_a3abd516f30c2e2615b91c1a6865ed380}} 
+int {\bfseries balance}
+\item 
+\mbox{\Hypertarget{classBankAccount_ad92b26a1f60fedd69dc87c978344c3d1}\label{classBankAccount_ad92b26a1f60fedd69dc87c978344c3d1}} 
+int {\bfseries loan}
+\item 
+\mbox{\Hypertarget{classBankAccount_a1e409f706b2f227e0969494253d3a072}\label{classBankAccount_a1e409f706b2f227e0969494253d3a072}} 
+\mbox{\hyperlink{classLogBank}{Log\+Bank}} {\bfseries log}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBankAccount_a167eaa4ecc0575fa3d670fc010ce0a46}\label{classBankAccount_a167eaa4ecc0575fa3d670fc010ce0a46}} 
+\index{BankAccount@{BankAccount}!GetID@{GetID}}
+\index{GetID@{GetID}!BankAccount@{BankAccount}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Bank\+Account\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankAccount_a061b39e76f2c96adb7a9fe7304e875ee}\label{classBankAccount_a061b39e76f2c96adb7a9fe7304e875ee}} 
+\index{BankAccount@{BankAccount}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!BankAccount@{BankAccount}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Bank\+Account\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankAccount_afa9468f7d397a6a465281520ad1fefe7}\label{classBankAccount_afa9468f7d397a6a465281520ad1fefe7}} 
+\index{BankAccount@{BankAccount}!Load@{Load}}
+\index{Load@{Load}!BankAccount@{BankAccount}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Bank\+Account\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankAccount_ae26420cae820b1792d063a41661eee3c}\label{classBankAccount_ae26420cae820b1792d063a41661eee3c}} 
+\index{BankAccount@{BankAccount}!Print@{Print}}
+\index{Print@{Print}!BankAccount@{BankAccount}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Bank\+Account\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankAccount_a5f5bc4e55ec533cfd12efcd5296dd798}\label{classBankAccount_a5f5bc4e55ec533cfd12efcd5296dd798}} 
+\index{BankAccount@{BankAccount}!Save@{Save}}
+\index{Save@{Save}!BankAccount@{BankAccount}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Bank\+Account\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/bankaccount.\+h\item 
+uplink/src/world/computer/bankaccount.\+cpp\end{DoxyCompactItemize}

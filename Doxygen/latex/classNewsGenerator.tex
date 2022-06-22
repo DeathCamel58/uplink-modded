@@ -1,0 +1,116 @@
+\hypertarget{classNewsGenerator}{}\doxysection{News\+Generator Class Reference}
+\label{classNewsGenerator}\index{NewsGenerator@{NewsGenerator}}
+
+
+\mbox{\hyperlink{classNews}{News}} Generator.  
+
+
+
+
+{\ttfamily \#include $<$newsgenerator.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNewsGenerator_a306c748939a79dfc52518c5e3054ce1d}\label{classNewsGenerator_a306c748939a79dfc52518c5e3054ce1d}} 
+static void {\bfseries Initialise} ()
+\item 
+static void \mbox{\hyperlink{classNewsGenerator_a02f1e8bd8bf2e1d0d1a33d58e6f14b15}{Computer\+Hacked}} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, \mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$al)
+\item 
+static void \mbox{\hyperlink{classNewsGenerator_a1c882df01be4bfab1bcdcd7ac060179e}{Computer\+Destroyed}} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, bool filesdeleted)
+\item 
+static void \mbox{\hyperlink{classNewsGenerator_ab3536fcc3b6ba4ea8b98a207050d3624}{All\+Files\+Stolen}} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, const string \&filetype, int totalfilesize)
+\item 
+static void \mbox{\hyperlink{classNewsGenerator_a1773af4265e1bf4b0f3b8c279f4011ab}{All\+Files\+Deleted}} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, const string \&filetype)
+\item 
+static void \mbox{\hyperlink{classNewsGenerator_aeec07704888493c1190d362c5091be5b}{Arrested}} (\mbox{\hyperlink{classPerson}{Person}} $\ast$person, \mbox{\hyperlink{classComputer}{Computer}} $\ast$comp, const string \&reason)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classNews}{News}} Generator. 
+
+Receives information on important events that have occured (e.\+gg a compan going bust), and generates a news story. Also handles hard-\/coded news events. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNewsGenerator_a1773af4265e1bf4b0f3b8c279f4011ab}\label{classNewsGenerator_a1773af4265e1bf4b0f3b8c279f4011ab}} 
+\index{NewsGenerator@{NewsGenerator}!AllFilesDeleted@{AllFilesDeleted}}
+\index{AllFilesDeleted@{AllFilesDeleted}!NewsGenerator@{NewsGenerator}}
+\doxysubsubsection{\texorpdfstring{AllFilesDeleted()}{AllFilesDeleted()}}
+{\footnotesize\ttfamily void News\+Generator\+::\+All\+Files\+Deleted (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputer}{Computer}} $\ast$}]{comp,  }\item[{const string \&}]{filetype }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a news story about files being deleted 
+\begin{DoxyParams}{Parameters}
+{\em comp} & \mbox{\hyperlink{classComputer}{Computer}} that was hacked \\
+\hline
+{\em filetype} & Type of files deleted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+filetype can be S\+C\+I\+E\+N\+T\+I\+F\+IC, C\+O\+R\+P\+O\+R\+A\+TE, C\+U\+S\+T\+O\+M\+ER, or S\+O\+F\+T\+W\+A\+RE 
+\end{DoxyNote}
+\mbox{\Hypertarget{classNewsGenerator_ab3536fcc3b6ba4ea8b98a207050d3624}\label{classNewsGenerator_ab3536fcc3b6ba4ea8b98a207050d3624}} 
+\index{NewsGenerator@{NewsGenerator}!AllFilesStolen@{AllFilesStolen}}
+\index{AllFilesStolen@{AllFilesStolen}!NewsGenerator@{NewsGenerator}}
+\doxysubsubsection{\texorpdfstring{AllFilesStolen()}{AllFilesStolen()}}
+{\footnotesize\ttfamily void News\+Generator\+::\+All\+Files\+Stolen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputer}{Computer}} $\ast$}]{comp,  }\item[{const string \&}]{filetype,  }\item[{int}]{totalfilesize }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a news story about files being stolen 
+\begin{DoxyParams}{Parameters}
+{\em comp} & \mbox{\hyperlink{classComputer}{Computer}} that was hacked \\
+\hline
+{\em filetype} & Type of files stolen \\
+\hline
+{\em totalfilesize} & The size of the files stolen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+filetype can be S\+C\+I\+E\+N\+T\+I\+F\+IC, C\+O\+R\+P\+O\+R\+A\+TE, C\+U\+S\+T\+O\+M\+ER, or S\+O\+F\+T\+W\+A\+RE 
+\end{DoxyNote}
+\mbox{\Hypertarget{classNewsGenerator_aeec07704888493c1190d362c5091be5b}\label{classNewsGenerator_aeec07704888493c1190d362c5091be5b}} 
+\index{NewsGenerator@{NewsGenerator}!Arrested@{Arrested}}
+\index{Arrested@{Arrested}!NewsGenerator@{NewsGenerator}}
+\doxysubsubsection{\texorpdfstring{Arrested()}{Arrested()}}
+{\footnotesize\ttfamily void News\+Generator\+::\+Arrested (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPerson}{Person}} $\ast$}]{person,  }\item[{\mbox{\hyperlink{classComputer}{Computer}} $\ast$}]{comp,  }\item[{const string \&}]{reason }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a news story about an arrest 
+\begin{DoxyParams}{Parameters}
+{\em person} & \mbox{\hyperlink{classPerson}{Person}} who was arrested \\
+\hline
+{\em comp} & T\+O\+DO\+: Document \\
+\hline
+{\em reason} & Reason person was arrested \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNewsGenerator_a1c882df01be4bfab1bcdcd7ac060179e}\label{classNewsGenerator_a1c882df01be4bfab1bcdcd7ac060179e}} 
+\index{NewsGenerator@{NewsGenerator}!ComputerDestroyed@{ComputerDestroyed}}
+\index{ComputerDestroyed@{ComputerDestroyed}!NewsGenerator@{NewsGenerator}}
+\doxysubsubsection{\texorpdfstring{ComputerDestroyed()}{ComputerDestroyed()}}
+{\footnotesize\ttfamily void News\+Generator\+::\+Computer\+Destroyed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputer}{Computer}} $\ast$}]{comp,  }\item[{bool}]{filesdeleted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a news story about a computer that was destroyed 
+\begin{DoxyParams}{Parameters}
+{\em comp} & \mbox{\hyperlink{classComputer}{Computer}} that was hacked \\
+\hline
+{\em filesdeleted} & true if the files were unabled to be recovered \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNewsGenerator_a02f1e8bd8bf2e1d0d1a33d58e6f14b15}\label{classNewsGenerator_a02f1e8bd8bf2e1d0d1a33d58e6f14b15}} 
+\index{NewsGenerator@{NewsGenerator}!ComputerHacked@{ComputerHacked}}
+\index{ComputerHacked@{ComputerHacked}!NewsGenerator@{NewsGenerator}}
+\doxysubsubsection{\texorpdfstring{ComputerHacked()}{ComputerHacked()}}
+{\footnotesize\ttfamily void News\+Generator\+::\+Computer\+Hacked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputer}{Computer}} $\ast$}]{comp,  }\item[{\mbox{\hyperlink{classAccessLog}{Access\+Log}} $\ast$}]{al }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a news story about a hacked computer whose hacker isn\textquotesingle{}t known 
+\begin{DoxyParams}{Parameters}
+{\em comp} & \mbox{\hyperlink{classComputer}{Computer}} that was hacked \\
+\hline
+{\em al} & Access Log \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/generator/newsgenerator.\+h\item 
+uplink/src/world/generator/newsgenerator.\+cpp\end{DoxyCompactItemize}

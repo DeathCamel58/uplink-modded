@@ -1,0 +1,214 @@
+\hypertarget{classGame}{}\doxysection{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+
+
+Inheritance diagram for Game\+:
+% FIG 0
+
+
+Collaboration diagram for Game\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_aef7fe36498d634db6752e0fef9d2712a}\label{classGame_aef7fe36498d634db6752e0fef9d2712a}} 
+enum {\bfseries World\+Map\+Type} \{ {\bfseries defaultworldmap} = 0, 
+{\bfseries defconworldmap} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_af9c7849aedfcbf23c58c0a668f1c242c}\label{classGame_af9c7849aedfcbf23c58c0a668f1c242c}} 
+void {\bfseries New\+Game} ()
+\item 
+\mbox{\Hypertarget{classGame_a92b2c6e96e74f1748fbc9f4e6b85af53}\label{classGame_a92b2c6e96e74f1748fbc9f4e6b85af53}} 
+void {\bfseries Set\+Game\+Speed} (int newspeed)
+\item 
+\mbox{\Hypertarget{classGame_a3c66b67efc4e779523dc86bfdbbfe657}\label{classGame_a3c66b67efc4e779523dc86bfdbbfe657}} 
+int {\bfseries Game\+Speed} () const
+\item 
+\mbox{\Hypertarget{classGame_aeec18ea56ad22f222c73cb5450a27fb7}\label{classGame_aeec18ea56ad22f222c73cb5450a27fb7}} 
+bool {\bfseries Is\+Running} () const
+\item 
+\mbox{\Hypertarget{classGame_ab6f21cb3e4a5689cde7ddc0db05edd45}\label{classGame_ab6f21cb3e4a5689cde7ddc0db05edd45}} 
+void {\bfseries Game\+Over} (const string \&reason)
+\item 
+\mbox{\Hypertarget{classGame_a31e357b86368ccd67763d002c55932d9}\label{classGame_a31e357b86368ccd67763d002c55932d9}} 
+void {\bfseries Demo\+Game\+Over} ()
+\item 
+\mbox{\Hypertarget{classGame_a9cc5b9a9f99e0cbe18d4a455fa243d4d}\label{classGame_a9cc5b9a9f99e0cbe18d4a455fa243d4d}} 
+void {\bfseries Warez\+Game\+Over} ()
+\item 
+\mbox{\Hypertarget{classGame_ad730c0ec3d26ad44064c5ce1345eac04}\label{classGame_ad730c0ec3d26ad44064c5ce1345eac04}} 
+\mbox{\hyperlink{classInterface}{Interface}} $\ast$ {\bfseries Get\+Interface} ()
+\item 
+\mbox{\Hypertarget{classGame_aa36ed1180803bd9faf230462087f3676}\label{classGame_aa36ed1180803bd9faf230462087f3676}} 
+\mbox{\hyperlink{classView}{View}} $\ast$ {\bfseries Get\+View} ()
+\item 
+\mbox{\Hypertarget{classGame_a6a64ef6c66705c762c97204fc5cb1216}\label{classGame_a6a64ef6c66705c762c97204fc5cb1216}} 
+\mbox{\hyperlink{classWorld}{World}} $\ast$ {\bfseries Get\+World} ()
+\item 
+\mbox{\Hypertarget{classGame_a7cd142d55c1d68e4618aa0c5a5fa46ae}\label{classGame_a7cd142d55c1d68e4618aa0c5a5fa46ae}} 
+\mbox{\hyperlink{classGameObituary}{Game\+Obituary}} $\ast$ {\bfseries Get\+Obituary} ()
+\item 
+\mbox{\Hypertarget{classGame_aa125386cde0cf64bb4508b6589ca30b1}\label{classGame_aa125386cde0cf64bb4508b6589ca30b1}} 
+bool {\bfseries Load\+Game} (F\+I\+LE $\ast$file)
+\item 
+bool \mbox{\hyperlink{classGame_a0b0cd9ab4316e9950b59a3adbdb37cf1}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classGame_a6df384dfbe991c36f68bf560c7069196}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classGame_ab1190c64dc8777e50a902d96cc408b47}{Print}} () override
+\item 
+void \mbox{\hyperlink{classGame_a7279736cde09902a139247810bc76d4b}{Update}} () override
+\item 
+string \mbox{\hyperlink{classGame_a91375d76e89802bce00849c95071fcbf}{Get\+ID}} () override
+\item 
+\mbox{\Hypertarget{classGame_a97862f6b1821f22e86148698e04d9d2c}\label{classGame_a97862f6b1821f22e86148698e04d9d2c}} 
+const char $\ast$ {\bfseries Get\+Loaded\+Savefile\+Ver} () const
+\item 
+\mbox{\Hypertarget{classGame_a699dfd0fa8745a929868795b5747a91c}\label{classGame_a699dfd0fa8745a929868795b5747a91c}} 
+void {\bfseries Win\+Code} (const char $\ast$desc, const char $\ast$code\+Extra=nullptr)
+\item 
+\mbox{\Hypertarget{classGame_a6b372242fd22e2ee6bace4949a52181e}\label{classGame_a6b372242fd22e2ee6bace4949a52181e}} 
+bool {\bfseries Is\+Code\+Won} () const
+\item 
+\mbox{\Hypertarget{classGame_a57e80cf7462907ada39b288fdb375468}\label{classGame_a57e80cf7462907ada39b288fdb375468}} 
+char $\ast$ {\bfseries Get\+Winning\+Code\+Desc} ()
+\item 
+\mbox{\Hypertarget{classGame_a572a9d829945e2531efe675bd54396de}\label{classGame_a572a9d829945e2531efe675bd54396de}} 
+char $\ast$ {\bfseries Get\+Winning\+Code} ()
+\item 
+\mbox{\Hypertarget{classGame_a528a7212bf44059aa52e2841f0765241}\label{classGame_a528a7212bf44059aa52e2841f0765241}} 
+enum World\+Map\+Type {\bfseries Get\+World\+Map\+Type} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a3396e3c8e1fe4fac080da09d27009bd9}\label{classGame_a3396e3c8e1fe4fac080da09d27009bd9}} 
+static void {\bfseries Exit\+Game} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a6a0a2a373caca643fec3c550aeee4041}\label{classGame_a6a0a2a373caca643fec3c550aeee4041}} 
+\mbox{\hyperlink{classInterface}{Interface}} $\ast$ {\bfseries ui}
+\item 
+\mbox{\Hypertarget{classGame_a203b0da2df2310bb07b3fe9d3cadee7a}\label{classGame_a203b0da2df2310bb07b3fe9d3cadee7a}} 
+\mbox{\hyperlink{classView}{View}} $\ast$ {\bfseries view}
+\item 
+\mbox{\Hypertarget{classGame_a392768bd0c35ea1a021bce4581a98e86}\label{classGame_a392768bd0c35ea1a021bce4581a98e86}} 
+\mbox{\hyperlink{classWorld}{World}} $\ast$ {\bfseries world}
+\item 
+\mbox{\Hypertarget{classGame_a6298d3a1b461918c1edd9aaa38fe9e57}\label{classGame_a6298d3a1b461918c1edd9aaa38fe9e57}} 
+int {\bfseries gamespeed}
+\item 
+\mbox{\Hypertarget{classGame_a0bd18bf31d3c23df55b9b1b8d6cdee98}\label{classGame_a0bd18bf31d3c23df55b9b1b8d6cdee98}} 
+\mbox{\hyperlink{classGameObituary}{Game\+Obituary}} $\ast$ {\bfseries gob}
+\item 
+\mbox{\Hypertarget{classGame_a3ea00994e51748537944f10e085f9bf4}\label{classGame_a3ea00994e51748537944f10e085f9bf4}} 
+time\+\_\+t {\bfseries lastsave}
+\item 
+\mbox{\Hypertarget{classGame_a48aa234aa61294d4a688bf85f8a87606}\label{classGame_a48aa234aa61294d4a688bf85f8a87606}} 
+string {\bfseries loaded\+Savefile\+Ver}
+\item 
+\mbox{\Hypertarget{classGame_a75e32a3e1de5120ce25af510e89fe231}\label{classGame_a75e32a3e1de5120ce25af510e89fe231}} 
+string {\bfseries created\+Savefile\+Ver}
+\item 
+\mbox{\Hypertarget{classGame_a279ca65365614d6cc574b42420d31bc3}\label{classGame_a279ca65365614d6cc574b42420d31bc3}} 
+int {\bfseries winning\+Code\+Won}
+\item 
+\mbox{\Hypertarget{classGame_a35dcd195e0a263e826c3e489730e23c2}\label{classGame_a35dcd195e0a263e826c3e489730e23c2}} 
+char $\ast$ {\bfseries winning\+Code\+Desc}
+\item 
+\mbox{\Hypertarget{classGame_a3134f3340dbaa1122c765c9a46d5341f}\label{classGame_a3134f3340dbaa1122c765c9a46d5341f}} 
+char $\ast$ {\bfseries winning\+Code\+Extra}
+\item 
+\mbox{\Hypertarget{classGame_a6fdff44f8dbf4526bf834f5b036ce5db}\label{classGame_a6fdff44f8dbf4526bf834f5b036ce5db}} 
+unsigned int {\bfseries winning\+Code\+Random}
+\item 
+\mbox{\Hypertarget{classGame_a8908b82a0574b44c264e8a388e06f914}\label{classGame_a8908b82a0574b44c264e8a388e06f914}} 
+enum World\+Map\+Type {\bfseries which\+World\+Map}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame_a91375d76e89802bce00849c95071fcbf}\label{classGame_a91375d76e89802bce00849c95071fcbf}} 
+\index{Game@{Game}!GetID@{GetID}}
+\index{GetID@{GetID}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Game\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classGame_a0b0cd9ab4316e9950b59a3adbdb37cf1}\label{classGame_a0b0cd9ab4316e9950b59a3adbdb37cf1}} 
+\index{Game@{Game}!Load@{Load}}
+\index{Load@{Load}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Game\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classGame_ab1190c64dc8777e50a902d96cc408b47}\label{classGame_ab1190c64dc8777e50a902d96cc408b47}} 
+\index{Game@{Game}!Print@{Print}}
+\index{Print@{Print}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Game\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classGame_a6df384dfbe991c36f68bf560c7069196}\label{classGame_a6df384dfbe991c36f68bf560c7069196}} 
+\index{Game@{Game}!Save@{Save}}
+\index{Save@{Save}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Game\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classGame_a7279736cde09902a139247810bc76d4b}\label{classGame_a7279736cde09902a139247810bc76d4b}} 
+\index{Game@{Game}!Update@{Update}}
+\index{Update@{Update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Game\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/game/game.\+h\item 
+uplink/src/game/game.\+cpp\end{DoxyCompactItemize}

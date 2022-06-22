@@ -1,0 +1,15 @@
+digraph "RAROptions"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="RAROptions",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" FilterModes" ,fontname="Helvetica"];
+  Node2 [label="FilterMode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structFilterMode.html",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" VolSize" ,fontname="Helvetica"];
+  Node3 [label="Int64",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classInt64.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" FileTimeBefore\nFileTimeAfter" ,fontname="Helvetica"];
+  Node4 [label="RarTime",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRarTime.html",tooltip=" "];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" NextVolSizes" ,fontname="Helvetica"];
+  Node5 [label="Array\< Int64 \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classArray.html",tooltip=" "];
+}

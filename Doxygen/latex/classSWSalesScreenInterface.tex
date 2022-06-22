@@ -1,0 +1,122 @@
+\hypertarget{classSWSalesScreenInterface}{}\doxysection{S\+W\+Sales\+Screen\+Interface Class Reference}
+\label{classSWSalesScreenInterface}\index{SWSalesScreenInterface@{SWSalesScreenInterface}}
+
+
+Inheritance diagram for S\+W\+Sales\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for S\+W\+Sales\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a9881cf70bbb1a419dffc2af91945080f}\label{classSWSalesScreenInterface_a9881cf70bbb1a419dffc2af91945080f}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_afabb187a33c8ee15df6e20d094f35824}\label{classSWSalesScreenInterface_afabb187a33c8ee15df6e20d094f35824}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classSWSalesScreenInterface_af0f241c857fc588ebf1fae64f7e55bc8}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classSWSalesScreenInterface_a076b99fd14aa6f4d3cebc1e53c2f3aef}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classSWSalesScreenInterface_a6b0d33845a2d9e1343cf19aa9ef170db}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_ab44899006e5febfc053d5da167b115c7}\label{classSWSalesScreenInterface_ab44899006e5febfc053d5da167b115c7}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_aaa9e8b7cf1d64fec376466eeb62ed8c8}\label{classSWSalesScreenInterface_aaa9e8b7cf1d64fec376466eeb62ed8c8}} 
+static void {\bfseries Draw\+S\+W\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_abec8aedb50d96b7b5732410f458b98a6}\label{classSWSalesScreenInterface_abec8aedb50d96b7b5732410f458b98a6}} 
+static void {\bfseries Click\+S\+W\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_ae25d22c42a00f1695bac261e39b70826}\label{classSWSalesScreenInterface_ae25d22c42a00f1695bac261e39b70826}} 
+static void {\bfseries Mousedown\+S\+W\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a579cdcb3b037dd349e74fc4c73b7fdb1}\label{classSWSalesScreenInterface_a579cdcb3b037dd349e74fc4c73b7fdb1}} 
+static void {\bfseries Highlight\+S\+W\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a40ac3c997b30054193b727ec165b7bbd}\label{classSWSalesScreenInterface_a40ac3c997b30054193b727ec165b7bbd}} 
+static void {\bfseries Draw\+Details} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a29c427765a1fb41c7721c4ddfa083975}\label{classSWSalesScreenInterface_a29c427765a1fb41c7721c4ddfa083975}} 
+static void {\bfseries Accept\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a834816ac90eca85bd07a3fcf21edee1a}\label{classSWSalesScreenInterface_a834816ac90eca85bd07a3fcf21edee1a}} 
+static void {\bfseries Next\+Version\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a569712220281fbdebc36d9a8e836d489}\label{classSWSalesScreenInterface_a569712220281fbdebc36d9a8e836d489}} 
+static void {\bfseries Prev\+Version\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a4b9e503799c228f91b5b74742245b76a}\label{classSWSalesScreenInterface_a4b9e503799c228f91b5b74742245b76a}} 
+static void {\bfseries Exit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_ae76b404433acbbcc9f2af073c73e1c0d}\label{classSWSalesScreenInterface_ae76b404433acbbcc9f2af073c73e1c0d}} 
+static void {\bfseries Scroll\+Change} (const string \&scrollname, int new\+Value)
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_aa43477503645a84c79f8b1556c323979}\label{classSWSalesScreenInterface_aa43477503645a84c79f8b1556c323979}} 
+static int {\bfseries Num\+Items\+On\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a7b686bd8d09dc43f925d891ae825a16d}\label{classSWSalesScreenInterface_a7b686bd8d09dc43f925d891ae825a16d}} 
+static int {\bfseries baseoffset} = 0
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_a825ddad715fcd24697934b478da0d97c}\label{classSWSalesScreenInterface_a825ddad715fcd24697934b478da0d97c}} 
+static int {\bfseries currentselect} = -\/1
+\item 
+\mbox{\Hypertarget{classSWSalesScreenInterface_abd7c65227a17063cd4c212f26f316ae1}\label{classSWSalesScreenInterface_abd7c65227a17063cd4c212f26f316ae1}} 
+static int {\bfseries currentversion} = -\/1
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSWSalesScreenInterface_a076b99fd14aa6f4d3cebc1e53c2f3aef}\label{classSWSalesScreenInterface_a076b99fd14aa6f4d3cebc1e53c2f3aef}} 
+\index{SWSalesScreenInterface@{SWSalesScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!SWSalesScreenInterface@{SWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool S\+W\+Sales\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSWSalesScreenInterface_af0f241c857fc588ebf1fae64f7e55bc8}\label{classSWSalesScreenInterface_af0f241c857fc588ebf1fae64f7e55bc8}} 
+\index{SWSalesScreenInterface@{SWSalesScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!SWSalesScreenInterface@{SWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void S\+W\+Sales\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSWSalesScreenInterface_a6b0d33845a2d9e1343cf19aa9ef170db}\label{classSWSalesScreenInterface_a6b0d33845a2d9e1343cf19aa9ef170db}} 
+\index{SWSalesScreenInterface@{SWSalesScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!SWSalesScreenInterface@{SWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int S\+W\+Sales\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}{Remote\+Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/swsalesscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/swsalesscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

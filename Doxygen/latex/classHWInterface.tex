@@ -1,0 +1,180 @@
+\hypertarget{classHWInterface}{}\doxysection{H\+W\+Interface Class Reference}
+\label{classHWInterface}\index{HWInterface@{HWInterface}}
+
+
+Screen that shows current hardware.  
+
+
+
+
+{\ttfamily \#include $<$hw\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for H\+W\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for H\+W\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classHWInterface_a0adfb965f70f663281d23ead6db3cd00}{Create}} () override
+\item 
+void \mbox{\hyperlink{classHWInterface_add49730ec1d0526f2b40e900aa6eed75}{Update}} () override
+\item 
+void \mbox{\hyperlink{classHWInterface_ae8c9e376e2a6383ef53630710fb7a385}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classHWInterface_ab0243f467467b7e483e8a071e55acc4e}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classHWInterface_af71c518ab02eb7dc380bab5c8499479d}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classHWInterface_a8c26d54bcaab645759e9bab5d87ac18f}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHWInterface_addef8a5209158493893a869a5ac9e66f}{Show\+Gateway\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHWInterface_a8055b96c8c1380792980f8a019ad5517}{Mini\+Title\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classHWInterface_a1edd1811fe0000a636ad65c5190014c9}{Create\+H\+W\+Interface}} ()
+\item 
+static void \mbox{\hyperlink{classHWInterface_a76690ec2508ca647771ca4480cdcec76}{Remove\+H\+W\+Interface}} ()
+\item 
+static bool \mbox{\hyperlink{classHWInterface_a3af65221cb30fa6ed6eb34e9779a4fa9}{Is\+Visible\+H\+W\+Interface}} ()
+\item 
+\mbox{\Hypertarget{classHWInterface_ac201d4889202f077b4e9e74b5c898ae2}\label{classHWInterface_ac201d4889202f077b4e9e74b5c898ae2}} 
+static void {\bfseries Back\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows current hardware. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHWInterface_a0adfb965f70f663281d23ead6db3cd00}\label{classHWInterface_a0adfb965f70f663281d23ead6db3cd00}} 
+\index{HWInterface@{HWInterface}!Create@{Create}}
+\index{Create@{Create}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void H\+W\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHWInterface_a1edd1811fe0000a636ad65c5190014c9}\label{classHWInterface_a1edd1811fe0000a636ad65c5190014c9}} 
+\index{HWInterface@{HWInterface}!CreateHWInterface@{CreateHWInterface}}
+\index{CreateHWInterface@{CreateHWInterface}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{CreateHWInterface()}{CreateHWInterface()}}
+{\footnotesize\ttfamily void H\+W\+Interface\+::\+Create\+H\+W\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Creates the screen \mbox{\Hypertarget{classHWInterface_ab0243f467467b7e483e8a071e55acc4e}\label{classHWInterface_ab0243f467467b7e483e8a071e55acc4e}} 
+\index{HWInterface@{HWInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool H\+W\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHWInterface_a3af65221cb30fa6ed6eb34e9779a4fa9}\label{classHWInterface_a3af65221cb30fa6ed6eb34e9779a4fa9}} 
+\index{HWInterface@{HWInterface}!IsVisibleHWInterface@{IsVisibleHWInterface}}
+\index{IsVisibleHWInterface@{IsVisibleHWInterface}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisibleHWInterface()}{IsVisibleHWInterface()}}
+{\footnotesize\ttfamily bool H\+W\+Interface\+::\+Is\+Visible\+H\+W\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if it is 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHWInterface_a8055b96c8c1380792980f8a019ad5517}\label{classHWInterface_a8055b96c8c1380792980f8a019ad5517}} 
+\index{HWInterface@{HWInterface}!MiniTitleDraw@{MiniTitleDraw}}
+\index{MiniTitleDraw@{MiniTitleDraw}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{MiniTitleDraw()}{MiniTitleDraw()}}
+{\footnotesize\ttfamily void H\+W\+Interface\+::\+Mini\+Title\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the section titles 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button that contains the title information \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHWInterface_ae8c9e376e2a6383ef53630710fb7a385}\label{classHWInterface_ae8c9e376e2a6383ef53630710fb7a385}} 
+\index{HWInterface@{HWInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void H\+W\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHWInterface_a76690ec2508ca647771ca4480cdcec76}\label{classHWInterface_a76690ec2508ca647771ca4480cdcec76}} 
+\index{HWInterface@{HWInterface}!RemoveHWInterface@{RemoveHWInterface}}
+\index{RemoveHWInterface@{RemoveHWInterface}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{RemoveHWInterface()}{RemoveHWInterface()}}
+{\footnotesize\ttfamily void H\+W\+Interface\+::\+Remove\+H\+W\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Removes the screen \mbox{\Hypertarget{classHWInterface_af71c518ab02eb7dc380bab5c8499479d}\label{classHWInterface_af71c518ab02eb7dc380bab5c8499479d}} 
+\index{HWInterface@{HWInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int H\+W\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHWInterface_addef8a5209158493893a869a5ac9e66f}\label{classHWInterface_addef8a5209158493893a869a5ac9e66f}} 
+\index{HWInterface@{HWInterface}!ShowGatewayClick@{ShowGatewayClick}}
+\index{ShowGatewayClick@{ShowGatewayClick}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{ShowGatewayClick()}{ShowGatewayClick()}}
+{\footnotesize\ttfamily void H\+W\+Interface\+::\+Show\+Gateway\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Opens the gateway screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to open screen \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHWInterface_a8c26d54bcaab645759e9bab5d87ac18f}\label{classHWInterface_a8c26d54bcaab645759e9bab5d87ac18f}} 
+\index{HWInterface@{HWInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void H\+W\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classHWInterface_add49730ec1d0526f2b40e900aa6eed75}\label{classHWInterface_add49730ec1d0526f2b40e900aa6eed75}} 
+\index{HWInterface@{HWInterface}!Update@{Update}}
+\index{Update@{Update}!HWInterface@{HWInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void H\+W\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/hw\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/hw\+\_\+interface.\+cpp\end{DoxyCompactItemize}

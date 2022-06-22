@@ -1,0 +1,483 @@
+\hypertarget{classComputer}{}\doxysection{Computer Class Reference}
+\label{classComputer}\index{Computer@{Computer}}
+
+
+\mbox{\hyperlink{classComputer}{Computer}} class object.  
+
+
+
+
+{\ttfamily \#include $<$computer.\+h$>$}
+
+
+
+Inheritance diagram for Computer\+:
+% FIG 0
+
+
+Collaboration diagram for Computer\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classComputer_ab27c04208668cf3248a638af7cc30105}{Set\+T\+Y\+PE}} (int new\+T\+Y\+PE)
+\item 
+void \mbox{\hyperlink{classComputer_a5ba9bb2f254f878ad73c81b129bcde85}{Set\+Name}} (const string \&newname)
+\item 
+void \mbox{\hyperlink{classComputer_a59e821548350ceff5b82a887660e313c}{Set\+Company\+Name}} (const string \&newname)
+\item 
+void \mbox{\hyperlink{classComputer_a608a2335707951b8ccd7feb04d4ca896}{Set\+IP}} (const string \&newip)
+\item 
+\mbox{\Hypertarget{classComputer_aaa7abad982f076f1121f5d797cfdafae}\label{classComputer_aaa7abad982f076f1121f5d797cfdafae}} 
+void {\bfseries Set\+Trace\+Speed} (int newtracespeed)
+\item 
+\mbox{\Hypertarget{classComputer_a0e8ea120b3a32fc69826499d2ddf1786}\label{classComputer_a0e8ea120b3a32fc69826499d2ddf1786}} 
+void {\bfseries Set\+Trace\+Action} (int newtraceaction)
+\item 
+\mbox{\Hypertarget{classComputer_a7810448e0c6e43f0eab70fc8617f0ad2}\label{classComputer_a7810448e0c6e43f0eab70fc8617f0ad2}} 
+void {\bfseries Set\+Is\+Targetable} (bool value)
+\item 
+\mbox{\Hypertarget{classComputer_af5659e0d51059ee2760685d4af456a6c}\label{classComputer_af5659e0d51059ee2760685d4af456a6c}} 
+void {\bfseries Set\+Is\+Externally\+Open} (bool value)
+\item 
+\mbox{\Hypertarget{classComputer_a8590b3a5a4c607566bf6b4d4756ea66f}\label{classComputer_a8590b3a5a4c607566bf6b4d4756ea66f}} 
+void {\bfseries Set\+Is\+Running} (bool value)
+\item 
+\mbox{\Hypertarget{classComputer_a62e242f3b7d97e5731d1ff0b8ac38e16}\label{classComputer_a62e242f3b7d97e5731d1ff0b8ac38e16}} 
+void {\bfseries Disinfect\+Revelation} ()
+\item 
+\mbox{\Hypertarget{classComputer_a10abdad6fdf839bb8be6c8726211da82}\label{classComputer_a10abdad6fdf839bb8be6c8726211da82}} 
+void {\bfseries Infect\+With\+Revelation} (float version)
+\item 
+int \mbox{\hyperlink{classComputer_ae74e57382b02e7c5b7e8d9a8e95f5cf1}{Add\+Computer\+Screen}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs, int index=-\/1)
+\item 
+\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ \mbox{\hyperlink{classComputer_ad9c1360590817dc4d52ef7aa496238b0}{Get\+Computer\+Screen}} (int index) const
+\item 
+void \mbox{\hyperlink{classComputer_a91bfe6063a5987a2d20c463934a7a859}{Check\+For\+Security\+Breaches}} ()
+\item 
+void \mbox{\hyperlink{classComputer_a4f0b3d8472514d6c66ad151141c1d653}{Manage\+Old\+Logs}} ()
+\item 
+bool \mbox{\hyperlink{classComputer_abc3820f202a7b26b11a01ffeec026e9a}{Change\+Security\+Codes}} ()
+\item 
+void \mbox{\hyperlink{classComputer_af7c1c0d33eb61404f03130c9682922a5}{Add\+To\+Recent\+Hacks}} (int n)
+\item 
+void \mbox{\hyperlink{classComputer_ac7f51bf8600f1b20e81afa3952894e86}{Update\+Recent\+Hacks}} ()
+\item 
+int \mbox{\hyperlink{classComputer_adc213253ef308cba8361535e550330ac}{Num\+Recent\+Hacks}} () const
+\item 
+bool \mbox{\hyperlink{classComputer_ab9c3c7dcf51e0de1eae8ad26ddc2a042}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classComputer_ac28df326f0f9366bef32e06c5feb71f5}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classComputer_ae2008d89188dd05421ee5c9e3b0feba0}{Print}} () override
+\item 
+void \mbox{\hyperlink{classComputer_a1afef2f395805708acb78e7993e57097}{Update}} () override
+\item 
+string \mbox{\hyperlink{classComputer_a58c33f97203ba2bba812636ca710d7c4}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classComputer_a9c8a92ebf455e97b1a08973ecd3d1b19}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classComputer_afd748ec076fb6bcf0b9a1c5ac98cabba}\label{classComputer_afd748ec076fb6bcf0b9a1c5ac98cabba}} 
+static void {\bfseries Generate\+Access\+Code} (const string \&code, string \&result)
+\item 
+\mbox{\Hypertarget{classComputer_a6d4403ebe0e87dc8a9e7c6ed7e854634}\label{classComputer_a6d4403ebe0e87dc8a9e7c6ed7e854634}} 
+static void {\bfseries Generate\+Access\+Code} (const string \&\mbox{\hyperlink{classComputer_a230ff4380f9ca778fbfed0acdb8c7260}{name}}, const string \&code, string \&result)
+\item 
+\mbox{\Hypertarget{classComputer_a5f03ef6d7c2c91f4f74ccca24d075e15}\label{classComputer_a5f03ef6d7c2c91f4f74ccca24d075e15}} 
+static void {\bfseries Generate\+Access\+Code} (int acc\+No, const string \&code, string \&result)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classComputer_a6b78c8e170acbb085e277de0045c4a62}{T\+Y\+PE}}
+\item 
+string \mbox{\hyperlink{classComputer_a230ff4380f9ca778fbfed0acdb8c7260}{name}}
+\item 
+string \mbox{\hyperlink{classComputer_a71033b8748b7b683b1fe59fb9a305d48}{companyname}}
+\item 
+char \mbox{\hyperlink{classComputer_a94ab2c306df943872ea60d3bdebcae04}{ip}} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classComputer_adcda32fe0d1a2425cc4f445708089db4}\label{classComputer_adcda32fe0d1a2425cc4f445708089db4}} 
+int {\bfseries tracespeed}
+\item 
+\mbox{\Hypertarget{classComputer_ac8fb93db74fb5a153eb899bc2b059474}\label{classComputer_ac8fb93db74fb5a153eb899bc2b059474}} 
+int {\bfseries traceaction}
+\item 
+bool \mbox{\hyperlink{classComputer_a17ec25e3a28d43f72e2e1c740924524d}{istargetable}}
+\item 
+bool \mbox{\hyperlink{classComputer_a2a7142b06891d87005038ef2d6c27881}{isexternallyopen}}
+\item 
+\mbox{\Hypertarget{classComputer_a16a1986045da03043e3a9c31c083f27c}\label{classComputer_a16a1986045da03043e3a9c31c083f27c}} 
+bool {\bfseries isrunning}
+\item 
+float \mbox{\hyperlink{classComputer_ad0f0b6b7977d111997c57328ba073f72}{isinfected\+\_\+revelation}}
+\item 
+\mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classComputer_ad98df22a0a184e5daf5981a466887f9f}{infectiondate}}
+\item 
+\mbox{\Hypertarget{classComputer_ae29ab010354cd08f8385f249455b368a}\label{classComputer_ae29ab010354cd08f8385f249455b368a}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ $>$ {\bfseries screens}
+\item 
+\mbox{\Hypertarget{classComputer_aeaf016618572c2cf22e7d76567fe7324}\label{classComputer_aeaf016618572c2cf22e7d76567fe7324}} 
+\mbox{\hyperlink{classDataBank}{Data\+Bank}} {\bfseries databank}
+\item 
+\mbox{\Hypertarget{classComputer_adb219b3c462af1bf5e1fe8019e6347cf}\label{classComputer_adb219b3c462af1bf5e1fe8019e6347cf}} 
+\mbox{\hyperlink{classLogBank}{Log\+Bank}} {\bfseries logbank}
+\item 
+\mbox{\Hypertarget{classComputer_a7fd862f8a182dc08f909c65f5f8b08b9}\label{classComputer_a7fd862f8a182dc08f909c65f5f8b08b9}} 
+\mbox{\hyperlink{classRecordBank}{Record\+Bank}} {\bfseries recordbank}
+\item 
+\mbox{\Hypertarget{classComputer_aa6d60acfd8fcef7b7f7502e6e1fbb2cb}\label{classComputer_aa6d60acfd8fcef7b7f7502e6e1fbb2cb}} 
+\mbox{\hyperlink{classSecurity}{Security}} {\bfseries security}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classComputer_a3ab561fefd365a33174c363d072437cc}{numrecenthacks}}
+\item 
+int \mbox{\hyperlink{classComputer_ad3d30f013539cc19c0059abfaee800cf}{numhacksthismonth}}
+\item 
+int \mbox{\hyperlink{classComputer_a28e02d329cd91bc0a951213953d48f15}{numhackslastmonth}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classComputer}{Computer}} class object. 
+
+The computer class describes a computer in the uplink world. This computer belongs to one company and is located at a virtual location. Part of the world sub-\/system 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComputer_ae74e57382b02e7c5b7e8d9a8e95f5cf1}\label{classComputer_ae74e57382b02e7c5b7e8d9a8e95f5cf1}} 
+\index{Computer@{Computer}!AddComputerScreen@{AddComputerScreen}}
+\index{AddComputerScreen@{AddComputerScreen}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{AddComputerScreen()}{AddComputerScreen()}}
+{\footnotesize\ttfamily int Computer\+::\+Add\+Computer\+Screen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{cs,  }\item[{int}]{index = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+Adds a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} to this computer 
+\begin{DoxyParams}{Parameters}
+{\em cs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} to add \\
+\hline
+{\em index} & The index to add this computer screen at \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the added \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComputer_af7c1c0d33eb61404f03130c9682922a5}\label{classComputer_af7c1c0d33eb61404f03130c9682922a5}} 
+\index{Computer@{Computer}!AddToRecentHacks@{AddToRecentHacks}}
+\index{AddToRecentHacks@{AddToRecentHacks}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{AddToRecentHacks()}{AddToRecentHacks()}}
+{\footnotesize\ttfamily void Computer\+::\+Add\+To\+Recent\+Hacks (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+Adds a number of recent hacks to this machine 
+\begin{DoxyParams}{Parameters}
+{\em n} & Number of recent hacks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This should be called when the machine is hacked 
+\end{DoxyNote}
+\mbox{\Hypertarget{classComputer_abc3820f202a7b26b11a01ffeec026e9a}\label{classComputer_abc3820f202a7b26b11a01ffeec026e9a}} 
+\index{Computer@{Computer}!ChangeSecurityCodes@{ChangeSecurityCodes}}
+\index{ChangeSecurityCodes@{ChangeSecurityCodes}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{ChangeSecurityCodes()}{ChangeSecurityCodes()}}
+{\footnotesize\ttfamily bool Computer\+::\+Change\+Security\+Codes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Changes passwords on the machine \begin{DoxyReturn}{Returns}
+true if changes were made 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComputer_a91bfe6063a5987a2d20c463934a7a859}\label{classComputer_a91bfe6063a5987a2d20c463934a7a859}} 
+\index{Computer@{Computer}!CheckForSecurityBreaches@{CheckForSecurityBreaches}}
+\index{CheckForSecurityBreaches@{CheckForSecurityBreaches}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{CheckForSecurityBreaches()}{CheckForSecurityBreaches()}}
+{\footnotesize\ttfamily void Computer\+::\+Check\+For\+Security\+Breaches (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks if the machine was hacked, resets the security systems on the machine, and generates a news article for certain hacks \begin{DoxyNote}{Note}
+Call me frequently 
+\end{DoxyNote}
+\mbox{\Hypertarget{classComputer_ad9c1360590817dc4d52ef7aa496238b0}\label{classComputer_ad9c1360590817dc4d52ef7aa496238b0}} 
+\index{Computer@{Computer}!GetComputerScreen@{GetComputerScreen}}
+\index{GetComputerScreen@{GetComputerScreen}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{GetComputerScreen()}{GetComputerScreen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ Computer\+::\+Get\+Computer\+Screen (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+Gets a screen on this computer at an index 
+\begin{DoxyParams}{Parameters}
+{\em index} & The screen index to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComputer_a58c33f97203ba2bba812636ca710d7c4}\label{classComputer_a58c33f97203ba2bba812636ca710d7c4}} 
+\index{Computer@{Computer}!GetID@{GetID}}
+\index{GetID@{GetID}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Computer\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLanComputer_a540b99721c3e3c4d9a556c5e61484a15}{Lan\+Computer}}.
+
+\mbox{\Hypertarget{classComputer_a9c8a92ebf455e97b1a08973ecd3d1b19}\label{classComputer_a9c8a92ebf455e97b1a08973ecd3d1b19}} 
+\index{Computer@{Computer}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Computer\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLanComputer_a312dc5923e686a07f7149177c0aa7b88}{Lan\+Computer}}.
+
+\mbox{\Hypertarget{classComputer_ab9c3c7dcf51e0de1eae8ad26ddc2a042}\label{classComputer_ab9c3c7dcf51e0de1eae8ad26ddc2a042}} 
+\index{Computer@{Computer}!Load@{Load}}
+\index{Load@{Load}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Computer\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLanComputer_a66e38d914991e10322d66d772eb37c31}{Lan\+Computer}}.
+
+\mbox{\Hypertarget{classComputer_a4f0b3d8472514d6c66ad151141c1d653}\label{classComputer_a4f0b3d8472514d6c66ad151141c1d653}} 
+\index{Computer@{Computer}!ManageOldLogs@{ManageOldLogs}}
+\index{ManageOldLogs@{ManageOldLogs}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{ManageOldLogs()}{ManageOldLogs()}}
+{\footnotesize\ttfamily void Computer\+::\+Manage\+Old\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deletes old logs \begin{DoxyNote}{Note}
+Call me frequently 
+\end{DoxyNote}
+\mbox{\Hypertarget{classComputer_adc213253ef308cba8361535e550330ac}\label{classComputer_adc213253ef308cba8361535e550330ac}} 
+\index{Computer@{Computer}!NumRecentHacks@{NumRecentHacks}}
+\index{NumRecentHacks@{NumRecentHacks}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{NumRecentHacks()}{NumRecentHacks()}}
+{\footnotesize\ttfamily int Computer\+::\+Num\+Recent\+Hacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Gets the number of recent hacks on this machine \begin{DoxyReturn}{Returns}
+The number of recent hacks 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classComputer_ae2008d89188dd05421ee5c9e3b0feba0}\label{classComputer_ae2008d89188dd05421ee5c9e3b0feba0}} 
+\index{Computer@{Computer}!Print@{Print}}
+\index{Print@{Print}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Computer\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLanComputer_a0fea3f2aa4b8f44aaa46fb65482f8272}{Lan\+Computer}}.
+
+\mbox{\Hypertarget{classComputer_ac28df326f0f9366bef32e06c5feb71f5}\label{classComputer_ac28df326f0f9366bef32e06c5feb71f5}} 
+\index{Computer@{Computer}!Save@{Save}}
+\index{Save@{Save}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Computer\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLanComputer_a058211b25e0ba4a9d608c319fc44836a}{Lan\+Computer}}.
+
+\mbox{\Hypertarget{classComputer_a59e821548350ceff5b82a887660e313c}\label{classComputer_a59e821548350ceff5b82a887660e313c}} 
+\index{Computer@{Computer}!SetCompanyName@{SetCompanyName}}
+\index{SetCompanyName@{SetCompanyName}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{SetCompanyName()}{SetCompanyName()}}
+{\footnotesize\ttfamily void Computer\+::\+Set\+Company\+Name (\begin{DoxyParamCaption}\item[{const string \&}]{newname }\end{DoxyParamCaption})}
+
+Sets the company name that owns the computer 
+\begin{DoxyParams}{Parameters}
+{\em newname} & The company that owns the computer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComputer_a608a2335707951b8ccd7feb04d4ca896}\label{classComputer_a608a2335707951b8ccd7feb04d4ca896}} 
+\index{Computer@{Computer}!SetIP@{SetIP}}
+\index{SetIP@{SetIP}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{SetIP()}{SetIP()}}
+{\footnotesize\ttfamily void Computer\+::\+Set\+IP (\begin{DoxyParamCaption}\item[{const string \&}]{newip }\end{DoxyParamCaption})}
+
+Sets the IP of the computer 
+\begin{DoxyParams}{Parameters}
+{\em newip} & The new IP of the computer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComputer_a5ba9bb2f254f878ad73c81b129bcde85}\label{classComputer_a5ba9bb2f254f878ad73c81b129bcde85}} 
+\index{Computer@{Computer}!SetName@{SetName}}
+\index{SetName@{SetName}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily void Computer\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{const string \&}]{newname }\end{DoxyParamCaption})}
+
+Sets the name of the computer 
+\begin{DoxyParams}{Parameters}
+{\em newname} & The new name of the computer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classComputer_ab27c04208668cf3248a638af7cc30105}\label{classComputer_ab27c04208668cf3248a638af7cc30105}} 
+\index{Computer@{Computer}!SetTYPE@{SetTYPE}}
+\index{SetTYPE@{SetTYPE}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{SetTYPE()}{SetTYPE()}}
+{\footnotesize\ttfamily void Computer\+::\+Set\+T\+Y\+PE (\begin{DoxyParamCaption}\item[{int}]{new\+T\+Y\+PE }\end{DoxyParamCaption})}
+
+Sets the type of the computer 
+\begin{DoxyParams}{Parameters}
+{\em new\+T\+Y\+PE} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Possible values for new\+T\+Y\+PE are\+: C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+N\+K\+N\+O\+WN, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+U\+B\+L\+I\+C\+A\+C\+C\+E\+S\+S\+S\+E\+R\+V\+ER, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+S\+E\+R\+V\+I\+C\+E\+S\+M\+A\+C\+H\+I\+NE, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+E\+N\+T\+R\+A\+L\+M\+A\+I\+N\+F\+R\+A\+ME, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+U\+B\+L\+I\+C\+B\+A\+N\+K\+S\+E\+R\+V\+ER, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E\+R\+S\+O\+N\+A\+L\+C\+O\+M\+P\+U\+T\+ER, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+V\+O\+I\+C\+E\+P\+H\+O\+N\+E\+S\+Y\+S\+T\+EM, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+AN 
+\end{DoxyNote}
+\mbox{\Hypertarget{classComputer_a1afef2f395805708acb78e7993e57097}\label{classComputer_a1afef2f395805708acb78e7993e57097}} 
+\index{Computer@{Computer}!Update@{Update}}
+\index{Update@{Update}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Computer\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classLanComputer_a9b9233632180be0c1503e24b5895bbf7}{Lan\+Computer}}.
+
+\mbox{\Hypertarget{classComputer_ac7f51bf8600f1b20e81afa3952894e86}\label{classComputer_ac7f51bf8600f1b20e81afa3952894e86}} 
+\index{Computer@{Computer}!UpdateRecentHacks@{UpdateRecentHacks}}
+\index{UpdateRecentHacks@{UpdateRecentHacks}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{UpdateRecentHacks()}{UpdateRecentHacks()}}
+{\footnotesize\ttfamily void Computer\+::\+Update\+Recent\+Hacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates the number of recent hacks \begin{DoxyNote}{Note}
+This is called 4 times a month 
+
+Reduces the number of recent hacks by the number last month / 4 (removing all of last months hacks from the count by the end of the month)
+
+If it is the end of the month, process the changeover to a new month 
+
+Also schedules the next check 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classComputer_a71033b8748b7b683b1fe59fb9a305d48}\label{classComputer_a71033b8748b7b683b1fe59fb9a305d48}} 
+\index{Computer@{Computer}!companyname@{companyname}}
+\index{companyname@{companyname}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{companyname}{companyname}}
+{\footnotesize\ttfamily string Computer\+::companyname}
+
+Name of company that owns this machine \mbox{\Hypertarget{classComputer_ad98df22a0a184e5daf5981a466887f9f}\label{classComputer_ad98df22a0a184e5daf5981a466887f9f}} 
+\index{Computer@{Computer}!infectiondate@{infectiondate}}
+\index{infectiondate@{infectiondate}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{infectiondate}{infectiondate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDate}{Date}} Computer\+::infectiondate}
+
+The date of the infection from revelation \mbox{\Hypertarget{classComputer_a94ab2c306df943872ea60d3bdebcae04}\label{classComputer_a94ab2c306df943872ea60d3bdebcae04}} 
+\index{Computer@{Computer}!ip@{ip}}
+\index{ip@{ip}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{ip}{ip}}
+{\footnotesize\ttfamily char Computer\+::ip\mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}}
+
+IP of the computer \mbox{\Hypertarget{classComputer_a2a7142b06891d87005038ef2d6c27881}\label{classComputer_a2a7142b06891d87005038ef2d6c27881}} 
+\index{Computer@{Computer}!isexternallyopen@{isexternallyopen}}
+\index{isexternallyopen@{isexternallyopen}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{isexternallyopen}{isexternallyopen}}
+{\footnotesize\ttfamily bool Computer\+::isexternallyopen}
+
+Can this computer be connected to from outside its trusted network? \mbox{\Hypertarget{classComputer_ad0f0b6b7977d111997c57328ba073f72}\label{classComputer_ad0f0b6b7977d111997c57328ba073f72}} 
+\index{Computer@{Computer}!isinfected\_revelation@{isinfected\_revelation}}
+\index{isinfected\_revelation@{isinfected\_revelation}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{isinfected\_revelation}{isinfected\_revelation}}
+{\footnotesize\ttfamily float Computer\+::isinfected\+\_\+revelation}
+
+The version of revelation on this machine \begin{DoxyNote}{Note}
+0.\+0 means that this machine is not running 
+\end{DoxyNote}
+\mbox{\Hypertarget{classComputer_a17ec25e3a28d43f72e2e1c740924524d}\label{classComputer_a17ec25e3a28d43f72e2e1c740924524d}} 
+\index{Computer@{Computer}!istargetable@{istargetable}}
+\index{istargetable@{istargetable}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{istargetable}{istargetable}}
+{\footnotesize\ttfamily bool Computer\+::istargetable}
+
+Can this computer be targeted by random events \mbox{\Hypertarget{classComputer_a230ff4380f9ca778fbfed0acdb8c7260}\label{classComputer_a230ff4380f9ca778fbfed0acdb8c7260}} 
+\index{Computer@{Computer}!name@{name}}
+\index{name@{name}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily string Computer\+::name}
+
+The name of this machine \mbox{\Hypertarget{classComputer_a28e02d329cd91bc0a951213953d48f15}\label{classComputer_a28e02d329cd91bc0a951213953d48f15}} 
+\index{Computer@{Computer}!numhackslastmonth@{numhackslastmonth}}
+\index{numhackslastmonth@{numhackslastmonth}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{numhackslastmonth}{numhackslastmonth}}
+{\footnotesize\ttfamily int Computer\+::numhackslastmonth\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of times this machine was hacked last month \mbox{\Hypertarget{classComputer_ad3d30f013539cc19c0059abfaee800cf}\label{classComputer_ad3d30f013539cc19c0059abfaee800cf}} 
+\index{Computer@{Computer}!numhacksthismonth@{numhacksthismonth}}
+\index{numhacksthismonth@{numhacksthismonth}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{numhacksthismonth}{numhacksthismonth}}
+{\footnotesize\ttfamily int Computer\+::numhacksthismonth\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of times this machine was hacked this month \mbox{\Hypertarget{classComputer_a3ab561fefd365a33174c363d072437cc}\label{classComputer_a3ab561fefd365a33174c363d072437cc}} 
+\index{Computer@{Computer}!numrecenthacks@{numrecenthacks}}
+\index{numrecenthacks@{numrecenthacks}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{numrecenthacks}{numrecenthacks}}
+{\footnotesize\ttfamily int Computer\+::numrecenthacks\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of times this machine was recently hacked \mbox{\Hypertarget{classComputer_a6b78c8e170acbb085e277de0045c4a62}\label{classComputer_a6b78c8e170acbb085e277de0045c4a62}} 
+\index{Computer@{Computer}!TYPE@{TYPE}}
+\index{TYPE@{TYPE}!Computer@{Computer}}
+\doxysubsubsection{\texorpdfstring{TYPE}{TYPE}}
+{\footnotesize\ttfamily int Computer\+::\+T\+Y\+PE}
+
+The type of the computer \begin{DoxyNote}{Note}
+Valid types are C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+N\+K\+N\+O\+WN, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+U\+B\+L\+I\+C\+A\+C\+C\+E\+S\+S\+S\+E\+R\+V\+ER, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+S\+E\+R\+V\+I\+C\+E\+S\+M\+A\+C\+H\+I\+NE, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+E\+N\+T\+R\+A\+L\+M\+A\+I\+N\+F\+R\+A\+ME, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+U\+B\+L\+I\+C\+B\+A\+N\+K\+S\+E\+R\+V\+ER, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E\+R\+S\+O\+N\+A\+L\+C\+O\+M\+P\+U\+T\+ER, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+V\+O\+I\+C\+E\+P\+H\+O\+N\+E\+S\+Y\+S\+T\+EM, C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+AN 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computer.\+h\item 
+uplink/src/world/computer/computer.\+cpp\end{DoxyCompactItemize}

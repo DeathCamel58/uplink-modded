@@ -1,0 +1,210 @@
+\hypertarget{classFinanceInterface}{}\doxysection{Finance\+Interface Class Reference}
+\label{classFinanceInterface}\index{FinanceInterface@{FinanceInterface}}
+
+
+Screen that shows finances.  
+
+
+
+
+{\ttfamily \#include $<$finance\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Finance\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Finance\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classFinanceInterface_a0f236f09576ecd8f7da129426a8700e4}{Create}} () override
+\item 
+void \mbox{\hyperlink{classFinanceInterface_adb6f9915a92afc52b8d51e7e9994b26d}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classFinanceInterface_a5a15aff16900859e274892e9215cf666}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classFinanceInterface_a7cc3e90c5198b5f94ea1f8bd89c0219c}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classFinanceInterface_a7fb8baba8a743a661788d0042dcf5792}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classFinanceInterface_a2d8ad093d7528da30c2419294dc11097}{After\+Phone\+Dialler}} (string \&ip, string \&info)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classFinanceInterface_a1a2bf08c6cecd2d187cc8446b5d374c2}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classFinanceInterface_a4ac29a996ebf53b6c70a8a96188c7ae3}{Draw\+Accounts\+Title}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classFinanceInterface_a135a917a07a649299e9a57b98257d762}{Click\+Account\+Button}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classFinanceInterface_af37199d47dd2da779cd4d23fd2f5ccc1}{Draw\+Account\+Button}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFinanceInterface_ad12ca45e4d6c0ec5fd75d1955123098e}\label{classFinanceInterface_ad12ca45e4d6c0ec5fd75d1955123098e}} 
+int {\bfseries oldbalance}
+\item 
+int \mbox{\hyperlink{classFinanceInterface_a249d0246f1ec6d6cad413d85648f255e}{previousnumaccounts}}
+\item 
+time\+\_\+t \mbox{\hyperlink{classFinanceInterface_ae543c607bd515d8665dccbc33bc2e3f3}{lastupdate}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows finances. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFinanceInterface_a2d8ad093d7528da30c2419294dc11097}\label{classFinanceInterface_a2d8ad093d7528da30c2419294dc11097}} 
+\index{FinanceInterface@{FinanceInterface}!AfterPhoneDialler@{AfterPhoneDialler}}
+\index{AfterPhoneDialler@{AfterPhoneDialler}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{AfterPhoneDialler()}{AfterPhoneDialler()}}
+{\footnotesize\ttfamily void Finance\+Interface\+::\+After\+Phone\+Dialler (\begin{DoxyParamCaption}\item[{string \&}]{ip,  }\item[{string \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Logs user into bank account 
+\begin{DoxyParams}{Parameters}
+{\em ip} & The bank IP \\
+\hline
+{\em info} & The bank account number to log in to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFinanceInterface_a135a917a07a649299e9a57b98257d762}\label{classFinanceInterface_a135a917a07a649299e9a57b98257d762}} 
+\index{FinanceInterface@{FinanceInterface}!ClickAccountButton@{ClickAccountButton}}
+\index{ClickAccountButton@{ClickAccountButton}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{ClickAccountButton()}{ClickAccountButton()}}
+{\footnotesize\ttfamily void Finance\+Interface\+::\+Click\+Account\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Gets the account information, connects to the bank IP 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFinanceInterface_a0f236f09576ecd8f7da129426a8700e4}\label{classFinanceInterface_a0f236f09576ecd8f7da129426a8700e4}} 
+\index{FinanceInterface@{FinanceInterface}!Create@{Create}}
+\index{Create@{Create}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Finance\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFinanceInterface_af37199d47dd2da779cd4d23fd2f5ccc1}\label{classFinanceInterface_af37199d47dd2da779cd4d23fd2f5ccc1}} 
+\index{FinanceInterface@{FinanceInterface}!DrawAccountButton@{DrawAccountButton}}
+\index{DrawAccountButton@{DrawAccountButton}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{DrawAccountButton()}{DrawAccountButton()}}
+{\footnotesize\ttfamily void Finance\+Interface\+::\+Draw\+Account\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the account rows 
+\begin{DoxyParams}{Parameters}
+{\em button} & The account row \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFinanceInterface_a4ac29a996ebf53b6c70a8a96188c7ae3}\label{classFinanceInterface_a4ac29a996ebf53b6c70a8a96188c7ae3}} 
+\index{FinanceInterface@{FinanceInterface}!DrawAccountsTitle@{DrawAccountsTitle}}
+\index{DrawAccountsTitle@{DrawAccountsTitle}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{DrawAccountsTitle()}{DrawAccountsTitle()}}
+{\footnotesize\ttfamily void Finance\+Interface\+::\+Draw\+Accounts\+Title (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the title row of the data 
+\begin{DoxyParams}{Parameters}
+{\em button} & The top row of the data \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classFinanceInterface_a7cc3e90c5198b5f94ea1f8bd89c0219c}\label{classFinanceInterface_a7cc3e90c5198b5f94ea1f8bd89c0219c}} 
+\index{FinanceInterface@{FinanceInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Finance\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFinanceInterface_adb6f9915a92afc52b8d51e7e9994b26d}\label{classFinanceInterface_adb6f9915a92afc52b8d51e7e9994b26d}} 
+\index{FinanceInterface@{FinanceInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Finance\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFinanceInterface_a7fb8baba8a743a661788d0042dcf5792}\label{classFinanceInterface_a7fb8baba8a743a661788d0042dcf5792}} 
+\index{FinanceInterface@{FinanceInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Finance\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFinanceInterface_a1a2bf08c6cecd2d187cc8446b5d374c2}\label{classFinanceInterface_a1a2bf08c6cecd2d187cc8446b5d374c2}} 
+\index{FinanceInterface@{FinanceInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void Finance\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classFinanceInterface_a5a15aff16900859e274892e9215cf666}\label{classFinanceInterface_a5a15aff16900859e274892e9215cf666}} 
+\index{FinanceInterface@{FinanceInterface}!Update@{Update}}
+\index{Update@{Update}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Finance\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classFinanceInterface_ae543c607bd515d8665dccbc33bc2e3f3}\label{classFinanceInterface_ae543c607bd515d8665dccbc33bc2e3f3}} 
+\index{FinanceInterface@{FinanceInterface}!lastupdate@{lastupdate}}
+\index{lastupdate@{lastupdate}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{lastupdate}{lastupdate}}
+{\footnotesize\ttfamily time\+\_\+t Finance\+Interface\+::lastupdate\hspace{0.3cm}{\ttfamily [protected]}}
+
+The time the list was last updated \mbox{\Hypertarget{classFinanceInterface_a249d0246f1ec6d6cad413d85648f255e}\label{classFinanceInterface_a249d0246f1ec6d6cad413d85648f255e}} 
+\index{FinanceInterface@{FinanceInterface}!previousnumaccounts@{previousnumaccounts}}
+\index{previousnumaccounts@{previousnumaccounts}!FinanceInterface@{FinanceInterface}}
+\doxysubsubsection{\texorpdfstring{previousnumaccounts}{previousnumaccounts}}
+{\footnotesize\ttfamily int Finance\+Interface\+::previousnumaccounts\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of accounts the user has 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/finance\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/finance\+\_\+interface.\+cpp\end{DoxyCompactItemize}

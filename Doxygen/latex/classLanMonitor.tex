@@ -1,0 +1,93 @@
+\hypertarget{classLanMonitor}{}\doxysection{Lan\+Monitor Class Reference}
+\label{classLanMonitor}\index{LanMonitor@{LanMonitor}}
+
+
+Collaboration diagram for Lan\+Monitor\+:
+% FIG 0
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanMonitor_aeed8d1cfc01450a0aa08d705f9e48aab}\label{classLanMonitor_aeed8d1cfc01450a0aa08d705f9e48aab}} 
+static void {\bfseries Begin\+Attack} ()
+\item 
+\mbox{\Hypertarget{classLanMonitor_a3b5fa9de17f223fc017eea86db2c1d49}\label{classLanMonitor_a3b5fa9de17f223fc017eea86db2c1d49}} 
+static void {\bfseries End\+Attack} ()
+\item 
+\mbox{\Hypertarget{classLanMonitor_aab3824385a60ffc620df01bf579fbfba}\label{classLanMonitor_aab3824385a60ffc620df01bf579fbfba}} 
+static void {\bfseries Reset\+All} ()
+\item 
+\mbox{\Hypertarget{classLanMonitor_a4a77683fe1268f01f32e24fc32ad45e3}\label{classLanMonitor_a4a77683fe1268f01f32e24fc32ad45e3}} 
+static void {\bfseries Set\+Current\+System} (int new\+Current\+System)
+\item 
+\mbox{\Hypertarget{classLanMonitor_ae00258f5522647dfc18f969f3f747f23}\label{classLanMonitor_ae00258f5522647dfc18f969f3f747f23}} 
+static void {\bfseries Set\+Current\+Selected} (int new\+Current\+Selected)
+\item 
+\mbox{\Hypertarget{classLanMonitor_a717c3bead36b446fcadd5c7b5cae6b10}\label{classLanMonitor_a717c3bead36b446fcadd5c7b5cae6b10}} 
+static void {\bfseries Set\+Current\+Spoof} (int new\+Current\+Spoof)
+\item 
+\mbox{\Hypertarget{classLanMonitor_a77f7b77ff46ce9f4de1b3b8b2b366222}\label{classLanMonitor_a77f7b77ff46ce9f4de1b3b8b2b366222}} 
+static void {\bfseries Extend\+Connection} (int new\+Node)
+\item 
+\mbox{\Hypertarget{classLanMonitor_a2f904890b3540d4dfc48b6bfef915cf4}\label{classLanMonitor_a2f904890b3540d4dfc48b6bfef915cf4}} 
+static void {\bfseries Force\+Extend\+Connection} (int new\+Node)
+\item 
+\mbox{\Hypertarget{classLanMonitor_a5ac3e6784c49b6c16475709d156a65ec}\label{classLanMonitor_a5ac3e6784c49b6c16475709d156a65ec}} 
+static void {\bfseries Retract\+Connection} ()
+\item 
+\mbox{\Hypertarget{classLanMonitor_a3a2e0e9b1fa6a43fb80e02c4138f505e}\label{classLanMonitor_a3a2e0e9b1fa6a43fb80e02c4138f505e}} 
+static bool {\bfseries Is\+In\+Connection} (int node)
+\item 
+\mbox{\Hypertarget{classLanMonitor_a21919aae01e1cdf1ade230d7d09532d6}\label{classLanMonitor_a21919aae01e1cdf1ade230d7d09532d6}} 
+static int {\bfseries Get\+Node\+Index} (int node)
+\item 
+\mbox{\Hypertarget{classLanMonitor_a5acd55c20c1290ffe92144b46912cbde}\label{classLanMonitor_a5acd55c20c1290ffe92144b46912cbde}} 
+static bool {\bfseries Is\+Accessable} (int node)
+\item 
+\mbox{\Hypertarget{classLanMonitor_ad0d33754ce8f90b17c7322fde396c5ca}\label{classLanMonitor_ad0d33754ce8f90b17c7322fde396c5ca}} 
+static void {\bfseries Sys\+Admin\+Awaken} ()
+\item 
+\mbox{\Hypertarget{classLanMonitor_a7bb787235485cf8815be92c09db6d0cd}\label{classLanMonitor_a7bb787235485cf8815be92c09db6d0cd}} 
+static void {\bfseries Sys\+Admin\+Sleep} ()
+\item 
+\mbox{\Hypertarget{classLanMonitor_a33889e15bbcb6793805492c700d13659}\label{classLanMonitor_a33889e15bbcb6793805492c700d13659}} 
+static void {\bfseries Update} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanMonitor_a830da983d8224af0ad3b539e680f7074}\label{classLanMonitor_a830da983d8224af0ad3b539e680f7074}} 
+static int {\bfseries current\+System} = -\/1
+\item 
+\mbox{\Hypertarget{classLanMonitor_afbce167cc716eecb5234fbab11e9ac6b}\label{classLanMonitor_afbce167cc716eecb5234fbab11e9ac6b}} 
+static int {\bfseries current\+Selected} = -\/1
+\item 
+\mbox{\Hypertarget{classLanMonitor_a38dc1eff66a1157612d549b2a6f33f36}\label{classLanMonitor_a38dc1eff66a1157612d549b2a6f33f36}} 
+static int {\bfseries current\+Spoof} = -\/1
+\item 
+\mbox{\Hypertarget{classLanMonitor_a4c193c5f242ba681464f10889f019661}\label{classLanMonitor_a4c193c5f242ba681464f10889f019661}} 
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ int $>$ {\bfseries connection}
+\item 
+\mbox{\Hypertarget{classLanMonitor_a52df4a65d0253a4007b32d4eae338bc0}\label{classLanMonitor_a52df4a65d0253a4007b32d4eae338bc0}} 
+static int {\bfseries sys\+Admin\+State} = -\/1
+\item 
+\mbox{\Hypertarget{classLanMonitor_aee6d36c6c9f2eb51ff76ea71453b83d2}\label{classLanMonitor_aee6d36c6c9f2eb51ff76ea71453b83d2}} 
+static int {\bfseries sys\+Admin\+Current\+System} = -\/1
+\item 
+\mbox{\Hypertarget{classLanMonitor_ab4d44fa7b7da0bd990581ffd68a42715}\label{classLanMonitor_ab4d44fa7b7da0bd990581ffd68a42715}} 
+static int {\bfseries sys\+Admin\+Timer} = -\/1
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanMonitor_a290b14003f5396bdf8f3a295f09c5b4c}\label{classLanMonitor_a290b14003f5396bdf8f3a295f09c5b4c}} 
+static bool {\bfseries currently\+Active} = false
+\item 
+\mbox{\Hypertarget{classLanMonitor_ad5f2f188ea78eb094be0b81bda72fff1}\label{classLanMonitor_ad5f2f188ea78eb094be0b81bda72fff1}} 
+static \mbox{\hyperlink{classLanComputer}{Lan\+Computer}} $\ast$ {\bfseries lan\+Computer} = nullptr
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/lanmonitor.\+h\item 
+uplink/src/world/computer/lanmonitor.\+cpp\end{DoxyCompactItemize}

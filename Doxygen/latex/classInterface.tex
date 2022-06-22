@@ -1,0 +1,128 @@
+\hypertarget{classInterface}{}\doxysection{Interface Class Reference}
+\label{classInterface}\index{Interface@{Interface}}
+
+
+Inheritance diagram for Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterface_aa6e3d8658471d4ab5f35a0380c7f1bf0}\label{classInterface_aa6e3d8658471d4ab5f35a0380c7f1bf0}} 
+void {\bfseries Create} ()
+\item 
+\mbox{\Hypertarget{classInterface_ae98e9dcabf033eba018183b06ee3af8c}\label{classInterface_ae98e9dcabf033eba018183b06ee3af8c}} 
+\mbox{\hyperlink{classLocalInterface}{Local\+Interface}} $\ast$ {\bfseries Get\+Local\+Interface} ()
+\item 
+\mbox{\Hypertarget{classInterface_aff28635bb25500a4660fb96ed09f75b3}\label{classInterface_aff28635bb25500a4660fb96ed09f75b3}} 
+\mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} $\ast$ {\bfseries Get\+Remote\+Interface} ()
+\item 
+\mbox{\Hypertarget{classInterface_ae9aad6080f232d95009fd4300044e02a}\label{classInterface_ae9aad6080f232d95009fd4300044e02a}} 
+\mbox{\hyperlink{classTaskManager}{Task\+Manager}} $\ast$ {\bfseries Get\+Task\+Manager} ()
+\item 
+bool \mbox{\hyperlink{classInterface_aa3bcbaadc22e801c709b45f7f8dee192}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classInterface_ae188450fb59db227e1c86eef6386bc79}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classInterface_a0658d4d80eb99f73de1cf3755e0f23db}{Print}} () override
+\item 
+void \mbox{\hyperlink{classInterface_a1bde3213ddc9cd5298ee493870fbd855}{Update}} () override
+\item 
+string \mbox{\hyperlink{classInterface_a8104f42f6c57319f605792a60c6f668c}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInterface_ad90bf81dadbcb3fe12a35957ef46f8bf}\label{classInterface_ad90bf81dadbcb3fe12a35957ef46f8bf}} 
+\mbox{\hyperlink{classLocalInterface}{Local\+Interface}} $\ast$ {\bfseries li}
+\item 
+\mbox{\Hypertarget{classInterface_a1603612b91ce4ea844698b3a1f8c8250}\label{classInterface_a1603612b91ce4ea844698b3a1f8c8250}} 
+\mbox{\hyperlink{classRemoteInterface}{Remote\+Interface}} $\ast$ {\bfseries ri}
+\item 
+\mbox{\Hypertarget{classInterface_a8d79922e03dc4be382176c4a750849dc}\label{classInterface_a8d79922e03dc4be382176c4a750849dc}} 
+\mbox{\hyperlink{classTaskManager}{Task\+Manager}} $\ast$ {\bfseries tm}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInterface_a8104f42f6c57319f605792a60c6f668c}\label{classInterface_a8104f42f6c57319f605792a60c6f668c}} 
+\index{Interface@{Interface}!GetID@{GetID}}
+\index{GetID@{GetID}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Interface\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classInterface_aa3bcbaadc22e801c709b45f7f8dee192}\label{classInterface_aa3bcbaadc22e801c709b45f7f8dee192}} 
+\index{Interface@{Interface}!Load@{Load}}
+\index{Load@{Load}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Interface\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classInterface_a0658d4d80eb99f73de1cf3755e0f23db}\label{classInterface_a0658d4d80eb99f73de1cf3755e0f23db}} 
+\index{Interface@{Interface}!Print@{Print}}
+\index{Print@{Print}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Interface\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classInterface_ae188450fb59db227e1c86eef6386bc79}\label{classInterface_ae188450fb59db227e1c86eef6386bc79}} 
+\index{Interface@{Interface}!Save@{Save}}
+\index{Save@{Save}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Interface\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classInterface_a1bde3213ddc9cd5298ee493870fbd855}\label{classInterface_a1bde3213ddc9cd5298ee493870fbd855}} 
+\index{Interface@{Interface}!Update@{Update}}
+\index{Update@{Update}!Interface@{Interface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/interface.\+h\item 
+uplink/src/interface/interface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,245 @@
+\hypertarget{classPerson}{}\doxysection{Person Class Reference}
+\label{classPerson}\index{Person@{Person}}
+
+
+Inheritance diagram for Person\+:
+% FIG 0
+
+
+Collaboration diagram for Person\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerson_a34efca3cae7cc09abf5e0976d752e0d9}\label{classPerson_a34efca3cae7cc09abf5e0976d752e0d9}} 
+void {\bfseries Set\+Name} (const string \&newname)
+\item 
+\mbox{\Hypertarget{classPerson_a5dc8f5d832207e05f91faac8a2bd0f2e}\label{classPerson_a5dc8f5d832207e05f91faac8a2bd0f2e}} 
+void {\bfseries Set\+Age} (int newage)
+\item 
+\mbox{\Hypertarget{classPerson_a2fe69d6c86e8f8a95fd2c33559868eb9}\label{classPerson_a2fe69d6c86e8f8a95fd2c33559868eb9}} 
+void {\bfseries Set\+Photo\+Index} (int newindex)
+\item 
+\mbox{\Hypertarget{classPerson_af07a290119c15d7bcd8d081bbdd6578c}\label{classPerson_af07a290119c15d7bcd8d081bbdd6578c}} 
+void {\bfseries Set\+Voice\+Index} (int newindex)
+\item 
+\mbox{\Hypertarget{classPerson_a599c2c4221b026c1dcdf41e87ccf0efd}\label{classPerson_a599c2c4221b026c1dcdf41e87ccf0efd}} 
+void {\bfseries Set\+Local\+Host} (const string \&newip)
+\item 
+\mbox{\Hypertarget{classPerson_a2d0bbac7e7abb8617bfaaa9461a79ac3}\label{classPerson_a2d0bbac7e7abb8617bfaaa9461a79ac3}} 
+void {\bfseries Set\+Remote\+Host} (const string \&newip)
+\item 
+\mbox{\Hypertarget{classPerson_a319f789bde4d0785d6a0b0187a3131c6}\label{classPerson_a319f789bde4d0785d6a0b0187a3131c6}} 
+void {\bfseries Set\+Phone\+Number} (const string \&newphone)
+\item 
+\mbox{\Hypertarget{classPerson_affb0133344b8c1ac1cd0b4e4e418b167}\label{classPerson_affb0133344b8c1ac1cd0b4e4e418b167}} 
+void {\bfseries Set\+Status} (int new\+S\+T\+A\+T\+US)
+\item 
+\mbox{\Hypertarget{classPerson_adabec0575286fa6d0b21913d3fc3e3b7}\label{classPerson_adabec0575286fa6d0b21913d3fc3e3b7}} 
+int {\bfseries Get\+Status} () const
+\item 
+\mbox{\Hypertarget{classPerson_a0400d99452752e03231d68c23c3ea017}\label{classPerson_a0400d99452752e03231d68c23c3ea017}} 
+virtual void {\bfseries Give\+Message} (\mbox{\hyperlink{classMessage}{Message}} $\ast$message)
+\item 
+\mbox{\Hypertarget{classPerson_ae3527fc361321b46b14c40ac99f31a35}\label{classPerson_ae3527fc361321b46b14c40ac99f31a35}} 
+bool {\bfseries Is\+Connected} ()
+\item 
+\mbox{\Hypertarget{classPerson_a433fd61711559d4bfb319a6cb3b51419}\label{classPerson_a433fd61711559d4bfb319a6cb3b51419}} 
+\mbox{\hyperlink{classConnection}{Connection}} $\ast$ {\bfseries Get\+Connection} ()
+\item 
+\mbox{\Hypertarget{classPerson_a1a2f965a16b3bdb1c03225c156ed8862}\label{classPerson_a1a2f965a16b3bdb1c03225c156ed8862}} 
+\mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ {\bfseries Get\+Local\+Host} ()
+\item 
+\mbox{\Hypertarget{classPerson_a1ae6605644f05654397a7b917647935b}\label{classPerson_a1ae6605644f05654397a7b917647935b}} 
+\mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ {\bfseries Get\+Remote\+Host} ()
+\item 
+\mbox{\Hypertarget{classPerson_a7c5351d8c15a46f815dc8d185d13d6b2}\label{classPerson_a7c5351d8c15a46f815dc8d185d13d6b2}} 
+virtual int {\bfseries Create\+New\+Account} (const string \&bankip, const string \&accname, const string \&password, int balance, int loan)
+\item 
+\mbox{\Hypertarget{classPerson_a08befafdeba3cd6fe5b9cdd8f002868d}\label{classPerson_a08befafdeba3cd6fe5b9cdd8f002868d}} 
+int {\bfseries Get\+Balance} ()
+\item 
+\mbox{\Hypertarget{classPerson_a971239c6871f03de24cbf7327b229b2e}\label{classPerson_a971239c6871f03de24cbf7327b229b2e}} 
+void {\bfseries Change\+Balance} (int amount, const string \&description)
+\item 
+\mbox{\Hypertarget{classPerson_ae1430355617fbbcbfcb2d1fb0e0f7743}\label{classPerson_ae1430355617fbbcbfcb2d1fb0e0f7743}} 
+void {\bfseries Set\+Current\+Account} (int index)
+\item 
+\mbox{\Hypertarget{classPerson_af4bf146414b52c679e88df53296667b1}\label{classPerson_af4bf146414b52c679e88df53296667b1}} 
+void {\bfseries Set\+Is\+Targetable} (bool newvalue)
+\item 
+\mbox{\Hypertarget{classPerson_ae9d3ae04a86845a8ced776d9bef6a5f1}\label{classPerson_ae9d3ae04a86845a8ced776d9bef6a5f1}} 
+bool {\bfseries Has\+Message\+Link} (const string \&newip)
+\item 
+bool \mbox{\hyperlink{classPerson_ae22170bde60f4f3cfd4e44976cb43e2b}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classPerson_a26d07a50b3f0feb5b1f21abb5b4b6bbf}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classPerson_a59736ec808ffe1bd0b4a41cdac1ce1d9}{Print}} () override
+\item 
+void \mbox{\hyperlink{classPerson_a58ffd2e361c52e917ac3931a57a03b56}{Update}} () override
+\item 
+string \mbox{\hyperlink{classPerson_ae036c39641809cf1f17fa33f49b10fe8}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classPerson_aebc693a3904fc75993cae213ab3d66e6}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPerson_a1aad343a56a513208663f438a570e7bf}\label{classPerson_a1aad343a56a513208663f438a570e7bf}} 
+char {\bfseries name} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classPerson_acf9db1a60683f40b20ae569d29852d69}\label{classPerson_acf9db1a60683f40b20ae569d29852d69}} 
+int {\bfseries age}
+\item 
+\mbox{\Hypertarget{classPerson_af6d347dfa855bbfc8bd9492141de93ff}\label{classPerson_af6d347dfa855bbfc8bd9492141de93ff}} 
+int {\bfseries photoindex}
+\item 
+\mbox{\Hypertarget{classPerson_abf8ca31f19d75e1ea6a226343007f878}\label{classPerson_abf8ca31f19d75e1ea6a226343007f878}} 
+int {\bfseries voiceindex}
+\item 
+\mbox{\Hypertarget{classPerson_a298e838a837ff3aacca96a76bf8e627a}\label{classPerson_a298e838a837ff3aacca96a76bf8e627a}} 
+char {\bfseries localhost} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classPerson_aac07051c64c29d9708cf6e54a68ca896}\label{classPerson_aac07051c64c29d9708cf6e54a68ca896}} 
+char {\bfseries remotehost} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classPerson_aacfa8a8045a109c47646ed3225415ab6}\label{classPerson_aacfa8a8045a109c47646ed3225415ab6}} 
+char {\bfseries phonenumber} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classPerson_aca046cb293cac4a1d747c291242ca136}\label{classPerson_aca046cb293cac4a1d747c291242ca136}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classMessage}{Message}} $\ast$ $>$ {\bfseries messages}
+\item 
+\mbox{\Hypertarget{classPerson_a6963775b133d99e6a9a77750bcb5cb7f}\label{classPerson_a6963775b133d99e6a9a77750bcb5cb7f}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries accounts}
+\item 
+\mbox{\Hypertarget{classPerson_ab6a8bef39bd5bccbc5f8e17475e7bc58}\label{classPerson_ab6a8bef39bd5bccbc5f8e17475e7bc58}} 
+int {\bfseries currentaccount}
+\item 
+\mbox{\Hypertarget{classPerson_adae43cff3981df2ea34ca61a4c97707a}\label{classPerson_adae43cff3981df2ea34ca61a4c97707a}} 
+\mbox{\hyperlink{classConnection}{Connection}} {\bfseries connection}
+\item 
+\mbox{\Hypertarget{classPerson_a5b46b38da15bfb30505573ed6bafcada}\label{classPerson_a5b46b38da15bfb30505573ed6bafcada}} 
+\mbox{\hyperlink{classRating}{Rating}} {\bfseries rating}
+\item 
+\mbox{\Hypertarget{classPerson_a13ebeff5fc6519dc12c256c59b2b3115}\label{classPerson_a13ebeff5fc6519dc12c256c59b2b3115}} 
+bool {\bfseries istargetable}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPerson_ae036c39641809cf1f17fa33f49b10fe8}\label{classPerson_ae036c39641809cf1f17fa33f49b10fe8}} 
+\index{Person@{Person}!GetID@{GetID}}
+\index{GetID@{GetID}!Person@{Person}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Person\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_acbb626f9f8b8d581fa97899b203f3088}{Player}}.
+
+\mbox{\Hypertarget{classPerson_aebc693a3904fc75993cae213ab3d66e6}\label{classPerson_aebc693a3904fc75993cae213ab3d66e6}} 
+\index{Person@{Person}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Person@{Person}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Person\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_aab2e7f7edcb69094a223e607f0e941f9}{Player}}.
+
+\mbox{\Hypertarget{classPerson_ae22170bde60f4f3cfd4e44976cb43e2b}\label{classPerson_ae22170bde60f4f3cfd4e44976cb43e2b}} 
+\index{Person@{Person}!Load@{Load}}
+\index{Load@{Load}!Person@{Person}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Person\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_ab8a70e494d0a4f73d003fda037097346}{Player}}.
+
+\mbox{\Hypertarget{classPerson_a59736ec808ffe1bd0b4a41cdac1ce1d9}\label{classPerson_a59736ec808ffe1bd0b4a41cdac1ce1d9}} 
+\index{Person@{Person}!Print@{Print}}
+\index{Print@{Print}!Person@{Person}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Person\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_a6537c8c7a05c8affd7b50574dd023132}{Player}}.
+
+\mbox{\Hypertarget{classPerson_a26d07a50b3f0feb5b1f21abb5b4b6bbf}\label{classPerson_a26d07a50b3f0feb5b1f21abb5b4b6bbf}} 
+\index{Person@{Person}!Save@{Save}}
+\index{Save@{Save}!Person@{Person}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Person\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_ac245b4f2959b67778a5375444d5ae255}{Player}}.
+
+\mbox{\Hypertarget{classPerson_a58ffd2e361c52e917ac3931a57a03b56}\label{classPerson_a58ffd2e361c52e917ac3931a57a03b56}} 
+\index{Person@{Person}!Update@{Update}}
+\index{Update@{Update}!Person@{Person}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Person\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_a5e17be3418fa0ac0192c05efaf3dc8bd}{Player}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/person.\+h\item 
+uplink/src/world/person.\+cpp\end{DoxyCompactItemize}

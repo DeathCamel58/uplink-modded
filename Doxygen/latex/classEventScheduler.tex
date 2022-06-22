@@ -1,0 +1,171 @@
+\hypertarget{classEventScheduler}{}\doxysection{Event\+Scheduler Class Reference}
+\label{classEventScheduler}\index{EventScheduler@{EventScheduler}}
+
+
+Event Scheduler Class.  
+
+
+
+
+{\ttfamily \#include $<$eventscheduler.\+h$>$}
+
+
+
+Inheritance diagram for Event\+Scheduler\+:
+% FIG 0
+
+
+Collaboration diagram for Event\+Scheduler\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEventScheduler_a879096712e38e0f0c45df0aca575ca68}{Schedule\+Event}} (\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$event)
+\item 
+void \mbox{\hyperlink{classEventScheduler_a0c5b83c5db0fb7124e951c06cad94b69}{Schedule\+Warning}} (\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$event, \mbox{\hyperlink{classDate}{Date}} $\ast$date)
+\item 
+\mbox{\hyperlink{classDate}{Date}} $\ast$ \mbox{\hyperlink{classEventScheduler_a2ab5b14b50ca88565e4517e51b0e495c}{Get\+Date\+Of\+Next\+Event}} ()
+\item 
+bool \mbox{\hyperlink{classEventScheduler_ad2eb60d4fa2c0578c639c3de1587daa2}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classEventScheduler_a6fb99cfd858ec72a471b8fc2a4b248a3}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classEventScheduler_a6688d23d44eddebf8f40dc39f20425ef}{Print}} () override
+\item 
+void \mbox{\hyperlink{classEventScheduler_a24b9305f6d0f636304617c55849a0633}{Update}} () override
+\item 
+string \mbox{\hyperlink{classEventScheduler_a344aaf262445375151ad62dc94e22617}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$ $>$ \mbox{\hyperlink{classEventScheduler_ac206c58dd29f22a3076cce46c824581b}{events}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Event Scheduler Class. 
+
+Responsible for keeping track of all future scheduled events, and running those events at the right time. It is not designed for high accuracy scheduling -\/ events are run within around 10 seconds of their target time. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEventScheduler_a2ab5b14b50ca88565e4517e51b0e495c}\label{classEventScheduler_a2ab5b14b50ca88565e4517e51b0e495c}} 
+\index{EventScheduler@{EventScheduler}!GetDateOfNextEvent@{GetDateOfNextEvent}}
+\index{GetDateOfNextEvent@{GetDateOfNextEvent}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{GetDateOfNextEvent()}{GetDateOfNextEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDate}{Date}} $\ast$ Event\+Scheduler\+::\+Get\+Date\+Of\+Next\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the \mbox{\hyperlink{classDate}{Date}} of the next event \begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classDate}{Date}} of the next event 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEventScheduler_a344aaf262445375151ad62dc94e22617}\label{classEventScheduler_a344aaf262445375151ad62dc94e22617}} 
+\index{EventScheduler@{EventScheduler}!GetID@{GetID}}
+\index{GetID@{GetID}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Event\+Scheduler\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classEventScheduler_ad2eb60d4fa2c0578c639c3de1587daa2}\label{classEventScheduler_ad2eb60d4fa2c0578c639c3de1587daa2}} 
+\index{EventScheduler@{EventScheduler}!Load@{Load}}
+\index{Load@{Load}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Event\+Scheduler\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classEventScheduler_a6688d23d44eddebf8f40dc39f20425ef}\label{classEventScheduler_a6688d23d44eddebf8f40dc39f20425ef}} 
+\index{EventScheduler@{EventScheduler}!Print@{Print}}
+\index{Print@{Print}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Event\+Scheduler\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classEventScheduler_a6fb99cfd858ec72a471b8fc2a4b248a3}\label{classEventScheduler_a6fb99cfd858ec72a471b8fc2a4b248a3}} 
+\index{EventScheduler@{EventScheduler}!Save@{Save}}
+\index{Save@{Save}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Event\+Scheduler\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classEventScheduler_a879096712e38e0f0c45df0aca575ca68}\label{classEventScheduler_a879096712e38e0f0c45df0aca575ca68}} 
+\index{EventScheduler@{EventScheduler}!ScheduleEvent@{ScheduleEvent}}
+\index{ScheduleEvent@{ScheduleEvent}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{ScheduleEvent()}{ScheduleEvent()}}
+{\footnotesize\ttfamily void Event\+Scheduler\+::\+Schedule\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$}]{event }\end{DoxyParamCaption})}
+
+Inserts an Event into the list of events 
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEventScheduler_a0c5b83c5db0fb7124e951c06cad94b69}\label{classEventScheduler_a0c5b83c5db0fb7124e951c06cad94b69}} 
+\index{EventScheduler@{EventScheduler}!ScheduleWarning@{ScheduleWarning}}
+\index{ScheduleWarning@{ScheduleWarning}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{ScheduleWarning()}{ScheduleWarning()}}
+{\footnotesize\ttfamily void Event\+Scheduler\+::\+Schedule\+Warning (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$}]{event,  }\item[{\mbox{\hyperlink{classDate}{Date}} $\ast$}]{date }\end{DoxyParamCaption})}
+
+Schedules a warning of an upcoming Event 
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to schedule \\
+\hline
+{\em date} & \mbox{\hyperlink{classDate}{Date}} to give the warning at \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEventScheduler_a24b9305f6d0f636304617c55849a0633}\label{classEventScheduler_a24b9305f6d0f636304617c55849a0633}} 
+\index{EventScheduler@{EventScheduler}!Update@{Update}}
+\index{Update@{Update}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Event\+Scheduler\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEventScheduler_ac206c58dd29f22a3076cce46c824581b}\label{classEventScheduler_ac206c58dd29f22a3076cce46c824581b}} 
+\index{EventScheduler@{EventScheduler}!events@{events}}
+\index{events@{events}!EventScheduler@{EventScheduler}}
+\doxysubsubsection{\texorpdfstring{events}{events}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classUplinkEvent}{Uplink\+Event}} $\ast$$>$ Event\+Scheduler\+::events}
+
+\mbox{\hyperlink{classLList}{L\+List}} of all events 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/eventscheduler.\+h\item 
+uplink/src/world/scheduler/eventscheduler.\+cpp\end{DoxyCompactItemize}

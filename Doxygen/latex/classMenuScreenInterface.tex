@@ -1,0 +1,83 @@
+\hypertarget{classMenuScreenInterface}{}\doxysection{Menu\+Screen\+Interface Class Reference}
+\label{classMenuScreenInterface}\index{MenuScreenInterface@{MenuScreenInterface}}
+
+
+Inheritance diagram for Menu\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Menu\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMenuScreenInterface_a801969bfaa7cd834833439292e319f5e}\label{classMenuScreenInterface_a801969bfaa7cd834833439292e319f5e}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classMenuScreenInterface_a7b2f9114a78637fa3e5ce10a87b7dcbe}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classMenuScreenInterface_a4c1f7db487410fa322dc35e386f2b711}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classMenuScreenInterface_a0f4a1e392975ebb8d4cf4c82395a6f3f}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classMenuScreenInterface_ae52b4d69df8b06e09e2d8fa96662bd85}\label{classMenuScreenInterface_ae52b4d69df8b06e09e2d8fa96662bd85}} 
+\mbox{\hyperlink{classMenuScreen}{Menu\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMenuScreenInterface_afb5f254e8d47238f5a4f2c8d3aa4aa1f}\label{classMenuScreenInterface_afb5f254e8d47238f5a4f2c8d3aa4aa1f}} 
+static void {\bfseries Draw\+Menu\+Option} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classMenuScreenInterface_a5fc4ce41dadbe530a74ee679406fe373}\label{classMenuScreenInterface_a5fc4ce41dadbe530a74ee679406fe373}} 
+static void {\bfseries Draw\+Menu\+Option\+Dimmed} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classMenuScreenInterface_aec04444f4114e42c3ab640af534e78b4}\label{classMenuScreenInterface_aec04444f4114e42c3ab640af534e78b4}} 
+static void {\bfseries Click\+Menu\+Screen\+Option} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMenuScreenInterface_a4c1f7db487410fa322dc35e386f2b711}\label{classMenuScreenInterface_a4c1f7db487410fa322dc35e386f2b711}} 
+\index{MenuScreenInterface@{MenuScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!MenuScreenInterface@{MenuScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Menu\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMenuScreenInterface_a7b2f9114a78637fa3e5ce10a87b7dcbe}\label{classMenuScreenInterface_a7b2f9114a78637fa3e5ce10a87b7dcbe}} 
+\index{MenuScreenInterface@{MenuScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!MenuScreenInterface@{MenuScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Menu\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMenuScreenInterface_a0f4a1e392975ebb8d4cf4c82395a6f3f}\label{classMenuScreenInterface_a0f4a1e392975ebb8d4cf4c82395a6f3f}} 
+\index{MenuScreenInterface@{MenuScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!MenuScreenInterface@{MenuScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Menu\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/menuscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/menuscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,195 @@
+\hypertarget{classMissionInterface}{}\doxysection{Mission\+Interface Class Reference}
+\label{classMissionInterface}\index{MissionInterface@{MissionInterface}}
+
+
+Screen that shows \mbox{\hyperlink{classMission}{Mission}} data.  
+
+
+
+
+{\ttfamily \#include $<$mission\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Mission\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Mission\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMissionInterface_a79b3347d0ca4d68a58f739387e9854d6}{Set\+Mission}} (int \mbox{\hyperlink{classMissionInterface_a86c2b20cb562a984e1e35ee8fc6ec0b3}{index}})
+\item 
+void \mbox{\hyperlink{classMissionInterface_a0460a5bfcf1edc6815717d6ba6b9fea6}{Create}} () override
+\item 
+void \mbox{\hyperlink{classMissionInterface_a3f1bd5d7e492ee04d787c3c23e516197}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classMissionInterface_ad51576a59e53ce400b67228d2d02f629}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classMissionInterface_ab700939f3ebbc1340b3a5207ca9b63c0}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classMissionInterface_a6bf3dcea0a63873a80d57427f803abfd}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classMissionInterface_aea8840e1d477c82ac7db0cb7dcaee0e6}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classMissionInterface_a50838585180e6b39cc145370679e7dc2}{Abandon\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classMissionInterface_a5109c678f201ac45c1d643bba464022a}{Reply\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classMissionInterface_a86c2b20cb562a984e1e35ee8fc6ec0b3}{index}}
+\item 
+time\+\_\+t \mbox{\hyperlink{classMissionInterface_a979b04c40229e1c60d6cc9453d081a67}{timesync}}
+\item 
+\mbox{\hyperlink{classMission}{Mission}} $\ast$ \mbox{\hyperlink{classMissionInterface_a756f2c9c6ab7c10fc15faf77f8a702d2}{mission}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows \mbox{\hyperlink{classMission}{Mission}} data. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMissionInterface_a50838585180e6b39cc145370679e7dc2}\label{classMissionInterface_a50838585180e6b39cc145370679e7dc2}} 
+\index{MissionInterface@{MissionInterface}!AbandonClick@{AbandonClick}}
+\index{AbandonClick@{AbandonClick}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{AbandonClick()}{AbandonClick()}}
+{\footnotesize\ttfamily void Mission\+Interface\+::\+Abandon\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Abandons the mission currently open 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} clicked to abandon mission \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMissionInterface_a0460a5bfcf1edc6815717d6ba6b9fea6}\label{classMissionInterface_a0460a5bfcf1edc6815717d6ba6b9fea6}} 
+\index{MissionInterface@{MissionInterface}!Create@{Create}}
+\index{Create@{Create}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Mission\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMissionInterface_ab700939f3ebbc1340b3a5207ca9b63c0}\label{classMissionInterface_ab700939f3ebbc1340b3a5207ca9b63c0}} 
+\index{MissionInterface@{MissionInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Mission\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMissionInterface_a3f1bd5d7e492ee04d787c3c23e516197}\label{classMissionInterface_a3f1bd5d7e492ee04d787c3c23e516197}} 
+\index{MissionInterface@{MissionInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Mission\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMissionInterface_a5109c678f201ac45c1d643bba464022a}\label{classMissionInterface_a5109c678f201ac45c1d643bba464022a}} 
+\index{MissionInterface@{MissionInterface}!ReplyClick@{ReplyClick}}
+\index{ReplyClick@{ReplyClick}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{ReplyClick()}{ReplyClick()}}
+{\footnotesize\ttfamily void Mission\+Interface\+::\+Reply\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Replies to the mission currently open 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} clicked to reply to the mission \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This opens the sendmail screen 
+\end{DoxyNote}
+\mbox{\Hypertarget{classMissionInterface_a6bf3dcea0a63873a80d57427f803abfd}\label{classMissionInterface_a6bf3dcea0a63873a80d57427f803abfd}} 
+\index{MissionInterface@{MissionInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Mission\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMissionInterface_a79b3347d0ca4d68a58f739387e9854d6}\label{classMissionInterface_a79b3347d0ca4d68a58f739387e9854d6}} 
+\index{MissionInterface@{MissionInterface}!SetMission@{SetMission}}
+\index{SetMission@{SetMission}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{SetMission()}{SetMission()}}
+{\footnotesize\ttfamily void Mission\+Interface\+::\+Set\+Mission (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Sets the currently open mission to the mission at an index 
+\begin{DoxyParams}{Parameters}
+{\em index} & index of mission \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMissionInterface_aea8840e1d477c82ac7db0cb7dcaee0e6}\label{classMissionInterface_aea8840e1d477c82ac7db0cb7dcaee0e6}} 
+\index{MissionInterface@{MissionInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void Mission\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classMissionInterface_ad51576a59e53ce400b67228d2d02f629}\label{classMissionInterface_ad51576a59e53ce400b67228d2d02f629}} 
+\index{MissionInterface@{MissionInterface}!Update@{Update}}
+\index{Update@{Update}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Mission\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}{Local\+Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMissionInterface_a86c2b20cb562a984e1e35ee8fc6ec0b3}\label{classMissionInterface_a86c2b20cb562a984e1e35ee8fc6ec0b3}} 
+\index{MissionInterface@{MissionInterface}!index@{index}}
+\index{index@{index}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily int Mission\+Interface\+::index\hspace{0.3cm}{\ttfamily [protected]}}
+
+The index of the mission \begin{DoxyNote}{Note}
+The game shows these in descending order. 0 is on the right in the game. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classMissionInterface_a756f2c9c6ab7c10fc15faf77f8a702d2}\label{classMissionInterface_a756f2c9c6ab7c10fc15faf77f8a702d2}} 
+\index{MissionInterface@{MissionInterface}!mission@{mission}}
+\index{mission@{mission}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{mission}{mission}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMission}{Mission}}$\ast$ Mission\+Interface\+::mission\hspace{0.3cm}{\ttfamily [protected]}}
+
+The message in the current mission \mbox{\Hypertarget{classMissionInterface_a979b04c40229e1c60d6cc9453d081a67}\label{classMissionInterface_a979b04c40229e1c60d6cc9453d081a67}} 
+\index{MissionInterface@{MissionInterface}!timesync@{timesync}}
+\index{timesync@{timesync}!MissionInterface@{MissionInterface}}
+\doxysubsubsection{\texorpdfstring{timesync}{timesync}}
+{\footnotesize\ttfamily time\+\_\+t Mission\+Interface\+::timesync\hspace{0.3cm}{\ttfamily [protected]}}
+
+The next time to update the screen at 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/mission\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/mission\+\_\+interface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,122 @@
+\hypertarget{classBBSScreen}{}\doxysection{B\+B\+S\+Screen Class Reference}
+\label{classBBSScreen}\index{BBSScreen@{BBSScreen}}
+
+
+Inheritance diagram for B\+B\+S\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for B\+B\+S\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBBSScreen_a421fe7b3c1eb0f737f9b7d5a96da890c}\label{classBBSScreen_a421fe7b3c1eb0f737f9b7d5a96da890c}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classBBSScreen_a1d1c9c60e7d946b7c743778d81a991f3}\label{classBBSScreen_a1d1c9c60e7d946b7c743778d81a991f3}} 
+void {\bfseries Set\+Contact\+Page} (int newcontactpage)
+\item 
+bool \mbox{\hyperlink{classBBSScreen_a1686c6314a76dbc3fac4bcc54ff80fe5}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classBBSScreen_a13a081e3ba1a23365b2ed7cded3d7a3d}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classBBSScreen_a14f7352e21c06e403d1765d9e79b3eb7}{Print}} () override
+\item 
+string \mbox{\hyperlink{classBBSScreen_a7d1f9c056d21192ec50e3a7c3e32805e}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classBBSScreen_abe13eac03fac396d7f30cd3ab6af66c0}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBBSScreen_aaab92a04f7d6e71db4009b0843878037}\label{classBBSScreen_aaab92a04f7d6e71db4009b0843878037}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classBBSScreen_a117091bf0d1b68290839552d425fe6df}\label{classBBSScreen_a117091bf0d1b68290839552d425fe6df}} 
+int {\bfseries contactpage}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBBSScreen_a7d1f9c056d21192ec50e3a7c3e32805e}\label{classBBSScreen_a7d1f9c056d21192ec50e3a7c3e32805e}} 
+\index{BBSScreen@{BBSScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!BBSScreen@{BBSScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string B\+B\+S\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBBSScreen_abe13eac03fac396d7f30cd3ab6af66c0}\label{classBBSScreen_abe13eac03fac396d7f30cd3ab6af66c0}} 
+\index{BBSScreen@{BBSScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!BBSScreen@{BBSScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int B\+B\+S\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBBSScreen_a1686c6314a76dbc3fac4bcc54ff80fe5}\label{classBBSScreen_a1686c6314a76dbc3fac4bcc54ff80fe5}} 
+\index{BBSScreen@{BBSScreen}!Load@{Load}}
+\index{Load@{Load}!BBSScreen@{BBSScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool B\+B\+S\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBBSScreen_a14f7352e21c06e403d1765d9e79b3eb7}\label{classBBSScreen_a14f7352e21c06e403d1765d9e79b3eb7}} 
+\index{BBSScreen@{BBSScreen}!Print@{Print}}
+\index{Print@{Print}!BBSScreen@{BBSScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBBSScreen_a13a081e3ba1a23365b2ed7cded3d7a3d}\label{classBBSScreen_a13a081e3ba1a23365b2ed7cded3d7a3d}} 
+\index{BBSScreen@{BBSScreen}!Save@{Save}}
+\index{Save@{Save}!BBSScreen@{BBSScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/bbsscreen.\+h\item 
+uplink/src/world/computer/computerscreen/bbsscreen.\+cpp\end{DoxyCompactItemize}

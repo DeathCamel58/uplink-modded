@@ -1,0 +1,104 @@
+\hypertarget{classFaithScreenInterface}{}\doxysection{Faith\+Screen\+Interface Class Reference}
+\label{classFaithScreenInterface}\index{FaithScreenInterface@{FaithScreenInterface}}
+
+
+Inheritance diagram for Faith\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Faith\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFaithScreenInterface_a8fea7d94edcd28cd93749732a51c4ad6}\label{classFaithScreenInterface_a8fea7d94edcd28cd93749732a51c4ad6}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classFaithScreenInterface_a77ed33db690f79e977125d160359c546}{Create}} () override
+\item 
+\mbox{\Hypertarget{classFaithScreenInterface_ae854e81d9c3232d4199729b2e62a233a}\label{classFaithScreenInterface_ae854e81d9c3232d4199729b2e62a233a}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classFaithScreenInterface_ab7aab0ebeda9895e0e19b175aec773a6}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classFaithScreenInterface_a8d1d956162f82385fd172665a33fc9d3}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classFaithScreenInterface_a4afcded1e1f8defb578ffb7471e9d752}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classFaithScreenInterface_a0da1c121e2664f0514ee3db1a0742a23}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classFaithScreenInterface_adbefc7a61a9fa39f91b0c6a278716ff4}\label{classFaithScreenInterface_adbefc7a61a9fa39f91b0c6a278716ff4}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classFaithScreenInterface_af90e40d9ae3dc9bdc589c9cd17d58f0f}\label{classFaithScreenInterface_af90e40d9ae3dc9bdc589c9cd17d58f0f}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classFaithScreenInterface_a77ed33db690f79e977125d160359c546}\label{classFaithScreenInterface_a77ed33db690f79e977125d160359c546}} 
+\index{FaithScreenInterface@{FaithScreenInterface}!Create@{Create}}
+\index{Create@{Create}!FaithScreenInterface@{FaithScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Faith\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFaithScreenInterface_a4afcded1e1f8defb578ffb7471e9d752}\label{classFaithScreenInterface_a4afcded1e1f8defb578ffb7471e9d752}} 
+\index{FaithScreenInterface@{FaithScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!FaithScreenInterface@{FaithScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Faith\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFaithScreenInterface_ab7aab0ebeda9895e0e19b175aec773a6}\label{classFaithScreenInterface_ab7aab0ebeda9895e0e19b175aec773a6}} 
+\index{FaithScreenInterface@{FaithScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!FaithScreenInterface@{FaithScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Faith\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFaithScreenInterface_a0da1c121e2664f0514ee3db1a0742a23}\label{classFaithScreenInterface_a0da1c121e2664f0514ee3db1a0742a23}} 
+\index{FaithScreenInterface@{FaithScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!FaithScreenInterface@{FaithScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Faith\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFaithScreenInterface_a8d1d956162f82385fd172665a33fc9d3}\label{classFaithScreenInterface_a8d1d956162f82385fd172665a33fc9d3}} 
+\index{FaithScreenInterface@{FaithScreenInterface}!Update@{Update}}
+\index{Update@{Update}!FaithScreenInterface@{FaithScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Faith\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/faithscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/faithscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

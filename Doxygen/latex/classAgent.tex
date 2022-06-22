@@ -1,0 +1,460 @@
+\hypertarget{classAgent}{}\doxysection{Agent Class Reference}
+\label{classAgent}\index{Agent@{Agent}}
+
+
+\mbox{\hyperlink{classAgent}{Agent}} class object.  
+
+
+
+
+{\ttfamily \#include $<$agent.\+h$>$}
+
+
+
+Inheritance diagram for Agent\+:
+% FIG 0
+
+
+Collaboration diagram for Agent\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAgent_a9ac993176f65a298a36ad6d56d98d19d}{Set\+Handle}} (const string \&newhandle)
+\item 
+void \mbox{\hyperlink{classAgent_a2b575abf95feaaa5df775b5e5795aeae}{Give\+Mission}} (\mbox{\hyperlink{classMission}{Mission}} $\ast$mission)
+\item 
+void \mbox{\hyperlink{classAgent_a41453d46fe01802765af7640c772e1c9}{Check\+Mission\+Due\+Dates}} ()
+\item 
+void \mbox{\hyperlink{classAgent_ada2a4176f07bc8ca9fce63337d76e939}{Give\+Link}} (const string \&newip)
+\item 
+bool \mbox{\hyperlink{classAgent_a388a148150aeb17c4a77b312a0e3fa90}{Has\+Link}} (const string \&newip)
+\item 
+void \mbox{\hyperlink{classAgent_a75c2e10cee32b1b2d7a7ad59e4eb74b5}{Remove\+Link}} (const string \&newip)
+\item 
+void \mbox{\hyperlink{classAgent_af882f99f84b9e2bdfb9847241223e1ee}{Give\+Code}} (const string \&newip, const string \&newcode)
+\item 
+void \mbox{\hyperlink{classAgent_a28afd4a6d0de24f5f09b57e312f11e95}{Give\+Message}} (\mbox{\hyperlink{classMessage}{Message}} $\ast$message) override
+\item 
+int \mbox{\hyperlink{classAgent_ab9ef46093da0329b0a8030ff75699f01}{Has\+Account}} (const string \&ip)
+\item 
+int \mbox{\hyperlink{classAgent_a4ec4e25484b77e2cb1de10e4bc8f9bf7}{Create\+New\+Account}} (const string \&bankip, const string \&accname, const string \&password, int balance, int loan) override
+\item 
+bool \mbox{\hyperlink{classAgent_a28392a48b312c93fc09319489a79ef22}{Has\+Mission\+Link}} (const string \&newip)
+\item 
+void \mbox{\hyperlink{classAgent_ab290d93229a32c495dc4f1c53b564191}{Attempt\+Mission}} ()
+\item 
+void \mbox{\hyperlink{classAgent_a72e7231c5c1404e52aedd2b8ac1ddc39}{Attempt\+Mission\+\_\+\+Steal\+File}} ()
+\item 
+void \mbox{\hyperlink{classAgent_a0ea0c8114278148a4f9da7c3957d2a55}{Attempt\+Mission\+\_\+\+Delete\+File}} ()
+\item 
+void \mbox{\hyperlink{classAgent_a1fd5fefe456c9e154c41c4a1aecee1a1}{Attempt\+Mission\+\_\+\+Change\+Account}} ()
+\item 
+void \mbox{\hyperlink{classAgent_a93ee4c20cd33c4e2990e641d1e74f658}{Attempt\+Mission\+\_\+\+Trace\+User}} ()
+\item 
+void \mbox{\hyperlink{classAgent_ad8b3f45cc6db9813b4f3c517f62d6564}{Attempt\+Mission\+\_\+\+Remove\+Computer}} ()
+\item 
+void \mbox{\hyperlink{classAgent_a1935333aae1562d26f6d369678f833f0}{Establish\+Connection}} (const string \&ip)
+\item 
+bool \mbox{\hyperlink{classAgent_a834190ee02cfa9aed965c7a5a5b15bdf}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classAgent_ad5a4e71390467e85b51694a8eefb4bf2}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classAgent_a3c96db29af9711ca45788584f25d34f7}{Print}} () override
+\item 
+void \mbox{\hyperlink{classAgent_a141efdf2cbda672ef9ba9b881ba78b07}{Update}} () override
+\item 
+string \mbox{\hyperlink{classAgent_a62846420469a35f878c31316416aa1c8}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classAgent_a530f48aa88da17f4194222ae1b3b53eb}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classAgent_ae495fe7276c38014b7c3fd44541f77f2}{Parse\+Access\+Code}} (const string \&thecode, string \&username, string \&password)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ \mbox{\hyperlink{classAgent_a411ade5c7e3cbb0c145d7c5c74ba0f7d}{links}}
+\item 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ char $\ast$ $>$ \mbox{\hyperlink{classAgent_a4af65201bd4ebc06a823f98d68f094be}{codes}}
+\item 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classMission}{Mission}} $\ast$ $>$ \mbox{\hyperlink{classAgent_ac6aa62b0ce168f52b5316393c5404cb2}{missions}}
+\item 
+char \mbox{\hyperlink{classAgent_a0495b2fb58f0861f7693bee89bd0e3c7}{handle}} \mbox{[}S\+I\+Z\+E\+\_\+\+A\+G\+E\+N\+T\+\_\+\+H\+A\+N\+D\+LE\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classAgent}{Agent}} class object. 
+
+\mbox{\hyperlink{classAgent}{Agent}} class object Part of the world sub-\/system 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAgent_ab290d93229a32c495dc4f1c53b564191}\label{classAgent_ab290d93229a32c495dc4f1c53b564191}} 
+\index{Agent@{Agent}!AttemptMission@{AttemptMission}}
+\index{AttemptMission@{AttemptMission}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{AttemptMission()}{AttemptMission()}}
+{\footnotesize\ttfamily void Agent\+::\+Attempt\+Mission (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Attempts mission 0 \mbox{\Hypertarget{classAgent_a1fd5fefe456c9e154c41c4a1aecee1a1}\label{classAgent_a1fd5fefe456c9e154c41c4a1aecee1a1}} 
+\index{Agent@{Agent}!AttemptMission\_ChangeAccount@{AttemptMission\_ChangeAccount}}
+\index{AttemptMission\_ChangeAccount@{AttemptMission\_ChangeAccount}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{AttemptMission\_ChangeAccount()}{AttemptMission\_ChangeAccount()}}
+{\footnotesize\ttfamily void Agent\+::\+Attempt\+Mission\+\_\+\+Change\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Attempts mission to change account \mbox{\Hypertarget{classAgent_a0ea0c8114278148a4f9da7c3957d2a55}\label{classAgent_a0ea0c8114278148a4f9da7c3957d2a55}} 
+\index{Agent@{Agent}!AttemptMission\_DeleteFile@{AttemptMission\_DeleteFile}}
+\index{AttemptMission\_DeleteFile@{AttemptMission\_DeleteFile}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{AttemptMission\_DeleteFile()}{AttemptMission\_DeleteFile()}}
+{\footnotesize\ttfamily void Agent\+::\+Attempt\+Mission\+\_\+\+Delete\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Attempts mission to delete a file \mbox{\Hypertarget{classAgent_ad8b3f45cc6db9813b4f3c517f62d6564}\label{classAgent_ad8b3f45cc6db9813b4f3c517f62d6564}} 
+\index{Agent@{Agent}!AttemptMission\_RemoveComputer@{AttemptMission\_RemoveComputer}}
+\index{AttemptMission\_RemoveComputer@{AttemptMission\_RemoveComputer}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{AttemptMission\_RemoveComputer()}{AttemptMission\_RemoveComputer()}}
+{\footnotesize\ttfamily void Agent\+::\+Attempt\+Mission\+\_\+\+Remove\+Computer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Attempts mission to remove a computer \mbox{\Hypertarget{classAgent_a72e7231c5c1404e52aedd2b8ac1ddc39}\label{classAgent_a72e7231c5c1404e52aedd2b8ac1ddc39}} 
+\index{Agent@{Agent}!AttemptMission\_StealFile@{AttemptMission\_StealFile}}
+\index{AttemptMission\_StealFile@{AttemptMission\_StealFile}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{AttemptMission\_StealFile()}{AttemptMission\_StealFile()}}
+{\footnotesize\ttfamily void Agent\+::\+Attempt\+Mission\+\_\+\+Steal\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Attempts mission to steal a file \mbox{\Hypertarget{classAgent_a93ee4c20cd33c4e2990e641d1e74f658}\label{classAgent_a93ee4c20cd33c4e2990e641d1e74f658}} 
+\index{Agent@{Agent}!AttemptMission\_TraceUser@{AttemptMission\_TraceUser}}
+\index{AttemptMission\_TraceUser@{AttemptMission\_TraceUser}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{AttemptMission\_TraceUser()}{AttemptMission\_TraceUser()}}
+{\footnotesize\ttfamily void Agent\+::\+Attempt\+Mission\+\_\+\+Trace\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Attempts mission to trace a user \mbox{\Hypertarget{classAgent_a41453d46fe01802765af7640c772e1c9}\label{classAgent_a41453d46fe01802765af7640c772e1c9}} 
+\index{Agent@{Agent}!CheckMissionDueDates@{CheckMissionDueDates}}
+\index{CheckMissionDueDates@{CheckMissionDueDates}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{CheckMissionDueDates()}{CheckMissionDueDates()}}
+{\footnotesize\ttfamily void Agent\+::\+Check\+Mission\+Due\+Dates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if any of the missions have expired \mbox{\Hypertarget{classAgent_a4ec4e25484b77e2cb1de10e4bc8f9bf7}\label{classAgent_a4ec4e25484b77e2cb1de10e4bc8f9bf7}} 
+\index{Agent@{Agent}!CreateNewAccount@{CreateNewAccount}}
+\index{CreateNewAccount@{CreateNewAccount}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{CreateNewAccount()}{CreateNewAccount()}}
+{\footnotesize\ttfamily int Agent\+::\+Create\+New\+Account (\begin{DoxyParamCaption}\item[{const string \&}]{bankip,  }\item[{const string \&}]{accname,  }\item[{const string \&}]{password,  }\item[{int}]{balance,  }\item[{int}]{loan }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Create a new account at a bank 
+\begin{DoxyParams}{Parameters}
+{\em bankip} & IP of the bank \\
+\hline
+{\em accname} & Account name \\
+\hline
+{\em password} & Account password \\
+\hline
+{\em balance} & Account balance \\
+\hline
+{\em loan} & Account loan amount \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The account number 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classPerson}{Person}}.
+
+\mbox{\Hypertarget{classAgent_a1935333aae1562d26f6d369678f833f0}\label{classAgent_a1935333aae1562d26f6d369678f833f0}} 
+\index{Agent@{Agent}!EstablishConnection@{EstablishConnection}}
+\index{EstablishConnection@{EstablishConnection}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{EstablishConnection()}{EstablishConnection()}}
+{\footnotesize\ttfamily void Agent\+::\+Establish\+Connection (\begin{DoxyParamCaption}\item[{const string \&}]{ip }\end{DoxyParamCaption})}
+
+Establishes a connection to IP 
+\begin{DoxyParams}{Parameters}
+{\em ip} & IP of the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This generates a few random middle links in the connection, does some stuff, deletes logs, disconnects 
+
+Higher uplink rating adds in more links 
+\end{DoxyNote}
+\mbox{\Hypertarget{classAgent_a62846420469a35f878c31316416aa1c8}\label{classAgent_a62846420469a35f878c31316416aa1c8}} 
+\index{Agent@{Agent}!GetID@{GetID}}
+\index{GetID@{GetID}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Agent\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_acbb626f9f8b8d581fa97899b203f3088}{Player}}.
+
+\mbox{\Hypertarget{classAgent_a530f48aa88da17f4194222ae1b3b53eb}\label{classAgent_a530f48aa88da17f4194222ae1b3b53eb}} 
+\index{Agent@{Agent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Agent\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_aab2e7f7edcb69094a223e607f0e941f9}{Player}}.
+
+\mbox{\Hypertarget{classAgent_af882f99f84b9e2bdfb9847241223e1ee}\label{classAgent_af882f99f84b9e2bdfb9847241223e1ee}} 
+\index{Agent@{Agent}!GiveCode@{GiveCode}}
+\index{GiveCode@{GiveCode}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{GiveCode()}{GiveCode()}}
+{\footnotesize\ttfamily void Agent\+::\+Give\+Code (\begin{DoxyParamCaption}\item[{const string \&}]{newip,  }\item[{const string \&}]{newcode }\end{DoxyParamCaption})}
+
+Give a code to the agent 
+\begin{DoxyParams}{Parameters}
+{\em newip} & IP of the link \\
+\hline
+{\em newcode} & Code for the link \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAgent_ada2a4176f07bc8ca9fce63337d76e939}\label{classAgent_ada2a4176f07bc8ca9fce63337d76e939}} 
+\index{Agent@{Agent}!GiveLink@{GiveLink}}
+\index{GiveLink@{GiveLink}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{GiveLink()}{GiveLink()}}
+{\footnotesize\ttfamily void Agent\+::\+Give\+Link (\begin{DoxyParamCaption}\item[{const string \&}]{newip }\end{DoxyParamCaption})}
+
+Gives a link to the agent 
+\begin{DoxyParams}{Parameters}
+{\em newip} & IP of the link \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAgent_a28afd4a6d0de24f5f09b57e312f11e95}\label{classAgent_a28afd4a6d0de24f5f09b57e312f11e95}} 
+\index{Agent@{Agent}!GiveMessage@{GiveMessage}}
+\index{GiveMessage@{GiveMessage}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{GiveMessage()}{GiveMessage()}}
+{\footnotesize\ttfamily void Agent\+::\+Give\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMessage}{Message}} $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gives a message to the player 
+\begin{DoxyParams}{Parameters}
+{\em message} & \mbox{\hyperlink{classMessage}{Message}} to give \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classPerson}{Person}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_a534916b77238a99dd1a7ea92369019c0}{Player}}.
+
+\mbox{\Hypertarget{classAgent_a2b575abf95feaaa5df775b5e5795aeae}\label{classAgent_a2b575abf95feaaa5df775b5e5795aeae}} 
+\index{Agent@{Agent}!GiveMission@{GiveMission}}
+\index{GiveMission@{GiveMission}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{GiveMission()}{GiveMission()}}
+{\footnotesize\ttfamily void Agent\+::\+Give\+Mission (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMission}{Mission}} $\ast$}]{mission }\end{DoxyParamCaption})}
+
+Gives a mission to the agent 
+\begin{DoxyParams}{Parameters}
+{\em mission} & \mbox{\hyperlink{classMission}{Mission}} to give \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAgent_ab9ef46093da0329b0a8030ff75699f01}\label{classAgent_ab9ef46093da0329b0a8030ff75699f01}} 
+\index{Agent@{Agent}!HasAccount@{HasAccount}}
+\index{HasAccount@{HasAccount}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{HasAccount()}{HasAccount()}}
+{\footnotesize\ttfamily int Agent\+::\+Has\+Account (\begin{DoxyParamCaption}\item[{const string \&}]{ip }\end{DoxyParamCaption})}
+
+Check if agent has an account for given link 
+\begin{DoxyParams}{Parameters}
+{\em ip} & IP of the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+access level or -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAgent_a388a148150aeb17c4a77b312a0e3fa90}\label{classAgent_a388a148150aeb17c4a77b312a0e3fa90}} 
+\index{Agent@{Agent}!HasLink@{HasLink}}
+\index{HasLink@{HasLink}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{HasLink()}{HasLink()}}
+{\footnotesize\ttfamily bool Agent\+::\+Has\+Link (\begin{DoxyParamCaption}\item[{const string \&}]{newip }\end{DoxyParamCaption})}
+
+Does the agent have a link? 
+\begin{DoxyParams}{Parameters}
+{\em newip} & IP of the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the agent has the link 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAgent_a28392a48b312c93fc09319489a79ef22}\label{classAgent_a28392a48b312c93fc09319489a79ef22}} 
+\index{Agent@{Agent}!HasMissionLink@{HasMissionLink}}
+\index{HasMissionLink@{HasMissionLink}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{HasMissionLink()}{HasMissionLink()}}
+{\footnotesize\ttfamily bool Agent\+::\+Has\+Mission\+Link (\begin{DoxyParamCaption}\item[{const string \&}]{newip }\end{DoxyParamCaption})}
+
+Checks if agent has given link from mission 
+\begin{DoxyParams}{Parameters}
+{\em newip} & IP of the link \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the user has the link, and a mission that needs it 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAgent_a834190ee02cfa9aed965c7a5a5b15bdf}\label{classAgent_a834190ee02cfa9aed965c7a5a5b15bdf}} 
+\index{Agent@{Agent}!Load@{Load}}
+\index{Load@{Load}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Agent\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_ab8a70e494d0a4f73d003fda037097346}{Player}}.
+
+\mbox{\Hypertarget{classAgent_ae495fe7276c38014b7c3fd44541f77f2}\label{classAgent_ae495fe7276c38014b7c3fd44541f77f2}} 
+\index{Agent@{Agent}!ParseAccessCode@{ParseAccessCode}}
+\index{ParseAccessCode@{ParseAccessCode}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{ParseAccessCode()}{ParseAccessCode()}}
+{\footnotesize\ttfamily bool Agent\+::\+Parse\+Access\+Code (\begin{DoxyParamCaption}\item[{const string \&}]{thecode,  }\item[{string \&}]{username,  }\item[{string \&}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses an access code to a username and password Only 2 varieties are permitted\+:
+\begin{DoxyEnumerate}
+\item ... \textquotesingle{}name\textquotesingle{} .... \textquotesingle{}code\textquotesingle{}
+\item ... \textquotesingle{}code\textquotesingle{} .... In other words, names/codes are always enclosed in \textquotesingle{} 
+\begin{DoxyParams}{Parameters}
+{\em thecode} & The code to parse \\
+\hline
+{\em username} & The username variable to populate \\
+\hline
+{\em password} & The password variable to populate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if it was successfully parsed 
+\end{DoxyReturn}
+
+\end{DoxyEnumerate}\mbox{\Hypertarget{classAgent_a3c96db29af9711ca45788584f25d34f7}\label{classAgent_a3c96db29af9711ca45788584f25d34f7}} 
+\index{Agent@{Agent}!Print@{Print}}
+\index{Print@{Print}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Agent\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_a6537c8c7a05c8affd7b50574dd023132}{Player}}.
+
+\mbox{\Hypertarget{classAgent_a75c2e10cee32b1b2d7a7ad59e4eb74b5}\label{classAgent_a75c2e10cee32b1b2d7a7ad59e4eb74b5}} 
+\index{Agent@{Agent}!RemoveLink@{RemoveLink}}
+\index{RemoveLink@{RemoveLink}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{RemoveLink()}{RemoveLink()}}
+{\footnotesize\ttfamily void Agent\+::\+Remove\+Link (\begin{DoxyParamCaption}\item[{const string \&}]{newip }\end{DoxyParamCaption})}
+
+Removes a link from the agent 
+\begin{DoxyParams}{Parameters}
+{\em newip} & IP of the link \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAgent_ad5a4e71390467e85b51694a8eefb4bf2}\label{classAgent_ad5a4e71390467e85b51694a8eefb4bf2}} 
+\index{Agent@{Agent}!Save@{Save}}
+\index{Save@{Save}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Agent\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_ac245b4f2959b67778a5375444d5ae255}{Player}}.
+
+\mbox{\Hypertarget{classAgent_a9ac993176f65a298a36ad6d56d98d19d}\label{classAgent_a9ac993176f65a298a36ad6d56d98d19d}} 
+\index{Agent@{Agent}!SetHandle@{SetHandle}}
+\index{SetHandle@{SetHandle}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{SetHandle()}{SetHandle()}}
+{\footnotesize\ttfamily void Agent\+::\+Set\+Handle (\begin{DoxyParamCaption}\item[{const string \&}]{newhandle }\end{DoxyParamCaption})}
+
+Set the handle of the agent 
+\begin{DoxyParams}{Parameters}
+{\em newhandle} & Handle to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAgent_a141efdf2cbda672ef9ba9b881ba78b07}\label{classAgent_a141efdf2cbda672ef9ba9b881ba78b07}} 
+\index{Agent@{Agent}!Update@{Update}}
+\index{Update@{Update}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Agent\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classPlayer_a5e17be3418fa0ac0192c05efaf3dc8bd}{Player}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAgent_a4af65201bd4ebc06a823f98d68f094be}\label{classAgent_a4af65201bd4ebc06a823f98d68f094be}} 
+\index{Agent@{Agent}!codes@{codes}}
+\index{codes@{codes}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{codes}{codes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBTree}{B\+Tree}}$<$char $\ast$$>$ Agent\+::codes}
+
+All known access codes, indexed on IP \mbox{\Hypertarget{classAgent_a0495b2fb58f0861f7693bee89bd0e3c7}\label{classAgent_a0495b2fb58f0861f7693bee89bd0e3c7}} 
+\index{Agent@{Agent}!handle@{handle}}
+\index{handle@{handle}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{handle}{handle}}
+{\footnotesize\ttfamily char Agent\+::handle\mbox{[}S\+I\+Z\+E\+\_\+\+A\+G\+E\+N\+T\+\_\+\+H\+A\+N\+D\+LE\mbox{]}}
+
+The name of the agent \mbox{\Hypertarget{classAgent_a411ade5c7e3cbb0c145d7c5c74ba0f7d}\label{classAgent_a411ade5c7e3cbb0c145d7c5c74ba0f7d}} 
+\index{Agent@{Agent}!links@{links}}
+\index{links@{links}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{links}{links}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$string$>$ Agent\+::links}
+
+The agent\textquotesingle{}s \char`\"{}favorites\char`\"{} (IP) \mbox{\Hypertarget{classAgent_ac6aa62b0ce168f52b5316393c5404cb2}\label{classAgent_ac6aa62b0ce168f52b5316393c5404cb2}} 
+\index{Agent@{Agent}!missions@{missions}}
+\index{missions@{missions}!Agent@{Agent}}
+\doxysubsubsection{\texorpdfstring{missions}{missions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classMission}{Mission}} $\ast$$>$ Agent\+::missions}
+
+The agent\textquotesingle{}s missions 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/agent.\+h\item 
+uplink/src/world/agent.\+cpp\end{DoxyCompactItemize}

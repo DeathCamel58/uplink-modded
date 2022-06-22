@@ -1,0 +1,122 @@
+\hypertarget{classCypherScreen}{}\doxysection{Cypher\+Screen Class Reference}
+\label{classCypherScreen}\index{CypherScreen@{CypherScreen}}
+
+
+Inheritance diagram for Cypher\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Cypher\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCypherScreen_a8388f948ffd791c4526f5eadc302acc3}\label{classCypherScreen_a8388f948ffd791c4526f5eadc302acc3}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classCypherScreen_a74a53d1caaf9daa36425e07271ab1486}\label{classCypherScreen_a74a53d1caaf9daa36425e07271ab1486}} 
+void {\bfseries Set\+Difficulty} (int newdifficulty)
+\item 
+bool \mbox{\hyperlink{classCypherScreen_a0c8dc7d98eeaa18bf78105171aa384c3}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classCypherScreen_af10d7ee0b4ff2f3ad3f99125222aadef}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classCypherScreen_a22611e3696205d648abb3fb8ef88fbb1}{Print}} () override
+\item 
+string \mbox{\hyperlink{classCypherScreen_a350d6455522d476483b10ccffa28ee3f}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classCypherScreen_a85f5ef71e86a0d2be6bc537f29936447}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCypherScreen_adce88d049afdeb6e9cae8f81199ca587}\label{classCypherScreen_adce88d049afdeb6e9cae8f81199ca587}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classCypherScreen_a41e2b5e4662b3281d7c8ce9ada04ca6d}\label{classCypherScreen_a41e2b5e4662b3281d7c8ce9ada04ca6d}} 
+int {\bfseries difficulty}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCypherScreen_a350d6455522d476483b10ccffa28ee3f}\label{classCypherScreen_a350d6455522d476483b10ccffa28ee3f}} 
+\index{CypherScreen@{CypherScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!CypherScreen@{CypherScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Cypher\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classCypherScreen_a85f5ef71e86a0d2be6bc537f29936447}\label{classCypherScreen_a85f5ef71e86a0d2be6bc537f29936447}} 
+\index{CypherScreen@{CypherScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!CypherScreen@{CypherScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Cypher\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classCypherScreen_a0c8dc7d98eeaa18bf78105171aa384c3}\label{classCypherScreen_a0c8dc7d98eeaa18bf78105171aa384c3}} 
+\index{CypherScreen@{CypherScreen}!Load@{Load}}
+\index{Load@{Load}!CypherScreen@{CypherScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Cypher\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classCypherScreen_a22611e3696205d648abb3fb8ef88fbb1}\label{classCypherScreen_a22611e3696205d648abb3fb8ef88fbb1}} 
+\index{CypherScreen@{CypherScreen}!Print@{Print}}
+\index{Print@{Print}!CypherScreen@{CypherScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Cypher\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classCypherScreen_af10d7ee0b4ff2f3ad3f99125222aadef}\label{classCypherScreen_af10d7ee0b4ff2f3ad3f99125222aadef}} 
+\index{CypherScreen@{CypherScreen}!Save@{Save}}
+\index{Save@{Save}!CypherScreen@{CypherScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Cypher\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/cypherscreen.\+h\item 
+uplink/src/world/computer/computerscreen/cypherscreen.\+cpp\end{DoxyCompactItemize}

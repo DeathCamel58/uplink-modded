@@ -1,0 +1,63 @@
+\hypertarget{classLanCluster}{}\doxysection{Lan\+Cluster Class Reference}
+\label{classLanCluster}\index{LanCluster@{LanCluster}}
+
+
+Collaboration diagram for Lan\+Cluster\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanCluster_a34c7b0c9fdfac410574a629e42800788}\label{classLanCluster_a34c7b0c9fdfac410574a629e42800788}} 
+int {\bfseries Add\+Lan\+System} (\mbox{\hyperlink{classLanComputerSystem}{Lan\+Computer\+System}} $\ast$system)
+\item 
+\mbox{\Hypertarget{classLanCluster_abfbe4b7dc0ef71d4b2b33f00b6669f5e}\label{classLanCluster_abfbe4b7dc0ef71d4b2b33f00b6669f5e}} 
+int {\bfseries Add\+Lan\+System} (int T\+Y\+PE, int x, int y, int security=2, int screen\+Index=-\/1, int data\+Screen\+Index=-\/1)
+\item 
+\mbox{\Hypertarget{classLanCluster_a1d25802f7b004eebca4af49249d0382f}\label{classLanCluster_a1d25802f7b004eebca4af49249d0382f}} 
+int {\bfseries Add\+Lan\+Link} (int from, float fromX, float fromY, int to, float toX, float toY, int security)
+\item 
+\mbox{\Hypertarget{classLanCluster_aea2f90062295b0da37f87ab3efd2ed6c}\label{classLanCluster_aea2f90062295b0da37f87ab3efd2ed6c}} 
+bool {\bfseries Verify\+Lan\+Link} (int from, float fromX, float fromY, int to, float toX, float toY, int security) const
+\item 
+\mbox{\Hypertarget{classLanCluster_ab28302b71acfb9dec9edbebe7eaf7412}\label{classLanCluster_ab28302b71acfb9dec9edbebe7eaf7412}} 
+void {\bfseries Rotate} (int angle) const
+\item 
+\mbox{\Hypertarget{classLanCluster_a6f78f913860780417a535f3292b82d41}\label{classLanCluster_a6f78f913860780417a535f3292b82d41}} 
+void {\bfseries Merge} (\mbox{\hyperlink{classLanCluster}{Lan\+Cluster}} $\ast$target, \mbox{\hyperlink{classLanComputer}{Lan\+Computer}} $\ast$comp)
+\item 
+\mbox{\Hypertarget{classLanCluster_ab88bd17facdf1c48abc356bca240d31b}\label{classLanCluster_ab88bd17facdf1c48abc356bca240d31b}} 
+void {\bfseries Merge} (\mbox{\hyperlink{classLanComputer}{Lan\+Computer}} $\ast$target)
+\item 
+\mbox{\Hypertarget{classLanCluster_ac7359e6cc3319a9fb7cb79f54d6e91fd}\label{classLanCluster_ac7359e6cc3319a9fb7cb79f54d6e91fd}} 
+void {\bfseries Set\+Input} (int new\+Input)
+\item 
+\mbox{\Hypertarget{classLanCluster_a6d29d84dc9ae4af5b763fe8049bdd9f3}\label{classLanCluster_a6d29d84dc9ae4af5b763fe8049bdd9f3}} 
+void {\bfseries Set\+Output} (int new\+Output)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanCluster_a89f46c3c2e75437abb6ddf18aecfddc2}\label{classLanCluster_a89f46c3c2e75437abb6ddf18aecfddc2}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classLanComputerSystem}{Lan\+Computer\+System}} $\ast$ $>$ {\bfseries systems}
+\item 
+\mbox{\Hypertarget{classLanCluster_a5894c7d4f69e1c9867b5028d49146a8d}\label{classLanCluster_a5894c7d4f69e1c9867b5028d49146a8d}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classLanComputerLink}{Lan\+Computer\+Link}} $\ast$ $>$ {\bfseries links}
+\item 
+\mbox{\Hypertarget{classLanCluster_a8b6812cff4f3954ce151562a2b450e5a}\label{classLanCluster_a8b6812cff4f3954ce151562a2b450e5a}} 
+int {\bfseries input}
+\item 
+\mbox{\Hypertarget{classLanCluster_ac0d87cfc80f28c7ca3fa596ed583b266}\label{classLanCluster_ac0d87cfc80f28c7ca3fa596ed583b266}} 
+int {\bfseries output}
+\item 
+\mbox{\Hypertarget{classLanCluster_aae5ca09dfcbb670ab2bb4c6746d47ccc}\label{classLanCluster_aae5ca09dfcbb670ab2bb4c6746d47ccc}} 
+int {\bfseries centreX}
+\item 
+\mbox{\Hypertarget{classLanCluster_a1165ade04ff475f0963c18526a329fa9}\label{classLanCluster_a1165ade04ff475f0963c18526a329fa9}} 
+int {\bfseries centreY}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/generator/langenerator.\+h\item 
+uplink/src/world/generator/langenerator.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,164 @@
+\hypertarget{classConnection}{}\doxysection{Connection Class Reference}
+\label{classConnection}\index{Connection@{Connection}}
+
+
+Inheritance diagram for Connection\+:
+% FIG 0
+
+
+Collaboration diagram for Connection\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConnection_a298b5d64ade626a2829e26c7a62456c2}\label{classConnection_a298b5d64ade626a2829e26c7a62456c2}} 
+void {\bfseries Set\+Owner} (const string \&newowner)
+\item 
+\mbox{\Hypertarget{classConnection_a21c8723810d3431a06d489492a1bb561}\label{classConnection_a21c8723810d3431a06d489492a1bb561}} 
+void {\bfseries Add\+V\+Location} (const string \&ip)
+\item 
+\mbox{\Hypertarget{classConnection_a771178eb23dae0051c24537c5ea1c4df}\label{classConnection_a771178eb23dae0051c24537c5ea1c4df}} 
+void {\bfseries Add\+Or\+Remove\+V\+Location} (const string \&ip)
+\item 
+\mbox{\Hypertarget{classConnection_acccce9646e50b4e173b141483938d007}\label{classConnection_acccce9646e50b4e173b141483938d007}} 
+void {\bfseries Remove\+Last\+Location} ()
+\item 
+\mbox{\Hypertarget{classConnection_a52ab68cfa1627afbd649f8c25ea49db4}\label{classConnection_a52ab68cfa1627afbd649f8c25ea49db4}} 
+bool {\bfseries Location\+Included} (const string \&ip)
+\item 
+\mbox{\Hypertarget{classConnection_a69d6fbdb860b5cfda9ad28c7ed684214}\label{classConnection_a69d6fbdb860b5cfda9ad28c7ed684214}} 
+\mbox{\hyperlink{classPerson}{Person}} $\ast$ {\bfseries Get\+Owner} ()
+\item 
+\mbox{\Hypertarget{classConnection_a54d2cfabfb07e6433d246b790d42ed53}\label{classConnection_a54d2cfabfb07e6433d246b790d42ed53}} 
+string {\bfseries Get\+Source} ()
+\item 
+\mbox{\Hypertarget{classConnection_ae6ed9b0662f431f4fbe65e49abb301fb}\label{classConnection_ae6ed9b0662f431f4fbe65e49abb301fb}} 
+string {\bfseries Get\+Target} ()
+\item 
+\mbox{\Hypertarget{classConnection_a658faf89efec87bed3ff8b29a32a1dd2}\label{classConnection_a658faf89efec87bed3ff8b29a32a1dd2}} 
+string {\bfseries Get\+Ghost} ()
+\item 
+\mbox{\Hypertarget{classConnection_a238a82b438d575f3ee970b9805c33780}\label{classConnection_a238a82b438d575f3ee970b9805c33780}} 
+int {\bfseries Get\+Size} ()
+\item 
+\mbox{\Hypertarget{classConnection_aa3954f6b651bade4fa5077ea7684211b}\label{classConnection_aa3954f6b651bade4fa5077ea7684211b}} 
+void {\bfseries Begin\+Trace} ()
+\item 
+\mbox{\Hypertarget{classConnection_abf3c80b0396c510cef60152899d6c7f7}\label{classConnection_abf3c80b0396c510cef60152899d6c7f7}} 
+void {\bfseries End\+Trace} ()
+\item 
+\mbox{\Hypertarget{classConnection_aef5f8fdd4cd86ba63b4fb3d4aaa76480}\label{classConnection_aef5f8fdd4cd86ba63b4fb3d4aaa76480}} 
+bool {\bfseries Trace\+In\+Progress} () const
+\item 
+\mbox{\Hypertarget{classConnection_ac2c8231979fe6b71331b1fedde543080}\label{classConnection_ac2c8231979fe6b71331b1fedde543080}} 
+bool {\bfseries Traced} ()
+\item 
+\mbox{\Hypertarget{classConnection_a22c82087a8d186c12a340b9f2c65b7a3}\label{classConnection_a22c82087a8d186c12a340b9f2c65b7a3}} 
+bool {\bfseries Connected} ()
+\item 
+\mbox{\Hypertarget{classConnection_a4bc45863a9f36d5d3b9b5ae4d3eda71d}\label{classConnection_a4bc45863a9f36d5d3b9b5ae4d3eda71d}} 
+void {\bfseries Connect} ()
+\item 
+\mbox{\Hypertarget{classConnection_a56e32fe52941cfef9f7a1f2225074145}\label{classConnection_a56e32fe52941cfef9f7a1f2225074145}} 
+void {\bfseries Disconnect} ()
+\item 
+\mbox{\Hypertarget{classConnection_acf999ec2631ae85b11beeaa4ad982b5f}\label{classConnection_acf999ec2631ae85b11beeaa4ad982b5f}} 
+void {\bfseries Reset} ()
+\item 
+bool \mbox{\hyperlink{classConnection_aa015d4b7a7eedc9e3a26c513cad124e8}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classConnection_a39d7ee9b17dc5b5978afd48bd786271e}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classConnection_abcbe79d43a7799e75bcee5570d4ef482}{Print}} () override
+\item 
+string \mbox{\hyperlink{classConnection_a9265edc9efb95f60a00b6f49b79cfb5d}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConnection_a061844554a0447c20eb1de8b6b0a1674}\label{classConnection_a061844554a0447c20eb1de8b6b0a1674}} 
+char {\bfseries owner} \mbox{[}64\mbox{]}
+\item 
+\mbox{\Hypertarget{classConnection_a23d63eb5cc13ea4c2754c52229fa2952}\label{classConnection_a23d63eb5cc13ea4c2754c52229fa2952}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries vlocations}
+\item 
+\mbox{\Hypertarget{classConnection_ae04b92b06fdf2bf0fe942368cb1dd0ba}\label{classConnection_ae04b92b06fdf2bf0fe942368cb1dd0ba}} 
+bool {\bfseries traceinprogress}
+\item 
+\mbox{\Hypertarget{classConnection_ab0e552c80618cf2734eba49195cbcc80}\label{classConnection_ab0e552c80618cf2734eba49195cbcc80}} 
+int {\bfseries traceprogress}
+\item 
+\mbox{\Hypertarget{classConnection_ac9b418723187f254698da4d7cd33bf89}\label{classConnection_ac9b418723187f254698da4d7cd33bf89}} 
+\mbox{\hyperlink{classDate}{Date}} {\bfseries nexttrace}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConnection_a9265edc9efb95f60a00b6f49b79cfb5d}\label{classConnection_a9265edc9efb95f60a00b6f49b79cfb5d}} 
+\index{Connection@{Connection}!GetID@{GetID}}
+\index{GetID@{GetID}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Connection\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classConnection_aa015d4b7a7eedc9e3a26c513cad124e8}\label{classConnection_aa015d4b7a7eedc9e3a26c513cad124e8}} 
+\index{Connection@{Connection}!Load@{Load}}
+\index{Load@{Load}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Connection\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classConnection_abcbe79d43a7799e75bcee5570d4ef482}\label{classConnection_abcbe79d43a7799e75bcee5570d4ef482}} 
+\index{Connection@{Connection}!Print@{Print}}
+\index{Print@{Print}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Connection\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classConnection_a39d7ee9b17dc5b5978afd48bd786271e}\label{classConnection_a39d7ee9b17dc5b5978afd48bd786271e}} 
+\index{Connection@{Connection}!Save@{Save}}
+\index{Save@{Save}!Connection@{Connection}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Connection\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/connection.\+h\item 
+uplink/src/world/connection.\+cpp\end{DoxyCompactItemize}

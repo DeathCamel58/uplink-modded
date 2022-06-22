@@ -1,0 +1,134 @@
+\hypertarget{classMessageScreen}{}\doxysection{Message\+Screen Class Reference}
+\label{classMessageScreen}\index{MessageScreen@{MessageScreen}}
+
+
+Inheritance diagram for Message\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Message\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMessageScreen_a675d8f97531394371c845c854d5f8ed7}\label{classMessageScreen_a675d8f97531394371c845c854d5f8ed7}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classMessageScreen_a69ebda9197de95014d4e4826a46c1119}\label{classMessageScreen_a69ebda9197de95014d4e4826a46c1119}} 
+void {\bfseries Set\+Text\+Message} (const string \&newtextmessage)
+\item 
+\mbox{\Hypertarget{classMessageScreen_ae909f63206f6754f424d70fd7c55160a}\label{classMessageScreen_ae909f63206f6754f424d70fd7c55160a}} 
+void {\bfseries Set\+Button\+Message} (const string \&newbuttonmessage)
+\item 
+\mbox{\Hypertarget{classMessageScreen_adba3b063b3b6fa01c12281db62cad979}\label{classMessageScreen_adba3b063b3b6fa01c12281db62cad979}} 
+void {\bfseries Set\+Mail\+This\+To\+Me} (bool newvalue)
+\item 
+bool \mbox{\hyperlink{classMessageScreen_afd8adbe050aca4e7b88fc8be650afb05}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classMessageScreen_a1d14ee30df3ccb42f65d3827607e5278}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classMessageScreen_aaeebd247b5f4ab5e2ace3a9311cfe051}{Print}} () override
+\item 
+string \mbox{\hyperlink{classMessageScreen_adfc55238ce43d274c1f67eb198463aa4}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classMessageScreen_ade1e7653242693872780a12dc09f8e8e}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMessageScreen_a65e89c516042e5325e69c92b1dcf00cb}\label{classMessageScreen_a65e89c516042e5325e69c92b1dcf00cb}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classMessageScreen_af281c985b1ec8a06f81e9fd7214cbca8}\label{classMessageScreen_af281c985b1ec8a06f81e9fd7214cbca8}} 
+char $\ast$ {\bfseries textmessage}
+\item 
+\mbox{\Hypertarget{classMessageScreen_a5dd042d4310bd8e975a2b8a1e790ac1f}\label{classMessageScreen_a5dd042d4310bd8e975a2b8a1e790ac1f}} 
+char $\ast$ {\bfseries buttonmessage}
+\item 
+\mbox{\Hypertarget{classMessageScreen_a3b980e2e40000cd791bf5a3418858d20}\label{classMessageScreen_a3b980e2e40000cd791bf5a3418858d20}} 
+bool {\bfseries mailthistome}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMessageScreen_adfc55238ce43d274c1f67eb198463aa4}\label{classMessageScreen_adfc55238ce43d274c1f67eb198463aa4}} 
+\index{MessageScreen@{MessageScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!MessageScreen@{MessageScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Message\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classMessageScreen_ade1e7653242693872780a12dc09f8e8e}\label{classMessageScreen_ade1e7653242693872780a12dc09f8e8e}} 
+\index{MessageScreen@{MessageScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!MessageScreen@{MessageScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Message\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classMessageScreen_afd8adbe050aca4e7b88fc8be650afb05}\label{classMessageScreen_afd8adbe050aca4e7b88fc8be650afb05}} 
+\index{MessageScreen@{MessageScreen}!Load@{Load}}
+\index{Load@{Load}!MessageScreen@{MessageScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Message\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classMessageScreen_aaeebd247b5f4ab5e2ace3a9311cfe051}\label{classMessageScreen_aaeebd247b5f4ab5e2ace3a9311cfe051}} 
+\index{MessageScreen@{MessageScreen}!Print@{Print}}
+\index{Print@{Print}!MessageScreen@{MessageScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Message\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classMessageScreen_a1d14ee30df3ccb42f65d3827607e5278}\label{classMessageScreen_a1d14ee30df3ccb42f65d3827607e5278}} 
+\index{MessageScreen@{MessageScreen}!Save@{Save}}
+\index{Save@{Save}!MessageScreen@{MessageScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Message\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/messagescreen.\+h\item 
+uplink/src/world/computer/computerscreen/messagescreen.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,587 @@
+\hypertarget{classHUDInterface}{}\doxysection{H\+U\+D\+Interface Class Reference}
+\label{classHUDInterface}\index{HUDInterface@{HUDInterface}}
+
+
+Screen that shows worldmap, main toolbar, services, messages, etc.  
+
+
+
+
+{\ttfamily \#include $<$hud\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for H\+U\+D\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for H\+U\+D\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHUDInterface_a6cca13572b0946188f5d0b198af51339}\label{classHUDInterface_a6cca13572b0946188f5d0b198af51339}} 
+bool {\bfseries Is\+Upgrade\+Visible} (char upgrade)
+\item 
+void \mbox{\hyperlink{classHUDInterface_a0e984f2d94cd82c34ca46426df3b9271}{Add\+Upgrade}} (char upgrade)
+\item 
+void \mbox{\hyperlink{classHUDInterface_a2561062b23f0c98779878081728782a7}{Create}} () override
+\item 
+void \mbox{\hyperlink{classHUDInterface_a6bdcf4b2ee4f707ae1260987f9d66f38}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classHUDInterface_a8f5b3d23fdf09014b8712cda73bbb968}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classHUDInterface_abf9e830ac806d56c59be57e6ec4f4598}{Screen\+ID}} () override
+\item 
+bool \mbox{\hyperlink{classHUDInterface_acd061dace5defef637bf09792cbee1ae}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classHUDInterface_ad3b85399ead2470cf4e0f00d6c03551a}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classHUDInterface_a9d8e68e2f15c6b62f0c4baff92a0222f}{Print}} () override
+\item 
+string \mbox{\hyperlink{classHUDInterface_a2d55032744b9854bef8e439122d24418}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a7e12c26b7a315fb33fe5ff4cfa0ef3ba}{Move\+Selecter}} (int screen\+ID, int screenindex)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_ab9b2787b0025b4e49a06caa631a77acc}{Remove\+Upgrade}} (char upgrade)
+\item 
+\mbox{\Hypertarget{classHUDInterface_a797b0bcc6c51a57bebab68fe7c1534e9}\label{classHUDInterface_a797b0bcc6c51a57bebab68fe7c1534e9}} 
+static \mbox{\hyperlink{structHUDInterfaceUpgrade}{H\+U\+D\+Interface\+Upgrade}} $\ast$ {\bfseries Get\+Upgrade} (char upgrade)
+\item 
+static \mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} $\ast$ \mbox{\hyperlink{classHUDInterface_a44fe167c50272e23c0da05a0a9dc8d98}{Get\+H\+UD}} ()
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a981afa446c5f90ae64b6979a95a0eb64}{Close\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHUDInterface_a97f23fafa66b653b524b74ca05952767}\label{classHUDInterface_a97f23fafa66b653b524b74ca05952767}} 
+\mbox{\hyperlink{classWorldMapInterface}{World\+Map\+Interface}} {\bfseries wmi}
+\item 
+\mbox{\Hypertarget{classHUDInterface_a738e53aa3a5d598a19906bcbd2385df1}\label{classHUDInterface_a738e53aa3a5d598a19906bcbd2385df1}} 
+\mbox{\hyperlink{classSWInterface}{S\+W\+Interface}} {\bfseries si}
+\item 
+\mbox{\Hypertarget{classHUDInterface_a6b25aa7923ec9b2d339d4f9368f2eebb}\label{classHUDInterface_a6b25aa7923ec9b2d339d4f9368f2eebb}} 
+\mbox{\hyperlink{classGatewayInterface}{Gateway\+Interface}} {\bfseries gw}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classHUDInterface_aa1dc1b3db83e427b940388cbf8024dd8}{Main\+Menu\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_ad23865a359a7930abed9a4ca763e448d}{Software\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_ac81f65ef1a5596ef99abb84e7e887fbd}{Hardware\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a9c638aa814284119d98463755b291217}{Memory\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a2bd5102a0976d5fdc1a9e96cbbda04dd}{Status\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a78aaabeb0a57845f57d8d2ac9f0e1cc7}{Finance\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a7e7198a2e300f79f0fb5916a8d3b3e88}{Send\+Mail\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a0a17bdd6bf6c467afd8b2c0ff64576f8}{Analyser\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a52ae2ebba377f1242c754841156b50d5}{I\+R\+C\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a9c54137789343f0d7b48c38e5d7a7e83}{L\+A\+N\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a66fee9481f161fc9b3616edf4477b399}{Toolbar\+Button\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a2ab063d3c908ad0c935ae39fc1302592}{Email\+Highlight}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a8b3a5414481258f2feb054d8636a33e2}{Email\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a73614fd757e1b66aa31e1460f909432d}{Mission\+Highlight}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_ab5952dff724bbb8b99094a363caf9a7f}{Mission\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_ae2af5865d48e2eaeae19064a3248929e}{Speed\+Button\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a1c1175b02458a859688ab5826dcff313}{Speed\+Button\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a7c76aadb3c348e76c50a0da9051b89f6}{Pause\+Button\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a866d9db0f1ea572c022f1351cacbd1d9}{Un\+Pause\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_a45f0c38d6c9669eca33575a5c4143f10}{Highlight\+Toolbar\+Button}} (const string \&bname)
+\item 
+static void \mbox{\hyperlink{classHUDInterface_aaf565263d71cbcda9a4fe7a7c56b0723}{Un\+Highlight\+Toolbar\+Button}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHUDInterface_a91f29f658736bbccca379d4b2d66687f}\label{classHUDInterface_a91f29f658736bbccca379d4b2d66687f}} 
+char $\ast$ {\bfseries previoushighlight}
+\item 
+\mbox{\Hypertarget{classHUDInterface_a76036396bd0998ae4ea4de611e602868}\label{classHUDInterface_a76036396bd0998ae4ea4de611e602868}} 
+\mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries previousimage}
+\item 
+char \mbox{\hyperlink{classHUDInterface_a67274e7ae54e9df1d958c1def7f118d6}{visible\+Upgrades}} \mbox{[}8\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structHUDInterfaceUpgrade}{H\+U\+D\+Interface\+Upgrade}} {\bfseries hud\+Upgrades} \mbox{[}8\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows worldmap, main toolbar, services, messages, etc. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHUDInterface_a0e984f2d94cd82c34ca46426df3b9271}\label{classHUDInterface_a0e984f2d94cd82c34ca46426df3b9271}} 
+\index{HUDInterface@{HUDInterface}!AddUpgrade@{AddUpgrade}}
+\index{AddUpgrade@{AddUpgrade}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{AddUpgrade()}{AddUpgrade()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Add\+Upgrade (\begin{DoxyParamCaption}\item[{char}]{upgrade }\end{DoxyParamCaption})}
+
+Adds an upgrade to the H\+UD 
+\begin{DoxyParams}{Parameters}
+{\em upgrade} & Upgrade to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a0a17bdd6bf6c467afd8b2c0ff64576f8}\label{classHUDInterface_a0a17bdd6bf6c467afd8b2c0ff64576f8}} 
+\index{HUDInterface@{HUDInterface}!AnalyserClick@{AnalyserClick}}
+\index{AnalyserClick@{AnalyserClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{AnalyserClick()}{AnalyserClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Analyser\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to analyser screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The analyser button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a981afa446c5f90ae64b6979a95a0eb64}\label{classHUDInterface_a981afa446c5f90ae64b6979a95a0eb64}} 
+\index{HUDInterface@{HUDInterface}!CloseGame@{CloseGame}}
+\index{CloseGame@{CloseGame}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{CloseGame()}{CloseGame()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Close\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Close connections, save game, log off \mbox{\Hypertarget{classHUDInterface_a2561062b23f0c98779878081728782a7}\label{classHUDInterface_a2561062b23f0c98779878081728782a7}} 
+\index{HUDInterface@{HUDInterface}!Create@{Create}}
+\index{Create@{Create}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHUDInterface_a8b3a5414481258f2feb054d8636a33e2}\label{classHUDInterface_a8b3a5414481258f2feb054d8636a33e2}} 
+\index{HUDInterface@{HUDInterface}!EmailClick@{EmailClick}}
+\index{EmailClick@{EmailClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{EmailClick()}{EmailClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Email\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to the email view screen and populates fields 
+\begin{DoxyParams}{Parameters}
+{\em button} & The email button clicked on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a2ab063d3c908ad0c935ae39fc1302592}\label{classHUDInterface_a2ab063d3c908ad0c935ae39fc1302592}} 
+\index{HUDInterface@{HUDInterface}!EmailHighlight@{EmailHighlight}}
+\index{EmailHighlight@{EmailHighlight}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{EmailHighlight()}{EmailHighlight()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Email\+Highlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Highlight the toolbar button for email 
+\begin{DoxyParams}{Parameters}
+{\em bname} & The email button to highlight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is used to visually show which screen we have open 
+\end{DoxyNote}
+\mbox{\Hypertarget{classHUDInterface_a78aaabeb0a57845f57d8d2ac9f0e1cc7}\label{classHUDInterface_a78aaabeb0a57845f57d8d2ac9f0e1cc7}} 
+\index{HUDInterface@{HUDInterface}!FinanceClick@{FinanceClick}}
+\index{FinanceClick@{FinanceClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{FinanceClick()}{FinanceClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Finance\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to finance screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The finance button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a44fe167c50272e23c0da05a0a9dc8d98}\label{classHUDInterface_a44fe167c50272e23c0da05a0a9dc8d98}} 
+\index{HUDInterface@{HUDInterface}!GetHUD@{GetHUD}}
+\index{GetHUD@{GetHUD}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{GetHUD()}{GetHUD()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classHUDInterface}{H\+U\+D\+Interface}} $\ast$ H\+U\+D\+Interface\+::\+Get\+H\+UD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a pointer to the current H\+UD \begin{DoxyReturn}{Returns}
+The H\+UD 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHUDInterface_a2d55032744b9854bef8e439122d24418}\label{classHUDInterface_a2d55032744b9854bef8e439122d24418}} 
+\index{HUDInterface@{HUDInterface}!GetID@{GetID}}
+\index{GetID@{GetID}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string H\+U\+D\+Interface\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classHUDInterface_ac81f65ef1a5596ef99abb84e7e887fbd}\label{classHUDInterface_ac81f65ef1a5596ef99abb84e7e887fbd}} 
+\index{HUDInterface@{HUDInterface}!HardwareClick@{HardwareClick}}
+\index{HardwareClick@{HardwareClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{HardwareClick()}{HardwareClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Hardware\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to hardware screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The hardware button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a45f0c38d6c9669eca33575a5c4143f10}\label{classHUDInterface_a45f0c38d6c9669eca33575a5c4143f10}} 
+\index{HUDInterface@{HUDInterface}!HighlightToolbarButton@{HighlightToolbarButton}}
+\index{HighlightToolbarButton@{HighlightToolbarButton}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{HighlightToolbarButton()}{HighlightToolbarButton()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Highlight\+Toolbar\+Button (\begin{DoxyParamCaption}\item[{const string \&}]{bname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Highlight the toolbar button 
+\begin{DoxyParams}{Parameters}
+{\em bname} & The button to highlight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is used to visually show which screen we have open 
+\end{DoxyNote}
+\mbox{\Hypertarget{classHUDInterface_a52ae2ebba377f1242c754841156b50d5}\label{classHUDInterface_a52ae2ebba377f1242c754841156b50d5}} 
+\index{HUDInterface@{HUDInterface}!IRCClick@{IRCClick}}
+\index{IRCClick@{IRCClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{IRCClick()}{IRCClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+I\+R\+C\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to I\+RC screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The I\+RC button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a8f5b3d23fdf09014b8712cda73bbb968}\label{classHUDInterface_a8f5b3d23fdf09014b8712cda73bbb968}} 
+\index{HUDInterface@{HUDInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool H\+U\+D\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHUDInterface_a9c54137789343f0d7b48c38e5d7a7e83}\label{classHUDInterface_a9c54137789343f0d7b48c38e5d7a7e83}} 
+\index{HUDInterface@{HUDInterface}!LANClick@{LANClick}}
+\index{LANClick@{LANClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{LANClick()}{LANClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+L\+A\+N\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to L\+AN screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The L\+AN button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_acd061dace5defef637bf09792cbee1ae}\label{classHUDInterface_acd061dace5defef637bf09792cbee1ae}} 
+\index{HUDInterface@{HUDInterface}!Load@{Load}}
+\index{Load@{Load}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool H\+U\+D\+Interface\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classHUDInterface_aa1dc1b3db83e427b940388cbf8024dd8}\label{classHUDInterface_aa1dc1b3db83e427b940388cbf8024dd8}} 
+\index{HUDInterface@{HUDInterface}!MainMenuClick@{MainMenuClick}}
+\index{MainMenuClick@{MainMenuClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{MainMenuClick()}{MainMenuClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Main\+Menu\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the game 
+\begin{DoxyParams}{Parameters}
+{\em button} & The X button in top left \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Uses Close\+Game 
+\end{DoxyNote}
+\mbox{\Hypertarget{classHUDInterface_a9c638aa814284119d98463755b291217}\label{classHUDInterface_a9c638aa814284119d98463755b291217}} 
+\index{HUDInterface@{HUDInterface}!MemoryClick@{MemoryClick}}
+\index{MemoryClick@{MemoryClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{MemoryClick()}{MemoryClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Memory\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to memory screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The memory button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_ab5952dff724bbb8b99094a363caf9a7f}\label{classHUDInterface_ab5952dff724bbb8b99094a363caf9a7f}} 
+\index{HUDInterface@{HUDInterface}!MissionClick@{MissionClick}}
+\index{MissionClick@{MissionClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{MissionClick()}{MissionClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Mission\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to the mission view screen and populates fields 
+\begin{DoxyParams}{Parameters}
+{\em button} & The mission button clicked on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a73614fd757e1b66aa31e1460f909432d}\label{classHUDInterface_a73614fd757e1b66aa31e1460f909432d}} 
+\index{HUDInterface@{HUDInterface}!MissionHighlight@{MissionHighlight}}
+\index{MissionHighlight@{MissionHighlight}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{MissionHighlight()}{MissionHighlight()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Mission\+Highlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Highlight the toolbar button for mission 
+\begin{DoxyParams}{Parameters}
+{\em bname} & The mission button to highlight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is used to visually show which screen we have open 
+\end{DoxyNote}
+\mbox{\Hypertarget{classHUDInterface_a7e12c26b7a315fb33fe5ff4cfa0ef3ba}\label{classHUDInterface_a7e12c26b7a315fb33fe5ff4cfa0ef3ba}} 
+\index{HUDInterface@{HUDInterface}!MoveSelecter@{MoveSelecter}}
+\index{MoveSelecter@{MoveSelecter}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{MoveSelecter()}{MoveSelecter()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Move\+Selecter (\begin{DoxyParamCaption}\item[{int}]{screen\+ID,  }\item[{int}]{screenindex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Changes the screen to match the button clicked on 
+\begin{DoxyParams}{Parameters}
+{\em screen\+ID} & The screen ID to change to \\
+\hline
+{\em screenindex} & Normally unused \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+screenindex is only used in some cases when a particular screen\+ID might not be enough to locate the button -\/ for example the emails at the bottom of the screen (all the same screen\+ID, but different buttons based on index) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classHUDInterface_a7c76aadb3c348e76c50a0da9051b89f6}\label{classHUDInterface_a7c76aadb3c348e76c50a0da9051b89f6}} 
+\index{HUDInterface@{HUDInterface}!PauseButtonClick@{PauseButtonClick}}
+\index{PauseButtonClick@{PauseButtonClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{PauseButtonClick()}{PauseButtonClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Pause\+Button\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Pauses the game 
+\begin{DoxyParams}{Parameters}
+{\em button} & Pause button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a9d8e68e2f15c6b62f0c4baff92a0222f}\label{classHUDInterface_a9d8e68e2f15c6b62f0c4baff92a0222f}} 
+\index{HUDInterface@{HUDInterface}!Print@{Print}}
+\index{Print@{Print}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classHUDInterface_ab9b2787b0025b4e49a06caa631a77acc}\label{classHUDInterface_ab9b2787b0025b4e49a06caa631a77acc}} 
+\index{HUDInterface@{HUDInterface}!RemoveUpgrade@{RemoveUpgrade}}
+\index{RemoveUpgrade@{RemoveUpgrade}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{RemoveUpgrade()}{RemoveUpgrade()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Remove\+Upgrade (\begin{DoxyParamCaption}\item[{char}]{upgrade }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes an upgrade from the H\+UD 
+\begin{DoxyParams}{Parameters}
+{\em upgrade} & Upgrade to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_ad3b85399ead2470cf4e0f00d6c03551a}\label{classHUDInterface_ad3b85399ead2470cf4e0f00d6c03551a}} 
+\index{HUDInterface@{HUDInterface}!Save@{Save}}
+\index{Save@{Save}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classHUDInterface_abf9e830ac806d56c59be57e6ec4f4598}\label{classHUDInterface_abf9e830ac806d56c59be57e6ec4f4598}} 
+\index{HUDInterface@{HUDInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int H\+U\+D\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHUDInterface_a7e7198a2e300f79f0fb5916a8d3b3e88}\label{classHUDInterface_a7e7198a2e300f79f0fb5916a8d3b3e88}} 
+\index{HUDInterface@{HUDInterface}!SendMailClick@{SendMailClick}}
+\index{SendMailClick@{SendMailClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{SendMailClick()}{SendMailClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Send\+Mail\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to send mail screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The send mail button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_ad23865a359a7930abed9a4ca763e448d}\label{classHUDInterface_ad23865a359a7930abed9a4ca763e448d}} 
+\index{HUDInterface@{HUDInterface}!SoftwareClick@{SoftwareClick}}
+\index{SoftwareClick@{SoftwareClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{SoftwareClick()}{SoftwareClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Software\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to software screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The software button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a1c1175b02458a859688ab5826dcff313}\label{classHUDInterface_a1c1175b02458a859688ab5826dcff313}} 
+\index{HUDInterface@{HUDInterface}!SpeedButtonClick@{SpeedButtonClick}}
+\index{SpeedButtonClick@{SpeedButtonClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{SpeedButtonClick()}{SpeedButtonClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Speed\+Button\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Sets the game speed based on button 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button that was clicked on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_ae2af5865d48e2eaeae19064a3248929e}\label{classHUDInterface_ae2af5865d48e2eaeae19064a3248929e}} 
+\index{HUDInterface@{HUDInterface}!SpeedButtonDraw@{SpeedButtonDraw}}
+\index{SpeedButtonDraw@{SpeedButtonDraw}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{SpeedButtonDraw()}{SpeedButtonDraw()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Speed\+Button\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the speed button 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button to draw \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a2bd5102a0976d5fdc1a9e96cbbda04dd}\label{classHUDInterface_a2bd5102a0976d5fdc1a9e96cbbda04dd}} 
+\index{HUDInterface@{HUDInterface}!StatusClick@{StatusClick}}
+\index{StatusClick@{StatusClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{StatusClick()}{StatusClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Status\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Switches to status screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & The status button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a66fee9481f161fc9b3616edf4477b399}\label{classHUDInterface_a66fee9481f161fc9b3616edf4477b399}} 
+\index{HUDInterface@{HUDInterface}!ToolbarButtonDraw@{ToolbarButtonDraw}}
+\index{ToolbarButtonDraw@{ToolbarButtonDraw}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{ToolbarButtonDraw()}{ToolbarButtonDraw()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Toolbar\+Button\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the button to the toolbar 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button to draw \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_aaf565263d71cbcda9a4fe7a7c56b0723}\label{classHUDInterface_aaf565263d71cbcda9a4fe7a7c56b0723}} 
+\index{HUDInterface@{HUDInterface}!UnHighlightToolbarButton@{UnHighlightToolbarButton}}
+\index{UnHighlightToolbarButton@{UnHighlightToolbarButton}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{UnHighlightToolbarButton()}{UnHighlightToolbarButton()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Un\+Highlight\+Toolbar\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Remove highlight from the toolbar button 
+\begin{DoxyParams}{Parameters}
+{\em bname} & The button to remove highlight from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is used to visually show which screen we have open 
+\end{DoxyNote}
+\mbox{\Hypertarget{classHUDInterface_a866d9db0f1ea572c022f1351cacbd1d9}\label{classHUDInterface_a866d9db0f1ea572c022f1351cacbd1d9}} 
+\index{HUDInterface@{HUDInterface}!UnPauseClick@{UnPauseClick}}
+\index{UnPauseClick@{UnPauseClick}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{UnPauseClick()}{UnPauseClick()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Un\+Pause\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Unpauses the game 
+\begin{DoxyParams}{Parameters}
+{\em button} & Close button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classHUDInterface_a6bdcf4b2ee4f707ae1260987f9d66f38}\label{classHUDInterface_a6bdcf4b2ee4f707ae1260987f9d66f38}} 
+\index{HUDInterface@{HUDInterface}!Update@{Update}}
+\index{Update@{Update}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void H\+U\+D\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classHUDInterface_ac67bd459474aee7668cd1b3336a05d5e}\label{classHUDInterface_ac67bd459474aee7668cd1b3336a05d5e}} 
+\index{HUDInterface@{HUDInterface}!hudUpgrades@{hudUpgrades}}
+\index{hudUpgrades@{hudUpgrades}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{hudUpgrades}{hudUpgrades}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structHUDInterfaceUpgrade}{H\+U\+D\+Interface\+Upgrade}} H\+U\+D\+Interface\+::hud\+Upgrades\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    2, \textcolor{stringliteral}{"Analyser"},     \textcolor{stringliteral}{"Show the connection analyser"},     \textcolor{stringliteral}{"hud\_analyser"},     \textcolor{stringliteral}{"hud/analyser.tif"},     \textcolor{stringliteral}{"hud/analyser\_h.tif"},   \textcolor{stringliteral}{"hud/analyser\_c.tif"},   \mbox{\hyperlink{classHUDInterface_a0a17bdd6bf6c467afd8b2c0ff64576f8}{AnalyserClick}},}
+\DoxyCodeLine{    4, \textcolor{stringliteral}{"IRCClient"},    \textcolor{stringliteral}{"Show the IRC Client"},              \textcolor{stringliteral}{"hud\_ircclient"},    \textcolor{stringliteral}{"hud/irc.tif"},          \textcolor{stringliteral}{"hud/irc\_h.tif"},        \textcolor{stringliteral}{"hud/irc\_c.tif"},        \mbox{\hyperlink{classHUDInterface_a52ae2ebba377f1242c754841156b50d5}{IRCClick}},}
+\DoxyCodeLine{    8, \textcolor{stringliteral}{"LANView"},      \textcolor{stringliteral}{"Show the LAN Viewer"},              \textcolor{stringliteral}{"hud\_lanview"},      \textcolor{stringliteral}{"hud/lan.tif"},          \textcolor{stringliteral}{"hud/lan\_h.tif"},        \textcolor{stringliteral}{"hud/lan\_c.tif"},        \mbox{\hyperlink{classHUDInterface_a9c54137789343f0d7b48c38e5d7a7e83}{LANClick}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classHUDInterface_a67274e7ae54e9df1d958c1def7f118d6}\label{classHUDInterface_a67274e7ae54e9df1d958c1def7f118d6}} 
+\index{HUDInterface@{HUDInterface}!visibleUpgrades@{visibleUpgrades}}
+\index{visibleUpgrades@{visibleUpgrades}!HUDInterface@{HUDInterface}}
+\doxysubsubsection{\texorpdfstring{visibleUpgrades}{visibleUpgrades}}
+{\footnotesize\ttfamily char H\+U\+D\+Interface\+::visible\+Upgrades\mbox{[}8\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+The currently visible upgrades \begin{DoxyNote}{Note}
+entries correspond to visual position on screen 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/hud\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/hud\+\_\+interface.\+cpp\end{DoxyCompactItemize}

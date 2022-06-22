@@ -1,0 +1,173 @@
+\hypertarget{classBankRobberyEvent}{}\doxysection{Bank\+Robbery\+Event Class Reference}
+\label{classBankRobberyEvent}\index{BankRobberyEvent@{BankRobberyEvent}}
+
+
+Inheritance diagram for Bank\+Robbery\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for Bank\+Robbery\+Event\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBankRobberyEvent_aa105f24b9b8c87dea7a2a6e2c5da4716}{Run}} () override
+\item 
+\mbox{\Hypertarget{classBankRobberyEvent_a252d0badb91e83aa52de099bdf4043da}\label{classBankRobberyEvent_a252d0badb91e83aa52de099bdf4043da}} 
+void {\bfseries Set\+Details} (const string \&newsourceip, const string \&newsourceaccno, const string \&newtargetip, const string \&newtargetaccno, int newamount, \mbox{\hyperlink{classDate}{Date}} $\ast$newhackdate)
+\item 
+string \mbox{\hyperlink{classBankRobberyEvent_aee95fddf89f78afa5503804e022c62ad}{Get\+Short\+String}} () override
+\item 
+string \mbox{\hyperlink{classBankRobberyEvent_ab0b3d2c4e1eb910567c2460de4b814d6}{Get\+Long\+String}} () override
+\item 
+bool \mbox{\hyperlink{classBankRobberyEvent_a7e9d1e91d215dbd7b62744a58d5fe347}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classBankRobberyEvent_a1a13493853dc52a4b5ae45b47c38ac95}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classBankRobberyEvent_a97b736c78db5fd8748372a83b910ac9f}{Print}} () override
+\item 
+string \mbox{\hyperlink{classBankRobberyEvent_ad036dc1f45bd22477859ae4d92c3f37b}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classBankRobberyEvent_a279af8ee38ee905a98e97b8a3359750d}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBankRobberyEvent_a33d4f28ac3faedc3ee419153788141e3}\label{classBankRobberyEvent_a33d4f28ac3faedc3ee419153788141e3}} 
+string {\bfseries source\+\_\+ip}
+\item 
+\mbox{\Hypertarget{classBankRobberyEvent_a38d80dc25f68fabbaff77b6c26c8ec2a}\label{classBankRobberyEvent_a38d80dc25f68fabbaff77b6c26c8ec2a}} 
+string {\bfseries source\+\_\+accno}
+\item 
+\mbox{\Hypertarget{classBankRobberyEvent_a04a1d0a1b3f448690c68837ce89aafc4}\label{classBankRobberyEvent_a04a1d0a1b3f448690c68837ce89aafc4}} 
+string {\bfseries target\+\_\+ip}
+\item 
+\mbox{\Hypertarget{classBankRobberyEvent_a69436b914347ef52597831e744a8738f}\label{classBankRobberyEvent_a69436b914347ef52597831e744a8738f}} 
+string {\bfseries target\+\_\+accno}
+\item 
+\mbox{\Hypertarget{classBankRobberyEvent_abc3f4356db9768d0c4813efa00ecb824}\label{classBankRobberyEvent_abc3f4356db9768d0c4813efa00ecb824}} 
+int {\bfseries amount}
+\item 
+\mbox{\Hypertarget{classBankRobberyEvent_aedb012127647c289bcc5fc632b254bb9}\label{classBankRobberyEvent_aedb012127647c289bcc5fc632b254bb9}} 
+\mbox{\hyperlink{classDate}{Date}} {\bfseries hackdate}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBankRobberyEvent_ad036dc1f45bd22477859ae4d92c3f37b}\label{classBankRobberyEvent_ad036dc1f45bd22477859ae4d92c3f37b}} 
+\index{BankRobberyEvent@{BankRobberyEvent}!GetID@{GetID}}
+\index{GetID@{GetID}!BankRobberyEvent@{BankRobberyEvent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Bank\+Robbery\+Event\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankRobberyEvent_ab0b3d2c4e1eb910567c2460de4b814d6}\label{classBankRobberyEvent_ab0b3d2c4e1eb910567c2460de4b814d6}} 
+\index{BankRobberyEvent@{BankRobberyEvent}!GetLongString@{GetLongString}}
+\index{GetLongString@{GetLongString}!BankRobberyEvent@{BankRobberyEvent}}
+\doxysubsubsection{\texorpdfstring{GetLongString()}{GetLongString()}}
+{\footnotesize\ttfamily string Bank\+Robbery\+Event\+::\+Get\+Long\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the long string version of the event \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classBankRobberyEvent_a279af8ee38ee905a98e97b8a3359750d}\label{classBankRobberyEvent_a279af8ee38ee905a98e97b8a3359750d}} 
+\index{BankRobberyEvent@{BankRobberyEvent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!BankRobberyEvent@{BankRobberyEvent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Bank\+Robbery\+Event\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankRobberyEvent_aee95fddf89f78afa5503804e022c62ad}\label{classBankRobberyEvent_aee95fddf89f78afa5503804e022c62ad}} 
+\index{BankRobberyEvent@{BankRobberyEvent}!GetShortString@{GetShortString}}
+\index{GetShortString@{GetShortString}!BankRobberyEvent@{BankRobberyEvent}}
+\doxysubsubsection{\texorpdfstring{GetShortString()}{GetShortString()}}
+{\footnotesize\ttfamily string Bank\+Robbery\+Event\+::\+Get\+Short\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the short string version of the event \begin{DoxyReturn}{Returns}
+Short string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classBankRobberyEvent_a7e9d1e91d215dbd7b62744a58d5fe347}\label{classBankRobberyEvent_a7e9d1e91d215dbd7b62744a58d5fe347}} 
+\index{BankRobberyEvent@{BankRobberyEvent}!Load@{Load}}
+\index{Load@{Load}!BankRobberyEvent@{BankRobberyEvent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Bank\+Robbery\+Event\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankRobberyEvent_a97b736c78db5fd8748372a83b910ac9f}\label{classBankRobberyEvent_a97b736c78db5fd8748372a83b910ac9f}} 
+\index{BankRobberyEvent@{BankRobberyEvent}!Print@{Print}}
+\index{Print@{Print}!BankRobberyEvent@{BankRobberyEvent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Bank\+Robbery\+Event\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classBankRobberyEvent_aa105f24b9b8c87dea7a2a6e2c5da4716}\label{classBankRobberyEvent_aa105f24b9b8c87dea7a2a6e2c5da4716}} 
+\index{BankRobberyEvent@{BankRobberyEvent}!Run@{Run}}
+\index{Run@{Run}!BankRobberyEvent@{BankRobberyEvent}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Bank\+Robbery\+Event\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Runs the event 
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classBankRobberyEvent_a1a13493853dc52a4b5ae45b47c38ac95}\label{classBankRobberyEvent_a1a13493853dc52a4b5ae45b47c38ac95}} 
+\index{BankRobberyEvent@{BankRobberyEvent}!Save@{Save}}
+\index{Save@{Save}!BankRobberyEvent@{BankRobberyEvent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Bank\+Robbery\+Event\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/bankrobberyevent.\+h\item 
+uplink/src/world/scheduler/bankrobberyevent.\+cpp\end{DoxyCompactItemize}

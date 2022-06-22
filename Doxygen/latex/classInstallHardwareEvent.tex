@@ -1,0 +1,177 @@
+\hypertarget{classInstallHardwareEvent}{}\doxysection{Install\+Hardware\+Event Class Reference}
+\label{classInstallHardwareEvent}\index{InstallHardwareEvent@{InstallHardwareEvent}}
+
+
+Inheritance diagram for Install\+Hardware\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for Install\+Hardware\+Event\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInstallHardwareEvent_a6d183f9c386ea3b6af7d6021e4e91d55}\label{classInstallHardwareEvent_a6d183f9c386ea3b6af7d6021e4e91d55}} 
+void {\bfseries Set\+H\+W\+Sale} (\mbox{\hyperlink{classSale}{Sale}} $\ast$newsale, int newversion)
+\item 
+void \mbox{\hyperlink{classInstallHardwareEvent_a5c2a8e9fffe4b7186305df24ac0559b6}{Run}} () override
+\item 
+void \mbox{\hyperlink{classInstallHardwareEvent_a4e42b6071ca093f9419fa4420862c7b2}{Run\+Warning}} () override
+\item 
+string \mbox{\hyperlink{classInstallHardwareEvent_abf6ec97913db45add65d545380d227a1}{Get\+Short\+String}} () override
+\item 
+string \mbox{\hyperlink{classInstallHardwareEvent_ad6bde6e7811fb058d64fa06785775d17}{Get\+Long\+String}} () override
+\item 
+bool \mbox{\hyperlink{classInstallHardwareEvent_aaeebd01b863c68471907cc0f0f104a82}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classInstallHardwareEvent_a483dfb7620389845f2369353734f3547}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classInstallHardwareEvent_aeff12d3459dffa85ca3b7e60656c503c}{Print}} () override
+\item 
+string \mbox{\hyperlink{classInstallHardwareEvent_adb72043f22a18037e81bd4cbe8971c6d}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classInstallHardwareEvent_af102c3a0919e6d16c6f8bec879c3b370}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classInstallHardwareEvent_abbf4dac4a39f0ae1914ab2d1a761f349}\label{classInstallHardwareEvent_abbf4dac4a39f0ae1914ab2d1a761f349}} 
+\mbox{\hyperlink{classSale}{Sale}} $\ast$ {\bfseries hwsale}
+\item 
+\mbox{\Hypertarget{classInstallHardwareEvent_ab29f815e36bfa1f4dcdb84e94ab72953}\label{classInstallHardwareEvent_ab29f815e36bfa1f4dcdb84e94ab72953}} 
+int {\bfseries version}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInstallHardwareEvent_adb72043f22a18037e81bd4cbe8971c6d}\label{classInstallHardwareEvent_adb72043f22a18037e81bd4cbe8971c6d}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!GetID@{GetID}}
+\index{GetID@{GetID}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Install\+Hardware\+Event\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classInstallHardwareEvent_ad6bde6e7811fb058d64fa06785775d17}\label{classInstallHardwareEvent_ad6bde6e7811fb058d64fa06785775d17}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!GetLongString@{GetLongString}}
+\index{GetLongString@{GetLongString}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{GetLongString()}{GetLongString()}}
+{\footnotesize\ttfamily string Install\+Hardware\+Event\+::\+Get\+Long\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the long string version of the event \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classInstallHardwareEvent_af102c3a0919e6d16c6f8bec879c3b370}\label{classInstallHardwareEvent_af102c3a0919e6d16c6f8bec879c3b370}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Install\+Hardware\+Event\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classInstallHardwareEvent_abf6ec97913db45add65d545380d227a1}\label{classInstallHardwareEvent_abf6ec97913db45add65d545380d227a1}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!GetShortString@{GetShortString}}
+\index{GetShortString@{GetShortString}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{GetShortString()}{GetShortString()}}
+{\footnotesize\ttfamily string Install\+Hardware\+Event\+::\+Get\+Short\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the short string version of the event \begin{DoxyReturn}{Returns}
+Short string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classInstallHardwareEvent_aaeebd01b863c68471907cc0f0f104a82}\label{classInstallHardwareEvent_aaeebd01b863c68471907cc0f0f104a82}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!Load@{Load}}
+\index{Load@{Load}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Install\+Hardware\+Event\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classInstallHardwareEvent_aeff12d3459dffa85ca3b7e60656c503c}\label{classInstallHardwareEvent_aeff12d3459dffa85ca3b7e60656c503c}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!Print@{Print}}
+\index{Print@{Print}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Install\+Hardware\+Event\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classInstallHardwareEvent_a5c2a8e9fffe4b7186305df24ac0559b6}\label{classInstallHardwareEvent_a5c2a8e9fffe4b7186305df24ac0559b6}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!Run@{Run}}
+\index{Run@{Run}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Install\+Hardware\+Event\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Runs the event 
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classInstallHardwareEvent_a4e42b6071ca093f9419fa4420862c7b2}\label{classInstallHardwareEvent_a4e42b6071ca093f9419fa4420862c7b2}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!RunWarning@{RunWarning}}
+\index{RunWarning@{RunWarning}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{RunWarning()}{RunWarning()}}
+{\footnotesize\ttfamily void Install\+Hardware\+Event\+::\+Run\+Warning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Warns user that the event is about to occur \begin{DoxyNote}{Note}
+If not overridden, this does nothing 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a6fb746f8b37c3fdd57f1cc7c2243497e}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classInstallHardwareEvent_a483dfb7620389845f2369353734f3547}\label{classInstallHardwareEvent_a483dfb7620389845f2369353734f3547}} 
+\index{InstallHardwareEvent@{InstallHardwareEvent}!Save@{Save}}
+\index{Save@{Save}!InstallHardwareEvent@{InstallHardwareEvent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Install\+Hardware\+Event\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/installhardwareevent.\+h\item 
+uplink/src/world/scheduler/installhardwareevent.\+cpp\end{DoxyCompactItemize}

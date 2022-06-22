@@ -1,0 +1,131 @@
+\hypertarget{classMainMenu}{}\doxysection{Main\+Menu Class Reference}
+\label{classMainMenu}\index{MainMenu@{MainMenu}}
+
+
+Inheritance diagram for Main\+Menu\+:
+% FIG 0
+
+
+Collaboration diagram for Main\+Menu\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainMenu_aef3b18cb7793747b26af705f941cdb2e}\label{classMainMenu_aef3b18cb7793747b26af705f941cdb2e}} 
+void {\bfseries Create} ()
+\item 
+\mbox{\Hypertarget{classMainMenu_acc7ede3679dfd374618364fa9cde275e}\label{classMainMenu_acc7ede3679dfd374618364fa9cde275e}} 
+void {\bfseries Remove} ()
+\item 
+\mbox{\Hypertarget{classMainMenu_a27d1bb468ba969240a9cc452fa1696dc}\label{classMainMenu_a27d1bb468ba969240a9cc452fa1696dc}} 
+bool {\bfseries Is\+Visible} ()
+\item 
+\mbox{\Hypertarget{classMainMenu_aeb0f95c7aa65c886bf865bf8152a10ef}\label{classMainMenu_aeb0f95c7aa65c886bf865bf8152a10ef}} 
+int {\bfseries In\+Screen} ()
+\item 
+\mbox{\Hypertarget{classMainMenu_a26c1691fd29f0b820309a943cea64c51}\label{classMainMenu_a26c1691fd29f0b820309a943cea64c51}} 
+void {\bfseries Run\+Screen} (int S\+C\+R\+E\+E\+N\+C\+O\+DE)
+\item 
+\mbox{\Hypertarget{classMainMenu_aba08d8448272cf71a121c081b2589670}\label{classMainMenu_aba08d8448272cf71a121c081b2589670}} 
+\mbox{\hyperlink{classMainMenuScreen}{Main\+Menu\+Screen}} $\ast$ {\bfseries Get\+Menu\+Screen} ()
+\item 
+bool \mbox{\hyperlink{classMainMenu_a856866156de997f6684df3deafca3e8a}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classMainMenu_a948638f3c8018a17caadcb3f27baa2db}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classMainMenu_ac4c55b78d7124168709147adbba3a9c8}{Print}} () override
+\item 
+void \mbox{\hyperlink{classMainMenu_a91b922d22530a2abbd0e475ffff008ee}{Update}} () override
+\item 
+string \mbox{\hyperlink{classMainMenu_a84415dec14a601c303047b9ff226223b}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainMenu_a61dac0852a5fe23681b274e3b7c75ce7}\label{classMainMenu_a61dac0852a5fe23681b274e3b7c75ce7}} 
+int {\bfseries currentscreencode}
+\item 
+\mbox{\Hypertarget{classMainMenu_a7a8d8216d9cd140afe71a0389ff8253a}\label{classMainMenu_a7a8d8216d9cd140afe71a0389ff8253a}} 
+\mbox{\hyperlink{classMainMenuScreen}{Main\+Menu\+Screen}} $\ast$ {\bfseries screen}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMainMenu_a84415dec14a601c303047b9ff226223b}\label{classMainMenu_a84415dec14a601c303047b9ff226223b}} 
+\index{MainMenu@{MainMenu}!GetID@{GetID}}
+\index{GetID@{GetID}!MainMenu@{MainMenu}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Main\+Menu\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMainMenu_a856866156de997f6684df3deafca3e8a}\label{classMainMenu_a856866156de997f6684df3deafca3e8a}} 
+\index{MainMenu@{MainMenu}!Load@{Load}}
+\index{Load@{Load}!MainMenu@{MainMenu}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Main\+Menu\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMainMenu_ac4c55b78d7124168709147adbba3a9c8}\label{classMainMenu_ac4c55b78d7124168709147adbba3a9c8}} 
+\index{MainMenu@{MainMenu}!Print@{Print}}
+\index{Print@{Print}!MainMenu@{MainMenu}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Main\+Menu\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMainMenu_a948638f3c8018a17caadcb3f27baa2db}\label{classMainMenu_a948638f3c8018a17caadcb3f27baa2db}} 
+\index{MainMenu@{MainMenu}!Save@{Save}}
+\index{Save@{Save}!MainMenu@{MainMenu}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Main\+Menu\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMainMenu_a91b922d22530a2abbd0e475ffff008ee}\label{classMainMenu_a91b922d22530a2abbd0e475ffff008ee}} 
+\index{MainMenu@{MainMenu}!Update@{Update}}
+\index{Update@{Update}!MainMenu@{MainMenu}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Main\+Menu\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/mainmenu/mainmenu.\+h\item 
+uplink/src/mainmenu/mainmenu.\+cpp\end{DoxyCompactItemize}

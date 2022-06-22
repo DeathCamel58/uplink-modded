@@ -1,0 +1,152 @@
+\hypertarget{classSharesListScreenInterface}{}\doxysection{Shares\+List\+Screen\+Interface Class Reference}
+\label{classSharesListScreenInterface}\index{SharesListScreenInterface@{SharesListScreenInterface}}
+
+
+Inheritance diagram for Shares\+List\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Shares\+List\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_ae02cca30d716df9a031c6031563eadbe}\label{classSharesListScreenInterface_ae02cca30d716df9a031c6031563eadbe}} 
+void {\bfseries Set\+Full\+List} (\mbox{\hyperlink{classLList}{L\+List}}$<$ char $\ast$ $>$ $\ast$newfulllist)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_af215a0942309a99eb130d4551e77d5c5}\label{classSharesListScreenInterface_af215a0942309a99eb130d4551e77d5c5}} 
+void {\bfseries Set\+Full\+List} ()
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a0a330997b81d740e7463db87b8e801e8}\label{classSharesListScreenInterface_a0a330997b81d740e7463db87b8e801e8}} 
+void {\bfseries Apply\+Filter} (const string \&filter)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a99530ccf440c031e1667b42722b30c1c}\label{classSharesListScreenInterface_a99530ccf440c031e1667b42722b30c1c}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classSharesListScreenInterface_a0976ebd066207336f52c9a766bcbc006}{Create}} () override
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_ab87dc6c636d20b5d1f599e48e2b424ca}\label{classSharesListScreenInterface_ab87dc6c636d20b5d1f599e48e2b424ca}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classSharesListScreenInterface_aacacadbe76b2429cc6cc2620add37cb4}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classSharesListScreenInterface_aa99f489eadcdb10b43b85f767809cf0c}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classSharesListScreenInterface_a64ee04f16aaf30b8777790c327244e8f}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classSharesListScreenInterface_a1afd46eebc5e8e722c5f168749dc0fa2}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a05fe7d4df969be86f2e9d1cd52558495}\label{classSharesListScreenInterface_a05fe7d4df969be86f2e9d1cd52558495}} 
+\mbox{\hyperlink{classSharesListScreen}{Shares\+List\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a97b8e2bd95adf33be5de2e6290f941b8}\label{classSharesListScreenInterface_a97b8e2bd95adf33be5de2e6290f941b8}} 
+static void {\bfseries Share\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a084b995d2c0416b5a2d3a7dd72f9ac06}\label{classSharesListScreenInterface_a084b995d2c0416b5a2d3a7dd72f9ac06}} 
+static void {\bfseries Share\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a65bc094409ebe798beb17182d762d781}\label{classSharesListScreenInterface_a65bc094409ebe798beb17182d762d781}} 
+static void {\bfseries Share\+Mouse\+Down} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a4518d12390552943f082d9c5ca06926a}\label{classSharesListScreenInterface_a4518d12390552943f082d9c5ca06926a}} 
+static void {\bfseries Share\+Mouse\+Move} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a1dc21e968eb0a34f246b390074cb499e}\label{classSharesListScreenInterface_a1dc21e968eb0a34f246b390074cb499e}} 
+static void {\bfseries Filter\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_add03ff19c2fb1b58638111066579967c}\label{classSharesListScreenInterface_add03ff19c2fb1b58638111066579967c}} 
+static void {\bfseries Filter\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a24a324a4e1ec2ada0b9ed181b4475b72}\label{classSharesListScreenInterface_a24a324a4e1ec2ada0b9ed181b4475b72}} 
+static void {\bfseries Scroll\+Up\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_af87d3284382eb37993c6828a8ce2be60}\label{classSharesListScreenInterface_af87d3284382eb37993c6828a8ce2be60}} 
+static void {\bfseries Scroll\+Down\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a774e02040e5ccd5c6d842d03316b046c}\label{classSharesListScreenInterface_a774e02040e5ccd5c6d842d03316b046c}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_ade967c6bc27228dea8f2290e4ed90315}\label{classSharesListScreenInterface_ade967c6bc27228dea8f2290e4ed90315}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ char $\ast$ $>$ {\bfseries fulllist}
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_abebdf4c6dcb0778efc69165c680676e2}\label{classSharesListScreenInterface_abebdf4c6dcb0778efc69165c680676e2}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ char $\ast$ $>$ {\bfseries filteredlist}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSharesListScreenInterface_a55ff4059e3489623ce12af746a4d6bd2}\label{classSharesListScreenInterface_a55ff4059e3489623ce12af746a4d6bd2}} 
+static int {\bfseries baseoffset} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSharesListScreenInterface_a0976ebd066207336f52c9a766bcbc006}\label{classSharesListScreenInterface_a0976ebd066207336f52c9a766bcbc006}} 
+\index{SharesListScreenInterface@{SharesListScreenInterface}!Create@{Create}}
+\index{Create@{Create}!SharesListScreenInterface@{SharesListScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Shares\+List\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreenInterface_a64ee04f16aaf30b8777790c327244e8f}\label{classSharesListScreenInterface_a64ee04f16aaf30b8777790c327244e8f}} 
+\index{SharesListScreenInterface@{SharesListScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!SharesListScreenInterface@{SharesListScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Shares\+List\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreenInterface_aacacadbe76b2429cc6cc2620add37cb4}\label{classSharesListScreenInterface_aacacadbe76b2429cc6cc2620add37cb4}} 
+\index{SharesListScreenInterface@{SharesListScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!SharesListScreenInterface@{SharesListScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Shares\+List\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreenInterface_a1afd46eebc5e8e722c5f168749dc0fa2}\label{classSharesListScreenInterface_a1afd46eebc5e8e722c5f168749dc0fa2}} 
+\index{SharesListScreenInterface@{SharesListScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!SharesListScreenInterface@{SharesListScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Shares\+List\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreenInterface_aa99f489eadcdb10b43b85f767809cf0c}\label{classSharesListScreenInterface_aa99f489eadcdb10b43b85f767809cf0c}} 
+\index{SharesListScreenInterface@{SharesListScreenInterface}!Update@{Update}}
+\index{Update@{Update}!SharesListScreenInterface@{SharesListScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Shares\+List\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}{Remote\+Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/shareslistscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/shareslistscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

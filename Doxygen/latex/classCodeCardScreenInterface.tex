@@ -1,0 +1,128 @@
+\hypertarget{classCodeCardScreenInterface}{}\doxysection{Code\+Card\+Screen\+Interface Class Reference}
+\label{classCodeCardScreenInterface}\index{CodeCardScreenInterface@{CodeCardScreenInterface}}
+
+
+Inheritance diagram for Code\+Card\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Code\+Card\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a2b160dc81fc0667ee8493e9fadd19538}\label{classCodeCardScreenInterface_a2b160dc81fc0667ee8493e9fadd19538}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classCodeCardScreenInterface_a868fa7a3720c37dd6b2df3e535b29d71}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classCodeCardScreenInterface_ac180c6790a4cbb868a4c255cc0580cf4}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classCodeCardScreenInterface_ad5f206ea61f761c36b6cd3e85555f210}{Is\+Visible}} () override
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_ae3bc749b577833614392c586892ed76a}\label{classCodeCardScreenInterface_ae3bc749b577833614392c586892ed76a}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+int \mbox{\hyperlink{classCodeCardScreenInterface_aeeed79b57025c46997c85fbeca039a7e}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a9b46ecb0d7bfb93017a3a0a7863a99d6}\label{classCodeCardScreenInterface_a9b46ecb0d7bfb93017a3a0a7863a99d6}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a836b18e9d3cc7e058b015991c631f7b3}\label{classCodeCardScreenInterface_a836b18e9d3cc7e058b015991c631f7b3}} 
+static char $\ast$ {\bfseries Get\+Code\+T\+OM} (char row, int column)
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a215ba3ba7fe54f571b87a4834cbe776b}\label{classCodeCardScreenInterface_a215ba3ba7fe54f571b87a4834cbe776b}} 
+static char $\ast$ {\bfseries Get\+Code\+C\+H\+R\+IS} (char row, int column)
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a70d80741171eef5617097e49960b7daa}\label{classCodeCardScreenInterface_a70d80741171eef5617097e49960b7daa}} 
+static char $\ast$ {\bfseries Get\+Code\+M\+A\+RK} (char row, int column)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a02c5f24c33d8ac6690a0c65af89b6c4b}\label{classCodeCardScreenInterface_a02c5f24c33d8ac6690a0c65af89b6c4b}} 
+static void {\bfseries Proceed\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_ab8779a50df3c9f820360c002658eefd4}\label{classCodeCardScreenInterface_ab8779a50df3c9f820360c002658eefd4}} 
+static void {\bfseries Code\+Button\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a1b378665adfadbf3aa64ca2ff7d2cbdf}\label{classCodeCardScreenInterface_a1b378665adfadbf3aa64ca2ff7d2cbdf}} 
+char {\bfseries row} \{\}
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_ae08d643647510b94a4e96020a8067f76}\label{classCodeCardScreenInterface_ae08d643647510b94a4e96020a8067f76}} 
+int {\bfseries col} \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_af524121d92a3ed808c1cab9f1a526752}\label{classCodeCardScreenInterface_af524121d92a3ed808c1cab9f1a526752}} 
+static char {\bfseries carddata\+T\+OM} \mbox{[}26\mbox{]}\mbox{[}16\mbox{]}\mbox{[}3\mbox{]}
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a38274980f0f7435ebd554ea367f2a46c}\label{classCodeCardScreenInterface_a38274980f0f7435ebd554ea367f2a46c}} 
+static char {\bfseries carddata\+C\+H\+R\+IS} \mbox{[}26\mbox{]}\mbox{[}16\mbox{]}\mbox{[}3\mbox{]}
+\item 
+\mbox{\Hypertarget{classCodeCardScreenInterface_a104e7481b15eec4dd494606ebdd282e5}\label{classCodeCardScreenInterface_a104e7481b15eec4dd494606ebdd282e5}} 
+static char {\bfseries carddata\+M\+A\+RK} \mbox{[}26\mbox{]}\mbox{[}16\mbox{]}\mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCodeCardScreenInterface_ad5f206ea61f761c36b6cd3e85555f210}\label{classCodeCardScreenInterface_ad5f206ea61f761c36b6cd3e85555f210}} 
+\index{CodeCardScreenInterface@{CodeCardScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!CodeCardScreenInterface@{CodeCardScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Code\+Card\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCodeCardScreenInterface_a868fa7a3720c37dd6b2df3e535b29d71}\label{classCodeCardScreenInterface_a868fa7a3720c37dd6b2df3e535b29d71}} 
+\index{CodeCardScreenInterface@{CodeCardScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!CodeCardScreenInterface@{CodeCardScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Code\+Card\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCodeCardScreenInterface_aeeed79b57025c46997c85fbeca039a7e}\label{classCodeCardScreenInterface_aeeed79b57025c46997c85fbeca039a7e}} 
+\index{CodeCardScreenInterface@{CodeCardScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!CodeCardScreenInterface@{CodeCardScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Code\+Card\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCodeCardScreenInterface_ac180c6790a4cbb868a4c255cc0580cf4}\label{classCodeCardScreenInterface_ac180c6790a4cbb868a4c255cc0580cf4}} 
+\index{CodeCardScreenInterface@{CodeCardScreenInterface}!Update@{Update}}
+\index{Update@{Update}!CodeCardScreenInterface@{CodeCardScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Code\+Card\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/codecardscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/codecardscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

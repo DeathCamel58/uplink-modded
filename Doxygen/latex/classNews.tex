@@ -1,0 +1,248 @@
+\hypertarget{classNews}{}\doxysection{News Class Reference}
+\label{classNews}\index{News@{News}}
+
+
+\mbox{\hyperlink{classNews}{News}} object.  
+
+
+
+
+{\ttfamily \#include $<$news.\+h$>$}
+
+
+
+Inheritance diagram for News\+:
+% FIG 0
+
+
+Collaboration diagram for News\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNews_a3fd03509e10239c8fc51b61b069039c4}{Set\+Date}} (\mbox{\hyperlink{classDate}{Date}} $\ast$newdate)
+\item 
+void \mbox{\hyperlink{classNews_a61a3c829fe850a5b82b6f70f47c56cc5}{Set\+Headline}} (const string \&newheadline)
+\item 
+void \mbox{\hyperlink{classNews_aac777eb78c166073dd5ad3a31e9ced89}{Set\+Details}} (const string \&newdetails)
+\item 
+string \mbox{\hyperlink{classNews_a9c1a0423efd2766cda23af08b742d9f2}{Get\+Details}} ()
+\item 
+void \mbox{\hyperlink{classNews_ad10e7bcdb40cac587321db4888b5d15a}{Set\+Data}} (int new\+N\+E\+W\+S\+T\+Y\+PE, const string \&newdata1=\char`\"{}\char`\"{}, const string \&newdata2=\char`\"{}\char`\"{})
+\item 
+bool \mbox{\hyperlink{classNews_a27457d87f3eca761cbba8bc1ce2de125}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classNews_a7ab6b0d18d2f241c820b42214fc46408}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classNews_a4fa88e4874ad1d93e07d7afaabc5c01c}{Print}} () override
+\item 
+string \mbox{\hyperlink{classNews_aa766cfa502aa3b704dead647a508789e}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classNews_a3cca3a4d0a25d118af41cf03d1d23783}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classNews_afdf3e65f21bf687949e6910c7f9c33ec}{date}}
+\item 
+string \mbox{\hyperlink{classNews_a10e49740b51630643542ecd64946140d}{headline}}
+\item 
+int \mbox{\hyperlink{classNews_a965ef7e6cf8c948be918d7b9b81f747b}{N\+E\+W\+S\+T\+Y\+PE}}
+\item 
+char \mbox{\hyperlink{classNews_a1d8cf934b68d96661989c065dec22173}{data1}} \mbox{[}S\+I\+Z\+E\+\_\+\+N\+E\+W\+S\+\_\+\+D\+A\+TA\mbox{]}
+\item 
+char \mbox{\hyperlink{classNews_a2740d203382a060c60555a0971a385a4}{data2}} \mbox{[}S\+I\+Z\+E\+\_\+\+N\+E\+W\+S\+\_\+\+D\+A\+TA\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classNews_af8c346e401e57fabb2b96321031e695b}{details}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classNews}{News}} object. 
+
+Represents a single news story, posted onto one of the news servers 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNews_a9c1a0423efd2766cda23af08b742d9f2}\label{classNews_a9c1a0423efd2766cda23af08b742d9f2}} 
+\index{News@{News}!GetDetails@{GetDetails}}
+\index{GetDetails@{GetDetails}!News@{News}}
+\doxysubsubsection{\texorpdfstring{GetDetails()}{GetDetails()}}
+{\footnotesize\ttfamily string News\+::\+Get\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the text content of the news item \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNews_aa766cfa502aa3b704dead647a508789e}\label{classNews_aa766cfa502aa3b704dead647a508789e}} 
+\index{News@{News}!GetID@{GetID}}
+\index{GetID@{GetID}!News@{News}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string News\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNews_a3cca3a4d0a25d118af41cf03d1d23783}\label{classNews_a3cca3a4d0a25d118af41cf03d1d23783}} 
+\index{News@{News}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!News@{News}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int News\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNews_a27457d87f3eca761cbba8bc1ce2de125}\label{classNews_a27457d87f3eca761cbba8bc1ce2de125}} 
+\index{News@{News}!Load@{Load}}
+\index{Load@{Load}!News@{News}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool News\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNews_a4fa88e4874ad1d93e07d7afaabc5c01c}\label{classNews_a4fa88e4874ad1d93e07d7afaabc5c01c}} 
+\index{News@{News}!Print@{Print}}
+\index{Print@{Print}!News@{News}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void News\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNews_a7ab6b0d18d2f241c820b42214fc46408}\label{classNews_a7ab6b0d18d2f241c820b42214fc46408}} 
+\index{News@{News}!Save@{Save}}
+\index{Save@{Save}!News@{News}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void News\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNews_ad10e7bcdb40cac587321db4888b5d15a}\label{classNews_ad10e7bcdb40cac587321db4888b5d15a}} 
+\index{News@{News}!SetData@{SetData}}
+\index{SetData@{SetData}!News@{News}}
+\doxysubsubsection{\texorpdfstring{SetData()}{SetData()}}
+{\footnotesize\ttfamily void News\+::\+Set\+Data (\begin{DoxyParamCaption}\item[{int}]{new\+N\+E\+W\+S\+T\+Y\+PE,  }\item[{const string \&}]{newdata1 = {\ttfamily \char`\"{}\char`\"{}},  }\item[{const string \&}]{newdata2 = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+Sets the data of the news item 
+\begin{DoxyParams}{Parameters}
+{\em new\+N\+E\+W\+S\+T\+Y\+PE} & The type of the news item \\
+\hline
+{\em newdata1} & Varies based on new\+N\+E\+W\+S\+T\+Y\+PE \\
+\hline
+{\em newdata2} & Varies based on new\+N\+E\+W\+S\+T\+Y\+PE \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Depending on the new\+N\+E\+W\+S\+T\+Y\+PE, newdata1 and newdata2 can represent different data 
+\end{DoxyNote}
+\mbox{\Hypertarget{classNews_a3fd03509e10239c8fc51b61b069039c4}\label{classNews_a3fd03509e10239c8fc51b61b069039c4}} 
+\index{News@{News}!SetDate@{SetDate}}
+\index{SetDate@{SetDate}!News@{News}}
+\doxysubsubsection{\texorpdfstring{SetDate()}{SetDate()}}
+{\footnotesize\ttfamily void News\+::\+Set\+Date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDate}{Date}} $\ast$}]{newdate }\end{DoxyParamCaption})}
+
+Sets the date of the news item 
+\begin{DoxyParams}{Parameters}
+{\em newdate} & The new date \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNews_aac777eb78c166073dd5ad3a31e9ced89}\label{classNews_aac777eb78c166073dd5ad3a31e9ced89}} 
+\index{News@{News}!SetDetails@{SetDetails}}
+\index{SetDetails@{SetDetails}!News@{News}}
+\doxysubsubsection{\texorpdfstring{SetDetails()}{SetDetails()}}
+{\footnotesize\ttfamily void News\+::\+Set\+Details (\begin{DoxyParamCaption}\item[{const string \&}]{newdetails }\end{DoxyParamCaption})}
+
+Sets the text content of the news item 
+\begin{DoxyParams}{Parameters}
+{\em newdetails} & The news content \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNews_a61a3c829fe850a5b82b6f70f47c56cc5}\label{classNews_a61a3c829fe850a5b82b6f70f47c56cc5}} 
+\index{News@{News}!SetHeadline@{SetHeadline}}
+\index{SetHeadline@{SetHeadline}!News@{News}}
+\doxysubsubsection{\texorpdfstring{SetHeadline()}{SetHeadline()}}
+{\footnotesize\ttfamily void News\+::\+Set\+Headline (\begin{DoxyParamCaption}\item[{const string \&}]{newheadline }\end{DoxyParamCaption})}
+
+Sets the headline of the news item 
+\begin{DoxyParams}{Parameters}
+{\em newheadline} & The news headline \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classNews_a1d8cf934b68d96661989c065dec22173}\label{classNews_a1d8cf934b68d96661989c065dec22173}} 
+\index{News@{News}!data1@{data1}}
+\index{data1@{data1}!News@{News}}
+\doxysubsubsection{\texorpdfstring{data1}{data1}}
+{\footnotesize\ttfamily char News\+::data1\mbox{[}S\+I\+Z\+E\+\_\+\+N\+E\+W\+S\+\_\+\+D\+A\+TA\mbox{]}}
+
+Varies based on new\+N\+E\+W\+S\+T\+Y\+PE \mbox{\Hypertarget{classNews_a2740d203382a060c60555a0971a385a4}\label{classNews_a2740d203382a060c60555a0971a385a4}} 
+\index{News@{News}!data2@{data2}}
+\index{data2@{data2}!News@{News}}
+\doxysubsubsection{\texorpdfstring{data2}{data2}}
+{\footnotesize\ttfamily char News\+::data2\mbox{[}S\+I\+Z\+E\+\_\+\+N\+E\+W\+S\+\_\+\+D\+A\+TA\mbox{]}}
+
+Varies based on new\+N\+E\+W\+S\+T\+Y\+PE \mbox{\Hypertarget{classNews_afdf3e65f21bf687949e6910c7f9c33ec}\label{classNews_afdf3e65f21bf687949e6910c7f9c33ec}} 
+\index{News@{News}!date@{date}}
+\index{date@{date}!News@{News}}
+\doxysubsubsection{\texorpdfstring{date}{date}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDate}{Date}} News\+::date}
+
+The date of the news item \mbox{\Hypertarget{classNews_af8c346e401e57fabb2b96321031e695b}\label{classNews_af8c346e401e57fabb2b96321031e695b}} 
+\index{News@{News}!details@{details}}
+\index{details@{details}!News@{News}}
+\doxysubsubsection{\texorpdfstring{details}{details}}
+{\footnotesize\ttfamily string News\+::details\hspace{0.3cm}{\ttfamily [protected]}}
+
+The text content of the news item \mbox{\Hypertarget{classNews_a10e49740b51630643542ecd64946140d}\label{classNews_a10e49740b51630643542ecd64946140d}} 
+\index{News@{News}!headline@{headline}}
+\index{headline@{headline}!News@{News}}
+\doxysubsubsection{\texorpdfstring{headline}{headline}}
+{\footnotesize\ttfamily string News\+::headline}
+
+The headline of the news item \mbox{\Hypertarget{classNews_a965ef7e6cf8c948be918d7b9b81f747b}\label{classNews_a965ef7e6cf8c948be918d7b9b81f747b}} 
+\index{News@{News}!NEWSTYPE@{NEWSTYPE}}
+\index{NEWSTYPE@{NEWSTYPE}!News@{News}}
+\doxysubsubsection{\texorpdfstring{NEWSTYPE}{NEWSTYPE}}
+{\footnotesize\ttfamily int News\+::\+N\+E\+W\+S\+T\+Y\+PE}
+
+The type of the news item 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/company/news.\+h\item 
+uplink/src/world/company/news.\+cpp\end{DoxyCompactItemize}

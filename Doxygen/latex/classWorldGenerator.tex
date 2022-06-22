@@ -1,0 +1,742 @@
+\hypertarget{classWorldGenerator}{}\doxysection{World\+Generator Class Reference}
+\label{classWorldGenerator}\index{WorldGenerator@{WorldGenerator}}
+
+
+{\ttfamily \#include $<$worldgenerator.\+h$>$}
+
+
+
+Collaboration diagram for World\+Generator\+:
+% FIG 0
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_ad7e8f44475d1b0b1532a72e092a830ee}{Initialise}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a58ef4dbad52eba5fa2691b9c055c2408}{Shutdown}} ()
+\item 
+static \mbox{\hyperlink{classCompany}{Company}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a0f9e0dcd4245881ecc6d9bb554f27f30}{Generate\+Company}} (const string \&companyname, int size, int T\+Y\+PE, int growth, int alignment)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Generate General}\par
+{\em High level functions that generate large amounts of data }\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a3a6da5333fd783d93202fc978ba3efcf}{Generate\+All}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a27e0cb6b6f7f2de6c09c0ea8f450654b}{Generate\+Random\+World}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_ad2625b5d0292f97637a9ed2027fb950b}{Generate\+Specifics}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_aa692c4e81f82a2bd6cd3ca316cb00df4}{Load\+Dynamics}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a4150262e66fd9ccab612a1f61e215149}{Load\+Dynamics\+Gateway\+Defs}} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Generate specific}\par
+{\em Middle level functions for generating specific items of data }\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classPlayer}{Player}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a4c065c012589632d4446b46b4b5d889c}{Generate\+Player}} (const string \&handle)
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_af91b36bc46013c05648f538f578afb5e}{Generate\+Local\+Machine}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a4cb04d83ff692fc645a5c9009cf552a1}{Generate\+Company\+Uplink}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a7fb48b5763c6cba5085fcf2810e2c4fd}{Generate\+Uplink\+Public\+Access\+Server}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_abaad0e2739bc7dc60abc1e08f5f4c2af}{Generate\+Uplink\+Internal\+Services\+System}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_abd7f766373e782628a7c6ab08e50b8fa}{Generate\+Uplink\+Test\+Machine}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_aef093b5d48c004b8b986654cbbd9c93e}{Generate\+Uplink\+Credits\+Machine}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a491232865675e3e02b3357c190d88013}{Generate\+Company\+Government}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_af6507046a24db408044ecbb2ca1e8c08}{Generate\+Global\+Criminal\+Database}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a0a4d451ea3f0e1f3a58ce28ff8eabf0a}{Generate\+International\+Social\+Security\+Database}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a3e340c181697bbe6e22d57a6ec5baa80}{Generate\+Central\+Medical\+Database}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a65d4e23f155365e92af65aa8c4af9a3d}{Generate\+Global\+Intelligence\+Agency}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_ad0f4774d18325ab08cd9cfabc9cbc078}{Generate\+International\+Academic\+Database}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_ae52c1b224524d433de7e2babcd275da0}{Generate\+Inter\+N\+IC}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_ab861b4f7748f877f17e590a640a2865b}{Generate\+Stock\+Market}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a8c53c5fdf064cf6a2a870ba2549d0caa}{Generate\+Proto\+Vision}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_ace2b3914af1a5f5888ac02b222865a38}{Generate\+O\+CP}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a5d6ffe7b1d3a57b2b1c16dc04cbe4ab7}{Generate\+S\+J\+Games}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a66cb156169c9daf03bf1e6bba5166cd1}{Generate\+Introversion}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_ad5552aca2827d1b7a29c9e7b3bb5164d}{Generate\+Simple\+Starting\+MissionA}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a2682df85c49f417042ed892c7fca14fc}{Generate\+Simple\+Starting\+MissionB}} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Generate Random}\par
+{\em Low level functions for generating random items of data They all add the data into the \mbox{\hyperlink{classWorld}{World}} object automatically, and then return it }\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a16a7ef301969e75d40e4917c735d3440}{Generate\+Location}} ()
+\item 
+static \mbox{\hyperlink{classCompany}{Company}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a6bad6365598cb9f1b0acb98dc1ed1fcc}{Generate\+Company}} ()
+\item 
+static \mbox{\hyperlink{classCompany}{Company}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a3343ec0dc1d17c87cb1e0afeab8e6dee}{Generate\+Company\+\_\+\+Bank}} ()
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_aa7c93fda5e57341fa706bd5d3159e06d}{Generate\+Computer}} (const string \&companyname)
+\item 
+static \mbox{\hyperlink{classPerson}{Person}} $\ast$ \mbox{\hyperlink{classWorldGenerator_ae12cba3d732a41597fb0b7f5a0021232}{Generate\+Person}} ()
+\item 
+static \mbox{\hyperlink{classAgent}{Agent}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a0ceb044e5fca6cbd727a6916b34625de}{Generate\+Agent}} ()
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a0b934a1ab49e912f0ca4315662744887}{Generate\+Computer}} (const string \&company\+Name, int T\+Y\+PE)
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a8d87f087dd7b7ff0e4cf6629f3129eb9}{Generate\+Public\+Access\+Server}} (const string \&companyname)
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a179d54cd2d61fcb916dda5bf72caac4c}{Generate\+Internal\+Services\+Machine}} (const string \&companyname)
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a02f1b7c1256b729f80cc567e9483c8e9}{Generate\+Central\+Mainframe}} (const string \&companyname)
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a510b8abd3d64be3d0b625eae3364c6f3}{Generate\+Public\+Bank\+Server}} (const string \&companyname)
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a2ff1e002d444cf8d2ef4e44e4dba4ebd}{Generate\+Empty\+File\+Server}} (const string \&companyname)
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a131dbe686ad86e4e93df4c254f61df98}{Generate\+L\+AN}} (const string \&companyname)
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a6c50729bd85f6cd83391bce8863bc56f}{Generate\+Personal\+Computer}} (const string \&personname)
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a5c78ea0ab177cdc304a60a6bb905c548}{Generate\+Voice\+Phone\+System}} (const string \&personname)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Get Random}\par
+{\em Functions which return a random entry }\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a623aef4c06686e49d39dd6d6f4d2beec}{Get\+Random\+Location}} ()
+\item 
+static \mbox{\hyperlink{classCompany}{Company}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a2d7897304312d9d1f06fc20282e2f9d0}{Get\+Random\+Company}} ()
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_af48680947c6cd5699343ad45b2643f82}{Get\+Random\+Computer}} ()
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a768e40ec02c4178cfb386b6e99d042ca}{Get\+Random\+Computer}} (int T\+Y\+PE)
+\item 
+static \mbox{\hyperlink{classPerson}{Person}} $\ast$ \mbox{\hyperlink{classWorldGenerator_ab1da0de8be78aafb49602365bbff9aec}{Get\+Random\+Person}} ()
+\item 
+static \mbox{\hyperlink{classAgent}{Agent}} $\ast$ \mbox{\hyperlink{classWorldGenerator_addaf186b1d60bec84ac97656aecd9296}{Get\+Random\+Agent}} ()
+\item 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a71ae59ab764472b4f7fe3ea6ecaae7a1}{Get\+Random\+Mission}} ()
+\item 
+static \mbox{\hyperlink{classComputer}{Computer}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a150fa1ede16758887395f52dca2bb0b6}{Get\+Random\+Low\+Security\+Computer}} (int T\+Y\+PE)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Misc}\par
+{\em Miscellaneous Functions }\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a865f4bdb1fa0cff364e0c1fd3240da7a}{Generate\+Valid\+Map\+Pos}} (int \&x, int \&y)
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_acf43da0182dd17517995f7ea4cbb5afd}{Replace\+Admin\+Companies}} (\mbox{\hyperlink{classPerson}{Person}} $\ast$person)
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a255a2db8394f26918177f4106e952284}{Replace\+Invalid\+Company\+Admins}} ()
+\item 
+static void \mbox{\hyperlink{classWorldGenerator_a1b19b767eef346eff1a325e7b32b78d1}{Update\+Software\+Upgrades}} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ \mbox{\hyperlink{classWorldGenerator_a2820b97a54ffd3e35c4e1fbce4f24649}{worldmapmask}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classInterface}{Interface}} for the \mbox{\hyperlink{classWorldGenerator}{World\+Generator}} class 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorldGenerator_a0ceb044e5fca6cbd727a6916b34625de}\label{classWorldGenerator_a0ceb044e5fca6cbd727a6916b34625de}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateAgent@{GenerateAgent}}
+\index{GenerateAgent@{GenerateAgent}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateAgent()}{GenerateAgent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAgent}{Agent}} $\ast$ World\+Generator\+::\+Generate\+Agent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a random \mbox{\hyperlink{classAgent}{Agent}} \begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classAgent}{Agent}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a3a6da5333fd783d93202fc978ba3efcf}\label{classWorldGenerator_a3a6da5333fd783d93202fc978ba3efcf}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateAll@{GenerateAll}}
+\index{GenerateAll@{GenerateAll}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateAll()}{GenerateAll()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The main entry function which generates the entire world \begin{DoxyNote}{Note}
+Called in a new game 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a02f1b7c1256b729f80cc567e9483c8e9}\label{classWorldGenerator_a02f1b7c1256b729f80cc567e9483c8e9}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateCentralMainframe@{GenerateCentralMainframe}}
+\index{GenerateCentralMainframe@{GenerateCentralMainframe}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateCentralMainframe()}{GenerateCentralMainframe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Central\+Mainframe (\begin{DoxyParamCaption}\item[{const string \&}]{companyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a Central Mainframe for a company 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & Name of the company to generate Central Mainframe for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classComputer}{Computer}} for the Central Mainframe 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a3e340c181697bbe6e22d57a6ec5baa80}\label{classWorldGenerator_a3e340c181697bbe6e22d57a6ec5baa80}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateCentralMedicalDatabase@{GenerateCentralMedicalDatabase}}
+\index{GenerateCentralMedicalDatabase@{GenerateCentralMedicalDatabase}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateCentralMedicalDatabase()}{GenerateCentralMedicalDatabase()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Central\+Medical\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Central Medical Database \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+
+This is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a6bad6365598cb9f1b0acb98dc1ed1fcc}\label{classWorldGenerator_a6bad6365598cb9f1b0acb98dc1ed1fcc}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateCompany@{GenerateCompany}}
+\index{GenerateCompany@{GenerateCompany}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateCompany()}{GenerateCompany()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCompany}{Company}} $\ast$ World\+Generator\+::\+Generate\+Company (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a random \mbox{\hyperlink{classCompany}{Company}} \begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{classCompany}{Company}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a0f9e0dcd4245881ecc6d9bb554f27f30}\label{classWorldGenerator_a0f9e0dcd4245881ecc6d9bb554f27f30}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateCompany@{GenerateCompany}}
+\index{GenerateCompany@{GenerateCompany}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateCompany()}{GenerateCompany()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCompany}{Company}} $\ast$ World\+Generator\+::\+Generate\+Company (\begin{DoxyParamCaption}\item[{const string \&}]{companyname,  }\item[{int}]{size,  }\item[{int}]{T\+Y\+PE,  }\item[{int}]{growth,  }\item[{int}]{alignment }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: Document 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & \\
+\hline
+{\em size} & \\
+\hline
+{\em T\+Y\+PE} & \\
+\hline
+{\em growth} & \\
+\hline
+{\em alignment} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a3343ec0dc1d17c87cb1e0afeab8e6dee}\label{classWorldGenerator_a3343ec0dc1d17c87cb1e0afeab8e6dee}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateCompany\_Bank@{GenerateCompany\_Bank}}
+\index{GenerateCompany\_Bank@{GenerateCompany\_Bank}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateCompany\_Bank()}{GenerateCompany\_Bank()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCompany}{Company}} $\ast$ World\+Generator\+::\+Generate\+Company\+\_\+\+Bank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a random bank \begin{DoxyReturn}{Returns}
+The Bank\textquotesingle{}s \mbox{\hyperlink{classCompany}{Company}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a491232865675e3e02b3357c190d88013}\label{classWorldGenerator_a491232865675e3e02b3357c190d88013}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateCompanyGovernment@{GenerateCompanyGovernment}}
+\index{GenerateCompanyGovernment@{GenerateCompanyGovernment}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateCompanyGovernment()}{GenerateCompanyGovernment()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Company\+Government (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Government \begin{DoxyNote}{Note}
+This generates the \mbox{\hyperlink{classCompany}{Company}} \char`\"{}\+Government\char`\"{} 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a4cb04d83ff692fc645a5c9009cf552a1}\label{classWorldGenerator_a4cb04d83ff692fc645a5c9009cf552a1}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateCompanyUplink@{GenerateCompanyUplink}}
+\index{GenerateCompanyUplink@{GenerateCompanyUplink}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateCompanyUplink()}{GenerateCompanyUplink()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Company\+Uplink (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Uplink company \begin{DoxyNote}{Note}
+Creates the Bank server, generates all hardware and software items for sale 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_aa7c93fda5e57341fa706bd5d3159e06d}\label{classWorldGenerator_aa7c93fda5e57341fa706bd5d3159e06d}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateComputer@{GenerateComputer}}
+\index{GenerateComputer@{GenerateComputer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateComputer()}{GenerateComputer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Computer (\begin{DoxyParamCaption}\item[{const string \&}]{companyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a random \mbox{\hyperlink{classComputer}{Computer}} for a company 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & Name of company to generate \mbox{\hyperlink{classComputer}{Computer}} for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classComputer}{Computer}} that was generated 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a0b934a1ab49e912f0ca4315662744887}\label{classWorldGenerator_a0b934a1ab49e912f0ca4315662744887}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateComputer@{GenerateComputer}}
+\index{GenerateComputer@{GenerateComputer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateComputer()}{GenerateComputer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Computer (\begin{DoxyParamCaption}\item[{const string \&}]{company\+Name,  }\item[{int}]{T\+Y\+PE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a specific type of \mbox{\hyperlink{classComputer}{Computer}} for a company 
+\begin{DoxyParams}{Parameters}
+{\em company\+Name} & Name of the company to generate the \mbox{\hyperlink{classComputer}{Computer}} for \\
+\hline
+{\em T\+Y\+PE} & The type of the \mbox{\hyperlink{classComputer}{Computer}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classComputer}{Computer}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a2ff1e002d444cf8d2ef4e44e4dba4ebd}\label{classWorldGenerator_a2ff1e002d444cf8d2ef4e44e4dba4ebd}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateEmptyFileServer@{GenerateEmptyFileServer}}
+\index{GenerateEmptyFileServer@{GenerateEmptyFileServer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateEmptyFileServer()}{GenerateEmptyFileServer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Empty\+File\+Server (\begin{DoxyParamCaption}\item[{const string \&}]{companyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates an empty file server for a company 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & Name of company to generate empty file server for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classComputer}{Computer}} for the \mbox{\hyperlink{classFile}{File}} Server 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Used in Steal\+Research missions 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_af6507046a24db408044ecbb2ca1e8c08}\label{classWorldGenerator_af6507046a24db408044ecbb2ca1e8c08}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateGlobalCriminalDatabase@{GenerateGlobalCriminalDatabase}}
+\index{GenerateGlobalCriminalDatabase@{GenerateGlobalCriminalDatabase}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateGlobalCriminalDatabase()}{GenerateGlobalCriminalDatabase()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Global\+Criminal\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Global Criminal Database \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a65d4e23f155365e92af65aa8c4af9a3d}\label{classWorldGenerator_a65d4e23f155365e92af65aa8c4af9a3d}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateGlobalIntelligenceAgency@{GenerateGlobalIntelligenceAgency}}
+\index{GenerateGlobalIntelligenceAgency@{GenerateGlobalIntelligenceAgency}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateGlobalIntelligenceAgency()}{GenerateGlobalIntelligenceAgency()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Global\+Intelligence\+Agency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Does nothing \mbox{\Hypertarget{classWorldGenerator_a179d54cd2d61fcb916dda5bf72caac4c}\label{classWorldGenerator_a179d54cd2d61fcb916dda5bf72caac4c}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateInternalServicesMachine@{GenerateInternalServicesMachine}}
+\index{GenerateInternalServicesMachine@{GenerateInternalServicesMachine}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateInternalServicesMachine()}{GenerateInternalServicesMachine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Internal\+Services\+Machine (\begin{DoxyParamCaption}\item[{const string \&}]{companyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates an internal services machine for a company 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & Name of the company to generate the internal services machine for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classComputer}{Computer}} for the internal services machine 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_ad0f4774d18325ab08cd9cfabc9cbc078}\label{classWorldGenerator_ad0f4774d18325ab08cd9cfabc9cbc078}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateInternationalAcademicDatabase@{GenerateInternationalAcademicDatabase}}
+\index{GenerateInternationalAcademicDatabase@{GenerateInternationalAcademicDatabase}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateInternationalAcademicDatabase()}{GenerateInternationalAcademicDatabase()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+International\+Academic\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the International Academic Database \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a0a4d451ea3f0e1f3a58ce28ff8eabf0a}\label{classWorldGenerator_a0a4d451ea3f0e1f3a58ce28ff8eabf0a}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateInternationalSocialSecurityDatabase@{GenerateInternationalSocialSecurityDatabase}}
+\index{GenerateInternationalSocialSecurityDatabase@{GenerateInternationalSocialSecurityDatabase}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateInternationalSocialSecurityDatabase()}{GenerateInternationalSocialSecurityDatabase()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+International\+Social\+Security\+Database (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the International Social \mbox{\hyperlink{classSecurity}{Security}} Database \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_ae52c1b224524d433de7e2babcd275da0}\label{classWorldGenerator_ae52c1b224524d433de7e2babcd275da0}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateInterNIC@{GenerateInterNIC}}
+\index{GenerateInterNIC@{GenerateInterNIC}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateInterNIC()}{GenerateInterNIC()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Inter\+N\+IC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates Inter\+N\+IC \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a66cb156169c9daf03bf1e6bba5166cd1}\label{classWorldGenerator_a66cb156169c9daf03bf1e6bba5166cd1}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateIntroversion@{GenerateIntroversion}}
+\index{GenerateIntroversion@{GenerateIntroversion}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateIntroversion()}{GenerateIntroversion()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Introversion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Introversion server \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a131dbe686ad86e4e93df4c254f61df98}\label{classWorldGenerator_a131dbe686ad86e4e93df4c254f61df98}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateLAN@{GenerateLAN}}
+\index{GenerateLAN@{GenerateLAN}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateLAN()}{GenerateLAN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+L\+AN (\begin{DoxyParamCaption}\item[{const string \&}]{companyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates L\+AN for a company 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & Name of the company to generate the L\+AN for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The L\+AN of the company 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Returns nullptr if companyname is empty 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_af91b36bc46013c05648f538f578afb5e}\label{classWorldGenerator_af91b36bc46013c05648f538f578afb5e}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateLocalMachine@{GenerateLocalMachine}}
+\index{GenerateLocalMachine@{GenerateLocalMachine}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateLocalMachine()}{GenerateLocalMachine()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Local\+Machine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create a local machine for players to fall back to Which can also act as a links screen \mbox{\Hypertarget{classWorldGenerator_a16a7ef301969e75d40e4917c735d3440}\label{classWorldGenerator_a16a7ef301969e75d40e4917c735d3440}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateLocation@{GenerateLocation}}
+\index{GenerateLocation@{GenerateLocation}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateLocation()}{GenerateLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ World\+Generator\+::\+Generate\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a random \mbox{\hyperlink{classVLocation}{V\+Location}} \begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classVLocation}{V\+Location}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_ace2b3914af1a5f5888ac02b222865a38}\label{classWorldGenerator_ace2b3914af1a5f5888ac02b222865a38}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateOCP@{GenerateOCP}}
+\index{GenerateOCP@{GenerateOCP}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateOCP()}{GenerateOCP()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+O\+CP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the O\+CP server \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_ae12cba3d732a41597fb0b7f5a0021232}\label{classWorldGenerator_ae12cba3d732a41597fb0b7f5a0021232}} 
+\index{WorldGenerator@{WorldGenerator}!GeneratePerson@{GeneratePerson}}
+\index{GeneratePerson@{GeneratePerson}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GeneratePerson()}{GeneratePerson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPerson}{Person}} $\ast$ World\+Generator\+::\+Generate\+Person (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a random \mbox{\hyperlink{classPerson}{Person}} \begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classPerson}{Person}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a6c50729bd85f6cd83391bce8863bc56f}\label{classWorldGenerator_a6c50729bd85f6cd83391bce8863bc56f}} 
+\index{WorldGenerator@{WorldGenerator}!GeneratePersonalComputer@{GeneratePersonalComputer}}
+\index{GeneratePersonalComputer@{GeneratePersonalComputer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GeneratePersonalComputer()}{GeneratePersonalComputer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Personal\+Computer (\begin{DoxyParamCaption}\item[{const string \&}]{personname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a personal computer 
+\begin{DoxyParams}{Parameters}
+{\em personname} & Name of the person to generate the \mbox{\hyperlink{classComputer}{Computer}} for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The personal \mbox{\hyperlink{classComputer}{Computer}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a4c065c012589632d4446b46b4b5d889c}\label{classWorldGenerator_a4c065c012589632d4446b46b4b5d889c}} 
+\index{WorldGenerator@{WorldGenerator}!GeneratePlayer@{GeneratePlayer}}
+\index{GeneratePlayer@{GeneratePlayer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GeneratePlayer()}{GeneratePlayer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} $\ast$ World\+Generator\+::\+Generate\+Player (\begin{DoxyParamCaption}\item[{const string \&}]{handle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the player 
+\begin{DoxyParams}{Parameters}
+{\em handle} & The handle of the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classPlayer}{Player}} object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This populates the player\textquotesingle{}s starting links, creates a player bank account, sets ratings, etc 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a8c53c5fdf064cf6a2a870ba2549d0caa}\label{classWorldGenerator_a8c53c5fdf064cf6a2a870ba2549d0caa}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateProtoVision@{GenerateProtoVision}}
+\index{GenerateProtoVision@{GenerateProtoVision}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateProtoVision()}{GenerateProtoVision()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Proto\+Vision (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Protovision server \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a8d87f087dd7b7ff0e4cf6629f3129eb9}\label{classWorldGenerator_a8d87f087dd7b7ff0e4cf6629f3129eb9}} 
+\index{WorldGenerator@{WorldGenerator}!GeneratePublicAccessServer@{GeneratePublicAccessServer}}
+\index{GeneratePublicAccessServer@{GeneratePublicAccessServer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GeneratePublicAccessServer()}{GeneratePublicAccessServer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Public\+Access\+Server (\begin{DoxyParamCaption}\item[{const string \&}]{companyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a public access server for company 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & Name of the company to generate the public access server for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classComputer}{Computer}} for the public access server 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a510b8abd3d64be3d0b625eae3364c6f3}\label{classWorldGenerator_a510b8abd3d64be3d0b625eae3364c6f3}} 
+\index{WorldGenerator@{WorldGenerator}!GeneratePublicBankServer@{GeneratePublicBankServer}}
+\index{GeneratePublicBankServer@{GeneratePublicBankServer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GeneratePublicBankServer()}{GeneratePublicBankServer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Public\+Bank\+Server (\begin{DoxyParamCaption}\item[{const string \&}]{companyname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a Public Bank Server for a company 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & Name of the company to generate Public Bank Server for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classComputer}{Computer}} for the Public Bank Server 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a27e0cb6b6f7f2de6c09c0ea8f450654b}\label{classWorldGenerator_a27e0cb6b6f7f2de6c09c0ea8f450654b}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateRandomWorld@{GenerateRandomWorld}}
+\index{GenerateRandomWorld@{GenerateRandomWorld}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateRandomWorld()}{GenerateRandomWorld()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Random\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates some companies, banks, people, agents, missions, and employment data \mbox{\Hypertarget{classWorldGenerator_ad5552aca2827d1b7a29c9e7b3bb5164d}\label{classWorldGenerator_ad5552aca2827d1b7a29c9e7b3bb5164d}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateSimpleStartingMissionA@{GenerateSimpleStartingMissionA}}
+\index{GenerateSimpleStartingMissionA@{GenerateSimpleStartingMissionA}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateSimpleStartingMissionA()}{GenerateSimpleStartingMissionA()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Simple\+Starting\+MissionA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates two very easy missions for the player at the start \mbox{\Hypertarget{classWorldGenerator_a2682df85c49f417042ed892c7fca14fc}\label{classWorldGenerator_a2682df85c49f417042ed892c7fca14fc}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateSimpleStartingMissionB@{GenerateSimpleStartingMissionB}}
+\index{GenerateSimpleStartingMissionB@{GenerateSimpleStartingMissionB}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateSimpleStartingMissionB()}{GenerateSimpleStartingMissionB()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Simple\+Starting\+MissionB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generate a delete file mission \mbox{\Hypertarget{classWorldGenerator_a5d6ffe7b1d3a57b2b1c16dc04cbe4ab7}\label{classWorldGenerator_a5d6ffe7b1d3a57b2b1c16dc04cbe4ab7}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateSJGames@{GenerateSJGames}}
+\index{GenerateSJGames@{GenerateSJGames}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateSJGames()}{GenerateSJGames()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+S\+J\+Games (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Steve Jackson Games server \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_ad2625b5d0292f97637a9ed2027fb950b}\label{classWorldGenerator_ad2625b5d0292f97637a9ed2027fb950b}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateSpecifics@{GenerateSpecifics}}
+\index{GenerateSpecifics@{GenerateSpecifics}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateSpecifics()}{GenerateSpecifics()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Specifics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates the player company, and some specific companies and computers \begin{DoxyNote}{Note}
+This only generates O\+CP, S\+J\+Games, and Introversion when the build is not a D\+E\+M\+O\+G\+A\+ME 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_ab861b4f7748f877f17e590a640a2865b}\label{classWorldGenerator_ab861b4f7748f877f17e590a640a2865b}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateStockMarket@{GenerateStockMarket}}
+\index{GenerateStockMarket@{GenerateStockMarket}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateStockMarket()}{GenerateStockMarket()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Stock\+Market (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Stock Market \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_aef093b5d48c004b8b986654cbbd9c93e}\label{classWorldGenerator_aef093b5d48c004b8b986654cbbd9c93e}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateUplinkCreditsMachine@{GenerateUplinkCreditsMachine}}
+\index{GenerateUplinkCreditsMachine@{GenerateUplinkCreditsMachine}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateUplinkCreditsMachine()}{GenerateUplinkCreditsMachine()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Uplink\+Credits\+Machine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Uplink Credits Machine \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_abaad0e2739bc7dc60abc1e08f5f4c2af}\label{classWorldGenerator_abaad0e2739bc7dc60abc1e08f5f4c2af}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateUplinkInternalServicesSystem@{GenerateUplinkInternalServicesSystem}}
+\index{GenerateUplinkInternalServicesSystem@{GenerateUplinkInternalServicesSystem}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateUplinkInternalServicesSystem()}{GenerateUplinkInternalServicesSystem()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Uplink\+Internal\+Services\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Uplink Internal Services System \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a7fb48b5763c6cba5085fcf2810e2c4fd}\label{classWorldGenerator_a7fb48b5763c6cba5085fcf2810e2c4fd}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateUplinkPublicAccessServer@{GenerateUplinkPublicAccessServer}}
+\index{GenerateUplinkPublicAccessServer@{GenerateUplinkPublicAccessServer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateUplinkPublicAccessServer()}{GenerateUplinkPublicAccessServer()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Uplink\+Public\+Access\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Uplink Public Access Server \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_abd7f766373e782628a7c6ab08e50b8fa}\label{classWorldGenerator_abd7f766373e782628a7c6ab08e50b8fa}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateUplinkTestMachine@{GenerateUplinkTestMachine}}
+\index{GenerateUplinkTestMachine@{GenerateUplinkTestMachine}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateUplinkTestMachine()}{GenerateUplinkTestMachine()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Uplink\+Test\+Machine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates the Uplink Test Machine \begin{DoxyNote}{Note}
+This generates the computer and constructs all screens 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a865f4bdb1fa0cff364e0c1fd3240da7a}\label{classWorldGenerator_a865f4bdb1fa0cff364e0c1fd3240da7a}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateValidMapPos@{GenerateValidMapPos}}
+\index{GenerateValidMapPos@{GenerateValidMapPos}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateValidMapPos()}{GenerateValidMapPos()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Generate\+Valid\+Map\+Pos (\begin{DoxyParamCaption}\item[{int \&}]{x,  }\item[{int \&}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates map co-\/ordinates inland 
+\begin{DoxyParams}{Parameters}
+{\em x} & T\+O\+DO\+: Document \\
+\hline
+{\em y} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldGenerator_a5c78ea0ab177cdc304a60a6bb905c548}\label{classWorldGenerator_a5c78ea0ab177cdc304a60a6bb905c548}} 
+\index{WorldGenerator@{WorldGenerator}!GenerateVoicePhoneSystem@{GenerateVoicePhoneSystem}}
+\index{GenerateVoicePhoneSystem@{GenerateVoicePhoneSystem}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateVoicePhoneSystem()}{GenerateVoicePhoneSystem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Generate\+Voice\+Phone\+System (\begin{DoxyParamCaption}\item[{const string \&}]{personname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Generates a voice phone system 
+\begin{DoxyParams}{Parameters}
+{\em personname} & Name of the person to generate the voice phone system for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The voice phone system \mbox{\hyperlink{classComputer}{Computer}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_addaf186b1d60bec84ac97656aecd9296}\label{classWorldGenerator_addaf186b1d60bec84ac97656aecd9296}} 
+\index{WorldGenerator@{WorldGenerator}!GetRandomAgent@{GetRandomAgent}}
+\index{GetRandomAgent@{GetRandomAgent}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GetRandomAgent()}{GetRandomAgent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAgent}{Agent}} $\ast$ World\+Generator\+::\+Get\+Random\+Agent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a random \mbox{\hyperlink{classAgent}{Agent}} \begin{DoxyReturn}{Returns}
+The random \mbox{\hyperlink{classAgent}{Agent}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a2d7897304312d9d1f06fc20282e2f9d0}\label{classWorldGenerator_a2d7897304312d9d1f06fc20282e2f9d0}} 
+\index{WorldGenerator@{WorldGenerator}!GetRandomCompany@{GetRandomCompany}}
+\index{GetRandomCompany@{GetRandomCompany}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GetRandomCompany()}{GetRandomCompany()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classCompany}{Company}} $\ast$ World\+Generator\+::\+Get\+Random\+Company (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a random \mbox{\hyperlink{classCompany}{Company}} \begin{DoxyReturn}{Returns}
+The random \mbox{\hyperlink{classCompany}{Company}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_af48680947c6cd5699343ad45b2643f82}\label{classWorldGenerator_af48680947c6cd5699343ad45b2643f82}} 
+\index{WorldGenerator@{WorldGenerator}!GetRandomComputer@{GetRandomComputer}}
+\index{GetRandomComputer@{GetRandomComputer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GetRandomComputer()}{GetRandomComputer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Get\+Random\+Computer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a random \mbox{\hyperlink{classComputer}{Computer}} \begin{DoxyReturn}{Returns}
+The random \mbox{\hyperlink{classComputer}{Computer}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a768e40ec02c4178cfb386b6e99d042ca}\label{classWorldGenerator_a768e40ec02c4178cfb386b6e99d042ca}} 
+\index{WorldGenerator@{WorldGenerator}!GetRandomComputer@{GetRandomComputer}}
+\index{GetRandomComputer@{GetRandomComputer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GetRandomComputer()}{GetRandomComputer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Get\+Random\+Computer (\begin{DoxyParamCaption}\item[{int}]{T\+Y\+PE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a random \mbox{\hyperlink{classComputer}{Computer}} of a specific type 
+\begin{DoxyParams}{Parameters}
+{\em T\+Y\+PE} & The bitfield of acceptable computer types \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The random \mbox{\hyperlink{classComputer}{Computer}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a623aef4c06686e49d39dd6d6f4d2beec}\label{classWorldGenerator_a623aef4c06686e49d39dd6d6f4d2beec}} 
+\index{WorldGenerator@{WorldGenerator}!GetRandomLocation@{GetRandomLocation}}
+\index{GetRandomLocation@{GetRandomLocation}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GetRandomLocation()}{GetRandomLocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ World\+Generator\+::\+Get\+Random\+Location (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a random \mbox{\hyperlink{classVLocation}{V\+Location}} \begin{DoxyReturn}{Returns}
+The random \mbox{\hyperlink{classVLocation}{V\+Location}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_a150fa1ede16758887395f52dca2bb0b6}\label{classWorldGenerator_a150fa1ede16758887395f52dca2bb0b6}} 
+\index{WorldGenerator@{WorldGenerator}!GetRandomLowSecurityComputer@{GetRandomLowSecurityComputer}}
+\index{GetRandomLowSecurityComputer@{GetRandomLowSecurityComputer}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GetRandomLowSecurityComputer()}{GetRandomLowSecurityComputer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputer}{Computer}} $\ast$ World\+Generator\+::\+Get\+Random\+Low\+Security\+Computer (\begin{DoxyParamCaption}\item[{int}]{T\+Y\+PE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a random, low security \mbox{\hyperlink{classComputer}{Computer}} 
+\begin{DoxyParams}{Parameters}
+{\em T\+Y\+PE} & The type of the computer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The low security \mbox{\hyperlink{classComputer}{Computer}} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Computers gotten through this function will not have a proxy or firewall 
+\end{DoxyNote}
+\mbox{\Hypertarget{classWorldGenerator_a71ae59ab764472b4f7fe3ea6ecaae7a1}\label{classWorldGenerator_a71ae59ab764472b4f7fe3ea6ecaae7a1}} 
+\index{WorldGenerator@{WorldGenerator}!GetRandomMission@{GetRandomMission}}
+\index{GetRandomMission@{GetRandomMission}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GetRandomMission()}{GetRandomMission()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMission}{Mission}} $\ast$ World\+Generator\+::\+Get\+Random\+Mission (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a random \mbox{\hyperlink{classMission}{Mission}} \begin{DoxyReturn}{Returns}
+The random \mbox{\hyperlink{classMission}{Mission}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_ab1da0de8be78aafb49602365bbff9aec}\label{classWorldGenerator_ab1da0de8be78aafb49602365bbff9aec}} 
+\index{WorldGenerator@{WorldGenerator}!GetRandomPerson@{GetRandomPerson}}
+\index{GetRandomPerson@{GetRandomPerson}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{GetRandomPerson()}{GetRandomPerson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPerson}{Person}} $\ast$ World\+Generator\+::\+Get\+Random\+Person (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a random \mbox{\hyperlink{classPerson}{Person}} \begin{DoxyReturn}{Returns}
+The random \mbox{\hyperlink{classPerson}{Person}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWorldGenerator_ad7e8f44475d1b0b1532a72e092a830ee}\label{classWorldGenerator_ad7e8f44475d1b0b1532a72e092a830ee}} 
+\index{WorldGenerator@{WorldGenerator}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sets up the worldmapmask \mbox{\Hypertarget{classWorldGenerator_aa692c4e81f82a2bd6cd3ca316cb00df4}\label{classWorldGenerator_aa692c4e81f82a2bd6cd3ca316cb00df4}} 
+\index{WorldGenerator@{WorldGenerator}!LoadDynamics@{LoadDynamics}}
+\index{LoadDynamics@{LoadDynamics}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{LoadDynamics()}{LoadDynamics()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Load\+Dynamics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads all L\+A\+Ns from files \mbox{\Hypertarget{classWorldGenerator_a4150262e66fd9ccab612a1f61e215149}\label{classWorldGenerator_a4150262e66fd9ccab612a1f61e215149}} 
+\index{WorldGenerator@{WorldGenerator}!LoadDynamicsGatewayDefs@{LoadDynamicsGatewayDefs}}
+\index{LoadDynamicsGatewayDefs@{LoadDynamicsGatewayDefs}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{LoadDynamicsGatewayDefs()}{LoadDynamicsGatewayDefs()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Load\+Dynamics\+Gateway\+Defs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads all gateways from files \mbox{\Hypertarget{classWorldGenerator_acf43da0182dd17517995f7ea4cbb5afd}\label{classWorldGenerator_acf43da0182dd17517995f7ea4cbb5afd}} 
+\index{WorldGenerator@{WorldGenerator}!ReplaceAdminCompanies@{ReplaceAdminCompanies}}
+\index{ReplaceAdminCompanies@{ReplaceAdminCompanies}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{ReplaceAdminCompanies()}{ReplaceAdminCompanies()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Replace\+Admin\+Companies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPerson}{Person}} $\ast$}]{person }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+For each company that the person is currently an administrator, replace him with a new administrator 
+\begin{DoxyParams}{Parameters}
+{\em person} & The person to replace in companies \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWorldGenerator_a255a2db8394f26918177f4106e952284}\label{classWorldGenerator_a255a2db8394f26918177f4106e952284}} 
+\index{WorldGenerator@{WorldGenerator}!ReplaceInvalidCompanyAdmins@{ReplaceInvalidCompanyAdmins}}
+\index{ReplaceInvalidCompanyAdmins@{ReplaceInvalidCompanyAdmins}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{ReplaceInvalidCompanyAdmins()}{ReplaceInvalidCompanyAdmins()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Replace\+Invalid\+Company\+Admins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Replace all company administrators that are dead or in jail \mbox{\Hypertarget{classWorldGenerator_a58ef4dbad52eba5fa2691b9c055c2408}\label{classWorldGenerator_a58ef4dbad52eba5fa2691b9c055c2408}} 
+\index{WorldGenerator@{WorldGenerator}!Shutdown@{Shutdown}}
+\index{Shutdown@{Shutdown}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{Shutdown()}{Shutdown()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Clears up memory used \mbox{\Hypertarget{classWorldGenerator_a1b19b767eef346eff1a325e7b32b78d1}\label{classWorldGenerator_a1b19b767eef346eff1a325e7b32b78d1}} 
+\index{WorldGenerator@{WorldGenerator}!UpdateSoftwareUpgrades@{UpdateSoftwareUpgrades}}
+\index{UpdateSoftwareUpgrades@{UpdateSoftwareUpgrades}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{UpdateSoftwareUpgrades()}{UpdateSoftwareUpgrades()}}
+{\footnotesize\ttfamily void World\+Generator\+::\+Update\+Software\+Upgrades (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: Document 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWorldGenerator_a2820b97a54ffd3e35c4e1fbce4f24649}\label{classWorldGenerator_a2820b97a54ffd3e35c4e1fbce4f24649}} 
+\index{WorldGenerator@{WorldGenerator}!worldmapmask@{worldmapmask}}
+\index{worldmapmask@{worldmapmask}!WorldGenerator@{WorldGenerator}}
+\doxysubsubsection{\texorpdfstring{worldmapmask}{worldmapmask}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImage}{Image}} $\ast$ World\+Generator\+::worldmapmask = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Used to determine legal computer positions 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/generator/worldgenerator.\+h\item 
+uplink/src/world/generator/worldgenerator.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,176 @@
+\hypertarget{classLocalInterfaceScreen}{}\doxysection{Local\+Interface\+Screen Class Reference}
+\label{classLocalInterfaceScreen}\index{LocalInterfaceScreen@{LocalInterfaceScreen}}
+
+
+Screen that provides basic functionality of other screens.  
+
+
+
+
+{\ttfamily \#include $<$localinterfacescreen.\+h$>$}
+
+
+
+Inheritance diagram for Local\+Interface\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Local\+Interface\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}{Create}} () override
+\item 
+void \mbox{\hyperlink{classLocalInterfaceScreen_a8ae84bf89250f0afd8086d0343a481be}{Create\+Height}} (int panelheight)
+\item 
+void \mbox{\hyperlink{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLocalInterfaceScreen}{Local\+Interface\+Screen}} $\ast$ \mbox{\hyperlink{classLocalInterfaceScreen_a1c050259a98f6d0a254f2f091a8b4975}{Get\+Interface\+Screen}} (int screen\+ID)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classLocalInterfaceScreen_a5bda239e93a6a4f31817e5fc3c2cc41a}{Background\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that provides basic functionality of other screens. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLocalInterfaceScreen_a5bda239e93a6a4f31817e5fc3c2cc41a}\label{classLocalInterfaceScreen_a5bda239e93a6a4f31817e5fc3c2cc41a}} 
+\index{LocalInterfaceScreen@{LocalInterfaceScreen}!BackgroundDraw@{BackgroundDraw}}
+\index{BackgroundDraw@{BackgroundDraw}!LocalInterfaceScreen@{LocalInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{BackgroundDraw()}{BackgroundDraw()}}
+{\footnotesize\ttfamily void Local\+Interface\+Screen\+::\+Background\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the background graphics for window 
+\begin{DoxyParams}{Parameters}
+{\em button} & The background button \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}\label{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}} 
+\index{LocalInterfaceScreen@{LocalInterfaceScreen}!Create@{Create}}
+\index{Create@{Create}!LocalInterfaceScreen@{LocalInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Local\+Interface\+Screen\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWorldMapInterface_a63aba9a78117922a9015c745d0228fc8}{World\+Map\+Interface}}, \mbox{\hyperlink{classSWInterface_af0122e530be36a1b31c809a1fc3a3fd9}{S\+W\+Interface}}, \mbox{\hyperlink{classSendMailInterface_aa724895d76b1604f6211d47cee00ac39}{Send\+Mail\+Interface}}, \mbox{\hyperlink{classMemoryInterface_a654cf5d268620e90fb71e7e224b762af}{Memory\+Interface}}, \mbox{\hyperlink{classMissionInterface_a0460a5bfcf1edc6815717d6ba6b9fea6}{Mission\+Interface}}, \mbox{\hyperlink{classStatusInterface_af087322d1ed4c80bef794de464c49dc3}{Status\+Interface}}, and \mbox{\hyperlink{classMemoryInterface_a3d219461452cac72fe62564465e97bf4}{Memory\+Interface}}.
+
+\mbox{\Hypertarget{classLocalInterfaceScreen_a8ae84bf89250f0afd8086d0343a481be}\label{classLocalInterfaceScreen_a8ae84bf89250f0afd8086d0343a481be}} 
+\index{LocalInterfaceScreen@{LocalInterfaceScreen}!CreateHeight@{CreateHeight}}
+\index{CreateHeight@{CreateHeight}!LocalInterfaceScreen@{LocalInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{CreateHeight()}{CreateHeight()}}
+{\footnotesize\ttfamily void Local\+Interface\+Screen\+::\+Create\+Height (\begin{DoxyParamCaption}\item[{int}]{panelheight }\end{DoxyParamCaption})}
+
+Creates a screen panel with given height 
+\begin{DoxyParams}{Parameters}
+{\em panelheight} & Height of the panel to create \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLocalInterfaceScreen_a1c050259a98f6d0a254f2f091a8b4975}\label{classLocalInterfaceScreen_a1c050259a98f6d0a254f2f091a8b4975}} 
+\index{LocalInterfaceScreen@{LocalInterfaceScreen}!GetInterfaceScreen@{GetInterfaceScreen}}
+\index{GetInterfaceScreen@{GetInterfaceScreen}!LocalInterfaceScreen@{LocalInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{GetInterfaceScreen()}{GetInterfaceScreen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLocalInterfaceScreen}{Local\+Interface\+Screen}} $\ast$ Local\+Interface\+Screen\+::\+Get\+Interface\+Screen (\begin{DoxyParamCaption}\item[{int}]{screen\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets the screen object, asserts that requested screen ID matches current screen ID 
+\begin{DoxyParams}{Parameters}
+{\em screen\+ID} & The screen ID to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classLocalInterfaceScreen}{Local\+Interface\+Screen}} object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}\label{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}} 
+\index{LocalInterfaceScreen@{LocalInterfaceScreen}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!LocalInterfaceScreen@{LocalInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Local\+Interface\+Screen\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWorldMapInterface_a3621e2b35b43bb18ca09cb87bd5223ba}{World\+Map\+Interface}}, \mbox{\hyperlink{classSWInterface_a634e5768e9df7df130c9bf033b5e64b1}{S\+W\+Interface}}, \mbox{\hyperlink{classSendMailInterface_a3f3128625c9545696d25b577c709d4cd}{Send\+Mail\+Interface}}, \mbox{\hyperlink{classMemoryInterface_a7a8dc217bc3c334772ad96c6f06727f5}{Memory\+Interface}}, \mbox{\hyperlink{classMissionInterface_ab700939f3ebbc1340b3a5207ca9b63c0}{Mission\+Interface}}, \mbox{\hyperlink{classPhoneDialler_ae99507033a1ff71ffc572c1b42db5e76}{Phone\+Dialler}}, \mbox{\hyperlink{classStatusInterface_a28b3ae13695b2bc9c69b621fab2c0a8c}{Status\+Interface}}, and \mbox{\hyperlink{classMemoryInterface_ae1209f151c2b644f5af6bb049fff80e6}{Memory\+Interface}}.
+
+\mbox{\Hypertarget{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}\label{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}} 
+\index{LocalInterfaceScreen@{LocalInterfaceScreen}!Remove@{Remove}}
+\index{Remove@{Remove}!LocalInterfaceScreen@{LocalInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Local\+Interface\+Screen\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWorldMapInterface_a8ba248950eb68d3e73acebcb9f51b2d0}{World\+Map\+Interface}}, \mbox{\hyperlink{classSWInterface_ad534b976817b8679c486eb115c40d981}{S\+W\+Interface}}, \mbox{\hyperlink{classSendMailInterface_a60225d6e68e6f549d694ad1d654157dd}{Send\+Mail\+Interface}}, \mbox{\hyperlink{classMemoryInterface_a59c24d34fc64a76c1950ea38ef4ee2ce}{Memory\+Interface}}, \mbox{\hyperlink{classMissionInterface_a3f1bd5d7e492ee04d787c3c23e516197}{Mission\+Interface}}, \mbox{\hyperlink{classPhoneDialler_a484f06f2ca4928b4285b5139882298e1}{Phone\+Dialler}}, \mbox{\hyperlink{classStatusInterface_a79c2c887099e9c703d72208d65e5b0bf}{Status\+Interface}}, and \mbox{\hyperlink{classMemoryInterface_a90f917c93a7d428dd7584e441fe2142d}{Memory\+Interface}}.
+
+\mbox{\Hypertarget{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}\label{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}} 
+\index{LocalInterfaceScreen@{LocalInterfaceScreen}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!LocalInterfaceScreen@{LocalInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Local\+Interface\+Screen\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWorldMapInterface_afc74d9b7cd7787da1e683637ac249dce}{World\+Map\+Interface}}, \mbox{\hyperlink{classSendMailInterface_ae4b970a813ae6f15150ad5a410404c0e}{Send\+Mail\+Interface}}, \mbox{\hyperlink{classMemoryInterface_a5f37bdf1933940b81db785a602af07b5}{Memory\+Interface}}, \mbox{\hyperlink{classMissionInterface_a6bf3dcea0a63873a80d57427f803abfd}{Mission\+Interface}}, \mbox{\hyperlink{classStatusInterface_a7f04a728da993e290777105e21d64e16}{Status\+Interface}}, and \mbox{\hyperlink{classMemoryInterface_aca2362e9cce48a29db7697eb59796e87}{Memory\+Interface}}.
+
+\mbox{\Hypertarget{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}\label{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}} 
+\index{LocalInterfaceScreen@{LocalInterfaceScreen}!Update@{Update}}
+\index{Update@{Update}!LocalInterfaceScreen@{LocalInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Local\+Interface\+Screen\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWorldMapInterface_a03381d521d05812dd9ac4040ab1eaf7f}{World\+Map\+Interface}}, \mbox{\hyperlink{classSWInterface_aa4887d7b89f4555915e9781b713a3332}{S\+W\+Interface}}, \mbox{\hyperlink{classSendMailInterface_a5b3cfe37d3e8dc09e4077c76770f41c5}{Send\+Mail\+Interface}}, \mbox{\hyperlink{classMemoryInterface_a488e00db0fa272e5e44785bca473533f}{Memory\+Interface}}, \mbox{\hyperlink{classMissionInterface_ad51576a59e53ce400b67228d2d02f629}{Mission\+Interface}}, \mbox{\hyperlink{classStatusInterface_ad31c52e39d868fda2090903bfc57cc9f}{Status\+Interface}}, and \mbox{\hyperlink{classMemoryInterface_a0eb4d934cc06eaa8e6ab6897a2c2343e}{Memory\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/localinterfacescreen.\+h\item 
+uplink/src/interface/localinterface/localinterfacescreen.\+cpp\end{DoxyCompactItemize}

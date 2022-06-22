@@ -1,0 +1,344 @@
+\hypertarget{classSecurityBypass}{}\doxysection{Security\+Bypass Class Reference}
+\label{classSecurityBypass}\index{SecurityBypass@{SecurityBypass}}
+
+
+\mbox{\hyperlink{classSecurity}{Security}} Bypass Class.  
+
+
+
+
+{\ttfamily \#include $<$securitybypass.\+h$>$}
+
+
+
+Inheritance diagram for Security\+Bypass\+:
+% FIG 0
+
+
+Collaboration diagram for Security\+Bypass\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSecurityBypass_a3345ea19245237aa73c820916d384dd1}\label{classSecurityBypass_a3345ea19245237aa73c820916d384dd1}} 
+{\bfseries Security\+Bypass} (int new\+T\+Y\+PE)
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a04907157b6a3843dc393fbe9fc91e8da}{Set\+T\+Y\+PE}} (int new\+T\+Y\+PE)
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a4b037640eff1a8c6b255f14e67d71a43}{Pause\+Current\+Bypass}} ()
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a1a26dadc0ce26fd7dd7df0b5ac3a3a0b}{Resume\+Current\+Bypass}} ()
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a124ce34db5a3a6bc0b35603d25cf0604}{End\+Current\+Bypass}} ()
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a13c08e94320a613c100af6b3a9956286}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a2451e63841e32c63649583a6468a43e4}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classSecurityBypass_aa4def9e555520aae46263101b939d1a3}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a0d22814586f682e3a1483d0a7e6e2f38}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a4d666701ae1a4f0a25b01c11294c155a}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a4aa6dcc3b48a168fba5c5808410387e3}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classSecurityBypass_a836ab63f1adbfa04f751c23d45fad779}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classSecurityBypass_ab005611911ce97285938caf2a3a7df21}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classSecurityBypass_aca1019768ed76a1e88f2686997bedaef}{T\+Y\+PE}}
+\item 
+int \mbox{\hyperlink{classSecurityBypass_a4c4474aa233270145a42c59a7d1002e7}{status}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classSecurityBypass_a9647b8c4819d222d92fb9924440d2035}{Pause\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSecurityBypass_a39684a1c3222adf28ff4c2101ea28d76}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSecurityBypass_a2a95f8ebec57977603ac504516a5fbd6}{Bypass\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classSecurityBypass_a77ead2b80faac682d24ba5ba4a34db54}{Status\+Light\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classSecurityBypass_a2e4a12139739e5195b0b1ff4bc687c70}{Image\+Button\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static bool \mbox{\hyperlink{classSecurityBypass_a3426636c3089ab6f00d789358fe1e15a}{Should\+Draw}} (int pid)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{classSecurityBypass_a6f475a0a34d89b0942dc23f3697be6c9}{ip}} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classSecurity}{Security}} Bypass Class. 
+
+\mbox{\hyperlink{classSecurity}{Security}} Bypass Similar to disable, but this software runs continuously, bypassing a single proxy server \begin{DoxyNote}{Note}
+This is a generic task designed to run on any security system 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSecurityBypass_a2a95f8ebec57977603ac504516a5fbd6}\label{classSecurityBypass_a2a95f8ebec57977603ac504516a5fbd6}} 
+\index{SecurityBypass@{SecurityBypass}!BypassClick@{BypassClick}}
+\index{BypassClick@{BypassClick}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{BypassClick()}{BypassClick()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Bypass\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Selects the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} of program \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSecurityBypass_a39684a1c3222adf28ff4c2101ea28d76}\label{classSecurityBypass_a39684a1c3222adf28ff4c2101ea28d76}} 
+\index{SecurityBypass@{SecurityBypass}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSecurityBypass_a4d666701ae1a4f0a25b01c11294c155a}\label{classSecurityBypass_a4d666701ae1a4f0a25b01c11294c155a}} 
+\index{SecurityBypass@{SecurityBypass}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classSecurityBypass_a124ce34db5a3a6bc0b35603d25cf0604}\label{classSecurityBypass_a124ce34db5a3a6bc0b35603d25cf0604}} 
+\index{SecurityBypass@{SecurityBypass}!EndCurrentBypass@{EndCurrentBypass}}
+\index{EndCurrentBypass@{EndCurrentBypass}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{EndCurrentBypass()}{EndCurrentBypass()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+End\+Current\+Bypass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ends the current bypass \begin{DoxyNote}{Note}
+This does not kill the program, just disconnects it from what it\textquotesingle{}s working on 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSecurityBypass_a2e4a12139739e5195b0b1ff4bc687c70}\label{classSecurityBypass_a2e4a12139739e5195b0b1ff4bc687c70}} 
+\index{SecurityBypass@{SecurityBypass}!ImageButtonDraw@{ImageButtonDraw}}
+\index{ImageButtonDraw@{ImageButtonDraw}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{ImageButtonDraw()}{ImageButtonDraw()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Image\+Button\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} of program \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSecurityBypass_aa4def9e555520aae46263101b939d1a3}\label{classSecurityBypass_aa4def9e555520aae46263101b939d1a3}} 
+\index{SecurityBypass@{SecurityBypass}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classSecurityBypass_ab005611911ce97285938caf2a3a7df21}\label{classSecurityBypass_ab005611911ce97285938caf2a3a7df21}} 
+\index{SecurityBypass@{SecurityBypass}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Security\+Bypass\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classSecurityBypass_a2451e63841e32c63649583a6468a43e4}\label{classSecurityBypass_a2451e63841e32c63649583a6468a43e4}} 
+\index{SecurityBypass@{SecurityBypass}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+Ecl\+Register\+Movement ( pause, x + 1, y -\/ 31, 1000, M\+O\+V\+E\+\_\+\+S\+T\+R\+A\+I\+G\+H\+T\+L\+I\+NE );
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classSecurityBypass_a9647b8c4819d222d92fb9924440d2035}\label{classSecurityBypass_a9647b8c4819d222d92fb9924440d2035}} 
+\index{SecurityBypass@{SecurityBypass}!PauseClick@{PauseClick}}
+\index{PauseClick@{PauseClick}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{PauseClick()}{PauseClick()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Pause\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Toggles whether the bypass tool is paused 
+\begin{DoxyParams}{Parameters}
+{\em button} & Pause button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSecurityBypass_a4b037640eff1a8c6b255f14e67d71a43}\label{classSecurityBypass_a4b037640eff1a8c6b255f14e67d71a43}} 
+\index{SecurityBypass@{SecurityBypass}!PauseCurrentBypass@{PauseCurrentBypass}}
+\index{PauseCurrentBypass@{PauseCurrentBypass}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{PauseCurrentBypass()}{PauseCurrentBypass()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Pause\+Current\+Bypass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Pauses the current bypass \mbox{\Hypertarget{classSecurityBypass_a4aa6dcc3b48a168fba5c5808410387e3}\label{classSecurityBypass_a4aa6dcc3b48a168fba5c5808410387e3}} 
+\index{SecurityBypass@{SecurityBypass}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classSecurityBypass_a1a26dadc0ce26fd7dd7df0b5ac3a3a0b}\label{classSecurityBypass_a1a26dadc0ce26fd7dd7df0b5ac3a3a0b}} 
+\index{SecurityBypass@{SecurityBypass}!ResumeCurrentBypass@{ResumeCurrentBypass}}
+\index{ResumeCurrentBypass@{ResumeCurrentBypass}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{ResumeCurrentBypass()}{ResumeCurrentBypass()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Resume\+Current\+Bypass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resumes the current bypass \mbox{\Hypertarget{classSecurityBypass_a13c08e94320a613c100af6b3a9956286}\label{classSecurityBypass_a13c08e94320a613c100af6b3a9956286}} 
+\index{SecurityBypass@{SecurityBypass}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classSecurity}{Security}} object that belongs to target computer \\
+\hline
+{\em uos} & \mbox{\hyperlink{classButton}{Button}} name representing system in connection analyser \\
+\hline
+{\em uoi} & Index of security system \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classSecurityBypass_a04907157b6a3843dc393fbe9fc91e8da}\label{classSecurityBypass_a04907157b6a3843dc393fbe9fc91e8da}} 
+\index{SecurityBypass@{SecurityBypass}!SetTYPE@{SetTYPE}}
+\index{SetTYPE@{SetTYPE}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{SetTYPE()}{SetTYPE()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Set\+T\+Y\+PE (\begin{DoxyParamCaption}\item[{int}]{new\+T\+Y\+PE }\end{DoxyParamCaption})}
+
+Sets the type of security system 
+\begin{DoxyParams}{Parameters}
+{\em new\+T\+Y\+PE} & Type of security system \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSecurityBypass_a3426636c3089ab6f00d789358fe1e15a}\label{classSecurityBypass_a3426636c3089ab6f00d789358fe1e15a}} 
+\index{SecurityBypass@{SecurityBypass}!ShouldDraw@{ShouldDraw}}
+\index{ShouldDraw@{ShouldDraw}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{ShouldDraw()}{ShouldDraw()}}
+{\footnotesize\ttfamily bool Security\+Bypass\+::\+Should\+Draw (\begin{DoxyParamCaption}\item[{int}]{pid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Should this program be rendered? 
+\begin{DoxyParams}{Parameters}
+{\em pid} & pid of process to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if it should be 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If the program task isn\textquotesingle{}t found, this will return false 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSecurityBypass_a836ab63f1adbfa04f751c23d45fad779}\label{classSecurityBypass_a836ab63f1adbfa04f751c23d45fad779}} 
+\index{SecurityBypass@{SecurityBypass}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classSecurityBypass_a77ead2b80faac682d24ba5ba4a34db54}\label{classSecurityBypass_a77ead2b80faac682d24ba5ba4a34db54}} 
+\index{SecurityBypass@{SecurityBypass}!StatusLightDraw@{StatusLightDraw}}
+\index{StatusLightDraw@{StatusLightDraw}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{StatusLightDraw()}{StatusLightDraw()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Status\+Light\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the status light on the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} of program \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSecurityBypass_a0d22814586f682e3a1483d0a7e6e2f38}\label{classSecurityBypass_a0d22814586f682e3a1483d0a7e6e2f38}} 
+\index{SecurityBypass@{SecurityBypass}!Tick@{Tick}}
+\index{Tick@{Tick}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Security\+Bypass\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSecurityBypass_a6f475a0a34d89b0942dc23f3697be6c9}\label{classSecurityBypass_a6f475a0a34d89b0942dc23f3697be6c9}} 
+\index{SecurityBypass@{SecurityBypass}!ip@{ip}}
+\index{ip@{ip}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{ip}{ip}}
+{\footnotesize\ttfamily char Security\+Bypass\+::ip\mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Target IP \mbox{\Hypertarget{classSecurityBypass_a4c4474aa233270145a42c59a7d1002e7}\label{classSecurityBypass_a4c4474aa233270145a42c59a7d1002e7}} 
+\index{SecurityBypass@{SecurityBypass}!status@{status}}
+\index{status@{status}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily int Security\+Bypass\+::status}
+
+The status of the current program \begin{DoxyNote}{Note}
+Possible values are 0 for static, 1 for working, 2 for paused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSecurityBypass_aca1019768ed76a1e88f2686997bedaef}\label{classSecurityBypass_aca1019768ed76a1e88f2686997bedaef}} 
+\index{SecurityBypass@{SecurityBypass}!TYPE@{TYPE}}
+\index{TYPE@{TYPE}!SecurityBypass@{SecurityBypass}}
+\doxysubsubsection{\texorpdfstring{TYPE}{TYPE}}
+{\footnotesize\ttfamily int Security\+Bypass\+::\+T\+Y\+PE}
+
+\mbox{\hyperlink{classSecurity}{Security}} system type 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/securitybypass.\+h\item 
+uplink/src/interface/taskmanager/securitybypass.\+cpp\end{DoxyCompactItemize}

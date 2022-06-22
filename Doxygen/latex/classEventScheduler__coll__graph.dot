@@ -1,0 +1,22 @@
+digraph "EventScheduler"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="EventScheduler",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Event Scheduler Class."];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="UplinkObject",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUplinkObject.html",tooltip="UplinkObject base class."];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" events" ];
+  Node3 [label="LList\< UplinkEvent * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLList.html",tooltip=" "];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" previous\nlast\nfirst" ];
+  Node4 [label="LListItem\< UplinkEvent * \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLListItem.html",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" data" ];
+  Node5 [label="UplinkEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classUplinkEvent.html",tooltip="Uplink Event object."];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" rundate" ];
+  Node6 [label="Date",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDate.html",tooltip=" "];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" previous\nnext" ];
+  Node7 [label="LListItem\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLListItem.html",tooltip=" "];
+  Node7 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" previous\nnext" ];
+}

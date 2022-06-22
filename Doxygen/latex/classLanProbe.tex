@@ -1,0 +1,194 @@
+\hypertarget{classLanProbe}{}\doxysection{Lan\+Probe Class Reference}
+\label{classLanProbe}\index{LanProbe@{LanProbe}}
+
+
+Inheritance diagram for Lan\+Probe\+:
+% FIG 0
+
+
+Collaboration diagram for Lan\+Probe\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLanProbe_ab216de00051902725d0863dfc4fe1992}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classLanProbe_a674c6123db199d3ea957aaeb2c1b6e24}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classLanProbe_ae7127740b0051d8b6f63bcc08bed941d}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classLanProbe_a1e5f09b0cf691775c5326b7174ead9b9}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classLanProbe_a48d22fefb8123ffc5ef8f0fa43c33495}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classLanProbe_a796554b3d9ec361e1abad8d2ca8a3d08}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classLanProbe_a4ce51e817dfdfcef78a59fa81eafe21f}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classLanProbe_adaceac274f382fa994dd9cac3e5cee2a}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanProbe_a821a9d7029a139eaf1f86547c62dc2ce}\label{classLanProbe_a821a9d7029a139eaf1f86547c62dc2ce}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLanProbe_aa8ad22e4f789b4daa51e4dd37dc47501}\label{classLanProbe_aa8ad22e4f789b4daa51e4dd37dc47501}} 
+static void {\bfseries Progress\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classLanProbe_a1c98882cd4220d0b21c92bd954a5e36f}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLanProbe_a91461dd69795e4e8ab1d2f0d5bf06ba5}\label{classLanProbe_a91461dd69795e4e8ab1d2f0d5bf06ba5}} 
+static void {\bfseries Border\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanProbe_aeb3c126defd294277a11df692a586dd2}\label{classLanProbe_aeb3c126defd294277a11df692a586dd2}} 
+int {\bfseries status}
+\item 
+\mbox{\Hypertarget{classLanProbe_a3bfd9434a5dbc8edb7c938692af967a3}\label{classLanProbe_a3bfd9434a5dbc8edb7c938692af967a3}} 
+int {\bfseries progress}
+\item 
+\mbox{\Hypertarget{classLanProbe_a541b1c61ff9784eddf740cf38b8733c3}\label{classLanProbe_a541b1c61ff9784eddf740cf38b8733c3}} 
+int {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classLanProbe_a41277013697e2f657d3bc9edb96375cc}\label{classLanProbe_a41277013697e2f657d3bc9edb96375cc}} 
+\mbox{\hyperlink{classLanComputer}{Lan\+Computer}} $\ast$ {\bfseries comp}
+\item 
+\mbox{\Hypertarget{classLanProbe_a4bc9b04691e9f7e5d98944925fc28e0e}\label{classLanProbe_a4bc9b04691e9f7e5d98944925fc28e0e}} 
+int {\bfseries system\+Index}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLanProbe_a1c98882cd4220d0b21c92bd954a5e36f}\label{classLanProbe_a1c98882cd4220d0b21c92bd954a5e36f}} 
+\index{LanProbe@{LanProbe}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Lan\+Probe\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLanProbe_a48d22fefb8123ffc5ef8f0fa43c33495}\label{classLanProbe_a48d22fefb8123ffc5ef8f0fa43c33495}} 
+\index{LanProbe@{LanProbe}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Lan\+Probe\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classLanProbe_ae7127740b0051d8b6f63bcc08bed941d}\label{classLanProbe_ae7127740b0051d8b6f63bcc08bed941d}} 
+\index{LanProbe@{LanProbe}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Lan\+Probe\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classLanProbe_adaceac274f382fa994dd9cac3e5cee2a}\label{classLanProbe_adaceac274f382fa994dd9cac3e5cee2a}} 
+\index{LanProbe@{LanProbe}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Lan\+Probe\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classLanProbe_a674c6123db199d3ea957aaeb2c1b6e24}\label{classLanProbe_a674c6123db199d3ea957aaeb2c1b6e24}} 
+\index{LanProbe@{LanProbe}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Lan\+Probe\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classLanProbe_a796554b3d9ec361e1abad8d2ca8a3d08}\label{classLanProbe_a796554b3d9ec361e1abad8d2ca8a3d08}} 
+\index{LanProbe@{LanProbe}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Lan\+Probe\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classLanProbe_ab216de00051902725d0863dfc4fe1992}\label{classLanProbe_ab216de00051902725d0863dfc4fe1992}} 
+\index{LanProbe@{LanProbe}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Lan\+Probe\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classLanComputer}{Lan\+Computer}} object \\
+\hline
+{\em uos} & Name of button representing system \\
+\hline
+{\em uoi} & Index of system in lan computer \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classLanProbe_a4ce51e817dfdfcef78a59fa81eafe21f}\label{classLanProbe_a4ce51e817dfdfcef78a59fa81eafe21f}} 
+\index{LanProbe@{LanProbe}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Lan\+Probe\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classLanProbe_a1e5f09b0cf691775c5326b7174ead9b9}\label{classLanProbe_a1e5f09b0cf691775c5326b7174ead9b9}} 
+\index{LanProbe@{LanProbe}!Tick@{Tick}}
+\index{Tick@{Tick}!LanProbe@{LanProbe}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Lan\+Probe\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/lanprobe.\+h\item 
+uplink/src/interface/taskmanager/lanprobe.\+cpp\end{DoxyCompactItemize}

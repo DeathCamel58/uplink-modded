@@ -1,0 +1,149 @@
+\hypertarget{classHWSalesScreenInterface}{}\doxysection{H\+W\+Sales\+Screen\+Interface Class Reference}
+\label{classHWSalesScreenInterface}\index{HWSalesScreenInterface@{HWSalesScreenInterface}}
+
+
+Inheritance diagram for H\+W\+Sales\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for H\+W\+Sales\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a34da97406658e99058a1722b3980b233}\label{classHWSalesScreenInterface_a34da97406658e99058a1722b3980b233}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a944873834019daba506636fe1f9434c3}\label{classHWSalesScreenInterface_a944873834019daba506636fe1f9434c3}} 
+void {\bfseries Set\+H\+W\+Type} (int new\+Type)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a51aa43129047bd449cbaea87874f4586}\label{classHWSalesScreenInterface_a51aa43129047bd449cbaea87874f4586}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a155fd8d53c0f06d96cdd697baeb41b35}\label{classHWSalesScreenInterface_a155fd8d53c0f06d96cdd697baeb41b35}} 
+void {\bfseries Create\+Menu} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a110d0eb60e3211e7688e927b7be4e503}\label{classHWSalesScreenInterface_a110d0eb60e3211e7688e927b7be4e503}} 
+void {\bfseries Create\+Sales\+Menu} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs)
+\item 
+void \mbox{\hyperlink{classHWSalesScreenInterface_abdd9056a026250803c54d398a80ef85b}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classHWSalesScreenInterface_a8d659061354c1d51659649f26d70b83e}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classHWSalesScreenInterface_a7d07271fa6bb10e974e8e30c9ddca3cb}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a3a6a9735cfc0da6c3c703c38f2b5e8ea}\label{classHWSalesScreenInterface_a3a6a9735cfc0da6c3c703c38f2b5e8ea}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a0037074a1dbd2b28e5bb9ff907472312}\label{classHWSalesScreenInterface_a0037074a1dbd2b28e5bb9ff907472312}} 
+static void {\bfseries Remove\+Menu} ()
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a6ef188cff45960a25fb7359bc691c872}\label{classHWSalesScreenInterface_a6ef188cff45960a25fb7359bc691c872}} 
+static void {\bfseries Remove\+Sales\+Menu} ()
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a4b08aadaaac443b6e16ff55872c41b52}\label{classHWSalesScreenInterface_a4b08aadaaac443b6e16ff55872c41b52}} 
+static bool {\bfseries Is\+Visible\+Menu} ()
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_ad6ad782b94a62ce20b5dfd9de8925b73}\label{classHWSalesScreenInterface_ad6ad782b94a62ce20b5dfd9de8925b73}} 
+static bool {\bfseries Is\+Visible\+Sales\+Menu} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a98f03e7c5aa93c73430be3da2b07dedd}\label{classHWSalesScreenInterface_a98f03e7c5aa93c73430be3da2b07dedd}} 
+static void {\bfseries Show\+Sales\+Menu\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_af9f853124c7d3a9f5d217a2a4f57f6ee}\label{classHWSalesScreenInterface_af9f853124c7d3a9f5d217a2a4f57f6ee}} 
+static void {\bfseries Draw\+H\+W\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a3829f5462158ae583fbcc254f8642bdb}\label{classHWSalesScreenInterface_a3829f5462158ae583fbcc254f8642bdb}} 
+static void {\bfseries Click\+H\+W\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a24ae756e0294e47086326d67dfd64d90}\label{classHWSalesScreenInterface_a24ae756e0294e47086326d67dfd64d90}} 
+static void {\bfseries Mousedown\+H\+W\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_aab0d5095faeea1db3fe124b21a662160}\label{classHWSalesScreenInterface_aab0d5095faeea1db3fe124b21a662160}} 
+static void {\bfseries Highlight\+H\+W\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a03a64e0ad1408c53171c2ea0e67fe6e0}\label{classHWSalesScreenInterface_a03a64e0ad1408c53171c2ea0e67fe6e0}} 
+static void {\bfseries Draw\+Details} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_af6b5edf55581eaf874af141c89577df8}\label{classHWSalesScreenInterface_af6b5edf55581eaf874af141c89577df8}} 
+static void {\bfseries Accept\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a0ba8496d74fa64531842a99a87b46d56}\label{classHWSalesScreenInterface_a0ba8496d74fa64531842a99a87b46d56}} 
+static void {\bfseries Exit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a5fa4aa7906258c2f5423acc11f8bb21c}\label{classHWSalesScreenInterface_a5fa4aa7906258c2f5423acc11f8bb21c}} 
+static void {\bfseries Scroll\+Up\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a7ccbc23af00b93d8acf735c0f854fa31}\label{classHWSalesScreenInterface_a7ccbc23af00b93d8acf735c0f854fa31}} 
+static void {\bfseries Scroll\+Down\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_aa258102362eaad140e3cbbf97e60f903}\label{classHWSalesScreenInterface_aa258102362eaad140e3cbbf97e60f903}} 
+int {\bfseries H\+W\+Type}
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a5149327a7b6be5e619fb538cd7230a62}\label{classHWSalesScreenInterface_a5149327a7b6be5e619fb538cd7230a62}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classSale}{Sale}} $\ast$ $>$ {\bfseries items}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_a4ed1ce854d790dfa3d413519691375e3}\label{classHWSalesScreenInterface_a4ed1ce854d790dfa3d413519691375e3}} 
+static int {\bfseries baseoffset} = 0
+\item 
+\mbox{\Hypertarget{classHWSalesScreenInterface_aacb4366ed56f8438f61aaf1b7d6314cc}\label{classHWSalesScreenInterface_aacb4366ed56f8438f61aaf1b7d6314cc}} 
+static int {\bfseries currentselect} = -\/1
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHWSalesScreenInterface_a8d659061354c1d51659649f26d70b83e}\label{classHWSalesScreenInterface_a8d659061354c1d51659649f26d70b83e}} 
+\index{HWSalesScreenInterface@{HWSalesScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!HWSalesScreenInterface@{HWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool H\+W\+Sales\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHWSalesScreenInterface_abdd9056a026250803c54d398a80ef85b}\label{classHWSalesScreenInterface_abdd9056a026250803c54d398a80ef85b}} 
+\index{HWSalesScreenInterface@{HWSalesScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!HWSalesScreenInterface@{HWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void H\+W\+Sales\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHWSalesScreenInterface_a7d07271fa6bb10e974e8e30c9ddca3cb}\label{classHWSalesScreenInterface_a7d07271fa6bb10e974e8e30c9ddca3cb}} 
+\index{HWSalesScreenInterface@{HWSalesScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!HWSalesScreenInterface@{HWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int H\+W\+Sales\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/hwsalesscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/hwsalesscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

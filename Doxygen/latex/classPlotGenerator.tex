@@ -1,0 +1,475 @@
+\hypertarget{classPlotGenerator}{}\doxysection{Plot\+Generator Class Reference}
+\label{classPlotGenerator}\index{PlotGenerator@{PlotGenerator}}
+
+
+Inheritance diagram for Plot\+Generator\+:
+% FIG 0
+
+
+Collaboration diagram for Plot\+Generator\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a2cb6ac2ed4dda1c89ce7ed11fe4817a7}\label{classPlotGenerator_a2cb6ac2ed4dda1c89ce7ed11fe4817a7}} 
+void {\bfseries Initialise} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a9236365aee57a906771c50f8484a134c}\label{classPlotGenerator_a9236365aee57a906771c50f8484a134c}} 
+void {\bfseries Run\+\_\+\+Scene} (int act, int scene)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a2c9b0268c8465458725a0f03a3198980}\label{classPlotGenerator_a2c9b0268c8465458725a0f03a3198980}} 
+void {\bfseries Player\+Visits\+Plot\+Sites} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_acc62c2957497d663b62c837223a9e094}\label{classPlotGenerator_acc62c2957497d663b62c837223a9e094}} 
+void {\bfseries Player\+Cancels\+Mail} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a2de305f601b379be4196f7804158aff4}\label{classPlotGenerator_a2de305f601b379be4196f7804158aff4}} 
+bool {\bfseries Player\+Contacts\+A\+RC} (\mbox{\hyperlink{classMessage}{Message}} $\ast$msg)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a813a21016f4eb8b61b676182b8603d73}\label{classPlotGenerator_a813a21016f4eb8b61b676182b8603d73}} 
+bool {\bfseries Player\+Contacts\+A\+R\+U\+N\+M\+OR} (\mbox{\hyperlink{classMessage}{Message}} $\ast$msg)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ae7064a85bae30679656d2c13b1175699}\label{classPlotGenerator_ae7064a85bae30679656d2c13b1175699}} 
+void {\bfseries Run\+Revelation} (char $\ast$ip, float version, bool playerresponsible)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a7a7de5e8eda114238b632a8ea577e4d3}\label{classPlotGenerator_a7a7de5e8eda114238b632a8ea577e4d3}} 
+void {\bfseries Run\+Revelation} (char $\ast$ip, float version, bool playerresponsible, int success)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_af5cdecee24cc1fdf70fd3b80b2c86e2f}\label{classPlotGenerator_af5cdecee24cc1fdf70fd3b80b2c86e2f}} 
+void {\bfseries Run\+Revelation\+Tracer} (char $\ast$ip)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a659ff90b09fcb07060918e7a13dc229e}\label{classPlotGenerator_a659ff90b09fcb07060918e7a13dc229e}} 
+float {\bfseries Get\+Version\+\_\+\+Faith} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a1895b66c65ca3cae7fd55152d0a64d24}\label{classPlotGenerator_a1895b66c65ca3cae7fd55152d0a64d24}} 
+float {\bfseries Get\+Version\+\_\+\+Revelation} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a2bc92a1c6ee105bd3efda90b517d3548}\label{classPlotGenerator_a2bc92a1c6ee105bd3efda90b517d3548}} 
+void {\bfseries Infected} (char $\ast$ip)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a37349ff50918e4eb037f8bfc9a972cf0}\label{classPlotGenerator_a37349ff50918e4eb037f8bfc9a972cf0}} 
+void {\bfseries Disinfected} (char $\ast$ip)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a3c427c8fbb84877711148f3959b1521f}\label{classPlotGenerator_a3c427c8fbb84877711148f3959b1521f}} 
+bool {\bfseries Player\+Completed\+Special\+Mission} (int mission\+ID) const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_af12384320097bea161d6b7811168c2a6}\label{classPlotGenerator_af12384320097bea161d6b7811168c2a6}} 
+int {\bfseries Get\+Special\+Missions\+Completed} () const
+\item 
+bool \mbox{\hyperlink{classPlotGenerator_aeac44b731d16b4b0200f8c0a87696261}{Load}} (F\+I\+LE $\ast$file)
+\item 
+void \mbox{\hyperlink{classPlotGenerator_ab16ce8c548e5511f30678e3633c35025}{Save}} (F\+I\+LE $\ast$file)
+\item 
+void \mbox{\hyperlink{classPlotGenerator_aebae70a9fb718c0cfdb8eb58da7fec6b}{Print}} ()
+\item 
+void \mbox{\hyperlink{classPlotGenerator_a68255f6553ab4217e1240c260ad3ac41}{Update}} ()
+\item 
+string \mbox{\hyperlink{classPlotGenerator_a1350420e56f68e26d07a875bd83245c0}{Get\+ID}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a7f19937deac9ae1f8bc25447b30576ca}\label{classPlotGenerator_a7f19937deac9ae1f8bc25447b30576ca}} 
+static void {\bfseries Run\+Faith} (string \&ip, float version, bool playerresponsible)
+\item 
+static string \mbox{\hyperlink{classPlotGenerator_abf9cb31bec80d628bd5a8f31352b10d1}{Special\+Mission\+Description}} (int mission\+ID)
+\item 
+static string \mbox{\hyperlink{classPlotGenerator_a5a02bfd4967575ac1da0b16f3c463af1}{Special\+Mission\+Title}} (int mission\+ID)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a44e92f9de98fa5fc132a8235108b0820}\label{classPlotGenerator_a44e92f9de98fa5fc132a8235108b0820}} 
+static bool {\bfseries Is\+Plot\+Company} (const string \&companyname)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ae30daf5163b9e66e6caeea44f44ac7f9}\label{classPlotGenerator_ae30daf5163b9e66e6caeea44f44ac7f9}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries infected}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a3cbb7230950a988343582725fa57abb0}\label{classPlotGenerator_a3cbb7230950a988343582725fa57abb0}} 
+bool {\bfseries revelation\+\_\+releaseuncontrolled}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a682b462cc5b230e6646ebdcd1badc7bc}\label{classPlotGenerator_a682b462cc5b230e6646ebdcd1badc7bc}} 
+bool {\bfseries revelation\+\_\+releasefailed}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ac806a1642a77446c2aa163b79074abb0}\label{classPlotGenerator_ac806a1642a77446c2aa163b79074abb0}} 
+bool {\bfseries revelation\+\_\+arcbusted}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a8b80dc2eaaa3979e33dafed000a90597}\label{classPlotGenerator_a8b80dc2eaaa3979e33dafed000a90597}} 
+int {\bfseries specialmissionscompleted}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0a5876929c8e4e1523acda8379804440}\label{classPlotGenerator_a0a5876929c8e4e1523acda8379804440}} 
+void {\bfseries Run\+\_\+\+Act1\+Scene1} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a6d6170b501d2d8a08f1e29b755eb9572}\label{classPlotGenerator_a6d6170b501d2d8a08f1e29b755eb9572}} 
+void {\bfseries Run\+\_\+\+Act1\+Scene2} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0a94af4c736281d6929efdefacfec027}\label{classPlotGenerator_a0a94af4c736281d6929efdefacfec027}} 
+void {\bfseries Run\+\_\+\+Act1\+Scene3} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ade34032d1c741ee4e24eb08dae32c268}\label{classPlotGenerator_ade34032d1c741ee4e24eb08dae32c268}} 
+void {\bfseries Run\+\_\+\+Act1\+Scene4} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_affdb9527a61b8ad73421d1124f474198}\label{classPlotGenerator_affdb9527a61b8ad73421d1124f474198}} 
+void {\bfseries Run\+\_\+\+Act1\+Scene5} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0f183172d560d884d78cbb05852f3ba7}\label{classPlotGenerator_a0f183172d560d884d78cbb05852f3ba7}} 
+void {\bfseries Run\+\_\+\+Act1\+Scene7} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0a9930a5e096ec8ad4412228ba89e963}\label{classPlotGenerator_a0a9930a5e096ec8ad4412228ba89e963}} 
+void {\bfseries Run\+\_\+\+Act1\+Scene8} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a4239e6f92081f6ed56682f8e5a7063ac}\label{classPlotGenerator_a4239e6f92081f6ed56682f8e5a7063ac}} 
+void {\bfseries Run\+\_\+\+Act2\+Scene1} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a5fa9edb6d7ec385128896f6e63dc9b78}\label{classPlotGenerator_a5fa9edb6d7ec385128896f6e63dc9b78}} 
+void {\bfseries Run\+\_\+\+Act2\+Scene2} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a376ee955f78acc26f6804124e7ecd538}\label{classPlotGenerator_a376ee955f78acc26f6804124e7ecd538}} 
+void {\bfseries Run\+\_\+\+Act3\+Scene1} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0d9c24dfc2e820e6f120319697b838b6}\label{classPlotGenerator_a0d9c24dfc2e820e6f120319697b838b6}} 
+void {\bfseries Run\+\_\+\+Act3\+Scene3} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a9614a539a87e4e4119eea1fe0b39bb8a}\label{classPlotGenerator_a9614a539a87e4e4119eea1fe0b39bb8a}} 
+void {\bfseries Run\+\_\+\+Act3\+Scene4} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a96d44062713e2f47d59cd2bc235bd692}\label{classPlotGenerator_a96d44062713e2f47d59cd2bc235bd692}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene1} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a1c89216b79407e91131c28c9522ba336}\label{classPlotGenerator_a1c89216b79407e91131c28c9522ba336}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene2} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a59372b7d31141bc5d52465655227f3bc}\label{classPlotGenerator_a59372b7d31141bc5d52465655227f3bc}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene3} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0714773a1190fa74ad92feae6d44d43d}\label{classPlotGenerator_a0714773a1190fa74ad92feae6d44d43d}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene7} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a42d406b5349f8706e648647c7a74317f}\label{classPlotGenerator_a42d406b5349f8706e648647c7a74317f}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene8} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a4a021e7ce0cf55eeed47b9867b745ba0}\label{classPlotGenerator_a4a021e7ce0cf55eeed47b9867b745ba0}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene9} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ae0730dd546634503d8745018d3bae5cb}\label{classPlotGenerator_ae0730dd546634503d8745018d3bae5cb}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene13} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a3a6544b0923d8d9b5ec76940cab5aca8}\label{classPlotGenerator_a3a6544b0923d8d9b5ec76940cab5aca8}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene14} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ade4e12024fdd75c530e6a743a7e6fe33}\label{classPlotGenerator_ade4e12024fdd75c530e6a743a7e6fe33}} 
+void {\bfseries Run\+\_\+\+Act4\+Scene15} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a6c2ccd55e8256e9ad5096a706219a606}\label{classPlotGenerator_a6c2ccd55e8256e9ad5096a706219a606}} 
+void {\bfseries Run\+\_\+\+Act5\+Scene2} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a1ad3e64927d28153949e5ed5d6a30656}\label{classPlotGenerator_a1ad3e64927d28153949e5ed5d6a30656}} 
+void {\bfseries Run\+\_\+\+Act5\+Scene5} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a94088fe3335bed15bdd3f47c0e76f75f}\label{classPlotGenerator_a94088fe3335bed15bdd3f47c0e76f75f}} 
+void {\bfseries Run\+\_\+\+Act5\+Scene6} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_abb51863095a74bbec7a8ceaa4f4f928e}\label{classPlotGenerator_abb51863095a74bbec7a8ceaa4f4f928e}} 
+void {\bfseries Run\+\_\+\+Act5\+Scene7} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_aab800fb32fe9a94e47146cd9317ca933}\label{classPlotGenerator_aab800fb32fe9a94e47146cd9317ca933}} 
+\mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+Counter\+Attack} () const
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a8f3938b011fb4c433b33f16829a6e4af}\label{classPlotGenerator_a8f3938b011fb4c433b33f16829a6e4af}} 
+\mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+Save\+It\+For\+The\+Jury} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a4ea8f4b165d5141a13333b231013428a}\label{classPlotGenerator_a4ea8f4b165d5141a13333b231013428a}} 
+bool {\bfseries Is\+Mission\+Complete\+\_\+\+Tracer} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a181214f9da5e3ed1ca3977eed4b81eb9}\label{classPlotGenerator_a181214f9da5e3ed1ca3977eed4b81eb9}} 
+bool {\bfseries Is\+Mission\+Complete\+\_\+\+Take\+Me\+To\+Your\+Leader} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a9fa45df024f3a4bc714aac2487a1ea8f}\label{classPlotGenerator_a9fa45df024f3a4bc714aac2487a1ea8f}} 
+bool {\bfseries Is\+Mission\+Complete\+\_\+\+A\+R\+C\+Infiltration} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a561474e2a3323531fe3c1d3145f6d013}\label{classPlotGenerator_a561474e2a3323531fe3c1d3145f6d013}} 
+bool {\bfseries Is\+Mission\+Complete\+\_\+\+Maiden\+Flight} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_aabdede9b20163a8a00323a97e55fe10c}\label{classPlotGenerator_aabdede9b20163a8a00323a97e55fe10c}} 
+bool {\bfseries Is\+Mission\+Complete\+\_\+\+Darwin} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a3c6f26fd3692be77b2662688e9313ad9}\label{classPlotGenerator_a3c6f26fd3692be77b2662688e9313ad9}} 
+bool {\bfseries Is\+Mission\+Complete\+\_\+\+Save\+It\+For\+The\+Jury} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ad23216135ab454c488c8af88bb80a501}\label{classPlotGenerator_ad23216135ab454c488c8af88bb80a501}} 
+bool {\bfseries Is\+Mission\+Complete\+\_\+\+Shiny\+Hammer} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_aa534fe30ae66023953f1d3697d2b8100}\label{classPlotGenerator_aa534fe30ae66023953f1d3697d2b8100}} 
+void {\bfseries Player\+Completes\+Special\+Mission} (int mission\+ID)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a64677726078882444067ca88bfd04fbb}\label{classPlotGenerator_a64677726078882444067ca88bfd04fbb}} 
+void {\bfseries Revelation\+\_\+\+Release\+Uncontrolled} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0403dc1e07a15f065dda4ff1849e0f0b}\label{classPlotGenerator_a0403dc1e07a15f065dda4ff1849e0f0b}} 
+void {\bfseries News\+Revelation\+Used} (char $\ast$ip, int success) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a6ee961e9d69a006dea00bce4e7d35f8c}\label{classPlotGenerator_a6ee961e9d69a006dea00bce4e7d35f8c}} 
+static void {\bfseries Initialise\+\_\+\+A\+RC} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a3751db00b7ea2435fc991da6718a71eb}\label{classPlotGenerator_a3751db00b7ea2435fc991da6718a71eb}} 
+static void {\bfseries Initialise\+\_\+\+Andromeda} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a396e26332f65920a884de1aaa4f81fac}\label{classPlotGenerator_a396e26332f65920a884de1aaa4f81fac}} 
+static void {\bfseries Initialise\+\_\+\+A\+R\+U\+N\+M\+OR} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_af389eb886cb0adcb65f4be4f8af01e13}\label{classPlotGenerator_af389eb886cb0adcb65f4be4f8af01e13}} 
+static void {\bfseries Initialise\+\_\+\+D\+A\+R\+W\+IN} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ab0493e0ce662180119eedd4db21b003b}\label{classPlotGenerator_ab0493e0ce662180119eedd4db21b003b}} 
+static void {\bfseries Run\+\_\+\+Act2\+Scene3} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a17ea8688fb42b7d2c97aa8188d3d87d2}\label{classPlotGenerator_a17ea8688fb42b7d2c97aa8188d3d87d2}} 
+static void {\bfseries Run\+\_\+\+Act3\+Scene2} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a78a03e009a61823b26639d240255954a}\label{classPlotGenerator_a78a03e009a61823b26639d240255954a}} 
+static void {\bfseries Run\+\_\+\+Act4\+Scene4} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a5bd3ba095878438b33f384e4d35bd01d}\label{classPlotGenerator_a5bd3ba095878438b33f384e4d35bd01d}} 
+static void {\bfseries Run\+\_\+\+Act4\+Scene5} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ae23e0b76ed055af46fa8597e6882ac01}\label{classPlotGenerator_ae23e0b76ed055af46fa8597e6882ac01}} 
+static void {\bfseries Run\+\_\+\+Act4\+Scene6} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ad251df83f927d4e361efb744f37e6f97}\label{classPlotGenerator_ad251df83f927d4e361efb744f37e6f97}} 
+static void {\bfseries Run\+\_\+\+Act4\+Scene10} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ae3a2af2de6a956a141bdd2612cefc340}\label{classPlotGenerator_ae3a2af2de6a956a141bdd2612cefc340}} 
+static void {\bfseries Run\+\_\+\+Act4\+Scene11} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a891ee13d47e220817ca53cc654be2173}\label{classPlotGenerator_a891ee13d47e220817ca53cc654be2173}} 
+static void {\bfseries Run\+\_\+\+Act4\+Scene12} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ac5f6b8d6bb0a634a27ce52cecbfd1998}\label{classPlotGenerator_ac5f6b8d6bb0a634a27ce52cecbfd1998}} 
+static void {\bfseries Run\+\_\+\+Act5\+Scene1} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_aa2474314947a7af283545a8fa39efce8}\label{classPlotGenerator_aa2474314947a7af283545a8fa39efce8}} 
+static void {\bfseries Run\+\_\+\+Act5\+Scene3} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a2f7acdf463d1a8e0190898c9b7850253}\label{classPlotGenerator_a2f7acdf463d1a8e0190898c9b7850253}} 
+static void {\bfseries Run\+\_\+\+Act5\+Scene4} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a6d05e43f61b5d75a97f05a14614e8939}\label{classPlotGenerator_a6d05e43f61b5d75a97f05a14614e8939}} 
+static void {\bfseries Run\+\_\+\+Act6\+Scene1} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ac360fe28643278ce8904ea853be3d0b1}\label{classPlotGenerator_ac360fe28643278ce8904ea853be3d0b1}} 
+static void {\bfseries Run\+\_\+\+Act6\+Scene2} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a9f7ed86889c40dcd97001fdd49ebbb78}\label{classPlotGenerator_a9f7ed86889c40dcd97001fdd49ebbb78}} 
+static void {\bfseries Run\+\_\+\+Act6\+Scene3} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a21edb51b15cc06124ce90fd1e9b4b92b}\label{classPlotGenerator_a21edb51b15cc06124ce90fd1e9b4b92b}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+Tracer} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_aa9f0662a2c830bca7473a1bfb5280400}\label{classPlotGenerator_aa9f0662a2c830bca7473a1bfb5280400}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+Take\+Me\+To\+Your\+Leader} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a40a2936deac557316f6dcf398d533e7d}\label{classPlotGenerator_a40a2936deac557316f6dcf398d533e7d}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+A\+R\+C\+Infiltration} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a8a842cba7b5dbb6ec1ae539b14585dc4}\label{classPlotGenerator_a8a842cba7b5dbb6ec1ae539b14585dc4}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+Maiden\+Flight} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a5cdeeef16cd444e8116568eaea9b4d7f}\label{classPlotGenerator_a5cdeeef16cd444e8116568eaea9b4d7f}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+Darwin} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0303021c373de0e3b0cfe06f83fec778}\label{classPlotGenerator_a0303021c373de0e3b0cfe06f83fec778}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+Shiny\+Hammer} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a3a9ea4a9059cebf6498e5a2652e060e0}\label{classPlotGenerator_a3a9ea4a9059cebf6498e5a2652e060e0}} 
+static \mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Generate\+Mission\+\_\+\+Grand\+Tour} ()
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a1e2d2397b9c3a4800cd6c66b507feeef}\label{classPlotGenerator_a1e2d2397b9c3a4800cd6c66b507feeef}} 
+static void {\bfseries Player\+Fails\+Special\+Mission} (int mission\+ID)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a5ca1575ed8a791d260d03d35f7aec344}\label{classPlotGenerator_a5ca1575ed8a791d260d03d35f7aec344}} 
+static bool {\bfseries Remove\+Special\+Mission} (int mission\+ID)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ad9c1c495fb6ba7b341f16aa5deb0096f}\label{classPlotGenerator_ad9c1c495fb6ba7b341f16aa5deb0096f}} 
+static void {\bfseries Message\+Incompatible\+Save\+Game} (const char $\ast$fileassert, int lineassert)
+\item 
+\mbox{\Hypertarget{classPlotGenerator_afb1351993e4f5c8b89bfe86e6198a9d3}\label{classPlotGenerator_afb1351993e4f5c8b89bfe86e6198a9d3}} 
+static bool {\bfseries Uplink\+Incompatible\+Save\+Game\+Assert} (const bool \&condition, const char $\ast$fileassert, int lineassert)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_aa14d30d493f8e929868a2c527b3c433b}\label{classPlotGenerator_aa14d30d493f8e929868a2c527b3c433b}} 
+int {\bfseries act}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a0069a49396e2513f486c15f1315b72f3}\label{classPlotGenerator_a0069a49396e2513f486c15f1315b72f3}} 
+int {\bfseries scene}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_acebf01e6bc004ad899fa0e5bf5427c49}\label{classPlotGenerator_acebf01e6bc004ad899fa0e5bf5427c49}} 
+char {\bfseries act1scene3agent} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_af852c681878a607e3f7b26bba9934795}\label{classPlotGenerator_af852c681878a607e3f7b26bba9934795}} 
+char {\bfseries act1scene4agent} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_aa388ba85234c2c7ea22fdbff03af740e}\label{classPlotGenerator_aa388ba85234c2c7ea22fdbff03af740e}} 
+char {\bfseries act2scene1agent} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ad040c8c56b8e21ae85d4e818781cbfbf}\label{classPlotGenerator_ad040c8c56b8e21ae85d4e818781cbfbf}} 
+bool {\bfseries playervisitsplotsites}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a9aba99575559883380f79f686205e06c}\label{classPlotGenerator_a9aba99575559883380f79f686205e06c}} 
+bool {\bfseries playercancelsmail}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a25bbd83dd67beae11d9acdf2106dc997}\label{classPlotGenerator_a25bbd83dd67beae11d9acdf2106dc997}} 
+int {\bfseries playerloyalty}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a9d5eb3e077078080da635a8463ef3907}\label{classPlotGenerator_a9d5eb3e077078080da635a8463ef3907}} 
+bool {\bfseries completed\+\_\+tracer}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a404fea55ec847e904ed077db235bc74b}\label{classPlotGenerator_a404fea55ec847e904ed077db235bc74b}} 
+bool {\bfseries completed\+\_\+takemetoyourleader}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a9764b6b4843296a30ff07703b7fd9678}\label{classPlotGenerator_a9764b6b4843296a30ff07703b7fd9678}} 
+bool {\bfseries completed\+\_\+arcinfiltration}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a74f1c8935f447cbe7aa09c5772e70248}\label{classPlotGenerator_a74f1c8935f447cbe7aa09c5772e70248}} 
+bool {\bfseries completed\+\_\+darwin}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a15b63884c237b89eeab1a47345fe9757}\label{classPlotGenerator_a15b63884c237b89eeab1a47345fe9757}} 
+bool {\bfseries completed\+\_\+saveitforthejury}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_abce6f459f0bfa5709b43f49919aaf9e1}\label{classPlotGenerator_abce6f459f0bfa5709b43f49919aaf9e1}} 
+bool {\bfseries completed\+\_\+shinyhammer}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ae5da65008a2dc5cecd3bc5f2fc40e38c}\label{classPlotGenerator_ae5da65008a2dc5cecd3bc5f2fc40e38c}} 
+char {\bfseries saveitforthejury\+\_\+guytobeframed} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a3ba01d97fe579d3af848815dca24d38d}\label{classPlotGenerator_a3ba01d97fe579d3af848815dca24d38d}} 
+char {\bfseries saveitforthejury\+\_\+targetbankip} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ac95aa61bb6b7080a56f5bc7bb20151a7}\label{classPlotGenerator_ac95aa61bb6b7080a56f5bc7bb20151a7}} 
+char {\bfseries tracer\+\_\+lastknownip} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_a45c522c814662c5ba73b23e9262d3e23}\label{classPlotGenerator_a45c522c814662c5ba73b23e9262d3e23}} 
+int {\bfseries numuses\+\_\+revelation}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_aa5792bc065903bb1ca2ce3fa0d714dd7}\label{classPlotGenerator_aa5792bc065903bb1ca2ce3fa0d714dd7}} 
+float {\bfseries version\+\_\+revelation}
+\item 
+\mbox{\Hypertarget{classPlotGenerator_ac5a471c002c4db2ed601be7b04c01ff8}\label{classPlotGenerator_ac5a471c002c4db2ed601be7b04c01ff8}} 
+float {\bfseries version\+\_\+faith}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlotGenerator_a1350420e56f68e26d07a875bd83245c0}\label{classPlotGenerator_a1350420e56f68e26d07a875bd83245c0}} 
+\index{PlotGenerator@{PlotGenerator}!GetID@{GetID}}
+\index{GetID@{GetID}!PlotGenerator@{PlotGenerator}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Plot\+Generator\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classPlotGenerator_aeac44b731d16b4b0200f8c0a87696261}\label{classPlotGenerator_aeac44b731d16b4b0200f8c0a87696261}} 
+\index{PlotGenerator@{PlotGenerator}!Load@{Load}}
+\index{Load@{Load}!PlotGenerator@{PlotGenerator}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Plot\+Generator\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classPlotGenerator_aebae70a9fb718c0cfdb8eb58da7fec6b}\label{classPlotGenerator_aebae70a9fb718c0cfdb8eb58da7fec6b}} 
+\index{PlotGenerator@{PlotGenerator}!Print@{Print}}
+\index{Print@{Print}!PlotGenerator@{PlotGenerator}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Plot\+Generator\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classPlotGenerator_ab16ce8c548e5511f30678e3633c35025}\label{classPlotGenerator_ab16ce8c548e5511f30678e3633c35025}} 
+\index{PlotGenerator@{PlotGenerator}!Save@{Save}}
+\index{Save@{Save}!PlotGenerator@{PlotGenerator}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Plot\+Generator\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classPlotGenerator_abf9cb31bec80d628bd5a8f31352b10d1}\label{classPlotGenerator_abf9cb31bec80d628bd5a8f31352b10d1}} 
+\index{PlotGenerator@{PlotGenerator}!SpecialMissionDescription@{SpecialMissionDescription}}
+\index{SpecialMissionDescription@{SpecialMissionDescription}!PlotGenerator@{PlotGenerator}}
+\doxysubsubsection{\texorpdfstring{SpecialMissionDescription()}{SpecialMissionDescription()}}
+{\footnotesize\ttfamily string Plot\+Generator\+::\+Special\+Mission\+Description (\begin{DoxyParamCaption}\item[{int}]{mission\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets special mission description of given ID 
+\begin{DoxyParams}{Parameters}
+{\em mission\+ID} & \mbox{\hyperlink{classMission}{Mission}} ID to get the description of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The description of the special mission 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlotGenerator_a5a02bfd4967575ac1da0b16f3c463af1}\label{classPlotGenerator_a5a02bfd4967575ac1da0b16f3c463af1}} 
+\index{PlotGenerator@{PlotGenerator}!SpecialMissionTitle@{SpecialMissionTitle}}
+\index{SpecialMissionTitle@{SpecialMissionTitle}!PlotGenerator@{PlotGenerator}}
+\doxysubsubsection{\texorpdfstring{SpecialMissionTitle()}{SpecialMissionTitle()}}
+{\footnotesize\ttfamily string Plot\+Generator\+::\+Special\+Mission\+Title (\begin{DoxyParamCaption}\item[{int}]{mission\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets special mission title of given ID 
+\begin{DoxyParams}{Parameters}
+{\em mission\+ID} & \mbox{\hyperlink{classMission}{Mission}} ID to get the title of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The title of the special mission 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPlotGenerator_a68255f6553ab4217e1240c260ad3ac41}\label{classPlotGenerator_a68255f6553ab4217e1240c260ad3ac41}} 
+\index{PlotGenerator@{PlotGenerator}!Update@{Update}}
+\index{Update@{Update}!PlotGenerator@{PlotGenerator}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Plot\+Generator\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/generator/plotgenerator.\+h\item 
+uplink/src/world/generator/plotgenerator.\+cpp\end{DoxyCompactItemize}

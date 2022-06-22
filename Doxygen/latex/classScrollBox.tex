@@ -1,0 +1,144 @@
+\hypertarget{classScrollBox}{}\doxysection{Scroll\+Box Class Reference}
+\label{classScrollBox}\index{ScrollBox@{ScrollBox}}
+
+
+Collaboration diagram for Scroll\+Box\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScrollBox_a6e8ec553bf93f252d5c48681e2e0801c}\label{classScrollBox_a6e8ec553bf93f252d5c48681e2e0801c}} 
+void {\bfseries Set\+Name} (const string \&newname)
+\item 
+\mbox{\Hypertarget{classScrollBox_ac2bdaeeb00efb28932b524c250681a68}\label{classScrollBox_ac2bdaeeb00efb28932b524c250681a68}} 
+void {\bfseries Set\+Dimensions} (int newx, int newy, int neww, int newh)
+\item 
+\mbox{\Hypertarget{classScrollBox_a31afed0df62faca3cece4a34adac59bb}\label{classScrollBox_a31afed0df62faca3cece4a34adac59bb}} 
+void {\bfseries Set\+Num\+Items} (int new\+Num\+Items)
+\item 
+\mbox{\Hypertarget{classScrollBox_a6b4595050d3891a92353ca6bbdc693a6}\label{classScrollBox_a6b4595050d3891a92353ca6bbdc693a6}} 
+void {\bfseries Set\+Window\+Size} (int new\+Window\+Size)
+\item 
+\mbox{\Hypertarget{classScrollBox_a9450ab9294695e220db7df53011ff93b}\label{classScrollBox_a9450ab9294695e220db7df53011ff93b}} 
+void {\bfseries Set\+Current\+Index} (int new\+Current\+Index)
+\item 
+\mbox{\Hypertarget{classScrollBox_af0f318f9e2759d28efeb2709ca88f26e}\label{classScrollBox_af0f318f9e2759d28efeb2709ca88f26e}} 
+void {\bfseries Set\+Callback} (void($\ast$newcallback)(const string \&, int))
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScrollBox_aa92bb5948c19dc902f8739b3bedf3eef}\label{classScrollBox_aa92bb5948c19dc902f8739b3bedf3eef}} 
+static void {\bfseries Create\+Scroll\+Box} (const string \&name, int x, int y, int w, int h, int num\+Items, int window\+Size, int current\+Index, void($\ast$callback)(const string \&, int)=nullptr)
+\item 
+\mbox{\Hypertarget{classScrollBox_a072422d8c13d888a78ea0a7edc0b00f1}\label{classScrollBox_a072422d8c13d888a78ea0a7edc0b00f1}} 
+static void {\bfseries Remove\+Scroll\+Box} (const string \&name)
+\item 
+\mbox{\Hypertarget{classScrollBox_af75b2c2f5598e88740d624a15f854afd}\label{classScrollBox_af75b2c2f5598e88740d624a15f854afd}} 
+static \mbox{\hyperlink{classScrollBox}{Scroll\+Box}} $\ast$ {\bfseries Get\+Scroll\+Box} (const string \&name)
+\item 
+\mbox{\Hypertarget{classScrollBox_a092068ec97416c934e8bbb322f83e5d9}\label{classScrollBox_a092068ec97416c934e8bbb322f83e5d9}} 
+static void {\bfseries Grab\+Scroll\+Bar} (const string \&name)
+\item 
+\mbox{\Hypertarget{classScrollBox_ae1e077d9ec5cb7e43bd7eb9b79e4f88c}\label{classScrollBox_ae1e077d9ec5cb7e43bd7eb9b79e4f88c}} 
+static void {\bfseries Un\+Grab\+Scroll\+Bar} ()
+\item 
+\mbox{\Hypertarget{classScrollBox_ab4cbbc524b9bdedb56bde1ee21e9c6f1}\label{classScrollBox_ab4cbbc524b9bdedb56bde1ee21e9c6f1}} 
+static bool {\bfseries Is\+Grab\+In\+Progress} ()
+\item 
+\mbox{\Hypertarget{classScrollBox_a429ec4a4564ad2ab7c57f65a8dc14ad0}\label{classScrollBox_a429ec4a4564ad2ab7c57f65a8dc14ad0}} 
+static void {\bfseries Update\+Grab\+Scroll} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScrollBox_a2779a38dd6ef2b25061073e714320244}\label{classScrollBox_a2779a38dd6ef2b25061073e714320244}} 
+string {\bfseries name}
+\item 
+\mbox{\Hypertarget{classScrollBox_a161b1e938bfd8e9bf94b641a1d7daecc}\label{classScrollBox_a161b1e938bfd8e9bf94b641a1d7daecc}} 
+int {\bfseries x}
+\item 
+\mbox{\Hypertarget{classScrollBox_a5f124649b7acacf87fd5ba981c2e77c0}\label{classScrollBox_a5f124649b7acacf87fd5ba981c2e77c0}} 
+int {\bfseries y}
+\item 
+\mbox{\Hypertarget{classScrollBox_a2ab24464ce6dcf2e9ae6b70618479258}\label{classScrollBox_a2ab24464ce6dcf2e9ae6b70618479258}} 
+int {\bfseries w}
+\item 
+\mbox{\Hypertarget{classScrollBox_a887de0c0e34c54c4f0e92714bb3e31d1}\label{classScrollBox_a887de0c0e34c54c4f0e92714bb3e31d1}} 
+int {\bfseries h}
+\item 
+\mbox{\Hypertarget{classScrollBox_a89b04b5f267b68fef5bbee56eecc527b}\label{classScrollBox_a89b04b5f267b68fef5bbee56eecc527b}} 
+int {\bfseries num\+Items}
+\item 
+\mbox{\Hypertarget{classScrollBox_aec71aede6ff8d8722978453f7d58e395}\label{classScrollBox_aec71aede6ff8d8722978453f7d58e395}} 
+int {\bfseries window\+Size}
+\item 
+\mbox{\Hypertarget{classScrollBox_a747c944173e9c367c2bbd9d0797a170c}\label{classScrollBox_a747c944173e9c367c2bbd9d0797a170c}} 
+int {\bfseries current\+Index}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScrollBox_afdf663b0600ca09d09f42673eba3bc63}\label{classScrollBox_afdf663b0600ca09d09f42673eba3bc63}} 
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classScrollBox}{Scroll\+Box}} $\ast$ $>$ {\bfseries scroll\+Boxes}
+\item 
+\mbox{\Hypertarget{classScrollBox_ac4d45437a3b50ca1b22ee1dc82ad84d8}\label{classScrollBox_ac4d45437a3b50ca1b22ee1dc82ad84d8}} 
+static string {\bfseries current\+Grab} = \char`\"{}None\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScrollBox_a489b871026b0b4a688d2d7aca3e14d34}\label{classScrollBox_a489b871026b0b4a688d2d7aca3e14d34}} 
+void {\bfseries Create\+Interface} ()
+\item 
+\mbox{\Hypertarget{classScrollBox_ab84c129e4916057810e1c5af8690c5fd}\label{classScrollBox_ab84c129e4916057810e1c5af8690c5fd}} 
+void {\bfseries Remove\+Interface} ()
+\item 
+\mbox{\Hypertarget{classScrollBox_ab090a442ca595644d2b85073b0cc363a}\label{classScrollBox_ab090a442ca595644d2b85073b0cc363a}} 
+void {\bfseries Update\+Interface} () const
+\item 
+\mbox{\Hypertarget{classScrollBox_a5c2641211c5afe2c7b2e24bd18a5407f}\label{classScrollBox_a5c2641211c5afe2c7b2e24bd18a5407f}} 
+void {\bfseries Scroll\+Up} ()
+\item 
+\mbox{\Hypertarget{classScrollBox_a23710e6a49dbd73a1f2ae1a3e9e2b872}\label{classScrollBox_a23710e6a49dbd73a1f2ae1a3e9e2b872}} 
+void {\bfseries Scroll\+Down} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScrollBox_aa8931061cce14267efd12c16dc187bf3}\label{classScrollBox_aa8931061cce14267efd12c16dc187bf3}} 
+static bool {\bfseries Is\+Interface\+Visible} ()
+\item 
+\mbox{\Hypertarget{classScrollBox_a77e8d1db46e07bc2370002f47e525fd4}\label{classScrollBox_a77e8d1db46e07bc2370002f47e525fd4}} 
+static void {\bfseries Click\+Scroll\+Up} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classScrollBox_ab1d8179cd271fee7c2fe419112003e89}\label{classScrollBox_ab1d8179cd271fee7c2fe419112003e89}} 
+static void {\bfseries Click\+Scroll\+Down} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classScrollBox_a907a78f22b6d51e9cda1589c826f1758}\label{classScrollBox_a907a78f22b6d51e9cda1589c826f1758}} 
+static void {\bfseries Click\+Scroll\+Bar} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classScrollBox_a10ca60cc070e3fd0fcdf26ff1d60857f}\label{classScrollBox_a10ca60cc070e3fd0fcdf26ff1d60857f}} 
+static void {\bfseries Mouse\+Down\+Scroll\+Bar} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classScrollBox_af75b92418090ec40a3181acc60366f5e}\label{classScrollBox_af75b92418090ec40a3181acc60366f5e}} 
+static void {\bfseries Mouse\+Move\+Scroll\+Bar} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classScrollBox_a0f8ed1b0dc46991db70e28be4d82250d}\label{classScrollBox_a0f8ed1b0dc46991db70e28be4d82250d}} 
+static void {\bfseries Draw\+Scroll\+Bar} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classScrollBox_ac9c1f641aa38cf24a9bbba1c18f13a53}\label{classScrollBox_ac9c1f641aa38cf24a9bbba1c18f13a53}} 
+void($\ast$ {\bfseries callback} )(const string \&, int)
+\item 
+\mbox{\Hypertarget{classScrollBox_aa5431a6a4ed98f4424deb3f55d4441c2}\label{classScrollBox_aa5431a6a4ed98f4424deb3f55d4441c2}} 
+bool {\bfseries interface\+Created}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/scrollbox.\+h\item 
+uplink/src/interface/scrollbox.\+cpp\end{DoxyCompactItemize}

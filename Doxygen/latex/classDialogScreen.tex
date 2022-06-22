@@ -1,0 +1,134 @@
+\hypertarget{classDialogScreen}{}\doxysection{Dialog\+Screen Class Reference}
+\label{classDialogScreen}\index{DialogScreen@{DialogScreen}}
+
+
+Inheritance diagram for Dialog\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Dialog\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialogScreen_a4f5bc5a9613363fe8925fb362809395b}\label{classDialogScreen_a4f5bc5a9613363fe8925fb362809395b}} 
+void {\bfseries Add\+Widget} (const string \&name, int W\+I\+D\+G\+E\+T\+T\+Y\+PE, int x, int y, int width, int height, const string \&caption, const string \&tooltip)
+\item 
+\mbox{\Hypertarget{classDialogScreen_a84fd81ac582bb0759eb0268b7638d1bb}\label{classDialogScreen_a84fd81ac582bb0759eb0268b7638d1bb}} 
+void {\bfseries Add\+Widget} (const string \&name, int W\+I\+D\+G\+E\+T\+T\+Y\+PE, int x, int y, int width, int height, const string \&caption, const string \&tooltip, int data1, int data2, const string \&stringdata1, const string \&stringdata2)
+\item 
+\mbox{\Hypertarget{classDialogScreen_ac9b2551d8924cfe0ee242f1e6783ec35}\label{classDialogScreen_ac9b2551d8924cfe0ee242f1e6783ec35}} 
+void {\bfseries Remove\+Widget} (const string \&name)
+\item 
+\mbox{\Hypertarget{classDialogScreen_a91e8ee167e5914ddc103b024399b22f0}\label{classDialogScreen_a91e8ee167e5914ddc103b024399b22f0}} 
+void {\bfseries Set\+Return\+Key\+Button} (const string \&name)
+\item 
+\mbox{\Hypertarget{classDialogScreen_a2f5d63801676fe7b8d102f110706812d}\label{classDialogScreen_a2f5d63801676fe7b8d102f110706812d}} 
+void {\bfseries Set\+Escape\+Key\+Button} (const string \&name)
+\item 
+bool \mbox{\hyperlink{classDialogScreen_a48eea28510f091d5cdde166bc82b71e0}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classDialogScreen_ade1035b1252df36f42ebc08e862c7236}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classDialogScreen_a6818cdb99c82030ea27e54f8f11ac161}{Print}} () override
+\item 
+string \mbox{\hyperlink{classDialogScreen_a8e426ad373d1c14c6a1da58c5f228f91}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classDialogScreen_a454fc0d337524e574519d6a51eae68d0}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialogScreen_ad3e4b8bec17dba9f8154ed8740a1d264}\label{classDialogScreen_ad3e4b8bec17dba9f8154ed8740a1d264}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classDialogScreenWidget}{Dialog\+Screen\+Widget}} $\ast$ $>$ {\bfseries widgets}
+\item 
+\mbox{\Hypertarget{classDialogScreen_a7ada6d95fb22c3ce3312e3fbce242e01}\label{classDialogScreen_a7ada6d95fb22c3ce3312e3fbce242e01}} 
+char $\ast$ {\bfseries returnkeybutton}
+\item 
+\mbox{\Hypertarget{classDialogScreen_a1769dcb8c13f6f821a18a0056be4df63}\label{classDialogScreen_a1769dcb8c13f6f821a18a0056be4df63}} 
+char $\ast$ {\bfseries escapekeybutton}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDialogScreen_a8e426ad373d1c14c6a1da58c5f228f91}\label{classDialogScreen_a8e426ad373d1c14c6a1da58c5f228f91}} 
+\index{DialogScreen@{DialogScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!DialogScreen@{DialogScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Dialog\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classDialogScreen_a454fc0d337524e574519d6a51eae68d0}\label{classDialogScreen_a454fc0d337524e574519d6a51eae68d0}} 
+\index{DialogScreen@{DialogScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!DialogScreen@{DialogScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Dialog\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classDialogScreen_a48eea28510f091d5cdde166bc82b71e0}\label{classDialogScreen_a48eea28510f091d5cdde166bc82b71e0}} 
+\index{DialogScreen@{DialogScreen}!Load@{Load}}
+\index{Load@{Load}!DialogScreen@{DialogScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Dialog\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classDialogScreen_a6818cdb99c82030ea27e54f8f11ac161}\label{classDialogScreen_a6818cdb99c82030ea27e54f8f11ac161}} 
+\index{DialogScreen@{DialogScreen}!Print@{Print}}
+\index{Print@{Print}!DialogScreen@{DialogScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Dialog\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classDialogScreen_ade1035b1252df36f42ebc08e862c7236}\label{classDialogScreen_ade1035b1252df36f42ebc08e862c7236}} 
+\index{DialogScreen@{DialogScreen}!Save@{Save}}
+\index{Save@{Save}!DialogScreen@{DialogScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Dialog\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/dialogscreen.\+h\item 
+uplink/src/world/computer/computerscreen/dialogscreen.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,161 @@
+\hypertarget{classRating}{}\doxysection{Rating Class Reference}
+\label{classRating}\index{Rating@{Rating}}
+
+
+Inheritance diagram for Rating\+:
+% FIG 0
+
+
+Collaboration diagram for Rating\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRating_ab858368a7915b9a54bf518f9583a6811}\label{classRating_ab858368a7915b9a54bf518f9583a6811}} 
+void {\bfseries Set\+Owner} (char $\ast$newowner)
+\item 
+\mbox{\Hypertarget{classRating_aff386bc97e738c57d8c6eb86a4525dfd}\label{classRating_aff386bc97e738c57d8c6eb86a4525dfd}} 
+void {\bfseries Set\+Uplink\+Rating} (int rating)
+\item 
+\mbox{\Hypertarget{classRating_afda5df6134ac36b4b6c89a5bc00d59bd}\label{classRating_afda5df6134ac36b4b6c89a5bc00d59bd}} 
+void {\bfseries Set\+Neuromancer\+Rating} (int rating)
+\item 
+\mbox{\Hypertarget{classRating_a2b9a0a48100c2adf0a9ec99bed59151b}\label{classRating_a2b9a0a48100c2adf0a9ec99bed59151b}} 
+void {\bfseries Change\+Uplink\+Score} (int amount)
+\item 
+\mbox{\Hypertarget{classRating_a70884f60495e27bf843bee16b4fac5ad}\label{classRating_a70884f60495e27bf843bee16b4fac5ad}} 
+void {\bfseries Change\+Neuromancer\+Score} (int amount)
+\item 
+\mbox{\Hypertarget{classRating_a0cc3027665a0a3bb832a2809681f383a}\label{classRating_a0cc3027665a0a3bb832a2809681f383a}} 
+string {\bfseries Get\+Uplink\+Rating} () const
+\item 
+\mbox{\Hypertarget{classRating_a4359537ab71c60f6d76afb3a7750fe2b}\label{classRating_a4359537ab71c60f6d76afb3a7750fe2b}} 
+string {\bfseries Get\+Neuromancer\+Rating} () const
+\item 
+\mbox{\Hypertarget{classRating_a023b37ff4e181368d12690960a13b84a}\label{classRating_a023b37ff4e181368d12690960a13b84a}} 
+void {\bfseries Set\+Credit\+Rating} (int rating)
+\item 
+\mbox{\Hypertarget{classRating_a286807e5538c2c6110e6deff04ad5670}\label{classRating_a286807e5538c2c6110e6deff04ad5670}} 
+void {\bfseries Change\+Credit\+Rating} (int amount)
+\item 
+bool \mbox{\hyperlink{classRating_a5855f2c176601de830ae069e6c62f572}{Load}} (F\+I\+LE $\ast$file)
+\item 
+void \mbox{\hyperlink{classRating_ad431074808210ba3cdf96dbce5dbc881}{Save}} (F\+I\+LE $\ast$file)
+\item 
+void \mbox{\hyperlink{classRating_afa779e9ced8bddf314f9fffa670566e5}{Print}} ()
+\item 
+void \mbox{\hyperlink{classRating_aaf66d0fd3fd980e066bd06823d9f13eb}{Update}} ()
+\item 
+string \mbox{\hyperlink{classRating_a6f644db4f81509436b291597185db3fc}{Get\+ID}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRating_a5f77ef8cd3c04c944b3e6a97e43f62df}\label{classRating_a5f77ef8cd3c04c944b3e6a97e43f62df}} 
+static string {\bfseries Get\+Uplink\+Rating\+String} (int urating)
+\item 
+\mbox{\Hypertarget{classRating_a009a42af35fa65a3bf95e81feb01bf8f}\label{classRating_a009a42af35fa65a3bf95e81feb01bf8f}} 
+static string {\bfseries Get\+Neuromancer\+Rating\+String} (int nrating)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRating_a8bc6797d70ff551327f65fc5bc16706b}\label{classRating_a8bc6797d70ff551327f65fc5bc16706b}} 
+char {\bfseries owner} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classRating_a08f78dabb0ad8b9c79e977b8db71daa5}\label{classRating_a08f78dabb0ad8b9c79e977b8db71daa5}} 
+int {\bfseries uplinkrating}
+\item 
+\mbox{\Hypertarget{classRating_a18e0cae09cb527ea1fb4f8782883709c}\label{classRating_a18e0cae09cb527ea1fb4f8782883709c}} 
+int {\bfseries uplinkscore}
+\item 
+\mbox{\Hypertarget{classRating_ace9d0b42c7718f6b1c2c729312a4b082}\label{classRating_ace9d0b42c7718f6b1c2c729312a4b082}} 
+int {\bfseries neuromancerrating}
+\item 
+\mbox{\Hypertarget{classRating_af829482f9b4ec69439a2403afe350a88}\label{classRating_af829482f9b4ec69439a2403afe350a88}} 
+int {\bfseries neuromancerscore}
+\item 
+\mbox{\Hypertarget{classRating_ad064c93ce2b7558af0d21e94c8c47f2b}\label{classRating_ad064c93ce2b7558af0d21e94c8c47f2b}} 
+int {\bfseries creditrating}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRating_a6f644db4f81509436b291597185db3fc}\label{classRating_a6f644db4f81509436b291597185db3fc}} 
+\index{Rating@{Rating}!GetID@{GetID}}
+\index{GetID@{GetID}!Rating@{Rating}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Rating\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRating_a5855f2c176601de830ae069e6c62f572}\label{classRating_a5855f2c176601de830ae069e6c62f572}} 
+\index{Rating@{Rating}!Load@{Load}}
+\index{Load@{Load}!Rating@{Rating}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Rating\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRating_afa779e9ced8bddf314f9fffa670566e5}\label{classRating_afa779e9ced8bddf314f9fffa670566e5}} 
+\index{Rating@{Rating}!Print@{Print}}
+\index{Print@{Print}!Rating@{Rating}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Rating\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRating_ad431074808210ba3cdf96dbce5dbc881}\label{classRating_ad431074808210ba3cdf96dbce5dbc881}} 
+\index{Rating@{Rating}!Save@{Save}}
+\index{Save@{Save}!Rating@{Rating}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Rating\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRating_aaf66d0fd3fd980e066bd06823d9f13eb}\label{classRating_aaf66d0fd3fd980e066bd06823d9f13eb}} 
+\index{Rating@{Rating}!Update@{Update}}
+\index{Update@{Update}!Rating@{Rating}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Rating\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/rating.\+h\item 
+uplink/src/world/rating.\+cpp\end{DoxyCompactItemize}

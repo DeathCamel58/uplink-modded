@@ -1,0 +1,218 @@
+\hypertarget{classLogModifier}{}\doxysection{Log\+Modifier Class Reference}
+\label{classLogModifier}\index{LogModifier@{LogModifier}}
+
+
+Inheritance diagram for Log\+Modifier\+:
+% FIG 0
+
+
+Collaboration diagram for Log\+Modifier\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLogModifier_a24525f6a46136a803090cc211c0d6fe2}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classLogModifier_aac7cb150eb78419be2b312e2b0639477}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classLogModifier_a32013551a999a5ff2a47941946475544}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classLogModifier_a382ebf24f7b7ce363b4f490375ed677b}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classLogModifier_ac3a53e060e462172f246f054d04110ea}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classLogModifier_a73811d685baf0a84a25fb4f29cfcaec4}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classLogModifier_a69fa84f220f877e13daeb9dbc3996768}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classLogModifier_ab8b80129ea4480e5d52ad67858ef6dbf}{Is\+Interface\+Visible}} () override
+\item 
+\mbox{\Hypertarget{classLogModifier_a5b3987dc8583a3d5b17b486d1ecdcb0e}\label{classLogModifier_a5b3987dc8583a3d5b17b486d1ecdcb0e}} 
+void {\bfseries Create\+Expanded\+Interface} ()
+\item 
+\mbox{\Hypertarget{classLogModifier_a3e79ee4b6d6b88b44f193b70e8e11942}\label{classLogModifier_a3e79ee4b6d6b88b44f193b70e8e11942}} 
+void {\bfseries Remove\+Expanded\+Interface} ()
+\item 
+\mbox{\Hypertarget{classLogModifier_ac34f58dfac03973f7bbd0fb8bfefdcf5}\label{classLogModifier_ac34f58dfac03973f7bbd0fb8bfefdcf5}} 
+bool {\bfseries Is\+Expanded\+Interface\+Visible} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogModifier_aeeb7f223b0bb096af8b339fc02e4dda0}\label{classLogModifier_aeeb7f223b0bb096af8b339fc02e4dda0}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLogModifier_a9b423d2ca2d14c69dd52202d4ffb7129}\label{classLogModifier_a9b423d2ca2d14c69dd52202d4ffb7129}} 
+static void {\bfseries Background\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLogModifier_a970597579a2cda73a93926d2181143b8}\label{classLogModifier_a970597579a2cda73a93926d2181143b8}} 
+static void {\bfseries Progress\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLogModifier_a9d7f9f57c813e97915e7eca64b269aec}\label{classLogModifier_a9d7f9f57c813e97915e7eca64b269aec}} 
+static void {\bfseries Border\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classLogModifier_a782bc1317d51cf66a1b928128aec8dc1}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLogModifier_a2d325f17d5bfba103d641a31371ac121}\label{classLogModifier_a2d325f17d5bfba103d641a31371ac121}} 
+static void {\bfseries Commit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLogModifier_a22bcca55b996335277cca7438f011322}\label{classLogModifier_a22bcca55b996335277cca7438f011322}} 
+static void {\bfseries Next\+Type\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLogModifier_a4b6b28ae6fff2fb927189a32140f3733}\label{classLogModifier_a4b6b28ae6fff2fb927189a32140f3733}} 
+static void {\bfseries Change\+Log\+Type} (int pid)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogModifier_a489b89aca56843fe30abf68f0fefcd8f}\label{classLogModifier_a489b89aca56843fe30abf68f0fefcd8f}} 
+\mbox{\hyperlink{classLogBank}{Log\+Bank}} $\ast$ {\bfseries source}
+\item 
+\mbox{\Hypertarget{classLogModifier_a3fe1a6e31ec8be75aaccf45b439d2706}\label{classLogModifier_a3fe1a6e31ec8be75aaccf45b439d2706}} 
+int {\bfseries sourceindex}
+\item 
+\mbox{\Hypertarget{classLogModifier_ad0868310f65810588ecc3fd805281169}\label{classLogModifier_ad0868310f65810588ecc3fd805281169}} 
+int {\bfseries status}
+\item 
+\mbox{\Hypertarget{classLogModifier_aa73b842964fcde0144eef68729746665}\label{classLogModifier_aa73b842964fcde0144eef68729746665}} 
+int {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classLogModifier_a41787211a07ca6d5440a5dff76c86a14}\label{classLogModifier_a41787211a07ca6d5440a5dff76c86a14}} 
+int {\bfseries progress}
+\item 
+\mbox{\Hypertarget{classLogModifier_adcd1c30e9e7d4bad5640136c602318b5}\label{classLogModifier_adcd1c30e9e7d4bad5640136c602318b5}} 
+int {\bfseries logtype}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogModifier_a782bc1317d51cf66a1b928128aec8dc1}\label{classLogModifier_a782bc1317d51cf66a1b928128aec8dc1}} 
+\index{LogModifier@{LogModifier}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Log\+Modifier\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLogModifier_ac3a53e060e462172f246f054d04110ea}\label{classLogModifier_ac3a53e060e462172f246f054d04110ea}} 
+\index{LogModifier@{LogModifier}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Log\+Modifier\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classLogModifier_a32013551a999a5ff2a47941946475544}\label{classLogModifier_a32013551a999a5ff2a47941946475544}} 
+\index{LogModifier@{LogModifier}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Log\+Modifier\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classLogModifier_ab8b80129ea4480e5d52ad67858ef6dbf}\label{classLogModifier_ab8b80129ea4480e5d52ad67858ef6dbf}} 
+\index{LogModifier@{LogModifier}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Log\+Modifier\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classLogModifier_aac7cb150eb78419be2b312e2b0639477}\label{classLogModifier_aac7cb150eb78419be2b312e2b0639477}} 
+\index{LogModifier@{LogModifier}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Log\+Modifier\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classLogModifier_a73811d685baf0a84a25fb4f29cfcaec4}\label{classLogModifier_a73811d685baf0a84a25fb4f29cfcaec4}} 
+\index{LogModifier@{LogModifier}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Log\+Modifier\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classLogModifier_a24525f6a46136a803090cc211c0d6fe2}\label{classLogModifier_a24525f6a46136a803090cc211c0d6fe2}} 
+\index{LogModifier@{LogModifier}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Log\+Modifier\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classLogBank}{Log\+Bank}} object containing \mbox{\hyperlink{classAccessLog}{Access\+Log}} to be un-\/deleted \\
+\hline
+{\em uos} & Name of button representing data \\
+\hline
+{\em uoi} & Index of log in \mbox{\hyperlink{classLogBank}{Log\+Bank}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classLogModifier_a69fa84f220f877e13daeb9dbc3996768}\label{classLogModifier_a69fa84f220f877e13daeb9dbc3996768}} 
+\index{LogModifier@{LogModifier}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Log\+Modifier\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classLogModifier_a382ebf24f7b7ce363b4f490375ed677b}\label{classLogModifier_a382ebf24f7b7ce363b4f490375ed677b}} 
+\index{LogModifier@{LogModifier}!Tick@{Tick}}
+\index{Tick@{Tick}!LogModifier@{LogModifier}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Log\+Modifier\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/logmodifier.\+h\item 
+uplink/src/interface/taskmanager/logmodifier.\+cpp\end{DoxyCompactItemize}

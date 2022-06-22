@@ -1,0 +1,166 @@
+\hypertarget{classMotionSensor}{}\doxysection{Motion\+Sensor Class Reference}
+\label{classMotionSensor}\index{MotionSensor@{MotionSensor}}
+
+
+Inheritance diagram for Motion\+Sensor\+:
+% FIG 0
+
+
+Collaboration diagram for Motion\+Sensor\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMotionSensor_aa57ea8db473bfeaeb41db793af01aacd}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classMotionSensor_a1b1fafa74d2d92f865d41ce04939f6f9}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classMotionSensor_ab9a07ad37488a6e272de5404dd99bbf9}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classMotionSensor_abdb3828c2b4c0c6b41984a1d98184217}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classMotionSensor_a1b91dc40b3d4d39cc3426341ab38fd56}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classMotionSensor_a265abdb13921974cb559c25e873db0b1}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classMotionSensor_affc1fad4d472c70065881842b683e987}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classMotionSensor_a8e6607d6e23907c0e7190e7e413836bf}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMotionSensor_a7632fbccce6ecf9ae2830f743c094650}\label{classMotionSensor_a7632fbccce6ecf9ae2830f743c094650}} 
+static void {\bfseries Sensor\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classMotionSensor_a59593b2b8cefd2535d0c7ec08a6a719d}\label{classMotionSensor_a59593b2b8cefd2535d0c7ec08a6a719d}} 
+static void {\bfseries Sensor\+Close} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMotionSensor_a096bf084014db23a4b0355a57fde4b7f}\label{classMotionSensor_a096bf084014db23a4b0355a57fde4b7f}} 
+int {\bfseries oldnumpeople}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMotionSensor_a1b91dc40b3d4d39cc3426341ab38fd56}\label{classMotionSensor_a1b91dc40b3d4d39cc3426341ab38fd56}} 
+\index{MotionSensor@{MotionSensor}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!MotionSensor@{MotionSensor}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Motion\+Sensor\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classMotionSensor_ab9a07ad37488a6e272de5404dd99bbf9}\label{classMotionSensor_ab9a07ad37488a6e272de5404dd99bbf9}} 
+\index{MotionSensor@{MotionSensor}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!MotionSensor@{MotionSensor}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Motion\+Sensor\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classMotionSensor_a8e6607d6e23907c0e7190e7e413836bf}\label{classMotionSensor_a8e6607d6e23907c0e7190e7e413836bf}} 
+\index{MotionSensor@{MotionSensor}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!MotionSensor@{MotionSensor}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Motion\+Sensor\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classMotionSensor_a1b1fafa74d2d92f865d41ce04939f6f9}\label{classMotionSensor_a1b1fafa74d2d92f865d41ce04939f6f9}} 
+\index{MotionSensor@{MotionSensor}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!MotionSensor@{MotionSensor}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Motion\+Sensor\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classMotionSensor_a265abdb13921974cb559c25e873db0b1}\label{classMotionSensor_a265abdb13921974cb559c25e873db0b1}} 
+\index{MotionSensor@{MotionSensor}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!MotionSensor@{MotionSensor}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Motion\+Sensor\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classMotionSensor_aa57ea8db473bfeaeb41db793af01aacd}\label{classMotionSensor_aa57ea8db473bfeaeb41db793af01aacd}} 
+\index{MotionSensor@{MotionSensor}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!MotionSensor@{MotionSensor}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Motion\+Sensor\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Doesn\textquotesingle{}t do anything, as the target is gotten by getting the player\textquotesingle{}s gateway 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \\
+\hline
+{\em uos} & \\
+\hline
+{\em uoi} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+uo, uos, and uoi are unused 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classMotionSensor_affc1fad4d472c70065881842b683e987}\label{classMotionSensor_affc1fad4d472c70065881842b683e987}} 
+\index{MotionSensor@{MotionSensor}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!MotionSensor@{MotionSensor}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Motion\+Sensor\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classMotionSensor_abdb3828c2b4c0c6b41984a1d98184217}\label{classMotionSensor_abdb3828c2b4c0c6b41984a1d98184217}} 
+\index{MotionSensor@{MotionSensor}!Tick@{Tick}}
+\index{Tick@{Tick}!MotionSensor@{MotionSensor}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Motion\+Sensor\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/motionsensor.\+h\item 
+uplink/src/interface/taskmanager/motionsensor.\+cpp\end{DoxyCompactItemize}

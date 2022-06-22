@@ -1,0 +1,181 @@
+\hypertarget{classPlayer}{}\doxysection{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+
+
+Inheritance diagram for Player\+:
+% FIG 0
+
+
+Collaboration diagram for Player\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayer_a267d76b44fcf87c2174bfc4014705fd5}\label{classPlayer_a267d76b44fcf87c2174bfc4014705fd5}} 
+bool {\bfseries Is\+Player\+Account} (const string \&bankip, const string \&accno)
+\item 
+\mbox{\Hypertarget{classPlayer_a87c19bd8d92b790c8bcf6949de63fe8c}\label{classPlayer_a87c19bd8d92b790c8bcf6949de63fe8c}} 
+void {\bfseries Give\+All\+Links} ()
+\item 
+void \mbox{\hyperlink{classPlayer_a534916b77238a99dd1a7ea92369019c0}{Give\+Message}} (\mbox{\hyperlink{classMessage}{Message}} $\ast$message) override
+\item 
+\mbox{\Hypertarget{classPlayer_aec0fac9505b26a5b2b54e4174a184d59}\label{classPlayer_aec0fac9505b26a5b2b54e4174a184d59}} 
+int {\bfseries Num\+Shares\+Owned} (const string \&companyname)
+\item 
+\mbox{\Hypertarget{classPlayer_a5296749e984b0fab90cedb08953759c6}\label{classPlayer_a5296749e984b0fab90cedb08953759c6}} 
+int {\bfseries Shares\+Price\+Paid} (const string \&companyname)
+\item 
+\mbox{\Hypertarget{classPlayer_a6f17d1b5db6de610cad9b55b6f8bc070}\label{classPlayer_a6f17d1b5db6de610cad9b55b6f8bc070}} 
+void {\bfseries Trade\+Shares} (const string \&companyname, int howmany)
+\item 
+\mbox{\Hypertarget{classPlayer_a2a6ad3df3ea44da0655ba99503aa3326}\label{classPlayer_a2a6ad3df3ea44da0655ba99503aa3326}} 
+int {\bfseries Time\+Remaining} ()
+\item 
+bool \mbox{\hyperlink{classPlayer_ab8a70e494d0a4f73d003fda037097346}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classPlayer_ac245b4f2959b67778a5375444d5ae255}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classPlayer_a6537c8c7a05c8affd7b50574dd023132}{Print}} () override
+\item 
+void \mbox{\hyperlink{classPlayer_a5e17be3418fa0ac0192c05efaf3dc8bd}{Update}} () override
+\item 
+string \mbox{\hyperlink{classPlayer_acbb626f9f8b8d581fa97899b203f3088}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classPlayer_aab2e7f7edcb69094a223e607f0e941f9}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayer_a57082001332f3cad332827eae170bdf8}\label{classPlayer_a57082001332f3cad332827eae170bdf8}} 
+static int {\bfseries Time\+To\+Trace} (const string \&tracer\+IP, const string \&router\+IP)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayer_abc674d66fe588b15dc3548763a3876ad}\label{classPlayer_abc674d66fe588b15dc3548763a3876ad}} 
+\mbox{\hyperlink{classGateway}{Gateway}} {\bfseries gateway}
+\item 
+\mbox{\Hypertarget{classPlayer_a1b9be486ad787ad68dc68526a6e9dee8}\label{classPlayer_a1b9be486ad787ad68dc68526a6e9dee8}} 
+int {\bfseries score\+\_\+peoplefucked}
+\item 
+\mbox{\Hypertarget{classPlayer_ad68c9656b1f769e018312a69bdd55f32}\label{classPlayer_ad68c9656b1f769e018312a69bdd55f32}} 
+int {\bfseries score\+\_\+systemsfucked}
+\item 
+\mbox{\Hypertarget{classPlayer_a1ff846fab769ef8db9879df219e450d9}\label{classPlayer_a1ff846fab769ef8db9879df219e450d9}} 
+int {\bfseries score\+\_\+highsecurityhacks}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayer_a54438ba666505ceca81c38e7a0f9ae5a}\label{classPlayer_a54438ba666505ceca81c38e7a0f9ae5a}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ char $\ast$ $>$ {\bfseries shares}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_acbb626f9f8b8d581fa97899b203f3088}\label{classPlayer_acbb626f9f8b8d581fa97899b203f3088}} 
+\index{Player@{Player}!GetID@{GetID}}
+\index{GetID@{GetID}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Player\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classAgent_a62846420469a35f878c31316416aa1c8}{Agent}}.
+
+\mbox{\Hypertarget{classPlayer_aab2e7f7edcb69094a223e607f0e941f9}\label{classPlayer_aab2e7f7edcb69094a223e607f0e941f9}} 
+\index{Player@{Player}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Player\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classAgent_a530f48aa88da17f4194222ae1b3b53eb}{Agent}}.
+
+\mbox{\Hypertarget{classPlayer_a534916b77238a99dd1a7ea92369019c0}\label{classPlayer_a534916b77238a99dd1a7ea92369019c0}} 
+\index{Player@{Player}!GiveMessage@{GiveMessage}}
+\index{GiveMessage@{GiveMessage}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{GiveMessage()}{GiveMessage()}}
+{\footnotesize\ttfamily void Player\+::\+Give\+Message (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMessage}{Message}} $\ast$}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gives a message to the player 
+\begin{DoxyParams}{Parameters}
+{\em message} & \mbox{\hyperlink{classMessage}{Message}} to give \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classAgent_a28afd4a6d0de24f5f09b57e312f11e95}{Agent}}.
+
+\mbox{\Hypertarget{classPlayer_ab8a70e494d0a4f73d003fda037097346}\label{classPlayer_ab8a70e494d0a4f73d003fda037097346}} 
+\index{Player@{Player}!Load@{Load}}
+\index{Load@{Load}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Player\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classAgent_a834190ee02cfa9aed965c7a5a5b15bdf}{Agent}}.
+
+\mbox{\Hypertarget{classPlayer_a6537c8c7a05c8affd7b50574dd023132}\label{classPlayer_a6537c8c7a05c8affd7b50574dd023132}} 
+\index{Player@{Player}!Print@{Print}}
+\index{Print@{Print}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Player\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classAgent_a3c96db29af9711ca45788584f25d34f7}{Agent}}.
+
+\mbox{\Hypertarget{classPlayer_ac245b4f2959b67778a5375444d5ae255}\label{classPlayer_ac245b4f2959b67778a5375444d5ae255}} 
+\index{Player@{Player}!Save@{Save}}
+\index{Save@{Save}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Player\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classAgent_ad5a4e71390467e85b51694a8eefb4bf2}{Agent}}.
+
+\mbox{\Hypertarget{classPlayer_a5e17be3418fa0ac0192c05efaf3dc8bd}\label{classPlayer_a5e17be3418fa0ac0192c05efaf3dc8bd}} 
+\index{Player@{Player}!Update@{Update}}
+\index{Update@{Update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Player\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classAgent_a141efdf2cbda672ef9ba9b881ba78b07}{Agent}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/player.\+h\item 
+uplink/src/world/player.\+cpp\end{DoxyCompactItemize}

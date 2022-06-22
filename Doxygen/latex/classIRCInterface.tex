@@ -1,0 +1,433 @@
+\hypertarget{classIRCInterface}{}\doxysection{I\+R\+C\+Interface Class Reference}
+\label{classIRCInterface}\index{IRCInterface@{IRCInterface}}
+
+
+Screen for the I\+RC client.  
+
+
+
+
+{\ttfamily \#include $<$irc\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for I\+R\+C\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for I\+R\+C\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classIRCInterface_a3229d683e59ffb18baa08f8baa1f6798}{Create\+Talk\+Window}} ()
+\item 
+void \mbox{\hyperlink{classIRCInterface_a6702e3a8733aa4c565d4fef81a8c2a65}{Remove\+Talk\+Window}} ()
+\item 
+bool \mbox{\hyperlink{classIRCInterface_a8dee700125adfdaab6b10d30442e3406}{Return\+Key\+Pressed}} ()
+\item 
+void \mbox{\hyperlink{classIRCInterface_a9f1d2cadcf96e76b7240cb7cfc1ad171}{Create}} () override
+\item 
+void \mbox{\hyperlink{classIRCInterface_aa1d307719e0f9fb7b0b329d4f2d226ad}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classIRCInterface_aa0b5b6b45b29c0d357746b5fce2f47e3}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classIRCInterface_a54d6ed9fe947e4c0d8cd71684f89e08f}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classIRCInterface_afd5a43a6722b3db03f30632ee003ee1a}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classIRCInterface_ab1bfc54b1c82ff5aee0a8f76e6744037}{Add\+Text}} (const string \&user, const string \&text, float r=1.\+0, float g=1.\+0, float b=1.\+0)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a471376e2e8b21df0d53cccbe88eb3802}{Reset\+Users}} ()
+\item 
+static void \mbox{\hyperlink{classIRCInterface_aff561c8192e47ef7667b82b72da3c331}{Add\+User}} (string name)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a2eabc470120bbd1b5fc1ce560423f5ae}{Remove\+User}} (const string \&name)
+\item 
+static \mbox{\hyperlink{classUplinkIRCUser}{Uplink\+I\+R\+C\+User}} $\ast$ \mbox{\hyperlink{classIRCInterface_aa41e8e70347d4e7e76753a25594a8938}{Get\+User}} (const string \&name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classIRCInterface_ae854aba8e84f59dbd8fda3ecd934445e}{connected}} = false
+\item 
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classUplinkIRCMessage}{Uplink\+I\+R\+C\+Message}} $\ast$ $>$ \mbox{\hyperlink{classIRCInterface_aee44632c617d4dd9ab0e008304f2bf37}{buffer}}
+\item 
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classUplinkIRCUser}{Uplink\+I\+R\+C\+User}} $\ast$ $>$ \mbox{\hyperlink{classIRCInterface_a0c72c1cccf9ea4dd8476688443199da6}{users}}
+\item 
+static string \mbox{\hyperlink{classIRCInterface_a8bb169e371619f45a4cca964a6abb434}{channel\+Name}}
+\item 
+static \mbox{\hyperlink{classWinsockInit}{Winsock\+Init}} $\ast$ \mbox{\hyperlink{classIRCInterface_a2a01ecf8530868959ba0092fe2182fd5}{win\+Sock\+Init}} = nullptr
+\item 
+static \mbox{\hyperlink{classirc_1_1CIrcSession}{C\+Irc\+Session}} $\ast$ \mbox{\hyperlink{classIRCInterface_a4dd51538fbc9d5096a35523f417af5c4}{c\+Irc\+Session}} = nullptr
+\item 
+static \mbox{\hyperlink{classUplinkIRCMonitor}{Uplink\+I\+R\+C\+Monitor}} $\ast$ \mbox{\hyperlink{classIRCInterface_a9b94f5f1825d528514df86b1cf3440d5}{uplink\+I\+R\+C\+Monitor}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classIRCInterface_abb18dacf106f719b5a3a141e13bb47d3}{Back\+Blackout\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a1066cf9efc8c79496e3629383886d770}{Main\+Text\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a354f717e3f86fdfa89bb43a849479e7d}{Connect\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classIRCInterface_a2e65306075e3252aacdf80c17ee47f0e}\label{classIRCInterface_a2e65306075e3252aacdf80c17ee47f0e}} 
+static void {\bfseries User\+List\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a0743be4c5463ad8c7b5c8599c91847bb}{Connect\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a15c4787e9d356eb690eac6fff84d8727}{Post\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a766b76e1ffb0136aa5f9566a4a6d1ecf}{Text\+Scroll\+Change}} (const string \&name, int new\+Value)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a4459fe65c4dc1d24b9b448146559166c}{User\+Scroll\+Change}} (const string \&name, int new\+Value)
+\item 
+static void \mbox{\hyperlink{classIRCInterface_a4143aaf67594c0d8c2779b6e7047edd5}{Add\+Emoticons}} (int row, const string \&smiley, \mbox{\hyperlink{classImage}{Image}} $\ast$img\+Smiley)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ \mbox{\hyperlink{classIRCInterface_a17fa162e5e0adc721805e8311dab0240}{img\+Smiley\+Happy}} = nullptr
+\item 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ \mbox{\hyperlink{classIRCInterface_abc3a88e262e3483a3d70ee9d796ef89b}{img\+Smiley\+Sad}} = nullptr
+\item 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ \mbox{\hyperlink{classIRCInterface_a1327ebb34190309674a814bef357d997}{img\+Smiley\+Wink}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen for the I\+RC client. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIRCInterface_a4143aaf67594c0d8c2779b6e7047edd5}\label{classIRCInterface_a4143aaf67594c0d8c2779b6e7047edd5}} 
+\index{IRCInterface@{IRCInterface}!AddEmoticons@{AddEmoticons}}
+\index{AddEmoticons@{AddEmoticons}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{AddEmoticons()}{AddEmoticons()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Add\+Emoticons (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{const string \&}]{smiley,  }\item[{\mbox{\hyperlink{classImage}{Image}} $\ast$}]{img\+Smiley }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Finds a smiley in a row of text, and replaces it with an emoticon 
+\begin{DoxyParams}{Parameters}
+{\em row} & The row the text is on \\
+\hline
+{\em smiley} & The smiley to search for \\
+\hline
+{\em img\+Smiley} & The image to draw in place of the smiley text \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_ab1bfc54b1c82ff5aee0a8f76e6744037}\label{classIRCInterface_ab1bfc54b1c82ff5aee0a8f76e6744037}} 
+\index{IRCInterface@{IRCInterface}!AddText@{AddText}}
+\index{AddText@{AddText}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{AddText()}{AddText()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Add\+Text (\begin{DoxyParamCaption}\item[{const string \&}]{user,  }\item[{const string \&}]{text,  }\item[{float}]{r = {\ttfamily 1.0},  }\item[{float}]{g = {\ttfamily 1.0},  }\item[{float}]{b = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Breaks given text into word wrapped lines, puts it into chat window, forces a re-\/draw 
+\begin{DoxyParams}{Parameters}
+{\em user} & User that sent the message \\
+\hline
+{\em text} & Text that user sent \\
+\hline
+{\em r} & T\+O\+DO\+: Document \\
+\hline
+{\em g} & T\+O\+DO\+: Document \\
+\hline
+{\em b} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_aff561c8192e47ef7667b82b72da3c331}\label{classIRCInterface_aff561c8192e47ef7667b82b72da3c331}} 
+\index{IRCInterface@{IRCInterface}!AddUser@{AddUser}}
+\index{AddUser@{AddUser}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{AddUser()}{AddUser()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Add\+User (\begin{DoxyParamCaption}\item[{string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Adds a user to the user list box 
+\begin{DoxyParams}{Parameters}
+{\em name} & Username to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_abb18dacf106f719b5a3a141e13bb47d3}\label{classIRCInterface_abb18dacf106f719b5a3a141e13bb47d3}} 
+\index{IRCInterface@{IRCInterface}!BackBlackoutDraw@{BackBlackoutDraw}}
+\index{BackBlackoutDraw@{BackBlackoutDraw}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{BackBlackoutDraw()}{BackBlackoutDraw()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Back\+Blackout\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the black background of the I\+RC client 
+\begin{DoxyParams}{Parameters}
+{\em button} & The background button \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_a0743be4c5463ad8c7b5c8599c91847bb}\label{classIRCInterface_a0743be4c5463ad8c7b5c8599c91847bb}} 
+\index{IRCInterface@{IRCInterface}!ConnectClick@{ConnectClick}}
+\index{ConnectClick@{ConnectClick}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectClick()}{ConnectClick()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Connect\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Connects to the server 
+\begin{DoxyParams}{Parameters}
+{\em button} & The connect button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_a354f717e3f86fdfa89bb43a849479e7d}\label{classIRCInterface_a354f717e3f86fdfa89bb43a849479e7d}} 
+\index{IRCInterface@{IRCInterface}!ConnectDraw@{ConnectDraw}}
+\index{ConnectDraw@{ConnectDraw}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectDraw()}{ConnectDraw()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Connect\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the connect button 
+\begin{DoxyParams}{Parameters}
+{\em button} & The connect button \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_a9f1d2cadcf96e76b7240cb7cfc1ad171}\label{classIRCInterface_a9f1d2cadcf96e76b7240cb7cfc1ad171}} 
+\index{IRCInterface@{IRCInterface}!Create@{Create}}
+\index{Create@{Create}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classIRCInterface_a3229d683e59ffb18baa08f8baa1f6798}\label{classIRCInterface_a3229d683e59ffb18baa08f8baa1f6798}} 
+\index{IRCInterface@{IRCInterface}!CreateTalkWindow@{CreateTalkWindow}}
+\index{CreateTalkWindow@{CreateTalkWindow}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{CreateTalkWindow()}{CreateTalkWindow()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Create\+Talk\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates the left hand window that contains the message history, chat input box, and post button \mbox{\Hypertarget{classIRCInterface_aa41e8e70347d4e7e76753a25594a8938}\label{classIRCInterface_aa41e8e70347d4e7e76753a25594a8938}} 
+\index{IRCInterface@{IRCInterface}!GetUser@{GetUser}}
+\index{GetUser@{GetUser}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{GetUser()}{GetUser()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUplinkIRCUser}{Uplink\+I\+R\+C\+User}} $\ast$ I\+R\+C\+Interface\+::\+Get\+User (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a user by name 
+\begin{DoxyParams}{Parameters}
+{\em name} & Username to get \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_a54d6ed9fe947e4c0d8cd71684f89e08f}\label{classIRCInterface_a54d6ed9fe947e4c0d8cd71684f89e08f}} 
+\index{IRCInterface@{IRCInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool I\+R\+C\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classIRCInterface_a1066cf9efc8c79496e3629383886d770}\label{classIRCInterface_a1066cf9efc8c79496e3629383886d770}} 
+\index{IRCInterface@{IRCInterface}!MainTextDraw@{MainTextDraw}}
+\index{MainTextDraw@{MainTextDraw}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{MainTextDraw()}{MainTextDraw()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Main\+Text\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the text in the chat window 
+\begin{DoxyParams}{Parameters}
+{\em button} & The chat window button \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_a15c4787e9d356eb690eac6fff84d8727}\label{classIRCInterface_a15c4787e9d356eb690eac6fff84d8727}} 
+\index{IRCInterface@{IRCInterface}!PostClick@{PostClick}}
+\index{PostClick@{PostClick}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{PostClick()}{PostClick()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Post\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Sends message to server 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_aa1d307719e0f9fb7b0b329d4f2d226ad}\label{classIRCInterface_aa1d307719e0f9fb7b0b329d4f2d226ad}} 
+\index{IRCInterface@{IRCInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classIRCInterface_a6702e3a8733aa4c565d4fef81a8c2a65}\label{classIRCInterface_a6702e3a8733aa4c565d4fef81a8c2a65}} 
+\index{IRCInterface@{IRCInterface}!RemoveTalkWindow@{RemoveTalkWindow}}
+\index{RemoveTalkWindow@{RemoveTalkWindow}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{RemoveTalkWindow()}{RemoveTalkWindow()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Remove\+Talk\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Removes the left hand window that contains the message history, chat input box, and post button \mbox{\Hypertarget{classIRCInterface_a2eabc470120bbd1b5fc1ce560423f5ae}\label{classIRCInterface_a2eabc470120bbd1b5fc1ce560423f5ae}} 
+\index{IRCInterface@{IRCInterface}!RemoveUser@{RemoveUser}}
+\index{RemoveUser@{RemoveUser}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{RemoveUser()}{RemoveUser()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Remove\+User (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes a user from the user list box 
+\begin{DoxyParams}{Parameters}
+{\em name} & Username to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIRCInterface_a471376e2e8b21df0d53cccbe88eb3802}\label{classIRCInterface_a471376e2e8b21df0d53cccbe88eb3802}} 
+\index{IRCInterface@{IRCInterface}!ResetUsers@{ResetUsers}}
+\index{ResetUsers@{ResetUsers}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{ResetUsers()}{ResetUsers()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Reset\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes all users from the user list box \mbox{\Hypertarget{classIRCInterface_a8dee700125adfdaab6b10d30442e3406}\label{classIRCInterface_a8dee700125adfdaab6b10d30442e3406}} 
+\index{IRCInterface@{IRCInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool I\+R\+C\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calls Post\+Click to send the message \begin{DoxyReturn}{Returns}
+true under all conditions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIRCInterface_afd5a43a6722b3db03f30632ee003ee1a}\label{classIRCInterface_afd5a43a6722b3db03f30632ee003ee1a}} 
+\index{IRCInterface@{IRCInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int I\+R\+C\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classIRCInterface_a766b76e1ffb0136aa5f9566a4a6d1ecf}\label{classIRCInterface_a766b76e1ffb0136aa5f9566a4a6d1ecf}} 
+\index{IRCInterface@{IRCInterface}!TextScrollChange@{TextScrollChange}}
+\index{TextScrollChange@{TextScrollChange}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{TextScrollChange()}{TextScrollChange()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Text\+Scroll\+Change (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{int}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Forces a re-\/render of the I\+RC chat box 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the button \\
+\hline
+{\em new\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+new\+Value is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classIRCInterface_aa0b5b6b45b29c0d357746b5fce2f47e3}\label{classIRCInterface_aa0b5b6b45b29c0d357746b5fce2f47e3}} 
+\index{IRCInterface@{IRCInterface}!Update@{Update}}
+\index{Update@{Update}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classIRCInterface_a4459fe65c4dc1d24b9b448146559166c}\label{classIRCInterface_a4459fe65c4dc1d24b9b448146559166c}} 
+\index{IRCInterface@{IRCInterface}!UserScrollChange@{UserScrollChange}}
+\index{UserScrollChange@{UserScrollChange}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{UserScrollChange()}{UserScrollChange()}}
+{\footnotesize\ttfamily void I\+R\+C\+Interface\+::\+User\+Scroll\+Change (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{int}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Forces a re-\/render of the user list 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the button \\
+\hline
+{\em new\+Value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+new\+Value is unused 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classIRCInterface_aee44632c617d4dd9ab0e008304f2bf37}\label{classIRCInterface_aee44632c617d4dd9ab0e008304f2bf37}} 
+\index{IRCInterface@{IRCInterface}!buffer@{buffer}}
+\index{buffer@{buffer}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classUplinkIRCMessage}{Uplink\+I\+R\+C\+Message}} $\ast$ $>$ I\+R\+C\+Interface\+::buffer\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classIRCInterface_a8bb169e371619f45a4cca964a6abb434}\label{classIRCInterface_a8bb169e371619f45a4cca964a6abb434}} 
+\index{IRCInterface@{IRCInterface}!channelName@{channelName}}
+\index{channelName@{channelName}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{channelName}{channelName}}
+{\footnotesize\ttfamily string I\+R\+C\+Interface\+::channel\+Name\hspace{0.3cm}{\ttfamily [static]}}
+
+Name of the current channel \mbox{\Hypertarget{classIRCInterface_a4dd51538fbc9d5096a35523f417af5c4}\label{classIRCInterface_a4dd51538fbc9d5096a35523f417af5c4}} 
+\index{IRCInterface@{IRCInterface}!cIrcSession@{cIrcSession}}
+\index{cIrcSession@{cIrcSession}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{cIrcSession}{cIrcSession}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classirc_1_1CIrcSession}{C\+Irc\+Session}} $\ast$ I\+R\+C\+Interface\+::c\+Irc\+Session = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classIRCInterface_ae854aba8e84f59dbd8fda3ecd934445e}\label{classIRCInterface_ae854aba8e84f59dbd8fda3ecd934445e}} 
+\index{IRCInterface@{IRCInterface}!connected@{connected}}
+\index{connected@{connected}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{connected}{connected}}
+{\footnotesize\ttfamily bool I\+R\+C\+Interface\+::connected = false\hspace{0.3cm}{\ttfamily [static]}}
+
+Are we currently connected to a server \mbox{\Hypertarget{classIRCInterface_a17fa162e5e0adc721805e8311dab0240}\label{classIRCInterface_a17fa162e5e0adc721805e8311dab0240}} 
+\index{IRCInterface@{IRCInterface}!imgSmileyHappy@{imgSmileyHappy}}
+\index{imgSmileyHappy@{imgSmileyHappy}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{imgSmileyHappy}{imgSmileyHappy}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImage}{Image}} $\ast$ I\+R\+C\+Interface\+::img\+Smiley\+Happy = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\hyperlink{classImage}{Image}} of happy smiley face \begin{DoxyNote}{Note}
+\+:) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classIRCInterface_abc3a88e262e3483a3d70ee9d796ef89b}\label{classIRCInterface_abc3a88e262e3483a3d70ee9d796ef89b}} 
+\index{IRCInterface@{IRCInterface}!imgSmileySad@{imgSmileySad}}
+\index{imgSmileySad@{imgSmileySad}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{imgSmileySad}{imgSmileySad}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImage}{Image}} $\ast$ I\+R\+C\+Interface\+::img\+Smiley\+Sad = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\hyperlink{classImage}{Image}} of sad smiley face \begin{DoxyNote}{Note}
+\+:( 
+\end{DoxyNote}
+\mbox{\Hypertarget{classIRCInterface_a1327ebb34190309674a814bef357d997}\label{classIRCInterface_a1327ebb34190309674a814bef357d997}} 
+\index{IRCInterface@{IRCInterface}!imgSmileyWink@{imgSmileyWink}}
+\index{imgSmileyWink@{imgSmileyWink}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{imgSmileyWink}{imgSmileyWink}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classImage}{Image}} $\ast$ I\+R\+C\+Interface\+::img\+Smiley\+Wink = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\hyperlink{classImage}{Image}} of winking smiley face \begin{DoxyNote}{Note}
+;) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classIRCInterface_a9b94f5f1825d528514df86b1cf3440d5}\label{classIRCInterface_a9b94f5f1825d528514df86b1cf3440d5}} 
+\index{IRCInterface@{IRCInterface}!uplinkIRCMonitor@{uplinkIRCMonitor}}
+\index{uplinkIRCMonitor@{uplinkIRCMonitor}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{uplinkIRCMonitor}{uplinkIRCMonitor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classUplinkIRCMonitor}{Uplink\+I\+R\+C\+Monitor}} $\ast$ I\+R\+C\+Interface\+::uplink\+I\+R\+C\+Monitor = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: Document \mbox{\Hypertarget{classIRCInterface_a0c72c1cccf9ea4dd8476688443199da6}\label{classIRCInterface_a0c72c1cccf9ea4dd8476688443199da6}} 
+\index{IRCInterface@{IRCInterface}!users@{users}}
+\index{users@{users}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{users}{users}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classUplinkIRCUser}{Uplink\+I\+R\+C\+User}} $\ast$ $>$ I\+R\+C\+Interface\+::users\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\hyperlink{classLList}{L\+List}} of all users in channel \mbox{\Hypertarget{classIRCInterface_a2a01ecf8530868959ba0092fe2182fd5}\label{classIRCInterface_a2a01ecf8530868959ba0092fe2182fd5}} 
+\index{IRCInterface@{IRCInterface}!winSockInit@{winSockInit}}
+\index{winSockInit@{winSockInit}!IRCInterface@{IRCInterface}}
+\doxysubsubsection{\texorpdfstring{winSockInit}{winSockInit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWinsockInit}{Winsock\+Init}} $\ast$ I\+R\+C\+Interface\+::win\+Sock\+Init = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+T\+O\+DO\+: Document 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/irc\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/irc\+\_\+interface.\+cpp\end{DoxyCompactItemize}

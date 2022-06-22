@@ -1,0 +1,119 @@
+\hypertarget{classAcademicScreenInterface}{}\doxysection{Academic\+Screen\+Interface Class Reference}
+\label{classAcademicScreenInterface}\index{AcademicScreenInterface@{AcademicScreenInterface}}
+
+
+Inheritance diagram for Academic\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Academic\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}\label{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}\label{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}} 
+void {\bfseries Set\+Search\+Name} (const string \&newsearchname)
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}\label{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classAcademicScreenInterface_a0d2234cb0f49338be423c2ac0c1217b1}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classAcademicScreenInterface_a577208bf674975121f5f55b97ff55eaf}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classAcademicScreenInterface_a2cd2e4b5a9f507063fd914277d4a93e3}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classAcademicScreenInterface_a4f5cdfff30af38676a017696180bd315}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_a7b0bb393d1008fd6967b5a6482385ca2}\label{classAcademicScreenInterface_a7b0bb393d1008fd6967b5a6482385ca2}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_aa972b1272cc50c1199470e2350a03f66}\label{classAcademicScreenInterface_aa972b1272cc50c1199470e2350a03f66}} 
+void {\bfseries Update\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_ab11410ce5b25ec329f85205bb91c0e74}\label{classAcademicScreenInterface_ab11410ce5b25ec329f85205bb91c0e74}} 
+static void {\bfseries Details\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_a1ce7647308c72192994ad52314400606}\label{classAcademicScreenInterface_a1ce7647308c72192994ad52314400606}} 
+static void {\bfseries Commit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_a93bf9744730a8b9a5e33e3e86540f5e6}\label{classAcademicScreenInterface_a93bf9744730a8b9a5e33e3e86540f5e6}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_a0cb7889eca2e0b375ede8a3f15b3efc7}\label{classAcademicScreenInterface_a0cb7889eca2e0b375ede8a3f15b3efc7}} 
+string {\bfseries searchname}
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_a4fb461870819eed9dbb266422786e79c}\label{classAcademicScreenInterface_a4fb461870819eed9dbb266422786e79c}} 
+int {\bfseries recordindex}
+\item 
+\mbox{\Hypertarget{classAcademicScreenInterface_a1c6dea2f2ffa7a1085e1c8c888d4bfd4}\label{classAcademicScreenInterface_a1c6dea2f2ffa7a1085e1c8c888d4bfd4}} 
+int {\bfseries lastupdate}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAcademicScreenInterface_a2cd2e4b5a9f507063fd914277d4a93e3}\label{classAcademicScreenInterface_a2cd2e4b5a9f507063fd914277d4a93e3}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Academic\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAcademicScreenInterface_a0d2234cb0f49338be423c2ac0c1217b1}\label{classAcademicScreenInterface_a0d2234cb0f49338be423c2ac0c1217b1}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Academic\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAcademicScreenInterface_a4f5cdfff30af38676a017696180bd315}\label{classAcademicScreenInterface_a4f5cdfff30af38676a017696180bd315}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Academic\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAcademicScreenInterface_a577208bf674975121f5f55b97ff55eaf}\label{classAcademicScreenInterface_a577208bf674975121f5f55b97ff55eaf}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!Update@{Update}}
+\index{Update@{Update}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Academic\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/academicscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/academicscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

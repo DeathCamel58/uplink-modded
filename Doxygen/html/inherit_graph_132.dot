@@ -1,0 +1,42 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="MainMenuScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMainMenuScreen.html",tooltip="Main Menu Screen base class."];
+  Node0 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="ClosingInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClosingInterface.html",tooltip=" "];
+  Node0 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="ConnectionLostInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classConnectionLostInterface.html",tooltip=" "];
+  Node0 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="DemoGameOverInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDemoGameOverInterface.html",tooltip=" "];
+  Node0 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="DisavowedInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classDisavowedInterface.html",tooltip=" "];
+  Node0 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="FirstTimeLoadingInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classFirstTimeLoadingInterface.html",tooltip=" "];
+  Node0 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="GenericOptionsInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGenericOptionsInterface.html",tooltip=" "];
+  Node0 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="GraphicOptionsInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGraphicOptionsInterface.html",tooltip=" "];
+  Node0 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="LoadingInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLoadingInterface.html",tooltip=" "];
+  Node0 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="LoginInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLoginInterface.html",tooltip=" "];
+  Node0 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="NetworkOptionsInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNetworkOptionsInterface.html",tooltip=" "];
+  Node0 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="ObituaryInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classObituaryInterface.html",tooltip=" "];
+  Node0 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="OptionsInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOptionsInterface.html",tooltip=" "];
+  Node0 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="RevelationLostInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRevelationLostInterface.html",tooltip=" "];
+  Node0 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="RevelationWonInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classRevelationWonInterface.html",tooltip=" "];
+  Node0 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="ThemeInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classThemeInterface.html",tooltip=" "];
+  Node0 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="TheTeamInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classTheTeamInterface.html",tooltip=" "];
+  Node0 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="WarezGameOverInterface",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classWarezGameOverInterface.html",tooltip="Warez Game Over screen."];
+}

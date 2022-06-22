@@ -1,0 +1,62 @@
+\hypertarget{classSocket}{}\doxysection{Socket Class Reference}
+\label{classSocket}\index{Socket@{Socket}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSocket_a7e2193bd6a9b6846f90eaf4786cfc41b}\label{classSocket_a7e2193bd6a9b6846f90eaf4786cfc41b}} 
+{\bfseries Socket} (S\+O\+C\+K\+ET s)
+\item 
+\mbox{\Hypertarget{classSocket_a0f1fd8cc9933ec43a4b9b11948df8702}\label{classSocket_a0f1fd8cc9933ec43a4b9b11948df8702}} 
+{\bfseries Socket} (const \mbox{\hyperlink{classSocket}{Socket}} \&s)
+\item 
+\mbox{\Hypertarget{classSocket_a8aa4d2a7c1a49186f214d0387c553661}\label{classSocket_a8aa4d2a7c1a49186f214d0387c553661}} 
+bool {\bfseries Create} ()
+\item 
+\mbox{\Hypertarget{classSocket_a4c8ced9a8ce58834191b3b4f2033b173}\label{classSocket_a4c8ced9a8ce58834191b3b4f2033b173}} 
+void {\bfseries Close} ()
+\item 
+\mbox{\Hypertarget{classSocket_af689dfcbde1c3f7665ea5e86378f7ce8}\label{classSocket_af689dfcbde1c3f7665ea5e86378f7ce8}} 
+bool {\bfseries Bind} (const \mbox{\hyperlink{classInetAddr}{Inet\+Addr}} \&addr)
+\item 
+\mbox{\Hypertarget{classSocket_a9edf1095727127c71ca79bc3764269bd}\label{classSocket_a9edf1095727127c71ca79bc3764269bd}} 
+bool {\bfseries Connect} (const \mbox{\hyperlink{classInetAddr}{Inet\+Addr}} \&addr)
+\item 
+\mbox{\Hypertarget{classSocket_aa7d6e3db52c3d6e99a55be75255337c0}\label{classSocket_aa7d6e3db52c3d6e99a55be75255337c0}} 
+bool {\bfseries Listen} ()
+\item 
+\mbox{\Hypertarget{classSocket_aac9d99f9d389b38a33db1cf8d51cb9dc}\label{classSocket_aac9d99f9d389b38a33db1cf8d51cb9dc}} 
+\mbox{\hyperlink{classSocket}{Socket}} {\bfseries Accept} (\mbox{\hyperlink{classInetAddr}{Inet\+Addr}} \&addr)
+\item 
+\mbox{\Hypertarget{classSocket_aae3d742dfb406c84c6481fe300b750ed}\label{classSocket_aae3d742dfb406c84c6481fe300b750ed}} 
+int {\bfseries Send} (const unsigned char $\ast$buf, int cb\+Buf)
+\item 
+\mbox{\Hypertarget{classSocket_ad752a77f1132653951105f25ff2e2fb5}\label{classSocket_ad752a77f1132653951105f25ff2e2fb5}} 
+int {\bfseries Send} (const char $\ast$fmt,...)
+\item 
+\mbox{\Hypertarget{classSocket_a85b626ee4ba9632c1aec7b8d14500672}\label{classSocket_a85b626ee4ba9632c1aec7b8d14500672}} 
+int {\bfseries Receive} (unsigned char $\ast$buf, int cb\+Buf)
+\item 
+\mbox{\Hypertarget{classSocket_a4d517d0add440815b8333b189bbf1c5f}\label{classSocket_a4d517d0add440815b8333b189bbf1c5f}} 
+bool {\bfseries Set\+Opt} (int opt, const char $\ast$p\+Buf, int cb\+Buf)
+\item 
+\mbox{\Hypertarget{classSocket_ad4f15acfe5b170b4280d32a8dc57fa67}\label{classSocket_ad4f15acfe5b170b4280d32a8dc57fa67}} 
+bool {\bfseries Get\+Opt} (int opt, char $\ast$p\+Buf, int \&cb\+Buf)
+\item 
+\mbox{\Hypertarget{classSocket_a904cca15410ce21eb9911cb5c049f18e}\label{classSocket_a904cca15410ce21eb9911cb5c049f18e}} 
+{\bfseries operator S\+O\+C\+K\+E\+T \&} () const
+\item 
+\mbox{\Hypertarget{classSocket_aa0181c701d6af141535a2ee2fa76dd26}\label{classSocket_aa0181c701d6af141535a2ee2fa76dd26}} 
+{\bfseries operator bool} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSocket_a181a1d8a49f2939162f1cc07bdef6f7c}\label{classSocket_a181a1d8a49f2939162f1cc07bdef6f7c}} 
+S\+O\+C\+K\+ET {\bfseries m\+\_\+sock}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/irclib/socket.\+h\item 
+uplink/lib/irclib/socket.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,188 @@
+\hypertarget{classSeizeGatewayEvent}{}\doxysection{Seize\+Gateway\+Event Class Reference}
+\label{classSeizeGatewayEvent}\index{SeizeGatewayEvent@{SeizeGatewayEvent}}
+
+
+Inheritance diagram for Seize\+Gateway\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for Seize\+Gateway\+Event\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSeizeGatewayEvent_a56e99189f2af3caa02f4afae1e3138e6}\label{classSeizeGatewayEvent_a56e99189f2af3caa02f4afae1e3138e6}} 
+void {\bfseries Set\+Name} (const string \&newname)
+\item 
+\mbox{\Hypertarget{classSeizeGatewayEvent_a386d4f2911c920a7da60cb13ae4e6b7b}\label{classSeizeGatewayEvent_a386d4f2911c920a7da60cb13ae4e6b7b}} 
+void {\bfseries Set\+Reason} (const string \&newreason)
+\item 
+\mbox{\Hypertarget{classSeizeGatewayEvent_a10d3ecc6464e2e9f3cedef489e6b4db0}\label{classSeizeGatewayEvent_a10d3ecc6464e2e9f3cedef489e6b4db0}} 
+void {\bfseries Set\+Gateway\+ID} (int newid)
+\item 
+void \mbox{\hyperlink{classSeizeGatewayEvent_abb75aab3a5b92d2de00bbaa6013d2ef8}{Run}} () override
+\item 
+void \mbox{\hyperlink{classSeizeGatewayEvent_adc0ee5cf86b240682fa01556d50ca6a2}{Run\+Warning}} () override
+\item 
+string \mbox{\hyperlink{classSeizeGatewayEvent_ad4855d5dc1bb1d86bc76eb3c27047ad8}{Get\+Short\+String}} () override
+\item 
+string \mbox{\hyperlink{classSeizeGatewayEvent_a84170b02fc63b64948e31112bdfb9515}{Get\+Long\+String}} () override
+\item 
+bool \mbox{\hyperlink{classSeizeGatewayEvent_a55b82afa3bf6f26e05c1cb774362ce12}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classSeizeGatewayEvent_a52d62c1f208979e39d10ded764562322}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classSeizeGatewayEvent_a4d1cd9b418d023a7774474f713acfc9b}{Print}} () override
+\item 
+string \mbox{\hyperlink{classSeizeGatewayEvent_ab43b3091e95b5223b04c32d40ca54b92}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classSeizeGatewayEvent_aafcb3542714082553280b1b6dc3c20ba}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSeizeGatewayEvent_a442ad2c62c9e225396e2fb938e732bc0}\label{classSeizeGatewayEvent_a442ad2c62c9e225396e2fb938e732bc0}} 
+string {\bfseries name}
+\item 
+\mbox{\Hypertarget{classSeizeGatewayEvent_aa5137afcc1ec4a59556499796e77670f}\label{classSeizeGatewayEvent_aa5137afcc1ec4a59556499796e77670f}} 
+int {\bfseries gateway\+\_\+id}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSeizeGatewayEvent_a4203e82812536a17a09acd99b2e1fe12}\label{classSeizeGatewayEvent_a4203e82812536a17a09acd99b2e1fe12}} 
+string {\bfseries reason}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSeizeGatewayEvent_ab43b3091e95b5223b04c32d40ca54b92}\label{classSeizeGatewayEvent_ab43b3091e95b5223b04c32d40ca54b92}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!GetID@{GetID}}
+\index{GetID@{GetID}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Seize\+Gateway\+Event\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSeizeGatewayEvent_a84170b02fc63b64948e31112bdfb9515}\label{classSeizeGatewayEvent_a84170b02fc63b64948e31112bdfb9515}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!GetLongString@{GetLongString}}
+\index{GetLongString@{GetLongString}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{GetLongString()}{GetLongString()}}
+{\footnotesize\ttfamily string Seize\+Gateway\+Event\+::\+Get\+Long\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the long string version of the event \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classSeizeGatewayEvent_aafcb3542714082553280b1b6dc3c20ba}\label{classSeizeGatewayEvent_aafcb3542714082553280b1b6dc3c20ba}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Seize\+Gateway\+Event\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSeizeGatewayEvent_ad4855d5dc1bb1d86bc76eb3c27047ad8}\label{classSeizeGatewayEvent_ad4855d5dc1bb1d86bc76eb3c27047ad8}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!GetShortString@{GetShortString}}
+\index{GetShortString@{GetShortString}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{GetShortString()}{GetShortString()}}
+{\footnotesize\ttfamily string Seize\+Gateway\+Event\+::\+Get\+Short\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the short string version of the event \begin{DoxyReturn}{Returns}
+Short string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classSeizeGatewayEvent_a55b82afa3bf6f26e05c1cb774362ce12}\label{classSeizeGatewayEvent_a55b82afa3bf6f26e05c1cb774362ce12}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!Load@{Load}}
+\index{Load@{Load}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Seize\+Gateway\+Event\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSeizeGatewayEvent_a4d1cd9b418d023a7774474f713acfc9b}\label{classSeizeGatewayEvent_a4d1cd9b418d023a7774474f713acfc9b}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!Print@{Print}}
+\index{Print@{Print}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Seize\+Gateway\+Event\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSeizeGatewayEvent_abb75aab3a5b92d2de00bbaa6013d2ef8}\label{classSeizeGatewayEvent_abb75aab3a5b92d2de00bbaa6013d2ef8}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!Run@{Run}}
+\index{Run@{Run}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Seize\+Gateway\+Event\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Runs the event 
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classSeizeGatewayEvent_adc0ee5cf86b240682fa01556d50ca6a2}\label{classSeizeGatewayEvent_adc0ee5cf86b240682fa01556d50ca6a2}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!RunWarning@{RunWarning}}
+\index{RunWarning@{RunWarning}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{RunWarning()}{RunWarning()}}
+{\footnotesize\ttfamily void Seize\+Gateway\+Event\+::\+Run\+Warning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Warns user that the event is about to occur \begin{DoxyNote}{Note}
+If not overridden, this does nothing 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a6fb746f8b37c3fdd57f1cc7c2243497e}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classSeizeGatewayEvent_a52d62c1f208979e39d10ded764562322}\label{classSeizeGatewayEvent_a52d62c1f208979e39d10ded764562322}} 
+\index{SeizeGatewayEvent@{SeizeGatewayEvent}!Save@{Save}}
+\index{Save@{Save}!SeizeGatewayEvent@{SeizeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Seize\+Gateway\+Event\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/seizegatewayevent.\+h\item 
+uplink/src/world/scheduler/seizegatewayevent.\+cpp\end{DoxyCompactItemize}

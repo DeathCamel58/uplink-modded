@@ -1,0 +1,142 @@
+\hypertarget{classRemoteInterfaceScreen}{}\doxysection{Remote\+Interface\+Screen Class Reference}
+\label{classRemoteInterfaceScreen}\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+
+
+Inheritance diagram for Remote\+Interface\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Remote\+Interface\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}{Create}} () override
+\item 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}\label{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}} 
+virtual void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs)
+\item 
+void \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_acc2cff59c4c461b6ee6db30e355a4865}\label{classRemoteInterfaceScreen_acc2cff59c4c461b6ee6db30e355a4865}} 
+\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\item 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}\label{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}} 
+virtual bool {\bfseries Return\+Key\+Pressed} ()
+\item 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}\label{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}} 
+virtual bool {\bfseries Escape\+Key\+Pressed} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a08c0abcd058500f273d0caf1eb689f8b}\label{classRemoteInterfaceScreen_a08c0abcd058500f273d0caf1eb689f8b}} 
+static \mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} $\ast$ {\bfseries Get\+Interface\+Screen} (int screen\+ID)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_ad6619c79b7453d4d3c4adfa8f657e8ad}\label{classRemoteInterfaceScreen_ad6619c79b7453d4d3c4adfa8f657e8ad}} 
+static void {\bfseries Draw\+Main\+Title} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a898dae7ff90f7453ee7b329841322b5c}\label{classRemoteInterfaceScreen_a898dae7ff90f7453ee7b329841322b5c}} 
+static void {\bfseries Draw\+Sub\+Title} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}\label{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}} 
+\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ {\bfseries cs}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}\label{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!Create@{Create}}
+\index{Create@{Create}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Remote\+Interface\+Screen\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classSharesViewScreenInterface_ad7b5fe08b096a0ec5457d0c7682b2cb1}{Shares\+View\+Screen\+Interface}}, and \mbox{\hyperlink{classSharesListScreenInterface_a0976ebd066207336f52c9a766bcbc006}{Shares\+List\+Screen\+Interface}}.
+
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}\label{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Remote\+Interface\+Screen\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVoiceAnalysisScreenInterface_afd044b94f27020c5f95644897035f502}{Voice\+Analysis\+Screen\+Interface}}, \mbox{\hyperlink{classVoicePhoneScreenInterface_a6b7a1a61c7d31e61342e8099866a6f2c}{Voice\+Phone\+Screen\+Interface}}, \mbox{\hyperlink{classSharesViewScreenInterface_ad8efda88e10afc9bceca9107132ae6d5}{Shares\+View\+Screen\+Interface}}, \mbox{\hyperlink{classSharesListScreenInterface_a64ee04f16aaf30b8777790c327244e8f}{Shares\+List\+Screen\+Interface}}, \mbox{\hyperlink{classSWSalesScreenInterface_a076b99fd14aa6f4d3cebc1e53c2f3aef}{S\+W\+Sales\+Screen\+Interface}}, \mbox{\hyperlink{classSocialSecurityScreenInterface_a830c530d3019c1f1ff2321bc114c7c07}{Social\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classSecurityScreenInterface_a68abd4f213c7b78879a09ccd2e5793bc}{Security\+Screen\+Interface}}, and \mbox{\hyperlink{classUserIDScreenInterface_ac6f067f7647c8c5290d112ee5c82ff4f}{User\+I\+D\+Screen\+Interface}}.
+
+\mbox{\Hypertarget{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}\label{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!Remove@{Remove}}
+\index{Remove@{Remove}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Remote\+Interface\+Screen\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVoiceAnalysisScreenInterface_a492b854fd1247eaa7c11c0bcd94b9dc1}{Voice\+Analysis\+Screen\+Interface}}, \mbox{\hyperlink{classVoicePhoneScreenInterface_abd1af64be9d264d0a845df1639cc3122}{Voice\+Phone\+Screen\+Interface}}, \mbox{\hyperlink{classSharesViewScreenInterface_a76f61742ddf3bb56057f23e7d9045beb}{Shares\+View\+Screen\+Interface}}, \mbox{\hyperlink{classSharesListScreenInterface_aacacadbe76b2429cc6cc2620add37cb4}{Shares\+List\+Screen\+Interface}}, \mbox{\hyperlink{classSWSalesScreenInterface_af0f241c857fc588ebf1fae64f7e55bc8}{S\+W\+Sales\+Screen\+Interface}}, \mbox{\hyperlink{classSocialSecurityScreenInterface_acaa10e9381158417e86c71b3ea0ca803}{Social\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classSecurityScreenInterface_a293df583e2bb49f379969fd121b2304d}{Security\+Screen\+Interface}}, and \mbox{\hyperlink{classUserIDScreenInterface_a74359c198861e06c820f30a71685baa0}{User\+I\+D\+Screen\+Interface}}.
+
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}\label{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Remote\+Interface\+Screen\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVoiceAnalysisScreenInterface_ad27d4e05326709d38235c50047adb946}{Voice\+Analysis\+Screen\+Interface}}, \mbox{\hyperlink{classVoicePhoneScreenInterface_acae0f04a4645b3e092a7f35e0ac603ce}{Voice\+Phone\+Screen\+Interface}}, \mbox{\hyperlink{classSharesViewScreenInterface_a3c0258dd1703020023f532733abdfec2}{Shares\+View\+Screen\+Interface}}, \mbox{\hyperlink{classSharesListScreenInterface_a1afd46eebc5e8e722c5f168749dc0fa2}{Shares\+List\+Screen\+Interface}}, \mbox{\hyperlink{classSWSalesScreenInterface_a6b0d33845a2d9e1343cf19aa9ef170db}{S\+W\+Sales\+Screen\+Interface}}, \mbox{\hyperlink{classSocialSecurityScreenInterface_a9703863c3d381baac8c9f925af3bda74}{Social\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classSecurityScreenInterface_af0e8b2ac5ac3385e47fe999468babadd}{Security\+Screen\+Interface}}, and \mbox{\hyperlink{classUserIDScreenInterface_af79811cb5958501a6dd3045371153d9c}{User\+I\+D\+Screen\+Interface}}.
+
+\mbox{\Hypertarget{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}\label{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!Update@{Update}}
+\index{Update@{Update}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Remote\+Interface\+Screen\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVoiceAnalysisScreenInterface_abe670c9fb89d17827a0f8c7abdc33c57}{Voice\+Analysis\+Screen\+Interface}}, \mbox{\hyperlink{classVoicePhoneScreenInterface_af81b3a02e54f33f0b954fea9c0df36f7}{Voice\+Phone\+Screen\+Interface}}, \mbox{\hyperlink{classSharesViewScreenInterface_a7d6ea5c03504746805dbb48c6ed87936}{Shares\+View\+Screen\+Interface}}, \mbox{\hyperlink{classSharesListScreenInterface_aa99f489eadcdb10b43b85f767809cf0c}{Shares\+List\+Screen\+Interface}}, \mbox{\hyperlink{classSocialSecurityScreenInterface_a2d7f1799b7daf10ef23a3419287c085c}{Social\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classSecurityScreenInterface_a8fd8f6e762704a7d264c750b4b08b38b}{Security\+Screen\+Interface}}, and \mbox{\hyperlink{classUserIDScreenInterface_ae4020a1eb06ee9bd1a63ad925a033562}{User\+I\+D\+Screen\+Interface}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/remoteinterfacescreen.\+h\item 
+uplink/src/interface/remoteinterface/remoteinterfacescreen.\+cpp\end{DoxyCompactItemize}

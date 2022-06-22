@@ -1,0 +1,119 @@
+\hypertarget{classLoansScreenInterface}{}\doxysection{Loans\+Screen\+Interface Class Reference}
+\label{classLoansScreenInterface}\index{LoansScreenInterface@{LoansScreenInterface}}
+
+
+Inheritance diagram for Loans\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Loans\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoansScreenInterface_a82fb6d87110290f6f23f105e26a7be65}\label{classLoansScreenInterface_a82fb6d87110290f6f23f105e26a7be65}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classLoansScreenInterface_a98f485dd10dcc7f4d10d02bc012b23a6}{Create}} () override
+\item 
+\mbox{\Hypertarget{classLoansScreenInterface_acca53f27539cf5c77abf573e38a9c7c5}\label{classLoansScreenInterface_acca53f27539cf5c77abf573e38a9c7c5}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classLoansScreenInterface_a602af53641de47a6639376cc90ec1879}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classLoansScreenInterface_ab3d655c194493fe643e0260e7534a087}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classLoansScreenInterface_a912d33686e18714ebd70bc00543e76d4}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classLoansScreenInterface_ad0743823ba88379f1b6169ac75f658ad}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classLoansScreenInterface_a8efc92e2333ba74e743f2049ed873edd}\label{classLoansScreenInterface_a8efc92e2333ba74e743f2049ed873edd}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoansScreenInterface_a0dea2eeb0e9d9a3cdb664fec745be96f}\label{classLoansScreenInterface_a0dea2eeb0e9d9a3cdb664fec745be96f}} 
+static void {\bfseries Increase\+Loan\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLoansScreenInterface_ad322257ecd137d7e8c4f4bc9ba14fba7}\label{classLoansScreenInterface_ad322257ecd137d7e8c4f4bc9ba14fba7}} 
+static void {\bfseries Decrease\+Loan\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLoansScreenInterface_abf107f09fcaa1ccb047b8e3b87d73fb3}\label{classLoansScreenInterface_abf107f09fcaa1ccb047b8e3b87d73fb3}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLoansScreenInterface_a8391f91e9d55595109e205d504540084}\label{classLoansScreenInterface_a8391f91e9d55595109e205d504540084}} 
+\mbox{\hyperlink{classBankAccount}{Bank\+Account}} $\ast$ {\bfseries account}
+\item 
+\mbox{\Hypertarget{classLoansScreenInterface_a092bd6360c189e7cb53fb41c0745be54}\label{classLoansScreenInterface_a092bd6360c189e7cb53fb41c0745be54}} 
+int {\bfseries loanchange}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLoansScreenInterface_a98f485dd10dcc7f4d10d02bc012b23a6}\label{classLoansScreenInterface_a98f485dd10dcc7f4d10d02bc012b23a6}} 
+\index{LoansScreenInterface@{LoansScreenInterface}!Create@{Create}}
+\index{Create@{Create}!LoansScreenInterface@{LoansScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Loans\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLoansScreenInterface_a912d33686e18714ebd70bc00543e76d4}\label{classLoansScreenInterface_a912d33686e18714ebd70bc00543e76d4}} 
+\index{LoansScreenInterface@{LoansScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!LoansScreenInterface@{LoansScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Loans\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLoansScreenInterface_a602af53641de47a6639376cc90ec1879}\label{classLoansScreenInterface_a602af53641de47a6639376cc90ec1879}} 
+\index{LoansScreenInterface@{LoansScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!LoansScreenInterface@{LoansScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Loans\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLoansScreenInterface_ad0743823ba88379f1b6169ac75f658ad}\label{classLoansScreenInterface_ad0743823ba88379f1b6169ac75f658ad}} 
+\index{LoansScreenInterface@{LoansScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!LoansScreenInterface@{LoansScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Loans\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLoansScreenInterface_ab3d655c194493fe643e0260e7534a087}\label{classLoansScreenInterface_ab3d655c194493fe643e0260e7534a087}} 
+\index{LoansScreenInterface@{LoansScreenInterface}!Update@{Update}}
+\index{Update@{Update}!LoansScreenInterface@{LoansScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Loans\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/loansscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/loansscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

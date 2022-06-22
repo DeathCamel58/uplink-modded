@@ -1,0 +1,141 @@
+\hypertarget{classKeyboardInterface}{}\doxysection{Keyboard\+Interface Class Reference}
+\label{classKeyboardInterface}\index{KeyboardInterface@{KeyboardInterface}}
+
+
+Virtual Keyboard Tool.  
+
+
+
+
+{\ttfamily \#include $<$keyboardinterface.\+h$>$}
+
+
+
+Inheritance diagram for Keyboard\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Keyboard\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classKeyboardInterface_ad83720224ab88acfbe46df8ec5c39761}{Create}} (int x, int y)
+\item 
+void \mbox{\hyperlink{classKeyboardInterface_a0c6188186036b0b3845591be43287593}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classKeyboardInterface_afdb56d5a9af039054a4f5713719f6c06}{Is\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classKeyboardInterface_afe53d3e3f7b35d687e1a68d46a2924a4}{Set\+Target\+Button}} (char $\ast$bname)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classKeyboardInterface_a73d2ba449cf7b6d6280ca37e051e630b}{Remove\+Keyboard\+Interface}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classKeyboardInterface_a7c589ad08101b6a77c9d9b05343a721a}{Keypress}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static char $\ast$ \mbox{\hyperlink{classKeyboardInterface_a7ab3b26b4a65772c6837bba81dc422b2}{targetbuttonname}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Virtual Keyboard Tool. 
+
+Brings up a keyboard on screen The player can use it to enter text 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classKeyboardInterface_ad83720224ab88acfbe46df8ec5c39761}\label{classKeyboardInterface_ad83720224ab88acfbe46df8ec5c39761}} 
+\index{KeyboardInterface@{KeyboardInterface}!Create@{Create}}
+\index{Create@{Create}!KeyboardInterface@{KeyboardInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Keyboard\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+Creates the keyboard 
+\begin{DoxyParams}{Parameters}
+{\em x} & X position of keyboard \\
+\hline
+{\em y} & Y position of keyboard \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classKeyboardInterface_afdb56d5a9af039054a4f5713719f6c06}\label{classKeyboardInterface_afdb56d5a9af039054a4f5713719f6c06}} 
+\index{KeyboardInterface@{KeyboardInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!KeyboardInterface@{KeyboardInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Keyboard\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classKeyboardInterface_a7c589ad08101b6a77c9d9b05343a721a}\label{classKeyboardInterface_a7c589ad08101b6a77c9d9b05343a721a}} 
+\index{KeyboardInterface@{KeyboardInterface}!Keypress@{Keypress}}
+\index{Keypress@{Keypress}!KeyboardInterface@{KeyboardInterface}}
+\doxysubsubsection{\texorpdfstring{Keypress()}{Keypress()}}
+{\footnotesize\ttfamily void Keyboard\+Interface\+::\+Keypress (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Puts character into target button caption 
+\begin{DoxyParams}{Parameters}
+{\em button} & Character button that was clicked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classKeyboardInterface_a0c6188186036b0b3845591be43287593}\label{classKeyboardInterface_a0c6188186036b0b3845591be43287593}} 
+\index{KeyboardInterface@{KeyboardInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!KeyboardInterface@{KeyboardInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Keyboard\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classKeyboardInterface_a73d2ba449cf7b6d6280ca37e051e630b}\label{classKeyboardInterface_a73d2ba449cf7b6d6280ca37e051e630b}} 
+\index{KeyboardInterface@{KeyboardInterface}!RemoveKeyboardInterface@{RemoveKeyboardInterface}}
+\index{RemoveKeyboardInterface@{RemoveKeyboardInterface}!KeyboardInterface@{KeyboardInterface}}
+\doxysubsubsection{\texorpdfstring{RemoveKeyboardInterface()}{RemoveKeyboardInterface()}}
+{\footnotesize\ttfamily void Keyboard\+Interface\+::\+Remove\+Keyboard\+Interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Destroys the keyboard 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classKeyboardInterface_afe53d3e3f7b35d687e1a68d46a2924a4}\label{classKeyboardInterface_afe53d3e3f7b35d687e1a68d46a2924a4}} 
+\index{KeyboardInterface@{KeyboardInterface}!SetTargetButton@{SetTargetButton}}
+\index{SetTargetButton@{SetTargetButton}!KeyboardInterface@{KeyboardInterface}}
+\doxysubsubsection{\texorpdfstring{SetTargetButton()}{SetTargetButton()}}
+{\footnotesize\ttfamily void Keyboard\+Interface\+::\+Set\+Target\+Button (\begin{DoxyParamCaption}\item[{char $\ast$}]{bname }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sets the targetbuttonname 
+\begin{DoxyParams}{Parameters}
+{\em bname} & Value to set targetbuttonname to \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classKeyboardInterface_a7ab3b26b4a65772c6837bba81dc422b2}\label{classKeyboardInterface_a7ab3b26b4a65772c6837bba81dc422b2}} 
+\index{KeyboardInterface@{KeyboardInterface}!targetbuttonname@{targetbuttonname}}
+\index{targetbuttonname@{targetbuttonname}!KeyboardInterface@{KeyboardInterface}}
+\doxysubsubsection{\texorpdfstring{targetbuttonname}{targetbuttonname}}
+{\footnotesize\ttfamily char $\ast$ Keyboard\+Interface\+::targetbuttonname = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The button to input text into 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/keyboardinterface.\+h\item 
+uplink/src/interface/localinterface/keyboardinterface.\+cpp\end{DoxyCompactItemize}

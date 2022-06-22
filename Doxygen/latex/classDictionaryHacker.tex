@@ -1,0 +1,200 @@
+\hypertarget{classDictionaryHacker}{}\doxysection{Dictionary\+Hacker Class Reference}
+\label{classDictionaryHacker}\index{DictionaryHacker@{DictionaryHacker}}
+
+
+Inheritance diagram for Dictionary\+Hacker\+:
+% FIG 0
+
+
+Collaboration diagram for Dictionary\+Hacker\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDictionaryHacker_a983dd88a02c3db700e19c2b4b92b5455}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classDictionaryHacker_acc391f6816d3984f6b370724bec08300}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classDictionaryHacker_ab46ddf2ad33c9b25ec8d4fdd89f275fb}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classDictionaryHacker_a07afa82caccc901dfec86f806a91dccf}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classDictionaryHacker_ab4a36049abbb9c4e8bac178ecaec8e70}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classDictionaryHacker_a80bcf0b2d466fe807a2852621561ecc7}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classDictionaryHacker_a3f4d7c5eb4b6e88e714747b73438cab7}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classDictionaryHacker_adf4fedebcb64bc655e8c1eb0aabe7915}{Dictionary\+Hacker\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classDictionaryHacker_af4541e8759ba0f609f03b74bbd4e2d79}{Dictionary\+Hacker\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classDictionaryHacker_a79490fc43fb93404b074f907954e7d76}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDictionaryHacker_a8c391597ea6a6eb8c29ea1de4264fe52}\label{classDictionaryHacker_a8c391597ea6a6eb8c29ea1de4264fe52}} 
+int {\bfseries status}
+\item 
+\mbox{\Hypertarget{classDictionaryHacker_a0039a6aaf1ba55857e8ab210ae931385}\label{classDictionaryHacker_a0039a6aaf1ba55857e8ab210ae931385}} 
+int {\bfseries currentindex}
+\item 
+\mbox{\Hypertarget{classDictionaryHacker_a54708655a5ecea113d3765b22188f2fb}\label{classDictionaryHacker_a54708655a5ecea113d3765b22188f2fb}} 
+string {\bfseries username}
+\item 
+\mbox{\Hypertarget{classDictionaryHacker_a4f8007930eec54c52e1f884e9f051bf1}\label{classDictionaryHacker_a4f8007930eec54c52e1f884e9f051bf1}} 
+string {\bfseries password}
+\item 
+\mbox{\Hypertarget{classDictionaryHacker_a33f5095976780dac634d2e77d8609104}\label{classDictionaryHacker_a33f5095976780dac634d2e77d8609104}} 
+float {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classDictionaryHacker_a3971d0a1e643f2cd73e7374fe777ff47}\label{classDictionaryHacker_a3971d0a1e643f2cd73e7374fe777ff47}} 
+int {\bfseries progress}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDictionaryHacker_a79490fc43fb93404b074f907954e7d76}\label{classDictionaryHacker_a79490fc43fb93404b074f907954e7d76}} 
+\index{DictionaryHacker@{DictionaryHacker}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classDictionaryHacker_a07afa82caccc901dfec86f806a91dccf}\label{classDictionaryHacker_a07afa82caccc901dfec86f806a91dccf}} 
+\index{DictionaryHacker@{DictionaryHacker}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classDictionaryHacker_af4541e8759ba0f609f03b74bbd4e2d79}\label{classDictionaryHacker_af4541e8759ba0f609f03b74bbd4e2d79}} 
+\index{DictionaryHacker@{DictionaryHacker}!DictionaryHackerClick@{DictionaryHackerClick}}
+\index{DictionaryHackerClick@{DictionaryHackerClick}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{DictionaryHackerClick()}{DictionaryHackerClick()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Dictionary\+Hacker\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Sets the program selected to this one 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for program \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDictionaryHacker_adf4fedebcb64bc655e8c1eb0aabe7915}\label{classDictionaryHacker_adf4fedebcb64bc655e8c1eb0aabe7915}} 
+\index{DictionaryHacker@{DictionaryHacker}!DictionaryHackerDraw@{DictionaryHackerDraw}}
+\index{DictionaryHackerDraw@{DictionaryHackerDraw}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{DictionaryHackerDraw()}{DictionaryHackerDraw()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Dictionary\+Hacker\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the background of the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for program \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDictionaryHacker_acc391f6816d3984f6b370724bec08300}\label{classDictionaryHacker_acc391f6816d3984f6b370724bec08300}} 
+\index{DictionaryHacker@{DictionaryHacker}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classDictionaryHacker_a3f4d7c5eb4b6e88e714747b73438cab7}\label{classDictionaryHacker_a3f4d7c5eb4b6e88e714747b73438cab7}} 
+\index{DictionaryHacker@{DictionaryHacker}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Dictionary\+Hacker\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classDictionaryHacker_ab4a36049abbb9c4e8bac178ecaec8e70}\label{classDictionaryHacker_ab4a36049abbb9c4e8bac178ecaec8e70}} 
+\index{DictionaryHacker@{DictionaryHacker}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classDictionaryHacker_a983dd88a02c3db700e19c2b4b92b5455}\label{classDictionaryHacker_a983dd88a02c3db700e19c2b4b92b5455}} 
+\index{DictionaryHacker@{DictionaryHacker}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & Target \mbox{\hyperlink{classPasswordScreen}{Password\+Screen}} or \mbox{\hyperlink{classUserIDScreen}{User\+I\+D\+Screen}} object \\
+\hline
+{\em uos} & name of button with password in \\
+\hline
+{\em uoi} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+uoi is unused 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classDictionaryHacker_a80bcf0b2d466fe807a2852621561ecc7}\label{classDictionaryHacker_a80bcf0b2d466fe807a2852621561ecc7}} 
+\index{DictionaryHacker@{DictionaryHacker}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classDictionaryHacker_ab46ddf2ad33c9b25ec8d4fdd89f275fb}\label{classDictionaryHacker_ab46ddf2ad33c9b25ec8d4fdd89f275fb}} 
+\index{DictionaryHacker@{DictionaryHacker}!Tick@{Tick}}
+\index{Tick@{Tick}!DictionaryHacker@{DictionaryHacker}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Dictionary\+Hacker\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/dictionaryhacker.\+h\item 
+uplink/src/interface/taskmanager/dictionaryhacker.\+cpp\end{DoxyCompactItemize}

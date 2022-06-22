@@ -1,0 +1,181 @@
+\hypertarget{classLanForce}{}\doxysection{Lan\+Force Class Reference}
+\label{classLanForce}\index{LanForce@{LanForce}}
+
+
+Inheritance diagram for Lan\+Force\+:
+% FIG 0
+
+
+Collaboration diagram for Lan\+Force\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLanForce_ad09129d689dfab97046bf88cf0135528}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classLanForce_a612a93b28d5d3b0f3f938c40c8db230c}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classLanForce_a883f3cdff3ec7e0cb509c9f4ce08c0a4}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classLanForce_a4742ddf85a46cd3f59cdf6453d2483cf}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classLanForce_aa172fd0a68f7e0deb0dbdb3e72353e5d}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classLanForce_af9dc467fa58d093d469a60fd950564b6}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classLanForce_a649a3642455c94d0ea6109aef4499f1e}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classLanForce_a5caa13ee5481ff2e1717c1aea747d6f6}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanForce_a23a2c4fafed6e0237db4299d67b7b343}\label{classLanForce_a23a2c4fafed6e0237db4299d67b7b343}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLanForce_a66fdd1f1ea293f4d4ae1cfe9d097ef32}\label{classLanForce_a66fdd1f1ea293f4d4ae1cfe9d097ef32}} 
+static void {\bfseries Progress\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLanForce_a1edc00ac45542512a4d615b90a1a211f}\label{classLanForce_a1edc00ac45542512a4d615b90a1a211f}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLanForce_a498043f41218747541f56aac5dc1505c}\label{classLanForce_a498043f41218747541f56aac5dc1505c}} 
+static void {\bfseries Border\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanForce_ab012c3a1231fedd3cde62945c127a8e8}\label{classLanForce_ab012c3a1231fedd3cde62945c127a8e8}} 
+int {\bfseries status}
+\item 
+\mbox{\Hypertarget{classLanForce_a4f11edc2357841a0a8f60152fcf00908}\label{classLanForce_a4f11edc2357841a0a8f60152fcf00908}} 
+int {\bfseries progress}
+\item 
+\mbox{\Hypertarget{classLanForce_aee9be070d0570627cc9c08c660d8c29f}\label{classLanForce_aee9be070d0570627cc9c08c660d8c29f}} 
+int {\bfseries numticksrequired}
+\item 
+\mbox{\Hypertarget{classLanForce_ab06c017d286224fd6335ac6f55e95387}\label{classLanForce_ab06c017d286224fd6335ac6f55e95387}} 
+\mbox{\hyperlink{classLanComputer}{Lan\+Computer}} $\ast$ {\bfseries comp}
+\item 
+\mbox{\Hypertarget{classLanForce_abc2f3251b4f4b87fe26f1f41083ceb3e}\label{classLanForce_abc2f3251b4f4b87fe26f1f41083ceb3e}} 
+int {\bfseries system\+Index}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLanForce_aa172fd0a68f7e0deb0dbdb3e72353e5d}\label{classLanForce_aa172fd0a68f7e0deb0dbdb3e72353e5d}} 
+\index{LanForce@{LanForce}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!LanForce@{LanForce}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Lan\+Force\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classLanForce_a883f3cdff3ec7e0cb509c9f4ce08c0a4}\label{classLanForce_a883f3cdff3ec7e0cb509c9f4ce08c0a4}} 
+\index{LanForce@{LanForce}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!LanForce@{LanForce}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Lan\+Force\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classLanForce_a5caa13ee5481ff2e1717c1aea747d6f6}\label{classLanForce_a5caa13ee5481ff2e1717c1aea747d6f6}} 
+\index{LanForce@{LanForce}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!LanForce@{LanForce}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Lan\+Force\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classLanForce_a612a93b28d5d3b0f3f938c40c8db230c}\label{classLanForce_a612a93b28d5d3b0f3f938c40c8db230c}} 
+\index{LanForce@{LanForce}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!LanForce@{LanForce}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Lan\+Force\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classLanForce_af9dc467fa58d093d469a60fd950564b6}\label{classLanForce_af9dc467fa58d093d469a60fd950564b6}} 
+\index{LanForce@{LanForce}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!LanForce@{LanForce}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Lan\+Force\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classLanForce_ad09129d689dfab97046bf88cf0135528}\label{classLanForce_ad09129d689dfab97046bf88cf0135528}} 
+\index{LanForce@{LanForce}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!LanForce@{LanForce}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Lan\+Force\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Sets the target of program 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \mbox{\hyperlink{classLanComputer}{Lan\+Computer}} object \\
+\hline
+{\em uos} & Name of button representing system \\
+\hline
+{\em uoi} & Index of system in lan computer \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classLanForce_a649a3642455c94d0ea6109aef4499f1e}\label{classLanForce_a649a3642455c94d0ea6109aef4499f1e}} 
+\index{LanForce@{LanForce}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!LanForce@{LanForce}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Lan\+Force\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classLanForce_a4742ddf85a46cd3f59cdf6453d2483cf}\label{classLanForce_a4742ddf85a46cd3f59cdf6453d2483cf}} 
+\index{LanForce@{LanForce}!Tick@{Tick}}
+\index{Tick@{Tick}!LanForce@{LanForce}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Lan\+Force\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/lanforce.\+h\item 
+uplink/src/interface/taskmanager/lanforce.\+cpp\end{DoxyCompactItemize}

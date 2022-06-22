@@ -1,0 +1,219 @@
+\hypertarget{classGatewayNuke}{}\doxysection{Gateway\+Nuke Class Reference}
+\label{classGatewayNuke}\index{GatewayNuke@{GatewayNuke}}
+
+
+\mbox{\hyperlink{classGateway}{Gateway}} nuke software driver.  
+
+
+
+
+{\ttfamily \#include $<$gatewaynuke.\+h$>$}
+
+
+
+Inheritance diagram for Gateway\+Nuke\+:
+% FIG 0
+
+
+Collaboration diagram for Gateway\+Nuke\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGatewayNuke_aac8ad969bfa7e53355c883908049fe7f}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi) override
+\item 
+void \mbox{\hyperlink{classGatewayNuke_a87637c98a213ed563b66dc6f0f5d6824}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classGatewayNuke_ae124a29dc07f93461ee455156d2c1ad6}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classGatewayNuke_a1a46202ffc89b4d63011034c57e7f806}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classGatewayNuke_ae33d725b4db6a64e833ebeba1dfa5a42}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classGatewayNuke_aced114ac6801abbd988075a8836ce2e7}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classGatewayNuke_ad6ec4e0b7a2221c2cbb3c76eb55a3af6}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classGatewayNuke_a0331dbd0dc3df642c35addfc2db66ca4}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGatewayNuke_ac6e13a923f5dfab9c42f2243ddb7daf7}\label{classGatewayNuke_ac6e13a923f5dfab9c42f2243ddb7daf7}} 
+static void {\bfseries Title\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classGatewayNuke_ad5a8f5248724b43d5121b657ad60377a}{Yes\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classGatewayNuke_a059e416a74000fe6e4be8b17196d4127}{No\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classGatewayNuke_add68cf2ddb7fdc5eea5c05465c2b309c}{Nuke\+Gateway}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classGatewayNuke_a69e736d2377715905a931461d79bfe74}{status}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classGateway}{Gateway}} nuke software driver. 
+
+Checks if the player has the gateway nuke hardware, then takes down the gateway, destroying all evidence 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGatewayNuke_ae33d725b4db6a64e833ebeba1dfa5a42}\label{classGatewayNuke_ae33d725b4db6a64e833ebeba1dfa5a42}} 
+\index{GatewayNuke@{GatewayNuke}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classGatewayNuke_ae124a29dc07f93461ee455156d2c1ad6}\label{classGatewayNuke_ae124a29dc07f93461ee455156d2c1ad6}} 
+\index{GatewayNuke@{GatewayNuke}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classGatewayNuke_a0331dbd0dc3df642c35addfc2db66ca4}\label{classGatewayNuke_a0331dbd0dc3df642c35addfc2db66ca4}} 
+\index{GatewayNuke@{GatewayNuke}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Gateway\+Nuke\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classGatewayNuke_a87637c98a213ed563b66dc6f0f5d6824}\label{classGatewayNuke_a87637c98a213ed563b66dc6f0f5d6824}} 
+\index{GatewayNuke@{GatewayNuke}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classGatewayNuke_a059e416a74000fe6e4be8b17196d4127}\label{classGatewayNuke_a059e416a74000fe6e4be8b17196d4127}} 
+\index{GatewayNuke@{GatewayNuke}!NoClick@{NoClick}}
+\index{NoClick@{NoClick}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{NoClick()}{NoClick()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+No\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Deletes the nuke gateway task 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} clicked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGatewayNuke_add68cf2ddb7fdc5eea5c05465c2b309c}\label{classGatewayNuke_add68cf2ddb7fdc5eea5c05465c2b309c}} 
+\index{GatewayNuke@{GatewayNuke}!NukeGateway@{NukeGateway}}
+\index{NukeGateway@{NukeGateway}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{NukeGateway()}{NukeGateway()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Nuke\+Gateway (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Nukes the gateway \mbox{\Hypertarget{classGatewayNuke_aced114ac6801abbd988075a8836ce2e7}\label{classGatewayNuke_aced114ac6801abbd988075a8836ce2e7}} 
+\index{GatewayNuke@{GatewayNuke}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classGatewayNuke_aac8ad969bfa7e53355c883908049fe7f}\label{classGatewayNuke_aac8ad969bfa7e53355c883908049fe7f}} 
+\index{GatewayNuke@{GatewayNuke}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Doesn\textquotesingle{}t do anything, as the target is gotten by getting the player\textquotesingle{}s gateway 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \\
+\hline
+{\em uos} & \\
+\hline
+{\em uoi} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+uo, uos, and uoi are unused 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classGatewayNuke_ad6ec4e0b7a2221c2cbb3c76eb55a3af6}\label{classGatewayNuke_ad6ec4e0b7a2221c2cbb3c76eb55a3af6}} 
+\index{GatewayNuke@{GatewayNuke}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classGatewayNuke_a1a46202ffc89b4d63011034c57e7f806}\label{classGatewayNuke_a1a46202ffc89b4d63011034c57e7f806}} 
+\index{GatewayNuke@{GatewayNuke}!Tick@{Tick}}
+\index{Tick@{Tick}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+\mbox{\Hypertarget{classGatewayNuke_ad5a8f5248724b43d5121b657ad60377a}\label{classGatewayNuke_ad5a8f5248724b43d5121b657ad60377a}} 
+\index{GatewayNuke@{GatewayNuke}!YesClick@{YesClick}}
+\index{YesClick@{YesClick}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{YesClick()}{YesClick()}}
+{\footnotesize\ttfamily void Gateway\+Nuke\+::\+Yes\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Changes the title to a new message or attempts to nuke gateway 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} clicked \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classGatewayNuke_a69e736d2377715905a931461d79bfe74}\label{classGatewayNuke_a69e736d2377715905a931461d79bfe74}} 
+\index{GatewayNuke@{GatewayNuke}!status@{status}}
+\index{status@{status}!GatewayNuke@{GatewayNuke}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily int Gateway\+Nuke\+::status\hspace{0.3cm}{\ttfamily [protected]}}
+
+The status of the gateway nuke 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/gatewaynuke.\+h\item 
+uplink/src/interface/taskmanager/gatewaynuke.\+cpp\end{DoxyCompactItemize}

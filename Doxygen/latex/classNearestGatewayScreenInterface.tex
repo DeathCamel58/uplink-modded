@@ -1,0 +1,89 @@
+\hypertarget{classNearestGatewayScreenInterface}{}\doxysection{Nearest\+Gateway\+Screen\+Interface Class Reference}
+\label{classNearestGatewayScreenInterface}\index{NearestGatewayScreenInterface@{NearestGatewayScreenInterface}}
+
+
+Inheritance diagram for Nearest\+Gateway\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Nearest\+Gateway\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a70df9bf08ca9769146d3b5b78f91280c}\label{classNearestGatewayScreenInterface_a70df9bf08ca9769146d3b5b78f91280c}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a98391fb0c4fa8d2aa1fd9efd1c7c74d0}\label{classNearestGatewayScreenInterface_a98391fb0c4fa8d2aa1fd9efd1c7c74d0}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classNearestGatewayScreenInterface_a52fc4b16825b22a6717abd9d87c695b7}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classNearestGatewayScreenInterface_a121dc3baf6a828bbfbf2207da5d6711e}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classNearestGatewayScreenInterface_a98e611be902949504b7415f63d7dc084}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a220770adb0a5efc6ebc54c35b2b7569b}\label{classNearestGatewayScreenInterface_a220770adb0a5efc6ebc54c35b2b7569b}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_af9051095357d70e930b64006cf6c840a}\label{classNearestGatewayScreenInterface_af9051095357d70e930b64006cf6c840a}} 
+static void {\bfseries Draw\+Black} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_abb08c08c3756aa4501f2305b48d59cc4}\label{classNearestGatewayScreenInterface_abb08c08c3756aa4501f2305b48d59cc4}} 
+static void {\bfseries Draw\+Location} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a3d6fe845ee7ee4c615a66134383a39f0}\label{classNearestGatewayScreenInterface_a3d6fe845ee7ee4c615a66134383a39f0}} 
+static void {\bfseries Click\+Location} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_ae5ae81bcf6893d77045e30e84fce24fc}\label{classNearestGatewayScreenInterface_ae5ae81bcf6893d77045e30e84fce24fc}} 
+static void {\bfseries Draw\+Main\+Map} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a121dc3baf6a828bbfbf2207da5d6711e}\label{classNearestGatewayScreenInterface_a121dc3baf6a828bbfbf2207da5d6711e}} 
+\index{NearestGatewayScreenInterface@{NearestGatewayScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!NearestGatewayScreenInterface@{NearestGatewayScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Nearest\+Gateway\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a52fc4b16825b22a6717abd9d87c695b7}\label{classNearestGatewayScreenInterface_a52fc4b16825b22a6717abd9d87c695b7}} 
+\index{NearestGatewayScreenInterface@{NearestGatewayScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!NearestGatewayScreenInterface@{NearestGatewayScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Nearest\+Gateway\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a98e611be902949504b7415f63d7dc084}\label{classNearestGatewayScreenInterface_a98e611be902949504b7415f63d7dc084}} 
+\index{NearestGatewayScreenInterface@{NearestGatewayScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!NearestGatewayScreenInterface@{NearestGatewayScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Nearest\+Gateway\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/nearestgatewayscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/nearestgatewayscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

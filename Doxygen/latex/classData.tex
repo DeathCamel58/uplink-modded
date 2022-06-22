@@ -1,0 +1,152 @@
+\hypertarget{classData}{}\doxysection{Data Class Reference}
+\label{classData}\index{Data@{Data}}
+
+
+Inheritance diagram for Data\+:
+% FIG 0
+
+
+Collaboration diagram for Data\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classData_a524b3aa1e9398c96f2284b1f91e238d9}\label{classData_a524b3aa1e9398c96f2284b1f91e238d9}} 
+{\bfseries Data} (\mbox{\hyperlink{classData}{Data}} $\ast$copyme)
+\item 
+\mbox{\Hypertarget{classData_adb0ed2333bb2d96a606c3446fefb06ee}\label{classData_adb0ed2333bb2d96a606c3446fefb06ee}} 
+void {\bfseries Set\+Title} (const string \&newtitle)
+\item 
+\mbox{\Hypertarget{classData_a9607d8b0a214ca8b7f0889103dcaccac}\label{classData_a9607d8b0a214ca8b7f0889103dcaccac}} 
+void {\bfseries Set\+Details} (int new\+T\+Y\+PE, int newsize, int newencrypted=0, int newcompressed=0, float newversion=1.\+0, int newsoftware\+T\+Y\+PE=S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+N\+O\+NE)
+\item 
+bool \mbox{\hyperlink{classData_a252e5092a4c9cb3c84565e98b2946706}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classData_aa1159bba9b059d5a63f9b0cd50637edd}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classData_a01ae94becbe357ca9a4fb7910c06c791}{Print}} () override
+\item 
+void \mbox{\hyperlink{classData_ac75338ea5da550f133b4e414ebb9c63c}{Update}} () override
+\item 
+string \mbox{\hyperlink{classData_acb5efe2f3621db783a60db061be65216}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classData_ad56ec2d21085938cfb75bb2153756c03}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classData_a03abb1dbaf16e405d40e4d9bd9522c20}\label{classData_a03abb1dbaf16e405d40e4d9bd9522c20}} 
+string {\bfseries title}
+\item 
+\mbox{\Hypertarget{classData_ac2411dd66491034b4b6f7b50a7726fc7}\label{classData_ac2411dd66491034b4b6f7b50a7726fc7}} 
+int {\bfseries T\+Y\+PE}
+\item 
+\mbox{\Hypertarget{classData_a554d30dd485385a9c817198cfbf095d8}\label{classData_a554d30dd485385a9c817198cfbf095d8}} 
+int {\bfseries size}
+\item 
+\mbox{\Hypertarget{classData_a4ea8026af010a60b7fedd54f73b4c767}\label{classData_a4ea8026af010a60b7fedd54f73b4c767}} 
+int {\bfseries encrypted}
+\item 
+\mbox{\Hypertarget{classData_a80d5402215cac1779d1703592c4bbd1b}\label{classData_a80d5402215cac1779d1703592c4bbd1b}} 
+int {\bfseries compressed}
+\item 
+\mbox{\Hypertarget{classData_a225b8287a0f085f77ccf684eba2db404}\label{classData_a225b8287a0f085f77ccf684eba2db404}} 
+float {\bfseries version}
+\item 
+\mbox{\Hypertarget{classData_a727c721343ddb7587470256b08776b17}\label{classData_a727c721343ddb7587470256b08776b17}} 
+int {\bfseries software\+T\+Y\+PE}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classData_acb5efe2f3621db783a60db061be65216}\label{classData_acb5efe2f3621db783a60db061be65216}} 
+\index{Data@{Data}!GetID@{GetID}}
+\index{GetID@{GetID}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Data\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classData_ad56ec2d21085938cfb75bb2153756c03}\label{classData_ad56ec2d21085938cfb75bb2153756c03}} 
+\index{Data@{Data}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Data\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classData_a252e5092a4c9cb3c84565e98b2946706}\label{classData_a252e5092a4c9cb3c84565e98b2946706}} 
+\index{Data@{Data}!Load@{Load}}
+\index{Load@{Load}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Data\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classData_a01ae94becbe357ca9a4fb7910c06c791}\label{classData_a01ae94becbe357ca9a4fb7910c06c791}} 
+\index{Data@{Data}!Print@{Print}}
+\index{Print@{Print}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Data\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classData_aa1159bba9b059d5a63f9b0cd50637edd}\label{classData_aa1159bba9b059d5a63f9b0cd50637edd}} 
+\index{Data@{Data}!Save@{Save}}
+\index{Save@{Save}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Data\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classData_ac75338ea5da550f133b4e414ebb9c63c}\label{classData_ac75338ea5da550f133b4e414ebb9c63c}} 
+\index{Data@{Data}!Update@{Update}}
+\index{Update@{Update}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Data\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/databank.\+h\item 
+uplink/src/world/computer/databank.\+cpp\end{DoxyCompactItemize}

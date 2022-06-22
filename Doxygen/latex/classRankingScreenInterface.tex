@@ -1,0 +1,92 @@
+\hypertarget{classRankingScreenInterface}{}\doxysection{Ranking\+Screen\+Interface Class Reference}
+\label{classRankingScreenInterface}\index{RankingScreenInterface@{RankingScreenInterface}}
+
+
+Inheritance diagram for Ranking\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Ranking\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRankingScreenInterface_acd92e1c191ae99d286e72ed3faf6a71a}\label{classRankingScreenInterface_acd92e1c191ae99d286e72ed3faf6a71a}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classRankingScreenInterface_a10931560b3b846354c6288eaec6e1fb2}\label{classRankingScreenInterface_a10931560b3b846354c6288eaec6e1fb2}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classRankingScreenInterface_a0b2fd084817d16d07917d3208227625d}\label{classRankingScreenInterface_a0b2fd084817d16d07917d3208227625d}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classRankingScreenInterface_aa9cf9e852f13cc6c37e5296c9ef7f444}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classRankingScreenInterface_afce5809a6b5c32b73348610a8a7fd33d}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classRankingScreenInterface_ab377a7d217e05a68a6950c01972fab2a}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classRankingScreenInterface_a3d850e84b238747a496098160fdc7f60}\label{classRankingScreenInterface_a3d850e84b238747a496098160fdc7f60}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRankingScreenInterface_ac5499eccf093c5262d1f9305d72d9b45}\label{classRankingScreenInterface_ac5499eccf093c5262d1f9305d72d9b45}} 
+static void {\bfseries Exit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRankingScreenInterface_abc6272b869cf64e56e9a77098a43c0c8}\label{classRankingScreenInterface_abc6272b869cf64e56e9a77098a43c0c8}} 
+static void {\bfseries Active\+Agent\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classRankingScreenInterface_a710ad6dada5e1fb6db5c4ace284fa3ac}\label{classRankingScreenInterface_a710ad6dada5e1fb6db5c4ace284fa3ac}} 
+static void {\bfseries Non\+Active\+Agent\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classRankingScreenInterface_acb12fb070354db9255f10bdf027587c3}\label{classRankingScreenInterface_acb12fb070354db9255f10bdf027587c3}} 
+static void {\bfseries Player\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRankingScreenInterface_afce5809a6b5c32b73348610a8a7fd33d}\label{classRankingScreenInterface_afce5809a6b5c32b73348610a8a7fd33d}} 
+\index{RankingScreenInterface@{RankingScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!RankingScreenInterface@{RankingScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Ranking\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRankingScreenInterface_aa9cf9e852f13cc6c37e5296c9ef7f444}\label{classRankingScreenInterface_aa9cf9e852f13cc6c37e5296c9ef7f444}} 
+\index{RankingScreenInterface@{RankingScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!RankingScreenInterface@{RankingScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Ranking\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRankingScreenInterface_ab377a7d217e05a68a6950c01972fab2a}\label{classRankingScreenInterface_ab377a7d217e05a68a6950c01972fab2a}} 
+\index{RankingScreenInterface@{RankingScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!RankingScreenInterface@{RankingScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Ranking\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/rankingscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/rankingscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

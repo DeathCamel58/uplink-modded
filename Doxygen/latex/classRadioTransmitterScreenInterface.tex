@@ -1,0 +1,137 @@
+\hypertarget{classRadioTransmitterScreenInterface}{}\doxysection{Radio\+Transmitter\+Screen\+Interface Class Reference}
+\label{classRadioTransmitterScreenInterface}\index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
+
+
+Inheritance diagram for Radio\+Transmitter\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Radio\+Transmitter\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ac951af0b5e9ccd2f4b758ac82da1053d}\label{classRadioTransmitterScreenInterface_ac951af0b5e9ccd2f4b758ac82da1053d}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+void \mbox{\hyperlink{classRadioTransmitterScreenInterface_ac26c790dc640926f5ada93d173b78f3f}{Create}} () override
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a0ecfa6a2225b73d14ae8c0bb2aaa633c}\label{classRadioTransmitterScreenInterface_a0ecfa6a2225b73d14ae8c0bb2aaa633c}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classRadioTransmitterScreenInterface_ac49bae2cefb70da5d71a96cf626b3e17}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classRadioTransmitterScreenInterface_acd751892ca6f7e638ac9e5d1466193cd}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classRadioTransmitterScreenInterface_ad66681f56fe91690cf06ad5d62fc90c1}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classRadioTransmitterScreenInterface_a2ac3c13f8e26cdb1ad2da1e8e7511eca}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_aa7a0f816f324d4ac2f12baf814ad761a}\label{classRadioTransmitterScreenInterface_aa7a0f816f324d4ac2f12baf814ad761a}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a7e21cbef812b16b4965cbf6bdd81e34e}\label{classRadioTransmitterScreenInterface_a7e21cbef812b16b4965cbf6bdd81e34e}} 
+static void {\bfseries Connect} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ac144b9bf16f7ea6440920fb34a4790c4}\label{classRadioTransmitterScreenInterface_ac144b9bf16f7ea6440920fb34a4790c4}} 
+static void {\bfseries Background\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a57edbfea323d507b7fe7ea276fa52bcc}\label{classRadioTransmitterScreenInterface_a57edbfea323d507b7fe7ea276fa52bcc}} 
+static void {\bfseries Frequency\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ad00e6588fb1237a4440203913d9c353f}\label{classRadioTransmitterScreenInterface_ad00e6588fb1237a4440203913d9c353f}} 
+static void {\bfseries Down\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a9a5ba976ee0aa6955be001c02634c15e}\label{classRadioTransmitterScreenInterface_a9a5ba976ee0aa6955be001c02634c15e}} 
+static void {\bfseries Big\+Down\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a50c002181e084fa74118289a3a7772d7}\label{classRadioTransmitterScreenInterface_a50c002181e084fa74118289a3a7772d7}} 
+static void {\bfseries Up\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a57880aaea35e06cffdcfc3c0361537da}\label{classRadioTransmitterScreenInterface_a57880aaea35e06cffdcfc3c0361537da}} 
+static void {\bfseries Big\+Up\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ac1f87fd3b21ab2d4f10500e30d508b78}\label{classRadioTransmitterScreenInterface_ac1f87fd3b21ab2d4f10500e30d508b78}} 
+static void {\bfseries Connect\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_aa80cb93eac3c1114941e8be43a375157}\label{classRadioTransmitterScreenInterface_aa80cb93eac3c1114941e8be43a375157}} 
+static int {\bfseries frequency\+Ghz} = 160
+\item 
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a4aa21e4bebbe45fe5b4ac269a6e73e49}\label{classRadioTransmitterScreenInterface_a4aa21e4bebbe45fe5b4ac269a6e73e49}} 
+static int {\bfseries frequency\+Mhz} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ac26c790dc640926f5ada93d173b78f3f}\label{classRadioTransmitterScreenInterface_ac26c790dc640926f5ada93d173b78f3f}} 
+\index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!Create@{Create}}
+\index{Create@{Create}!RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Radio\+Transmitter\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ad66681f56fe91690cf06ad5d62fc90c1}\label{classRadioTransmitterScreenInterface_ad66681f56fe91690cf06ad5d62fc90c1}} 
+\index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Radio\+Transmitter\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ac49bae2cefb70da5d71a96cf626b3e17}\label{classRadioTransmitterScreenInterface_ac49bae2cefb70da5d71a96cf626b3e17}} 
+\index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Radio\+Transmitter\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a2ac3c13f8e26cdb1ad2da1e8e7511eca}\label{classRadioTransmitterScreenInterface_a2ac3c13f8e26cdb1ad2da1e8e7511eca}} 
+\index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Radio\+Transmitter\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_acd751892ca6f7e638ac9e5d1466193cd}\label{classRadioTransmitterScreenInterface_acd751892ca6f7e638ac9e5d1466193cd}} 
+\index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!Update@{Update}}
+\index{Update@{Update}!RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Radio\+Transmitter\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/radiotransmitterscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/radiotransmitterscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

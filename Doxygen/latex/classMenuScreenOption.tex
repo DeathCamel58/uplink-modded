@@ -1,0 +1,146 @@
+\hypertarget{classMenuScreenOption}{}\doxysection{Menu\+Screen\+Option Class Reference}
+\label{classMenuScreenOption}\index{MenuScreenOption@{MenuScreenOption}}
+
+
+Inheritance diagram for Menu\+Screen\+Option\+:
+% FIG 0
+
+
+Collaboration diagram for Menu\+Screen\+Option\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMenuScreenOption_ac14db3c567a123715f7647b2af281b03}\label{classMenuScreenOption_ac14db3c567a123715f7647b2af281b03}} 
+void {\bfseries Set\+Caption} (const string \&newcaption)
+\item 
+\mbox{\Hypertarget{classMenuScreenOption_a1adb31e04a04efbfbee2cbf1a6cccbd9}\label{classMenuScreenOption_a1adb31e04a04efbfbee2cbf1a6cccbd9}} 
+void {\bfseries Set\+Tooltip} (const string \&newtooltip)
+\item 
+\mbox{\Hypertarget{classMenuScreenOption_a29294f9277ffcc79366b1862c2754a3a}\label{classMenuScreenOption_a29294f9277ffcc79366b1862c2754a3a}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classMenuScreenOption_a8483ec1c32e0e4e2148cf51e2b36dedb}\label{classMenuScreenOption_a8483ec1c32e0e4e2148cf51e2b36dedb}} 
+void {\bfseries Set\+Security} (int newsecurity)
+\item 
+bool \mbox{\hyperlink{classMenuScreenOption_aab62e25024c51520edf4f0635fcd30e0}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classMenuScreenOption_a7a1cca3d0a126171475bc317be2f0f80}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classMenuScreenOption_ab72d5b6435bb41a118092be7725ece53}{Print}} () override
+\item 
+void \mbox{\hyperlink{classMenuScreenOption_a879433ca0f9bb9dd38e1bf09fc5f064c}{Update}} () override
+\item 
+string \mbox{\hyperlink{classMenuScreenOption_add305060f8565094122a17f9870f3c60}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classMenuScreenOption_a234f1a43fbaa7ce86fd08e0a47ca8b44}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMenuScreenOption_af9a6e6b9366911da1b0c95e21a7090a4}\label{classMenuScreenOption_af9a6e6b9366911da1b0c95e21a7090a4}} 
+char {\bfseries caption} \mbox{[}S\+I\+Z\+E\+\_\+\+M\+E\+N\+U\+S\+C\+R\+E\+E\+N\+O\+P\+T\+I\+O\+N\+\_\+\+C\+A\+P\+T\+I\+ON\mbox{]}
+\item 
+\mbox{\Hypertarget{classMenuScreenOption_af4cca31eb7abe5bc95d5fad116b56122}\label{classMenuScreenOption_af4cca31eb7abe5bc95d5fad116b56122}} 
+char {\bfseries tooltip} \mbox{[}S\+I\+Z\+E\+\_\+\+M\+E\+N\+U\+S\+C\+R\+E\+E\+N\+O\+P\+T\+I\+O\+N\+\_\+\+T\+O\+O\+L\+T\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classMenuScreenOption_a5e296940a786f05e6e78f3d4b88532dc}\label{classMenuScreenOption_a5e296940a786f05e6e78f3d4b88532dc}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classMenuScreenOption_ae419d5c32e57c56cfc4063a4ba7b2521}\label{classMenuScreenOption_ae419d5c32e57c56cfc4063a4ba7b2521}} 
+int {\bfseries security}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMenuScreenOption_add305060f8565094122a17f9870f3c60}\label{classMenuScreenOption_add305060f8565094122a17f9870f3c60}} 
+\index{MenuScreenOption@{MenuScreenOption}!GetID@{GetID}}
+\index{GetID@{GetID}!MenuScreenOption@{MenuScreenOption}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Menu\+Screen\+Option\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMenuScreenOption_a234f1a43fbaa7ce86fd08e0a47ca8b44}\label{classMenuScreenOption_a234f1a43fbaa7ce86fd08e0a47ca8b44}} 
+\index{MenuScreenOption@{MenuScreenOption}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!MenuScreenOption@{MenuScreenOption}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Menu\+Screen\+Option\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMenuScreenOption_aab62e25024c51520edf4f0635fcd30e0}\label{classMenuScreenOption_aab62e25024c51520edf4f0635fcd30e0}} 
+\index{MenuScreenOption@{MenuScreenOption}!Load@{Load}}
+\index{Load@{Load}!MenuScreenOption@{MenuScreenOption}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Menu\+Screen\+Option\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMenuScreenOption_ab72d5b6435bb41a118092be7725ece53}\label{classMenuScreenOption_ab72d5b6435bb41a118092be7725ece53}} 
+\index{MenuScreenOption@{MenuScreenOption}!Print@{Print}}
+\index{Print@{Print}!MenuScreenOption@{MenuScreenOption}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Menu\+Screen\+Option\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMenuScreenOption_a7a1cca3d0a126171475bc317be2f0f80}\label{classMenuScreenOption_a7a1cca3d0a126171475bc317be2f0f80}} 
+\index{MenuScreenOption@{MenuScreenOption}!Save@{Save}}
+\index{Save@{Save}!MenuScreenOption@{MenuScreenOption}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Menu\+Screen\+Option\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classMenuScreenOption_a879433ca0f9bb9dd38e1bf09fc5f064c}\label{classMenuScreenOption_a879433ca0f9bb9dd38e1bf09fc5f064c}} 
+\index{MenuScreenOption@{MenuScreenOption}!Update@{Update}}
+\index{Update@{Update}!MenuScreenOption@{MenuScreenOption}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Menu\+Screen\+Option\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/menuscreen.\+h\item 
+uplink/src/world/computer/computerscreen/menuscreen.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,329 @@
+\hypertarget{classMemoryInterface}{}\doxysection{Memory\+Interface Class Reference}
+\label{classMemoryInterface}\index{MemoryInterface@{MemoryInterface}}
+
+
+Screen that shows memory usage.  
+
+
+
+
+{\ttfamily \#include $<$memory\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Memory\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Memory\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMemoryInterface_a654cf5d268620e90fb71e7e224b762af}{Create}} () override
+\item 
+void \mbox{\hyperlink{classMemoryInterface_a59c24d34fc64a76c1950ea38ef4ee2ce}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classMemoryInterface_a488e00db0fa272e5e44785bca473533f}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classMemoryInterface_a7a8dc217bc3c334772ad96c6f06727f5}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classMemoryInterface_a5f37bdf1933940b81db785a602af07b5}{Screen\+ID}} () override
+\item 
+void \mbox{\hyperlink{classMemoryInterface_a3d219461452cac72fe62564465e97bf4}{Create}} ()
+\item 
+void \mbox{\hyperlink{classMemoryInterface_a90f917c93a7d428dd7584e441fe2142d}{Remove}} ()
+\item 
+void \mbox{\hyperlink{classMemoryInterface_a0eb4d934cc06eaa8e6ab6897a2c2343e}{Update}} ()
+\item 
+bool \mbox{\hyperlink{classMemoryInterface_ae1209f151c2b644f5af6bb049fff80e6}{Is\+Visible}} ()
+\item 
+int \mbox{\hyperlink{classMemoryInterface_aca2362e9cce48a29db7697eb59796e87}{Screen\+ID}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classMemoryInterface_a3929eb8fb2d3764e4a1d7d577a420be2}{Force\+Update\+All}} ()
+\item 
+static void \mbox{\hyperlink{classMemoryInterface_ace65c37ae2906dbf3e73a2f238e4a5cc}{Special\+Highlight}} (int memory\+Index)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classMemoryInterface_ae4f32afcb3989a1d859bebacabe057ad}{Memory\+Block\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classMemoryInterface_afd603a99f8af162961eb8440658e85dc}{Memory\+Block\+Highlight}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classMemoryInterface_ade16504521bb655010db29092be6a5bd}{Memory\+Block\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classMemoryInterface_ae1ca46f3b156bac0a85c52c0dc4cc518}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classMemoryInterface_af1bae136ff68f31b58da4546c1581875}{Scroll\+Change}} (const string \&scrollname, int new\+Value)
+\item 
+static void \mbox{\hyperlink{classMemoryInterface_acfd9eb3469a8efe7b1d7124ab4513252}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classMemoryInterface_abd584874c39bced99608c271ae051a81}{previousnumfiles}} = 0
+\item 
+static int \mbox{\hyperlink{classMemoryInterface_a8a3eda218acf4bf42fd637a2353a0772}{baseoffset}} = 0
+\item 
+static int \mbox{\hyperlink{classMemoryInterface_a943c6766f0e9a3e5fff10e285fd0b9f5}{currentprogramindex}} = -\/1
+\item 
+static int \mbox{\hyperlink{classMemoryInterface_a803cafc91b13d83e5dc63ab0b06e932d}{special\+Highlight}} = -\/1
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows memory usage. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMemoryInterface_a3d219461452cac72fe62564465e97bf4}\label{classMemoryInterface_a3d219461452cac72fe62564465e97bf4}} 
+\index{MemoryInterface@{MemoryInterface}!Create@{Create}}
+\index{Create@{Create}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_a654cf5d268620e90fb71e7e224b762af}\label{classMemoryInterface_a654cf5d268620e90fb71e7e224b762af}} 
+\index{MemoryInterface@{MemoryInterface}!Create@{Create}}
+\index{Create@{Create}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_abcd6a465778d3967e953132002665c28}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_a3929eb8fb2d3764e4a1d7d577a420be2}\label{classMemoryInterface_a3929eb8fb2d3764e4a1d7d577a420be2}} 
+\index{MemoryInterface@{MemoryInterface}!ForceUpdateAll@{ForceUpdateAll}}
+\index{ForceUpdateAll@{ForceUpdateAll}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{ForceUpdateAll()}{ForceUpdateAll()}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Force\+Update\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Forces a re-\/render of the memory interface \begin{DoxyNote}{Note}
+This is currently only used by the \mbox{\hyperlink{classDefrag}{Defrag}} tool 
+\end{DoxyNote}
+\mbox{\Hypertarget{classMemoryInterface_ae1209f151c2b644f5af6bb049fff80e6}\label{classMemoryInterface_ae1209f151c2b644f5af6bb049fff80e6}} 
+\index{MemoryInterface@{MemoryInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Memory\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_a7a8dc217bc3c334772ad96c6f06727f5}\label{classMemoryInterface_a7a8dc217bc3c334772ad96c6f06727f5}} 
+\index{MemoryInterface@{MemoryInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Memory\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a04a74f4d9ee1d393007fe90c44b4c6eb}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_ade16504521bb655010db29092be6a5bd}\label{classMemoryInterface_ade16504521bb655010db29092be6a5bd}} 
+\index{MemoryInterface@{MemoryInterface}!MemoryBlockClick@{MemoryBlockClick}}
+\index{MemoryBlockClick@{MemoryBlockClick}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{MemoryBlockClick()}{MemoryBlockClick()}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Memory\+Block\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Sets clicked element as program target 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} that was clicked on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMemoryInterface_ae4f32afcb3989a1d859bebacabe057ad}\label{classMemoryInterface_ae4f32afcb3989a1d859bebacabe057ad}} 
+\index{MemoryInterface@{MemoryInterface}!MemoryBlockDraw@{MemoryBlockDraw}}
+\index{MemoryBlockDraw@{MemoryBlockDraw}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{MemoryBlockDraw()}{MemoryBlockDraw()}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Memory\+Block\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders a memory block 
+\begin{DoxyParams}{Parameters}
+{\em button} & Memory block to render \\
+\hline
+{\em highlighted} & Is the memory block highlighted \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+clicked is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classMemoryInterface_afd603a99f8af162961eb8440658e85dc}\label{classMemoryInterface_afd603a99f8af162961eb8440658e85dc}} 
+\index{MemoryInterface@{MemoryInterface}!MemoryBlockHighlight@{MemoryBlockHighlight}}
+\index{MemoryBlockHighlight@{MemoryBlockHighlight}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{MemoryBlockHighlight()}{MemoryBlockHighlight()}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Memory\+Block\+Highlight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Highlights a memory block 
+\begin{DoxyParams}{Parameters}
+{\em button} & Memory block to highlight \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMemoryInterface_a90f917c93a7d428dd7584e441fe2142d}\label{classMemoryInterface_a90f917c93a7d428dd7584e441fe2142d}} 
+\index{MemoryInterface@{MemoryInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_a59c24d34fc64a76c1950ea38ef4ee2ce}\label{classMemoryInterface_a59c24d34fc64a76c1950ea38ef4ee2ce}} 
+\index{MemoryInterface@{MemoryInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a9f8a4312c2211cf79cd85117454a229d}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_aca2362e9cce48a29db7697eb59796e87}\label{classMemoryInterface_aca2362e9cce48a29db7697eb59796e87}} 
+\index{MemoryInterface@{MemoryInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Memory\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_a5f37bdf1933940b81db785a602af07b5}\label{classMemoryInterface_a5f37bdf1933940b81db785a602af07b5}} 
+\index{MemoryInterface@{MemoryInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int Memory\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_afe8ab526a93826bcb2b338a34a968049}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_af1bae136ff68f31b58da4546c1581875}\label{classMemoryInterface_af1bae136ff68f31b58da4546c1581875}} 
+\index{MemoryInterface@{MemoryInterface}!ScrollChange@{ScrollChange}}
+\index{ScrollChange@{ScrollChange}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{ScrollChange()}{ScrollChange()}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Scroll\+Change (\begin{DoxyParamCaption}\item[{const string \&}]{scrollname,  }\item[{int}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Forces a re-\/render of the memory interface 
+\begin{DoxyParams}{Parameters}
+{\em scrollname} & \\
+\hline
+{\em new\+Value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMemoryInterface_ace65c37ae2906dbf3e73a2f238e4a5cc}\label{classMemoryInterface_ace65c37ae2906dbf3e73a2f238e4a5cc}} 
+\index{MemoryInterface@{MemoryInterface}!SpecialHighlight@{SpecialHighlight}}
+\index{SpecialHighlight@{SpecialHighlight}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{SpecialHighlight()}{SpecialHighlight()}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Special\+Highlight (\begin{DoxyParamCaption}\item[{int}]{memory\+Index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Highlight memory block at index 
+\begin{DoxyParams}{Parameters}
+{\em memory\+Index} & Memory block index \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMemoryInterface_acfd9eb3469a8efe7b1d7124ab4513252}\label{classMemoryInterface_acfd9eb3469a8efe7b1d7124ab4513252}} 
+\index{MemoryInterface@{MemoryInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void Memory\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classMemoryInterface_ae1ca46f3b156bac0a85c52c0dc4cc518}\label{classMemoryInterface_ae1ca46f3b156bac0a85c52c0dc4cc518}} 
+\index{MemoryInterface@{MemoryInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classMemoryInterface_a0eb4d934cc06eaa8e6ab6897a2c2343e}\label{classMemoryInterface_a0eb4d934cc06eaa8e6ab6897a2c2343e}} 
+\index{MemoryInterface@{MemoryInterface}!Update@{Update}}
+\index{Update@{Update}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}{Local\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMemoryInterface_a488e00db0fa272e5e44785bca473533f}\label{classMemoryInterface_a488e00db0fa272e5e44785bca473533f}} 
+\index{MemoryInterface@{MemoryInterface}!Update@{Update}}
+\index{Update@{Update}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Memory\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classLocalInterfaceScreen_a8651afa14ee15ce05193fb6c6e39c6cd}{Local\+Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMemoryInterface_a8a3eda218acf4bf42fd637a2353a0772}\label{classMemoryInterface_a8a3eda218acf4bf42fd637a2353a0772}} 
+\index{MemoryInterface@{MemoryInterface}!baseoffset@{baseoffset}}
+\index{baseoffset@{baseoffset}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{baseoffset}{baseoffset}}
+{\footnotesize\ttfamily int Memory\+Interface\+::baseoffset = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The offset for the scroll box \mbox{\Hypertarget{classMemoryInterface_a943c6766f0e9a3e5fff10e285fd0b9f5}\label{classMemoryInterface_a943c6766f0e9a3e5fff10e285fd0b9f5}} 
+\index{MemoryInterface@{MemoryInterface}!currentprogramindex@{currentprogramindex}}
+\index{currentprogramindex@{currentprogramindex}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{currentprogramindex}{currentprogramindex}}
+{\footnotesize\ttfamily int Memory\+Interface\+::currentprogramindex = -\/1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Currently highlighted program \mbox{\Hypertarget{classMemoryInterface_abd584874c39bced99608c271ae051a81}\label{classMemoryInterface_abd584874c39bced99608c271ae051a81}} 
+\index{MemoryInterface@{MemoryInterface}!previousnumfiles@{previousnumfiles}}
+\index{previousnumfiles@{previousnumfiles}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{previousnumfiles}{previousnumfiles}}
+{\footnotesize\ttfamily int Memory\+Interface\+::previousnumfiles = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Number of files in memory \mbox{\Hypertarget{classMemoryInterface_a803cafc91b13d83e5dc63ab0b06e932d}\label{classMemoryInterface_a803cafc91b13d83e5dc63ab0b06e932d}} 
+\index{MemoryInterface@{MemoryInterface}!specialHighlight@{specialHighlight}}
+\index{specialHighlight@{specialHighlight}!MemoryInterface@{MemoryInterface}}
+\doxysubsubsection{\texorpdfstring{specialHighlight}{specialHighlight}}
+{\footnotesize\ttfamily int Memory\+Interface\+::special\+Highlight = -\/1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Which memory block should be highlighted 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/memory\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/template\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/memory\+\_\+interface.\+cpp\end{DoxyCompactItemize}

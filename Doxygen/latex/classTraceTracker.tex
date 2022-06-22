@@ -1,0 +1,182 @@
+\hypertarget{classTraceTracker}{}\doxysection{Trace\+Tracker Class Reference}
+\label{classTraceTracker}\index{TraceTracker@{TraceTracker}}
+
+
+Inheritance diagram for Trace\+Tracker\+:
+% FIG 0
+
+
+Collaboration diagram for Trace\+Tracker\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTraceTracker_ac065cb3122279645b36fe96ac65296ff}{Initialise}} () override
+\item 
+void \mbox{\hyperlink{classTraceTracker_a2a2b2f6e239985577e8f99230c169f43}{Tick}} (int n) override
+\item 
+void \mbox{\hyperlink{classTraceTracker_a7abdc80a9cf8f3a7336e9a5e13aee444}{Move\+To}} (int x, int y, int time\+\_\+ms) override
+\item 
+void \mbox{\hyperlink{classTraceTracker_a629684d9aeb757334c59acccc2cb182d}{Create\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classTraceTracker_a8cd9694e83c00126272874065d1d6e87}{Remove\+Interface}} () override
+\item 
+void \mbox{\hyperlink{classTraceTracker_a7c366d4519f9c54d4d3814f410e1cd91}{Show\+Interface}} () override
+\item 
+bool \mbox{\hyperlink{classTraceTracker_a0ae540d95605441acd483290cbe7af9f}{Is\+Interface\+Visible}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTraceTracker_aa6e2f031df3d804a5297abb41c749812}\label{classTraceTracker_aa6e2f031df3d804a5297abb41c749812}} 
+static void {\bfseries Trace\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classTraceTracker_a66d92b3cd90835cfd09db4d97c20f130}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classTraceTracker_a5fbfb25117945370755c5e6b516e6588}\label{classTraceTracker_a5fbfb25117945370755c5e6b516e6588}} 
+static void {\bfseries Audio\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classTraceTracker_af08a1fc36ed76d5635fce023116a9c5c}\label{classTraceTracker_af08a1fc36ed76d5635fce023116a9c5c}} 
+static void {\bfseries Audio\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTraceTracker_a7114887c273976f1e38c2d5fb0a1d762}\label{classTraceTracker_a7114887c273976f1e38c2d5fb0a1d762}} 
+int {\bfseries x}
+\item 
+\mbox{\Hypertarget{classTraceTracker_a751654a8cd94f1792ddceb84cdbeea12}\label{classTraceTracker_a751654a8cd94f1792ddceb84cdbeea12}} 
+int {\bfseries y}
+\item 
+\mbox{\Hypertarget{classTraceTracker_afb0b135ae05e1e3c34b81760ca8af521}\label{classTraceTracker_afb0b135ae05e1e3c34b81760ca8af521}} 
+int {\bfseries traceprogress}
+\item 
+\mbox{\Hypertarget{classTraceTracker_a6cbe7c877f38c5cc86c8dad446dc401b}\label{classTraceTracker_a6cbe7c877f38c5cc86c8dad446dc401b}} 
+int {\bfseries traceestimate}
+\item 
+\mbox{\Hypertarget{classTraceTracker_a1972462695882b875e7e46a734603380}\label{classTraceTracker_a1972462695882b875e7e46a734603380}} 
+int {\bfseries nextbeep}
+\item 
+\mbox{\Hypertarget{classTraceTracker_a8958ee4b4fe7b43e7f366457f3483d4d}\label{classTraceTracker_a8958ee4b4fe7b43e7f366457f3483d4d}} 
+int {\bfseries beepdelay}
+\item 
+\mbox{\Hypertarget{classTraceTracker_a7906cad72b03fd323dd4493dc62f7182}\label{classTraceTracker_a7906cad72b03fd323dd4493dc62f7182}} 
+int {\bfseries lastupdate}
+\item 
+\mbox{\Hypertarget{classTraceTracker_ab4bf92e80d435b0c94540c2b210c1318}\label{classTraceTracker_ab4bf92e80d435b0c94540c2b210c1318}} 
+bool {\bfseries audioon}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTraceTracker_a66d92b3cd90835cfd09db4d97c20f130}\label{classTraceTracker_a66d92b3cd90835cfd09db4d97c20f130}} 
+\index{TraceTracker@{TraceTracker}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!TraceTracker@{TraceTracker}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Trace\+Tracker\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classTraceTracker_a629684d9aeb757334c59acccc2cb182d}\label{classTraceTracker_a629684d9aeb757334c59acccc2cb182d}} 
+\index{TraceTracker@{TraceTracker}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!TraceTracker@{TraceTracker}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Trace\+Tracker\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classTraceTracker_ac065cb3122279645b36fe96ac65296ff}\label{classTraceTracker_ac065cb3122279645b36fe96ac65296ff}} 
+\index{TraceTracker@{TraceTracker}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!TraceTracker@{TraceTracker}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Trace\+Tracker\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classTraceTracker_a0ae540d95605441acd483290cbe7af9f}\label{classTraceTracker_a0ae540d95605441acd483290cbe7af9f}} 
+\index{TraceTracker@{TraceTracker}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!TraceTracker@{TraceTracker}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Trace\+Tracker\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classTraceTracker_a7abdc80a9cf8f3a7336e9a5e13aee444}\label{classTraceTracker_a7abdc80a9cf8f3a7336e9a5e13aee444}} 
+\index{TraceTracker@{TraceTracker}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!TraceTracker@{TraceTracker}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Trace\+Tracker\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classTraceTracker_a8cd9694e83c00126272874065d1d6e87}\label{classTraceTracker_a8cd9694e83c00126272874065d1d6e87}} 
+\index{TraceTracker@{TraceTracker}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!TraceTracker@{TraceTracker}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Trace\+Tracker\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classTraceTracker_a7c366d4519f9c54d4d3814f410e1cd91}\label{classTraceTracker_a7c366d4519f9c54d4d3814f410e1cd91}} 
+\index{TraceTracker@{TraceTracker}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!TraceTracker@{TraceTracker}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Trace\+Tracker\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classTraceTracker_a2a2b2f6e239985577e8f99230c169f43}\label{classTraceTracker_a2a2b2f6e239985577e8f99230c169f43}} 
+\index{TraceTracker@{TraceTracker}!Tick@{Tick}}
+\index{Tick@{Tick}!TraceTracker@{TraceTracker}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Trace\+Tracker\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/tracetracker.\+h\item 
+uplink/src/interface/taskmanager/tracetracker.\+cpp\end{DoxyCompactItemize}

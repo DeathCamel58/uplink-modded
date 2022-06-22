@@ -1,0 +1,203 @@
+\hypertarget{classLinksScreenInterface}{}\doxysection{Links\+Screen\+Interface Class Reference}
+\label{classLinksScreenInterface}\index{LinksScreenInterface@{LinksScreenInterface}}
+
+
+Inheritance diagram for Links\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Links\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a5856bbf93070abf88929a96280990b91}\label{classLinksScreenInterface_a5856bbf93070abf88929a96280990b91}} 
+void {\bfseries Set\+Full\+List} (\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ $\ast$newfulllist)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a6565f549739f26570c58607e3c083a16}\label{classLinksScreenInterface_a6565f549739f26570c58607e3c083a16}} 
+void {\bfseries Set\+Full\+List} ()
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a5d2b7d1614544c6cfe9d9595844a8d76}\label{classLinksScreenInterface_a5d2b7d1614544c6cfe9d9595844a8d76}} 
+void {\bfseries Apply\+Filter} (const string \&filter)
+\item 
+void \mbox{\hyperlink{classLinksScreenInterface_a496a86d9cbc256cca0d862cd8acc08a3}{Create}} () override
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a1061ba452a50be66549fd28bda98dabe}\label{classLinksScreenInterface_a1061ba452a50be66549fd28bda98dabe}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classLinksScreenInterface_aa925a9a145c6953b0cc3d8a662b7ed2f}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classLinksScreenInterface_a3bb7de12ab6cf156fb80f5b3853e170e}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classLinksScreenInterface_adc64dca97a30f477007f2f83d63bcb77}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classLinksScreenInterface_a0c27843e9eb0c42d49c208ef06558d72}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_ad995b36f6e759f80d8293f2cad62f9d2}\label{classLinksScreenInterface_ad995b36f6e759f80d8293f2cad62f9d2}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_ac6506d3ce9f79f23ddddf6ab2aad0f87}\label{classLinksScreenInterface_ac6506d3ce9f79f23ddddf6ab2aad0f87}} 
+\mbox{\hyperlink{classLinksScreen}{Links\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a460702370cfc2758e0b490916ced8229}\label{classLinksScreenInterface_a460702370cfc2758e0b490916ced8229}} 
+static void {\bfseries After\+Phone\+Dialler} (string \&ip, string \&info)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a410afff40f3a898c7cebc831d2d5cf53}\label{classLinksScreenInterface_a410afff40f3a898c7cebc831d2d5cf53}} 
+static void {\bfseries Link\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a9d53a2087d46d069384af7dc2c73604a}\label{classLinksScreenInterface_a9d53a2087d46d069384af7dc2c73604a}} 
+static void {\bfseries Link\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a48fad2422011cb062589d9ccd36c6e7b}\label{classLinksScreenInterface_a48fad2422011cb062589d9ccd36c6e7b}} 
+static void {\bfseries Link\+Mouse\+Down} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_ad821a6cba13f62548f9df8707f87ff55}\label{classLinksScreenInterface_ad821a6cba13f62548f9df8707f87ff55}} 
+static void {\bfseries Link\+Mouse\+Move} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_ae4e602dc0cb7b3c47610cf818ce56ac5}\label{classLinksScreenInterface_ae4e602dc0cb7b3c47610cf818ce56ac5}} 
+static void {\bfseries Filter\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a5fa06e3d5d150936b18e71f466b422ff}\label{classLinksScreenInterface_a5fa06e3d5d150936b18e71f466b422ff}} 
+static void {\bfseries Filter\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a8ff755e95222ea0ae74be8afaac58147}\label{classLinksScreenInterface_a8ff755e95222ea0ae74be8afaac58147}} 
+static void {\bfseries Delete\+Link\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a9fc50d127fa5f2d87fca4277fa4af878}\label{classLinksScreenInterface_a9fc50d127fa5f2d87fca4277fa4af878}} 
+static void {\bfseries Delete\+Link\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_ab5c3e85c6be42b3a70f0137e579ae05f}\label{classLinksScreenInterface_ab5c3e85c6be42b3a70f0137e579ae05f}} 
+static void {\bfseries Add\+Link\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_ae7713c62c91b2782c28407e0808a5c2e}\label{classLinksScreenInterface_ae7713c62c91b2782c28407e0808a5c2e}} 
+static void {\bfseries Add\+Link\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a819d6107abfc7b48abed95e9a8c28e47}\label{classLinksScreenInterface_a819d6107abfc7b48abed95e9a8c28e47}} 
+static void {\bfseries Show\+Link\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_acd71d0ec20b97b60a868d5d5201fa820}\label{classLinksScreenInterface_acd71d0ec20b97b60a868d5d5201fa820}} 
+static void {\bfseries Show\+Link\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a467214599987b7f94b68f145904970ed}\label{classLinksScreenInterface_a467214599987b7f94b68f145904970ed}} 
+static void {\bfseries Show\+Link\+Mouse\+Move} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_af66a70a2970af8d81952705c4b07b9da}\label{classLinksScreenInterface_af66a70a2970af8d81952705c4b07b9da}} 
+static void {\bfseries Scroll\+Up\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_abaccccba66accaee8a9291a113c49050}\label{classLinksScreenInterface_abaccccba66accaee8a9291a113c49050}} 
+static void {\bfseries Scroll\+Down\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a4a184d7cb119211ad6ceebcbca93eec9}\label{classLinksScreenInterface_a4a184d7cb119211ad6ceebcbca93eec9}} 
+static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a3177c770fc11031fdcc9576c8d6c6d7c}\label{classLinksScreenInterface_a3177c770fc11031fdcc9576c8d6c6d7c}} 
+static void {\bfseries Scroll\+Change} (const string \&scrollname, int new\+Value)
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a0d8a86cfdc8102808e0a00063276380d}\label{classLinksScreenInterface_a0d8a86cfdc8102808e0a00063276380d}} 
+static int {\bfseries Num\+Links\+On\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_acbef088bb867e4ddbf13871d1d13b188}\label{classLinksScreenInterface_acbef088bb867e4ddbf13871d1d13b188}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries fulllist}
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a0c4c214f0d37f925b12f8880e3ccc7ff}\label{classLinksScreenInterface_a0c4c214f0d37f925b12f8880e3ccc7ff}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries filteredlist}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_ab4d0b72f67ce4aa4993396eaae476ae2}\label{classLinksScreenInterface_ab4d0b72f67ce4aa4993396eaae476ae2}} 
+static int {\bfseries baseoffset} = 0
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_ab4b0f7ab2741df0dff1aa4b8e7f8c135}\label{classLinksScreenInterface_ab4b0f7ab2741df0dff1aa4b8e7f8c135}} 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries ilink\+\_\+tif} = nullptr
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a64abaac5588832326c55542ed9d46cbb}\label{classLinksScreenInterface_a64abaac5588832326c55542ed9d46cbb}} 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries ilink\+\_\+h\+\_\+tif} = nullptr
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a8d3591c2d0776aff90f1dce4e6d41ef1}\label{classLinksScreenInterface_a8d3591c2d0776aff90f1dce4e6d41ef1}} 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries ilink\+\_\+c\+\_\+tif} = nullptr
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a56b0b912e8a73dfb27ee1662656e53bd}\label{classLinksScreenInterface_a56b0b912e8a73dfb27ee1662656e53bd}} 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries iadd\+\_\+tif} = nullptr
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a86817640b83c77d307e4bcd705be68ce}\label{classLinksScreenInterface_a86817640b83c77d307e4bcd705be68ce}} 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries iadd\+\_\+h\+\_\+tif} = nullptr
+\item 
+\mbox{\Hypertarget{classLinksScreenInterface_a080497a1e4999fa96145dbd116e22555}\label{classLinksScreenInterface_a080497a1e4999fa96145dbd116e22555}} 
+static \mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries iadd\+\_\+c\+\_\+tif} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLinksScreenInterface_a496a86d9cbc256cca0d862cd8acc08a3}\label{classLinksScreenInterface_a496a86d9cbc256cca0d862cd8acc08a3}} 
+\index{LinksScreenInterface@{LinksScreenInterface}!Create@{Create}}
+\index{Create@{Create}!LinksScreenInterface@{LinksScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Links\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreenInterface_adc64dca97a30f477007f2f83d63bcb77}\label{classLinksScreenInterface_adc64dca97a30f477007f2f83d63bcb77}} 
+\index{LinksScreenInterface@{LinksScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!LinksScreenInterface@{LinksScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Links\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreenInterface_aa925a9a145c6953b0cc3d8a662b7ed2f}\label{classLinksScreenInterface_aa925a9a145c6953b0cc3d8a662b7ed2f}} 
+\index{LinksScreenInterface@{LinksScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!LinksScreenInterface@{LinksScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Links\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreenInterface_a0c27843e9eb0c42d49c208ef06558d72}\label{classLinksScreenInterface_a0c27843e9eb0c42d49c208ef06558d72}} 
+\index{LinksScreenInterface@{LinksScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!LinksScreenInterface@{LinksScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Links\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreenInterface_a3bb7de12ab6cf156fb80f5b3853e170e}\label{classLinksScreenInterface_a3bb7de12ab6cf156fb80f5b3853e170e}} 
+\index{LinksScreenInterface@{LinksScreenInterface}!Update@{Update}}
+\index{Update@{Update}!LinksScreenInterface@{LinksScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Links\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/linksscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/linksscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

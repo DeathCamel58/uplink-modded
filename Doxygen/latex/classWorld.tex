@@ -1,0 +1,200 @@
+\hypertarget{classWorld}{}\doxysection{World Class Reference}
+\label{classWorld}\index{World@{World}}
+
+
+Inheritance diagram for World\+:
+% FIG 0
+
+
+Collaboration diagram for World\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWorld_a09ae0f2f2d94e1781d17a9a50ff65204}\label{classWorld_a09ae0f2f2d94e1781d17a9a50ff65204}} 
+\mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ {\bfseries Create\+V\+Location} (const string \&ip, int phys\+\_\+x, int phys\+\_\+y)
+\item 
+\mbox{\Hypertarget{classWorld_a022763f21bb8a271ef3d0e8b80f9f73f}\label{classWorld_a022763f21bb8a271ef3d0e8b80f9f73f}} 
+\mbox{\hyperlink{classCompany}{Company}} $\ast$ {\bfseries Create\+Company} (const string \&name)
+\item 
+\mbox{\Hypertarget{classWorld_a2f3a437acf47e443245077636fb2d246}\label{classWorld_a2f3a437acf47e443245077636fb2d246}} 
+\mbox{\hyperlink{classComputer}{Computer}} $\ast$ {\bfseries Create\+Computer} (const string \&name, const string \&companyname, const string \&ip)
+\item 
+\mbox{\Hypertarget{classWorld_a009a24596fc065844fbb27c067b382ec}\label{classWorld_a009a24596fc065844fbb27c067b382ec}} 
+\mbox{\hyperlink{classPerson}{Person}} $\ast$ {\bfseries Create\+Person} (const string \&name, const string \&localhost)
+\item 
+\mbox{\Hypertarget{classWorld_ac29a51554ad662382ea049529c97eff3}\label{classWorld_ac29a51554ad662382ea049529c97eff3}} 
+void {\bfseries Create\+Password} (const string \&password)
+\item 
+\mbox{\Hypertarget{classWorld_a6e21899142485707d3fa16313eecf125}\label{classWorld_a6e21899142485707d3fa16313eecf125}} 
+void {\bfseries Create\+V\+Location} (\mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$vlocation)
+\item 
+\mbox{\Hypertarget{classWorld_a459dd2860038ae50718ae2d26663a54d}\label{classWorld_a459dd2860038ae50718ae2d26663a54d}} 
+void {\bfseries Create\+Company} (\mbox{\hyperlink{classCompany}{Company}} $\ast$company)
+\item 
+\mbox{\Hypertarget{classWorld_aa067a5412ce21bd634f033111d9cac62}\label{classWorld_aa067a5412ce21bd634f033111d9cac62}} 
+void {\bfseries Create\+Computer} (\mbox{\hyperlink{classComputer}{Computer}} $\ast$computer)
+\item 
+\mbox{\Hypertarget{classWorld_aad4eb1d71d2d32d06cc1f34088cb54e2}\label{classWorld_aad4eb1d71d2d32d06cc1f34088cb54e2}} 
+void {\bfseries Create\+Person} (\mbox{\hyperlink{classPerson}{Person}} $\ast$person)
+\item 
+\mbox{\Hypertarget{classWorld_a5742b6daff237ce95739588886b9a7a9}\label{classWorld_a5742b6daff237ce95739588886b9a7a9}} 
+void {\bfseries Create\+Gateway\+Def} (\mbox{\hyperlink{classGatewayDef}{Gateway\+Def}} $\ast$newdef)
+\item 
+\mbox{\Hypertarget{classWorld_a2f2b9983ad515b196e09cfb67fe64a4b}\label{classWorld_a2f2b9983ad515b196e09cfb67fe64a4b}} 
+\mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ {\bfseries Get\+V\+Location} (const string \&ip)
+\item 
+\mbox{\Hypertarget{classWorld_a10f1fc94e1ae9c5d44a0b576956bb2a7}\label{classWorld_a10f1fc94e1ae9c5d44a0b576956bb2a7}} 
+\mbox{\hyperlink{classCompany}{Company}} $\ast$ {\bfseries Get\+Company} (const string \&name)
+\item 
+\mbox{\Hypertarget{classWorld_a6398dd1efe6e7d71f35fae96da6dc21e}\label{classWorld_a6398dd1efe6e7d71f35fae96da6dc21e}} 
+\mbox{\hyperlink{classComputer}{Computer}} $\ast$ {\bfseries Get\+Computer} (const string \&name)
+\item 
+\mbox{\Hypertarget{classWorld_ac7e6061635038aaa4734a643d018ce4a}\label{classWorld_ac7e6061635038aaa4734a643d018ce4a}} 
+\mbox{\hyperlink{classPerson}{Person}} $\ast$ {\bfseries Get\+Person} (const string \&name)
+\item 
+\mbox{\Hypertarget{classWorld_af9342c21c4b0724c6b510d460accff50}\label{classWorld_af9342c21c4b0724c6b510d460accff50}} 
+string {\bfseries Get\+Password} (int index) const
+\item 
+\mbox{\Hypertarget{classWorld_afc3487010076b46ea19112a1a579f668}\label{classWorld_afc3487010076b46ea19112a1a579f668}} 
+\mbox{\hyperlink{classGatewayDef}{Gateway\+Def}} $\ast$ {\bfseries Get\+Gateway\+Def} (const string \&name) const
+\item 
+\mbox{\Hypertarget{classWorld_a9450e5f6dcb9ab75cdc79d789c70e06f}\label{classWorld_a9450e5f6dcb9ab75cdc79d789c70e06f}} 
+\mbox{\hyperlink{classPlayer}{Player}} $\ast$ {\bfseries Get\+Player} ()
+\item 
+bool \mbox{\hyperlink{classWorld_ac71763f39b4f9559c6f216588776c796}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classWorld_a25a3eab90cf449ce667d2703e691c6bf}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classWorld_a5e0b53ee6531a740cde90a7d394c34ea}{Print}} () override
+\item 
+void \mbox{\hyperlink{classWorld_a4e7862a10c3177b4ad01c4c2cd0db83d}{Update}} () override
+\item 
+string \mbox{\hyperlink{classWorld_a146576a8151462aac5c9de43746f9959}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWorld_a18f38504cfe30108019c733dc182dae3}\label{classWorld_a18f38504cfe30108019c733dc182dae3}} 
+static bool {\bfseries Verify\+V\+Location} (const string \&ip, int phys\+\_\+x, int phys\+\_\+y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWorld_ae7115fec362bc5cf3150c493c4700b99}\label{classWorld_ae7115fec362bc5cf3150c493c4700b99}} 
+\mbox{\hyperlink{classDate}{Date}} {\bfseries date}
+\item 
+\mbox{\Hypertarget{classWorld_a3e53689943364244ba88f6e9a4f65ac2}\label{classWorld_a3e53689943364244ba88f6e9a4f65ac2}} 
+\mbox{\hyperlink{classEventScheduler}{Event\+Scheduler}} {\bfseries scheduler}
+\item 
+\mbox{\Hypertarget{classWorld_a8720389f44fda0b0ccf2a14d952520da}\label{classWorld_a8720389f44fda0b0ccf2a14d952520da}} 
+\mbox{\hyperlink{classPlotGenerator}{Plot\+Generator}} {\bfseries plotgenerator}
+\item 
+\mbox{\Hypertarget{classWorld_a6dd9bbf0244780b8d0167896c74df926}\label{classWorld_a6dd9bbf0244780b8d0167896c74df926}} 
+\mbox{\hyperlink{classDemoPlotGenerator}{Demo\+Plot\+Generator}} {\bfseries demoplotgenerator}
+\item 
+\mbox{\Hypertarget{classWorld_a385b932188332f19e7ca8a5ddcd34137}\label{classWorld_a385b932188332f19e7ca8a5ddcd34137}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ \mbox{\hyperlink{classVLocation}{V\+Location}} $\ast$ $>$ {\bfseries locations}
+\item 
+\mbox{\Hypertarget{classWorld_a1bde89fc0418c7d380aa388cd04f6ae6}\label{classWorld_a1bde89fc0418c7d380aa388cd04f6ae6}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ \mbox{\hyperlink{classCompany}{Company}} $\ast$ $>$ {\bfseries companies}
+\item 
+\mbox{\Hypertarget{classWorld_a61e2f9b92ac72117bc39eb23f3f9dbfa}\label{classWorld_a61e2f9b92ac72117bc39eb23f3f9dbfa}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ \mbox{\hyperlink{classComputer}{Computer}} $\ast$ $>$ {\bfseries computers}
+\item 
+\mbox{\Hypertarget{classWorld_a0f4024007cefb132adbdf1bf95ce7dde}\label{classWorld_a0f4024007cefb132adbdf1bf95ce7dde}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ \mbox{\hyperlink{classPerson}{Person}} $\ast$ $>$ {\bfseries people}
+\item 
+\mbox{\Hypertarget{classWorld_a7ae1306bec0ec07c57ec49c42d297d46}\label{classWorld_a7ae1306bec0ec07c57ec49c42d297d46}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ string $>$ {\bfseries passwords}
+\item 
+\mbox{\Hypertarget{classWorld_a5daf2b162e0ef3d4204e4d38a9050355}\label{classWorld_a5daf2b162e0ef3d4204e4d38a9050355}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classGatewayDef}{Gateway\+Def}} $\ast$ $>$ {\bfseries gatewaydefs}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classWorld_a4e65c50e734ff7304e2a434f270436d9}\label{classWorld_a4e65c50e734ff7304e2a434f270436d9}} 
+\mbox{\hyperlink{classDate}{Date}} {\bfseries nextupdate}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWorld_a146576a8151462aac5c9de43746f9959}\label{classWorld_a146576a8151462aac5c9de43746f9959}} 
+\index{World@{World}!GetID@{GetID}}
+\index{GetID@{GetID}!World@{World}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string World\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classWorld_ac71763f39b4f9559c6f216588776c796}\label{classWorld_ac71763f39b4f9559c6f216588776c796}} 
+\index{World@{World}!Load@{Load}}
+\index{Load@{Load}!World@{World}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool World\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classWorld_a5e0b53ee6531a740cde90a7d394c34ea}\label{classWorld_a5e0b53ee6531a740cde90a7d394c34ea}} 
+\index{World@{World}!Print@{Print}}
+\index{Print@{Print}!World@{World}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void World\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classWorld_a25a3eab90cf449ce667d2703e691c6bf}\label{classWorld_a25a3eab90cf449ce667d2703e691c6bf}} 
+\index{World@{World}!Save@{Save}}
+\index{Save@{Save}!World@{World}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void World\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classWorld_a4e7862a10c3177b4ad01c4c2cd0db83d}\label{classWorld_a4e7862a10c3177b4ad01c4c2cd0db83d}} 
+\index{World@{World}!Update@{Update}}
+\index{Update@{Update}!World@{World}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void World\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/world.\+h\item 
+uplink/src/world/world.\+cpp\end{DoxyCompactItemize}

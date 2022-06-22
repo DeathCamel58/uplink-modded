@@ -1,0 +1,217 @@
+\hypertarget{classApp}{}\doxysection{App Class Reference}
+\label{classApp}\index{App@{App}}
+
+
+Inheritance diagram for App\+:
+% FIG 0
+
+
+Collaboration diagram for App\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classApp_a166400b54cc254fca8002f1f4f7b9a89}\label{classApp_a166400b54cc254fca8002f1f4f7b9a89}} 
+void {\bfseries Set} (string newpath, string newversion, string newtype, string newdate, string newtitle)
+\item 
+\mbox{\Hypertarget{classApp_ab4d576b61631d55b3d9ce73ddb2f5957}\label{classApp_ab4d576b61631d55b3d9ce73ddb2f5957}} 
+void {\bfseries Initialise} ()
+\item 
+\mbox{\Hypertarget{classApp_a8ba539139d6a1dab25d714e9bd95eec2}\label{classApp_a8ba539139d6a1dab25d714e9bd95eec2}} 
+void {\bfseries Close} ()
+\item 
+\mbox{\Hypertarget{classApp_a4eb01666c94deedc6bf2f027c9a2b64e}\label{classApp_a4eb01666c94deedc6bf2f027c9a2b64e}} 
+bool {\bfseries Closed} () const
+\item 
+\mbox{\Hypertarget{classApp_aa6312b2577a4ea5230fb3fee7d1021bd}\label{classApp_aa6312b2577a4ea5230fb3fee7d1021bd}} 
+void {\bfseries Set\+Next\+Load\+Game} (const string \&username)
+\item 
+\mbox{\Hypertarget{classApp_a11d5a431f378670f4a3647704b25f817}\label{classApp_a11d5a431f378670f4a3647704b25f817}} 
+void {\bfseries Load\+Game} ()
+\item 
+\mbox{\Hypertarget{classApp_a0a1e21345689af0e8b39505209d6f7b7}\label{classApp_a0a1e21345689af0e8b39505209d6f7b7}} 
+void {\bfseries Load\+Game} (const string \&username)
+\item 
+\mbox{\Hypertarget{classApp_a04f62f4287850da6fc57d1404846d66e}\label{classApp_a04f62f4287850da6fc57d1404846d66e}} 
+void {\bfseries Save\+Game} (const string \&username) const
+\item 
+\mbox{\Hypertarget{classApp_a1a16c9d41b20957f13f2a6f9ae711051}\label{classApp_a1a16c9d41b20957f13f2a6f9ae711051}} 
+void {\bfseries Retire\+Game} (const string \&username) const
+\item 
+\mbox{\Hypertarget{classApp_a4908dffb92dcf5b4873fcaf7e4233ba2}\label{classApp_a4908dffb92dcf5b4873fcaf7e4233ba2}} 
+\mbox{\hyperlink{classOptions}{Options}} $\ast$ {\bfseries Get\+Options} ()
+\item 
+\mbox{\Hypertarget{classApp_a9dfdc4fe6ec0ef57d8a029521a6ec686}\label{classApp_a9dfdc4fe6ec0ef57d8a029521a6ec686}} 
+\mbox{\hyperlink{classNetwork}{Network}} $\ast$ {\bfseries Get\+Network} ()
+\item 
+\mbox{\Hypertarget{classApp_af563de659b94799823f8e878ee483a16}\label{classApp_af563de659b94799823f8e878ee483a16}} 
+\mbox{\hyperlink{classMainMenu}{Main\+Menu}} $\ast$ {\bfseries Get\+Main\+Menu} ()
+\item 
+\mbox{\Hypertarget{classApp_a341d4b63ae6ac58e0e09216bfd9f3c43}\label{classApp_a341d4b63ae6ac58e0e09216bfd9f3c43}} 
+void {\bfseries Register\+Phone\+Dialler} (\mbox{\hyperlink{classPhoneDialler}{Phone\+Dialler}} $\ast$phone\+Dialler\+Screen)
+\item 
+\mbox{\Hypertarget{classApp_a5ce4c90666202d64b276554fae0144fe}\label{classApp_a5ce4c90666202d64b276554fae0144fe}} 
+void {\bfseries Un\+Register\+Phone\+Dialler} (\mbox{\hyperlink{classPhoneDialler}{Phone\+Dialler}} $\ast$phone\+Dialler\+Screen)
+\item 
+bool \mbox{\hyperlink{classApp_a199d6eed40a5bf206a32ce79713aff23}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classApp_ad38578bc970bb4343e6d25aecda185cb}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classApp_a7fb1ef5242b0e659f45558add87a690a}{Print}} () override
+\item 
+void \mbox{\hyperlink{classApp_a414ad82b81922a10fabc0a2e71ee2e18}{Update}} () override
+\item 
+string \mbox{\hyperlink{classApp_a62c43dfc02c049ebf5ebf1118a0a66cb}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classDArray}{D\+Array}}$<$ string $>$ $\ast$ \mbox{\hyperlink{classApp_a3a738c0c8dff4ebaecee48bafb1286ba}{List\+Existing\+Games}} ()
+\item 
+\mbox{\Hypertarget{classApp_a52bf913110446440c8e570aef6ec9ab0}\label{classApp_a52bf913110446440c8e570aef6ec9ab0}} 
+static void {\bfseries Core\+Dump} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classApp_af8017ba205afaa415c56863c22f078c8}\label{classApp_af8017ba205afaa415c56863c22f078c8}} 
+string {\bfseries path}
+\item 
+\mbox{\Hypertarget{classApp_a81a20a14b5d6b121c57068b6cbe587e9}\label{classApp_a81a20a14b5d6b121c57068b6cbe587e9}} 
+string {\bfseries userpath}
+\item 
+\mbox{\Hypertarget{classApp_a303a5c2270650cc20d7ea9291ed7c344}\label{classApp_a303a5c2270650cc20d7ea9291ed7c344}} 
+string {\bfseries usertmppath}
+\item 
+\mbox{\Hypertarget{classApp_a969738236b34a58971ba354e55415bb4}\label{classApp_a969738236b34a58971ba354e55415bb4}} 
+string {\bfseries userretirepath}
+\item 
+\mbox{\Hypertarget{classApp_a8c565a189b08b528ba2f2119faed8a6b}\label{classApp_a8c565a189b08b528ba2f2119faed8a6b}} 
+string {\bfseries version}
+\item 
+\mbox{\Hypertarget{classApp_a316389976a390f15366dd1bfe98813d1}\label{classApp_a316389976a390f15366dd1bfe98813d1}} 
+string {\bfseries type}
+\item 
+\mbox{\Hypertarget{classApp_ad8573b92ae801069d164f38c94695b7a}\label{classApp_ad8573b92ae801069d164f38c94695b7a}} 
+string {\bfseries date}
+\item 
+\mbox{\Hypertarget{classApp_a4db6ba46d7d045faecbfd6adae175466}\label{classApp_a4db6ba46d7d045faecbfd6adae175466}} 
+string {\bfseries title}
+\item 
+\mbox{\Hypertarget{classApp_abc7e011f1204a5ab74ec7371166482e2}\label{classApp_abc7e011f1204a5ab74ec7371166482e2}} 
+string {\bfseries release}
+\item 
+\mbox{\Hypertarget{classApp_a30c82638ce1bdd33da0eb5d01dc5b433}\label{classApp_a30c82638ce1bdd33da0eb5d01dc5b433}} 
+int {\bfseries starttime}
+\item 
+\mbox{\Hypertarget{classApp_a4cfa138c35906dcaa2bb1082a2a86e10}\label{classApp_a4cfa138c35906dcaa2bb1082a2a86e10}} 
+bool {\bfseries closed}
+\item 
+\mbox{\Hypertarget{classApp_a13882a48e2671a0957db3766f354b632}\label{classApp_a13882a48e2671a0957db3766f354b632}} 
+\mbox{\hyperlink{classOptions}{Options}} $\ast$ {\bfseries options}
+\item 
+\mbox{\Hypertarget{classApp_a9e2de8ea4c914dad9f436848974ca797}\label{classApp_a9e2de8ea4c914dad9f436848974ca797}} 
+\mbox{\hyperlink{classNetwork}{Network}} $\ast$ {\bfseries network}
+\item 
+\mbox{\Hypertarget{classApp_a3a90dbc14ba05742f169f63350c7e506}\label{classApp_a3a90dbc14ba05742f169f63350c7e506}} 
+\mbox{\hyperlink{classMainMenu}{Main\+Menu}} $\ast$ {\bfseries mainmenu}
+\item 
+\mbox{\Hypertarget{classApp_a12f35eb9be96d10a8058846a0f126739}\label{classApp_a12f35eb9be96d10a8058846a0f126739}} 
+\mbox{\hyperlink{classPhoneDialler}{Phone\+Dialler}} $\ast$ {\bfseries phone\+Dial}
+\item 
+\mbox{\Hypertarget{classApp_a32f3eb99bc8d818ed4c14663a2b9560c}\label{classApp_a32f3eb99bc8d818ed4c14663a2b9560c}} 
+string {\bfseries next\+Load\+Game}
+\item 
+\mbox{\Hypertarget{classApp_a4fe05566f1a76afa0a36849fd8d614cb}\label{classApp_a4fe05566f1a76afa0a36849fd8d614cb}} 
+bool {\bfseries ask\+Code\+Card}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classApp_a62c43dfc02c049ebf5ebf1118a0a66cb}\label{classApp_a62c43dfc02c049ebf5ebf1118a0a66cb}} 
+\index{App@{App}!GetID@{GetID}}
+\index{GetID@{GetID}!App@{App}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string App\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classApp_a3a738c0c8dff4ebaecee48bafb1286ba}\label{classApp_a3a738c0c8dff4ebaecee48bafb1286ba}} 
+\index{App@{App}!ListExistingGames@{ListExistingGames}}
+\index{ListExistingGames@{ListExistingGames}!App@{App}}
+\doxysubsubsection{\texorpdfstring{ListExistingGames()}{ListExistingGames()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDArray}{D\+Array}}$<$ string $>$ $\ast$ App\+::\+List\+Existing\+Games (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets all save games \begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classDArray}{D\+Array}} of all save game file names 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classApp_a199d6eed40a5bf206a32ce79713aff23}\label{classApp_a199d6eed40a5bf206a32ce79713aff23}} 
+\index{App@{App}!Load@{Load}}
+\index{Load@{Load}!App@{App}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool App\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classApp_a7fb1ef5242b0e659f45558add87a690a}\label{classApp_a7fb1ef5242b0e659f45558add87a690a}} 
+\index{App@{App}!Print@{Print}}
+\index{Print@{Print}!App@{App}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void App\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classApp_ad38578bc970bb4343e6d25aecda185cb}\label{classApp_ad38578bc970bb4343e6d25aecda185cb}} 
+\index{App@{App}!Save@{Save}}
+\index{Save@{Save}!App@{App}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void App\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classApp_a414ad82b81922a10fabc0a2e71ee2e18}\label{classApp_a414ad82b81922a10fabc0a2e71ee2e18}} 
+\index{App@{App}!Update@{Update}}
+\index{Update@{Update}!App@{App}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void App\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/app/app.\+h\item 
+uplink/src/app/app.\+cpp\end{DoxyCompactItemize}

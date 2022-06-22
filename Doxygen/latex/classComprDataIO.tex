@@ -1,0 +1,114 @@
+\hypertarget{classComprDataIO}{}\doxysection{Compr\+Data\+IO Class Reference}
+\label{classComprDataIO}\index{ComprDataIO@{ComprDataIO}}
+
+
+Collaboration diagram for Compr\+Data\+IO\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a9b34d7306fa75a0e41e0da0823e069c1}\label{classComprDataIO_a9b34d7306fa75a0e41e0da0823e069c1}} 
+void {\bfseries Init} ()
+\item 
+\mbox{\Hypertarget{classComprDataIO_a512f34effc6bf9d92e729da73c515f44}\label{classComprDataIO_a512f34effc6bf9d92e729da73c515f44}} 
+int {\bfseries Unp\+Read} (byte $\ast$Addr, uint Count)
+\item 
+\mbox{\Hypertarget{classComprDataIO_a7b99dd010e80eb146b0d373925e76a11}\label{classComprDataIO_a7b99dd010e80eb146b0d373925e76a11}} 
+void {\bfseries Unp\+Write} (byte $\ast$Addr, uint Count)
+\item 
+\mbox{\Hypertarget{classComprDataIO_a9d3adbdc2ef1b9178ef5ad8f1c02f33b}\label{classComprDataIO_a9d3adbdc2ef1b9178ef5ad8f1c02f33b}} 
+void {\bfseries Enable\+Show\+Progress} (bool Show)
+\item 
+\mbox{\Hypertarget{classComprDataIO_a4f51597bd92e6907a6cc85fbae45d01e}\label{classComprDataIO_a4f51597bd92e6907a6cc85fbae45d01e}} 
+void {\bfseries Get\+Unpacked\+Data} (byte $\ast$$\ast$\mbox{\hyperlink{classData}{Data}}, uint $\ast$Size)
+\item 
+\mbox{\Hypertarget{classComprDataIO_a80cfed6a26a86a14a3aaa1d88bc8a966}\label{classComprDataIO_a80cfed6a26a86a14a3aaa1d88bc8a966}} 
+void {\bfseries Set\+Packed\+Size\+To\+Read} (\mbox{\hyperlink{classInt64}{Int64}} Size)
+\item 
+\mbox{\Hypertarget{classComprDataIO_ac2f0c203f5c3fb342167709c9cc01072}\label{classComprDataIO_ac2f0c203f5c3fb342167709c9cc01072}} 
+void {\bfseries Set\+Test\+Mode} (bool Mode)
+\item 
+\mbox{\Hypertarget{classComprDataIO_a712adbd109666f36a45156ac5c646f6e}\label{classComprDataIO_a712adbd109666f36a45156ac5c646f6e}} 
+void {\bfseries Set\+Skip\+Unp\+C\+RC} (bool Skip)
+\item 
+\mbox{\Hypertarget{classComprDataIO_a9c219e2c7b6c221cde925808ba91ac29}\label{classComprDataIO_a9c219e2c7b6c221cde925808ba91ac29}} 
+void {\bfseries Set\+Files} (\mbox{\hyperlink{classFile}{File}} $\ast$Src\+File, \mbox{\hyperlink{classFile}{File}} $\ast$Dest\+File)
+\item 
+\mbox{\Hypertarget{classComprDataIO_a13f1a0006a814cffc12f637e4b9cd394}\label{classComprDataIO_a13f1a0006a814cffc12f637e4b9cd394}} 
+void {\bfseries Set\+Command} (Cmd\+Add $\ast$Cmd)
+\item 
+\mbox{\Hypertarget{classComprDataIO_ac6cd24f0e5f455d620a31dcca5e43470}\label{classComprDataIO_ac6cd24f0e5f455d620a31dcca5e43470}} 
+void {\bfseries Set\+Sub\+Header} (\mbox{\hyperlink{structFileHeader}{File\+Header}} $\ast$hd, \mbox{\hyperlink{classInt64}{Int64}} $\ast$Pos)
+\item 
+\mbox{\Hypertarget{classComprDataIO_af6deedb0aad7917b829e9dd3b69c2cab}\label{classComprDataIO_af6deedb0aad7917b829e9dd3b69c2cab}} 
+void {\bfseries Set\+Encryption} (int Method, char $\ast$Password, byte $\ast$Salt, bool Encrypt)
+\item 
+\mbox{\Hypertarget{classComprDataIO_ae778fbef5bc6d99ae3985115083e9ec2}\label{classComprDataIO_ae778fbef5bc6d99ae3985115083e9ec2}} 
+void {\bfseries Set\+A\+V15\+Encryption} ()
+\item 
+\mbox{\Hypertarget{classComprDataIO_a248f726707d75e797e53ca148ccee020}\label{classComprDataIO_a248f726707d75e797e53ca148ccee020}} 
+void {\bfseries Set\+Cmt13\+Encryption} ()
+\item 
+\mbox{\Hypertarget{classComprDataIO_ae80811c83ce1bda80692abe6fd8c3d94}\label{classComprDataIO_ae80811c83ce1bda80692abe6fd8c3d94}} 
+void {\bfseries Set\+Unpack\+To\+Memory} (byte $\ast$Addr, uint Size)
+\item 
+\mbox{\Hypertarget{classComprDataIO_a4b071da90bf0de99fa656e174192cea1}\label{classComprDataIO_a4b071da90bf0de99fa656e174192cea1}} 
+void {\bfseries Set\+Current\+Command} (char Cmd)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a4dfd398f59279cfcd6c5d23898f4231e}\label{classComprDataIO_a4dfd398f59279cfcd6c5d23898f4231e}} 
+bool {\bfseries Pack\+Volume}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a9b58563d6b9e6dafeaba103f60f3afc5}\label{classComprDataIO_a9b58563d6b9e6dafeaba103f60f3afc5}} 
+bool {\bfseries Unp\+Volume}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a1077651f8e105e8287b5937c9fabd7af}\label{classComprDataIO_a1077651f8e105e8287b5937c9fabd7af}} 
+bool {\bfseries Next\+Volume\+Missing}
+\item 
+\mbox{\Hypertarget{classComprDataIO_aa3f1ec2ae2fcf42d02800ca2c5e733d6}\label{classComprDataIO_aa3f1ec2ae2fcf42d02800ca2c5e733d6}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Total\+Pack\+Read}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a78219200f1504e4c3b6c128170061da2}\label{classComprDataIO_a78219200f1504e4c3b6c128170061da2}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Unp\+Arc\+Size}
+\item 
+\mbox{\Hypertarget{classComprDataIO_af426f78a1fe46fe433282bf47c7b54c3}\label{classComprDataIO_af426f78a1fe46fe433282bf47c7b54c3}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Cur\+Pack\+Read}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a89aeb05334c2d94ed5132109d0eb4244}\label{classComprDataIO_a89aeb05334c2d94ed5132109d0eb4244}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Cur\+Pack\+Write}
+\item 
+\mbox{\Hypertarget{classComprDataIO_ad48a1c22c2ff40a8f6580cbd2d380760}\label{classComprDataIO_ad48a1c22c2ff40a8f6580cbd2d380760}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Cur\+Unp\+Read}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a69fba5e244ca81b0cdcb60d562f76170}\label{classComprDataIO_a69fba5e244ca81b0cdcb60d562f76170}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Cur\+Unp\+Write}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a1a7a484f2748097f238bde958af7c9ea}\label{classComprDataIO_a1a7a484f2748097f238bde958af7c9ea}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Processed\+Arc\+Size}
+\item 
+\mbox{\Hypertarget{classComprDataIO_ab725cfcbecb9f8637d07beb73a9fe59a}\label{classComprDataIO_ab725cfcbecb9f8637d07beb73a9fe59a}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Total\+Arc\+Size}
+\item 
+\mbox{\Hypertarget{classComprDataIO_aeb8b7ef01b466bbad70daf8ca86d864d}\label{classComprDataIO_aeb8b7ef01b466bbad70daf8ca86d864d}} 
+uint {\bfseries Pack\+File\+C\+RC}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a44e7244fee333a0f1b03a4349b2189e0}\label{classComprDataIO_a44e7244fee333a0f1b03a4349b2189e0}} 
+uint {\bfseries Unp\+File\+C\+RC}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a0b17289dab91eb5a33d40fae0b9ec325}\label{classComprDataIO_a0b17289dab91eb5a33d40fae0b9ec325}} 
+uint {\bfseries Packed\+C\+RC}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a5fd109bfd8c6b25b54a9752a6976d1cf}\label{classComprDataIO_a5fd109bfd8c6b25b54a9752a6976d1cf}} 
+int {\bfseries Encryption}
+\item 
+\mbox{\Hypertarget{classComprDataIO_a681245c58c7f46d56575f63e0d994492}\label{classComprDataIO_a681245c58c7f46d56575f63e0d994492}} 
+int {\bfseries Decryption}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/unrar/rdwrfn.\+hpp\item 
+uplink/lib/unrar/rdwrfn.\+cpp\end{DoxyCompactItemize}

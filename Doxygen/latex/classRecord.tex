@@ -1,0 +1,143 @@
+\hypertarget{classRecord}{}\doxysection{Record Class Reference}
+\label{classRecord}\index{Record@{Record}}
+
+
+Inheritance diagram for Record\+:
+% FIG 0
+
+
+Collaboration diagram for Record\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecord_ac27d148e0198ff451196804ba0612062}\label{classRecord_ac27d148e0198ff451196804ba0612062}} 
+void {\bfseries Add\+Field} (const string \&name, const string \&value)
+\item 
+\mbox{\Hypertarget{classRecord_a21bedc7cd13d8c9eb7ab847a4d2fbdc4}\label{classRecord_a21bedc7cd13d8c9eb7ab847a4d2fbdc4}} 
+void {\bfseries Add\+Field} (const string \&name, int value)
+\item 
+\mbox{\Hypertarget{classRecord_aaf27d384066e7ae1dffcf375c06f14df}\label{classRecord_aaf27d384066e7ae1dffcf375c06f14df}} 
+void {\bfseries Change\+Field} (const string \&name, const string \&newvalue)
+\item 
+\mbox{\Hypertarget{classRecord_a70d76d0ab800cd56c85e1b67be60971e}\label{classRecord_a70d76d0ab800cd56c85e1b67be60971e}} 
+void {\bfseries Change\+Field} (const string \&name, int newvalue)
+\item 
+\mbox{\Hypertarget{classRecord_a6c72a141ef3b7a6f4ca31e8f0859e491}\label{classRecord_a6c72a141ef3b7a6f4ca31e8f0859e491}} 
+char $\ast$ {\bfseries Get\+Field} (const string \&name)
+\item 
+\mbox{\Hypertarget{classRecord_ae54fbeec9a1790f70fddc3f479cab454}\label{classRecord_ae54fbeec9a1790f70fddc3f479cab454}} 
+void {\bfseries Delete\+Field} (const string \&name)
+\item 
+bool \mbox{\hyperlink{classRecord_a0076e643b6abb86604cb01aaf356ee0c}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classRecord_a8b2a4632659a16c00dc0bd1460e7fa46}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classRecord_adbe60febe321307b4246f5f301295868}{Print}} () override
+\item 
+void \mbox{\hyperlink{classRecord_a67f53450355c13782e6fbed84680fb80}{Update}} () override
+\item 
+string \mbox{\hyperlink{classRecord_ac16beb6e940a11e94dc859dcc6287a57}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classRecord_a0ff3a735a97170f5e6549936f75f6dc8}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRecord_a5081fe6fe5534e7054d0183457815a27}\label{classRecord_a5081fe6fe5534e7054d0183457815a27}} 
+\mbox{\hyperlink{classBTree}{B\+Tree}}$<$ char $\ast$ $>$ {\bfseries fields}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRecord_ac16beb6e940a11e94dc859dcc6287a57}\label{classRecord_ac16beb6e940a11e94dc859dcc6287a57}} 
+\index{Record@{Record}!GetID@{GetID}}
+\index{GetID@{GetID}!Record@{Record}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Record\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecord_a0ff3a735a97170f5e6549936f75f6dc8}\label{classRecord_a0ff3a735a97170f5e6549936f75f6dc8}} 
+\index{Record@{Record}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!Record@{Record}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Record\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecord_a0076e643b6abb86604cb01aaf356ee0c}\label{classRecord_a0076e643b6abb86604cb01aaf356ee0c}} 
+\index{Record@{Record}!Load@{Load}}
+\index{Load@{Load}!Record@{Record}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Record\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecord_adbe60febe321307b4246f5f301295868}\label{classRecord_adbe60febe321307b4246f5f301295868}} 
+\index{Record@{Record}!Print@{Print}}
+\index{Print@{Print}!Record@{Record}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Record\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecord_a8b2a4632659a16c00dc0bd1460e7fa46}\label{classRecord_a8b2a4632659a16c00dc0bd1460e7fa46}} 
+\index{Record@{Record}!Save@{Save}}
+\index{Save@{Save}!Record@{Record}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Record\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRecord_a67f53450355c13782e6fbed84680fb80}\label{classRecord_a67f53450355c13782e6fbed84680fb80}} 
+\index{Record@{Record}!Update@{Update}}
+\index{Update@{Update}!Record@{Record}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Record\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/recordbank.\+h\item 
+uplink/src/world/computer/recordbank.\+cpp\end{DoxyCompactItemize}

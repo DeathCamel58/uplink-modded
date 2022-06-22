@@ -1,0 +1,95 @@
+\hypertarget{classDialogScreenInterface}{}\doxysection{Dialog\+Screen\+Interface Class Reference}
+\label{classDialogScreenInterface}\index{DialogScreenInterface@{DialogScreenInterface}}
+
+
+Inheritance diagram for Dialog\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Dialog\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialogScreenInterface_aa074636c2f857bc8926081d2388925c6}\label{classDialogScreenInterface_aa074636c2f857bc8926081d2388925c6}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classDialogScreenInterface_a1901fb4b3834b9e9b91bb17533786918}\label{classDialogScreenInterface_a1901fb4b3834b9e9b91bb17533786918}} 
+bool {\bfseries Escape\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classDialogScreenInterface_aa42807585d157e90fcb54a94f5b43dd6}\label{classDialogScreenInterface_aa42807585d157e90fcb54a94f5b43dd6}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+\item 
+void \mbox{\hyperlink{classDialogScreenInterface_a6d102854d1cc55fb84a2f93051c6cb8d}{Remove}} () override
+\item 
+bool \mbox{\hyperlink{classDialogScreenInterface_a1871b34090d37437634e34efe129d480}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classDialogScreenInterface_a67e98ace5a36162448d9b066152e0974}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classDialogScreenInterface_ad5fe25c8ebe764e5ff416f3be9d8dc16}\label{classDialogScreenInterface_ad5fe25c8ebe764e5ff416f3be9d8dc16}} 
+\mbox{\hyperlink{classDialogScreen}{Dialog\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialogScreenInterface_a1129a6638e5908acd9b853313ca7e82b}\label{classDialogScreenInterface_a1129a6638e5908acd9b853313ca7e82b}} 
+static void {\bfseries Remove\+Widget} (\mbox{\hyperlink{classDialogScreenWidget}{Dialog\+Screen\+Widget}} $\ast$dsw, \mbox{\hyperlink{classComputer}{Computer}} $\ast$comp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDialogScreenInterface_a3fa60544660b134c5c88355f729396f4}\label{classDialogScreenInterface_a3fa60544660b134c5c88355f729396f4}} 
+static void {\bfseries Password\+Box\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classDialogScreenInterface_a1f1fe6c4985a2d9428c090a369745021}\label{classDialogScreenInterface_a1f1fe6c4985a2d9428c090a369745021}} 
+static void {\bfseries Next\+Page\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classDialogScreenInterface_a05ed490007d6a602a8f11a4585474c87}\label{classDialogScreenInterface_a05ed490007d6a602a8f11a4585474c87}} 
+static void {\bfseries Script\+Button\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDialogScreenInterface_a1871b34090d37437634e34efe129d480}\label{classDialogScreenInterface_a1871b34090d37437634e34efe129d480}} 
+\index{DialogScreenInterface@{DialogScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!DialogScreenInterface@{DialogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Dialog\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classDialogScreenInterface_a6d102854d1cc55fb84a2f93051c6cb8d}\label{classDialogScreenInterface_a6d102854d1cc55fb84a2f93051c6cb8d}} 
+\index{DialogScreenInterface@{DialogScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!DialogScreenInterface@{DialogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Dialog\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classDialogScreenInterface_a67e98ace5a36162448d9b066152e0974}\label{classDialogScreenInterface_a67e98ace5a36162448d9b066152e0974}} 
+\index{DialogScreenInterface@{DialogScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!DialogScreenInterface@{DialogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Dialog\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/dialogscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/dialogscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

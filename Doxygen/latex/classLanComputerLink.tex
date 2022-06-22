@@ -1,0 +1,140 @@
+\hypertarget{classLanComputerLink}{}\doxysection{Lan\+Computer\+Link Class Reference}
+\label{classLanComputerLink}\index{LanComputerLink@{LanComputerLink}}
+
+
+Inheritance diagram for Lan\+Computer\+Link\+:
+% FIG 0
+
+
+Collaboration diagram for Lan\+Computer\+Link\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_aa3bcab6d855f7254494dd2bc6daffedc}\label{classLanComputerLink_aa3bcab6d855f7254494dd2bc6daffedc}} 
+void {\bfseries Increase\+Visibility} (int new\+Value)
+\item 
+bool \mbox{\hyperlink{classLanComputerLink_ac10216717cf619d6d8f4ae78b4c46cb3}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLanComputerLink_a20a9f6dab6f41311c84c214a9caf9956}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classLanComputerLink_ab42a9d0ad5814b93a06aca60db745590}{Print}} () override
+\item 
+string \mbox{\hyperlink{classLanComputerLink_a2bb777fd1e4e7daa2ff42defee121494}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classLanComputerLink_a905bf09ea6a800ca136bf7c32ad47158}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_ae824c9764514ec3ccc4311096b336e85}\label{classLanComputerLink_ae824c9764514ec3ccc4311096b336e85}} 
+int {\bfseries visible}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_abd60ff37bb174c5367da07e09b82b347}\label{classLanComputerLink_abd60ff37bb174c5367da07e09b82b347}} 
+int {\bfseries port}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_a420a1c02edc1c54fd2703c327abc6f29}\label{classLanComputerLink_a420a1c02edc1c54fd2703c327abc6f29}} 
+int {\bfseries security}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_af3e04ae2fa97914de6e879e12eb88d3e}\label{classLanComputerLink_af3e04ae2fa97914de6e879e12eb88d3e}} 
+int {\bfseries from}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_ad1c3309885bbd8637fd4d38af755c7c7}\label{classLanComputerLink_ad1c3309885bbd8637fd4d38af755c7c7}} 
+int {\bfseries to}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_a823068ed1d5d0bf9def98e1156d8f62d}\label{classLanComputerLink_a823068ed1d5d0bf9def98e1156d8f62d}} 
+float {\bfseries fromX}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_aa5594fd8433678800228f943955b3a96}\label{classLanComputerLink_aa5594fd8433678800228f943955b3a96}} 
+float {\bfseries fromY}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_a9e35597d2a8533fe22174436bda54660}\label{classLanComputerLink_a9e35597d2a8533fe22174436bda54660}} 
+float {\bfseries toX}
+\item 
+\mbox{\Hypertarget{classLanComputerLink_ab4fea16c2e5bafd07f9f31cdf777fd6f}\label{classLanComputerLink_ab4fea16c2e5bafd07f9f31cdf777fd6f}} 
+float {\bfseries toY}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLanComputerLink_a2bb777fd1e4e7daa2ff42defee121494}\label{classLanComputerLink_a2bb777fd1e4e7daa2ff42defee121494}} 
+\index{LanComputerLink@{LanComputerLink}!GetID@{GetID}}
+\index{GetID@{GetID}!LanComputerLink@{LanComputerLink}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Lan\+Computer\+Link\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLanComputerLink_a905bf09ea6a800ca136bf7c32ad47158}\label{classLanComputerLink_a905bf09ea6a800ca136bf7c32ad47158}} 
+\index{LanComputerLink@{LanComputerLink}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!LanComputerLink@{LanComputerLink}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Lan\+Computer\+Link\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLanComputerLink_ac10216717cf619d6d8f4ae78b4c46cb3}\label{classLanComputerLink_ac10216717cf619d6d8f4ae78b4c46cb3}} 
+\index{LanComputerLink@{LanComputerLink}!Load@{Load}}
+\index{Load@{Load}!LanComputerLink@{LanComputerLink}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Lan\+Computer\+Link\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLanComputerLink_ab42a9d0ad5814b93a06aca60db745590}\label{classLanComputerLink_ab42a9d0ad5814b93a06aca60db745590}} 
+\index{LanComputerLink@{LanComputerLink}!Print@{Print}}
+\index{Print@{Print}!LanComputerLink@{LanComputerLink}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Lan\+Computer\+Link\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classLanComputerLink_a20a9f6dab6f41311c84c214a9caf9956}\label{classLanComputerLink_a20a9f6dab6f41311c84c214a9caf9956}} 
+\index{LanComputerLink@{LanComputerLink}!Save@{Save}}
+\index{Save@{Save}!LanComputerLink@{LanComputerLink}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Lan\+Computer\+Link\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/lancomputer.\+h\item 
+uplink/src/world/computer/lancomputer.\+cpp\end{DoxyCompactItemize}

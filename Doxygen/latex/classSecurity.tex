@@ -1,0 +1,149 @@
+\hypertarget{classSecurity}{}\doxysection{Security Class Reference}
+\label{classSecurity}\index{Security@{Security}}
+
+
+Inheritance diagram for Security\+:
+% FIG 0
+
+
+Collaboration diagram for Security\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSecurity_aa919d97bd8c325c59188764c03d60637}\label{classSecurity_aa919d97bd8c325c59188764c03d60637}} 
+void {\bfseries Add\+System} (\mbox{\hyperlink{classSecuritySystem}{Security\+System}} $\ast$newsystem, int index=-\/1)
+\item 
+\mbox{\Hypertarget{classSecurity_a0d2ae4efbaca9dd583985e5d4d00a76b}\label{classSecurity_a0d2ae4efbaca9dd583985e5d4d00a76b}} 
+void {\bfseries Add\+System} (int T\+Y\+PE, int level, int index=-\/1)
+\item 
+\mbox{\Hypertarget{classSecurity_a23633cc0bd65d0c8a28f659da6bffaea}\label{classSecurity_a23633cc0bd65d0c8a28f659da6bffaea}} 
+void {\bfseries Remove\+All\+Systems} ()
+\item 
+\mbox{\Hypertarget{classSecurity_ab629a34119858baaf2b8f07bae1e7e7c}\label{classSecurity_ab629a34119858baaf2b8f07bae1e7e7c}} 
+\mbox{\hyperlink{classSecuritySystem}{Security\+System}} $\ast$ {\bfseries Get\+System} (int index)
+\item 
+\mbox{\Hypertarget{classSecurity_a7ee5f5e638521dd32fd3b483834917d9}\label{classSecurity_a7ee5f5e638521dd32fd3b483834917d9}} 
+int {\bfseries Num\+Systems} ()
+\item 
+\mbox{\Hypertarget{classSecurity_a16d9e64694c6b5a2563fc30023b1bf6b}\label{classSecurity_a16d9e64694c6b5a2563fc30023b1bf6b}} 
+int {\bfseries Num\+Running\+Systems} ()
+\item 
+\mbox{\Hypertarget{classSecurity_a61b089c5061283a194b2d40ce25fd5b6}\label{classSecurity_a61b089c5061283a194b2d40ce25fd5b6}} 
+bool {\bfseries Is\+Running} (int T\+Y\+PE)
+\item 
+\mbox{\Hypertarget{classSecurity_acfefd5e61d2210176bbea63d066230fd}\label{classSecurity_acfefd5e61d2210176bbea63d066230fd}} 
+bool {\bfseries Is\+Running\+\_\+\+Proxy} ()
+\item 
+\mbox{\Hypertarget{classSecurity_a6de147ac2bcd0bf20791ca0950f62da6}\label{classSecurity_a6de147ac2bcd0bf20791ca0950f62da6}} 
+bool {\bfseries Is\+Running\+\_\+\+Firewall} ()
+\item 
+\mbox{\Hypertarget{classSecurity_a9c3918601ea878fd6d5e350401464907}\label{classSecurity_a9c3918601ea878fd6d5e350401464907}} 
+bool {\bfseries Is\+Running\+\_\+\+Encryption} ()
+\item 
+\mbox{\Hypertarget{classSecurity_ac20d69903406e999268170fc3b5135ad}\label{classSecurity_ac20d69903406e999268170fc3b5135ad}} 
+bool {\bfseries Is\+Running\+\_\+\+Monitor} ()
+\item 
+\mbox{\Hypertarget{classSecurity_a608ff1e8d23299e1c5e01a04ecce75e6}\label{classSecurity_a608ff1e8d23299e1c5e01a04ecce75e6}} 
+bool {\bfseries Is\+Anything\+Enabled} ()
+\item 
+\mbox{\Hypertarget{classSecurity_ad3b8c83aca51696384a1f3a240894ddb}\label{classSecurity_ad3b8c83aca51696384a1f3a240894ddb}} 
+bool {\bfseries Is\+Anything\+Disabled} ()
+\item 
+bool \mbox{\hyperlink{classSecurity_a201d8cb95dc987866108c8494c09b3bb}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classSecurity_aa7cfff5983133e6e484f16a4d87b5e40}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classSecurity_a2a718fb20aefa35a1eb43475cdf41ac1}{Print}} () override
+\item 
+void \mbox{\hyperlink{classSecurity_ab74ad37fb8ac24eb46e975182df2a930}{Update}} () override
+\item 
+string \mbox{\hyperlink{classSecurity_a3061f20ffd0e3d651fab4df380f21982}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSecurity_ab748e204ca72bc99a891592d7248c688}\label{classSecurity_ab748e204ca72bc99a891592d7248c688}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classSecuritySystem}{Security\+System}} $\ast$ $>$ {\bfseries systems}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSecurity_a3061f20ffd0e3d651fab4df380f21982}\label{classSecurity_a3061f20ffd0e3d651fab4df380f21982}} 
+\index{Security@{Security}!GetID@{GetID}}
+\index{GetID@{GetID}!Security@{Security}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Security\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSecurity_a201d8cb95dc987866108c8494c09b3bb}\label{classSecurity_a201d8cb95dc987866108c8494c09b3bb}} 
+\index{Security@{Security}!Load@{Load}}
+\index{Load@{Load}!Security@{Security}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Security\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSecurity_a2a718fb20aefa35a1eb43475cdf41ac1}\label{classSecurity_a2a718fb20aefa35a1eb43475cdf41ac1}} 
+\index{Security@{Security}!Print@{Print}}
+\index{Print@{Print}!Security@{Security}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Security\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSecurity_aa7cfff5983133e6e484f16a4d87b5e40}\label{classSecurity_aa7cfff5983133e6e484f16a4d87b5e40}} 
+\index{Security@{Security}!Save@{Save}}
+\index{Save@{Save}!Security@{Security}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Security\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classSecurity_ab74ad37fb8ac24eb46e975182df2a930}\label{classSecurity_ab74ad37fb8ac24eb46e975182df2a930}} 
+\index{Security@{Security}!Update@{Update}}
+\index{Update@{Update}!Security@{Security}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Security\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/security.\+h\item 
+uplink/src/world/computer/security.\+cpp\end{DoxyCompactItemize}

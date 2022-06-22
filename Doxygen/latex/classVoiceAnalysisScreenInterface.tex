@@ -1,0 +1,116 @@
+\hypertarget{classVoiceAnalysisScreenInterface}{}\doxysection{Voice\+Analysis\+Screen\+Interface Class Reference}
+\label{classVoiceAnalysisScreenInterface}\index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}}
+
+
+Inheritance diagram for Voice\+Analysis\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Voice\+Analysis\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a18c938a7873feefd8434abb248adc0d4}\label{classVoiceAnalysisScreenInterface_a18c938a7873feefd8434abb248adc0d4}} 
+void {\bfseries Start\+Voice\+Playback} ()
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a03b3415f65bd85c67d707888a255e989}\label{classVoiceAnalysisScreenInterface_a03b3415f65bd85c67d707888a255e989}} 
+void {\bfseries Finish\+Voice\+Playback} (const string \&voicename)
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a7d8be04f8957ffb873e559c64a7fd1a5}\label{classVoiceAnalysisScreenInterface_a7d8be04f8957ffb873e559c64a7fd1a5}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_af2c3410d568343a38b7c7bf1e1466ac7}\label{classVoiceAnalysisScreenInterface_af2c3410d568343a38b7c7bf1e1466ac7}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classVoiceAnalysisScreenInterface_a492b854fd1247eaa7c11c0bcd94b9dc1}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classVoiceAnalysisScreenInterface_abe670c9fb89d17827a0f8c7abdc33c57}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classVoiceAnalysisScreenInterface_afd044b94f27020c5f95644897035f502}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classVoiceAnalysisScreenInterface_ad27d4e05326709d38235c50047adb946}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a3c9f5a2f3ca4ce34a8bf5b717596168c}\label{classVoiceAnalysisScreenInterface_a3c9f5a2f3ca4ce34a8bf5b717596168c}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a79a8e71545b79299f1e082ea119ac8cc}\label{classVoiceAnalysisScreenInterface_a79a8e71545b79299f1e082ea119ac8cc}} 
+static void {\bfseries Draw\+Background} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a97bdcb3239ad3ab56f33ba228eb93a51}\label{classVoiceAnalysisScreenInterface_a97bdcb3239ad3ab56f33ba228eb93a51}} 
+static void {\bfseries Draw\+Analysis} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a445fccc9d68dc85ab8e9917c084deaea}\label{classVoiceAnalysisScreenInterface_a445fccc9d68dc85ab8e9917c084deaea}} 
+static void {\bfseries Click\+Access} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a1cb29f693deb2ef5ceeb5c7e724df570}\label{classVoiceAnalysisScreenInterface_a1cb29f693deb2ef5ceeb5c7e724df570}} 
+int {\bfseries sample} \mbox{[}V\+O\+I\+C\+E\+\_\+\+N\+U\+M\+S\+A\+M\+P\+L\+ES\mbox{]}
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_afffa7ecd1f27069309a4e3909fb7f3a2}\label{classVoiceAnalysisScreenInterface_afffa7ecd1f27069309a4e3909fb7f3a2}} 
+int {\bfseries lastupdate}
+\item 
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a262c65ecf854480aa117adcf060a4d67}\label{classVoiceAnalysisScreenInterface_a262c65ecf854480aa117adcf060a4d67}} 
+int {\bfseries S\+T\+A\+T\+US}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_afd044b94f27020c5f95644897035f502}\label{classVoiceAnalysisScreenInterface_afd044b94f27020c5f95644897035f502}} 
+\index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Voice\+Analysis\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a492b854fd1247eaa7c11c0bcd94b9dc1}\label{classVoiceAnalysisScreenInterface_a492b854fd1247eaa7c11c0bcd94b9dc1}} 
+\index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Voice\+Analysis\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_ad27d4e05326709d38235c50047adb946}\label{classVoiceAnalysisScreenInterface_ad27d4e05326709d38235c50047adb946}} 
+\index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Voice\+Analysis\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_abe670c9fb89d17827a0f8c7abdc33c57}\label{classVoiceAnalysisScreenInterface_abe670c9fb89d17827a0f8c7abdc33c57}} 
+\index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}!Update@{Update}}
+\index{Update@{Update}!VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Voice\+Analysis\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}{Remote\+Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/voiceanalysisscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/voiceanalysisscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

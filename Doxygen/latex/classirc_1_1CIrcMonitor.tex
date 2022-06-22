@@ -1,0 +1,68 @@
+\hypertarget{classirc_1_1CIrcMonitor}{}\doxysection{irc\+::C\+Irc\+Monitor Class Reference}
+\label{classirc_1_1CIrcMonitor}\index{irc::CIrcMonitor@{irc::CIrcMonitor}}
+
+
+Inheritance diagram for irc\+::C\+Irc\+Monitor\+:
+% FIG 0
+
+
+Collaboration diagram for irc\+::C\+Irc\+Monitor\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structirc_1_1CIrcMonitor_1_1IrcCommandsMapsListEntry}{Irc\+Commands\+Maps\+List\+Entry}}
+\item 
+struct \mbox{\hyperlink{structirc_1_1CIrcMonitor_1_1LessString}{Less\+String}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a2f69da80c3849702b4ad9f87fbb018e9}\label{classirc_1_1CIrcMonitor_a2f69da80c3849702b4ad9f87fbb018e9}} 
+typedef bool(C\+Irc\+Monitor\+::$\ast$ {\bfseries Pfn\+Irc\+Message\+Handler}) (const \mbox{\hyperlink{classirc_1_1CIrcMessage}{C\+Irc\+Message}} $\ast$pmsg)
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a48db642c02b58cb367e157a2beea7462}\label{classirc_1_1CIrcMonitor_a48db642c02b58cb367e157a2beea7462}} 
+typedef std\+::map$<$ const char $\ast$, Pfn\+Irc\+Message\+Handler, \mbox{\hyperlink{structirc_1_1CIrcMonitor_1_1LessString}{Less\+String}} $>$ {\bfseries Handlers\+Map}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a578fd4763820e4ae60a09b385d3744ce}\label{classirc_1_1CIrcMonitor_a578fd4763820e4ae60a09b385d3744ce}} 
+{\bfseries C\+Irc\+Monitor} (\mbox{\hyperlink{classirc_1_1CIrcSession}{C\+Irc\+Session}} \&session)
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a6f2cc2792ea9e4c83e63b1ed6db9a471}\label{classirc_1_1CIrcMonitor_a6f2cc2792ea9e4c83e63b1ed6db9a471}} 
+virtual void {\bfseries On\+Irc\+Message} (const \mbox{\hyperlink{classirc_1_1CIrcMessage}{C\+Irc\+Message}} $\ast$pmsg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a19a21633d24904eebcdb19432dfa7f49}\label{classirc_1_1CIrcMonitor_a19a21633d24904eebcdb19432dfa7f49}} 
+virtual \mbox{\hyperlink{structirc_1_1CIrcMonitor_1_1IrcCommandsMapsListEntry}{Irc\+Commands\+Maps\+List\+Entry}} $\ast$ {\bfseries Get\+Irc\+Commands\+Map} ()
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a2c8d6df5428da3768bf5a721ae3c63be}\label{classirc_1_1CIrcMonitor_a2c8d6df5428da3768bf5a721ae3c63be}} 
+virtual void {\bfseries On\+Irc\+All} (const \mbox{\hyperlink{classirc_1_1CIrcMessage}{C\+Irc\+Message}} $\ast$pmsg)
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a5d92d3fc5988344e55064646adedf6e6}\label{classirc_1_1CIrcMonitor_a5d92d3fc5988344e55064646adedf6e6}} 
+virtual void {\bfseries On\+Irc\+Default} (const \mbox{\hyperlink{classirc_1_1CIrcMessage}{C\+Irc\+Message}} $\ast$pmsg)
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_ab83a8471ee254ae7ec3725cca3e287c0}\label{classirc_1_1CIrcMonitor_ab83a8471ee254ae7ec3725cca3e287c0}} 
+virtual void {\bfseries On\+Irc\+Disconnected} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a6d1f3b8aff454d54c34ccf2f1d7e532d}\label{classirc_1_1CIrcMonitor_a6d1f3b8aff454d54c34ccf2f1d7e532d}} 
+\mbox{\hyperlink{classirc_1_1CIrcSession}{C\+Irc\+Session}} \& {\bfseries m\+\_\+session}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classirc_1_1CIrcMonitor_a0b19cc83481dac180432b93f4b8a0b08}\label{classirc_1_1CIrcMonitor_a0b19cc83481dac180432b93f4b8a0b08}} 
+static \mbox{\hyperlink{structirc_1_1CIrcMonitor_1_1IrcCommandsMapsListEntry}{Irc\+Commands\+Maps\+List\+Entry}} {\bfseries m\+\_\+handlers\+Maps\+List\+Entry} = \{ \&C\+Irc\+Monitor\+::m\+\_\+handlers, nullptr \}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/irclib/irc.\+h\item 
+uplink/lib/irclib/irc.\+cpp\end{DoxyCompactItemize}

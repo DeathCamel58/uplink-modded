@@ -1,0 +1,144 @@
+\hypertarget{classNetworkOptionsInterface}{}\doxysection{Network\+Options\+Interface Class Reference}
+\label{classNetworkOptionsInterface}\index{NetworkOptionsInterface@{NetworkOptionsInterface}}
+
+
+Inheritance diagram for Network\+Options\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Network\+Options\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworkOptionsInterface_a9267c225144f4fd40d7070bd3fc9f873}{Create}} () override
+\item 
+void \mbox{\hyperlink{classNetworkOptionsInterface_a7a50a4bbe964a51517c811592d8cddd4}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classNetworkOptionsInterface_a35bad4b4508327c93fab2628ea088640}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classNetworkOptionsInterface_a6e3f985e1fd8456537554dd61731783f}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classNetworkOptionsInterface_ae8c5b41acaee8d326e97ff77a2dc31b0}{Screen\+ID}} () override
+\item 
+bool \mbox{\hyperlink{classNetworkOptionsInterface_a48eea67504a973f14b241ecba6ad2c69}{Return\+Key\+Pressed}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classNetworkOptionsInterface_a9b3f36660e291c05fd1aa4871f9216f5}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNetworkOptionsInterface_a046c0e796dbe6d1a2616cead819e6397}\label{classNetworkOptionsInterface_a046c0e796dbe6d1a2616cead819e6397}} 
+static void {\bfseries Server\+Button\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNetworkOptionsInterface_a39bfa93e22deacc55da355bd69e17cc9}\label{classNetworkOptionsInterface_a39bfa93e22deacc55da355bd69e17cc9}} 
+static void {\bfseries Client\+Button\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classNetworkOptionsInterface_a03ddde46c334b3b8ffe103b31b406a37}\label{classNetworkOptionsInterface_a03ddde46c334b3b8ffe103b31b406a37}} 
+static void {\bfseries Status\+Button\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNetworkOptionsInterface_a07a43d88a7581a97f2c8b2852e6ab535}\label{classNetworkOptionsInterface_a07a43d88a7581a97f2c8b2852e6ab535}} 
+static void {\bfseries Server\+Button\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classNetworkOptionsInterface_a523240af7c24c5dba23fd5d114452c20}\label{classNetworkOptionsInterface_a523240af7c24c5dba23fd5d114452c20}} 
+static void {\bfseries Client\+Button\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkOptionsInterface_abfe711cdddcddc26e3ea5303a106280c}\label{classNetworkOptionsInterface_abfe711cdddcddc26e3ea5303a106280c}} 
+static int {\bfseries old\+Network\+Status} = N\+E\+T\+W\+O\+R\+K\+\_\+\+N\+O\+NE
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworkOptionsInterface_a9b3f36660e291c05fd1aa4871f9216f5}\label{classNetworkOptionsInterface_a9b3f36660e291c05fd1aa4871f9216f5}} 
+\index{NetworkOptionsInterface@{NetworkOptionsInterface}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!NetworkOptionsInterface@{NetworkOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Network\+Options\+Interface\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classNetworkOptionsInterface_a9267c225144f4fd40d7070bd3fc9f873}\label{classNetworkOptionsInterface_a9267c225144f4fd40d7070bd3fc9f873}} 
+\index{NetworkOptionsInterface@{NetworkOptionsInterface}!Create@{Create}}
+\index{Create@{Create}!NetworkOptionsInterface@{NetworkOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Network\+Options\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Create the screen 
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_af836bc645d44f74a7095de5c38f3f9e4}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classNetworkOptionsInterface_a6e3f985e1fd8456537554dd61731783f}\label{classNetworkOptionsInterface_a6e3f985e1fd8456537554dd61731783f}} 
+\index{NetworkOptionsInterface@{NetworkOptionsInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!NetworkOptionsInterface@{NetworkOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Network\+Options\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen currently visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a8f3c79bc2a8722c1fe9ac71dbc415565}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classNetworkOptionsInterface_a7a50a4bbe964a51517c811592d8cddd4}\label{classNetworkOptionsInterface_a7a50a4bbe964a51517c811592d8cddd4}} 
+\index{NetworkOptionsInterface@{NetworkOptionsInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!NetworkOptionsInterface@{NetworkOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Network\+Options\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Destroy the screen 
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a72531e7cc526b412144a2ad5af3206aa}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classNetworkOptionsInterface_a48eea67504a973f14b241ecba6ad2c69}\label{classNetworkOptionsInterface_a48eea67504a973f14b241ecba6ad2c69}} 
+\index{NetworkOptionsInterface@{NetworkOptionsInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!NetworkOptionsInterface@{NetworkOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Network\+Options\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+No clue \begin{DoxyReturn}{Returns}
+true under all conditions 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a10782923e43ab898ef0ffd3593ba9f8a}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classNetworkOptionsInterface_ae8c5b41acaee8d326e97ff77a2dc31b0}\label{classNetworkOptionsInterface_ae8c5b41acaee8d326e97ff77a2dc31b0}} 
+\index{NetworkOptionsInterface@{NetworkOptionsInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!NetworkOptionsInterface@{NetworkOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Network\+Options\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the ID of the screen \begin{DoxyReturn}{Returns}
+ID of the screen 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a17c38b7fdc70881cc04432b9b0f0b35c}{Main\+Menu\+Screen}}.
+
+\mbox{\Hypertarget{classNetworkOptionsInterface_a35bad4b4508327c93fab2628ea088640}\label{classNetworkOptionsInterface_a35bad4b4508327c93fab2628ea088640}} 
+\index{NetworkOptionsInterface@{NetworkOptionsInterface}!Update@{Update}}
+\index{Update@{Update}!NetworkOptionsInterface@{NetworkOptionsInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Network\+Options\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Update the screen 
+
+Reimplemented from \mbox{\hyperlink{classMainMenuScreen_a9ac397e461a12c55a7ea56d8a4d6806e}{Main\+Menu\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/mainmenu/networkoptions\+\_\+interface.\+h\item 
+uplink/src/mainmenu/networkoptions\+\_\+interface.\+cpp\end{DoxyCompactItemize}

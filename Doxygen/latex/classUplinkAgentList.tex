@@ -1,0 +1,200 @@
+\hypertarget{classUplinkAgentList}{}\doxysection{Uplink\+Agent\+List Class Reference}
+\label{classUplinkAgentList}\index{UplinkAgentList@{UplinkAgentList}}
+
+
+Inheritance diagram for Uplink\+Agent\+List\+:
+% FIG 0
+
+
+Collaboration diagram for Uplink\+Agent\+List\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUplinkAgentList_a63e8a2d6ffa3e26bec1285c04d32ac9b}\label{classUplinkAgentList_a63e8a2d6ffa3e26bec1285c04d32ac9b}} 
+void {\bfseries Update\+Lists} ()
+\item 
+void \mbox{\hyperlink{classUplinkAgentList_a3edcaa034899728d6af870079cc92475}{Set\+Target}} (\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$uo, const string \&uos, int uoi)
+\item 
+void \mbox{\hyperlink{classUplinkAgentList_a3cbce3c0b9637eb291b0888d13589fcd}{Initialise}} ()
+\item 
+void \mbox{\hyperlink{classUplinkAgentList_a2a1d20a5e4689732e2c828d223c3449f}{Tick}} (int n)
+\item 
+void \mbox{\hyperlink{classUplinkAgentList_a12ac60f1edb16dcfb8947402297ed3d0}{Move\+To}} (int x, int y, int time\+\_\+ms)
+\item 
+void \mbox{\hyperlink{classUplinkAgentList_a1a14d8251c5066a0a32131981416c50c}{Create\+Interface}} ()
+\item 
+void \mbox{\hyperlink{classUplinkAgentList_a6a4b94a9aa1b20e149b7628e6b28dbea}{Remove\+Interface}} ()
+\item 
+void \mbox{\hyperlink{classUplinkAgentList_a0fdd45a412d79286b3caa5317e014aa0}{Show\+Interface}} ()
+\item 
+bool \mbox{\hyperlink{classUplinkAgentList_a8d603bbe6f8a5cb4601136cce44ecd14}{Is\+Interface\+Visible}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUplinkAgentList_ad8c8e31667608b986b801ae0f01c22d7}\label{classUplinkAgentList_ad8c8e31667608b986b801ae0f01c22d7}} 
+static void {\bfseries Uplink\+Agent\+List\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classUplinkAgentList_a5e1a235394e392a35e39e248bbb75ee4}\label{classUplinkAgentList_a5e1a235394e392a35e39e248bbb75ee4}} 
+static void {\bfseries Scroll\+Up\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classUplinkAgentList_a2662c7dc917220b58fde6db189845a76}\label{classUplinkAgentList_a2662c7dc917220b58fde6db189845a76}} 
+static void {\bfseries Scroll\+Down\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classUplinkAgentList_a62259f1977ec790bb33cb37fd2ffc409}\label{classUplinkAgentList_a62259f1977ec790bb33cb37fd2ffc409}} 
+static void {\bfseries Title\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classUplinkAgentList_abf6b4959780f09123d0945c9ab117cec}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUplinkAgentList_a5a11e80f19ae09e26524e97d1e40ebea}\label{classUplinkAgentList_a5a11e80f19ae09e26524e97d1e40ebea}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ char $\ast$ $>$ {\bfseries handles}
+\item 
+\mbox{\Hypertarget{classUplinkAgentList_a8c7abf1e6ecc5b05b9aba34be7960c68}\label{classUplinkAgentList_a8c7abf1e6ecc5b05b9aba34be7960c68}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ char $\ast$ $>$ {\bfseries names}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUplinkAgentList_a35069f9441e99b24fdead68fca33815b}\label{classUplinkAgentList_a35069f9441e99b24fdead68fca33815b}} 
+static int {\bfseries baseoffset} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUplinkAgentList_abf6b4959780f09123d0945c9ab117cec}\label{classUplinkAgentList_abf6b4959780f09123d0945c9ab117cec}} 
+\index{UplinkAgentList@{UplinkAgentList}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Uplink\+Agent\+List\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classUplinkAgentList_a1a14d8251c5066a0a32131981416c50c}\label{classUplinkAgentList_a1a14d8251c5066a0a32131981416c50c}} 
+\index{UplinkAgentList@{UplinkAgentList}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Uplink\+Agent\+List\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classUplinkAgentList_a3cbce3c0b9637eb291b0888d13589fcd}\label{classUplinkAgentList_a3cbce3c0b9637eb291b0888d13589fcd}} 
+\index{UplinkAgentList@{UplinkAgentList}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Uplink\+Agent\+List\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classUplinkAgentList_a8d603bbe6f8a5cb4601136cce44ecd14}\label{classUplinkAgentList_a8d603bbe6f8a5cb4601136cce44ecd14}} 
+\index{UplinkAgentList@{UplinkAgentList}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Uplink\+Agent\+List\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classUplinkAgentList_a12ac60f1edb16dcfb8947402297ed3d0}\label{classUplinkAgentList_a12ac60f1edb16dcfb8947402297ed3d0}} 
+\index{UplinkAgentList@{UplinkAgentList}!MoveTo@{MoveTo}}
+\index{MoveTo@{MoveTo}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{MoveTo()}{MoveTo()}}
+{\footnotesize\ttfamily void Uplink\+Agent\+List\+::\+Move\+To (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{time\+\_\+ms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Moves the program to given coordinates over a set period of time 
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em time\+\_\+ms} & The time in milliseconds the movement should take \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_af895d4afb9dd36bb3455dec891757c54}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classUplinkAgentList_a6a4b94a9aa1b20e149b7628e6b28dbea}\label{classUplinkAgentList_a6a4b94a9aa1b20e149b7628e6b28dbea}} 
+\index{UplinkAgentList@{UplinkAgentList}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Uplink\+Agent\+List\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classUplinkAgentList_a3edcaa034899728d6af870079cc92475}\label{classUplinkAgentList_a3edcaa034899728d6af870079cc92475}} 
+\index{UplinkAgentList@{UplinkAgentList}!SetTarget@{SetTarget}}
+\index{SetTarget@{SetTarget}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{SetTarget()}{SetTarget()}}
+{\footnotesize\ttfamily void Uplink\+Agent\+List\+::\+Set\+Target (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classUplinkObject}{Uplink\+Object}} $\ast$}]{uo,  }\item[{const string \&}]{uos,  }\item[{int}]{uoi }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Does nothing 
+\begin{DoxyParams}{Parameters}
+{\em uo} & \\
+\hline
+{\em uos} & \\
+\hline
+{\em uoi} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+uo, uos, and uoi are unused 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkTask_ae953c144491b9f57015fd3108cf35546}{Uplink\+Task}}.
+
+\mbox{\Hypertarget{classUplinkAgentList_a0fdd45a412d79286b3caa5317e014aa0}\label{classUplinkAgentList_a0fdd45a412d79286b3caa5317e014aa0}} 
+\index{UplinkAgentList@{UplinkAgentList}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Uplink\+Agent\+List\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classUplinkAgentList_a2a1d20a5e4689732e2c828d223c3449f}\label{classUplinkAgentList_a2a1d20a5e4689732e2c828d223c3449f}} 
+\index{UplinkAgentList@{UplinkAgentList}!Tick@{Tick}}
+\index{Tick@{Tick}!UplinkAgentList@{UplinkAgentList}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Uplink\+Agent\+List\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/uplinkagentlist.\+h\item 
+uplink/src/interface/taskmanager/uplinkagentlist.\+cpp\end{DoxyCompactItemize}

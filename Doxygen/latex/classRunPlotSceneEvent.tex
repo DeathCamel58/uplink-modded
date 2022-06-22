@@ -1,0 +1,161 @@
+\hypertarget{classRunPlotSceneEvent}{}\doxysection{Run\+Plot\+Scene\+Event Class Reference}
+\label{classRunPlotSceneEvent}\index{RunPlotSceneEvent@{RunPlotSceneEvent}}
+
+
+Inheritance diagram for Run\+Plot\+Scene\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for Run\+Plot\+Scene\+Event\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRunPlotSceneEvent_ae64081073a6b0cc19dbd44a9c155749d}\label{classRunPlotSceneEvent_ae64081073a6b0cc19dbd44a9c155749d}} 
+void {\bfseries Set\+Act\+And\+Scene} (int newact, int newscene)
+\item 
+void \mbox{\hyperlink{classRunPlotSceneEvent_a990192781ccfaceccba67724c6b39a8a}{Run}} () override
+\item 
+string \mbox{\hyperlink{classRunPlotSceneEvent_a3d0510c9402f3d7fc595f9ffbfc0a808}{Get\+Short\+String}} () override
+\item 
+string \mbox{\hyperlink{classRunPlotSceneEvent_a8ae4da01a9476f614e9d26eaf55eef8f}{Get\+Long\+String}} () override
+\item 
+bool \mbox{\hyperlink{classRunPlotSceneEvent_abb78884b458523776bdabdd2464450be}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classRunPlotSceneEvent_a30ab9f247163c266d920f72ee25b4484}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classRunPlotSceneEvent_ac03f0184f7d72b5dcaf86fd387b5c46f}{Print}} () override
+\item 
+string \mbox{\hyperlink{classRunPlotSceneEvent_a6d8083e4d845713d126e591997b6f0f4}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classRunPlotSceneEvent_ae74b238e0e70c373d81cd0e4de98a474}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRunPlotSceneEvent_a2bf1c1352ed719fb76cf4fceb02a6801}\label{classRunPlotSceneEvent_a2bf1c1352ed719fb76cf4fceb02a6801}} 
+int {\bfseries act}
+\item 
+\mbox{\Hypertarget{classRunPlotSceneEvent_aef7de68080843b6821c52220d519c76c}\label{classRunPlotSceneEvent_aef7de68080843b6821c52220d519c76c}} 
+int {\bfseries scene}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRunPlotSceneEvent_a6d8083e4d845713d126e591997b6f0f4}\label{classRunPlotSceneEvent_a6d8083e4d845713d126e591997b6f0f4}} 
+\index{RunPlotSceneEvent@{RunPlotSceneEvent}!GetID@{GetID}}
+\index{GetID@{GetID}!RunPlotSceneEvent@{RunPlotSceneEvent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Run\+Plot\+Scene\+Event\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRunPlotSceneEvent_a8ae4da01a9476f614e9d26eaf55eef8f}\label{classRunPlotSceneEvent_a8ae4da01a9476f614e9d26eaf55eef8f}} 
+\index{RunPlotSceneEvent@{RunPlotSceneEvent}!GetLongString@{GetLongString}}
+\index{GetLongString@{GetLongString}!RunPlotSceneEvent@{RunPlotSceneEvent}}
+\doxysubsubsection{\texorpdfstring{GetLongString()}{GetLongString()}}
+{\footnotesize\ttfamily string Run\+Plot\+Scene\+Event\+::\+Get\+Long\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the long string version of the event \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classRunPlotSceneEvent_ae74b238e0e70c373d81cd0e4de98a474}\label{classRunPlotSceneEvent_ae74b238e0e70c373d81cd0e4de98a474}} 
+\index{RunPlotSceneEvent@{RunPlotSceneEvent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!RunPlotSceneEvent@{RunPlotSceneEvent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Run\+Plot\+Scene\+Event\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRunPlotSceneEvent_a3d0510c9402f3d7fc595f9ffbfc0a808}\label{classRunPlotSceneEvent_a3d0510c9402f3d7fc595f9ffbfc0a808}} 
+\index{RunPlotSceneEvent@{RunPlotSceneEvent}!GetShortString@{GetShortString}}
+\index{GetShortString@{GetShortString}!RunPlotSceneEvent@{RunPlotSceneEvent}}
+\doxysubsubsection{\texorpdfstring{GetShortString()}{GetShortString()}}
+{\footnotesize\ttfamily string Run\+Plot\+Scene\+Event\+::\+Get\+Short\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the short string version of the event \begin{DoxyReturn}{Returns}
+Short string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classRunPlotSceneEvent_abb78884b458523776bdabdd2464450be}\label{classRunPlotSceneEvent_abb78884b458523776bdabdd2464450be}} 
+\index{RunPlotSceneEvent@{RunPlotSceneEvent}!Load@{Load}}
+\index{Load@{Load}!RunPlotSceneEvent@{RunPlotSceneEvent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Run\+Plot\+Scene\+Event\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRunPlotSceneEvent_ac03f0184f7d72b5dcaf86fd387b5c46f}\label{classRunPlotSceneEvent_ac03f0184f7d72b5dcaf86fd387b5c46f}} 
+\index{RunPlotSceneEvent@{RunPlotSceneEvent}!Print@{Print}}
+\index{Print@{Print}!RunPlotSceneEvent@{RunPlotSceneEvent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Run\+Plot\+Scene\+Event\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRunPlotSceneEvent_a990192781ccfaceccba67724c6b39a8a}\label{classRunPlotSceneEvent_a990192781ccfaceccba67724c6b39a8a}} 
+\index{RunPlotSceneEvent@{RunPlotSceneEvent}!Run@{Run}}
+\index{Run@{Run}!RunPlotSceneEvent@{RunPlotSceneEvent}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Run\+Plot\+Scene\+Event\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Runs the event 
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classRunPlotSceneEvent_a30ab9f247163c266d920f72ee25b4484}\label{classRunPlotSceneEvent_a30ab9f247163c266d920f72ee25b4484}} 
+\index{RunPlotSceneEvent@{RunPlotSceneEvent}!Save@{Save}}
+\index{Save@{Save}!RunPlotSceneEvent@{RunPlotSceneEvent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Run\+Plot\+Scene\+Event\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/runplotsceneevent.\+h\item 
+uplink/src/world/scheduler/runplotsceneevent.\+cpp\end{DoxyCompactItemize}

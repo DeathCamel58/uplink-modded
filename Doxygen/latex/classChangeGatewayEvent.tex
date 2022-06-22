@@ -1,0 +1,173 @@
+\hypertarget{classChangeGatewayEvent}{}\doxysection{Change\+Gateway\+Event Class Reference}
+\label{classChangeGatewayEvent}\index{ChangeGatewayEvent@{ChangeGatewayEvent}}
+
+
+Inheritance diagram for Change\+Gateway\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for Change\+Gateway\+Event\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChangeGatewayEvent_a21ad95b99f7685f336dc752e1bc0f0ca}\label{classChangeGatewayEvent_a21ad95b99f7685f336dc752e1bc0f0ca}} 
+void {\bfseries Set\+New\+Gateway} (\mbox{\hyperlink{classGatewayDef}{Gateway\+Def}} $\ast$value)
+\item 
+void \mbox{\hyperlink{classChangeGatewayEvent_a6033b037d1fee84ee6dcefb45dfa585d}{Run}} () override
+\item 
+void \mbox{\hyperlink{classChangeGatewayEvent_a4be20d57b4c3d722731fe05abe5ca463}{Run\+Warning}} () override
+\item 
+string \mbox{\hyperlink{classChangeGatewayEvent_a12746bacbf0fa3f7c6023ac4cd07da23}{Get\+Short\+String}} () override
+\item 
+string \mbox{\hyperlink{classChangeGatewayEvent_ac323feb8fb316f51344b1db73c3edbad}{Get\+Long\+String}} () override
+\item 
+bool \mbox{\hyperlink{classChangeGatewayEvent_a740a42b005c84002871a61b36e4c8205}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classChangeGatewayEvent_a8161f09521a7254a7ad9ff1a821dd65c}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classChangeGatewayEvent_a9d8189a45c0b44d199019a76ac6a2bdb}{Print}} () override
+\item 
+string \mbox{\hyperlink{classChangeGatewayEvent_abbe868e91face668b697d34423fe4e05}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classChangeGatewayEvent_a4bf0dd850062538f3b11d96681217112}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classChangeGatewayEvent_a8de5b4fa9c5943c3fbbecf07bfcc6f61}\label{classChangeGatewayEvent_a8de5b4fa9c5943c3fbbecf07bfcc6f61}} 
+\mbox{\hyperlink{classGatewayDef}{Gateway\+Def}} $\ast$ {\bfseries newgatewaydef}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classChangeGatewayEvent_abbe868e91face668b697d34423fe4e05}\label{classChangeGatewayEvent_abbe868e91face668b697d34423fe4e05}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!GetID@{GetID}}
+\index{GetID@{GetID}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Change\+Gateway\+Event\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classChangeGatewayEvent_ac323feb8fb316f51344b1db73c3edbad}\label{classChangeGatewayEvent_ac323feb8fb316f51344b1db73c3edbad}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!GetLongString@{GetLongString}}
+\index{GetLongString@{GetLongString}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{GetLongString()}{GetLongString()}}
+{\footnotesize\ttfamily string Change\+Gateway\+Event\+::\+Get\+Long\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the long string version of the event \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classChangeGatewayEvent_a4bf0dd850062538f3b11d96681217112}\label{classChangeGatewayEvent_a4bf0dd850062538f3b11d96681217112}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Change\+Gateway\+Event\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classChangeGatewayEvent_a12746bacbf0fa3f7c6023ac4cd07da23}\label{classChangeGatewayEvent_a12746bacbf0fa3f7c6023ac4cd07da23}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!GetShortString@{GetShortString}}
+\index{GetShortString@{GetShortString}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{GetShortString()}{GetShortString()}}
+{\footnotesize\ttfamily string Change\+Gateway\+Event\+::\+Get\+Short\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the short string version of the event \begin{DoxyReturn}{Returns}
+Short string 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classChangeGatewayEvent_a740a42b005c84002871a61b36e4c8205}\label{classChangeGatewayEvent_a740a42b005c84002871a61b36e4c8205}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!Load@{Load}}
+\index{Load@{Load}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Change\+Gateway\+Event\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classChangeGatewayEvent_a9d8189a45c0b44d199019a76ac6a2bdb}\label{classChangeGatewayEvent_a9d8189a45c0b44d199019a76ac6a2bdb}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!Print@{Print}}
+\index{Print@{Print}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Change\+Gateway\+Event\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classChangeGatewayEvent_a6033b037d1fee84ee6dcefb45dfa585d}\label{classChangeGatewayEvent_a6033b037d1fee84ee6dcefb45dfa585d}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!Run@{Run}}
+\index{Run@{Run}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Change\+Gateway\+Event\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Runs the event 
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classChangeGatewayEvent_a4be20d57b4c3d722731fe05abe5ca463}\label{classChangeGatewayEvent_a4be20d57b4c3d722731fe05abe5ca463}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!RunWarning@{RunWarning}}
+\index{RunWarning@{RunWarning}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{RunWarning()}{RunWarning()}}
+{\footnotesize\ttfamily void Change\+Gateway\+Event\+::\+Run\+Warning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Warns user that the event is about to occur \begin{DoxyNote}{Note}
+If not overridden, this does nothing 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkEvent_a6fb746f8b37c3fdd57f1cc7c2243497e}{Uplink\+Event}}.
+
+\mbox{\Hypertarget{classChangeGatewayEvent_a8161f09521a7254a7ad9ff1a821dd65c}\label{classChangeGatewayEvent_a8161f09521a7254a7ad9ff1a821dd65c}} 
+\index{ChangeGatewayEvent@{ChangeGatewayEvent}!Save@{Save}}
+\index{Save@{Save}!ChangeGatewayEvent@{ChangeGatewayEvent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Change\+Gateway\+Event\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/changegatewayevent.\+h\item 
+uplink/src/world/scheduler/changegatewayevent.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,140 @@
+\hypertarget{classNetworkServer}{}\doxysection{Network\+Server Class Reference}
+\label{classNetworkServer}\index{NetworkServer@{NetworkServer}}
+
+
+Inheritance diagram for Network\+Server\+:
+% FIG 0
+
+
+Collaboration diagram for Network\+Server\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkServer_a6f606a9c3ed4f177f79b02a23041541b}\label{classNetworkServer_a6f606a9c3ed4f177f79b02a23041541b}} 
+bool {\bfseries Start\+Server} ()
+\item 
+\mbox{\Hypertarget{classNetworkServer_a6476858579300137a5da4aed34acc199}\label{classNetworkServer_a6476858579300137a5da4aed34acc199}} 
+void {\bfseries Stop\+Server} ()
+\item 
+\mbox{\Hypertarget{classNetworkServer_af1a5bf9ee1cd4e3ef694c4582a212cbb}\label{classNetworkServer_af1a5bf9ee1cd4e3ef694c4582a212cbb}} 
+void {\bfseries Listen} ()
+\item 
+\mbox{\Hypertarget{classNetworkServer_a982bf4aab8b932942d2545e668197fb7}\label{classNetworkServer_a982bf4aab8b932942d2545e668197fb7}} 
+void {\bfseries Stop\+Listening} ()
+\item 
+\mbox{\Hypertarget{classNetworkServer_a938771e5c9bdeecd09549170688a0eec}\label{classNetworkServer_a938771e5c9bdeecd09549170688a0eec}} 
+char $\ast$ {\bfseries Get\+Remote\+Host} (int socketindex) const
+\item 
+\mbox{\Hypertarget{classNetworkServer_abf6b14542182f49fd54faf027e5f787f}\label{classNetworkServer_abf6b14542182f49fd54faf027e5f787f}} 
+char $\ast$ {\bfseries Get\+Remote\+IP} (int socketindex) const
+\item 
+bool \mbox{\hyperlink{classNetworkServer_a40f2d100d2593faaa3aeafb68e4b690e}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classNetworkServer_abd4dd7fe96b00d4f31c74c9cae94a632}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classNetworkServer_a60a09fb73278186d15f4694acd975497}{Print}} () override
+\item 
+void \mbox{\hyperlink{classNetworkServer_a1bd78a6a4fec846c120a7ce8eb748129}{Update}} () override
+\item 
+string \mbox{\hyperlink{classNetworkServer_a5692cfb7a5669b2ae7d8bb50be24be4e}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkServer_a99c8aa073aa7a406555b4e2d2d6f0ee9}\label{classNetworkServer_a99c8aa073aa7a406555b4e2d2d6f0ee9}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classClientConnection}{Client\+Connection}} $\ast$ $>$ {\bfseries clients}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkServer_a1f7b8fbfae340ba9a48193c21b84d4cf}\label{classNetworkServer_a1f7b8fbfae340ba9a48193c21b84d4cf}} 
+S\+O\+C\+K\+ET {\bfseries listensocket}
+\item 
+\mbox{\Hypertarget{classNetworkServer_a66a82f83d03832d57ebc6cbe57b669c6}\label{classNetworkServer_a66a82f83d03832d57ebc6cbe57b669c6}} 
+time\+\_\+t {\bfseries lastlisten}
+\item 
+\mbox{\Hypertarget{classNetworkServer_a407911df8d610ee4d35d5571efbba957}\label{classNetworkServer_a407911df8d610ee4d35d5571efbba957}} 
+bool {\bfseries listening}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworkServer_a5692cfb7a5669b2ae7d8bb50be24be4e}\label{classNetworkServer_a5692cfb7a5669b2ae7d8bb50be24be4e}} 
+\index{NetworkServer@{NetworkServer}!GetID@{GetID}}
+\index{GetID@{GetID}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Network\+Server\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNetworkServer_a40f2d100d2593faaa3aeafb68e4b690e}\label{classNetworkServer_a40f2d100d2593faaa3aeafb68e4b690e}} 
+\index{NetworkServer@{NetworkServer}!Load@{Load}}
+\index{Load@{Load}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Network\+Server\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNetworkServer_a60a09fb73278186d15f4694acd975497}\label{classNetworkServer_a60a09fb73278186d15f4694acd975497}} 
+\index{NetworkServer@{NetworkServer}!Print@{Print}}
+\index{Print@{Print}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Network\+Server\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNetworkServer_abd4dd7fe96b00d4f31c74c9cae94a632}\label{classNetworkServer_abd4dd7fe96b00d4f31c74c9cae94a632}} 
+\index{NetworkServer@{NetworkServer}!Save@{Save}}
+\index{Save@{Save}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Network\+Server\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classNetworkServer_a1bd78a6a4fec846c120a7ce8eb748129}\label{classNetworkServer_a1bd78a6a4fec846c120a7ce8eb748129}} 
+\index{NetworkServer@{NetworkServer}!Update@{Update}}
+\index{Update@{Update}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Network\+Server\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/network/networkserver.\+h\item 
+uplink/src/network/networkserver.\+cpp\end{DoxyCompactItemize}

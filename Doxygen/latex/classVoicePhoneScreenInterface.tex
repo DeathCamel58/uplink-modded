@@ -1,0 +1,116 @@
+\hypertarget{classVoicePhoneScreenInterface}{}\doxysection{Voice\+Phone\+Screen\+Interface Class Reference}
+\label{classVoicePhoneScreenInterface}\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+
+
+Inheritance diagram for Voice\+Phone\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Voice\+Phone\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a891172eb2e5cb0fbb5f26cc616c2805b}\label{classVoicePhoneScreenInterface_a891172eb2e5cb0fbb5f26cc616c2805b}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}\label{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classVoicePhoneScreenInterface_abd1af64be9d264d0a845df1639cc3122}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classVoicePhoneScreenInterface_af81b3a02e54f33f0b954fea9c0df36f7}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classVoicePhoneScreenInterface_a6b7a1a61c7d31e61342e8099866a6f2c}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classVoicePhoneScreenInterface_acae0f04a4645b3e092a7f35e0ac603ce}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a352a89f4ce581808ed2ab8ee5b01873d}\label{classVoicePhoneScreenInterface_a352a89f4ce581808ed2ab8ee5b01873d}} 
+\mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_ad9da87cbcc899da58afb7ddaa5ea068c}\label{classVoicePhoneScreenInterface_ad9da87cbcc899da58afb7ddaa5ea068c}} 
+int {\bfseries S\+T\+A\+T\+US}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a9f65769fe3a5d696c5c2adc633bb362a}\label{classVoicePhoneScreenInterface_a9f65769fe3a5d696c5c2adc633bb362a}} 
+static void {\bfseries Add\+To\+Text} (const string \&newtext)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a4c85c2f4c02b1977df02a699e9886a99}\label{classVoicePhoneScreenInterface_a4c85c2f4c02b1977df02a699e9886a99}} 
+int {\bfseries voiceindex}
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a8b89929791124df70e77de44cb8dcf60}\label{classVoicePhoneScreenInterface_a8b89929791124df70e77de44cb8dcf60}} 
+int {\bfseries numrings}
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a768fd467fbbd72f59e29845111b0c35f}\label{classVoicePhoneScreenInterface_a768fd467fbbd72f59e29845111b0c35f}} 
+int {\bfseries numwords}
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a7aeb77561941062cc818ef229aeef698}\label{classVoicePhoneScreenInterface_a7aeb77561941062cc818ef229aeef698}} 
+int {\bfseries timesync}
+\item 
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_ad2bca1ec136b7b7e69b5d40697dc02e9}\label{classVoicePhoneScreenInterface_ad2bca1ec136b7b7e69b5d40697dc02e9}} 
+bool {\bfseries answer}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a6b7a1a61c7d31e61342e8099866a6f2c}\label{classVoicePhoneScreenInterface_a6b7a1a61c7d31e61342e8099866a6f2c}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Voice\+Phone\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_abd1af64be9d264d0a845df1639cc3122}\label{classVoicePhoneScreenInterface_abd1af64be9d264d0a845df1639cc3122}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Voice\+Phone\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_acae0f04a4645b3e092a7f35e0ac603ce}\label{classVoicePhoneScreenInterface_acae0f04a4645b3e092a7f35e0ac603ce}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Voice\+Phone\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_af81b3a02e54f33f0b954fea9c0df36f7}\label{classVoicePhoneScreenInterface_af81b3a02e54f33f0b954fea9c0df36f7}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!Update@{Update}}
+\index{Update@{Update}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Voice\+Phone\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}{Remote\+Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/voicephonescreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/voicephonescreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

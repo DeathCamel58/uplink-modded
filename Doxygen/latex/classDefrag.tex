@@ -1,0 +1,170 @@
+\hypertarget{classDefrag}{}\doxysection{Defrag Class Reference}
+\label{classDefrag}\index{Defrag@{Defrag}}
+
+
+Inheritance diagram for Defrag\+:
+% FIG 0
+
+
+Collaboration diagram for Defrag\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDefrag_a9ce302e7a0399adbc1f3ef87ca3a659a}{Initialise}} ()
+\item 
+void \mbox{\hyperlink{classDefrag_a1654a9dbb3c416bab0416d46893f64d2}{Tick}} (int n)
+\item 
+void \mbox{\hyperlink{classDefrag_a70f69d20ef09c75390b8436b2d4ce6c0}{Create\+Interface}} ()
+\item 
+void \mbox{\hyperlink{classDefrag_a0b8c85ae658103ba43a27ac66a56f713}{Remove\+Interface}} ()
+\item 
+void \mbox{\hyperlink{classDefrag_ae4d6d850452b45abb36beaaa11d0fbad}{Show\+Interface}} ()
+\item 
+bool \mbox{\hyperlink{classDefrag_a3439734e0597459991c53b17c54a2098}{Is\+Interface\+Visible}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDefrag_ab509d5e1c4e30739076373fcf5d6edd6}\label{classDefrag_ab509d5e1c4e30739076373fcf5d6edd6}} 
+void {\bfseries Handle\+New\+Memory\+Slot} (int index)
+\item 
+\mbox{\Hypertarget{classDefrag_a17f9225c025007563cf67d81031d27ad}\label{classDefrag_a17f9225c025007563cf67d81031d27ad}} 
+void {\bfseries Stop\+Defrag} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDefrag_a745e9f1da24c4eda10c21a7f6e6542d2}\label{classDefrag_a745e9f1da24c4eda10c21a7f6e6542d2}} 
+static void {\bfseries Progress\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classDefrag_ae75705bd6abc7fcdacb7cca159f5916a}\label{classDefrag_ae75705bd6abc7fcdacb7cca159f5916a}} 
+static void {\bfseries Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classDefrag_a617a7fcc80ad534bc94bc50394b8c7ea}\label{classDefrag_a617a7fcc80ad534bc94bc50394b8c7ea}} 
+static void {\bfseries Go\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classDefrag_a3521c8bcbf6daa590d5ca7f5ff7470ae}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDefrag_a56adf2f59a66e14695ed10064c526280}\label{classDefrag_a56adf2f59a66e14695ed10064c526280}} 
+int {\bfseries progress}
+\item 
+\mbox{\Hypertarget{classDefrag_a779343a923505927905d276ebffc7c1e}\label{classDefrag_a779343a923505927905d276ebffc7c1e}} 
+int {\bfseries ticksdone}
+\item 
+\mbox{\Hypertarget{classDefrag_a9a2a2ea2e0327b67724953b3e838081e}\label{classDefrag_a9a2a2ea2e0327b67724953b3e838081e}} 
+int {\bfseries ticksrequired}
+\item 
+\mbox{\Hypertarget{classDefrag_a2cb1ffedda92631d0d1e90348b4bf07d}\label{classDefrag_a2cb1ffedda92631d0d1e90348b4bf07d}} 
+time\+\_\+t {\bfseries timersync}
+\item 
+\mbox{\Hypertarget{classDefrag_a5ac65ad9dac80858816bbe2b732de87f}\label{classDefrag_a5ac65ad9dac80858816bbe2b732de87f}} 
+int {\bfseries current\+Memory\+Slot}
+\item 
+\mbox{\Hypertarget{classDefrag_a140535a9b23918fa09b90577626c6d04}\label{classDefrag_a140535a9b23918fa09b90577626c6d04}} 
+int {\bfseries first\+Free\+Memory\+Slot}
+\item 
+\mbox{\Hypertarget{classDefrag_a918d150ac7c243f7ba5d9bfdc1c8902f}\label{classDefrag_a918d150ac7c243f7ba5d9bfdc1c8902f}} 
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classData}{Data}} $\ast$ $>$ {\bfseries transit\+Data}
+\item 
+\mbox{\Hypertarget{classDefrag_a2975712b61f86d884293ec3dfa3f3533}\label{classDefrag_a2975712b61f86d884293ec3dfa3f3533}} 
+int {\bfseries nb\+Data\+Databank}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDefrag_a3521c8bcbf6daa590d5ca7f5ff7470ae}\label{classDefrag_a3521c8bcbf6daa590d5ca7f5ff7470ae}} 
+\index{Defrag@{Defrag}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!Defrag@{Defrag}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Defrag\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the program 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classDefrag_a70f69d20ef09c75390b8436b2d4ce6c0}\label{classDefrag_a70f69d20ef09c75390b8436b2d4ce6c0}} 
+\index{Defrag@{Defrag}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!Defrag@{Defrag}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Defrag\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_afc5a7bb00adc85d7b26f58a2f052923e}{Task}}.
+
+\mbox{\Hypertarget{classDefrag_a9ce302e7a0399adbc1f3ef87ca3a659a}\label{classDefrag_a9ce302e7a0399adbc1f3ef87ca3a659a}} 
+\index{Defrag@{Defrag}!Initialise@{Initialise}}
+\index{Initialise@{Initialise}!Defrag@{Defrag}}
+\doxysubsubsection{\texorpdfstring{Initialise()}{Initialise()}}
+{\footnotesize\ttfamily void Defrag\+::\+Initialise (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Initialise the task 
+
+Reimplemented from \mbox{\hyperlink{classTask_a3ce6ff4301443e9904e3fe8001828700}{Task}}.
+
+\mbox{\Hypertarget{classDefrag_a3439734e0597459991c53b17c54a2098}\label{classDefrag_a3439734e0597459991c53b17c54a2098}} 
+\index{Defrag@{Defrag}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!Defrag@{Defrag}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Defrag\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks if this is visible \begin{DoxyReturn}{Returns}
+true if visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a2f13c630efcc0634e9a4f13b30f104a7}{Task}}.
+
+\mbox{\Hypertarget{classDefrag_a0b8c85ae658103ba43a27ac66a56f713}\label{classDefrag_a0b8c85ae658103ba43a27ac66a56f713}} 
+\index{Defrag@{Defrag}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!Defrag@{Defrag}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Defrag\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Removes the task interface 
+
+Reimplemented from \mbox{\hyperlink{classTask_af5d8d6593953be356bde92514921f879}{Task}}.
+
+\mbox{\Hypertarget{classDefrag_ae4d6d850452b45abb36beaaa11d0fbad}\label{classDefrag_ae4d6d850452b45abb36beaaa11d0fbad}} 
+\index{Defrag@{Defrag}!ShowInterface@{ShowInterface}}
+\index{ShowInterface@{ShowInterface}!Defrag@{Defrag}}
+\doxysubsubsection{\texorpdfstring{ShowInterface()}{ShowInterface()}}
+{\footnotesize\ttfamily void Defrag\+::\+Show\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Bring to front \begin{DoxyNote}{Note}
+Optional 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_ad93eddd8f638cd6784ce8079c53c39fc}{Task}}.
+
+\mbox{\Hypertarget{classDefrag_a1654a9dbb3c416bab0416d46893f64d2}\label{classDefrag_a1654a9dbb3c416bab0416d46893f64d2}} 
+\index{Defrag@{Defrag}!Tick@{Tick}}
+\index{Tick@{Tick}!Defrag@{Defrag}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Defrag\+::\+Tick (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Does something when a number of ticks occur 
+\begin{DoxyParams}{Parameters}
+{\em n} & The number of ticks that have occurred \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classTask_a754541c7213ce4a3fd5800b9e092ce3e}{Task}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/taskmanager/defrag.\+h\item 
+uplink/src/interface/taskmanager/defrag.\+cpp\end{DoxyCompactItemize}

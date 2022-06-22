@@ -1,0 +1,225 @@
+\hypertarget{classUplinkEvent}{}\doxysection{Uplink\+Event Class Reference}
+\label{classUplinkEvent}\index{UplinkEvent@{UplinkEvent}}
+
+
+Uplink Event object.  
+
+
+
+
+{\ttfamily \#include $<$uplinkevent.\+h$>$}
+
+
+
+Inheritance diagram for Uplink\+Event\+:
+% FIG 0
+
+
+Collaboration diagram for Uplink\+Event\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classUplinkEvent_a62da7aeeb12d355ff3270b003d3ae60f}{Set\+Run\+Date}} (\mbox{\hyperlink{classDate}{Date}} $\ast$newrundate)
+\item 
+virtual void \mbox{\hyperlink{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}{Run}} ()
+\item 
+virtual void \mbox{\hyperlink{classUplinkEvent_a6fb746f8b37c3fdd57f1cc7c2243497e}{Run\+Warning}} ()
+\item 
+virtual string \mbox{\hyperlink{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}{Get\+Short\+String}} ()
+\item 
+virtual string \mbox{\hyperlink{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}{Get\+Long\+String}} ()
+\item 
+bool \mbox{\hyperlink{classUplinkEvent_ac5cb2d18f2a47258828990bb04881131}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classUplinkEvent_adc25f6f2bd74c8d46f18020b8095f3a5}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classUplinkEvent_a0074123413978f1d9254dfa570735bb1}{Print}} () override
+\item 
+string \mbox{\hyperlink{classUplinkEvent_a4d04daba16c81b215abe6ba24f397dca}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classUplinkEvent_a68d9644b54c11f01332581b068549bc0}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classUplinkEvent_a7aee05860e1a8db6517d8daa0bf9bfb4}{rundate}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Uplink Event object. 
+
+Base class for all future events that can occur 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUplinkEvent_a4d04daba16c81b215abe6ba24f397dca}\label{classUplinkEvent_a4d04daba16c81b215abe6ba24f397dca}} 
+\index{UplinkEvent@{UplinkEvent}!GetID@{GetID}}
+\index{GetID@{GetID}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Uplink\+Event\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWarningEvent_a8dc8042d0316a57d6be53b74e4e336f4}{Warning\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}\label{classUplinkEvent_a27f7646b62c71750c6662ef69b11b00a}} 
+\index{UplinkEvent@{UplinkEvent}!GetLongString@{GetLongString}}
+\index{GetLongString@{GetLongString}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{GetLongString()}{GetLongString()}}
+{\footnotesize\ttfamily string Uplink\+Event\+::\+Get\+Long\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the long string version of the event \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classNotificationEvent_adac8fe1ea51b81b2ca2c16e33d8f7cad}{Notification\+Event}}, \mbox{\hyperlink{classBankRobberyEvent_ab0b3d2c4e1eb910567c2460de4b814d6}{Bank\+Robbery\+Event}}, \mbox{\hyperlink{classShotByFedsEvent_a95065b117f358214bd70c9ab1b4908fc}{Shot\+By\+Feds\+Event}}, \mbox{\hyperlink{classSeizeGatewayEvent_a84170b02fc63b64948e31112bdfb9515}{Seize\+Gateway\+Event}}, \mbox{\hyperlink{classArrestEvent_a4ee7a3e6b1827bc62563ff42667ac7d3}{Arrest\+Event}}, \mbox{\hyperlink{classInstallHardwareEvent_ad6bde6e7811fb058d64fa06785775d17}{Install\+Hardware\+Event}}, \mbox{\hyperlink{classChangeGatewayEvent_ac323feb8fb316f51344b1db73c3edbad}{Change\+Gateway\+Event}}, \mbox{\hyperlink{classWarningEvent_a48f22873fa111a6b2b3554dfce4d4523}{Warning\+Event}}, \mbox{\hyperlink{classRunPlotSceneEvent_a8ae4da01a9476f614e9d26eaf55eef8f}{Run\+Plot\+Scene\+Event}}, and \mbox{\hyperlink{classAttemptMissionEvent_a79cd0c7e7734ed0122f6acecbeaa9fbf}{Attempt\+Mission\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_a68d9644b54c11f01332581b068549bc0}\label{classUplinkEvent_a68d9644b54c11f01332581b068549bc0}} 
+\index{UplinkEvent@{UplinkEvent}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Uplink\+Event\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWarningEvent_a959f060aa83b029d8d721905f008d54b}{Warning\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}\label{classUplinkEvent_a4032c27589f2f4a5f9183b26a5f7f542}} 
+\index{UplinkEvent@{UplinkEvent}!GetShortString@{GetShortString}}
+\index{GetShortString@{GetShortString}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{GetShortString()}{GetShortString()}}
+{\footnotesize\ttfamily string Uplink\+Event\+::\+Get\+Short\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the short string version of the event \begin{DoxyReturn}{Returns}
+Short string 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classNotificationEvent_adb07720e80fe0052448af2c729149c5c}{Notification\+Event}}, \mbox{\hyperlink{classBankRobberyEvent_aee95fddf89f78afa5503804e022c62ad}{Bank\+Robbery\+Event}}, \mbox{\hyperlink{classShotByFedsEvent_a20f524a169f3ce32ab61e4193170ae9e}{Shot\+By\+Feds\+Event}}, \mbox{\hyperlink{classSeizeGatewayEvent_ad4855d5dc1bb1d86bc76eb3c27047ad8}{Seize\+Gateway\+Event}}, \mbox{\hyperlink{classArrestEvent_aa09af53a03767134844e3df2f2436e9f}{Arrest\+Event}}, \mbox{\hyperlink{classInstallHardwareEvent_abf6ec97913db45add65d545380d227a1}{Install\+Hardware\+Event}}, \mbox{\hyperlink{classChangeGatewayEvent_a12746bacbf0fa3f7c6023ac4cd07da23}{Change\+Gateway\+Event}}, \mbox{\hyperlink{classWarningEvent_af928671369daf63c5ecbba5f1bad33bc}{Warning\+Event}}, \mbox{\hyperlink{classRunPlotSceneEvent_a3d0510c9402f3d7fc595f9ffbfc0a808}{Run\+Plot\+Scene\+Event}}, and \mbox{\hyperlink{classAttemptMissionEvent_aa8655ce3af100567c26f9cc5b1ef28a3}{Attempt\+Mission\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_ac5cb2d18f2a47258828990bb04881131}\label{classUplinkEvent_ac5cb2d18f2a47258828990bb04881131}} 
+\index{UplinkEvent@{UplinkEvent}!Load@{Load}}
+\index{Load@{Load}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Uplink\+Event\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWarningEvent_aebe503ea853ac6669c95901cdd872d82}{Warning\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_a0074123413978f1d9254dfa570735bb1}\label{classUplinkEvent_a0074123413978f1d9254dfa570735bb1}} 
+\index{UplinkEvent@{UplinkEvent}!Print@{Print}}
+\index{Print@{Print}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Uplink\+Event\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWarningEvent_a97f6ab9c99cf0e2b153b5030a2bb9d73}{Warning\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}\label{classUplinkEvent_a9a0ab0fa9da79e9dc9ddf6218ad61ed1}} 
+\index{UplinkEvent@{UplinkEvent}!Run@{Run}}
+\index{Run@{Run}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void Uplink\+Event\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Runs the event 
+
+Reimplemented in \mbox{\hyperlink{classNotificationEvent_a93eb5c6fa44f7be8cf24554bde5419df}{Notification\+Event}}, \mbox{\hyperlink{classShotByFedsEvent_a80ae3bf095954bdb10908b8463ac96b6}{Shot\+By\+Feds\+Event}}, \mbox{\hyperlink{classArrestEvent_a669d0d6a102255b09d2bd13d0a166fcf}{Arrest\+Event}}, \mbox{\hyperlink{classBankRobberyEvent_aa105f24b9b8c87dea7a2a6e2c5da4716}{Bank\+Robbery\+Event}}, \mbox{\hyperlink{classSeizeGatewayEvent_abb75aab3a5b92d2de00bbaa6013d2ef8}{Seize\+Gateway\+Event}}, \mbox{\hyperlink{classInstallHardwareEvent_a5c2a8e9fffe4b7186305df24ac0559b6}{Install\+Hardware\+Event}}, \mbox{\hyperlink{classChangeGatewayEvent_a6033b037d1fee84ee6dcefb45dfa585d}{Change\+Gateway\+Event}}, \mbox{\hyperlink{classWarningEvent_a7077dc03e9550f16542837121d3bc044}{Warning\+Event}}, \mbox{\hyperlink{classRunPlotSceneEvent_a990192781ccfaceccba67724c6b39a8a}{Run\+Plot\+Scene\+Event}}, and \mbox{\hyperlink{classAttemptMissionEvent_adcf159de87e96a60ec91dc7322069942}{Attempt\+Mission\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_a6fb746f8b37c3fdd57f1cc7c2243497e}\label{classUplinkEvent_a6fb746f8b37c3fdd57f1cc7c2243497e}} 
+\index{UplinkEvent@{UplinkEvent}!RunWarning@{RunWarning}}
+\index{RunWarning@{RunWarning}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{RunWarning()}{RunWarning()}}
+{\footnotesize\ttfamily void Uplink\+Event\+::\+Run\+Warning (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Warns user that the event is about to occur \begin{DoxyNote}{Note}
+If not overridden, this does nothing 
+\end{DoxyNote}
+
+
+Reimplemented in \mbox{\hyperlink{classSeizeGatewayEvent_adc0ee5cf86b240682fa01556d50ca6a2}{Seize\+Gateway\+Event}}, \mbox{\hyperlink{classInstallHardwareEvent_a4e42b6071ca093f9419fa4420862c7b2}{Install\+Hardware\+Event}}, and \mbox{\hyperlink{classChangeGatewayEvent_a4be20d57b4c3d722731fe05abe5ca463}{Change\+Gateway\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_adc25f6f2bd74c8d46f18020b8095f3a5}\label{classUplinkEvent_adc25f6f2bd74c8d46f18020b8095f3a5}} 
+\index{UplinkEvent@{UplinkEvent}!Save@{Save}}
+\index{Save@{Save}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Uplink\+Event\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classWarningEvent_aa5b5ce672fdc626007e04d04a5d9d1fe}{Warning\+Event}}.
+
+\mbox{\Hypertarget{classUplinkEvent_a62da7aeeb12d355ff3270b003d3ae60f}\label{classUplinkEvent_a62da7aeeb12d355ff3270b003d3ae60f}} 
+\index{UplinkEvent@{UplinkEvent}!SetRunDate@{SetRunDate}}
+\index{SetRunDate@{SetRunDate}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{SetRunDate()}{SetRunDate()}}
+{\footnotesize\ttfamily void Uplink\+Event\+::\+Set\+Run\+Date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDate}{Date}} $\ast$}]{newrundate }\end{DoxyParamCaption})}
+
+Sets the time to run at 
+\begin{DoxyParams}{Parameters}
+{\em newrundate} & Time to run at \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classUplinkEvent_a7aee05860e1a8db6517d8daa0bf9bfb4}\label{classUplinkEvent_a7aee05860e1a8db6517d8daa0bf9bfb4}} 
+\index{UplinkEvent@{UplinkEvent}!rundate@{rundate}}
+\index{rundate@{rundate}!UplinkEvent@{UplinkEvent}}
+\doxysubsubsection{\texorpdfstring{rundate}{rundate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDate}{Date}} Uplink\+Event\+::rundate}
+
+Time to run at 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/scheduler/uplinkevent.\+h\item 
+uplink/src/world/scheduler/uplinkevent.\+cpp\end{DoxyCompactItemize}

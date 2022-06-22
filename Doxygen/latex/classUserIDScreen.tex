@@ -1,0 +1,122 @@
+\hypertarget{classUserIDScreen}{}\doxysection{User\+I\+D\+Screen Class Reference}
+\label{classUserIDScreen}\index{UserIDScreen@{UserIDScreen}}
+
+
+Inheritance diagram for User\+I\+D\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for User\+I\+D\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUserIDScreen_aa7ea10816ee574c38ff5117f516077d5}\label{classUserIDScreen_aa7ea10816ee574c38ff5117f516077d5}} 
+void {\bfseries Set\+Next\+Page} (int newnextpage)
+\item 
+\mbox{\Hypertarget{classUserIDScreen_acdfc835254a9686e05bce07bcafa497b}\label{classUserIDScreen_acdfc835254a9686e05bce07bcafa497b}} 
+void {\bfseries Set\+Difficulty} (int newdifficulty)
+\item 
+bool \mbox{\hyperlink{classUserIDScreen_a271b09e646b1f1246e2307bba4589e83}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classUserIDScreen_a8260c0206e2ca757e359468558a065fb}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classUserIDScreen_a693b49b9c061c4575d3f538ae6feea76}{Print}} () override
+\item 
+string \mbox{\hyperlink{classUserIDScreen_aa5496045d5cba7d6090e5cd13d69128e}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classUserIDScreen_a90c8592a77f6a8fd4c986c43d81f1555}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUserIDScreen_a887044f11fc9695f677412ea6a52864a}\label{classUserIDScreen_a887044f11fc9695f677412ea6a52864a}} 
+int {\bfseries nextpage}
+\item 
+\mbox{\Hypertarget{classUserIDScreen_a436b6567cb91c6dd63adadbf79e328ec}\label{classUserIDScreen_a436b6567cb91c6dd63adadbf79e328ec}} 
+int {\bfseries difficulty}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUserIDScreen_aa5496045d5cba7d6090e5cd13d69128e}\label{classUserIDScreen_aa5496045d5cba7d6090e5cd13d69128e}} 
+\index{UserIDScreen@{UserIDScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!UserIDScreen@{UserIDScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string User\+I\+D\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classUserIDScreen_a90c8592a77f6a8fd4c986c43d81f1555}\label{classUserIDScreen_a90c8592a77f6a8fd4c986c43d81f1555}} 
+\index{UserIDScreen@{UserIDScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!UserIDScreen@{UserIDScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int User\+I\+D\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classUserIDScreen_a271b09e646b1f1246e2307bba4589e83}\label{classUserIDScreen_a271b09e646b1f1246e2307bba4589e83}} 
+\index{UserIDScreen@{UserIDScreen}!Load@{Load}}
+\index{Load@{Load}!UserIDScreen@{UserIDScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool User\+I\+D\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classUserIDScreen_a693b49b9c061c4575d3f538ae6feea76}\label{classUserIDScreen_a693b49b9c061c4575d3f538ae6feea76}} 
+\index{UserIDScreen@{UserIDScreen}!Print@{Print}}
+\index{Print@{Print}!UserIDScreen@{UserIDScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void User\+I\+D\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Computer\+Screen}}.
+
+\mbox{\Hypertarget{classUserIDScreen_a8260c0206e2ca757e359468558a065fb}\label{classUserIDScreen_a8260c0206e2ca757e359468558a065fb}} 
+\index{UserIDScreen@{UserIDScreen}!Save@{Save}}
+\index{Save@{Save}!UserIDScreen@{UserIDScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void User\+I\+D\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Computer\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/useridscreen.\+h\item 
+uplink/src/world/computer/computerscreen/useridscreen.\+cpp\end{DoxyCompactItemize}

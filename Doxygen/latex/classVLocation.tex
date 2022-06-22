@@ -1,0 +1,181 @@
+\hypertarget{classVLocation}{}\doxysection{V\+Location Class Reference}
+\label{classVLocation}\index{VLocation@{VLocation}}
+
+
+Inheritance diagram for V\+Location\+:
+% FIG 0
+
+
+Collaboration diagram for V\+Location\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVLocation_a241e50f2b706317e6684bfa1fd3cb5fc}\label{classVLocation_a241e50f2b706317e6684bfa1fd3cb5fc}} 
+void {\bfseries Set\+IP} (const string \&newip)
+\item 
+\mbox{\Hypertarget{classVLocation_a86834757ff6e3e7b0ba336dbf0ae2324}\label{classVLocation_a86834757ff6e3e7b0ba336dbf0ae2324}} 
+void {\bfseries Set\+Computer} (const string \&newcomputer)
+\item 
+\mbox{\Hypertarget{classVLocation_ae2afcfa179f3cd354129734bc9fea8de}\label{classVLocation_ae2afcfa179f3cd354129734bc9fea8de}} 
+void {\bfseries Set\+P\+Location} (int newx, int newy)
+\item 
+\mbox{\Hypertarget{classVLocation_a70cf49f014845669dc142c79ca6d8609}\label{classVLocation_a70cf49f014845669dc142c79ca6d8609}} 
+void {\bfseries Set\+Listed} (bool newlisted)
+\item 
+\mbox{\Hypertarget{classVLocation_ab4ea5301524e8d9ef519429bf6389d9f}\label{classVLocation_ab4ea5301524e8d9ef519429bf6389d9f}} 
+void {\bfseries Set\+Displayed} (bool newdisplayed)
+\item 
+\mbox{\Hypertarget{classVLocation_adb60956d78a81de8d39306e218306e55}\label{classVLocation_adb60956d78a81de8d39306e218306e55}} 
+void {\bfseries Set\+Color\+Displayed} (bool newcolored)
+\item 
+\mbox{\Hypertarget{classVLocation_ad847c6fc4e40cb8ee2fc83db7bf2545f}\label{classVLocation_ad847c6fc4e40cb8ee2fc83db7bf2545f}} 
+\mbox{\hyperlink{classComputer}{Computer}} $\ast$ {\bfseries Get\+Computer} ()
+\item 
+bool \mbox{\hyperlink{classVLocation_a73217de149e2b1c37a0bda014c7380bb}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classVLocation_ae8b0db4777b8ac51effcfae5dc29a793}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classVLocation_a7bc681d67d4ea6c5c51a18460f66fc6e}{Print}} () override
+\item 
+string \mbox{\hyperlink{classVLocation_a5b3818fcdb1c6b7e021f39ad213efaa1}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classVLocation_add7de0256285fc416ac300d646e88794}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVLocation_a07669ac9ad5869c3a17605e2bfcc92a4}\label{classVLocation_a07669ac9ad5869c3a17605e2bfcc92a4}} 
+static bool {\bfseries Verify\+IP} (const string \&newip)
+\item 
+\mbox{\Hypertarget{classVLocation_ad8dcb5fbff39bbecc293cc9a76cb3141}\label{classVLocation_ad8dcb5fbff39bbecc293cc9a76cb3141}} 
+static bool {\bfseries Verify\+P\+Location} (int newx, int newy)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVLocation_adef80075f523829400726d47ae07ca0b}\label{classVLocation_adef80075f523829400726d47ae07ca0b}} 
+char {\bfseries ip} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+\mbox{\Hypertarget{classVLocation_a390e5ae1024a7c122f87879c92c474b6}\label{classVLocation_a390e5ae1024a7c122f87879c92c474b6}} 
+string {\bfseries computer}
+\item 
+\mbox{\Hypertarget{classVLocation_a4ed28004e807a0073e15de5f8c50f6d2}\label{classVLocation_a4ed28004e807a0073e15de5f8c50f6d2}} 
+int {\bfseries x}
+\item 
+\mbox{\Hypertarget{classVLocation_a08ac9c5b688d8d6acb03af86e9f9f7af}\label{classVLocation_a08ac9c5b688d8d6acb03af86e9f9f7af}} 
+int {\bfseries y}
+\item 
+\mbox{\Hypertarget{classVLocation_a81e2245b8dbad1b0230e8b6808288b7c}\label{classVLocation_a81e2245b8dbad1b0230e8b6808288b7c}} 
+bool {\bfseries listed}
+\item 
+\mbox{\Hypertarget{classVLocation_ae8b3ebe2dcc32296a3a4dc707655ee48}\label{classVLocation_ae8b3ebe2dcc32296a3a4dc707655ee48}} 
+bool {\bfseries displayed}
+\item 
+\mbox{\Hypertarget{classVLocation_ac8fdbd8f8470acc220b817832fe53592}\label{classVLocation_ac8fdbd8f8470acc220b817832fe53592}} 
+bool {\bfseries colored}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVLocation_a5b3818fcdb1c6b7e021f39ad213efaa1}\label{classVLocation_a5b3818fcdb1c6b7e021f39ad213efaa1}} 
+\index{VLocation@{VLocation}!GetID@{GetID}}
+\index{GetID@{GetID}!VLocation@{VLocation}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string V\+Location\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVLocationSpecial_a88b2d7353313c6426303c871e75b7893}{V\+Location\+Special}}.
+
+\mbox{\Hypertarget{classVLocation_add7de0256285fc416ac300d646e88794}\label{classVLocation_add7de0256285fc416ac300d646e88794}} 
+\index{VLocation@{VLocation}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!VLocation@{VLocation}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int V\+Location\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVLocationSpecial_a5e9d04e963b6ae2ba35e0db7c469b589}{V\+Location\+Special}}.
+
+\mbox{\Hypertarget{classVLocation_a73217de149e2b1c37a0bda014c7380bb}\label{classVLocation_a73217de149e2b1c37a0bda014c7380bb}} 
+\index{VLocation@{VLocation}!Load@{Load}}
+\index{Load@{Load}!VLocation@{VLocation}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool V\+Location\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVLocationSpecial_a774a0adde46ae631feeba2d6db99505d}{V\+Location\+Special}}.
+
+\mbox{\Hypertarget{classVLocation_a7bc681d67d4ea6c5c51a18460f66fc6e}\label{classVLocation_a7bc681d67d4ea6c5c51a18460f66fc6e}} 
+\index{VLocation@{VLocation}!Print@{Print}}
+\index{Print@{Print}!VLocation@{VLocation}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void V\+Location\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVLocationSpecial_a810073094f4f9eed64bade43e90a5bcc}{V\+Location\+Special}}.
+
+\mbox{\Hypertarget{classVLocation_ae8b0db4777b8ac51effcfae5dc29a793}\label{classVLocation_ae8b0db4777b8ac51effcfae5dc29a793}} 
+\index{VLocation@{VLocation}!Save@{Save}}
+\index{Save@{Save}!VLocation@{VLocation}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void V\+Location\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classVLocationSpecial_a0699729e4a8e05bfbc0ba9774aeb1b23}{V\+Location\+Special}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/vlocation.\+h\item 
+uplink/src/world/vlocation.\+cpp\end{DoxyCompactItemize}

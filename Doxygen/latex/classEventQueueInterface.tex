@@ -1,0 +1,266 @@
+\hypertarget{classEventQueueInterface}{}\doxysection{Event\+Queue\+Interface Class Reference}
+\label{classEventQueueInterface}\index{EventQueueInterface@{EventQueueInterface}}
+
+
+Screen that shows scheduled events.  
+
+
+
+
+{\ttfamily \#include $<$evtqueue\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Event\+Queue\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Event\+Queue\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEventQueueInterface_a3124e149256a4acaaafde7b5c0777b12}{Create}} () override
+\item 
+void \mbox{\hyperlink{classEventQueueInterface_a22f74193054acbbbee8e7434d43b9d6b}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classEventQueueInterface_a74e1916c6095e512ffe59a95ed9c2033}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classEventQueueInterface_a30e90112d5f4048662eeafa106d4a118}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classEventQueueInterface_a31614d5e3f070c638927d4ce4a2eea80}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classEventQueueInterface_ac93080386f3e6be09381693e7b3bcdab}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classEventQueueInterface_aea3a54f2a41debce5602bf23684544d7}{Scroll\+Up\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classEventQueueInterface_a701f505ea0f8189bd4d8f71df03887c1}{Scroll\+Down\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classEventQueueInterface_a93cb6017cc03a8e05b747fa21034cdb8}{Event\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classEventQueueInterface_a5183ebf811f8b16fee4436a6a5ca0163}{Event\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classEventQueueInterface_a83ea442daecd3a0e873881f2819b8ed2}{Delete\+Event\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+static void \mbox{\hyperlink{classEventQueueInterface_a02a1008591d5bf700d3615185b94977f}{Delete\+Event\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classEventQueueInterface_ab92d2008bbaf8915afb9e8be14f07cce}{Full\+Details\+Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classEventQueueInterface_a3ee55fa82d3560d32e96792e802de2fe}\label{classEventQueueInterface_a3ee55fa82d3560d32e96792e802de2fe}} 
+static void {\bfseries Scroll\+Change} (const string \&scrollname, int new\+Value)
+\item 
+static int \mbox{\hyperlink{classEventQueueInterface_a4219fc67f78ecf0e036f11fb02c367d1}{Num\+Items\+On\+Screen}} (int height)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEventQueueInterface_aaa89e2413e51b22a542f771b2a2ac2ab}\label{classEventQueueInterface_aaa89e2413e51b22a542f771b2a2ac2ab}} 
+static int {\bfseries baseoffset} = 0
+\item 
+static int \mbox{\hyperlink{classEventQueueInterface_a7ce6b078676ce2f74475418bafeaf0b9}{previousupdate}} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows scheduled events. 
+
+\begin{DoxyNote}{Note}
+This is a debug screen for watching the event queue 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEventQueueInterface_a3124e149256a4acaaafde7b5c0777b12}\label{classEventQueueInterface_a3124e149256a4acaaafde7b5c0777b12}} 
+\index{EventQueueInterface@{EventQueueInterface}!Create@{Create}}
+\index{Create@{Create}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classEventQueueInterface_a02a1008591d5bf700d3615185b94977f}\label{classEventQueueInterface_a02a1008591d5bf700d3615185b94977f}} 
+\index{EventQueueInterface@{EventQueueInterface}!DeleteEventClick@{DeleteEventClick}}
+\index{DeleteEventClick@{DeleteEventClick}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{DeleteEventClick()}{DeleteEventClick()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Delete\+Event\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Deletes an event from the schedule 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button clicked to delete the event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEventQueueInterface_a83ea442daecd3a0e873881f2819b8ed2}\label{classEventQueueInterface_a83ea442daecd3a0e873881f2819b8ed2}} 
+\index{EventQueueInterface@{EventQueueInterface}!DeleteEventDraw@{DeleteEventDraw}}
+\index{DeleteEventDraw@{DeleteEventDraw}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{DeleteEventDraw()}{DeleteEventDraw()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Delete\+Event\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the delete button 
+\begin{DoxyParams}{Parameters}
+{\em button} & The delete button \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEventQueueInterface_a5183ebf811f8b16fee4436a6a5ca0163}\label{classEventQueueInterface_a5183ebf811f8b16fee4436a6a5ca0163}} 
+\index{EventQueueInterface@{EventQueueInterface}!EventClick@{EventClick}}
+\index{EventClick@{EventClick}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{EventClick()}{EventClick()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Event\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the event full details popup window 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button clicked on to open event \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEventQueueInterface_a93cb6017cc03a8e05b747fa21034cdb8}\label{classEventQueueInterface_a93cb6017cc03a8e05b747fa21034cdb8}} 
+\index{EventQueueInterface@{EventQueueInterface}!EventDraw@{EventDraw}}
+\index{EventDraw@{EventDraw}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{EventDraw()}{EventDraw()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Event\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders each event in the list 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button to render the event to \\
+\hline
+{\em highlighted} & T\+O\+DO\+: Document \\
+\hline
+{\em clicked} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEventQueueInterface_ab92d2008bbaf8915afb9e8be14f07cce}\label{classEventQueueInterface_ab92d2008bbaf8915afb9e8be14f07cce}} 
+\index{EventQueueInterface@{EventQueueInterface}!FullDetailsCloseClick@{FullDetailsCloseClick}}
+\index{FullDetailsCloseClick@{FullDetailsCloseClick}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{FullDetailsCloseClick()}{FullDetailsCloseClick()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Full\+Details\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Removes the full details window 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEventQueueInterface_a30e90112d5f4048662eeafa106d4a118}\label{classEventQueueInterface_a30e90112d5f4048662eeafa106d4a118}} 
+\index{EventQueueInterface@{EventQueueInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Event\+Queue\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classEventQueueInterface_a4219fc67f78ecf0e036f11fb02c367d1}\label{classEventQueueInterface_a4219fc67f78ecf0e036f11fb02c367d1}} 
+\index{EventQueueInterface@{EventQueueInterface}!NumItemsOnScreen@{NumItemsOnScreen}}
+\index{NumItemsOnScreen@{NumItemsOnScreen}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{NumItemsOnScreen()}{NumItemsOnScreen()}}
+{\footnotesize\ttfamily int Event\+Queue\+Interface\+::\+Num\+Items\+On\+Screen (\begin{DoxyParamCaption}\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Calculates how many events can be listed for given height 
+\begin{DoxyParams}{Parameters}
+{\em height} & height of the area \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of events listable in space 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEventQueueInterface_a22f74193054acbbbee8e7434d43b9d6b}\label{classEventQueueInterface_a22f74193054acbbbee8e7434d43b9d6b}} 
+\index{EventQueueInterface@{EventQueueInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classEventQueueInterface_a31614d5e3f070c638927d4ce4a2eea80}\label{classEventQueueInterface_a31614d5e3f070c638927d4ce4a2eea80}} 
+\index{EventQueueInterface@{EventQueueInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Event\+Queue\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classEventQueueInterface_a701f505ea0f8189bd4d8f71df03887c1}\label{classEventQueueInterface_a701f505ea0f8189bd4d8f71df03887c1}} 
+\index{EventQueueInterface@{EventQueueInterface}!ScrollDownClick@{ScrollDownClick}}
+\index{ScrollDownClick@{ScrollDownClick}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{ScrollDownClick()}{ScrollDownClick()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Scroll\+Down\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Scrolls the scrollbox down 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classEventQueueInterface_aea3a54f2a41debce5602bf23684544d7}\label{classEventQueueInterface_aea3a54f2a41debce5602bf23684544d7}} 
+\index{EventQueueInterface@{EventQueueInterface}!ScrollUpClick@{ScrollUpClick}}
+\index{ScrollUpClick@{ScrollUpClick}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{ScrollUpClick()}{ScrollUpClick()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Scroll\+Up\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Scrolls the scrollbox up 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classEventQueueInterface_ac93080386f3e6be09381693e7b3bcdab}\label{classEventQueueInterface_ac93080386f3e6be09381693e7b3bcdab}} 
+\index{EventQueueInterface@{EventQueueInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classEventQueueInterface_a74e1916c6095e512ffe59a95ed9c2033}\label{classEventQueueInterface_a74e1916c6095e512ffe59a95ed9c2033}} 
+\index{EventQueueInterface@{EventQueueInterface}!Update@{Update}}
+\index{Update@{Update}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Event\+Queue\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEventQueueInterface_a7ce6b078676ce2f74475418bafeaf0b9}\label{classEventQueueInterface_a7ce6b078676ce2f74475418bafeaf0b9}} 
+\index{EventQueueInterface@{EventQueueInterface}!previousupdate@{previousupdate}}
+\index{previousupdate@{previousupdate}!EventQueueInterface@{EventQueueInterface}}
+\doxysubsubsection{\texorpdfstring{previousupdate}{previousupdate}}
+{\footnotesize\ttfamily int Event\+Queue\+Interface\+::previousupdate = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The time the list was last updated 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/evtqueue\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/evtqueue\+\_\+interface.\+cpp\end{DoxyCompactItemize}

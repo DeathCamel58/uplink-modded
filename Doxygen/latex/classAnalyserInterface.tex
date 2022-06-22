@@ -1,0 +1,210 @@
+\hypertarget{classAnalyserInterface}{}\doxysection{Analyser\+Interface Class Reference}
+\label{classAnalyserInterface}\index{AnalyserInterface@{AnalyserInterface}}
+
+
+Screen that shows remote host security systems.  
+
+
+
+
+{\ttfamily \#include $<$analyser\+\_\+interface.\+h$>$}
+
+
+
+Inheritance diagram for Analyser\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Analyser\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAnalyserInterface_ae3b3f30246408956b3926fb4b275a9d2}{Create}} () override
+\item 
+void \mbox{\hyperlink{classAnalyserInterface_a688eec89e517e9759b559116ffc9b612}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classAnalyserInterface_aed4195b7aa0a3e2a9610d8bc35224e02}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classAnalyserInterface_a77f6607fc30435f25d9854917fd59e12}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classAnalyserInterface_a4811ff0b5eeb00efd5c864431976790b}{Screen\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classAnalyserInterface_af58af09e18f374e2457db55c012409e5}{Cycle\+Stipple\+Pattern}} ()
+\item 
+static void \mbox{\hyperlink{classAnalyserInterface_a218a8a21d2c814a8cd09f57b1059567b}{Title\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classAnalyserInterface_ab663eac9c639b0709bfa726b8d6761d0}{System\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+static void \mbox{\hyperlink{classAnalyserInterface_a5f7b8ba8b4288e45ce6f0b04e1d6c3bb}{Connection\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+time\+\_\+t \mbox{\hyperlink{classAnalyserInterface_a87fd310fdcf0ba2399fb823bc0ec4eaf}{lastupdate}}
+\item 
+int \mbox{\hyperlink{classAnalyserInterface_adee95424cd6ccc3192a6a1ef15c40c89}{stippleupdate}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static char \mbox{\hyperlink{classAnalyserInterface_af0bfec7e8c7f3f408027254b2c8521ea}{remotehost}} \mbox{[}S\+I\+Z\+E\+\_\+\+V\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+IP\mbox{]}
+\item 
+static int \mbox{\hyperlink{classAnalyserInterface_a514f3a8f546b64321087d60b4c6657bc}{moving\+\_\+stipplepattern}} = S\+T\+I\+P\+P\+LE \mbox{[}0\mbox{]}
+\item 
+static int \mbox{\hyperlink{classAnalyserInterface_a91fbe93eb15606a76b56e82c11186bc4}{static\+\_\+stipplepattern}} = S\+T\+I\+P\+P\+LE \mbox{[}0\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Screen that shows remote host security systems. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAnalyserInterface_a5f7b8ba8b4288e45ce6f0b04e1d6c3bb}\label{classAnalyserInterface_a5f7b8ba8b4288e45ce6f0b04e1d6c3bb}} 
+\index{AnalyserInterface@{AnalyserInterface}!ConnectionDraw@{ConnectionDraw}}
+\index{ConnectionDraw@{ConnectionDraw}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{ConnectionDraw()}{ConnectionDraw()}}
+{\footnotesize\ttfamily void Analyser\+Interface\+::\+Connection\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} with background image \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classAnalyserInterface_ae3b3f30246408956b3926fb4b275a9d2}\label{classAnalyserInterface_ae3b3f30246408956b3926fb4b275a9d2}} 
+\index{AnalyserInterface@{AnalyserInterface}!Create@{Create}}
+\index{Create@{Create}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Analyser\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAnalyserInterface_af58af09e18f374e2457db55c012409e5}\label{classAnalyserInterface_af58af09e18f374e2457db55c012409e5}} 
+\index{AnalyserInterface@{AnalyserInterface}!CycleStipplePattern@{CycleStipplePattern}}
+\index{CycleStipplePattern@{CycleStipplePattern}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{CycleStipplePattern()}{CycleStipplePattern()}}
+{\footnotesize\ttfamily void Analyser\+Interface\+::\+Cycle\+Stipple\+Pattern (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Cycles the stipplepattern \mbox{\Hypertarget{classAnalyserInterface_a77f6607fc30435f25d9854917fd59e12}\label{classAnalyserInterface_a77f6607fc30435f25d9854917fd59e12}} 
+\index{AnalyserInterface@{AnalyserInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool Analyser\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAnalyserInterface_a688eec89e517e9759b559116ffc9b612}\label{classAnalyserInterface_a688eec89e517e9759b559116ffc9b612}} 
+\index{AnalyserInterface@{AnalyserInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Analyser\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAnalyserInterface_a4811ff0b5eeb00efd5c864431976790b}\label{classAnalyserInterface_a4811ff0b5eeb00efd5c864431976790b}} 
+\index{AnalyserInterface@{AnalyserInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int Analyser\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAnalyserInterface_ab663eac9c639b0709bfa726b8d6761d0}\label{classAnalyserInterface_ab663eac9c639b0709bfa726b8d6761d0}} 
+\index{AnalyserInterface@{AnalyserInterface}!SystemClick@{SystemClick}}
+\index{SystemClick@{SystemClick}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{SystemClick()}{SystemClick()}}
+{\footnotesize\ttfamily void Analyser\+Interface\+::\+System\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Detects what security system was clicked on 
+\begin{DoxyParams}{Parameters}
+{\em button} & The button clicked on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAnalyserInterface_a218a8a21d2c814a8cd09f57b1059567b}\label{classAnalyserInterface_a218a8a21d2c814a8cd09f57b1059567b}} 
+\index{AnalyserInterface@{AnalyserInterface}!TitleClick@{TitleClick}}
+\index{TitleClick@{TitleClick}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{TitleClick()}{TitleClick()}}
+{\footnotesize\ttfamily void Analyser\+Interface\+::\+Title\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classAnalyserInterface_aed4195b7aa0a3e2a9610d8bc35224e02}\label{classAnalyserInterface_aed4195b7aa0a3e2a9610d8bc35224e02}} 
+\index{AnalyserInterface@{AnalyserInterface}!Update@{Update}}
+\index{Update@{Update}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Analyser\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAnalyserInterface_a87fd310fdcf0ba2399fb823bc0ec4eaf}\label{classAnalyserInterface_a87fd310fdcf0ba2399fb823bc0ec4eaf}} 
+\index{AnalyserInterface@{AnalyserInterface}!lastupdate@{lastupdate}}
+\index{lastupdate@{lastupdate}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{lastupdate}{lastupdate}}
+{\footnotesize\ttfamily time\+\_\+t Analyser\+Interface\+::lastupdate\hspace{0.3cm}{\ttfamily [protected]}}
+
+The time the security systems last updated \mbox{\Hypertarget{classAnalyserInterface_a514f3a8f546b64321087d60b4c6657bc}\label{classAnalyserInterface_a514f3a8f546b64321087d60b4c6657bc}} 
+\index{AnalyserInterface@{AnalyserInterface}!moving\_stipplepattern@{moving\_stipplepattern}}
+\index{moving\_stipplepattern@{moving\_stipplepattern}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{moving\_stipplepattern}{moving\_stipplepattern}}
+{\footnotesize\ttfamily int Analyser\+Interface\+::moving\+\_\+stipplepattern = S\+T\+I\+P\+P\+LE \mbox{[}0\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Moving dots pattern \mbox{\Hypertarget{classAnalyserInterface_af0bfec7e8c7f3f408027254b2c8521ea}\label{classAnalyserInterface_af0bfec7e8c7f3f408027254b2c8521ea}} 
+\index{AnalyserInterface@{AnalyserInterface}!remotehost@{remotehost}}
+\index{remotehost@{remotehost}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{remotehost}{remotehost}}
+{\footnotesize\ttfamily char Analyser\+Interface\+::remotehost\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The IP of the remote host \mbox{\Hypertarget{classAnalyserInterface_a91fbe93eb15606a76b56e82c11186bc4}\label{classAnalyserInterface_a91fbe93eb15606a76b56e82c11186bc4}} 
+\index{AnalyserInterface@{AnalyserInterface}!static\_stipplepattern@{static\_stipplepattern}}
+\index{static\_stipplepattern@{static\_stipplepattern}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{static\_stipplepattern}{static\_stipplepattern}}
+{\footnotesize\ttfamily int Analyser\+Interface\+::static\+\_\+stipplepattern = S\+T\+I\+P\+P\+LE \mbox{[}0\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Stationary dots pattern \mbox{\Hypertarget{classAnalyserInterface_adee95424cd6ccc3192a6a1ef15c40c89}\label{classAnalyserInterface_adee95424cd6ccc3192a6a1ef15c40c89}} 
+\index{AnalyserInterface@{AnalyserInterface}!stippleupdate@{stippleupdate}}
+\index{stippleupdate@{stippleupdate}!AnalyserInterface@{AnalyserInterface}}
+\doxysubsubsection{\texorpdfstring{stippleupdate}{stippleupdate}}
+{\footnotesize\ttfamily int Analyser\+Interface\+::stippleupdate\hspace{0.3cm}{\ttfamily [protected]}}
+
+Time to cycle the stipplepattern at 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/localinterface/analyser\+\_\+interface.\+h\item 
+uplink/src/interface/localinterface/analyser\+\_\+interface.\+cpp\end{DoxyCompactItemize}

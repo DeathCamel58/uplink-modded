@@ -1,0 +1,163 @@
+\hypertarget{classComputerScreen}{}\doxysection{Computer\+Screen Class Reference}
+\label{classComputerScreen}\index{ComputerScreen@{ComputerScreen}}
+
+
+Inheritance diagram for Computer\+Screen\+:
+% FIG 0
+
+
+Collaboration diagram for Computer\+Screen\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classComputerScreen_a259b73e88ae73e18b6ed94ed7a5d6d8d}\label{classComputerScreen_a259b73e88ae73e18b6ed94ed7a5d6d8d}} 
+void {\bfseries Set\+Main\+Title} (const string \&newmaintitle)
+\item 
+\mbox{\Hypertarget{classComputerScreen_aa21aed5c4855d7c40d7b5b190aeadfee}\label{classComputerScreen_aa21aed5c4855d7c40d7b5b190aeadfee}} 
+void {\bfseries Set\+Sub\+Title} (const string \&newsubtitle)
+\item 
+\mbox{\Hypertarget{classComputerScreen_a913b7088a1207332b65abb31f560258d}\label{classComputerScreen_a913b7088a1207332b65abb31f560258d}} 
+void {\bfseries Set\+Computer} (const string \&newcomputer)
+\item 
+\mbox{\Hypertarget{classComputerScreen_aa40c94bf03ecb63177547b6273b07fb6}\label{classComputerScreen_aa40c94bf03ecb63177547b6273b07fb6}} 
+\mbox{\hyperlink{classComputer}{Computer}} $\ast$ {\bfseries Get\+Computer} ()
+\item 
+bool \mbox{\hyperlink{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}{Print}} () override
+\item 
+void \mbox{\hyperlink{classComputerScreen_a41d8d7909370266661035b2c52a4c05a}{Update}} () override
+\item 
+string \mbox{\hyperlink{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}{Get\+ID}} () override
+\item 
+int \mbox{\hyperlink{classComputerScreen_af8b9e2576e68db46a305787f35345cde}{Get\+O\+B\+J\+E\+C\+T\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classComputerScreen_a64f807eb75260f1b148c4575a9e17c5b}\label{classComputerScreen_a64f807eb75260f1b148c4575a9e17c5b}} 
+char {\bfseries maintitle} \mbox{[}S\+I\+Z\+E\+\_\+\+C\+O\+M\+P\+U\+T\+E\+R\+S\+C\+R\+E\+E\+N\+\_\+\+M\+A\+I\+N\+T\+I\+T\+LE\mbox{]}
+\item 
+\mbox{\Hypertarget{classComputerScreen_a0cad281ff587086e7b66ca7ecbed9abe}\label{classComputerScreen_a0cad281ff587086e7b66ca7ecbed9abe}} 
+char {\bfseries subtitle} \mbox{[}S\+I\+Z\+E\+\_\+\+C\+O\+M\+P\+U\+T\+E\+R\+S\+C\+R\+E\+E\+N\+\_\+\+S\+U\+B\+T\+I\+T\+LE\mbox{]}
+\item 
+\mbox{\Hypertarget{classComputerScreen_aaf5ab46317b647ce7a6f97d9bca02c0a}\label{classComputerScreen_aaf5ab46317b647ce7a6f97d9bca02c0a}} 
+char {\bfseries computer} \mbox{[}S\+I\+Z\+E\+\_\+\+C\+O\+M\+P\+U\+T\+E\+R\+\_\+\+N\+A\+ME\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}\label{classComputerScreen_a897fa3a97d0d897df367ddebea4b3e1f}} 
+\index{ComputerScreen@{ComputerScreen}!GetID@{GetID}}
+\index{GetID@{GetID}!ComputerScreen@{ComputerScreen}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Computer\+Screen\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classSharesListScreen_a3503de639d085feb57f3d123aba67895}{Shares\+List\+Screen}}, \mbox{\hyperlink{classDialogScreen_a8e426ad373d1c14c6a1da58c5f228f91}{Dialog\+Screen}}, \mbox{\hyperlink{classMenuScreen_af5c983c4372b58f2fed535ad93ce0699}{Menu\+Screen}}, \mbox{\hyperlink{classLogScreen_a63885bd735c4360b2ec471f25af90aa8}{Log\+Screen}}, \mbox{\hyperlink{classMessageScreen_adfc55238ce43d274c1f67eb198463aa4}{Message\+Screen}}, \mbox{\hyperlink{classPasswordScreen_a1176ea3d9818fa39485eb733fac524fb}{Password\+Screen}}, \mbox{\hyperlink{classLinksScreen_ac920fc6868f9c311426e3645d8d9c43e}{Links\+Screen}}, \mbox{\hyperlink{classGenericScreen_a1a071b685e66025584516a1a732ad043}{Generic\+Screen}}, \mbox{\hyperlink{classHighSecurityScreen_a7d24485c11f89c5e4f832a6d7bbe7b38}{High\+Security\+Screen}}, \mbox{\hyperlink{classCypherScreen_a350d6455522d476483b10ccffa28ee3f}{Cypher\+Screen}}, \mbox{\hyperlink{classUserIDScreen_aa5496045d5cba7d6090e5cd13d69128e}{User\+I\+D\+Screen}}, and \mbox{\hyperlink{classDisconnectedScreen_a0a2283f5dc03eda2a6e165792f3ed932}{Disconnected\+Screen}}.
+
+\mbox{\Hypertarget{classComputerScreen_af8b9e2576e68db46a305787f35345cde}\label{classComputerScreen_af8b9e2576e68db46a305787f35345cde}} 
+\index{ComputerScreen@{ComputerScreen}!GetOBJECTID@{GetOBJECTID}}
+\index{GetOBJECTID@{GetOBJECTID}!ComputerScreen@{ComputerScreen}}
+\doxysubsubsection{\texorpdfstring{GetOBJECTID()}{GetOBJECTID()}}
+{\footnotesize\ttfamily int Computer\+Screen\+::\+Get\+O\+B\+J\+E\+C\+T\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the object type ID used in Tosser structures \begin{DoxyReturn}{Returns}
+The object ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classSharesListScreen_abbdb036709bdde6d53a16e1f69cb016c}{Shares\+List\+Screen}}, \mbox{\hyperlink{classDialogScreen_a454fc0d337524e574519d6a51eae68d0}{Dialog\+Screen}}, \mbox{\hyperlink{classMenuScreen_ac6ad064f540dbdda9135951b15d937d6}{Menu\+Screen}}, \mbox{\hyperlink{classLogScreen_a94e6c524531508df104fc24abd5aa44d}{Log\+Screen}}, \mbox{\hyperlink{classMessageScreen_ade1e7653242693872780a12dc09f8e8e}{Message\+Screen}}, \mbox{\hyperlink{classPasswordScreen_a074a8e2978dfa09432685d3a2053207e}{Password\+Screen}}, \mbox{\hyperlink{classLinksScreen_a8ae9e7ed0fafd63be6109ff7091badf0}{Links\+Screen}}, \mbox{\hyperlink{classGenericScreen_a72952451e71da99d3939622f053a24ea}{Generic\+Screen}}, \mbox{\hyperlink{classHighSecurityScreen_a2475a885106c977a6e57399b3a3841e7}{High\+Security\+Screen}}, \mbox{\hyperlink{classCypherScreen_a85f5ef71e86a0d2be6bc537f29936447}{Cypher\+Screen}}, \mbox{\hyperlink{classUserIDScreen_a90c8592a77f6a8fd4c986c43d81f1555}{User\+I\+D\+Screen}}, and \mbox{\hyperlink{classDisconnectedScreen_ac6c5a958c884b79a84c986574446bf41}{Disconnected\+Screen}}.
+
+\mbox{\Hypertarget{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}\label{classComputerScreen_a5b148a3d56d40afdcfd06f7e79685366}} 
+\index{ComputerScreen@{ComputerScreen}!Load@{Load}}
+\index{Load@{Load}!ComputerScreen@{ComputerScreen}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Computer\+Screen\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classSharesListScreen_a433b23275ec1181ce494373cbcaf8569}{Shares\+List\+Screen}}, \mbox{\hyperlink{classDialogScreen_a48eea28510f091d5cdde166bc82b71e0}{Dialog\+Screen}}, \mbox{\hyperlink{classMenuScreen_a501de203faffdc6a591a6ac5df8fe0cd}{Menu\+Screen}}, \mbox{\hyperlink{classLogScreen_aba11c4aa73fb1ebb4625cfb529d98acf}{Log\+Screen}}, \mbox{\hyperlink{classMessageScreen_afd8adbe050aca4e7b88fc8be650afb05}{Message\+Screen}}, \mbox{\hyperlink{classPasswordScreen_a3bb9e0c8f3833edba1d705938a3b0d63}{Password\+Screen}}, \mbox{\hyperlink{classLinksScreen_a6c44e80707426c49c6dee7f53e4e9b99}{Links\+Screen}}, \mbox{\hyperlink{classGenericScreen_aec36ef0dd2af11f4b57c40f8f7b49af2}{Generic\+Screen}}, \mbox{\hyperlink{classHighSecurityScreen_a801f39d59e9d8363c18bd203079ca785}{High\+Security\+Screen}}, \mbox{\hyperlink{classCypherScreen_a0c8dc7d98eeaa18bf78105171aa384c3}{Cypher\+Screen}}, \mbox{\hyperlink{classUserIDScreen_a271b09e646b1f1246e2307bba4589e83}{User\+I\+D\+Screen}}, and \mbox{\hyperlink{classDisconnectedScreen_a0c8e36b24f435ce56fdc7edce74e68f9}{Disconnected\+Screen}}.
+
+\mbox{\Hypertarget{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}\label{classComputerScreen_ad79a5dda9b5bdda9b919a579867a01ea}} 
+\index{ComputerScreen@{ComputerScreen}!Print@{Print}}
+\index{Print@{Print}!ComputerScreen@{ComputerScreen}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Computer\+Screen\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classSharesListScreen_aae3bf2d490533eb576b7e7615b141f52}{Shares\+List\+Screen}}, \mbox{\hyperlink{classDialogScreen_a6818cdb99c82030ea27e54f8f11ac161}{Dialog\+Screen}}, \mbox{\hyperlink{classMenuScreen_a3ede233e82a8729246a8b9f740dbfc7d}{Menu\+Screen}}, \mbox{\hyperlink{classLogScreen_aecec092cf4eac84353e316d54da3254a}{Log\+Screen}}, \mbox{\hyperlink{classMessageScreen_aaeebd247b5f4ab5e2ace3a9311cfe051}{Message\+Screen}}, \mbox{\hyperlink{classPasswordScreen_a7f479d0eb7cb253e0f009aeb4f2dcb47}{Password\+Screen}}, \mbox{\hyperlink{classLinksScreen_a1f7e6039bad5bb49fb756b9908407722}{Links\+Screen}}, \mbox{\hyperlink{classGenericScreen_aaa108254855d192b2de2a0cf66e6ed7d}{Generic\+Screen}}, \mbox{\hyperlink{classHighSecurityScreen_a2f50d155f0b094bf16a46e38e80acc43}{High\+Security\+Screen}}, \mbox{\hyperlink{classCypherScreen_a22611e3696205d648abb3fb8ef88fbb1}{Cypher\+Screen}}, \mbox{\hyperlink{classUserIDScreen_a693b49b9c061c4575d3f538ae6feea76}{User\+I\+D\+Screen}}, and \mbox{\hyperlink{classDisconnectedScreen_a440420c50402bed689a205a998179b48}{Disconnected\+Screen}}.
+
+\mbox{\Hypertarget{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}\label{classComputerScreen_a9046a99cee4c1787725e68be94b9dcf4}} 
+\index{ComputerScreen@{ComputerScreen}!Save@{Save}}
+\index{Save@{Save}!ComputerScreen@{ComputerScreen}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Computer\+Screen\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{classSharesListScreen_a341b1399cc6f5d2fd778eb0766c536c6}{Shares\+List\+Screen}}, \mbox{\hyperlink{classDialogScreen_ade1035b1252df36f42ebc08e862c7236}{Dialog\+Screen}}, \mbox{\hyperlink{classMenuScreen_a5e82ee153439c56662b4905a03211cf5}{Menu\+Screen}}, \mbox{\hyperlink{classLogScreen_ad35462c3fd0f0691d6ca94cef2a94c5d}{Log\+Screen}}, \mbox{\hyperlink{classMessageScreen_a1d14ee30df3ccb42f65d3827607e5278}{Message\+Screen}}, \mbox{\hyperlink{classPasswordScreen_aa90282576fcc73ed45e5ebf1789c0603}{Password\+Screen}}, \mbox{\hyperlink{classLinksScreen_a4da98cfc75c6a8ca7c558bc197ffb96a}{Links\+Screen}}, \mbox{\hyperlink{classGenericScreen_adb30e6774a7d18dc7800d8a754c5458a}{Generic\+Screen}}, \mbox{\hyperlink{classHighSecurityScreen_aebb625eae4773da7de87f0065822047e}{High\+Security\+Screen}}, \mbox{\hyperlink{classCypherScreen_af10d7ee0b4ff2f3ad3f99125222aadef}{Cypher\+Screen}}, \mbox{\hyperlink{classUserIDScreen_a8260c0206e2ca757e359468558a065fb}{User\+I\+D\+Screen}}, and \mbox{\hyperlink{classDisconnectedScreen_a8370cccebb02cdfb06cf2ecaa0b5f09b}{Disconnected\+Screen}}.
+
+\mbox{\Hypertarget{classComputerScreen_a41d8d7909370266661035b2c52a4c05a}\label{classComputerScreen_a41d8d7909370266661035b2c52a4c05a}} 
+\index{ComputerScreen@{ComputerScreen}!Update@{Update}}
+\index{Update@{Update}!ComputerScreen@{ComputerScreen}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Computer\+Screen\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/world/computer/computerscreen/computerscreen.\+h\item 
+uplink/src/world/computer/computerscreen/computerscreen.\+cpp\end{DoxyCompactItemize}

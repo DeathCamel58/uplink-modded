@@ -1,0 +1,155 @@
+\hypertarget{classRemoteInterface}{}\doxysection{Remote\+Interface Class Reference}
+\label{classRemoteInterface}\index{RemoteInterface@{RemoteInterface}}
+
+
+Inheritance diagram for Remote\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for Remote\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRemoteInterface_ac7d4571a48894f0f8c5bf2409804a6ac}\label{classRemoteInterface_ac7d4571a48894f0f8c5bf2409804a6ac}} 
+void {\bfseries Run\+New\+Location} ()
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a5e45f50a2cb6993d79424d5c17c85041}\label{classRemoteInterface_a5e45f50a2cb6993d79424d5c17c85041}} 
+void {\bfseries Run\+Screen} (int screenindex, \mbox{\hyperlink{classComputer}{Computer}} $\ast$compref=nullptr)
+\item 
+\mbox{\Hypertarget{classRemoteInterface_ad02415c5a0df29cf969b1d64ad831566}\label{classRemoteInterface_ad02415c5a0df29cf969b1d64ad831566}} 
+void {\bfseries Set\+Security} (const string \&newname, int newvalue)
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a62d20af07c03dae09016d76cd95968ef}\label{classRemoteInterface_a62d20af07c03dae09016d76cd95968ef}} 
+void {\bfseries Create} ()
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a48b0dccf0f34f688c08d1dc62a64dbca}\label{classRemoteInterface_a48b0dccf0f34f688c08d1dc62a64dbca}} 
+void {\bfseries Remove} ()
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a995c56e19e2278acf3d08336f2f55b8d}\label{classRemoteInterface_a995c56e19e2278acf3d08336f2f55b8d}} 
+bool {\bfseries Is\+Visible} ()
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a958980de705f94cd45494d7500fd2e0b}\label{classRemoteInterface_a958980de705f94cd45494d7500fd2e0b}} 
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} $\ast$ {\bfseries Get\+Interface\+Screen} ()
+\item 
+\mbox{\Hypertarget{classRemoteInterface_aaa51893ae16bdc5bcf7f1ac6479bd395}\label{classRemoteInterface_aaa51893ae16bdc5bcf7f1ac6479bd395}} 
+\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\item 
+bool \mbox{\hyperlink{classRemoteInterface_a1ff500928af6a07397dafd5fbaa6ff32}{Load}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classRemoteInterface_a69f7f04a12b6cbddc1f6d6b1a002b778}{Save}} (F\+I\+LE $\ast$file) override
+\item 
+void \mbox{\hyperlink{classRemoteInterface_a44177ab8517f8968117f34c86bbf6883}{Print}} () override
+\item 
+void \mbox{\hyperlink{classRemoteInterface_a93dc7a1159905edc5411755ca5a96bc0}{Update}} () override
+\item 
+string \mbox{\hyperlink{classRemoteInterface_a959735b433ae582474d003db7250a045}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a5983ef115cc0a9fae6c7015cd02b913e}\label{classRemoteInterface_a5983ef115cc0a9fae6c7015cd02b913e}} 
+static bool {\bfseries Verify\+Screen} (int screenindex)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a3e63351a16309d7878ec33537723169c}\label{classRemoteInterface_a3e63351a16309d7878ec33537723169c}} 
+int {\bfseries previousscreenindex}
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a496d6e5f4ee9b8b41ae8f678443acf93}\label{classRemoteInterface_a496d6e5f4ee9b8b41ae8f678443acf93}} 
+int {\bfseries currentscreenindex}
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a25cbe60bc55c29ea3692008973e4d128}\label{classRemoteInterface_a25cbe60bc55c29ea3692008973e4d128}} 
+char {\bfseries security\+\_\+name} \mbox{[}S\+I\+Z\+E\+\_\+\+P\+E\+R\+S\+O\+N\+\_\+\+N\+A\+ME\mbox{]}
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a3ddbb446c489d40abce22712ae3ac3b0}\label{classRemoteInterface_a3ddbb446c489d40abce22712ae3ac3b0}} 
+int {\bfseries security\+\_\+level}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classRemoteInterface_a01e3361b4f4446ec65609cc00360e96f}\label{classRemoteInterface_a01e3361b4f4446ec65609cc00360e96f}} 
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} $\ast$ {\bfseries screen}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRemoteInterface_a959735b433ae582474d003db7250a045}\label{classRemoteInterface_a959735b433ae582474d003db7250a045}} 
+\index{RemoteInterface@{RemoteInterface}!GetID@{GetID}}
+\index{GetID@{GetID}!RemoteInterface@{RemoteInterface}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily string Remote\+Interface\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the ID of the object \begin{DoxyReturn}{Returns}
+The ID of the object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The ID is the type of object this is 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797adbd9171}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRemoteInterface_a1ff500928af6a07397dafd5fbaa6ff32}\label{classRemoteInterface_a1ff500928af6a07397dafd5fbaa6ff32}} 
+\index{RemoteInterface@{RemoteInterface}!Load@{Load}}
+\index{Load@{Load}!RemoteInterface@{RemoteInterface}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool Remote\+Interface\+::\+Load (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Loads data to this object from file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading was successful 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a107a1862aaa64d9d9ab0acdc86a4a86f}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRemoteInterface_a44177ab8517f8968117f34c86bbf6883}\label{classRemoteInterface_a44177ab8517f8968117f34c86bbf6883}} 
+\index{RemoteInterface@{RemoteInterface}!Print@{Print}}
+\index{Print@{Print}!RemoteInterface@{RemoteInterface}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Remote\+Interface\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Prints all data about this object \begin{DoxyNote}{Note}
+This is for debugging 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c9484556352}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRemoteInterface_a69f7f04a12b6cbddc1f6d6b1a002b778}\label{classRemoteInterface_a69f7f04a12b6cbddc1f6d6b1a002b778}} 
+\index{RemoteInterface@{RemoteInterface}!Save@{Save}}
+\index{Save@{Save}!RemoteInterface@{RemoteInterface}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void Remote\+Interface\+::\+Save (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Saves data from this object to file 
+\begin{DoxyParams}{Parameters}
+{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
+
+\mbox{\Hypertarget{classRemoteInterface_a93dc7a1159905edc5411755ca5a96bc0}\label{classRemoteInterface_a93dc7a1159905edc5411755ca5a96bc0}} 
+\index{RemoteInterface@{RemoteInterface}!Update@{Update}}
+\index{Update@{Update}!RemoteInterface@{RemoteInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Remote\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Processes any necessary updates on the object. 
+
+Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/remoteinterface.\+h\item 
+uplink/src/interface/remoteinterface/remoteinterface.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,107 @@
+\hypertarget{classUserIDScreenInterface}{}\doxysection{User\+I\+D\+Screen\+Interface Class Reference}
+\label{classUserIDScreenInterface}\index{UserIDScreenInterface@{UserIDScreenInterface}}
+
+
+Inheritance diagram for User\+I\+D\+Screen\+Interface\+:
+% FIG 0
+
+
+Collaboration diagram for User\+I\+D\+Screen\+Interface\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_adf4eeee8800e1b484154b7f70f7f2a8c}\label{classUserIDScreenInterface_adf4eeee8800e1b484154b7f70f7f2a8c}} 
+bool {\bfseries Return\+Key\+Pressed} () override
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_a52d46d35a815a19485673cb6707ea8f7}\label{classUserIDScreenInterface_a52d46d35a815a19485673cb6707ea8f7}} 
+void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+\item 
+void \mbox{\hyperlink{classUserIDScreenInterface_a74359c198861e06c820f30a71685baa0}{Remove}} () override
+\item 
+void \mbox{\hyperlink{classUserIDScreenInterface_ae4020a1eb06ee9bd1a63ad925a033562}{Update}} () override
+\item 
+bool \mbox{\hyperlink{classUserIDScreenInterface_ac6f067f7647c8c5290d112ee5c82ff4f}{Is\+Visible}} () override
+\item 
+int \mbox{\hyperlink{classUserIDScreenInterface_af79811cb5958501a6dd3045371153d9c}{Screen\+ID}} () override
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_ab4780cf1ea6fc2df40b2829664c4de38}\label{classUserIDScreenInterface_ab4780cf1ea6fc2df40b2829664c4de38}} 
+\mbox{\hyperlink{classUserIDScreen}{User\+I\+D\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_a4400a7c6caac239bf65a1baf214d6976}\label{classUserIDScreenInterface_a4400a7c6caac239bf65a1baf214d6976}} 
+static void {\bfseries User\+I\+D\+Button\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_a2b3b5bb3766883b67f6c2bdba6ac3da4}\label{classUserIDScreenInterface_a2b3b5bb3766883b67f6c2bdba6ac3da4}} 
+static void {\bfseries Code\+Button\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_add3fd6a9fedd4bb36a9880789da7955f}\label{classUserIDScreenInterface_add3fd6a9fedd4bb36a9880789da7955f}} 
+static void {\bfseries Code\+Button\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_a3b6abf4f9c95b76fef8c3966ace88c1e}\label{classUserIDScreenInterface_a3b6abf4f9c95b76fef8c3966ace88c1e}} 
+static void {\bfseries Access\+Code\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_ad7a5738582b7eae6653b5e19684f4f23}\label{classUserIDScreenInterface_ad7a5738582b7eae6653b5e19684f4f23}} 
+static void {\bfseries Bypass\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\item 
+\mbox{\Hypertarget{classUserIDScreenInterface_a25ada46ddc1768e650aaa65d89f96678}\label{classUserIDScreenInterface_a25ada46ddc1768e650aaa65d89f96678}} 
+static void {\bfseries Proceed\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUserIDScreenInterface_ac6f067f7647c8c5290d112ee5c82ff4f}\label{classUserIDScreenInterface_ac6f067f7647c8c5290d112ee5c82ff4f}} 
+\index{UserIDScreenInterface@{UserIDScreenInterface}!IsVisible@{IsVisible}}
+\index{IsVisible@{IsVisible}!UserIDScreenInterface@{UserIDScreenInterface}}
+\doxysubsubsection{\texorpdfstring{IsVisible()}{IsVisible()}}
+{\footnotesize\ttfamily bool User\+I\+D\+Screen\+Interface\+::\+Is\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Is the screen visible? \begin{DoxyReturn}{Returns}
+true if screen is visible 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classUserIDScreenInterface_a74359c198861e06c820f30a71685baa0}\label{classUserIDScreenInterface_a74359c198861e06c820f30a71685baa0}} 
+\index{UserIDScreenInterface@{UserIDScreenInterface}!Remove@{Remove}}
+\index{Remove@{Remove}!UserIDScreenInterface@{UserIDScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void User\+I\+D\+Screen\+Interface\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Removes the screen 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classUserIDScreenInterface_af79811cb5958501a6dd3045371153d9c}\label{classUserIDScreenInterface_af79811cb5958501a6dd3045371153d9c}} 
+\index{UserIDScreenInterface@{UserIDScreenInterface}!ScreenID@{ScreenID}}
+\index{ScreenID@{ScreenID}!UserIDScreenInterface@{UserIDScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScreenID()}{ScreenID()}}
+{\footnotesize\ttfamily int User\+I\+D\+Screen\+Interface\+::\+Screen\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Gets the current screen ID \begin{DoxyReturn}{Returns}
+The screen ID 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classUserIDScreenInterface_ae4020a1eb06ee9bd1a63ad925a033562}\label{classUserIDScreenInterface_ae4020a1eb06ee9bd1a63ad925a033562}} 
+\index{UserIDScreenInterface@{UserIDScreenInterface}!Update@{Update}}
+\index{Update@{Update}!UserIDScreenInterface@{UserIDScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void User\+I\+D\+Screen\+Interface\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Updates the screen. This can update animations, or check if the data on the screen changed. 
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}{Remote\+Interface\+Screen}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/src/interface/remoteinterface/useridscreen\+\_\+interface.\+h\item 
+uplink/src/interface/remoteinterface/useridscreen\+\_\+interface.\+cpp\end{DoxyCompactItemize}

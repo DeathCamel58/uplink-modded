@@ -1,0 +1,253 @@
+\hypertarget{classArchive}{}\doxysection{Archive Class Reference}
+\label{classArchive}\index{Archive@{Archive}}
+
+
+Inheritance diagram for Archive\+:
+% FIG 0
+
+
+Collaboration diagram for Archive\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArchive_aba703027bcdb0596c0dc46246b5efe4f}\label{classArchive_aba703027bcdb0596c0dc46246b5efe4f}} 
+{\bfseries Archive} (\mbox{\hyperlink{classRAROptions}{R\+A\+R\+Options}} $\ast$Init\+Cmd=N\+U\+LL)
+\item 
+\mbox{\Hypertarget{classArchive_a5445c9c5db9e139d956946acf04d9aef}\label{classArchive_a5445c9c5db9e139d956946acf04d9aef}} 
+bool {\bfseries Is\+Archive} (bool Enable\+Broken)
+\item 
+\mbox{\Hypertarget{classArchive_af69a3ec28dd614f285c70ce7756429d6}\label{classArchive_af69a3ec28dd614f285c70ce7756429d6}} 
+int {\bfseries Search\+Block} (int Block\+Type)
+\item 
+\mbox{\Hypertarget{classArchive_ac1a0ae78f6bfee7ba4724cbe746ecaa9}\label{classArchive_ac1a0ae78f6bfee7ba4724cbe746ecaa9}} 
+int {\bfseries Search\+Sub\+Block} (const char $\ast$Type)
+\item 
+\mbox{\Hypertarget{classArchive_a18c7f105189398c7d54f51befbb5427d}\label{classArchive_a18c7f105189398c7d54f51befbb5427d}} 
+int {\bfseries Read\+Block} (int Block\+Type)
+\item 
+\mbox{\Hypertarget{classArchive_a6cda3c976a6a5cc6608207cdde3628e8}\label{classArchive_a6cda3c976a6a5cc6608207cdde3628e8}} 
+void {\bfseries Write\+Block} (int Block\+Type, \mbox{\hyperlink{structBaseBlock}{Base\+Block}} $\ast$wb=N\+U\+LL)
+\item 
+\mbox{\Hypertarget{classArchive_aa953c24ed872d504a5cc3c5ce8d5c39f}\label{classArchive_aa953c24ed872d504a5cc3c5ce8d5c39f}} 
+int {\bfseries Prepare\+Names\+To\+Write} (char $\ast$Name, wchar $\ast$NameW, char $\ast$Dest\+Name, byte $\ast$Dest\+NameW)
+\item 
+\mbox{\Hypertarget{classArchive_a1f401ed0535fdb5b7c84b3cf5a23b9cf}\label{classArchive_a1f401ed0535fdb5b7c84b3cf5a23b9cf}} 
+void {\bfseries Set\+Lhd\+Size} ()
+\item 
+\mbox{\Hypertarget{classArchive_aed6fc52a7abbbcbef7c71d2030a6ec26}\label{classArchive_aed6fc52a7abbbcbef7c71d2030a6ec26}} 
+int {\bfseries Read\+Header} ()
+\item 
+\mbox{\Hypertarget{classArchive_aefe3b900bd528f5340070107e5aaf187}\label{classArchive_aefe3b900bd528f5340070107e5aaf187}} 
+void {\bfseries Check\+Arc} (bool Enable\+Broken)
+\item 
+\mbox{\Hypertarget{classArchive_a763aae55627ba06c43e89faeab22e333}\label{classArchive_a763aae55627ba06c43e89faeab22e333}} 
+void {\bfseries Check\+Open} (char $\ast$Name, wchar $\ast$NameW=N\+U\+LL)
+\item 
+\mbox{\Hypertarget{classArchive_a4a0298925d83cf95b628c0493c76038e}\label{classArchive_a4a0298925d83cf95b628c0493c76038e}} 
+bool {\bfseries W\+Check\+Open} (char $\ast$Name, wchar $\ast$NameW=N\+U\+LL)
+\item 
+\mbox{\Hypertarget{classArchive_ae95e4cc796ee475b7e8b2687e94f3996}\label{classArchive_ae95e4cc796ee475b7e8b2687e94f3996}} 
+bool {\bfseries Test\+Lock} (int Mode)
+\item 
+\mbox{\Hypertarget{classArchive_a334953b36ea6415da9a2b7e5fa174076}\label{classArchive_a334953b36ea6415da9a2b7e5fa174076}} 
+void {\bfseries Make\+Temp} ()
+\item 
+\mbox{\Hypertarget{classArchive_a1e403ea5910099cba94e51b54e3c5587}\label{classArchive_a1e403ea5910099cba94e51b54e3c5587}} 
+void {\bfseries Copy\+Main\+Header} (\mbox{\hyperlink{classArchive}{Archive}} \&Src, bool Copy\+S\+FX=true, char $\ast$Name\+To\+Display=N\+U\+LL)
+\item 
+\mbox{\Hypertarget{classArchive_aa5b0f989a0b2572fc7edba58819dc26b}\label{classArchive_aa5b0f989a0b2572fc7edba58819dc26b}} 
+bool {\bfseries Process\+To\+File\+Head} (\mbox{\hyperlink{classArchive}{Archive}} \&Src, bool Last\+Block\+Added, Pack $\ast$Pack=N\+U\+LL, const char $\ast$Skip\+Name=N\+U\+LL)
+\item 
+\mbox{\Hypertarget{classArchive_ace2eefe0597c12f0acbd3859b282a126}\label{classArchive_ace2eefe0597c12f0acbd3859b282a126}} 
+void {\bfseries Tmp\+To\+Arc} (\mbox{\hyperlink{classArchive}{Archive}} \&Src)
+\item 
+\mbox{\Hypertarget{classArchive_abbfe28add0309c6c2122e87c0ee6f256}\label{classArchive_abbfe28add0309c6c2122e87c0ee6f256}} 
+void {\bfseries Close\+New} (int Adjust\+Recovery, bool Close\+Volume)
+\item 
+\mbox{\Hypertarget{classArchive_a4e886a8d97acc7cce456c0a3709f604b}\label{classArchive_a4e886a8d97acc7cce456c0a3709f604b}} 
+void {\bfseries Write\+End\+Block} (bool Close\+Volume)
+\item 
+\mbox{\Hypertarget{classArchive_a23f58f9137bf3b02fa9a809a41a16ec0}\label{classArchive_a23f58f9137bf3b02fa9a809a41a16ec0}} 
+void {\bfseries Copy\+File\+Record} (\mbox{\hyperlink{classArchive}{Archive}} \&Src)
+\item 
+\mbox{\Hypertarget{classArchive_ad6c8528c2426eba43ee35b7e37c5736f}\label{classArchive_ad6c8528c2426eba43ee35b7e37c5736f}} 
+void {\bfseries Copy\+Archive\+Data} (\mbox{\hyperlink{classArchive}{Archive}} \&Src)
+\item 
+\mbox{\Hypertarget{classArchive_a4ad34d52e727f6c9323a1493df70ca6f}\label{classArchive_a4ad34d52e727f6c9323a1493df70ca6f}} 
+bool {\bfseries Get\+Comment} (\mbox{\hyperlink{classArray}{Array}}$<$ byte $>$ \&Cmt\+Data)
+\item 
+\mbox{\Hypertarget{classArchive_a8e9c5a413ed09137211efaadbec15497}\label{classArchive_a8e9c5a413ed09137211efaadbec15497}} 
+void {\bfseries View\+Comment} ()
+\item 
+\mbox{\Hypertarget{classArchive_a0ee8d38d7e10c3082ff8920424d9ce71}\label{classArchive_a0ee8d38d7e10c3082ff8920424d9ce71}} 
+void {\bfseries View\+File\+Comment} ()
+\item 
+\mbox{\Hypertarget{classArchive_afb2478c77b30b6db8aa6f535dd34bb97}\label{classArchive_afb2478c77b30b6db8aa6f535dd34bb97}} 
+void {\bfseries Set\+Latest\+Time} (\mbox{\hyperlink{classRarTime}{Rar\+Time}} $\ast$New\+Time)
+\item 
+\mbox{\Hypertarget{classArchive_a829861373cc7dee2c5cf8541e8474a8a}\label{classArchive_a829861373cc7dee2c5cf8541e8474a8a}} 
+void {\bfseries Seek\+To\+Next} ()
+\item 
+\mbox{\Hypertarget{classArchive_aee9f2dc996825c7bcf87f35e664ee597}\label{classArchive_aee9f2dc996825c7bcf87f35e664ee597}} 
+bool {\bfseries Check\+Access} ()
+\item 
+\mbox{\Hypertarget{classArchive_aab5d0e2308454b14301718daf08d3286}\label{classArchive_aab5d0e2308454b14301718daf08d3286}} 
+bool {\bfseries Is\+Arc\+Dir} ()
+\item 
+\mbox{\Hypertarget{classArchive_a1d7c46b19c25dea0c1fcae0fa8324049}\label{classArchive_a1d7c46b19c25dea0c1fcae0fa8324049}} 
+bool {\bfseries Is\+Arc\+Label} ()
+\item 
+\mbox{\Hypertarget{classArchive_ab068d6a33ef1cb87ace818fd454ed8da}\label{classArchive_ab068d6a33ef1cb87ace818fd454ed8da}} 
+void {\bfseries Convert\+Attributes} ()
+\item 
+\mbox{\Hypertarget{classArchive_a3598a995641ff8e2cdb854d4dad4f69c}\label{classArchive_a3598a995641ff8e2cdb854d4dad4f69c}} 
+int {\bfseries Lhd\+Size} ()
+\item 
+\mbox{\Hypertarget{classArchive_ad2cfc1a5eb51b00e1208f00aa92a80b9}\label{classArchive_ad2cfc1a5eb51b00e1208f00aa92a80b9}} 
+int {\bfseries Lhd\+Extra\+Size} ()
+\item 
+\mbox{\Hypertarget{classArchive_ad5b9b5fbcfeb654595d6c3cb51d69144}\label{classArchive_ad5b9b5fbcfeb654595d6c3cb51d69144}} 
+int {\bfseries Get\+Recovery\+Size} (bool Required)
+\item 
+\mbox{\Hypertarget{classArchive_ad7f24db9527b7df44191a42ceb2c2224}\label{classArchive_ad7f24db9527b7df44191a42ceb2c2224}} 
+void {\bfseries Vol\+Subtract\+Header\+Size} (int Sub\+Size)
+\item 
+\mbox{\Hypertarget{classArchive_a5ed0639ca48f2a5ba1ddb07ca755f953}\label{classArchive_a5ed0639ca48f2a5ba1ddb07ca755f953}} 
+void {\bfseries Add\+Sub\+Data} (byte $\ast$Src\+Data, int Data\+Size, \mbox{\hyperlink{classFile}{File}} $\ast$Src\+File, char $\ast$Name, bool Allow\+Split)
+\item 
+\mbox{\Hypertarget{classArchive_a005b58f3ac7bcfcc875cc9416f2f97da}\label{classArchive_a005b58f3ac7bcfcc875cc9416f2f97da}} 
+bool {\bfseries Read\+Sub\+Data} (\mbox{\hyperlink{classArray}{Array}}$<$ byte $>$ $\ast$Unp\+Data, \mbox{\hyperlink{classFile}{File}} $\ast$Dest\+File)
+\item 
+\mbox{\Hypertarget{classArchive_a190ef572a45ee772402e28f359b4f60b}\label{classArchive_a190ef572a45ee772402e28f359b4f60b}} 
+int {\bfseries Get\+Header\+Type} ()
+\item 
+\mbox{\Hypertarget{classArchive_a3aaf56f4646fc9c96a4f85f4869f512a}\label{classArchive_a3aaf56f4646fc9c96a4f85f4869f512a}} 
+int {\bfseries Read\+Comment\+Data} (\mbox{\hyperlink{classArray}{Array}}$<$ byte $>$ \&Cmt\+Data)
+\item 
+\mbox{\Hypertarget{classArchive_ad05371f3ba2ae0de9ba303e285ad8730}\label{classArchive_ad05371f3ba2ae0de9ba303e285ad8730}} 
+void {\bfseries Write\+Comment\+Data} (byte $\ast$\mbox{\hyperlink{classData}{Data}}, int Data\+Size, bool File\+Comment)
+\item 
+\mbox{\Hypertarget{classArchive_ab8bb60ec32cb017daa87b413947feb36}\label{classArchive_ab8bb60ec32cb017daa87b413947feb36}} 
+\mbox{\hyperlink{classRAROptions}{R\+A\+R\+Options}} $\ast$ {\bfseries Get\+R\+A\+R\+Options} ()
+\item 
+\mbox{\Hypertarget{classArchive_a7dfd26057e52cc9ee075b6ed710a1b83}\label{classArchive_a7dfd26057e52cc9ee075b6ed710a1b83}} 
+void {\bfseries Set\+Silent\+Open} (bool Mode)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classArchive_acc05c854ad71826bb9ff6272883e8f26}\label{classArchive_acc05c854ad71826bb9ff6272883e8f26}} 
+\mbox{\hyperlink{structBaseBlock}{Base\+Block}} {\bfseries Short\+Block}
+\item 
+\mbox{\Hypertarget{classArchive_ac025c2c39107a9bd6f97dc40f8ebff5f}\label{classArchive_ac025c2c39107a9bd6f97dc40f8ebff5f}} 
+\mbox{\hyperlink{structMainHeader}{Main\+Header}} {\bfseries New\+Mhd}
+\item 
+\mbox{\Hypertarget{classArchive_a5e5f5d9249f75a89c7704ad75a5077db}\label{classArchive_a5e5f5d9249f75a89c7704ad75a5077db}} 
+\mbox{\hyperlink{structFileHeader}{File\+Header}} {\bfseries New\+Lhd}
+\item 
+\mbox{\Hypertarget{classArchive_a69016563cba9bae7bd8ae9b4fef5f46b}\label{classArchive_a69016563cba9bae7bd8ae9b4fef5f46b}} 
+\mbox{\hyperlink{structEndArcHeader}{End\+Arc\+Header}} {\bfseries End\+Arc\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_ad91a103801b3251b35d4872390fb1f97}\label{classArchive_ad91a103801b3251b35d4872390fb1f97}} 
+\mbox{\hyperlink{structSubBlockHeader}{Sub\+Block\+Header}} {\bfseries Sub\+Block\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_abc557c567b59f2dd6a5931f6f4737811}\label{classArchive_abc557c567b59f2dd6a5931f6f4737811}} 
+\mbox{\hyperlink{structFileHeader}{File\+Header}} {\bfseries Sub\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_aec0de971594058e613253397657acd7b}\label{classArchive_aec0de971594058e613253397657acd7b}} 
+\mbox{\hyperlink{structCommentHeader}{Comment\+Header}} {\bfseries Comm\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_a02ab2a1e50eb7d17f1aa9805f24ccaad}\label{classArchive_a02ab2a1e50eb7d17f1aa9805f24ccaad}} 
+\mbox{\hyperlink{structProtectHeader}{Protect\+Header}} {\bfseries Protect\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_a02a2939a52751daf0dcd2a024bcbafce}\label{classArchive_a02a2939a52751daf0dcd2a024bcbafce}} 
+\mbox{\hyperlink{structAVHeader}{A\+V\+Header}} {\bfseries A\+V\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_af5f3d97448ed6d1a4f30561764f2a2a9}\label{classArchive_af5f3d97448ed6d1a4f30561764f2a2a9}} 
+\mbox{\hyperlink{structSignHeader}{Sign\+Header}} {\bfseries Sign\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_afeac4185b82bca80b550d89a1c2f3672}\label{classArchive_afeac4185b82bca80b550d89a1c2f3672}} 
+\mbox{\hyperlink{structUnixOwnersHeader}{Unix\+Owners\+Header}} {\bfseries U\+O\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_ac4da21a229265c65a9e4a1a39b2a1f2c}\label{classArchive_ac4da21a229265c65a9e4a1a39b2a1f2c}} 
+\mbox{\hyperlink{structMacFInfoHeader}{Mac\+F\+Info\+Header}} {\bfseries M\+A\+C\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_a1dbf61aeed5f00343fcab1e6f27fa6a6}\label{classArchive_a1dbf61aeed5f00343fcab1e6f27fa6a6}} 
+\mbox{\hyperlink{structEAHeader}{E\+A\+Header}} {\bfseries E\+A\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_adba5ec5f6cbe0096f239ebaf114f934b}\label{classArchive_adba5ec5f6cbe0096f239ebaf114f934b}} 
+\mbox{\hyperlink{structStreamHeader}{Stream\+Header}} {\bfseries Stream\+Head}
+\item 
+\mbox{\Hypertarget{classArchive_ae5e117ecf71c85a2ff0f7a3659fd4eac}\label{classArchive_ae5e117ecf71c85a2ff0f7a3659fd4eac}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Cur\+Block\+Pos}
+\item 
+\mbox{\Hypertarget{classArchive_ae026eb00effa36a6eeacebf424c11632}\label{classArchive_ae026eb00effa36a6eeacebf424c11632}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Next\+Block\+Pos}
+\item 
+\mbox{\Hypertarget{classArchive_a08e4489c9c5b19a88316aeff6632b731}\label{classArchive_a08e4489c9c5b19a88316aeff6632b731}} 
+bool {\bfseries Old\+Format}
+\item 
+\mbox{\Hypertarget{classArchive_a856d6eeb17e700231ce9b18f3795f1b3}\label{classArchive_a856d6eeb17e700231ce9b18f3795f1b3}} 
+bool {\bfseries Solid}
+\item 
+\mbox{\Hypertarget{classArchive_afa19cf13ad715e4678f7be998a14a944}\label{classArchive_afa19cf13ad715e4678f7be998a14a944}} 
+bool {\bfseries Volume}
+\item 
+\mbox{\Hypertarget{classArchive_a90b9b1c93c01b2b64babafc0fb2a594d}\label{classArchive_a90b9b1c93c01b2b64babafc0fb2a594d}} 
+bool {\bfseries Main\+Comment}
+\item 
+\mbox{\Hypertarget{classArchive_a749caeec1dc9b303702facdc48e85082}\label{classArchive_a749caeec1dc9b303702facdc48e85082}} 
+bool {\bfseries Locked}
+\item 
+\mbox{\Hypertarget{classArchive_a14dd04fb01ebe41775eb65c639688c13}\label{classArchive_a14dd04fb01ebe41775eb65c639688c13}} 
+bool {\bfseries Signed}
+\item 
+\mbox{\Hypertarget{classArchive_a45d0d73f53cc7585e1c9b3d3e9cc5a09}\label{classArchive_a45d0d73f53cc7585e1c9b3d3e9cc5a09}} 
+bool {\bfseries Not\+First\+Volume}
+\item 
+\mbox{\Hypertarget{classArchive_a40ec5e95e99bda33df554558607a2f76}\label{classArchive_a40ec5e95e99bda33df554558607a2f76}} 
+bool {\bfseries Protected}
+\item 
+\mbox{\Hypertarget{classArchive_a1aae769bec37f8e04b17f2b9371e10c8}\label{classArchive_a1aae769bec37f8e04b17f2b9371e10c8}} 
+bool {\bfseries Encrypted}
+\item 
+\mbox{\Hypertarget{classArchive_ac73f9ae1d9f64217b21c60e642b7f9b4}\label{classArchive_ac73f9ae1d9f64217b21c60e642b7f9b4}} 
+uint {\bfseries S\+F\+X\+Size}
+\item 
+\mbox{\Hypertarget{classArchive_aae4c694138a3944d8f8bae637f9f19e9}\label{classArchive_aae4c694138a3944d8f8bae637f9f19e9}} 
+bool {\bfseries Broken\+File\+Header}
+\item 
+\mbox{\Hypertarget{classArchive_ac27ba87d6435ef47e7f607016e58171a}\label{classArchive_ac27ba87d6435ef47e7f607016e58171a}} 
+bool {\bfseries Splitting}
+\item 
+\mbox{\Hypertarget{classArchive_ad1cc015ff05618e66017354489f8fe0b}\label{classArchive_ad1cc015ff05618e66017354489f8fe0b}} 
+ushort {\bfseries Header\+C\+RC}
+\item 
+\mbox{\Hypertarget{classArchive_a3cf0a0c81e59d9c8f7b1156e046c1843}\label{classArchive_a3cf0a0c81e59d9c8f7b1156e046c1843}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Vol\+Write}
+\item 
+\mbox{\Hypertarget{classArchive_af7f90c12eb2c2fc30cb2d6e7b771fc16}\label{classArchive_af7f90c12eb2c2fc30cb2d6e7b771fc16}} 
+\mbox{\hyperlink{classInt64}{Int64}} {\bfseries Adding\+Files\+Size}
+\item 
+\mbox{\Hypertarget{classArchive_a6d4668ad1873ed5f90c58ed1fd76956e}\label{classArchive_a6d4668ad1873ed5f90c58ed1fd76956e}} 
+uint {\bfseries Adding\+Headers\+Size}
+\item 
+\mbox{\Hypertarget{classArchive_af7c3883f298817985fe1e4e74c1eda71}\label{classArchive_af7c3883f298817985fe1e4e74c1eda71}} 
+bool {\bfseries New\+Archive}
+\item 
+\mbox{\Hypertarget{classArchive_af516db7923f3ceff3da8e51cadf46a5c}\label{classArchive_af516db7923f3ceff3da8e51cadf46a5c}} 
+char {\bfseries First\+Volume\+Name} \mbox{[}NM\mbox{]}
+\item 
+\mbox{\Hypertarget{classArchive_a9be06505fbb4f9aee2ec8fd19f85b115}\label{classArchive_a9be06505fbb4f9aee2ec8fd19f85b115}} 
+wchar {\bfseries First\+Volume\+NameW} \mbox{[}NM\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+uplink/lib/unrar/archive.\+hpp\item 
+uplink/lib/unrar/arccmt.\+cpp\item 
+uplink/lib/unrar/archive.\+cpp\item 
+uplink/lib/unrar/arcread.\+cpp\end{DoxyCompactItemize}
