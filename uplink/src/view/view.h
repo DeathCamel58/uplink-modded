@@ -1,15 +1,4 @@
 
-/*
-
-  View class object
-
-	Creates a 3D representation of the game world
-	based on the players current location in that world
-	Uses OpenGL
-
-  */
-
-
 #ifndef included_view_h
 #define included_view_h
 
@@ -22,12 +11,19 @@
 
 // ============================================================================
 
-
+//! View class object
+/**
+ * Creates a 3D representation of the game world based on the players current location in that world
+ * @note Uses OpenGL
+ */
 class View : public UplinkObject
 {
 
 public:
 
+    /**
+     * The FrameRate of the View
+     */
 	FrameRate fps;
 
 public:
@@ -37,7 +33,11 @@ public:
 	~View() override;
 
 	void Initialise ();
-	void Draw ();					// This is the big one
+
+	/**
+	 * Ticks the fps
+	 */
+	void Draw ();
 
 
 	// Common functions

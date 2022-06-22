@@ -1,8 +1,7 @@
-/*
-
-	ALL global objects / constants are defined here
-
-  */
+/*! \file globals.h
+ * \brief Global Objects & Constants
+ * This file contains all global objects and constants for the game.
+ */
 
 #ifndef included_globals_h
 #define included_globals_h

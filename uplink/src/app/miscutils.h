@@ -1,10 +1,6 @@
-
-
-/*
-	Misc string/file utils
-
-  */
-
+/*! \file miscutils.h
+ * \brief Miscellaneous string/file utilities
+ */
 
 #ifndef included_miscutils_h
 #define included_miscutils_h

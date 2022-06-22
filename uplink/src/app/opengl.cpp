@@ -1,10 +1,3 @@
-// -*- tab-width:4; c-file-style:"cc-mode" -*- 
-/*
-
-	All generic OpenGL code goes in here
-	i.e mouse handler, keyboard handler, idle function etc
-
-  */
 
 //#include "stdafx.h"
 
