@@ -1,4 +1,4 @@
 <map id="DemoGameOverInterface" name="DemoGameOverInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,195,107"/>
+<area shape="rect" id="node1" title="Demo game over interface MainMenuScreen." alt="" coords="5,80,195,107"/>
 <area shape="rect" id="node2" href="$classMainMenuScreen.html" title="Main Menu Screen base class." alt="" coords="33,5,167,32"/>
 </map>

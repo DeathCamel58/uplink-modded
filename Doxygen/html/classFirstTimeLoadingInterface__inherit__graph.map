@@ -1,4 +1,4 @@
 <map id="FirstTimeLoadingInterface" name="FirstTimeLoadingInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,197,107"/>
+<area shape="rect" id="node1" title="Loading MainMenuScreen for first time players." alt="" coords="5,80,197,107"/>
 <area shape="rect" id="node2" href="$classMainMenuScreen.html" title="Main Menu Screen base class." alt="" coords="34,5,169,32"/>
 </map>

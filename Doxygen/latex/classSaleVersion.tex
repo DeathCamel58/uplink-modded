@@ -23,11 +23,9 @@ Collaboration diagram for Sale\+Version\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSaleVersion_a1c64cdd308ce0e6d51a2313aaf54bd84}\label{classSaleVersion_a1c64cdd308ce0e6d51a2313aaf54bd84}} 
-void {\bfseries Set} (const string \&newdetails, int newcost, int newsize, int newdata)
+void \mbox{\hyperlink{classSaleVersion_a1c64cdd308ce0e6d51a2313aaf54bd84}{Set}} (const string \&newdetails, int newcost, int newsize, int newdata)
 \item 
-\mbox{\Hypertarget{classSaleVersion_a986bde6a7ff64596a94a758867d3c586}\label{classSaleVersion_a986bde6a7ff64596a94a758867d3c586}} 
-char $\ast$ {\bfseries Get\+Details} ()
+char $\ast$ \mbox{\hyperlink{classSaleVersion_a986bde6a7ff64596a94a758867d3c586}{Get\+Details}} ()
 \item 
 bool \mbox{\hyperlink{classSaleVersion_a332127ac8c3c052bb21568933b89f337}{Load}} (F\+I\+LE $\ast$file) override
 \item 
@@ -44,24 +42,30 @@ int \mbox{\hyperlink{classSaleVersion_a8193f0bc2d72cd726a29b6e8ec136151}{Get\+O\
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSaleVersion_a3d758afedd869a3e97d0bb07033f4140}\label{classSaleVersion_a3d758afedd869a3e97d0bb07033f4140}} 
-int {\bfseries cost}
+int \mbox{\hyperlink{classSaleVersion_a3d758afedd869a3e97d0bb07033f4140}{cost}}
 \item 
 \mbox{\Hypertarget{classSaleVersion_aef91bc3f9d5bca8bba449079ce1d33cb}\label{classSaleVersion_aef91bc3f9d5bca8bba449079ce1d33cb}} 
 int {\bfseries size}
 \item 
-\mbox{\Hypertarget{classSaleVersion_a232e5f2ba80df395aabb28aaab751da8}\label{classSaleVersion_a232e5f2ba80df395aabb28aaab751da8}} 
-int {\bfseries data}
+int \mbox{\hyperlink{classSaleVersion_a232e5f2ba80df395aabb28aaab751da8}{data}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSaleVersion_a4e4fc3c19e6247a5d863bcb7bfc041c0}\label{classSaleVersion_a4e4fc3c19e6247a5d863bcb7bfc041c0}} 
-char $\ast$ {\bfseries details}
+char $\ast$ \mbox{\hyperlink{classSaleVersion_a4e4fc3c19e6247a5d863bcb7bfc041c0}{details}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSaleVersion_a986bde6a7ff64596a94a758867d3c586}\label{classSaleVersion_a986bde6a7ff64596a94a758867d3c586}} 
+\index{SaleVersion@{SaleVersion}!GetDetails@{GetDetails}}
+\index{GetDetails@{GetDetails}!SaleVersion@{SaleVersion}}
+\doxysubsubsection{\texorpdfstring{GetDetails()}{GetDetails()}}
+{\footnotesize\ttfamily char $\ast$ Sale\+Version\+::\+Get\+Details (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the description of the item \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{classSaleVersion_a891f27916ca87cf04499ac6f1d01a89b}\label{classSaleVersion_a891f27916ca87cf04499ac6f1d01a89b}} 
 \index{SaleVersion@{SaleVersion}!GetID@{GetID}}
 \index{GetID@{GetID}!SaleVersion@{SaleVersion}}
@@ -137,6 +141,23 @@ Saves data from this object to file
 
 Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
 
+\mbox{\Hypertarget{classSaleVersion_a1c64cdd308ce0e6d51a2313aaf54bd84}\label{classSaleVersion_a1c64cdd308ce0e6d51a2313aaf54bd84}} 
+\index{SaleVersion@{SaleVersion}!Set@{Set}}
+\index{Set@{Set}!SaleVersion@{SaleVersion}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily void Sale\+Version\+::\+Set (\begin{DoxyParamCaption}\item[{const string \&}]{newdetails,  }\item[{int}]{newcost,  }\item[{int}]{newsize,  }\item[{int}]{newdata }\end{DoxyParamCaption})}
+
+Sets various attributes of the item 
+\begin{DoxyParams}{Parameters}
+{\em newdetails} & The description of the item \\
+\hline
+{\em newcost} & The cost of the item \\
+\hline
+{\em newsize} & The size of the item \\
+\hline
+{\em newdata} & New software version/hardware speed \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSaleVersion_a7ff80e4a23a872ec14490433b9780a7b}\label{classSaleVersion_a7ff80e4a23a872ec14490433b9780a7b}} 
 \index{SaleVersion@{SaleVersion}!Update@{Update}}
 \index{Update@{Update}!SaleVersion@{SaleVersion}}
@@ -148,6 +169,27 @@ Processes any necessary updates on the object.
 Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSaleVersion_a3d758afedd869a3e97d0bb07033f4140}\label{classSaleVersion_a3d758afedd869a3e97d0bb07033f4140}} 
+\index{SaleVersion@{SaleVersion}!cost@{cost}}
+\index{cost@{cost}!SaleVersion@{SaleVersion}}
+\doxysubsubsection{\texorpdfstring{cost}{cost}}
+{\footnotesize\ttfamily int Sale\+Version\+::cost}
+
+The cost of this item \mbox{\Hypertarget{classSaleVersion_a232e5f2ba80df395aabb28aaab751da8}\label{classSaleVersion_a232e5f2ba80df395aabb28aaab751da8}} 
+\index{SaleVersion@{SaleVersion}!data@{data}}
+\index{data@{data}!SaleVersion@{SaleVersion}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily int Sale\+Version\+::data}
+
+Software version or hardware speed \mbox{\Hypertarget{classSaleVersion_a4e4fc3c19e6247a5d863bcb7bfc041c0}\label{classSaleVersion_a4e4fc3c19e6247a5d863bcb7bfc041c0}} 
+\index{SaleVersion@{SaleVersion}!details@{details}}
+\index{details@{details}!SaleVersion@{SaleVersion}}
+\doxysubsubsection{\texorpdfstring{details}{details}}
+{\footnotesize\ttfamily char$\ast$ Sale\+Version\+::details\hspace{0.3cm}{\ttfamily [protected]}}
+
+The description of this item 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

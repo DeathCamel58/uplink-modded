@@ -1,5 +1,5 @@
 <map id="CompanyUplink" name="CompanyUplink">
-<area shape="rect" id="node1" title=" " alt="" coords="5,155,132,181"/>
-<area shape="rect" id="node2" href="$classCompany.html" title=" " alt="" coords="27,80,111,107"/>
+<area shape="rect" id="node1" title="Modified Company class for Uplink Company." alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node2" href="$classCompany.html" title="Company UplinkObject." alt="" coords="27,80,111,107"/>
 <area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="15,5,122,32"/>
 </map>

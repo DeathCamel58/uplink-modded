@@ -1,4 +1,4 @@
 <map id="ConnectionLostInterface" name="ConnectionLostInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,185,107"/>
+<area shape="rect" id="node1" title="Connection lost interface MainMenuScreen." alt="" coords="5,80,185,107"/>
 <area shape="rect" id="node2" href="$classMainMenuScreen.html" title="Main Menu Screen base class." alt="" coords="28,5,163,32"/>
 </map>

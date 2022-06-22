@@ -2,6 +2,15 @@
 \label{classSale}\index{Sale@{Sale}}
 
 
+\mbox{\hyperlink{classSale}{Sale}} \mbox{\hyperlink{classUplinkObject}{Uplink\+Object}}.  
+
+
+
+
+{\ttfamily \#include $<$sale.\+h$>$}
+
+
+
 Inheritance diagram for Sale\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,20 +32,15 @@ Collaboration diagram for Sale\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSale_aeef1c7d3f7382de84cdea8cd076707a8}\label{classSale_aeef1c7d3f7382de84cdea8cd076707a8}} 
-void {\bfseries Set\+Title} (const string \&newtitle)
+void \mbox{\hyperlink{classSale_aeef1c7d3f7382de84cdea8cd076707a8}{Set\+Title}} (const string \&newtitle)
 \item 
-\mbox{\Hypertarget{classSale_aea4eaa1a0ad3386e67a208a77725c980}\label{classSale_aea4eaa1a0ad3386e67a208a77725c980}} 
-void {\bfseries Set\+Sale\+T\+Y\+PE} (int new\+T\+Y\+PE)
+void \mbox{\hyperlink{classSale_aea4eaa1a0ad3386e67a208a77725c980}{Set\+Sale\+T\+Y\+PE}} (int new\+T\+Y\+PE)
 \item 
-\mbox{\Hypertarget{classSale_a91ee76b0945d3bbbabec7be308dcb41d}\label{classSale_a91ee76b0945d3bbbabec7be308dcb41d}} 
-void {\bfseries Set\+Swhw\+T\+Y\+PE} (int new\+Swhw\+T\+Y\+PE)
+void \mbox{\hyperlink{classSale_a91ee76b0945d3bbbabec7be308dcb41d}{Set\+Swhw\+T\+Y\+PE}} (int new\+Swhw\+T\+Y\+PE)
 \item 
-\mbox{\Hypertarget{classSale_a720dedf495673f9b942703bb4407df4f}\label{classSale_a720dedf495673f9b942703bb4407df4f}} 
-void {\bfseries Add\+Version} (const string \&details, int cost, int size, int data)
+void \mbox{\hyperlink{classSale_a720dedf495673f9b942703bb4407df4f}{Add\+Version}} (const string \&details, int cost, int size, int data)
 \item 
-\mbox{\Hypertarget{classSale_a66bfb11b6dd0b520ab1356ba7fd8eed1}\label{classSale_a66bfb11b6dd0b520ab1356ba7fd8eed1}} 
-\mbox{\hyperlink{classSaleVersion}{Sale\+Version}} $\ast$ {\bfseries Get\+Version} (int index) const
+\mbox{\hyperlink{classSaleVersion}{Sale\+Version}} $\ast$ \mbox{\hyperlink{classSale_a66bfb11b6dd0b520ab1356ba7fd8eed1}{Get\+Version}} (int index) const
 \item 
 bool \mbox{\hyperlink{classSale_a63aebf71ad9e104dae550cb41b524022}{Load}} (F\+I\+LE $\ast$file) override
 \item 
@@ -53,21 +57,42 @@ int \mbox{\hyperlink{classSale_a4f293ab2ae47f5e5ac8fad706913cd74}{Get\+O\+B\+J\+
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSale_a5396d7f1b94d180d8c8277e726a98d11}\label{classSale_a5396d7f1b94d180d8c8277e726a98d11}} 
-string {\bfseries title}
+string \mbox{\hyperlink{classSale_a5396d7f1b94d180d8c8277e726a98d11}{title}}
 \item 
-\mbox{\Hypertarget{classSale_a8ba9c376e3780bab01a6a3bbf01ea40d}\label{classSale_a8ba9c376e3780bab01a6a3bbf01ea40d}} 
-int {\bfseries sale\+T\+Y\+PE}
+int \mbox{\hyperlink{classSale_a8ba9c376e3780bab01a6a3bbf01ea40d}{sale\+T\+Y\+PE}}
 \item 
-\mbox{\Hypertarget{classSale_a2faf6c20ad1bcb3edd844279ad82bb70}\label{classSale_a2faf6c20ad1bcb3edd844279ad82bb70}} 
-int {\bfseries swhw\+T\+Y\+PE}
+int \mbox{\hyperlink{classSale_a2faf6c20ad1bcb3edd844279ad82bb70}{swhw\+T\+Y\+PE}}
 \item 
-\mbox{\Hypertarget{classSale_a09c9dbe30ddbccab10b025a59e7ca281}\label{classSale_a09c9dbe30ddbccab10b025a59e7ca281}} 
-\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classSaleVersion}{Sale\+Version}} $\ast$ $>$ {\bfseries versions}
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ \mbox{\hyperlink{classSaleVersion}{Sale\+Version}} $\ast$ $>$ \mbox{\hyperlink{classSale_a09c9dbe30ddbccab10b025a59e7ca281}{versions}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classSale}{Sale}} \mbox{\hyperlink{classUplinkObject}{Uplink\+Object}}. 
+
+This represents a sellable item. \begin{DoxyNote}{Note}
+This can be for either software or hardware 
+\end{DoxyNote}
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSale_a720dedf495673f9b942703bb4407df4f}\label{classSale_a720dedf495673f9b942703bb4407df4f}} 
+\index{Sale@{Sale}!AddVersion@{AddVersion}}
+\index{AddVersion@{AddVersion}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{AddVersion()}{AddVersion()}}
+{\footnotesize\ttfamily void Sale\+::\+Add\+Version (\begin{DoxyParamCaption}\item[{const string \&}]{details,  }\item[{int}]{cost,  }\item[{int}]{size,  }\item[{int}]{data }\end{DoxyParamCaption})}
+
+Add a new version of this item 
+\begin{DoxyParams}{Parameters}
+{\em details} & Details of the item \\
+\hline
+{\em cost} & Cost of the item \\
+\hline
+{\em size} & Size of the item \\
+\hline
+{\em data} & Software version or hardware speed \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSale_ab11ca256318e588ecfd10ee025633e35}\label{classSale_ab11ca256318e588ecfd10ee025633e35}} 
 \index{Sale@{Sale}!GetID@{GetID}}
 \index{GetID@{GetID}!Sale@{Sale}}
@@ -97,6 +122,20 @@ The object ID
 
 Reimplemented from \mbox{\hyperlink{classUplinkObject_a1a99640850959e643c8ef9d6293b78a0}{Uplink\+Object}}.
 
+\mbox{\Hypertarget{classSale_a66bfb11b6dd0b520ab1356ba7fd8eed1}\label{classSale_a66bfb11b6dd0b520ab1356ba7fd8eed1}} 
+\index{Sale@{Sale}!GetVersion@{GetVersion}}
+\index{GetVersion@{GetVersion}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{GetVersion()}{GetVersion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSaleVersion}{Sale\+Version}} $\ast$ Sale\+::\+Get\+Version (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
+
+Get the version of an item at index 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classSaleVersion}{Sale\+Version}} of item or nullptr 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classSale_a63aebf71ad9e104dae550cb41b524022}\label{classSale_a63aebf71ad9e104dae550cb41b524022}} 
 \index{Sale@{Sale}!Load@{Load}}
 \index{Load@{Load}!Sale@{Sale}}
@@ -143,6 +182,39 @@ Saves data from this object to file
 
 Reimplemented from \mbox{\hyperlink{classUplinkObject_a5c05111eabe0673ad689048006f570fe}{Uplink\+Object}}.
 
+\mbox{\Hypertarget{classSale_aea4eaa1a0ad3386e67a208a77725c980}\label{classSale_aea4eaa1a0ad3386e67a208a77725c980}} 
+\index{Sale@{Sale}!SetSaleTYPE@{SetSaleTYPE}}
+\index{SetSaleTYPE@{SetSaleTYPE}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{SetSaleTYPE()}{SetSaleTYPE()}}
+{\footnotesize\ttfamily void Sale\+::\+Set\+Sale\+T\+Y\+PE (\begin{DoxyParamCaption}\item[{int}]{new\+T\+Y\+PE }\end{DoxyParamCaption})}
+
+Sets the type of item 
+\begin{DoxyParams}{Parameters}
+{\em new\+T\+Y\+PE} & The type of the item \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSale_a91ee76b0945d3bbbabec7be308dcb41d}\label{classSale_a91ee76b0945d3bbbabec7be308dcb41d}} 
+\index{Sale@{Sale}!SetSwhwTYPE@{SetSwhwTYPE}}
+\index{SetSwhwTYPE@{SetSwhwTYPE}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{SetSwhwTYPE()}{SetSwhwTYPE()}}
+{\footnotesize\ttfamily void Sale\+::\+Set\+Swhw\+T\+Y\+PE (\begin{DoxyParamCaption}\item[{int}]{new\+Swhw\+T\+Y\+PE }\end{DoxyParamCaption})}
+
+Sets the type of item in the type category 
+\begin{DoxyParams}{Parameters}
+{\em new\+Swhw\+T\+Y\+PE} & The type of the item \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSale_aeef1c7d3f7382de84cdea8cd076707a8}\label{classSale_aeef1c7d3f7382de84cdea8cd076707a8}} 
+\index{Sale@{Sale}!SetTitle@{SetTitle}}
+\index{SetTitle@{SetTitle}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{SetTitle()}{SetTitle()}}
+{\footnotesize\ttfamily void Sale\+::\+Set\+Title (\begin{DoxyParamCaption}\item[{const string \&}]{newtitle }\end{DoxyParamCaption})}
+
+Sets the name of this item 
+\begin{DoxyParams}{Parameters}
+{\em newtitle} & The new name of the item \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSale_a528e3791b4263c081e87f98a3f1b570e}\label{classSale_a528e3791b4263c081e87f98a3f1b570e}} 
 \index{Sale@{Sale}!Update@{Update}}
 \index{Update@{Update}!Sale@{Sale}}
@@ -154,6 +226,41 @@ Processes any necessary updates on the object.
 Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSale_a8ba9c376e3780bab01a6a3bbf01ea40d}\label{classSale_a8ba9c376e3780bab01a6a3bbf01ea40d}} 
+\index{Sale@{Sale}!saleTYPE@{saleTYPE}}
+\index{saleTYPE@{saleTYPE}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{saleTYPE}{saleTYPE}}
+{\footnotesize\ttfamily int Sale\+::sale\+T\+Y\+PE}
+
+The type of the item \begin{DoxyNote}{Note}
+This can be S\+A\+L\+E\+T\+Y\+P\+E\+\_\+\+N\+O\+NE, S\+A\+L\+E\+T\+Y\+P\+E\+\_\+\+S\+O\+F\+T\+W\+A\+RE, or S\+A\+L\+E\+T\+Y\+P\+E\+\_\+\+H\+A\+R\+D\+W\+A\+RE 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSale_a2faf6c20ad1bcb3edd844279ad82bb70}\label{classSale_a2faf6c20ad1bcb3edd844279ad82bb70}} 
+\index{Sale@{Sale}!swhwTYPE@{swhwTYPE}}
+\index{swhwTYPE@{swhwTYPE}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{swhwTYPE}{swhwTYPE}}
+{\footnotesize\ttfamily int Sale\+::swhw\+T\+Y\+PE}
+
+The type of item in the type category \begin{DoxyNote}{Note}
+For hardware items this can be G\+A\+T\+E\+W\+A\+Y\+U\+P\+G\+R\+A\+D\+E\+T\+Y\+P\+E\+\_\+\+C\+PU, G\+A\+T\+E\+W\+A\+Y\+U\+P\+G\+R\+A\+D\+E\+T\+Y\+P\+E\+\_\+\+M\+O\+D\+EM, G\+A\+T\+E\+W\+A\+Y\+U\+P\+G\+R\+A\+D\+E\+T\+Y\+P\+E\+\_\+\+C\+O\+O\+L\+I\+NG, G\+A\+T\+E\+W\+A\+Y\+U\+P\+G\+R\+A\+D\+E\+T\+Y\+P\+E\+\_\+\+M\+E\+M\+O\+RY, G\+A\+T\+E\+W\+A\+Y\+U\+P\+G\+R\+A\+D\+E\+T\+Y\+P\+E\+\_\+\+S\+E\+C\+U\+R\+I\+TY, or G\+A\+T\+E\+W\+A\+Y\+U\+P\+G\+R\+A\+D\+E\+T\+Y\+P\+E\+\_\+\+P\+O\+W\+ER 
+
+For software items this can be S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+N\+O\+NE, S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+F\+I\+L\+E\+U\+T\+IL, S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+H\+W\+D\+R\+I\+V\+ER, S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+S\+E\+C\+U\+R\+I\+TY, S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+C\+R\+A\+C\+K\+E\+RS, S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+B\+Y\+P\+A\+S\+S\+ER, S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+L\+A\+N\+T\+O\+OL, S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+H\+U\+D\+U\+P\+G\+R\+A\+DE, or S\+O\+F\+T\+W\+A\+R\+E\+T\+Y\+P\+E\+\_\+\+O\+T\+H\+ER 
+\end{DoxyNote}
+\mbox{\Hypertarget{classSale_a5396d7f1b94d180d8c8277e726a98d11}\label{classSale_a5396d7f1b94d180d8c8277e726a98d11}} 
+\index{Sale@{Sale}!title@{title}}
+\index{title@{title}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{title}{title}}
+{\footnotesize\ttfamily string Sale\+::title}
+
+The name of the item \mbox{\Hypertarget{classSale_a09c9dbe30ddbccab10b025a59e7ca281}\label{classSale_a09c9dbe30ddbccab10b025a59e7ca281}} 
+\index{Sale@{Sale}!versions@{versions}}
+\index{versions@{versions}!Sale@{Sale}}
+\doxysubsubsection{\texorpdfstring{versions}{versions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDArray}{D\+Array}}$<$\mbox{\hyperlink{classSaleVersion}{Sale\+Version}} $\ast$$>$ Sale\+::versions}
+
+\mbox{\hyperlink{classDArray}{D\+Array}} of available \mbox{\hyperlink{classSaleVersion}{Sale\+Version}} 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

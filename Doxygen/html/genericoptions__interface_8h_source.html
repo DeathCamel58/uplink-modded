@@ -71,71 +71,59 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Generic Options Screen</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    Picks out all options of a certain type</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    and allows you to edit them</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef included_genericoptionsinterface_h</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define included_genericoptionsinterface_h</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;eclipse.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;mainmenu/mainmenuscreen.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_genericoptionsinterface_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_genericoptionsinterface_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;eclipse.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;mainmenu/mainmenuscreen.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classGenericOptionsInterface.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGenericOptionsInterface.html">GenericOptionsInterface</a> : <span class="keyword">public</span> <a class="code" href="classMainMenuScreen.html">MainMenuScreen</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">char</span> optionTYPE [16]{};</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classGenericOptionsInterface.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGenericOptionsInterface.html">GenericOptionsInterface</a> : <span class="keyword">public</span> <a class="code" href="classMainMenuScreen.html">MainMenuScreen</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ApplyClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ReturnToMainMenuClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">char</span> optionTYPE [16]{};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ApplyClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ReturnToMainMenuClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ToggleBoxDraw ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ToggleBoxClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ExitGameClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classGenericOptionsInterface.html">GenericOptionsInterface</a> ();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ~<a class="code" href="classGenericOptionsInterface.html">GenericOptionsInterface</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> SetOptionTYPE ( <span class="keywordtype">char</span> *newtype );                       <span class="comment">// eg GAME, SOUND etc</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ChangeOptionValue ( <span class="keywordtype">char</span> *option, <span class="keywordtype">int</span> newvalue );</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ToggleBoxDraw ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ToggleBoxClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ExitGameClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classGenericOptionsInterface.html">GenericOptionsInterface</a> ();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    ~<a class="code" href="classGenericOptionsInterface.html">GenericOptionsInterface</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> SetOptionTYPE ( <span class="keywordtype">char</span> *newtype );                       <span class="comment">// eg GAME, SOUND etc</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ChangeOptionValue ( <span class="keywordtype">char</span> *option, <span class="keywordtype">int</span> newvalue );</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGenericOptionsInterface.html#ada75cf3ecf3c86b2dad36704b9058710">Create</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGenericOptionsInterface.html#a782a7bf1109bfe00729a4c2ef1fefd16">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGenericOptionsInterface.html#a6e0c972e0b57c9e969fa095419bef272">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classGenericOptionsInterface.html#ab160169de92d53333943c17bb3ce8655">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="classGenericOptionsInterface.html#a02b0620d4b70ed2b9300ce3f0d29b094">ScreenID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGenericOptionsInterface.html#ada75cf3ecf3c86b2dad36704b9058710">Create</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGenericOptionsInterface.html#a782a7bf1109bfe00729a4c2ef1fefd16">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGenericOptionsInterface.html#a6e0c972e0b57c9e969fa095419bef272">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classGenericOptionsInterface.html#ab160169de92d53333943c17bb3ce8655">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="classGenericOptionsInterface.html#a02b0620d4b70ed2b9300ce3f0d29b094">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassMainMenuScreen_html"><div class="ttname"><a href="classMainMenuScreen.html">MainMenuScreen</a></div><div class="ttdoc">Main Menu Screen base class.</div><div class="ttdef"><b>Definition:</b> mainmenuscreen.h:11</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
 <div class="ttc" id="aclassGenericOptionsInterface_html_a6e0c972e0b57c9e969fa095419bef272"><div class="ttname"><a href="classGenericOptionsInterface.html#a6e0c972e0b57c9e969fa095419bef272">GenericOptionsInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> genericoptions_interface.cpp:272</div></div>
 <div class="ttc" id="aclassGenericOptionsInterface_html_ada75cf3ecf3c86b2dad36704b9058710"><div class="ttname"><a href="classGenericOptionsInterface.html#ada75cf3ecf3c86b2dad36704b9058710">GenericOptionsInterface::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> genericoptions_interface.cpp:224</div></div>
-<div class="ttc" id="aclassGenericOptionsInterface_html"><div class="ttname"><a href="classGenericOptionsInterface.html">GenericOptionsInterface</a></div><div class="ttdef"><b>Definition:</b> genericoptions_interface.h:22</div></div>
+<div class="ttc" id="aclassGenericOptionsInterface_html"><div class="ttname"><a href="classGenericOptionsInterface.html">GenericOptionsInterface</a></div><div class="ttdoc">Generic options MainMenuScreen.</div><div class="ttdef"><b>Definition:</b> genericoptions_interface.h:13</div></div>
 <div class="ttc" id="aclassGenericOptionsInterface_html_a02b0620d4b70ed2b9300ce3f0d29b094"><div class="ttname"><a href="classGenericOptionsInterface.html#a02b0620d4b70ed2b9300ce3f0d29b094">GenericOptionsInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> genericoptions_interface.cpp:284</div></div>
 <div class="ttc" id="aclassGenericOptionsInterface_html_a782a7bf1109bfe00729a4c2ef1fefd16"><div class="ttname"><a href="classGenericOptionsInterface.html#a782a7bf1109bfe00729a4c2ef1fefd16">GenericOptionsInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> genericoptions_interface.cpp:243</div></div>
 <div class="ttc" id="aclassGenericOptionsInterface_html_ab160169de92d53333943c17bb3ce8655"><div class="ttname"><a href="classGenericOptionsInterface.html#ab160169de92d53333943c17bb3ce8655">GenericOptionsInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> genericoptions_interface.cpp:276</div></div>

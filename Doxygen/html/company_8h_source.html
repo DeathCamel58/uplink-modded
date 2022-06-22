@@ -71,105 +71,128 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Company class object</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">  Part of the World sub-system</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    Represents a company in the game world.  The company could be</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">    a corporation, military, government, academic etc.</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_company_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_company_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;tosser.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;world/person.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef included_company_h</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define included_company_h</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;tosser.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define COMPANYTYPE_UNKNOWN     0</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define COMPANYTYPE_INDUSTRIAL  1</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define COMPANYTYPE_COMMERCIAL  2</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define COMPANYTYPE_FINANCIAL   3</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define COMPANYTYPE_ACADEMIC    4</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define COMPANYTYPE_GOVERNMENT  6</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;world/person.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define SIZE_COMPANY_NAME   64</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define COMPANYTYPE_UNKNOWN     0</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// ============================================================================</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define COMPANYTYPE_INDUSTRIAL  1</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define COMPANYTYPE_COMMERCIAL  2</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define COMPANYTYPE_FINANCIAL   3</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define COMPANYTYPE_ACADEMIC    4</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#define COMPANYTYPE_GOVERNMENT  6</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#define SIZE_COMPANY_NAME   64</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classCompany.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCompany.html">Company</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a>  </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classCompany.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCompany.html">Company</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a>  </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classCompany.html#a7c2737b68d3693e510b15a4715abdb84">   39</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#a7c2737b68d3693e510b15a4715abdb84">sharehistory</a> [12];</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> sharehistory [12];                      <span class="comment">// indexed on month</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">int</span> lastmonthset;                           <span class="comment">// Most recently set value index in sharehistory</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classCompany.html#ad5bcfcf0fd2e7a57e68bf8e2f18c3a49">   44</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#ad5bcfcf0fd2e7a57e68bf8e2f18c3a49">lastmonthset</a>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">string</span> name;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">string</span> boss;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">string</span> administrator;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> size;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> TYPE;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> growth;                                 <span class="comment">// Percentage</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> alignment;                              <span class="comment">// eg -100 = Satanic ... 0 = Neutral ... +100 = Angelic</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="classCompany.html">Company</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ~<a class="code" href="classCompany.html">Company</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> SetName (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newname );</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> SetSize ( <span class="keywordtype">int</span> newsize );</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> SetTYPE ( <span class="keywordtype">int</span> newTYPE );</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> SetGrowth ( <span class="keywordtype">int</span> newgrowth );</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> SetAlignment ( <span class="keywordtype">int</span> newalignment );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> SetBoss (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;bossname );</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> SetAdmin (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;adminname );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> Grow ( <span class="keywordtype">int</span> dayspast );                 <span class="comment">// Applies growth</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> VaryGrowth ();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span> GetSharePrice ( <span class="keywordtype">int</span> month = -1 );       <span class="comment">// If -1, returns price of share now</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">int</span> GetShareChange ();                      <span class="comment">// From previous month, in percent</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">int</span> GetShareLastMonthSet () <span class="keyword">const</span>;              <span class="comment">// Index of recently set share price</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// Common functions</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCompany.html#a0d40a3e5592bf2f4352d8d191b9036a2">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#a93006e023f004ac28de099e39fa552e5">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#afdc4015fbf456a752f452357f9e80280">Print</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#ac07105b1be8feed54b1617a4dafa17a3">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classCompany.html#a67b52884a1569b13808f2fa630b08ed1">GetID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classCompany.html#ae8faeee3c2ea60c3e2d29bbacf76cd66">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classCompany.html#afe7bfcfc179e962e871f99ff69dbce74">   51</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classCompany.html#afe7bfcfc179e962e871f99ff69dbce74">name</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classCompany.html#ae52fbc64824e71b1f13878bb1005fbd9">   56</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classCompany.html#ae52fbc64824e71b1f13878bb1005fbd9">boss</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classCompany.html#abcbc778ca6ebf713ae5a3f1103bb9a1e">   61</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classCompany.html#abcbc778ca6ebf713ae5a3f1103bb9a1e">administrator</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classCompany.html#ad8da77dd8d85068023cdafb3496b2ea5">   66</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#ad8da77dd8d85068023cdafb3496b2ea5">size</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classCompany.html#a34b95c14f043912806330c7af881b387">   72</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#a34b95c14f043912806330c7af881b387">TYPE</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classCompany.html#a1135a49ab994b79a7a2d497b5fe23c56">   77</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#a1135a49ab994b79a7a2d497b5fe23c56">growth</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classCompany.html#afcd363c5e9028e5ebaedad35f458da86">   82</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#afcd363c5e9028e5ebaedad35f458da86">alignment</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classCompany.html">Company</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    ~<a class="code" href="classCompany.html">Company</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#a94b98af67f909bb2c3a041db5df541d8">SetName</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newname );</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#a41db0a44a80af0453f659e5abf7be87f">SetSize</a> ( <span class="keywordtype">int</span> newsize );</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#a7555793201cd9d48efb7f7a461576b3d">SetTYPE</a> ( <span class="keywordtype">int</span> newTYPE );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#aea0522cd56470d8f40ea19c4ed1702b8">SetGrowth</a> ( <span class="keywordtype">int</span> newgrowth );</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#a0be3e3b97f5ba1e257aa39bb342fb7e7">SetAlignment</a> ( <span class="keywordtype">int</span> newalignment );</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#a17014c8f612bed932e2c3102e124cff9">SetBoss</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;bossname );</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#af17776a046f7b55a26a536347537ae97">SetAdmin</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;adminname );</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#a44646fadba5b23536a3df1a5150be3ac">Grow</a> ( <span class="keywordtype">int</span> dayspast );                 <span class="comment">// Applies growth</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#ad469bd232709a6adc6dfb3a64a627040">VaryGrowth</a> ();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#a08130204dea36d86fea156184457c2df">GetSharePrice</a> ( <span class="keywordtype">int</span> month = -1 );</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#a23ddd8e573ee12b97981863d5a6ca807">GetShareChange</a> ();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompany.html#aad9bc7879cbd6fe279a9464878b7f9fe">GetShareLastMonthSet</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCompany.html#a0d40a3e5592bf2f4352d8d191b9036a2">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#a93006e023f004ac28de099e39fa552e5">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#afdc4015fbf456a752f452357f9e80280">Print</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompany.html#ac07105b1be8feed54b1617a4dafa17a3">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classCompany.html#a67b52884a1569b13808f2fa630b08ed1">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classCompany.html#ae8faeee3c2ea60c3e2d29bbacf76cd66">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;};</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#endif </span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassCompany_html"><div class="ttname"><a href="classCompany.html">Company</a></div><div class="ttdef"><b>Definition:</b> company.h:38</div></div>
+<div class="ttc" id="aclassCompany_html_afcd363c5e9028e5ebaedad35f458da86"><div class="ttname"><a href="classCompany.html#afcd363c5e9028e5ebaedad35f458da86">Company::alignment</a></div><div class="ttdeci">int alignment</div><div class="ttdef"><b>Definition:</b> company.h:82</div></div>
+<div class="ttc" id="aclassCompany_html_abcbc778ca6ebf713ae5a3f1103bb9a1e"><div class="ttname"><a href="classCompany.html#abcbc778ca6ebf713ae5a3f1103bb9a1e">Company::administrator</a></div><div class="ttdeci">string administrator</div><div class="ttdef"><b>Definition:</b> company.h:61</div></div>
+<div class="ttc" id="aclassCompany_html_a34b95c14f043912806330c7af881b387"><div class="ttname"><a href="classCompany.html#a34b95c14f043912806330c7af881b387">Company::TYPE</a></div><div class="ttdeci">int TYPE</div><div class="ttdef"><b>Definition:</b> company.h:72</div></div>
+<div class="ttc" id="aclassCompany_html_a41db0a44a80af0453f659e5abf7be87f"><div class="ttname"><a href="classCompany.html#a41db0a44a80af0453f659e5abf7be87f">Company::SetSize</a></div><div class="ttdeci">void SetSize(int newsize)</div><div class="ttdef"><b>Definition:</b> company.cpp:61</div></div>
+<div class="ttc" id="aclassCompany_html"><div class="ttname"><a href="classCompany.html">Company</a></div><div class="ttdoc">Company UplinkObject.</div><div class="ttdef"><b>Definition:</b> company.h:31</div></div>
+<div class="ttc" id="aclassCompany_html_a08130204dea36d86fea156184457c2df"><div class="ttname"><a href="classCompany.html#a08130204dea36d86fea156184457c2df">Company::GetSharePrice</a></div><div class="ttdeci">int GetSharePrice(int month=-1)</div><div class="ttdef"><b>Definition:</b> company.cpp:126</div></div>
+<div class="ttc" id="aclassCompany_html_ad469bd232709a6adc6dfb3a64a627040"><div class="ttname"><a href="classCompany.html#ad469bd232709a6adc6dfb3a64a627040">Company::VaryGrowth</a></div><div class="ttdeci">void VaryGrowth()</div><div class="ttdef"><b>Definition:</b> company.cpp:119</div></div>
+<div class="ttc" id="aclassCompany_html_ae52fbc64824e71b1f13878bb1005fbd9"><div class="ttname"><a href="classCompany.html#ae52fbc64824e71b1f13878bb1005fbd9">Company::boss</a></div><div class="ttdeci">string boss</div><div class="ttdef"><b>Definition:</b> company.h:56</div></div>
+<div class="ttc" id="aclassCompany_html_a94b98af67f909bb2c3a041db5df541d8"><div class="ttname"><a href="classCompany.html#a94b98af67f909bb2c3a041db5df541d8">Company::SetName</a></div><div class="ttdeci">void SetName(const string &amp;newname)</div><div class="ttdef"><b>Definition:</b> company.cpp:40</div></div>
+<div class="ttc" id="aclassCompany_html_aad9bc7879cbd6fe279a9464878b7f9fe"><div class="ttname"><a href="classCompany.html#aad9bc7879cbd6fe279a9464878b7f9fe">Company::GetShareLastMonthSet</a></div><div class="ttdeci">int GetShareLastMonthSet() const</div><div class="ttdef"><b>Definition:</b> company.cpp:156</div></div>
+<div class="ttc" id="aclassCompany_html_a7555793201cd9d48efb7f7a461576b3d"><div class="ttname"><a href="classCompany.html#a7555793201cd9d48efb7f7a461576b3d">Company::SetTYPE</a></div><div class="ttdeci">void SetTYPE(int newTYPE)</div><div class="ttdef"><b>Definition:</b> company.cpp:68</div></div>
+<div class="ttc" id="aclassCompany_html_aea0522cd56470d8f40ea19c4ed1702b8"><div class="ttname"><a href="classCompany.html#aea0522cd56470d8f40ea19c4ed1702b8">Company::SetGrowth</a></div><div class="ttdeci">void SetGrowth(int newgrowth)</div><div class="ttdef"><b>Definition:</b> company.cpp:75</div></div>
+<div class="ttc" id="aclassCompany_html_ad8da77dd8d85068023cdafb3496b2ea5"><div class="ttname"><a href="classCompany.html#ad8da77dd8d85068023cdafb3496b2ea5">Company::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition:</b> company.h:66</div></div>
+<div class="ttc" id="aclassCompany_html_a0be3e3b97f5ba1e257aa39bb342fb7e7"><div class="ttname"><a href="classCompany.html#a0be3e3b97f5ba1e257aa39bb342fb7e7">Company::SetAlignment</a></div><div class="ttdeci">void SetAlignment(int newalignment)</div><div class="ttdef"><b>Definition:</b> company.cpp:82</div></div>
+<div class="ttc" id="aclassCompany_html_ad5bcfcf0fd2e7a57e68bf8e2f18c3a49"><div class="ttname"><a href="classCompany.html#ad5bcfcf0fd2e7a57e68bf8e2f18c3a49">Company::lastmonthset</a></div><div class="ttdeci">int lastmonthset</div><div class="ttdef"><b>Definition:</b> company.h:44</div></div>
 <div class="ttc" id="aclassCompany_html_ac07105b1be8feed54b1617a4dafa17a3"><div class="ttname"><a href="classCompany.html#ac07105b1be8feed54b1617a4dafa17a3">Company::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> company.cpp:231</div></div>
 <div class="ttc" id="aclassCompany_html_a0d40a3e5592bf2f4352d8d191b9036a2"><div class="ttname"><a href="classCompany.html#a0d40a3e5592bf2f4352d8d191b9036a2">Company::Load</a></div><div class="ttdeci">bool Load(FILE *file) override</div><div class="ttdef"><b>Definition:</b> company.cpp:163</div></div>
+<div class="ttc" id="aclassCompany_html_a7c2737b68d3693e510b15a4715abdb84"><div class="ttname"><a href="classCompany.html#a7c2737b68d3693e510b15a4715abdb84">Company::sharehistory</a></div><div class="ttdeci">int sharehistory[12]</div><div class="ttdef"><b>Definition:</b> company.h:39</div></div>
 <div class="ttc" id="aclassUplinkObject_html"><div class="ttname"><a href="classUplinkObject.html">UplinkObject</a></div><div class="ttdoc">UplinkObject base class.</div><div class="ttdef"><b>Definition:</b> uplinkobject.h:18</div></div>
 <div class="ttc" id="aclassCompany_html_a93006e023f004ac28de099e39fa552e5"><div class="ttname"><a href="classCompany.html#a93006e023f004ac28de099e39fa552e5">Company::Save</a></div><div class="ttdeci">void Save(FILE *file) override</div><div class="ttdef"><b>Definition:</b> company.cpp:188</div></div>
+<div class="ttc" id="aclassCompany_html_af17776a046f7b55a26a536347537ae97"><div class="ttname"><a href="classCompany.html#af17776a046f7b55a26a536347537ae97">Company::SetAdmin</a></div><div class="ttdeci">void SetAdmin(const string &amp;adminname)</div><div class="ttdef"><b>Definition:</b> company.cpp:54</div></div>
+<div class="ttc" id="aclassCompany_html_a44646fadba5b23536a3df1a5150be3ac"><div class="ttname"><a href="classCompany.html#a44646fadba5b23536a3df1a5150be3ac">Company::Grow</a></div><div class="ttdeci">void Grow(int dayspast)</div><div class="ttdef"><b>Definition:</b> company.cpp:89</div></div>
+<div class="ttc" id="aclassCompany_html_a17014c8f612bed932e2c3102e124cff9"><div class="ttname"><a href="classCompany.html#a17014c8f612bed932e2c3102e124cff9">Company::SetBoss</a></div><div class="ttdeci">void SetBoss(const string &amp;bossname)</div><div class="ttdef"><b>Definition:</b> company.cpp:47</div></div>
 <div class="ttc" id="aclassCompany_html_a67b52884a1569b13808f2fa630b08ed1"><div class="ttname"><a href="classCompany.html#a67b52884a1569b13808f2fa630b08ed1">Company::GetID</a></div><div class="ttdeci">string GetID() override</div><div class="ttdef"><b>Definition:</b> company.cpp:235</div></div>
 <div class="ttc" id="aclassCompany_html_afdc4015fbf456a752f452357f9e80280"><div class="ttname"><a href="classCompany.html#afdc4015fbf456a752f452357f9e80280">Company::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> company.cpp:211</div></div>
+<div class="ttc" id="aclassCompany_html_afe7bfcfc179e962e871f99ff69dbce74"><div class="ttname"><a href="classCompany.html#afe7bfcfc179e962e871f99ff69dbce74">Company::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition:</b> company.h:51</div></div>
+<div class="ttc" id="aclassCompany_html_a1135a49ab994b79a7a2d497b5fe23c56"><div class="ttname"><a href="classCompany.html#a1135a49ab994b79a7a2d497b5fe23c56">Company::growth</a></div><div class="ttdeci">int growth</div><div class="ttdef"><b>Definition:</b> company.h:77</div></div>
+<div class="ttc" id="aclassCompany_html_a23ddd8e573ee12b97981863d5a6ca807"><div class="ttname"><a href="classCompany.html#a23ddd8e573ee12b97981863d5a6ca807">Company::GetShareChange</a></div><div class="ttdeci">int GetShareChange()</div><div class="ttdef"><b>Definition:</b> company.cpp:138</div></div>
 <div class="ttc" id="aclassCompany_html_ae8faeee3c2ea60c3e2d29bbacf76cd66"><div class="ttname"><a href="classCompany.html#ae8faeee3c2ea60c3e2d29bbacf76cd66">Company::GetOBJECTID</a></div><div class="ttdeci">int GetOBJECTID() override</div><div class="ttdef"><b>Definition:</b> company.cpp:242</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

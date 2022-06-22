@@ -71,138 +71,196 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">   Mission class object</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">   Part of the World sub-system</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">   A representation of a mission or task to be completed</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">    </span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef included_mission_h</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define included_mission_h</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;world/date.h&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_mission_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_mission_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;world/date.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define SIZE_MISSION_DESCRIPTION    128</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define SIZE_MISSION_EMPLOYER       64</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define SIZE_MISSION_COMPLETION     64</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define SIZE_PERSON_NAME     128</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define MISSIONPAYMENT_AFTERCOMPLETION      0</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define MISSIONPAYMENT_HALFATSTART          1</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define MISSIONPAYMENT_ALLATSTART           2</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define SIZE_MISSION_DESCRIPTION    128</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define SIZE_MISSION_EMPLOYER       64</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define SIZE_MISSION_COMPLETION     64</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define SIZE_PERSON_NAME     128</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define MISSIONPAYMENT_AFTERCOMPLETION      0</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define MISSIONPAYMENT_HALFATSTART          1</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define MISSIONPAYMENT_ALLATSTART           2</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classMission.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMission.html">Mission</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classMission.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMission.html">Mission</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">char</span> *details;                      <span class="comment">// Listed on bbs boards</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">char</span> *fulldetails;                  <span class="comment">// Listed after acceptance (contains actual target details)</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classDate.html">Date</a> *duedate;                      <span class="comment">// Can be NULL</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">char</span> *whysomuchmoney;               <span class="comment">// Answer to these questions</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">char</span> *howsecure;                    <span class="comment">// They can be NULL</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">char</span> *whoisthetarget;               <span class="comment">//</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> TYPE;                                               <span class="comment">// Defined in MissionGenerator</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">char</span> employer    [SIZE_MISSION_EMPLOYER];</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">char</span> contact     [SIZE_PERSON_NAME];</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">char</span> description [SIZE_MISSION_DESCRIPTION];</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classDate.html">Date</a> createdate;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classMission.html#a0372d7805ea7d03f2b8937e1d9e7a02e">   35</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#a0372d7805ea7d03f2b8937e1d9e7a02e">details</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classMission.html#acc23c6808b78d0ccc676b0bfca20c087">   41</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#acc23c6808b78d0ccc676b0bfca20c087">fulldetails</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classMission.html#a5b4a25738bb361d89619088037a33f2f">   47</a></span>&#160;    <a class="code" href="classDate.html">Date</a> *<a class="code" href="classMission.html#a5b4a25738bb361d89619088037a33f2f">duedate</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classMission.html#af90838de0663d8a2492f05db21a7b676">   53</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#af90838de0663d8a2492f05db21a7b676">whysomuchmoney</a>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">char</span> completionA [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">char</span> completionB [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">char</span> completionC [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">char</span> completionD [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">char</span> completionE [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classMission.html#a848307323dcdd305c90184ed9ec178da">   59</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#a848307323dcdd305c90184ed9ec178da">howsecure</a>;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">int</span> payment;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> maxpayment;                     <span class="comment">// You can negotiate this if your rating is high enough</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">int</span> paymentmethod;                  <span class="comment">// Eg all now, half now, none now</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">int</span> difficulty;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span> minuplinkrating;                <span class="comment">// If you have this rating you can view this mission</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> acceptrating;                   <span class="comment">// If you have this rating you can auto-accept this mission</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classMission.html#ad4bcaf44752963bdcc8fb5a631634f10">   65</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#ad4bcaf44752963bdcc8fb5a631634f10">whoisthetarget</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> npcpriority;                   <span class="comment">// NPC&#39;s will take this one first if this bool is true</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">int</span> TYPE;                                               <span class="comment">// Defined in MissionGenerator</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="classLList.html">LList &lt;string&gt;</a> links;               <span class="comment">// All useful ip addresses (to be added to links)</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="classBTree.html">BTree &lt;char *&gt;</a> codes;               <span class="comment">// Access codes, indexed on ip</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classMission.html#ad071553cae4d1d3fea3742b9a8e28e2f">   74</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="classMission.html#ad071553cae4d1d3fea3742b9a8e28e2f">employer</a>    [SIZE_MISSION_EMPLOYER];</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="classMission.html">Mission</a> ();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    ~<a class="code" href="classMission.html">Mission</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> SetTYPE            ( <span class="keywordtype">int</span> newTYPE );</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> SetCompletion      (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newA, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newB, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newC, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newD, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newE );</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> SetCreateDate      ( <a class="code" href="classDate.html">Date</a> *date );</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> SetEmployer        (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newemployer );</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> SetContact         (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newcontact );</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> SetPayment         ( <span class="keywordtype">int</span> newpayment, <span class="keywordtype">int</span> newmaxpayment = -1 );</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> SetDifficulty      ( <span class="keywordtype">int</span> newdifficulty );</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> SetMinRating       ( <span class="keywordtype">int</span> newrating );</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> SetAcceptRating    ( <span class="keywordtype">int</span> newrating );</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> SetNpcPriority     ( <span class="keywordtype">bool</span> newpriority );</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> SetDescription     (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdescription );</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> SetDetails         (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdetails );</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> SetFullDetails     (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdetails );</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> SetWhySoMuchMoney  (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;answer );</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> SetHowSecure       (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;answer );</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> SetWhoIsTheTarget  (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;answer );</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> GiveLink           (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;ip );</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> GiveCode           (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;ip, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;code );</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> SetDueDate         ( <a class="code" href="classDate.html">Date</a> *newdate );</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="classDate.html">Date</a> *GetDueDate        ();                         <span class="comment">// Can return NULL</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">char</span> *GetDetails        ();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">char</span> *GetFullDetails    ();</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">char</span> *GetWhySoMuchMoney ();                         <span class="comment">// Can return NULL</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">char</span> *GetHowSecure      ();                         <span class="comment">// Can return NULL</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">char</span> *GetWhoIsTheTarget ();                         <span class="comment">// Can return NULL</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classMission.html#a9423e44cd04b8c6e03d251c90d7f7cea">   79</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="classMission.html#a9423e44cd04b8c6e03d251c90d7f7cea">contact</a>     [SIZE_PERSON_NAME];</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classMission.html#a1cd6ee4f8bdfeb2f64b451ca037e0a93">   84</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="classMission.html#a1cd6ee4f8bdfeb2f64b451ca037e0a93">description</a> [SIZE_MISSION_DESCRIPTION];</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classMission.html#af4394eb639856bacf6248835d8d078a2">   89</a></span>&#160;    <a class="code" href="classDate.html">Date</a> <a class="code" href="classMission.html#af4394eb639856bacf6248835d8d078a2">createdate</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">char</span> completionA [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">char</span> completionB [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">char</span> completionC [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">char</span> completionD [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">char</span> completionE [SIZE_MISSION_COMPLETION];             <span class="comment">// String used to determine if this mission is done</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classMission.html#ae8d47d80071b7af24ba1138dacabe8c4">  100</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMission.html#ae8d47d80071b7af24ba1138dacabe8c4">payment</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classMission.html#a4f064df2d2afc5305dca9166543ef22c">  105</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMission.html#a4f064df2d2afc5305dca9166543ef22c">maxpayment</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">int</span> paymentmethod;                  <span class="comment">// Eg all now, half now, none now</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">int</span> difficulty;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">int</span> minuplinkrating;                <span class="comment">// If you have this rating you can view this mission</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">int</span> acceptrating;                   <span class="comment">// If you have this rating you can auto-accept this mission</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classMission.html#a2c9a3cb80dd5219d4b8c34bc042f1f53">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a2cb8932d1612507a94f5a795312edda2">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#ac215d05c73a7d3fe3f69520244a23f22">Print</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classMission.html#a616584faae6073ead8fbdad30c54a4cf">GetID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classMission.html#ae2e6739c3dba0b18e9315c9c9de4cfe3">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">bool</span> npcpriority;                   <span class="comment">// NPC&#39;s will take this one first if this bool is true</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="classLList.html">LList &lt;string&gt;</a> links;               <span class="comment">// All useful ip addresses (to be added to links)</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="classBTree.html">BTree &lt;char *&gt;</a> codes;               <span class="comment">// Access codes, indexed on ip</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="classMission.html">Mission</a> ();</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    ~<a class="code" href="classMission.html">Mission</a> () <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#aabae3666482519e61b2a2211e5c3b43b">SetTYPE</a>            ( <span class="keywordtype">int</span> newTYPE );</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a6645c58c39f7c1e3aa8a50be6ccbf5c0">SetCompletion</a>      (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newA, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newB, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newC, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newD, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newE );</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#aca9188bd352c336a784e9920a124d45f">SetCreateDate</a>      ( <a class="code" href="classDate.html">Date</a> *date );</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#aaac424b25090a2cef104c8379cdda0b2">SetEmployer</a>        (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newemployer );</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#abf3e0adbec734dc9b090752242e998e5">SetContact</a>         (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newcontact );</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a4163a931df332b73cb5238dca31b7167">SetPayment</a>         ( <span class="keywordtype">int</span> newpayment, <span class="keywordtype">int</span> newmaxpayment = -1 );</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#aa231ed09bce7b911b3f4b66453488d1c">SetDifficulty</a>      ( <span class="keywordtype">int</span> newdifficulty );</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#ad4bb88a3ab5d2034f9b6a31f960a50c4">SetMinRating</a>       ( <span class="keywordtype">int</span> newrating );</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a354de045bab7d54a5a879430f852018d">SetAcceptRating</a>    ( <span class="keywordtype">int</span> newrating );</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a0bddeaaa74c3dafd4b15172b0741b184">SetNpcPriority</a>     ( <span class="keywordtype">bool</span> newpriority );</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#acbf37f7af57388783730efbdd650f3e0">SetDescription</a>     (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdescription );</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a980a0a73fa7b908b5d9e7f31f7138a1c">SetDetails</a>         (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdetails );</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a6d99c7ee9a12c547a76e090ecaa6c503">SetFullDetails</a>     (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdetails );</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#adf32db9589297c80df64f93b2a662293">SetWhySoMuchMoney</a>  (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;answer );</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a51b1763cfac95cdbad0b3eb6eec82471">SetHowSecure</a>       (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;answer );</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#ac28e1805cb1a59a24a2f784b728308a4">SetWhoIsTheTarget</a>  (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;answer );</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a85c53cd264b57b9d261f56330e10e720">GiveLink</a>           (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;ip );</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a423c0d481319cd85965f261d55ebf595">GiveCode</a>           (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;ip, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;code );</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#aca501b0a3586b64c8269568423037b81">SetDueDate</a>         ( <a class="code" href="classDate.html">Date</a> *newdate );</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <a class="code" href="classDate.html">Date</a> *<a class="code" href="classMission.html#aad1bf831e0dcb3bdc652c460793dab72">GetDueDate</a>        ();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#a3d9fd64dd031deffb1659094bf3586ec">GetDetails</a>        ();</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#af275f5d300a5bf9fad7791227414bb0b">GetFullDetails</a>    ();</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#a59db713f6a36c45525e27ada248b56ef">GetWhySoMuchMoney</a> ();</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#afe021c2cb80045da840e1121a2f4a5f0">GetHowSecure</a>      ();</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classMission.html#a58cf33fecaf87d68c69daaa11cce065d">GetWhoIsTheTarget</a> ();</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classMission.html#a2c9a3cb80dd5219d4b8c34bc042f1f53">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#a2cb8932d1612507a94f5a795312edda2">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMission.html#ac215d05c73a7d3fe3f69520244a23f22">Print</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classMission.html#a616584faae6073ead8fbdad30c54a4cf">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classMission.html#ae2e6739c3dba0b18e9315c9c9de4cfe3">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;};</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassMission_html_aad1bf831e0dcb3bdc652c460793dab72"><div class="ttname"><a href="classMission.html#aad1bf831e0dcb3bdc652c460793dab72">Mission::GetDueDate</a></div><div class="ttdeci">Date * GetDueDate()</div><div class="ttdef"><b>Definition:</b> mission.cpp:279</div></div>
 <div class="ttc" id="aclassMission_html_ae2e6739c3dba0b18e9315c9c9de4cfe3"><div class="ttname"><a href="classMission.html#ae2e6739c3dba0b18e9315c9c9de4cfe3">Mission::GetOBJECTID</a></div><div class="ttdeci">int GetOBJECTID() override</div><div class="ttdef"><b>Definition:</b> mission.cpp:468</div></div>
 <div class="ttc" id="aclassLList_html"><div class="ttname"><a href="classLList.html">LList&lt; string &gt;</a></div></div>
+<div class="ttc" id="aclassMission_html_aca501b0a3586b64c8269568423037b81"><div class="ttname"><a href="classMission.html#aca501b0a3586b64c8269568423037b81">Mission::SetDueDate</a></div><div class="ttdeci">void SetDueDate(Date *newdate)</div><div class="ttdef"><b>Definition:</b> mission.cpp:269</div></div>
+<div class="ttc" id="aclassMission_html_aabae3666482519e61b2a2211e5c3b43b"><div class="ttname"><a href="classMission.html#aabae3666482519e61b2a2211e5c3b43b">Mission::SetTYPE</a></div><div class="ttdeci">void SetTYPE(int newTYPE)</div><div class="ttdef"><b>Definition:</b> mission.cpp:67</div></div>
 <div class="ttc" id="aclassBTree_html"><div class="ttname"><a href="classBTree.html">BTree&lt; char * &gt;</a></div></div>
+<div class="ttc" id="aclassMission_html_a59db713f6a36c45525e27ada248b56ef"><div class="ttname"><a href="classMission.html#a59db713f6a36c45525e27ada248b56ef">Mission::GetWhySoMuchMoney</a></div><div class="ttdeci">char * GetWhySoMuchMoney()</div><div class="ttdef"><b>Definition:</b> mission.cpp:302</div></div>
+<div class="ttc" id="aclassMission_html_a0bddeaaa74c3dafd4b15172b0741b184"><div class="ttname"><a href="classMission.html#a0bddeaaa74c3dafd4b15172b0741b184">Mission::SetNpcPriority</a></div><div class="ttdeci">void SetNpcPriority(bool newpriority)</div><div class="ttdef"><b>Definition:</b> mission.cpp:114</div></div>
 <div class="ttc" id="aclassMission_html_ac215d05c73a7d3fe3f69520244a23f22"><div class="ttname"><a href="classMission.html#ac215d05c73a7d3fe3f69520244a23f22">Mission::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> mission.cpp:425</div></div>
-<div class="ttc" id="aclassMission_html"><div class="ttname"><a href="classMission.html">Mission</a></div><div class="ttdef"><b>Definition:</b> mission.h:33</div></div>
+<div class="ttc" id="aclassMission_html_a354de045bab7d54a5a879430f852018d"><div class="ttname"><a href="classMission.html#a354de045bab7d54a5a879430f852018d">Mission::SetAcceptRating</a></div><div class="ttdeci">void SetAcceptRating(int newrating)</div><div class="ttdef"><b>Definition:</b> mission.cpp:241</div></div>
+<div class="ttc" id="aclassMission_html_a9423e44cd04b8c6e03d251c90d7f7cea"><div class="ttname"><a href="classMission.html#a9423e44cd04b8c6e03d251c90d7f7cea">Mission::contact</a></div><div class="ttdeci">char contact[SIZE_PERSON_NAME]</div><div class="ttdef"><b>Definition:</b> mission.h:79</div></div>
+<div class="ttc" id="aclassMission_html_a4163a931df332b73cb5238dca31b7167"><div class="ttname"><a href="classMission.html#a4163a931df332b73cb5238dca31b7167">Mission::SetPayment</a></div><div class="ttdeci">void SetPayment(int newpayment, int newmaxpayment=-1)</div><div class="ttdef"><b>Definition:</b> mission.cpp:214</div></div>
+<div class="ttc" id="aclassMission_html"><div class="ttname"><a href="classMission.html">Mission</a></div><div class="ttdoc">Mission UplinkObject.</div><div class="ttdef"><b>Definition:</b> mission.h:27</div></div>
+<div class="ttc" id="aclassMission_html_a980a0a73fa7b908b5d9e7f31f7138a1c"><div class="ttname"><a href="classMission.html#a980a0a73fa7b908b5d9e7f31f7138a1c">Mission::SetDetails</a></div><div class="ttdeci">void SetDetails(const string &amp;newdetails)</div><div class="ttdef"><b>Definition:</b> mission.cpp:129</div></div>
+<div class="ttc" id="aclassMission_html_a0372d7805ea7d03f2b8937e1d9e7a02e"><div class="ttname"><a href="classMission.html#a0372d7805ea7d03f2b8937e1d9e7a02e">Mission::details</a></div><div class="ttdeci">char * details</div><div class="ttdef"><b>Definition:</b> mission.h:35</div></div>
+<div class="ttc" id="aclassMission_html_aa231ed09bce7b911b3f4b66453488d1c"><div class="ttname"><a href="classMission.html#aa231ed09bce7b911b3f4b66453488d1c">Mission::SetDifficulty</a></div><div class="ttdeci">void SetDifficulty(int newdifficulty)</div><div class="ttdef"><b>Definition:</b> mission.cpp:227</div></div>
+<div class="ttc" id="aclassMission_html_a423c0d481319cd85965f261d55ebf595"><div class="ttname"><a href="classMission.html#a423c0d481319cd85965f261d55ebf595">Mission::GiveCode</a></div><div class="ttdeci">void GiveCode(const string &amp;ip, const string &amp;code)</div><div class="ttdef"><b>Definition:</b> mission.cpp:255</div></div>
+<div class="ttc" id="aclassMission_html_aaac424b25090a2cef104c8379cdda0b2"><div class="ttname"><a href="classMission.html#aaac424b25090a2cef104c8379cdda0b2">Mission::SetEmployer</a></div><div class="ttdeci">void SetEmployer(const string &amp;newemployer)</div><div class="ttdef"><b>Definition:</b> mission.cpp:194</div></div>
+<div class="ttc" id="aclassMission_html_af275f5d300a5bf9fad7791227414bb0b"><div class="ttname"><a href="classMission.html#af275f5d300a5bf9fad7791227414bb0b">Mission::GetFullDetails</a></div><div class="ttdeci">char * GetFullDetails()</div><div class="ttdef"><b>Definition:</b> mission.cpp:294</div></div>
+<div class="ttc" id="aclassMission_html_af4394eb639856bacf6248835d8d078a2"><div class="ttname"><a href="classMission.html#af4394eb639856bacf6248835d8d078a2">Mission::createdate</a></div><div class="ttdeci">Date createdate</div><div class="ttdef"><b>Definition:</b> mission.h:89</div></div>
+<div class="ttc" id="aclassMission_html_a6d99c7ee9a12c547a76e090ecaa6c503"><div class="ttname"><a href="classMission.html#a6d99c7ee9a12c547a76e090ecaa6c503">Mission::SetFullDetails</a></div><div class="ttdeci">void SetFullDetails(const string &amp;newdetails)</div><div class="ttdef"><b>Definition:</b> mission.cpp:139</div></div>
 <div class="ttc" id="aclassMission_html_a2cb8932d1612507a94f5a795312edda2"><div class="ttname"><a href="classMission.html#a2cb8932d1612507a94f5a795312edda2">Mission::Save</a></div><div class="ttdeci">void Save(FILE *file) override</div><div class="ttdef"><b>Definition:</b> mission.cpp:380</div></div>
+<div class="ttc" id="aclassMission_html_acbf37f7af57388783730efbdd650f3e0"><div class="ttname"><a href="classMission.html#acbf37f7af57388783730efbdd650f3e0">Mission::SetDescription</a></div><div class="ttdeci">void SetDescription(const string &amp;newdescription)</div><div class="ttdef"><b>Definition:</b> mission.cpp:121</div></div>
+<div class="ttc" id="aclassMission_html_a1cd6ee4f8bdfeb2f64b451ca037e0a93"><div class="ttname"><a href="classMission.html#a1cd6ee4f8bdfeb2f64b451ca037e0a93">Mission::description</a></div><div class="ttdeci">char description[SIZE_MISSION_DESCRIPTION]</div><div class="ttdef"><b>Definition:</b> mission.h:84</div></div>
+<div class="ttc" id="aclassMission_html_afe021c2cb80045da840e1121a2f4a5f0"><div class="ttname"><a href="classMission.html#afe021c2cb80045da840e1121a2f4a5f0">Mission::GetHowSecure</a></div><div class="ttdeci">char * GetHowSecure()</div><div class="ttdef"><b>Definition:</b> mission.cpp:309</div></div>
+<div class="ttc" id="aclassMission_html_a85c53cd264b57b9d261f56330e10e720"><div class="ttname"><a href="classMission.html#a85c53cd264b57b9d261f56330e10e720">Mission::GiveLink</a></div><div class="ttdeci">void GiveLink(const string &amp;ip)</div><div class="ttdef"><b>Definition:</b> mission.cpp:248</div></div>
+<div class="ttc" id="aclassMission_html_a5b4a25738bb361d89619088037a33f2f"><div class="ttname"><a href="classMission.html#a5b4a25738bb361d89619088037a33f2f">Mission::duedate</a></div><div class="ttdeci">Date * duedate</div><div class="ttdef"><b>Definition:</b> mission.h:47</div></div>
+<div class="ttc" id="aclassMission_html_adf32db9589297c80df64f93b2a662293"><div class="ttname"><a href="classMission.html#adf32db9589297c80df64f93b2a662293">Mission::SetWhySoMuchMoney</a></div><div class="ttdeci">void SetWhySoMuchMoney(const string &amp;answer)</div><div class="ttdef"><b>Definition:</b> mission.cpp:149</div></div>
+<div class="ttc" id="aclassMission_html_a6645c58c39f7c1e3aa8a50be6ccbf5c0"><div class="ttname"><a href="classMission.html#a6645c58c39f7c1e3aa8a50be6ccbf5c0">Mission::SetCompletion</a></div><div class="ttdeci">void SetCompletion(const string &amp;newA, const string &amp;newB, const string &amp;newC, const string &amp;newD, const string &amp;newE)</div><div class="ttdef"><b>Definition:</b> mission.cpp:74</div></div>
 <div class="ttc" id="aclassUplinkObject_html"><div class="ttname"><a href="classUplinkObject.html">UplinkObject</a></div><div class="ttdoc">UplinkObject base class.</div><div class="ttdef"><b>Definition:</b> uplinkobject.h:18</div></div>
+<div class="ttc" id="aclassMission_html_abf3e0adbec734dc9b090752242e998e5"><div class="ttname"><a href="classMission.html#abf3e0adbec734dc9b090752242e998e5">Mission::SetContact</a></div><div class="ttdeci">void SetContact(const string &amp;newcontact)</div><div class="ttdef"><b>Definition:</b> mission.cpp:204</div></div>
+<div class="ttc" id="aclassMission_html_ae8d47d80071b7af24ba1138dacabe8c4"><div class="ttname"><a href="classMission.html#ae8d47d80071b7af24ba1138dacabe8c4">Mission::payment</a></div><div class="ttdeci">int payment</div><div class="ttdef"><b>Definition:</b> mission.h:100</div></div>
+<div class="ttc" id="aclassMission_html_ad4bcaf44752963bdcc8fb5a631634f10"><div class="ttname"><a href="classMission.html#ad4bcaf44752963bdcc8fb5a631634f10">Mission::whoisthetarget</a></div><div class="ttdeci">char * whoisthetarget</div><div class="ttdef"><b>Definition:</b> mission.h:65</div></div>
+<div class="ttc" id="aclassMission_html_af90838de0663d8a2492f05db21a7b676"><div class="ttname"><a href="classMission.html#af90838de0663d8a2492f05db21a7b676">Mission::whysomuchmoney</a></div><div class="ttdeci">char * whysomuchmoney</div><div class="ttdef"><b>Definition:</b> mission.h:53</div></div>
 <div class="ttc" id="aclassMission_html_a616584faae6073ead8fbdad30c54a4cf"><div class="ttname"><a href="classMission.html#a616584faae6073ead8fbdad30c54a4cf">Mission::GetID</a></div><div class="ttdeci">string GetID() override</div><div class="ttdef"><b>Definition:</b> mission.cpp:461</div></div>
+<div class="ttc" id="aclassMission_html_a848307323dcdd305c90184ed9ec178da"><div class="ttname"><a href="classMission.html#a848307323dcdd305c90184ed9ec178da">Mission::howsecure</a></div><div class="ttdeci">char * howsecure</div><div class="ttdef"><b>Definition:</b> mission.h:59</div></div>
+<div class="ttc" id="aclassMission_html_a4f064df2d2afc5305dca9166543ef22c"><div class="ttname"><a href="classMission.html#a4f064df2d2afc5305dca9166543ef22c">Mission::maxpayment</a></div><div class="ttdeci">int maxpayment</div><div class="ttdef"><b>Definition:</b> mission.h:105</div></div>
 <div class="ttc" id="aclassMission_html_a2c9a3cb80dd5219d4b8c34bc042f1f53"><div class="ttname"><a href="classMission.html#a2c9a3cb80dd5219d4b8c34bc042f1f53">Mission::Load</a></div><div class="ttdeci">bool Load(FILE *file) override</div><div class="ttdef"><b>Definition:</b> mission.cpp:323</div></div>
+<div class="ttc" id="aclassMission_html_a51b1763cfac95cdbad0b3eb6eec82471"><div class="ttname"><a href="classMission.html#a51b1763cfac95cdbad0b3eb6eec82471">Mission::SetHowSecure</a></div><div class="ttdeci">void SetHowSecure(const string &amp;answer)</div><div class="ttdef"><b>Definition:</b> mission.cpp:164</div></div>
+<div class="ttc" id="aclassMission_html_ad071553cae4d1d3fea3742b9a8e28e2f"><div class="ttname"><a href="classMission.html#ad071553cae4d1d3fea3742b9a8e28e2f">Mission::employer</a></div><div class="ttdeci">char employer[SIZE_MISSION_EMPLOYER]</div><div class="ttdef"><b>Definition:</b> mission.h:74</div></div>
 <div class="ttc" id="aclassDate_html"><div class="ttname"><a href="classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> date.h:23</div></div>
+<div class="ttc" id="aclassMission_html_ad4bb88a3ab5d2034f9b6a31f960a50c4"><div class="ttname"><a href="classMission.html#ad4bb88a3ab5d2034f9b6a31f960a50c4">Mission::SetMinRating</a></div><div class="ttdeci">void SetMinRating(int newrating)</div><div class="ttdef"><b>Definition:</b> mission.cpp:234</div></div>
+<div class="ttc" id="aclassMission_html_acc23c6808b78d0ccc676b0bfca20c087"><div class="ttname"><a href="classMission.html#acc23c6808b78d0ccc676b0bfca20c087">Mission::fulldetails</a></div><div class="ttdeci">char * fulldetails</div><div class="ttdef"><b>Definition:</b> mission.h:41</div></div>
+<div class="ttc" id="aclassMission_html_a58cf33fecaf87d68c69daaa11cce065d"><div class="ttname"><a href="classMission.html#a58cf33fecaf87d68c69daaa11cce065d">Mission::GetWhoIsTheTarget</a></div><div class="ttdeci">char * GetWhoIsTheTarget()</div><div class="ttdef"><b>Definition:</b> mission.cpp:316</div></div>
+<div class="ttc" id="aclassMission_html_aca9188bd352c336a784e9920a124d45f"><div class="ttname"><a href="classMission.html#aca9188bd352c336a784e9920a124d45f">Mission::SetCreateDate</a></div><div class="ttdeci">void SetCreateDate(Date *date)</div><div class="ttdef"><b>Definition:</b> mission.cpp:106</div></div>
+<div class="ttc" id="aclassMission_html_ac28e1805cb1a59a24a2f784b728308a4"><div class="ttname"><a href="classMission.html#ac28e1805cb1a59a24a2f784b728308a4">Mission::SetWhoIsTheTarget</a></div><div class="ttdeci">void SetWhoIsTheTarget(const string &amp;answer)</div><div class="ttdef"><b>Definition:</b> mission.cpp:179</div></div>
+<div class="ttc" id="aclassMission_html_a3d9fd64dd031deffb1659094bf3586ec"><div class="ttname"><a href="classMission.html#a3d9fd64dd031deffb1659094bf3586ec">Mission::GetDetails</a></div><div class="ttdeci">char * GetDetails()</div><div class="ttdef"><b>Definition:</b> mission.cpp:286</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

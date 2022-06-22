@@ -1,4 +1,4 @@
 <map id="TheTeamInterface" name="TheTeamInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node1" title="Team interface MainMenuScreen." alt="" coords="5,80,144,107"/>
 <area shape="rect" id="node2" href="$classMainMenuScreen.html" title="Main Menu Screen base class." alt="" coords="7,5,142,32"/>
 </map>

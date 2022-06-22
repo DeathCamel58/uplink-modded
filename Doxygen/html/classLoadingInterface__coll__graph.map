@@ -1,5 +1,5 @@
 <map id="LoadingInterface" name="LoadingInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="8,171,139,197"/>
+<area shape="rect" id="node1" title="Loading interface MainMenuScreen." alt="" coords="8,171,139,197"/>
 <area shape="rect" id="node2" href="$classMainMenuScreen.html" title="Main Menu Screen base class." alt="" coords="6,95,141,121"/>
 <area shape="rect" id="node3" href="$classDArray.html" title=" " alt="" coords="5,5,141,32"/>
 </map>

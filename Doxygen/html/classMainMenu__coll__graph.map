@@ -1,5 +1,5 @@
 <map id="MainMenu" name="MainMenu">
-<area shape="rect" id="node1" title=" " alt="" coords="35,184,125,211"/>
+<area shape="rect" id="node1" title="Main menu controller UplinkObject." alt="" coords="35,184,125,211"/>
 <area shape="rect" id="node2" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,95,112,121"/>
 <area shape="rect" id="node3" href="$classMainMenuScreen.html" title="Main Menu Screen base class." alt="" coords="137,95,271,121"/>
 <area shape="rect" id="node4" href="$classDArray.html" title=" " alt="" coords="136,5,272,32"/>

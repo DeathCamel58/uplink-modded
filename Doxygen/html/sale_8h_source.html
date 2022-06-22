@@ -71,122 +71,134 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">    Sale class object</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    Represents a sellable item -</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    such as software or hardware or information</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef included_sale_h</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define included_sale_h</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define SALETYPE_NONE      0</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define SALETYPE_SOFTWARE  1</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define SALETYPE_HARDWARE  2</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define SIZE_SALE_TITLE    64</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span><a class="code" href="classSaleVersion.html">SaleVersion</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_sale_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_sale_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define SALETYPE_NONE      0</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define SALETYPE_SOFTWARE  1</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define SALETYPE_HARDWARE  2</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define SIZE_SALE_TITLE    64</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="classSaleVersion.html">SaleVersion</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classSale.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSale.html">Sale</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classSale.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSale.html">Sale</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classSale.html#a5396d7f1b94d180d8c8277e726a98d11">   32</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classSale.html#a5396d7f1b94d180d8c8277e726a98d11">title</a>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">string</span> title;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> saleTYPE;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> swhwTYPE;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classDArray.html">DArray &lt;SaleVersion *&gt;</a> versions;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classSale.html#a8ba9c376e3780bab01a6a3bbf01ea40d">   38</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSale.html#a8ba9c376e3780bab01a6a3bbf01ea40d">saleTYPE</a>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classSale.html">Sale</a> ();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ~<a class="code" href="classSale.html">Sale</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> SetTitle (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newtitle );</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> SetSaleTYPE ( <span class="keywordtype">int</span> newTYPE );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> SetSwhwTYPE ( <span class="keywordtype">int</span> newSwhwTYPE );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> AddVersion (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;details, <span class="keywordtype">int</span> cost, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> data );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classSaleVersion.html">SaleVersion</a> *GetVersion ( <span class="keywordtype">int</span> index ) <span class="keyword">const</span>;                                <span class="comment">// Can return NULL</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classSale.html#a2faf6c20ad1bcb3edd844279ad82bb70">   45</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSale.html#a2faf6c20ad1bcb3edd844279ad82bb70">swhwTYPE</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classSale.html#a09c9dbe30ddbccab10b025a59e7ca281">   50</a></span>&#160;    <a class="code" href="classDArray.html">DArray &lt;SaleVersion *&gt;</a> <a class="code" href="classSale.html#a09c9dbe30ddbccab10b025a59e7ca281">versions</a>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSale.html#a63aebf71ad9e104dae550cb41b524022">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#abcff54281c0bb2007fc1efa915ce1144">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#a5903fc74241dc3bac0cf8a1c10e63131">Print</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#a528e3791b4263c081e87f98a3f1b570e">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classSale.html#ab11ca256318e588ecfd10ee025633e35">GetID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classSale.html#a4f293ab2ae47f5e5ac8fad706913cd74">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classSaleVersion.html">   65</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSaleVersion.html">SaleVersion</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">char</span> *details;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span> cost;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">int</span> size;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">int</span> data;                       <span class="comment">// SW version or HW speed</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classSaleVersion.html">SaleVersion</a> ();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    ~<a class="code" href="classSaleVersion.html">SaleVersion</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> Set (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdetails, <span class="keywordtype">int</span> newcost, <span class="keywordtype">int</span> newsize, <span class="keywordtype">int</span> newdata );</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">char</span> *GetDetails ();</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">// Common functions</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSaleVersion.html#a332127ac8c3c052bb21568933b89f337">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSaleVersion.html#a69db4aa9908e647a6ad5ffdf012aac0f">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSaleVersion.html#a68b4cca7d7bb882926a62d44c8858c37">Print</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSaleVersion.html#a7ff80e4a23a872ec14490433b9780a7b">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classSaleVersion.html#a891f27916ca87cf04499ac6f1d01a89b">GetID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classSaleVersion.html#a8193f0bc2d72cd726a29b6e8ec136151">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classSale.html">Sale</a> ();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    ~<a class="code" href="classSale.html">Sale</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#aeef1c7d3f7382de84cdea8cd076707a8">SetTitle</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newtitle );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#aea4eaa1a0ad3386e67a208a77725c980">SetSaleTYPE</a> ( <span class="keywordtype">int</span> newTYPE );</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#a91ee76b0945d3bbbabec7be308dcb41d">SetSwhwTYPE</a> ( <span class="keywordtype">int</span> newSwhwTYPE );</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#a720dedf495673f9b942703bb4407df4f">AddVersion</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;details, <span class="keywordtype">int</span> cost, <span class="keywordtype">int</span> size, <span class="keywordtype">int</span> data );</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classSaleVersion.html">SaleVersion</a> *<a class="code" href="classSale.html#a66bfb11b6dd0b520ab1356ba7fd8eed1">GetVersion</a> ( <span class="keywordtype">int</span> index ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSale.html#a63aebf71ad9e104dae550cb41b524022">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#abcff54281c0bb2007fc1efa915ce1144">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#a5903fc74241dc3bac0cf8a1c10e63131">Print</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSale.html#a528e3791b4263c081e87f98a3f1b570e">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classSale.html#ab11ca256318e588ecfd10ee025633e35">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classSale.html#a4f293ab2ae47f5e5ac8fad706913cd74">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classSaleVersion.html">  104</a></span>&#160;<span class="keyword">class </span><a class="code" href="classSaleVersion.html">SaleVersion</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classSaleVersion.html#a4e4fc3c19e6247a5d863bcb7bfc041c0">  112</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classSaleVersion.html#a4e4fc3c19e6247a5d863bcb7bfc041c0">details</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classSaleVersion.html#a3d758afedd869a3e97d0bb07033f4140">  119</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSaleVersion.html#a3d758afedd869a3e97d0bb07033f4140">cost</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">int</span> size;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classSaleVersion.html#a232e5f2ba80df395aabb28aaab751da8">  125</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classSaleVersion.html#a232e5f2ba80df395aabb28aaab751da8">data</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="classSaleVersion.html">SaleVersion</a> ();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    ~<a class="code" href="classSaleVersion.html">SaleVersion</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSaleVersion.html#a1c64cdd308ce0e6d51a2313aaf54bd84">Set</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdetails, <span class="keywordtype">int</span> newcost, <span class="keywordtype">int</span> newsize, <span class="keywordtype">int</span> newdata );</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="classSaleVersion.html#a986bde6a7ff64596a94a758867d3c586">GetDetails</a> ();</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classSaleVersion.html#a332127ac8c3c052bb21568933b89f337">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSaleVersion.html#a69db4aa9908e647a6ad5ffdf012aac0f">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSaleVersion.html#a68b4cca7d7bb882926a62d44c8858c37">Print</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classSaleVersion.html#a7ff80e4a23a872ec14490433b9780a7b">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classSaleVersion.html#a891f27916ca87cf04499ac6f1d01a89b">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classSaleVersion.html#a8193f0bc2d72cd726a29b6e8ec136151">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;};</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassSale_html"><div class="ttname"><a href="classSale.html">Sale</a></div><div class="ttdef"><b>Definition:</b> sale.h:29</div></div>
+<div class="ttc" id="aclassSale_html_aeef1c7d3f7382de84cdea8cd076707a8"><div class="ttname"><a href="classSale.html#aeef1c7d3f7382de84cdea8cd076707a8">Sale::SetTitle</a></div><div class="ttdeci">void SetTitle(const string &amp;newtitle)</div><div class="ttdef"><b>Definition:</b> sale.cpp:30</div></div>
+<div class="ttc" id="aclassSale_html_a91ee76b0945d3bbbabec7be308dcb41d"><div class="ttname"><a href="classSale.html#a91ee76b0945d3bbbabec7be308dcb41d">Sale::SetSwhwTYPE</a></div><div class="ttdeci">void SetSwhwTYPE(int newSwhwTYPE)</div><div class="ttdef"><b>Definition:</b> sale.cpp:45</div></div>
+<div class="ttc" id="aclassSaleVersion_html_a3d758afedd869a3e97d0bb07033f4140"><div class="ttname"><a href="classSaleVersion.html#a3d758afedd869a3e97d0bb07033f4140">SaleVersion::cost</a></div><div class="ttdeci">int cost</div><div class="ttdef"><b>Definition:</b> sale.h:119</div></div>
+<div class="ttc" id="aclassSale_html"><div class="ttname"><a href="classSale.html">Sale</a></div><div class="ttdoc">Sale UplinkObject.</div><div class="ttdef"><b>Definition:</b> sale.h:24</div></div>
 <div class="ttc" id="aclassSaleVersion_html_a69db4aa9908e647a6ad5ffdf012aac0f"><div class="ttname"><a href="classSaleVersion.html#a69db4aa9908e647a6ad5ffdf012aac0f">SaleVersion::Save</a></div><div class="ttdeci">void Save(FILE *file) override</div><div class="ttdef"><b>Definition:</b> sale.cpp:195</div></div>
 <div class="ttc" id="aclassSale_html_a528e3791b4263c081e87f98a3f1b570e"><div class="ttname"><a href="classSale.html#a528e3791b4263c081e87f98a3f1b570e">Sale::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> sale.cpp:119</div></div>
-<div class="ttc" id="aclassSaleVersion_html"><div class="ttname"><a href="classSaleVersion.html">SaleVersion</a></div><div class="ttdef"><b>Definition:</b> sale.h:65</div></div>
+<div class="ttc" id="aclassSale_html_a09c9dbe30ddbccab10b025a59e7ca281"><div class="ttname"><a href="classSale.html#a09c9dbe30ddbccab10b025a59e7ca281">Sale::versions</a></div><div class="ttdeci">DArray&lt; SaleVersion * &gt; versions</div><div class="ttdef"><b>Definition:</b> sale.h:50</div></div>
+<div class="ttc" id="aclassSaleVersion_html"><div class="ttname"><a href="classSaleVersion.html">SaleVersion</a></div><div class="ttdef"><b>Definition:</b> sale.h:104</div></div>
 <div class="ttc" id="aclassSaleVersion_html_a8193f0bc2d72cd726a29b6e8ec136151"><div class="ttname"><a href="classSaleVersion.html#a8193f0bc2d72cd726a29b6e8ec136151">SaleVersion::GetOBJECTID</a></div><div class="ttdeci">int GetOBJECTID() override</div><div class="ttdef"><b>Definition:</b> sale.cpp:230</div></div>
+<div class="ttc" id="aclassSaleVersion_html_a1c64cdd308ce0e6d51a2313aaf54bd84"><div class="ttname"><a href="classSaleVersion.html#a1c64cdd308ce0e6d51a2313aaf54bd84">SaleVersion::Set</a></div><div class="ttdeci">void Set(const string &amp;newdetails, int newcost, int newsize, int newdata)</div><div class="ttdef"><b>Definition:</b> sale.cpp:159</div></div>
 <div class="ttc" id="aclassSale_html_a4f293ab2ae47f5e5ac8fad706913cd74"><div class="ttname"><a href="classSale.html#a4f293ab2ae47f5e5ac8fad706913cd74">Sale::GetOBJECTID</a></div><div class="ttdeci">int GetOBJECTID() override</div><div class="ttdef"><b>Definition:</b> sale.cpp:130</div></div>
 <div class="ttc" id="aclassSale_html_abcff54281c0bb2007fc1efa915ce1144"><div class="ttname"><a href="classSale.html#abcff54281c0bb2007fc1efa915ce1144">Sale::Save</a></div><div class="ttdeci">void Save(FILE *file) override</div><div class="ttdef"><b>Definition:</b> sale.cpp:91</div></div>
 <div class="ttc" id="aclassDArray_html"><div class="ttname"><a href="classDArray.html">DArray&lt; SaleVersion * &gt;</a></div></div>
 <div class="ttc" id="aclassSale_html_a5903fc74241dc3bac0cf8a1c10e63131"><div class="ttname"><a href="classSale.html#a5903fc74241dc3bac0cf8a1c10e63131">Sale::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> sale.cpp:107</div></div>
 <div class="ttc" id="aclassUplinkObject_html"><div class="ttname"><a href="classUplinkObject.html">UplinkObject</a></div><div class="ttdoc">UplinkObject base class.</div><div class="ttdef"><b>Definition:</b> uplinkobject.h:18</div></div>
+<div class="ttc" id="aclassSaleVersion_html_a4e4fc3c19e6247a5d863bcb7bfc041c0"><div class="ttname"><a href="classSaleVersion.html#a4e4fc3c19e6247a5d863bcb7bfc041c0">SaleVersion::details</a></div><div class="ttdeci">char * details</div><div class="ttdef"><b>Definition:</b> sale.h:112</div></div>
 <div class="ttc" id="aclassSaleVersion_html_a68b4cca7d7bb882926a62d44c8858c37"><div class="ttname"><a href="classSaleVersion.html#a68b4cca7d7bb882926a62d44c8858c37">SaleVersion::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> sale.cpp:209</div></div>
+<div class="ttc" id="aclassSale_html_a5396d7f1b94d180d8c8277e726a98d11"><div class="ttname"><a href="classSale.html#a5396d7f1b94d180d8c8277e726a98d11">Sale::title</a></div><div class="ttdeci">string title</div><div class="ttdef"><b>Definition:</b> sale.h:32</div></div>
+<div class="ttc" id="aclassSale_html_a66bfb11b6dd0b520ab1356ba7fd8eed1"><div class="ttname"><a href="classSale.html#a66bfb11b6dd0b520ab1356ba7fd8eed1">Sale::GetVersion</a></div><div class="ttdeci">SaleVersion * GetVersion(int index) const</div><div class="ttdef"><b>Definition:</b> sale.cpp:62</div></div>
 <div class="ttc" id="aclassSale_html_a63aebf71ad9e104dae550cb41b524022"><div class="ttname"><a href="classSale.html#a63aebf71ad9e104dae550cb41b524022">Sale::Load</a></div><div class="ttdeci">bool Load(FILE *file) override</div><div class="ttdef"><b>Definition:</b> sale.cpp:73</div></div>
+<div class="ttc" id="aclassSaleVersion_html_a232e5f2ba80df395aabb28aaab751da8"><div class="ttname"><a href="classSaleVersion.html#a232e5f2ba80df395aabb28aaab751da8">SaleVersion::data</a></div><div class="ttdeci">int data</div><div class="ttdef"><b>Definition:</b> sale.h:125</div></div>
 <div class="ttc" id="aclassSale_html_ab11ca256318e588ecfd10ee025633e35"><div class="ttname"><a href="classSale.html#ab11ca256318e588ecfd10ee025633e35">Sale::GetID</a></div><div class="ttdeci">string GetID() override</div><div class="ttdef"><b>Definition:</b> sale.cpp:123</div></div>
+<div class="ttc" id="aclassSale_html_aea4eaa1a0ad3386e67a208a77725c980"><div class="ttname"><a href="classSale.html#aea4eaa1a0ad3386e67a208a77725c980">Sale::SetSaleTYPE</a></div><div class="ttdeci">void SetSaleTYPE(int newTYPE)</div><div class="ttdef"><b>Definition:</b> sale.cpp:38</div></div>
+<div class="ttc" id="aclassSale_html_a2faf6c20ad1bcb3edd844279ad82bb70"><div class="ttname"><a href="classSale.html#a2faf6c20ad1bcb3edd844279ad82bb70">Sale::swhwTYPE</a></div><div class="ttdeci">int swhwTYPE</div><div class="ttdef"><b>Definition:</b> sale.h:45</div></div>
 <div class="ttc" id="aclassSaleVersion_html_a332127ac8c3c052bb21568933b89f337"><div class="ttname"><a href="classSaleVersion.html#a332127ac8c3c052bb21568933b89f337">SaleVersion::Load</a></div><div class="ttdeci">bool Load(FILE *file) override</div><div class="ttdef"><b>Definition:</b> sale.cpp:179</div></div>
 <div class="ttc" id="aclassSaleVersion_html_a7ff80e4a23a872ec14490433b9780a7b"><div class="ttname"><a href="classSaleVersion.html#a7ff80e4a23a872ec14490433b9780a7b">SaleVersion::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> sale.cpp:219</div></div>
+<div class="ttc" id="aclassSale_html_a720dedf495673f9b942703bb4407df4f"><div class="ttname"><a href="classSale.html#a720dedf495673f9b942703bb4407df4f">Sale::AddVersion</a></div><div class="ttdeci">void AddVersion(const string &amp;details, int cost, int size, int data)</div><div class="ttdef"><b>Definition:</b> sale.cpp:52</div></div>
+<div class="ttc" id="aclassSaleVersion_html_a986bde6a7ff64596a94a758867d3c586"><div class="ttname"><a href="classSaleVersion.html#a986bde6a7ff64596a94a758867d3c586">SaleVersion::GetDetails</a></div><div class="ttdeci">char * GetDetails()</div><div class="ttdef"><b>Definition:</b> sale.cpp:172</div></div>
 <div class="ttc" id="aclassSaleVersion_html_a891f27916ca87cf04499ac6f1d01a89b"><div class="ttname"><a href="classSaleVersion.html#a891f27916ca87cf04499ac6f1d01a89b">SaleVersion::GetID</a></div><div class="ttdeci">string GetID() override</div><div class="ttdef"><b>Definition:</b> sale.cpp:223</div></div>
+<div class="ttc" id="aclassSale_html_a8ba9c376e3780bab01a6a3bbf01ea40d"><div class="ttname"><a href="classSale.html#a8ba9c376e3780bab01a6a3bbf01ea40d">Sale::saleTYPE</a></div><div class="ttdeci">int saleTYPE</div><div class="ttdef"><b>Definition:</b> sale.h:38</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

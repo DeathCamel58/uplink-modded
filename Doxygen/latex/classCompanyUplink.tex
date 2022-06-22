@@ -2,6 +2,15 @@
 \label{classCompanyUplink}\index{CompanyUplink@{CompanyUplink}}
 
 
+Modified \mbox{\hyperlink{classCompany}{Company}} class for Uplink \mbox{\hyperlink{classCompany}{Company}}.  
+
+
+
+
+{\ttfamily \#include $<$companyuplink.\+h$>$}
+
+
+
 Inheritance diagram for Company\+Uplink\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,32 +32,23 @@ Collaboration diagram for Company\+Uplink\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCompanyUplink_ac2b88bef6b6f7b403abb9c8a1aa2e926}\label{classCompanyUplink_ac2b88bef6b6f7b403abb9c8a1aa2e926}} 
-void {\bfseries Create\+Mission} (\mbox{\hyperlink{classMission}{Mission}} $\ast$mission)
+void \mbox{\hyperlink{classCompanyUplink_ac2b88bef6b6f7b403abb9c8a1aa2e926}{Create\+Mission}} (\mbox{\hyperlink{classMission}{Mission}} $\ast$mission)
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a2f8a58cfe6c23775c556b5ae1ca56f2a}\label{classCompanyUplink_a2f8a58cfe6c23775c556b5ae1ca56f2a}} 
-void {\bfseries Create\+Mission} (const string \&employer, int payment, const string \&description, const string \&details, const string \&fulldetails)
+void \mbox{\hyperlink{classCompanyUplink_a2f8a58cfe6c23775c556b5ae1ca56f2a}{Create\+Mission}} (const string \&employer, int payment, const string \&description, const string \&details, const string \&fulldetails)
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a6d24422caf4dc698415d77e568e0da07}\label{classCompanyUplink_a6d24422caf4dc698415d77e568e0da07}} 
-void {\bfseries Create\+H\+W\+Sale} (\mbox{\hyperlink{classSale}{Sale}} $\ast$newsale)
+void \mbox{\hyperlink{classCompanyUplink_a6d24422caf4dc698415d77e568e0da07}{Create\+H\+W\+Sale}} (\mbox{\hyperlink{classSale}{Sale}} $\ast$newsale)
 \item 
-\mbox{\Hypertarget{classCompanyUplink_af2f4a247179748e1374d563af3f55597}\label{classCompanyUplink_af2f4a247179748e1374d563af3f55597}} 
-void {\bfseries Create\+S\+W\+Sale} (\mbox{\hyperlink{classSale}{Sale}} $\ast$newsale)
+void \mbox{\hyperlink{classCompanyUplink_af2f4a247179748e1374d563af3f55597}{Create\+S\+W\+Sale}} (\mbox{\hyperlink{classSale}{Sale}} $\ast$newsale)
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a0a43949ca4e42e847c7cc60b327fdc5b}\label{classCompanyUplink_a0a43949ca4e42e847c7cc60b327fdc5b}} 
-void {\bfseries Create\+News} (\mbox{\hyperlink{classNews}{News}} $\ast$newnews)
+void \mbox{\hyperlink{classCompanyUplink_a0a43949ca4e42e847c7cc60b327fdc5b}{Create\+News}} (\mbox{\hyperlink{classNews}{News}} $\ast$newnews)
 \item 
-\mbox{\Hypertarget{classCompanyUplink_af193832f00e6f460a9e816b1d661ff24}\label{classCompanyUplink_af193832f00e6f460a9e816b1d661ff24}} 
-\mbox{\hyperlink{classMission}{Mission}} $\ast$ {\bfseries Get\+Mission} (int index)
+\mbox{\hyperlink{classMission}{Mission}} $\ast$ \mbox{\hyperlink{classCompanyUplink_af193832f00e6f460a9e816b1d661ff24}{Get\+Mission}} (int index)
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a40d501b8f2c794f344f1d524db5d0375}\label{classCompanyUplink_a40d501b8f2c794f344f1d524db5d0375}} 
-\mbox{\hyperlink{classSale}{Sale}} $\ast$ {\bfseries Get\+S\+W\+Sale} (int index)
+\mbox{\hyperlink{classSale}{Sale}} $\ast$ \mbox{\hyperlink{classCompanyUplink_a40d501b8f2c794f344f1d524db5d0375}{Get\+S\+W\+Sale}} (int index)
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a39cd13f4176c36b0c25c12778476a24b}\label{classCompanyUplink_a39cd13f4176c36b0c25c12778476a24b}} 
-\mbox{\hyperlink{classSale}{Sale}} $\ast$ {\bfseries Get\+H\+W\+Sale} (int index)
+\mbox{\hyperlink{classSale}{Sale}} $\ast$ \mbox{\hyperlink{classCompanyUplink_a39cd13f4176c36b0c25c12778476a24b}{Get\+H\+W\+Sale}} (int index)
 \item 
-\mbox{\Hypertarget{classCompanyUplink_aee29ab6837d8350939e1257a643af70a}\label{classCompanyUplink_aee29ab6837d8350939e1257a643af70a}} 
-\mbox{\hyperlink{classNews}{News}} $\ast$ {\bfseries Get\+News} (int index)
+\mbox{\hyperlink{classNews}{News}} $\ast$ \mbox{\hyperlink{classCompanyUplink_aee29ab6837d8350939e1257a643af70a}{Get\+News}} (int index)
 \item 
 bool \mbox{\hyperlink{classCompanyUplink_aae148f12d221da4ae92941ae5be95501}{Load}} (F\+I\+LE $\ast$file) override
 \item 
@@ -65,22 +65,100 @@ int \mbox{\hyperlink{classCompanyUplink_a436498b470f8630db0492c28c069b537}{Get\+
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a520dbc6954676022ef74950e0d7cf4c8}\label{classCompanyUplink_a520dbc6954676022ef74950e0d7cf4c8}} 
-\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classMission}{Mission}} $\ast$ $>$ {\bfseries missions}
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classMission}{Mission}} $\ast$ $>$ \mbox{\hyperlink{classCompanyUplink_a520dbc6954676022ef74950e0d7cf4c8}{missions}}
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a637f352bf16c1bf8ad22ea0b15114838}\label{classCompanyUplink_a637f352bf16c1bf8ad22ea0b15114838}} 
-\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classSale}{Sale}} $\ast$ $>$ {\bfseries hw\+\_\+sales}
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classSale}{Sale}} $\ast$ $>$ \mbox{\hyperlink{classCompanyUplink_a637f352bf16c1bf8ad22ea0b15114838}{hw\+\_\+sales}}
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a2e7b358deb03b3b4fee880826120e80d}\label{classCompanyUplink_a2e7b358deb03b3b4fee880826120e80d}} 
-\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classSale}{Sale}} $\ast$ $>$ {\bfseries sw\+\_\+sales}
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classSale}{Sale}} $\ast$ $>$ \mbox{\hyperlink{classCompanyUplink_a2e7b358deb03b3b4fee880826120e80d}{sw\+\_\+sales}}
 \item 
-\mbox{\Hypertarget{classCompanyUplink_a2e884bd448c578c0e9461609c6cac4c5}\label{classCompanyUplink_a2e884bd448c578c0e9461609c6cac4c5}} 
-\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classNews}{News}} $\ast$ $>$ {\bfseries news}
+\mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classNews}{News}} $\ast$ $>$ \mbox{\hyperlink{classCompanyUplink_a2e884bd448c578c0e9461609c6cac4c5}{news}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+Modified \mbox{\hyperlink{classCompany}{Company}} class for Uplink \mbox{\hyperlink{classCompany}{Company}}. 
+
+This is a specific version of the company class, modified to represent the company Uplink only. 
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCompanyUplink_a6d24422caf4dc698415d77e568e0da07}\label{classCompanyUplink_a6d24422caf4dc698415d77e568e0da07}} 
+\index{CompanyUplink@{CompanyUplink}!CreateHWSale@{CreateHWSale}}
+\index{CreateHWSale@{CreateHWSale}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{CreateHWSale()}{CreateHWSale()}}
+{\footnotesize\ttfamily void Company\+Uplink\+::\+Create\+H\+W\+Sale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSale}{Sale}} $\ast$}]{newsale }\end{DoxyParamCaption})}
+
+Adds given hardware \mbox{\hyperlink{classSale}{Sale}} item to the list of available 
+\begin{DoxyParams}{Parameters}
+{\em mission} & Hardware \mbox{\hyperlink{classSale}{Sale}} item to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCompanyUplink_a2f8a58cfe6c23775c556b5ae1ca56f2a}\label{classCompanyUplink_a2f8a58cfe6c23775c556b5ae1ca56f2a}} 
+\index{CompanyUplink@{CompanyUplink}!CreateMission@{CreateMission}}
+\index{CreateMission@{CreateMission}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{CreateMission()}{CreateMission()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Company\+Uplink\+::\+Create\+Mission (\begin{DoxyParamCaption}\item[{const string \&}]{employer,  }\item[{int}]{payment,  }\item[{const string \&}]{description,  }\item[{const string \&}]{details,  }\item[{const string \&}]{fulldetails }\end{DoxyParamCaption})}
+
+Adds \mbox{\hyperlink{classMission}{Mission}} to the list of available 
+\begin{DoxyParams}{Parameters}
+{\em employer} & Employer for the \mbox{\hyperlink{classMission}{Mission}} \\
+\hline
+{\em payment} & Payment for the \mbox{\hyperlink{classMission}{Mission}} \\
+\hline
+{\em description} & Description of the \mbox{\hyperlink{classMission}{Mission}} \\
+\hline
+{\em details} & Details for the \mbox{\hyperlink{classMission}{Mission}} \\
+\hline
+{\em fulldetails} & Full details for the \mbox{\hyperlink{classMission}{Mission}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCompanyUplink_ac2b88bef6b6f7b403abb9c8a1aa2e926}\label{classCompanyUplink_ac2b88bef6b6f7b403abb9c8a1aa2e926}} 
+\index{CompanyUplink@{CompanyUplink}!CreateMission@{CreateMission}}
+\index{CreateMission@{CreateMission}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{CreateMission()}{CreateMission()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Company\+Uplink\+::\+Create\+Mission (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMission}{Mission}} $\ast$}]{mission }\end{DoxyParamCaption})}
+
+Adds given \mbox{\hyperlink{classMission}{Mission}} to the list of available 
+\begin{DoxyParams}{Parameters}
+{\em mission} & \mbox{\hyperlink{classMission}{Mission}} to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCompanyUplink_a0a43949ca4e42e847c7cc60b327fdc5b}\label{classCompanyUplink_a0a43949ca4e42e847c7cc60b327fdc5b}} 
+\index{CompanyUplink@{CompanyUplink}!CreateNews@{CreateNews}}
+\index{CreateNews@{CreateNews}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{CreateNews()}{CreateNews()}}
+{\footnotesize\ttfamily void Company\+Uplink\+::\+Create\+News (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNews}{News}} $\ast$}]{newnews }\end{DoxyParamCaption})}
+
+Adds given \mbox{\hyperlink{classNews}{News}} item to the list all \mbox{\hyperlink{classNews}{News}} 
+\begin{DoxyParams}{Parameters}
+{\em mission} & \mbox{\hyperlink{classNews}{News}} item to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCompanyUplink_af2f4a247179748e1374d563af3f55597}\label{classCompanyUplink_af2f4a247179748e1374d563af3f55597}} 
+\index{CompanyUplink@{CompanyUplink}!CreateSWSale@{CreateSWSale}}
+\index{CreateSWSale@{CreateSWSale}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{CreateSWSale()}{CreateSWSale()}}
+{\footnotesize\ttfamily void Company\+Uplink\+::\+Create\+S\+W\+Sale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSale}{Sale}} $\ast$}]{newsale }\end{DoxyParamCaption})}
+
+Adds given software \mbox{\hyperlink{classSale}{Sale}} item to the list of available 
+\begin{DoxyParams}{Parameters}
+{\em mission} & Software \mbox{\hyperlink{classSale}{Sale}} item to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCompanyUplink_a39cd13f4176c36b0c25c12778476a24b}\label{classCompanyUplink_a39cd13f4176c36b0c25c12778476a24b}} 
+\index{CompanyUplink@{CompanyUplink}!GetHWSale@{GetHWSale}}
+\index{GetHWSale@{GetHWSale}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{GetHWSale()}{GetHWSale()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSale}{Sale}} $\ast$ Company\+Uplink\+::\+Get\+H\+W\+Sale (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Gets the hardware \mbox{\hyperlink{classSale}{Sale}} item at a given index 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the hardware \mbox{\hyperlink{classSale}{Sale}} item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Hardware \mbox{\hyperlink{classSale}{Sale}} item 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCompanyUplink_a05eb59ccb2cd2ebb52db86d6912f9e61}\label{classCompanyUplink_a05eb59ccb2cd2ebb52db86d6912f9e61}} 
 \index{CompanyUplink@{CompanyUplink}!GetID@{GetID}}
 \index{GetID@{GetID}!CompanyUplink@{CompanyUplink}}
@@ -97,6 +175,34 @@ The ID is the type of object this is
 
 Reimplemented from \mbox{\hyperlink{classCompany_a67b52884a1569b13808f2fa630b08ed1}{Company}}.
 
+\mbox{\Hypertarget{classCompanyUplink_af193832f00e6f460a9e816b1d661ff24}\label{classCompanyUplink_af193832f00e6f460a9e816b1d661ff24}} 
+\index{CompanyUplink@{CompanyUplink}!GetMission@{GetMission}}
+\index{GetMission@{GetMission}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{GetMission()}{GetMission()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMission}{Mission}} $\ast$ Company\+Uplink\+::\+Get\+Mission (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Gets the \mbox{\hyperlink{classMission}{Mission}} at a given index 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the \mbox{\hyperlink{classMission}{Mission}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classMission}{Mission}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCompanyUplink_aee29ab6837d8350939e1257a643af70a}\label{classCompanyUplink_aee29ab6837d8350939e1257a643af70a}} 
+\index{CompanyUplink@{CompanyUplink}!GetNews@{GetNews}}
+\index{GetNews@{GetNews}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{GetNews()}{GetNews()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNews}{News}} $\ast$ Company\+Uplink\+::\+Get\+News (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Gets the \mbox{\hyperlink{classNews}{News}} item at a given index 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the \mbox{\hyperlink{classNews}{News}} item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classNews}{News}} item 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCompanyUplink_a436498b470f8630db0492c28c069b537}\label{classCompanyUplink_a436498b470f8630db0492c28c069b537}} 
 \index{CompanyUplink@{CompanyUplink}!GetOBJECTID@{GetOBJECTID}}
 \index{GetOBJECTID@{GetOBJECTID}!CompanyUplink@{CompanyUplink}}
@@ -110,6 +216,20 @@ The object ID
 
 Reimplemented from \mbox{\hyperlink{classCompany_ae8faeee3c2ea60c3e2d29bbacf76cd66}{Company}}.
 
+\mbox{\Hypertarget{classCompanyUplink_a40d501b8f2c794f344f1d524db5d0375}\label{classCompanyUplink_a40d501b8f2c794f344f1d524db5d0375}} 
+\index{CompanyUplink@{CompanyUplink}!GetSWSale@{GetSWSale}}
+\index{GetSWSale@{GetSWSale}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{GetSWSale()}{GetSWSale()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSale}{Sale}} $\ast$ Company\+Uplink\+::\+Get\+S\+W\+Sale (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Gets the software \mbox{\hyperlink{classSale}{Sale}} item at a given index 
+\begin{DoxyParams}{Parameters}
+{\em index} & Index of the software \mbox{\hyperlink{classSale}{Sale}} item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Software \mbox{\hyperlink{classSale}{Sale}} item 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classCompanyUplink_aae148f12d221da4ae92941ae5be95501}\label{classCompanyUplink_aae148f12d221da4ae92941ae5be95501}} 
 \index{CompanyUplink@{CompanyUplink}!Load@{Load}}
 \index{Load@{Load}!CompanyUplink@{CompanyUplink}}
@@ -167,6 +287,33 @@ Processes any necessary updates on the object.
 Reimplemented from \mbox{\hyperlink{classCompany_ac07105b1be8feed54b1617a4dafa17a3}{Company}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCompanyUplink_a637f352bf16c1bf8ad22ea0b15114838}\label{classCompanyUplink_a637f352bf16c1bf8ad22ea0b15114838}} 
+\index{CompanyUplink@{CompanyUplink}!hw\_sales@{hw\_sales}}
+\index{hw\_sales@{hw\_sales}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{hw\_sales}{hw\_sales}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classSale}{Sale}} $\ast$$>$ Company\+Uplink\+::hw\+\_\+sales}
+
+\mbox{\hyperlink{classLList}{L\+List}} of available hardware \mbox{\hyperlink{classSale}{Sale}} items \mbox{\Hypertarget{classCompanyUplink_a520dbc6954676022ef74950e0d7cf4c8}\label{classCompanyUplink_a520dbc6954676022ef74950e0d7cf4c8}} 
+\index{CompanyUplink@{CompanyUplink}!missions@{missions}}
+\index{missions@{missions}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{missions}{missions}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classMission}{Mission}} $\ast$$>$ Company\+Uplink\+::missions}
+
+\mbox{\hyperlink{classLList}{L\+List}} of available \mbox{\hyperlink{classMission}{Mission}} items \mbox{\Hypertarget{classCompanyUplink_a2e884bd448c578c0e9461609c6cac4c5}\label{classCompanyUplink_a2e884bd448c578c0e9461609c6cac4c5}} 
+\index{CompanyUplink@{CompanyUplink}!news@{news}}
+\index{news@{news}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{news}{news}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classNews}{News}} $\ast$$>$ Company\+Uplink\+::news}
+
+\mbox{\hyperlink{classLList}{L\+List}} of \mbox{\hyperlink{classNews}{News}} items \mbox{\Hypertarget{classCompanyUplink_a2e7b358deb03b3b4fee880826120e80d}\label{classCompanyUplink_a2e7b358deb03b3b4fee880826120e80d}} 
+\index{CompanyUplink@{CompanyUplink}!sw\_sales@{sw\_sales}}
+\index{sw\_sales@{sw\_sales}!CompanyUplink@{CompanyUplink}}
+\doxysubsubsection{\texorpdfstring{sw\_sales}{sw\_sales}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$\mbox{\hyperlink{classSale}{Sale}} $\ast$$>$ Company\+Uplink\+::sw\+\_\+sales}
+
+\mbox{\hyperlink{classLList}{L\+List}} of available software \mbox{\hyperlink{classSale}{Sale}} items 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

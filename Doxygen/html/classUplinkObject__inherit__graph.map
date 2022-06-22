@@ -4,7 +4,7 @@
 <area shape="rect" id="node3" href="$classApp.html" title="App UplinkObject." alt="" coords="216,56,263,83"/>
 <area shape="rect" id="node4" href="$classBankAccount.html" title=" " alt="" coords="186,107,293,133"/>
 <area shape="rect" id="node5" href="$classClientConnection.html" title=" " alt="" coords="173,157,306,184"/>
-<area shape="rect" id="node6" href="$classCompany.html" title=" " alt="" coords="197,208,281,235"/>
+<area shape="rect" id="node6" href="$classCompany.html" title="Company UplinkObject." alt="" coords="197,208,281,235"/>
 <area shape="rect" id="node7" href="$classComputer.html" title="Computer class UplinkObject." alt="" coords="196,259,283,285"/>
 <area shape="rect" id="node8" href="$classComputerScreen.html" title=" " alt="" coords="174,309,305,336"/>
 <area shape="rect" id="node9" href="$classConnection.html" title=" " alt="" coords="192,360,287,387"/>
@@ -24,10 +24,10 @@
 <area shape="rect" id="node23" href="$classLanComputerSystem.html" title=" " alt="" coords="160,1069,319,1096"/>
 <area shape="rect" id="node24" href="$classLocalInterface.html" title="Local Interface UplinkObject." alt="" coords="182,1120,297,1147"/>
 <area shape="rect" id="node25" href="$classLogBank.html" title=" " alt="" coords="200,1171,279,1197"/>
-<area shape="rect" id="node26" href="$classMainMenu.html" title=" " alt="" coords="194,1221,285,1248"/>
+<area shape="rect" id="node26" href="$classMainMenu.html" title="Main menu controller UplinkObject." alt="" coords="194,1221,285,1248"/>
 <area shape="rect" id="node27" href="$classMenuScreenOption.html" title=" " alt="" coords="167,1272,312,1299"/>
 <area shape="rect" id="node28" href="$classMessage.html" title=" " alt="" coords="199,1323,279,1349"/>
-<area shape="rect" id="node29" href="$classMission.html" title=" " alt="" coords="203,1373,275,1400"/>
+<area shape="rect" id="node29" href="$classMission.html" title="Mission UplinkObject." alt="" coords="203,1373,275,1400"/>
 <area shape="rect" id="node30" href="$classNetwork.html" title=" " alt="" coords="201,1424,278,1451"/>
 <area shape="rect" id="node31" href="$classNetworkClient.html" title=" " alt="" coords="182,1475,297,1501"/>
 <area shape="rect" id="node32" href="$classNetworkServer.html" title=" " alt="" coords="180,1525,299,1552"/>
@@ -40,7 +40,7 @@
 <area shape="rect" id="node39" href="$classRecord.html" title=" " alt="" coords="206,1880,273,1907"/>
 <area shape="rect" id="node40" href="$classRecordBank.html" title=" " alt="" coords="189,1931,289,1957"/>
 <area shape="rect" id="node41" href="$classRemoteInterface.html" title=" " alt="" coords="174,1981,305,2008"/>
-<area shape="rect" id="node42" href="$classSale.html" title=" " alt="" coords="214,2032,265,2059"/>
+<area shape="rect" id="node42" href="$classSale.html" title="Sale UplinkObject." alt="" coords="214,2032,265,2059"/>
 <area shape="rect" id="node43" href="$classSaleVersion.html" title=" " alt="" coords="190,2083,289,2109"/>
 <area shape="rect" id="node44" href="$classSecurity.html" title=" " alt="" coords="202,2133,277,2160"/>
 <area shape="rect" id="node45" href="$classSecuritySystem.html" title=" " alt="" coords="177,2184,301,2211"/>
