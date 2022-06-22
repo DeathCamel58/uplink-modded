@@ -1,0 +1,6 @@
+<map id="AttemptMissionEvent" name="AttemptMissionEvent">
+<area shape="rect" id="node1" title=" " alt="" coords="5,247,168,273"/>
+<area shape="rect" id="node2" href="$classUplinkEvent.html" title="Uplink Event object." alt="" coords="36,171,137,197"/>
+<area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="28,5,135,32"/>
+<area shape="rect" id="node4" href="$classDate.html" title=" " alt="" coords="103,81,156,108"/>
+</map>

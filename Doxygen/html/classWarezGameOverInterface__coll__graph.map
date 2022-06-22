@@ -1,0 +1,5 @@
+<map id="WarezGameOverInterface" name="WarezGameOverInterface">
+<area shape="rect" id="node1" title="Warez Game Over screen." alt="" coords="5,171,196,197"/>
+<area shape="rect" id="node2" href="$classMainMenuScreen.html" title="Main Menu Screen base class." alt="" coords="33,95,168,121"/>
+<area shape="rect" id="node3" href="$classDArray.html" title=" " alt="" coords="33,5,169,32"/>
+</map>

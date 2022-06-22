@@ -1,0 +1,9 @@
+<map id="DialogScreen" name="DialogScreen">
+<area shape="rect" id="node1" title=" " alt="" coords="38,396,146,423"/>
+<area shape="rect" id="node2" href="$classComputerScreen.html" title=" " alt="" coords="5,136,136,163"/>
+<area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="33,5,140,32"/>
+<area shape="rect" id="node6" href="$classDialogScreenWidget.html" title=" " alt="" coords="108,83,263,109"/>
+<area shape="rect" id="node4" href="$classLList.html" title=" " alt="" coords="115,307,341,333"/>
+<area shape="rect" id="node5" href="$classLListItem.html" title=" " alt="" coords="109,188,363,215"/>
+<area shape="rect" id="node7" href="$classLListItem.html" title=" " alt="" coords="287,83,407,109"/>
+</map>

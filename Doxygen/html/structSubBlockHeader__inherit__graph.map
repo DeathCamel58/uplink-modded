@@ -1,0 +1,9 @@
+<map id="SubBlockHeader" name="SubBlockHeader">
+<area shape="rect" id="node1" title=" " alt="" coords="189,155,319,181"/>
+<area shape="rect" id="node4" href="$structEAHeader.html" title=" " alt="" coords="5,229,92,256"/>
+<area shape="rect" id="node5" href="$structMacFInfoHeader.html" title=" " alt="" coords="116,229,245,256"/>
+<area shape="rect" id="node6" href="$structStreamHeader.html" title=" " alt="" coords="269,229,385,256"/>
+<area shape="rect" id="node7" href="$structUnixOwnersHeader.html" title=" " alt="" coords="409,229,557,256"/>
+<area shape="rect" id="node2" href="$structBlockHeader.html" title=" " alt="" coords="201,80,307,107"/>
+<area shape="rect" id="node3" href="$structBaseBlock.html" title=" " alt="" coords="209,5,299,32"/>
+</map>

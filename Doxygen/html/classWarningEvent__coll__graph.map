@@ -1,0 +1,6 @@
+<map id="WarningEvent" name="WarningEvent">
+<area shape="rect" id="node1" title="Warning event." alt="" coords="8,260,120,287"/>
+<area shape="rect" id="node2" href="$classUplinkEvent.html" title="Uplink Event object." alt="" coords="13,171,115,197"/>
+<area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node4" href="$classDate.html" title=" " alt="" coords="80,81,133,108"/>
+</map>

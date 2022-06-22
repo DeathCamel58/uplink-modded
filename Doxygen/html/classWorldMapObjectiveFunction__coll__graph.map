@@ -1,0 +1,4 @@
+<map id="WorldMapObjectiveFunction" name="WorldMapObjectiveFunction">
+<area shape="rect" id="node1" title=" " alt="" coords="5,95,209,121"/>
+<area shape="rect" id="node2" href="$classMapRectangle.html" title="Object for rectangles on world map." alt="" coords="50,5,165,32"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="WorldMapLayout" name="WorldMapLayout">
+<area shape="rect" id="node1" title="The world map layout." alt="" coords="1261,141,1392,168"/>
+<area shape="rect" id="node2" href="$classLList.html" title=" " alt="" coords="951,30,1141,71"/>
+<area shape="rect" id="node3" href="$classLListItem.html" title=" " alt="" coords="615,27,835,69"/>
+<area shape="rect" id="node4" href="$classWorldMapInterfaceObject.html" title=" " alt="" coords="5,109,192,136"/>
+<area shape="rect" id="node9" href="$classWorldMapInterfaceLabel.html" title="The label for the object on the world map." alt="" coords="325,153,505,180"/>
+<area shape="rect" id="node5" href="$classLListItem.html" title=" " alt="" coords="355,103,475,129"/>
+<area shape="rect" id="node8" href="$classLListItem.html" title=" " alt="" coords="615,102,835,143"/>
+<area shape="rect" id="node6" href="$classMapRectangle.html" title="Object for rectangles on world map." alt="" coords="667,181,782,208"/>
+<area shape="rect" id="node10" href="$classWorldMapObjectiveFunction.html" title=" " alt="" coords="944,228,1148,255"/>
+<area shape="rect" id="node7" href="$classLList.html" title=" " alt="" coords="951,99,1141,141"/>
+</map>

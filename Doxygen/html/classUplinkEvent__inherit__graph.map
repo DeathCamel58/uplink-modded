@@ -1,0 +1,14 @@
+<map id="UplinkEvent" name="UplinkEvent">
+<area shape="rect" id="node1" title="Uplink Event object." alt="" coords="160,233,261,260"/>
+<area shape="rect" id="node3" href="$classArrestEvent.html" title=" " alt="" coords="343,5,442,32"/>
+<area shape="rect" id="node4" href="$classAttemptMissionEvent.html" title=" " alt="" coords="311,56,474,83"/>
+<area shape="rect" id="node5" href="$classBankRobberyEvent.html" title=" " alt="" coords="319,107,466,133"/>
+<area shape="rect" id="node6" href="$classChangeGatewayEvent.html" title=" " alt="" coords="309,157,476,184"/>
+<area shape="rect" id="node7" href="$classInstallHardwareEvent.html" title=" " alt="" coords="311,208,474,235"/>
+<area shape="rect" id="node8" href="$classNotificationEvent.html" title=" " alt="" coords="325,259,460,285"/>
+<area shape="rect" id="node9" href="$classRunPlotSceneEvent.html" title=" " alt="" coords="319,309,467,336"/>
+<area shape="rect" id="node10" href="$classSeizeGatewayEvent.html" title=" " alt="" coords="317,360,469,387"/>
+<area shape="rect" id="node11" href="$classShotByFedsEvent.html" title=" " alt="" coords="325,411,460,437"/>
+<area shape="rect" id="node12" href="$classWarningEvent.html" title="Warning event." alt="" coords="337,461,449,488"/>
+<area shape="rect" id="node2" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,233,112,260"/>
+</map>

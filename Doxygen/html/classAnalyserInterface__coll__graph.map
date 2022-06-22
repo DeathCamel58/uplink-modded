@@ -1,0 +1,7 @@
+<map id="AnalyserInterface" name="AnalyserInterface">
+<area shape="rect" id="node1" title="Screen that shows remote host security systems." alt="" coords="62,247,199,273"/>
+<area shape="rect" id="node2" href="$classLocalInterfaceScreen.html" title="Screen that provides basic functionality of other screens." alt="" coords="51,171,210,197"/>
+<area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="69,95,193,121"/>
+<area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node5" href="$classDArray.html" title=" " alt="" coords="136,5,272,32"/>
+</map>

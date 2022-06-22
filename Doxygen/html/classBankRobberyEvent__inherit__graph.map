@@ -1,0 +1,5 @@
+<map id="BankRobberyEvent" name="BankRobberyEvent">
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,152,181"/>
+<area shape="rect" id="node2" href="$classUplinkEvent.html" title="Uplink Event object." alt="" coords="28,80,129,107"/>
+<area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="25,5,132,32"/>
+</map>

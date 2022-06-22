@@ -1,0 +1,10 @@
+<map id="irc::CIrcDefaultMonitor" name="irc::CIrcDefaultMonitor">
+<area shape="rect" id="node1" title=" " alt="" coords="945,81,1115,108"/>
+<area shape="rect" id="node2" href="$classirc_1_1CIrcMonitor.html" title=" " alt="" coords="775,81,896,108"/>
+<area shape="rect" id="node3" href="$structirc_1_1IIrcSessionMonitor.html" title=" " alt="" coords="327,5,493,32"/>
+<area shape="rect" id="node4" href="$structCCrossThreadsMessagingDevice_1_1ICrossThreadsMessagingDeviceMonitor.html" title=" " alt="" coords="267,57,553,98"/>
+<area shape="rect" id="node5" href="$classirc_1_1CIrcSession.html" title=" " alt="" coords="349,123,471,149"/>
+<area shape="rect" id="node6" href="$classSocket.html" title=" " alt="" coords="46,97,111,124"/>
+<area shape="rect" id="node7" href="$structirc_1_1CIrcSessionInfo.html" title=" " alt="" coords="5,148,152,175"/>
+<area shape="rect" id="node8" href="$structirc_1_1CIrcMonitor_1_1IrcCommandsMapsListEntry.html" title=" " alt="" coords="301,213,519,254"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="MainMenuScreen" name="MainMenuScreen">
+<area shape="rect" id="node1" title="Main Menu Screen base class." alt="" coords="6,95,141,121"/>
+<area shape="rect" id="node2" href="$classDArray.html" title=" " alt="" coords="5,5,141,32"/>
+</map>

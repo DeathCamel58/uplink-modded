@@ -1,0 +1,4 @@
+<map id="WorldMapInterfaceLabel" name="WorldMapInterfaceLabel">
+<area shape="rect" id="node1" title="The label for the object on the world map." alt="" coords="9,80,189,107"/>
+<area shape="rect" id="node2" href="$classWorldMapInterfaceObject.html" title=" " alt="" coords="5,5,192,32"/>
+</map>

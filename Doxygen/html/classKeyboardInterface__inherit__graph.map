@@ -1,0 +1,6 @@
+<map id="KeyboardInterface" name="KeyboardInterface">
+<area shape="rect" id="node1" title="Virtual Keyboard Tool." alt="" coords="14,229,155,256"/>
+<area shape="rect" id="node2" href="$classLocalInterfaceScreen.html" title="Screen that provides basic functionality of other screens." alt="" coords="5,155,164,181"/>
+<area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="23,80,147,107"/>
+<area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="31,5,138,32"/>
+</map>

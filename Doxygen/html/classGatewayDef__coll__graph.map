@@ -1,0 +1,6 @@
+<map id="GatewayDef" name="GatewayDef">
+<area shape="rect" id="node1" title=" " alt="" coords="29,213,131,240"/>
+<area shape="rect" id="node2" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,95,112,121"/>
+<area shape="rect" id="node3" href="$classDArray.html" title=" " alt="" coords="137,95,381,121"/>
+<area shape="rect" id="node4" href="$structGatewayDefLocation.html" title=" " alt="" coords="179,5,338,32"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="LogModifier" name="LogModifier">
+<area shape="rect" id="node1" title=" " alt="" coords="60,467,159,493"/>
+<area shape="rect" id="node2" href="$classUplinkTask.html" title=" " alt="" coords="28,95,121,121"/>
+<area shape="rect" id="node3" href="$classTask.html" title="Base Task Class." alt="" coords="5,5,56,32"/>
+<area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="151,5,257,32"/>
+<area shape="rect" id="node5" href="$classLogBank.html" title=" " alt="" coords="139,377,218,404"/>
+<area shape="rect" id="node7" href="$classAccessLog.html" title=" " alt="" coords="248,184,339,211"/>
+<area shape="rect" id="node8" href="$classDate.html" title=" " alt="" coords="267,95,320,121"/>
+<area shape="rect" id="node6" href="$classDArray.html" title=" " alt="" coords="216,273,392,300"/>
+</map>

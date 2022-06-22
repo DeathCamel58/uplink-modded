@@ -1,0 +1,138 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="5,1348,112,1375"/>
+<area shape="rect" id="node2" href="$classAccessLog.html" title=" " alt="" coords="194,132,285,159"/>
+<area shape="rect" id="node3" href="$classApp.html" title=" " alt="" coords="216,183,263,209"/>
+<area shape="rect" id="node4" href="$classBankAccount.html" title=" " alt="" coords="186,233,293,260"/>
+<area shape="rect" id="node5" href="$classClientConnection.html" title=" " alt="" coords="173,284,306,311"/>
+<area shape="rect" id="node6" href="$classCompany.html" title=" " alt="" coords="197,335,281,361"/>
+<area shape="rect" id="node8" href="$classComputer.html" title="Computer class object." alt="" coords="196,385,283,412"/>
+<area shape="rect" id="node11" href="$classComputerScreen.html" title=" " alt="" coords="174,436,305,463"/>
+<area shape="rect" id="node25" href="$classConnection.html" title=" " alt="" coords="192,487,287,513"/>
+<area shape="rect" id="node26" href="$classData.html" title=" " alt="" coords="213,537,266,564"/>
+<area shape="rect" id="node27" href="$classDataBank.html" title=" " alt="" coords="196,588,283,615"/>
+<area shape="rect" id="node28" href="$classDate.html" title=" " alt="" coords="213,639,266,665"/>
+<area shape="rect" id="node29" href="$classDemoPlotGenerator.html" title=" " alt="" coords="164,689,315,716"/>
+<area shape="rect" id="node30" href="$classDialogScreenWidget.html" title=" " alt="" coords="162,740,317,767"/>
+<area shape="rect" id="node31" href="$classEventScheduler.html" title="Event Scheduler Class." alt="" coords="178,791,301,817"/>
+<area shape="rect" id="node32" href="$classGame.html" title=" " alt="" coords="209,841,270,868"/>
+<area shape="rect" id="node33" href="$classGameObituary.html" title=" " alt="" coords="181,892,298,919"/>
+<area shape="rect" id="node34" href="$classGateway.html" title=" " alt="" coords="199,943,279,969"/>
+<area shape="rect" id="node35" href="$classGatewayDef.html" title=" " alt="" coords="188,993,291,1020"/>
+<area shape="rect" id="node36" href="$classInterface.html" title=" " alt="" coords="199,1044,279,1071"/>
+<area shape="rect" id="node37" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="177,1095,301,1121"/>
+<area shape="rect" id="node95" href="$classLanComputerLink.html" title=" " alt="" coords="171,1145,307,1172"/>
+<area shape="rect" id="node96" href="$classLanComputerSystem.html" title=" " alt="" coords="160,1196,319,1223"/>
+<area shape="rect" id="node97" href="$classLocalInterface.html" title="Local Interface Class." alt="" coords="182,1247,297,1273"/>
+<area shape="rect" id="node98" href="$classLogBank.html" title=" " alt="" coords="200,1297,279,1324"/>
+<area shape="rect" id="node99" href="$classMainMenu.html" title=" " alt="" coords="194,1348,285,1375"/>
+<area shape="rect" id="node100" href="$classMenuScreenOption.html" title=" " alt="" coords="167,1399,312,1425"/>
+<area shape="rect" id="node101" href="$classMessage.html" title=" " alt="" coords="199,1449,279,1476"/>
+<area shape="rect" id="node102" href="$classMission.html" title=" " alt="" coords="203,1500,275,1527"/>
+<area shape="rect" id="node103" href="$classNetwork.html" title=" " alt="" coords="201,1551,278,1577"/>
+<area shape="rect" id="node104" href="$classNetworkClient.html" title=" " alt="" coords="182,1601,297,1628"/>
+<area shape="rect" id="node105" href="$classNetworkServer.html" title=" " alt="" coords="180,1652,299,1679"/>
+<area shape="rect" id="node106" href="$classNews.html" title="News object." alt="" coords="210,1703,269,1729"/>
+<area shape="rect" id="node107" href="$classOption.html" title=" " alt="" coords="207,1753,272,1780"/>
+<area shape="rect" id="node108" href="$classOptions.html" title=" " alt="" coords="203,1804,275,1831"/>
+<area shape="rect" id="node109" href="$classPerson.html" title=" " alt="" coords="206,1855,273,1881"/>
+<area shape="rect" id="node112" href="$classPlotGenerator.html" title=" " alt="" coords="183,1905,295,1932"/>
+<area shape="rect" id="node113" href="$classRating.html" title=" " alt="" coords="207,1956,271,1983"/>
+<area shape="rect" id="node114" href="$classRecord.html" title=" " alt="" coords="206,2007,273,2033"/>
+<area shape="rect" id="node115" href="$classRecordBank.html" title=" " alt="" coords="189,2057,289,2084"/>
+<area shape="rect" id="node116" href="$classRemoteInterface.html" title=" " alt="" coords="174,2108,305,2135"/>
+<area shape="rect" id="node117" href="$classSale.html" title=" " alt="" coords="214,2159,265,2185"/>
+<area shape="rect" id="node118" href="$classSaleVersion.html" title=" " alt="" coords="190,2209,289,2236"/>
+<area shape="rect" id="node119" href="$classSecurity.html" title=" " alt="" coords="202,2260,277,2287"/>
+<area shape="rect" id="node120" href="$classSecuritySystem.html" title=" " alt="" coords="177,2311,301,2337"/>
+<area shape="rect" id="node121" href="$classTaskManager.html" title=" " alt="" coords="185,2361,293,2388"/>
+<area shape="rect" id="node122" href="$classUplinkEvent.html" title="Uplink Event object." alt="" coords="189,2412,290,2439"/>
+<area shape="rect" id="node133" href="$classView.html" title=" " alt="" coords="212,2463,267,2489"/>
+<area shape="rect" id="node134" href="$classVLocation.html" title=" " alt="" coords="196,2513,283,2540"/>
+<area shape="rect" id="node136" href="$classWorld.html" title=" " alt="" coords="210,2564,269,2591"/>
+<area shape="rect" id="node7" href="$classCompanyUplink.html" title=" " alt="" coords="391,5,517,32"/>
+<area shape="rect" id="node9" href="$classBankComputer.html" title=" " alt="" coords="395,56,513,83"/>
+<area shape="rect" id="node10" href="$classLanComputer.html" title=" " alt="" coords="399,107,509,133"/>
+<area shape="rect" id="node12" href="$classBBSScreen.html" title=" " alt="" coords="408,157,500,184"/>
+<area shape="rect" id="node13" href="$classCypherScreen.html" title=" " alt="" coords="398,208,510,235"/>
+<area shape="rect" id="node14" href="$classDialogScreen.html" title=" " alt="" coords="400,259,508,285"/>
+<area shape="rect" id="node15" href="$classDisconnectedScreen.html" title=" " alt="" coords="377,309,531,336"/>
+<area shape="rect" id="node16" href="$classGenericScreen.html" title=" " alt="" coords="396,360,512,387"/>
+<area shape="rect" id="node17" href="$classHighSecurityScreen.html" title=" " alt="" coords="379,411,529,437"/>
+<area shape="rect" id="node18" href="$classLinksScreen.html" title=" " alt="" coords="404,461,504,488"/>
+<area shape="rect" id="node19" href="$classLogScreen.html" title=" " alt="" coords="409,512,499,539"/>
+<area shape="rect" id="node20" href="$classMenuScreen.html" title=" " alt="" coords="403,563,505,589"/>
+<area shape="rect" id="node21" href="$classMessageScreen.html" title=" " alt="" coords="392,613,516,640"/>
+<area shape="rect" id="node22" href="$classPasswordScreen.html" title=" " alt="" coords="391,664,517,691"/>
+<area shape="rect" id="node23" href="$classSharesListScreen.html" title=" " alt="" coords="387,715,521,741"/>
+<area shape="rect" id="node24" href="$classUserIDScreen.html" title=" " alt="" coords="399,765,509,792"/>
+<area shape="rect" id="node38" href="$classLocalInterfaceScreen.html" title="Screen that provides basic functionality of other screens." alt="" coords="375,816,533,843"/>
+<area shape="rect" id="node57" href="$classRemoteInterfaceScreen.html" title=" " alt="" coords="367,2083,541,2109"/>
+<area shape="rect" id="node39" href="$classAnalyserInterface.html" title="Screen that shows remote host security systems." alt="" coords="638,309,775,336"/>
+<area shape="rect" id="node40" href="$classCheatInterface.html" title="Screen to provide cheats." alt="" coords="647,360,766,387"/>
+<area shape="rect" id="node41" href="$classEmailInterface.html" title="Screen that shows emails." alt="" coords="648,411,765,437"/>
+<area shape="rect" id="node42" href="$classEventQueueInterface.html" title="Screen that shows scheduled events." alt="" coords="627,461,786,488"/>
+<area shape="rect" id="node43" href="$classFinanceInterface.html" title="Screen that shows finances." alt="" coords="641,512,772,539"/>
+<area shape="rect" id="node44" href="$classGatewayInterface.html" title="Screen that shows the current gateway and upgrades." alt="" coords="637,563,776,589"/>
+<area shape="rect" id="node45" href="$classHUDInterface.html" title="Screen that shows worldmap, main toolbar, services, messages, etc." alt="" coords="651,613,762,640"/>
+<area shape="rect" id="node46" href="$classHWInterface.html" title="Screen that shows current hardware." alt="" coords="655,664,758,691"/>
+<area shape="rect" id="node47" href="$classIRCInterface.html" title="Screen for the IRC client." alt="" coords="655,715,758,741"/>
+<area shape="rect" id="node48" href="$classKeyboardInterface.html" title="Virtual Keyboard Tool." alt="" coords="636,765,777,792"/>
+<area shape="rect" id="node49" href="$classLanInterface.html" title="Screen that shows LAN of connected machine." alt="" coords="655,816,758,843"/>
+<area shape="rect" id="node50" href="$classMemoryInterface.html" title="Screen that shows memory usage." alt="" coords="639,867,774,893"/>
+<area shape="rect" id="node51" href="$classMissionInterface.html" title="Screen that shows Mission data." alt="" coords="641,917,772,944"/>
+<area shape="rect" id="node52" href="$classPhoneDialler.html" title="Screen that shows the dialer." alt="" coords="654,968,759,995"/>
+<area shape="rect" id="node53" href="$classSendMailInterface.html" title="Screen that allows the user to compose an email." alt="" coords="637,1019,777,1045"/>
+<area shape="rect" id="node54" href="$classStatusInterface.html" title="Screen that displays the user&#39;s status." alt="" coords="646,1069,767,1096"/>
+<area shape="rect" id="node55" href="$classSWInterface.html" title="Screen that displays &quot;Start&quot; button." alt="" coords="656,1120,757,1147"/>
+<area shape="rect" id="node56" href="$classWorldMapInterface.html" title="Screen that shows the world map." alt="" coords="634,1171,779,1197"/>
+<area shape="rect" id="node58" href="$classAcademicScreenInterface.html" title=" " alt="" coords="613,1221,801,1248"/>
+<area shape="rect" id="node59" href="$classAccountScreenInterface.html" title=" " alt="" coords="619,1272,795,1299"/>
+<area shape="rect" id="node60" href="$classBBSScreenInterface.html" title=" " alt="" coords="631,1323,782,1349"/>
+<area shape="rect" id="node61" href="$classChangeGatewayScreenInterface.html" title=" " alt="" coords="591,1373,822,1400"/>
+<area shape="rect" id="node62" href="$classCodeCardScreenInterface.html" title=" " alt="" coords="613,1424,800,1451"/>
+<area shape="rect" id="node63" href="$classCompanyInfoScreenInterface.html" title=" " alt="" coords="601,1475,812,1501"/>
+<area shape="rect" id="node64" href="$classConsoleScreenInterface.html" title=" " alt="" coords="619,1525,795,1552"/>
+<area shape="rect" id="node65" href="$classContactScreenInterface.html" title=" " alt="" coords="619,1576,794,1603"/>
+<area shape="rect" id="node66" href="$classCriminalScreenInterface.html" title=" " alt="" coords="617,1627,796,1653"/>
+<area shape="rect" id="node67" href="$classCypherScreenInterface.html" title=" " alt="" coords="621,1677,792,1704"/>
+<area shape="rect" id="node68" href="$classDialogScreenInterface.html" title=" " alt="" coords="623,1728,790,1755"/>
+<area shape="rect" id="node69" href="$classDisconnectedScreenInterface.html" title=" " alt="" coords="601,1779,813,1805"/>
+<area shape="rect" id="node70" href="$classFaithScreenInterface.html" title=" " alt="" coords="629,1829,784,1856"/>
+<area shape="rect" id="node71" href="$classFileServerScreenInterface.html" title=" " alt="" coords="612,1880,801,1907"/>
+<area shape="rect" id="node72" href="$classHighSecurityScreenInterface.html" title=" " alt="" coords="603,1931,810,1957"/>
+<area shape="rect" id="node73" href="$classHWSalesScreenInterface.html" title=" " alt="" coords="615,1981,798,2008"/>
+<area shape="rect" id="node74" href="$classLinksScreenInterface.html" title=" " alt="" coords="627,2032,786,2059"/>
+<area shape="rect" id="node75" href="$classLoansScreenInterface.html" title=" " alt="" coords="625,2083,788,2109"/>
+<area shape="rect" id="node76" href="$classLogScreenInterface.html" title=" " alt="" coords="633,2133,780,2160"/>
+<area shape="rect" id="node77" href="$classMenuScreenInterface.html" title=" " alt="" coords="627,2184,787,2211"/>
+<area shape="rect" id="node78" href="$classMessageScreenInterface.html" title=" " alt="" coords="615,2235,798,2261"/>
+<area shape="rect" id="node79" href="$classNearestGatewayScreenInterface.html" title=" " alt="" coords="590,2285,823,2312"/>
+<area shape="rect" id="node80" href="$classNewsScreenInterface.html" title=" " alt="" coords="627,2336,787,2363"/>
+<area shape="rect" id="node81" href="$classNuclearWarScreenInterface.html" title=" " alt="" coords="607,2387,806,2413"/>
+<area shape="rect" id="node82" href="$classPasswordScreenInterface.html" title=" " alt="" coords="614,2437,799,2464"/>
+<area shape="rect" id="node83" href="$classProtovisionScreenInterface.html" title=" " alt="" coords="608,2488,805,2515"/>
+<area shape="rect" id="node84" href="$classRadioTransmitterScreenInterface.html" title=" " alt="" coords="589,2539,824,2565"/>
+<area shape="rect" id="node85" href="$classRankingScreenInterface.html" title=" " alt="" coords="618,2589,795,2616"/>
+<area shape="rect" id="node86" href="$classRecordScreenInterface.html" title=" " alt="" coords="622,2640,791,2667"/>
+<area shape="rect" id="node87" href="$classSecurityScreenInterface.html" title=" " alt="" coords="618,2691,795,2717"/>
+<area shape="rect" id="node88" href="$classSharesListScreenInterface.html" title=" " alt="" coords="611,2741,802,2768"/>
+<area shape="rect" id="node89" href="$classSharesViewScreenInterface.html" title=" " alt="" coords="607,2792,807,2819"/>
+<area shape="rect" id="node90" href="$classSocialSecurityScreenInterface.html" title=" " alt="" coords="599,2843,815,2869"/>
+<area shape="rect" id="node91" href="$classSWSalesScreenInterface.html" title=" " alt="" coords="617,2893,797,2920"/>
+<area shape="rect" id="node92" href="$classUserIDScreenInterface.html" title=" " alt="" coords="623,2944,791,2971"/>
+<area shape="rect" id="node93" href="$classVoiceAnalysisScreenInterface.html" title=" " alt="" coords="599,2995,814,3021"/>
+<area shape="rect" id="node94" href="$classVoicePhoneScreenInterface.html" title=" " alt="" coords="607,3045,806,3072"/>
+<area shape="rect" id="node110" href="$classAgent.html" title="Agent class object." alt="" coords="424,2133,484,2160"/>
+<area shape="rect" id="node111" href="$classPlayer.html" title=" " alt="" coords="675,3096,738,3123"/>
+<area shape="rect" id="node123" href="$classArrestEvent.html" title=" " alt="" coords="405,2184,503,2211"/>
+<area shape="rect" id="node124" href="$classAttemptMissionEvent.html" title=" " alt="" coords="373,2235,535,2261"/>
+<area shape="rect" id="node125" href="$classBankRobberyEvent.html" title=" " alt="" coords="381,2285,527,2312"/>
+<area shape="rect" id="node126" href="$classChangeGatewayEvent.html" title=" " alt="" coords="371,2336,537,2363"/>
+<area shape="rect" id="node127" href="$classInstallHardwareEvent.html" title=" " alt="" coords="373,2387,535,2413"/>
+<area shape="rect" id="node128" href="$classNotificationEvent.html" title=" " alt="" coords="387,2437,521,2464"/>
+<area shape="rect" id="node129" href="$classRunPlotSceneEvent.html" title=" " alt="" coords="380,2488,528,2515"/>
+<area shape="rect" id="node130" href="$classSeizeGatewayEvent.html" title=" " alt="" coords="378,2539,530,2565"/>
+<area shape="rect" id="node131" href="$classShotByFedsEvent.html" title=" " alt="" coords="387,2589,521,2616"/>
+<area shape="rect" id="node132" href="$classWarningEvent.html" title="Warning event." alt="" coords="398,2640,510,2667"/>
+<area shape="rect" id="node135" href="$classVLocationSpecial.html" title=" " alt="" coords="387,2691,521,2717"/>
+</map>

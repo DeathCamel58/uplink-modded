@@ -1,0 +1,9 @@
+<map id="InstallHardwareEvent" name="InstallHardwareEvent">
+<area shape="rect" id="node1" title=" " alt="" coords="9,349,172,376"/>
+<area shape="rect" id="node2" href="$classUplinkEvent.html" title="Uplink Event object." alt="" coords="5,171,107,197"/>
+<area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="73,5,180,32"/>
+<area shape="rect" id="node4" href="$classDate.html" title=" " alt="" coords="53,81,107,108"/>
+<area shape="rect" id="node5" href="$classSale.html" title=" " alt="" coords="119,260,169,287"/>
+<area shape="rect" id="node7" href="$classSaleVersion.html" title=" " alt="" coords="192,81,291,108"/>
+<area shape="rect" id="node6" href="$classDArray.html" title=" " alt="" coords="181,171,365,197"/>
+</map>

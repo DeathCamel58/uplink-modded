@@ -1,0 +1,9 @@
+<map id="HighSecurityScreen" name="HighSecurityScreen">
+<area shape="rect" id="node1" title=" " alt="" coords="17,396,167,423"/>
+<area shape="rect" id="node2" href="$classComputerScreen.html" title=" " alt="" coords="5,136,136,163"/>
+<area shape="rect" id="node3" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="33,5,140,32"/>
+<area shape="rect" id="node7" href="$classMenuScreenOption.html" title=" " alt="" coords="109,83,254,109"/>
+<area shape="rect" id="node4" href="$classLList.html" title=" " alt="" coords="115,307,331,333"/>
+<area shape="rect" id="node5" href="$classLListItem.html" title=" " alt="" coords="107,188,354,215"/>
+<area shape="rect" id="node6" href="$classLListItem.html" title=" " alt="" coords="279,83,399,109"/>
+</map>
