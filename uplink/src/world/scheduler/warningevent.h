@@ -6,9 +6,9 @@
 #include "world/scheduler/uplinkevent.h"
 
 
-//! Warning event
+//! Warning UplinkEvent
 /**
- * Warning event
+ * Warning UplinkEvent
  * Triggered as a warning that another Uplink Event is about to happen
  * e.g. Your gateway will be seized in 10 minutes
  */
@@ -18,7 +18,7 @@ class WarningEvent : public UplinkEvent
 protected:
 
     /**
-     * The event that is going to occur
+     * The UplinkEvent that is going to occur
      */
 	UplinkEvent *event;
 
@@ -28,8 +28,8 @@ public:
 	~WarningEvent () override;
 
 	/**
-	 * Sets the event to warn about
-	 * @param newevent Event to warn about
+	 * Sets the UplinkEvent to warn about
+	 * @param newevent UplinkEvent to warn about
 	 */
 	void SetEvent ( UplinkEvent *newevent );
 

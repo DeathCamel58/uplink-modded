@@ -5,8 +5,7 @@
 
 #include "localinterfacescreen.h"
 
-
-//! Screen that shows the current gateway and upgrades
+//! LocalInterfaceScreen that shows the current gateway and upgrades
 class GatewayInterface : public LocalInterfaceScreen  
 {
 

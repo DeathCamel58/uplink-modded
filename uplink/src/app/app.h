@@ -22,7 +22,7 @@ class PhoneDialler;
 
 // ============================================================================
 
-//! App Object
+//! App UplinkObject
 /**
  * Stores data about the app - path, version, etc
  */

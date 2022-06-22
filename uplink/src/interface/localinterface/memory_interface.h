@@ -1,6 +1,3 @@
-// MemoryInterface.h: interface for the MemoryInterface class.
-//
-//////////////////////////////////////////////////////////////////////
 
 #ifndef included_memoryinterface_h
 #define included_memoryinterface_h
@@ -8,8 +5,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-//! Screen that shows memory usage
+//! LocalInterfaceScreen that shows memory usage
 class MemoryInterface : public LocalInterfaceScreen  
 {
 

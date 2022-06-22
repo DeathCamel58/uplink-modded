@@ -20,9 +20,7 @@ class Button;
 // ============================================================================
 
 
-/**
- * Interface for the WorldGenerator class
- */
+//! Interface for the WorldGenerator class
 class WorldGenerator  
 {
 
@@ -57,12 +55,12 @@ public:
 	static void GenerateAll ();
 
 	/**
-	 * Generates some companies, banks, people, agents, missions, and employment data
+	 * Generates some Company, bank, Person, Agent, Mission, and employment data items
 	 */
 	static void GenerateRandomWorld ();
 
 	/**
-	 * Creates the player company, and some specific companies and computers
+	 * Creates the Player Company, and some specific Company and Computer items
      * @note This only generates OCP, SJGames, and Introversion when the build is not a DEMOGAME
 	 */
 	static void GenerateSpecifics ();
@@ -73,7 +71,7 @@ public:
     static void LoadDynamics ();
 
     /**
-     * Loads all gateways from files
+     * Loads all Gateway items from files
      */
     static void LoadDynamicsGatewayDefs ();        // Loads GatewayDefs
 
@@ -85,45 +83,45 @@ public:
 	 ///@{
 
 	 /**
-	  * Generates the player
-	  * @param handle The handle of the player
+	  * Generates the Player
+	  * @param handle The handle of the Player
 	  * @return The Player object
-	  * @note This populates the player's starting links, creates a player bank account, sets ratings, etc
+	  * @note This populates the Player's starting links, creates a player bank account, sets ratings, etc
 	  */
 	static Player *GeneratePlayer (const string &handle );
 
 	/**
-	 * Create a local machine for players to fall back to Which can also act as a links screen
+	 * Create a local machine for players to fall back to Which can also act as a LinksScreen
 	 */
 	static void	   GenerateLocalMachine ();
 
 	/**
-	 * Generates the Uplink company
+	 * Generates the Uplink Company
 	 * @note Creates the Bank server, generates all hardware and software items for sale
 	 */
 	static void GenerateCompanyUplink ();
 
 	/**
 	 * Generates the Uplink Public Access Server
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateUplinkPublicAccessServer ();
 
 	/**
 	 * Generates the Uplink Internal Services System
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateUplinkInternalServicesSystem ();
 
 	/**
 	 * Generates the Uplink Test Machine
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateUplinkTestMachine ();
 
 	/**
 	 * Generates the Uplink Credits Machine
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateUplinkCreditsMachine ();
 
@@ -135,19 +133,19 @@ public:
 
 	/**
 	 * Generates the Global Criminal Database
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateGlobalCriminalDatabase ();
 
 	/**
 	 * Generates the International Social Security Database
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateInternationalSocialSecurityDatabase ();
 
 	/**
 	 * Generates the Central Medical Database
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 * @note This is unused
 	 */
 	static void GenerateCentralMedicalDatabase ();
@@ -159,53 +157,53 @@ public:
 
 	/**
 	 * Generates the International Academic Database
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateInternationalAcademicDatabase ();
 
 	/**
 	 * Generates InterNIC
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateInterNIC ();
 
 	/**
 	 * Generates the Stock Market
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
 	static void GenerateStockMarket ();
 
 	/**
 	 * Generates the Protovision server
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
 	 */
     static void GenerateProtoVision ();
 
     /**
      * Generates the OCP server
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
      */
     static void GenerateOCP ();
 
     /**
      * Generates the Steve Jackson Games server
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
      */
     static void GenerateSJGames ();
 
     /**
      * Generates the Introversion server
-	 * @note This generates the computer and constructs all screens
+	 * @note This generates the Computer and constructs all MessageScreen items
      */
     static void GenerateIntroversion ();
 
     /**
-     * Generates two very easy missions for the player at the start
+     * Generates two very easy Mission items for the player at the start
      */
 	static void GenerateSimpleStartingMissionA ();
 
 	/**
-	 * Generate a delete file mission
+	 * Generate a delete file Mission
 	 */
 	static void GenerateSimpleStartingMissionB ();
 
@@ -236,8 +234,8 @@ public:
 	static Company   *GenerateCompany_Bank ();
 
 	/**
-	 * Generates a random Computer for a company
-	 * @param companyname Name of company to generate Computer for
+	 * Generates a random Computer for a Company
+	 * @param companyname Name of Company to generate Computer for
 	 * @return Computer that was generated
 	 */
 	static Computer  *GenerateComputer (const string &companyname );
@@ -255,67 +253,67 @@ public:
 	static Agent	 *GenerateAgent ();
 
 	/**
-	 * Generates a specific type of Computer for a company
-	 * @param companyName Name of the company to generate the Computer for
+	 * Generates a specific type of Computer for a Company
+	 * @param companyName Name of the Company to generate the Computer for
 	 * @param TYPE The type of the Computer
 	 * @return The Computer
 	 */
     static Computer  *GenerateComputer                (const string &companyName, int TYPE );
 
     /**
-     * Generates a public access server for company
-     * @param companyname Name of the company to generate the public access server for
+     * Generates a public access server for Company
+     * @param companyname Name of the Company to generate the public access server for
      * @return The Computer for the public access server
      */
 	static Computer  *GeneratePublicAccessServer	  (const string &companyname );
 
 	/**
 	 * Generates an internal services machine for a company
-	 * @param companyname Name of the company to generate the internal services machine for
+	 * @param companyname Name of the Company to generate the internal services machine for
 	 * @return The Computer for the internal services machine
 	 */
 	static Computer  *GenerateInternalServicesMachine (const string &companyname );
 
 	/**
-	 * Generates a Central Mainframe for a company
-	 * @param companyname Name of the company to generate Central Mainframe for
+	 * Generates a Central Mainframe for a Company
+	 * @param companyname Name of the Company to generate Central Mainframe for
 	 * @return The Computer for the Central Mainframe
 	 */
 	static Computer  *GenerateCentralMainframe        (const string &companyname );
 
 	/**
-	 * Generates a Public Bank Server for a company
-	 * @param companyname Name of the company to generate Public Bank Server for
+	 * Generates a Public Bank Server for a Company
+	 * @param companyname Name of the Company to generate Public Bank Server for
 	 * @return The Computer for the Public Bank Server
 	 */
 	static Computer  *GeneratePublicBankServer        (const string &companyname );
 
 	/**
-	 * Generates an empty file server for a company
-	 * @param companyname Name of company to generate empty file server for
+	 * Generates an empty file server for a Company
+	 * @param companyname Name of Company to generate empty file server for
 	 * @return The Computer for the File Server
 	 * @note Used in StealResearch missions
 	 */
 	static Computer	 *GenerateEmptyFileServer		  (const string &companyname );
 
 	/**
-	 * Generates LAN for a company
-	 * @param companyname Name of the company to generate the LAN for
-	 * @return The LAN of the company
+	 * Generates LAN for a Company
+	 * @param companyname Name of the Company to generate the LAN for
+	 * @return The LAN of the Company
 	 * @note Returns nullptr if companyname is empty
 	 */
     static Computer  *GenerateLAN                     (const string &companyname );
 
     /**
-     * Generates a personal computer
-     * @param personname Name of the person to generate the Computer for
+     * Generates a personal Computer
+     * @param personname Name of the Person to generate the Computer for
      * @return The personal Computer
      */
 	static Computer  *GeneratePersonalComputer		  (const string &personname );
 
 	/**
 	 * Generates a voice phone system
-	 * @param personname Name of the person to generate the voice phone system for
+	 * @param personname Name of the Person to generate the voice phone system for
 	 * @return The voice phone system Computer
 	 */
 	static Computer  *GenerateVoicePhoneSystem		  (const string &personname );
@@ -385,7 +383,7 @@ public:
 
 	/**
 	 * Gets a random, low security Computer
-	 * @param TYPE The type of the computer
+	 * @param TYPE The type of the Computer
 	 * @return The low security Computer
 	 * @note Computers gotten through this function will not have a proxy or firewall
 	 */
@@ -407,13 +405,13 @@ public:
 	static void GenerateValidMapPos ( int &x, int &y );
 
 	/**
-	 * For each company that the person is currently an administrator, replace him with a new administrator
-	 * @param person The person to replace in companies
+	 * For each Company that the Person is currently an administrator, replace him with a new administrator
+	 * @param person The Person to replace in all Company items
 	 */
 	static void ReplaceAdminCompanies ( Person *person );
 
 	/**
-	 * Replace all company administrators that are dead or in jail
+	 * Replace all Company administrators that are dead or in jail
 	 */
 	static void ReplaceInvalidCompanyAdmins ();
 

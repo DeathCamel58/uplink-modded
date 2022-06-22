@@ -9,7 +9,7 @@
 
 #include "world/scheduler/uplinkevent.h"
 
-//!Event Scheduler Class
+//! Event Scheduler UplinkObject
 /**
  * Responsible for keeping track of all future scheduled events, and running those events at the right time.
  * It is not designed for high accuracy scheduling - events are run within around 10 seconds of their target time.
@@ -20,7 +20,7 @@ class EventScheduler : public UplinkObject
 public:
 
     /**
-     * LList of all events
+     * LList of all UplinkEvent items
      */
 	LList <UplinkEvent *> events;
 
@@ -30,14 +30,14 @@ public:
 	~EventScheduler () override;
 
 	/**
-	 * Inserts an Event into the list of events
-	 * @param event Event to add
+	 * Inserts an UplinkEvent into the list of events
+	 * @param event UplinkEvent to add
 	 */
 	void ScheduleEvent ( UplinkEvent *event );
 
 	/**
-	 * Schedules a warning of an upcoming Event
-	 * @param event Event to schedule
+	 * Schedules a warning of an upcoming UplinkEvent
+	 * @param event UplinkEvent to schedule
 	 * @param date Date to give the warning at
 	 */
 	void ScheduleWarning ( UplinkEvent *event, Date *date );

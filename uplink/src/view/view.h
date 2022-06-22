@@ -11,7 +11,7 @@
 
 // ============================================================================
 
-//! View class object
+//! View class UplinkObject
 /**
  * Creates a 3D representation of the game world based on the players current location in that world
  * @note Uses OpenGL

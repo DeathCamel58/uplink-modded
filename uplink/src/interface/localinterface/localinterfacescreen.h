@@ -1,12 +1,4 @@
 
-/*
-
-  LocalInterfaceScreen object
-
-	A slightly more customized version of Interface Screen
-
-  */
-
 #ifndef _included_localinterface_screen
 #define _included_localinterface_screen
 
@@ -14,8 +6,7 @@
 #include "eclipse.h"
 #include "interface/interfacescreen.h"
 
-
-//! Screen that provides basic functionality of other screens
+//! InterfaceScreen that provides basic functionality of other InterfaceScreen
 class LocalInterfaceScreen : public InterfaceScreen  
 {
 
@@ -49,7 +40,7 @@ public:
 	int  ScreenID () override;
 
 	/**
-	 * Gets the screen object, asserts that requested screen ID matches current screen ID
+	 * Gets the LocalInterfaceScreen, asserts that requested screen ID matches current screen ID
 	 * @param screenID The screen ID to get
 	 * @return The LocalInterfaceScreen object
 	 */

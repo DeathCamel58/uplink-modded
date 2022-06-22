@@ -5,8 +5,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-//! Screen that shows finances
+//! LocalInterfaceScreen that shows finances
 class FinanceInterface : public LocalInterfaceScreen  
 {
 

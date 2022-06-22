@@ -5,8 +5,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-//! Virtual Keyboard Tool
+//! LocalInterfaceScreen for the Virtual Keyboard Tool
 /**
  * Brings up a keyboard on screen
  * The player can use it to enter text

@@ -6,7 +6,7 @@
 
 #include "tosser.h"
 
-//! InterfaceScreen Class Object
+//! InterfaceScreen Class UplinkObject
 /**
  * Part of the interface sub-system
  * Base class for defining a screen that will be in the interface.

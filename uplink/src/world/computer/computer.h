@@ -51,7 +51,7 @@ class ComputerScreen;
 
 // ============================================================================
 
-//! Computer class object
+//! Computer class UplinkObject
 /**
  * The computer class describes a computer in the uplink world. This computer belongs to one company and is located at a
  * virtual location.
@@ -121,7 +121,7 @@ public:
 	float isinfected_revelation;
 
 	/**
-	 * The date of the infection from revelation
+	 * The Date of the infection from revelation
 	 */
     Date infectiondate;
 

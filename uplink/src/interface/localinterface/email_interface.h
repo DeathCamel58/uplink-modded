@@ -12,8 +12,7 @@ class Message;
 
 // ============================================================================
 
-
-//! Screen that shows emails
+//! LocalInterfaceScreen that shows emails
 class EmailInterface : public LocalInterfaceScreen  
 {
 
@@ -31,7 +30,7 @@ protected:
 	time_t timesync;
 
 	/**
-	 * The message in the current email
+	 * The Message in the current email
 	 */
 	Message *message;
 

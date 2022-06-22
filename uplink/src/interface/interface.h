@@ -1,17 +1,4 @@
 
-/*
-	Interface class object
-
-		Responsible for handling all user input 
-		including mouse, keyboard, buttons, sounds, animations etc.
-
-		Includes the main HUD, the interface for the current players location
-		and the task manager, as well as a list of all possible "tasks" - 
-		eg break password, crack code etc.
-
-  */
-
-
 #ifndef _included_classinterface_h				
 #define included_classinterface_h
 
@@ -28,14 +15,29 @@ class TaskManager;
 
 // ============================================================================
 
-
+//! Interface class UplinkObject
+/**
+ * Responsible for handling all user input including mouse, keyboard, buttons, sounds, animations etc.
+ * Includes the main HUD, the interface for the current players location and the task manager, as well as a list of all possible "tasks" - eg break password, crack code etc.
+ */
 class Interface : public UplinkObject
 {
 
 protected:
 
+    /**
+     * LocalInterface
+     */
 	LocalInterface  *li;
+
+	/**
+	 * RemoteInterface
+	 */
 	RemoteInterface *ri;
+
+	/**
+	 * TaskManager
+	 */
 	TaskManager     *tm;
 
 public:
@@ -43,12 +45,28 @@ public:
 	Interface();
 	~Interface() override;
 
+	/**
+	 * Resets and creates the Interface
+	 */
 	void Create ();
 
+	/**
+	 * Asserts that LocalInterface exists and returns it
+	 * @return LocalInterface
+	 */
+	LocalInterface  *GetLocalInterface  ();
 
-	LocalInterface  *GetLocalInterface  ();				// Asserts li
-	RemoteInterface *GetRemoteInterface ();				// Asserts ri
-	TaskManager     *GetTaskManager     ();				// Asserts tm
+    /**
+     * Asserts that RemoteInterface exists and returns it
+     * @return RemoteInterface
+     */
+	RemoteInterface *GetRemoteInterface ();
+
+    /**
+     * Asserts that TaskManager exists and returns it
+     * @return TaskManager
+     */
+	TaskManager     *GetTaskManager     ();
 	
 
 	// Common functions

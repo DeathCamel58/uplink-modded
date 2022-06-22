@@ -21,7 +21,7 @@ using namespace irc;
 // ============================================================================
 
 
-//! Screen for the IRC client
+//! LocalInterfaceScreen for the IRC client
 class IRCInterface : public LocalInterfaceScreen
 {
 
@@ -405,7 +405,7 @@ public:
 
     /**
      * TODO: Document
-     * @param session
+     * @param session CIrcSession
      */
     UplinkIRCMonitor( CIrcSession &session );
 

@@ -11,9 +11,7 @@
 #include "interface/localinterface/sw_interface.h"
 #include "interface/localinterface/worldmap/worldmap_interface.h"
 
-/**
- * A HUD interface upgrade
- */
+//! A HUD interface upgrade
 struct HUDInterfaceUpgrade
 {
     /**
@@ -234,6 +232,12 @@ public:
      * @param upgrade Upgrade to remove
      */
     static void RemoveUpgrade    ( char upgrade );
+
+    /**
+     * Gets an upgrade by name
+     * @param upgrade Name of upgrade
+     * @return HUDInterfaceUpGrade
+     */
     static HUDInterfaceUpgrade *GetUpgrade ( char upgrade );
 
 	void Create () override;
@@ -244,7 +248,7 @@ public:
 
 	/**
 	 * Gets a pointer to the current HUD
-	 * @return The HUD
+	 * @return The HUDInterface
 	 */
 	static HUDInterface *GetHUD ();	
 

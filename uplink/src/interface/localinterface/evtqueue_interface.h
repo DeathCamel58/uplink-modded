@@ -10,8 +10,7 @@
 
 // ============================================================================
 
-
-//! Screen that shows scheduled events
+//! LocalInterfaceScreen that shows scheduled events
 /**
  * @note This is a debug screen for watching the event queue
  */

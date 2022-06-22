@@ -5,8 +5,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-//! Screen that shows the dialer
+//! LocalInterfaceScreen that shows the dialer
 /**
  * Dialer screen is used to visually show the IP we're in the process of connecting to
  */

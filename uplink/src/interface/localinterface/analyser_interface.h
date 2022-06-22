@@ -7,9 +7,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-
-//! Screen that shows remote host security systems
+//! LocalInterfaceScreen that shows remote host security systems
 class AnalyserInterface : public LocalInterfaceScreen
 {
 

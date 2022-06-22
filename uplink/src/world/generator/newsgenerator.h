@@ -13,7 +13,7 @@ class Person;
 
 //! News Generator
 /**
- * Receives information on important events that have occured (e.gg a compan going bust), and generates a news story.
+ * Receives information on important events that have occurred (e.g. a company going bust), and generates a news story.
  * Also handles hard-coded news events.
  */
 class NewsGenerator
@@ -23,19 +23,21 @@ public:
 
 	static void Initialise ();
 
-	// Events related to Company computers
+    /** @name Events related to Company computers
+     */
+    ///@{
 
 	/**
-	 * Generates a news story about a hacked computer whose hacker isn't known
+	 * Generates a news story about a hacked Computer whose hacker isn't known
 	 * @param comp Computer that was hacked
-	 * @param al Access Log
+	 * @param al AccessLog
 	 */
 	static void ComputerHacked		( Computer *comp, AccessLog *al );
 
 	/**
 	 * Generates a news story about a computer that was destroyed
 	 * @param comp Computer that was hacked
-	 * @param filesdeleted true if the files were unabled to be recovered
+	 * @param filesdeleted true if the files were unable to be recovered
 	 */
 	static void ComputerDestroyed	( Computer *comp, bool filesdeleted );
 
@@ -56,15 +58,20 @@ public:
 	 */
 	static void AllFilesDeleted		(Computer *comp, const string& filetype );
 
-	// Events related to people
+	///@}
+    /** @name Events related to people
+     */
+    ///@{
 
 	/**
 	 * Generates a news story about an arrest
 	 * @param person Person who was arrested
-	 * @param comp TODO: Document
+	 * @param comp Computer TODO: Document
 	 * @param reason Reason person was arrested
 	 */
 	static void Arrested (Person *person, Computer *comp, const string& reason );
+
+	///@}
 
 };
 

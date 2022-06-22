@@ -5,8 +5,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-//! Screen that shows current hardware
+//! LocalInterfaceScreen that shows current hardware
 class HWInterface : public LocalInterfaceScreen
 {
 

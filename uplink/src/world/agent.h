@@ -17,9 +17,9 @@ class Mission;
 
 // ============================================================================
 
-//! Agent class object
+//! Agent Person
 /**
- * Agent class object
+ * Agent Person
  * Part of the world sub-system
  */
 class Agent : public Person
@@ -38,7 +38,7 @@ public:
 	BTree <char *> codes;
 
 	/**
-	 * The agent's missions
+	 * An LList that stores each Mission the Agent has
 	 */
 	LList <Mission *> missions;
 

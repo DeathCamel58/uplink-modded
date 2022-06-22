@@ -34,8 +34,7 @@ class HUDInterface;
 
 #define  PANELSIZE		 0.29						// Percentage of screen taken up by right panel
 
-
-//! Local Interface Class
+//! Local Interface UplinkObject
 /**
  * Local Interface class object
  * @note Part of the interface subsystem

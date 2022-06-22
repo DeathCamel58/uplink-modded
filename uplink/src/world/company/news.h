@@ -21,7 +21,7 @@
 
 // ============================================================================
 
-//! News object
+//! News UplinkObject
 /**
  * Represents a single news story, posted onto one of the news servers
  */
@@ -38,7 +38,7 @@ protected:
 public:
 
     /**
-     * The date of the news item
+     * The Date of the news item
      */
 	Date date;
 
@@ -68,8 +68,8 @@ public:
 	~News () override;
 
 	/**
-	 * Sets the date of the news item
-	 * @param newdate The new date
+	 * Sets the Date of the news item
+	 * @param newdate The new Date
 	 */
 	void SetDate     ( Date *newdate );
 

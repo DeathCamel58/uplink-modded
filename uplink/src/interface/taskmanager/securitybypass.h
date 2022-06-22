@@ -6,7 +6,7 @@
 
 #include "interface/taskmanager/uplinktask.h"
 
-//! Security Bypass Class
+//! Security Bypass UplinkTask
 /**
  * Security Bypass
  * Similar to disable, but this software runs continuously, bypassing a single proxy server

@@ -19,7 +19,7 @@ class Computer;
 // ============================================================================
 
 
-//! Location in the uplink world
+//! Location UplinkObject in the uplink world
 class VLocation : public UplinkObject
 {
 

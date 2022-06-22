@@ -13,7 +13,7 @@
 
 // ============================================================================
 
-//! Gateway nuke software driver
+//! Gateway nuke software UplinkTask
 /**
  * Checks if the player has the gateway nuke hardware, then takes down the gateway, destroying all evidence
  */

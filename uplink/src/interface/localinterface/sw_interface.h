@@ -6,8 +6,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-//! Screen that displays "Start" button
+//! LocalInterfaceScreen that displays "Start" button
 /**
  * This also handles all menus that come off of the "Start" button
  */

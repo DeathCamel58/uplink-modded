@@ -1,6 +1,3 @@
-// SendMailInterface.h: interface for the SendMailInterface class.
-//
-//////////////////////////////////////////////////////////////////////
 
 #ifndef included_sendmailinterface_h
 #define included_sendmailinterface_h
@@ -13,8 +10,7 @@ class Message;
 
 // ============================================================================
 
-
-//! Screen that allows the user to compose an email
+//! LocalInterfaceScreen that allows the user to compose an email
 class SendMailInterface : public LocalInterfaceScreen  
 {
 
@@ -92,7 +88,7 @@ protected:
 protected:
 
     /**
-     * The message being composed
+     * The Message being composed
      */
 	static Message *m;
 
@@ -107,8 +103,8 @@ public:
 	~SendMailInterface () override;
 
 	/**
-	 * Gets the message
-	 * @return The message
+	 * Gets the Message
+	 * @return The Message
 	 */
     static Message *sGetMessage ();
 

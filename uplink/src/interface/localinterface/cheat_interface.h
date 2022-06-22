@@ -5,8 +5,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-//! Screen to provide cheats
+//! LocalInterfaceScreen to provide cheats
 class CheatInterface : public LocalInterfaceScreen  
 {
 

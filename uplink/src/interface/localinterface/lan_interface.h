@@ -7,7 +7,6 @@
 #include "world/computer/lancomputer.h"
 #include "interface/localinterface/localinterfacescreen.h"
 
-
 /**
  * TODO: Document
  */
@@ -47,7 +46,7 @@ public:
 // ============================================================================
 
 
-//! Screen that shows LAN of connected machine
+//! LocalInterfaceScreen that shows LAN of connected machine
 /**
  * Local Interface screen
  * Allows you to view a Local Area Network
@@ -58,7 +57,7 @@ class LanInterface : public LocalInterfaceScreen
 protected:
 
     /**
-     * An array of all objects in LAN
+     * LanInterfaceObject of all objects in LAN
      */
     static LanInterfaceObject lanInterfaceObjects[LANSYSTEM_NUMTYPES];
 
@@ -241,7 +240,7 @@ public:
     /**
      * TODO: Document
      * @param TYPE
-     * @return
+     * @return LanInterfaceObject
      */
     static LanInterfaceObject *GetLanInterfaceObject( int TYPE );
 

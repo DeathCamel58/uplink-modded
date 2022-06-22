@@ -1,6 +1,3 @@
-// StatusInterface.h: interface for the StatusInterface class.
-//
-//////////////////////////////////////////////////////////////////////
 
 #ifndef included_statusinterface_h
 #define included_statusinterface_h
@@ -8,8 +5,7 @@
 
 #include "interface/localinterface/localinterfacescreen.h"
 
-
-//! Screen that displays the user's status
+//! LocalInterfaceScreen that displays the user's status
 class StatusInterface : public LocalInterfaceScreen  
 {
 

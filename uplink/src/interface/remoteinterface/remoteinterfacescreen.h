@@ -12,7 +12,7 @@ class ComputerScreen;
 
 // ============================================================================
 
-//! RemoteInterfaceScreen class object
+//! RemoteInterfaceScreen InterfaceScreen
 /**
  * A slightly more customized version of InterfaceScreen which has a link to a ComputerScreen object
  */

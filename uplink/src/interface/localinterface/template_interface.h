@@ -5,7 +5,6 @@
 #ifndef included_memoryinterface_h
 #define included_memoryinterface_h
 
-
 #include "localinterfacescreen.h"
 
 

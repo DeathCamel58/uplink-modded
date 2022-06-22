@@ -13,9 +13,7 @@ class AccessLog;
 
 // ============================================================================
 
-
-
-//! Consqeuence Generator
+//! Consequence Generator
 /**
  * This is responsible for analysing an action that has happened, and generating subsequence "consequence" actions.
  *
@@ -32,7 +30,9 @@ public:
 
 	static void Initialise ();
 
-	// Event processing for all people
+    /** @name Event processing for all people
+     */
+    ///@{
 
 	/**
 	 * Processes an event where the user was caught hacking. This adds the crime to the criminal record, decreases their
@@ -54,7 +54,7 @@ public:
 	/**
 	 * Schedules an arrest event or SeizeGateway event
 	 * @param person Person who didn't pa the file
-	 * @param fine The fine mission
+	 * @param fine The fine Mission
 	 */
 	static void DidntPayFine  ( Person *person, Mission *fine  );
 
@@ -75,51 +75,59 @@ public:
 	 */
 	static void SeizeGateway  (Person *person, const string& reason );
 
-	// Event processing for company computers
+	///@}
+    /** @name Event processing for company computers
+     */
+    ///@{
 
 	/**
 	 * Checks if computer has been hacked, and sometimes generates a trace hacker mission
 	 * @param comp Computer to check for hacks
-	 * @param al AccessLog Access log of hack
+	 * @param al AccessLog of hack
 	 */
 	static void ComputerHacked ( Computer *comp, AccessLog *al );
 
-	// Event processing for completed missions
+	///@}
+    /** @name Event processing for completed missions
+     */
+    ///@{
 
 	/**
-	 * Checks if the mission has been completed
-	 * @param mission The mission to check completion of
-	 * @param person The person who is working on the mission
+	 * Checks if the Mission has been completed
+	 * @param mission The Mission to check completion of
+	 * @param person The Person who is working on the Mission
 	 */
 	static void MissionCompleted				( Mission *mission, Person *person );
 
     /**
-     * Checks if the mission has been completed
-     * @param mission The mission to check completion of
-     * @param person The person who is working on the mission
+     * Checks if the Mission has been completed
+     * @param mission The Mission to check completion of
+     * @param person The Person who is working on the Mission
      */
 	static void MissionCompleted_StealFile		( Mission *mission, Person *person );
 
     /**
-     * Checks if the mission has been completed
-     * @param mission The mission to check completion of
-     * @param person The person who is working on the mission
+     * Checks if the Mission has been completed
+     * @param mission The Mission to check completion of
+     * @param person The Person who is working on the Mission
      */
 	static void MissionCompleted_DestroyFile	( Mission *mission, Person *person );
 
     /**
-     * Checks if the mission has been completed
-     * @param mission The mission to check completion of
-     * @param person The person who is working on the mission
+     * Checks if the Mission has been completed
+     * @param mission The Mission to check completion of
+     * @param person The Person who is working on the Mission
      */
 	static void MissionCompleted_ChangeAccount  ( Mission *mission, Person *person );
 
     /**
-     * Checks if the mission has been completed
-     * @param mission The mission to check completion of
-     * @param person The person who is working on the mission
+     * Checks if the Mission has been completed
+     * @param mission The Mission to check completion of
+     * @param person The Person who is working on the Mission
      */
 	static void MissionCompleted_TraceUser		( Mission *mission, Person *person );
+
+	///@}
 
 };
 

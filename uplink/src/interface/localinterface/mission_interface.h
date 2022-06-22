@@ -1,6 +1,3 @@
-// MissionInterface.h: interface for the MissionInterface class.
-//
-//////////////////////////////////////////////////////////////////////
 
 #ifndef included_missioninterface_h
 #define included_missioninterface_h
@@ -13,8 +10,7 @@ class Mission;
 
 // ============================================================================
 
-
-//! Screen that shows Mission data
+//! LocalInterfaceScreen that shows Mission data
 class MissionInterface : public LocalInterfaceScreen  
 {
 
