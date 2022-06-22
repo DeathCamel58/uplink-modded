@@ -23,11 +23,9 @@ Collaboration diagram for Voice\+Phone\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classVoicePhoneScreenInterface_a891172eb2e5cb0fbb5f26cc616c2805b}\label{classVoicePhoneScreenInterface_a891172eb2e5cb0fbb5f26cc616c2805b}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classVoicePhoneScreenInterface_a891172eb2e5cb0fbb5f26cc616c2805b}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}\label{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classVoicePhoneScreenInterface_abd1af64be9d264d0a845df1639cc3122}{Remove}} () override
 \item 
@@ -74,6 +72,21 @@ bool {\bfseries answer}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}\label{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!Create@{Create}}
+\index{Create@{Create}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Voice\+Phone\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classVoicePhoneScreenInterface_a6b7a1a61c7d31e61342e8099866a6f2c}\label{classVoicePhoneScreenInterface_a6b7a1a61c7d31e61342e8099866a6f2c}} 
 \index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
@@ -96,6 +109,19 @@ Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de26
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a891172eb2e5cb0fbb5f26cc616c2805b}\label{classVoicePhoneScreenInterface_a891172eb2e5cb0fbb5f26cc616c2805b}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Voice\+Phone\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classVoicePhoneScreenInterface_acae0f04a4645b3e092a7f35e0ac603ce}\label{classVoicePhoneScreenInterface_acae0f04a4645b3e092a7f35e0ac603ce}} 
 \index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!ScreenID@{ScreenID}}

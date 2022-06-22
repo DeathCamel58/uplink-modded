@@ -35,11 +35,9 @@ void {\bfseries Add\+User} (char $\ast$name)
 \mbox{\Hypertarget{classContactScreenInterface_ac33355cf9c35af5cb0850d3355f38269}\label{classContactScreenInterface_ac33355cf9c35af5cb0850d3355f38269}} 
 void {\bfseries Add\+Question} (const string \&question, int index=-\/1)
 \item 
-\mbox{\Hypertarget{classContactScreenInterface_a916fa9797bcace444e879b7ebd8af700}\label{classContactScreenInterface_a916fa9797bcace444e879b7ebd8af700}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classContactScreenInterface_a916fa9797bcace444e879b7ebd8af700}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classContactScreenInterface_a8b138d92dbad40df5b7d2fa7422a4cdb}\label{classContactScreenInterface_a8b138d92dbad40df5b7d2fa7422a4cdb}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classContactScreenInterface_a8b138d92dbad40df5b7d2fa7422a4cdb}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classContactScreenInterface_a7881b8bcc1350cd42fe46389e5c12342}{Remove}} () override
 \item 
@@ -119,6 +117,21 @@ bool {\bfseries askedpaymentmethod}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classContactScreenInterface_a8b138d92dbad40df5b7d2fa7422a4cdb}\label{classContactScreenInterface_a8b138d92dbad40df5b7d2fa7422a4cdb}} 
+\index{ContactScreenInterface@{ContactScreenInterface}!Create@{Create}}
+\index{Create@{Create}!ContactScreenInterface@{ContactScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Contact\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classContactScreenInterface_ac8c7521493032d52b007fe23fb822292}\label{classContactScreenInterface_ac8c7521493032d52b007fe23fb822292}} 
 \index{ContactScreenInterface@{ContactScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!ContactScreenInterface@{ContactScreenInterface}}
@@ -141,6 +154,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classContactScreenInterface_a916fa9797bcace444e879b7ebd8af700}\label{classContactScreenInterface_a916fa9797bcace444e879b7ebd8af700}} 
+\index{ContactScreenInterface@{ContactScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!ContactScreenInterface@{ContactScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Contact\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classContactScreenInterface_af625055a24981914b2c3ca05ae8b668f}\label{classContactScreenInterface_af625055a24981914b2c3ca05ae8b668f}} 
 \index{ContactScreenInterface@{ContactScreenInterface}!ScreenID@{ScreenID}}

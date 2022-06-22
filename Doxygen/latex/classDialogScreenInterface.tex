@@ -23,14 +23,11 @@ Collaboration diagram for Dialog\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classDialogScreenInterface_aa074636c2f857bc8926081d2388925c6}\label{classDialogScreenInterface_aa074636c2f857bc8926081d2388925c6}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classDialogScreenInterface_aa074636c2f857bc8926081d2388925c6}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classDialogScreenInterface_a1901fb4b3834b9e9b91bb17533786918}\label{classDialogScreenInterface_a1901fb4b3834b9e9b91bb17533786918}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classDialogScreenInterface_a1901fb4b3834b9e9b91bb17533786918}{Escape\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classDialogScreenInterface_aa42807585d157e90fcb54a94f5b43dd6}\label{classDialogScreenInterface_aa42807585d157e90fcb54a94f5b43dd6}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classDialogScreenInterface_aa42807585d157e90fcb54a94f5b43dd6}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classDialogScreenInterface_a6d102854d1cc55fb84a2f93051c6cb8d}{Remove}} () override
 \item 
@@ -63,6 +60,34 @@ static void {\bfseries Script\+Button\+Click} (\mbox{\hyperlink{classButton}{But
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDialogScreenInterface_aa42807585d157e90fcb54a94f5b43dd6}\label{classDialogScreenInterface_aa42807585d157e90fcb54a94f5b43dd6}} 
+\index{DialogScreenInterface@{DialogScreenInterface}!Create@{Create}}
+\index{Create@{Create}!DialogScreenInterface@{DialogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Dialog\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classDialogScreenInterface_a1901fb4b3834b9e9b91bb17533786918}\label{classDialogScreenInterface_a1901fb4b3834b9e9b91bb17533786918}} 
+\index{DialogScreenInterface@{DialogScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!DialogScreenInterface@{DialogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Dialog\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classDialogScreenInterface_a1871b34090d37437634e34efe129d480}\label{classDialogScreenInterface_a1871b34090d37437634e34efe129d480}} 
 \index{DialogScreenInterface@{DialogScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!DialogScreenInterface@{DialogScreenInterface}}
@@ -85,6 +110,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classDialogScreenInterface_aa074636c2f857bc8926081d2388925c6}\label{classDialogScreenInterface_aa074636c2f857bc8926081d2388925c6}} 
+\index{DialogScreenInterface@{DialogScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!DialogScreenInterface@{DialogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Dialog\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classDialogScreenInterface_a67e98ace5a36162448d9b066152e0974}\label{classDialogScreenInterface_a67e98ace5a36162448d9b066152e0974}} 
 \index{DialogScreenInterface@{DialogScreenInterface}!ScreenID@{ScreenID}}

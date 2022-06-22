@@ -23,11 +23,9 @@ Collaboration diagram for S\+W\+Sales\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSWSalesScreenInterface_a9881cf70bbb1a419dffc2af91945080f}\label{classSWSalesScreenInterface_a9881cf70bbb1a419dffc2af91945080f}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classSWSalesScreenInterface_a9881cf70bbb1a419dffc2af91945080f}{Escape\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classSWSalesScreenInterface_afabb187a33c8ee15df6e20d094f35824}\label{classSWSalesScreenInterface_afabb187a33c8ee15df6e20d094f35824}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classSWSalesScreenInterface_afabb187a33c8ee15df6e20d094f35824}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classSWSalesScreenInterface_af0f241c857fc588ebf1fae64f7e55bc8}{Remove}} () override
 \item 
@@ -90,6 +88,34 @@ static int {\bfseries currentversion} = -\/1
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSWSalesScreenInterface_afabb187a33c8ee15df6e20d094f35824}\label{classSWSalesScreenInterface_afabb187a33c8ee15df6e20d094f35824}} 
+\index{SWSalesScreenInterface@{SWSalesScreenInterface}!Create@{Create}}
+\index{Create@{Create}!SWSalesScreenInterface@{SWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void S\+W\+Sales\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSWSalesScreenInterface_a9881cf70bbb1a419dffc2af91945080f}\label{classSWSalesScreenInterface_a9881cf70bbb1a419dffc2af91945080f}} 
+\index{SWSalesScreenInterface@{SWSalesScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!SWSalesScreenInterface@{SWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool S\+W\+Sales\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classSWSalesScreenInterface_a076b99fd14aa6f4d3cebc1e53c2f3aef}\label{classSWSalesScreenInterface_a076b99fd14aa6f4d3cebc1e53c2f3aef}} 
 \index{SWSalesScreenInterface@{SWSalesScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!SWSalesScreenInterface@{SWSalesScreenInterface}}

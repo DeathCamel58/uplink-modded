@@ -71,105 +71,149 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">    Scroll box object</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">    and functions</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_scrollbox_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_scrollbox_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;tosser.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef included_scrollbox_h</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define included_scrollbox_h</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;tosser.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define SIZE_SCROLLBOX_NAME     64</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classScrollBox.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classScrollBox.html">ScrollBox</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define SIZE_SCROLLBOX_NAME     64</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classScrollBox.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classScrollBox.html">ScrollBox</a></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classScrollBox.html#a2779a38dd6ef2b25061073e714320244">   19</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classScrollBox.html#a2779a38dd6ef2b25061073e714320244">name</a>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">string</span> name;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> x;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> y;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> w;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> h;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> numItems;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> windowSize;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> currentIndex;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    void (*callback) ( <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;, int );         <span class="comment">// Function callback for when value is changed</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classScrollBox.html">ScrollBox</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ~<a class="code" href="classScrollBox.html">ScrollBox</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> SetName            (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newname );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> SetDimensions      ( <span class="keywordtype">int</span> newx, <span class="keywordtype">int</span> newy, <span class="keywordtype">int</span> neww, <span class="keywordtype">int</span> newh );</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> SetNumItems        ( <span class="keywordtype">int</span> newNumItems );</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> SetWindowSize      ( <span class="keywordtype">int</span> newWindowSize );</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> SetCurrentIndex    ( <span class="keywordtype">int</span> newCurrentIndex );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> SetCallback        ( <span class="keywordtype">void</span> (*newcallback) (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;, <span class="keywordtype">int</span>) );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classScrollBox.html#a161b1e938bfd8e9bf94b641a1d7daecc">   24</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a161b1e938bfd8e9bf94b641a1d7daecc">x</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classScrollBox.html#a5f124649b7acacf87fd5ba981c2e77c0">   29</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a5f124649b7acacf87fd5ba981c2e77c0">y</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classScrollBox.html#a2ab24464ce6dcf2e9ae6b70618479258">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a2ab24464ce6dcf2e9ae6b70618479258">w</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classScrollBox.html#a887de0c0e34c54c4f0e92714bb3e31d1">   39</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a887de0c0e34c54c4f0e92714bb3e31d1">h</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classScrollBox.html#a89b04b5f267b68fef5bbee56eecc527b">   44</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a89b04b5f267b68fef5bbee56eecc527b">numItems</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classScrollBox.html#aec71aede6ff8d8722978453f7d58e395">   49</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#aec71aede6ff8d8722978453f7d58e395">windowSize</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Interface related stuff</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> interfaceCreated;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> CreateInterface ();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> RemoveInterface ();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> UpdateInterface () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> IsInterfaceVisible ();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> ScrollUp ();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> ScrollDown ();</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classScrollBox.html#a747c944173e9c367c2bbd9d0797a170c">   54</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a747c944173e9c367c2bbd9d0797a170c">currentIndex</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classScrollBox.html#ac9c1f641aa38cf24a9bbba1c18f13a53">   61</a></span>&#160;    void (*<a class="code" href="classScrollBox.html#ac9c1f641aa38cf24a9bbba1c18f13a53">callback</a>) ( <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;, int );</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ClickScrollUp       ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ClickScrollDown     ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ClickScrollBar      ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> MouseDownScrollBar  ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> MouseMoveScrollBar  ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> DrawScrollBar       ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// These manage the set of all scroll boxes in existence</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classScrollBox.html">ScrollBox</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ~<a class="code" href="classScrollBox.html">ScrollBox</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a6e8ec553bf93f252d5c48681e2e0801c">SetName</a>            (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newname );</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> CreateScrollBox (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                                 <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                 <span class="keywordtype">int</span> numItems, <span class="keywordtype">int</span> windowSize, <span class="keywordtype">int</span> currentIndex,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                 <span class="keywordtype">void</span> (*callback)(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;, <span class="keywordtype">int</span>) = <span class="keyword">nullptr</span> );</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> RemoveScrollBox (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name );</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">static</span> <a class="code" href="classScrollBox.html">ScrollBox</a> *GetScrollBox (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name );</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">static</span> <a class="code" href="classLList.html">LList &lt;ScrollBox *&gt;</a> scrollBoxes;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#ac2bdaeeb00efb28932b524c250681a68">SetDimensions</a>      ( <span class="keywordtype">int</span> newx, <span class="keywordtype">int</span> newy, <span class="keywordtype">int</span> neww, <span class="keywordtype">int</span> newh );</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// Grabbing stuff</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> currentGrab;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> GrabScrollBar   (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;name );</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> UnGrabScrollBar ();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> IsGrabInProgress ();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> UpdateGrabScroll ();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a31afed0df62faca3cece4a34adac59bb">SetNumItems</a>        ( <span class="keywordtype">int</span> newNumItems );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a6b4595050d3891a92353ca6bbdc693a6">SetWindowSize</a>      ( <span class="keywordtype">int</span> newWindowSize );</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a9450ab9294695e220db7df53011ff93b">SetCurrentIndex</a>    ( <span class="keywordtype">int</span> newCurrentIndex );</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#af0f318f9e2759d28efeb2709ca88f26e">SetCallback</a>        ( <span class="keywordtype">void</span> (*newcallback) (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;, <span class="keywordtype">int</span>) );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classScrollBox.html#aa5431a6a4ed98f4424deb3f55d4441c2">  116</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classScrollBox.html#aa5431a6a4ed98f4424deb3f55d4441c2">interfaceCreated</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a489b871026b0b4a688d2d7aca3e14d34">CreateInterface</a> ();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#ab84c129e4916057810e1c5af8690c5fd">RemoveInterface</a> ();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#ab090a442ca595644d2b85073b0cc363a">UpdateInterface</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classScrollBox.html#aa8931061cce14267efd12c16dc187bf3">IsInterfaceVisible</a> ();</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a5c2641211c5afe2c7b2e24bd18a5407f">ScrollUp</a> ();</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a23710e6a49dbd73a1f2ae1a3e9e2b872">ScrollDown</a> ();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ClickScrollUp       ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ClickScrollDown     ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ClickScrollBar      ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> MouseDownScrollBar  ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> MouseMoveScrollBar  ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> DrawScrollBar       ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#aa92bb5948c19dc902f8739b3bedf3eef">CreateScrollBox</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="classScrollBox.html#a2779a38dd6ef2b25061073e714320244">name</a>,</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                                 <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a161b1e938bfd8e9bf94b641a1d7daecc">x</a>, <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a5f124649b7acacf87fd5ba981c2e77c0">y</a>, <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a2ab24464ce6dcf2e9ae6b70618479258">w</a>, <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a887de0c0e34c54c4f0e92714bb3e31d1">h</a>,</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                                 <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a89b04b5f267b68fef5bbee56eecc527b">numItems</a>, <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#aec71aede6ff8d8722978453f7d58e395">windowSize</a>, <span class="keywordtype">int</span> <a class="code" href="classScrollBox.html#a747c944173e9c367c2bbd9d0797a170c">currentIndex</a>,</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                                 <span class="keywordtype">void</span> (*<a class="code" href="classScrollBox.html#ac9c1f641aa38cf24a9bbba1c18f13a53">callback</a>)(<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;, <span class="keywordtype">int</span>) = <span class="keyword">nullptr</span> );</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a072422d8c13d888a78ea0a7edc0b00f1">RemoveScrollBox</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="classScrollBox.html#a2779a38dd6ef2b25061073e714320244">name</a> );</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">static</span> <a class="code" href="classScrollBox.html">ScrollBox</a> *<a class="code" href="classScrollBox.html#af75b2c2f5598e88740d624a15f854afd">GetScrollBox</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="classScrollBox.html#a2779a38dd6ef2b25061073e714320244">name</a> );</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classScrollBox.html#afdf663b0600ca09d09f42673eba3bc63">  197</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="classLList.html">LList &lt;ScrollBox *&gt;</a> <a class="code" href="classScrollBox.html#afdf663b0600ca09d09f42673eba3bc63">scrollBoxes</a>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="classScrollBox.html#ac4d45437a3b50ca1b22ee1dc82ad84d8">  208</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">string</span> <a class="code" href="classScrollBox.html#ac4d45437a3b50ca1b22ee1dc82ad84d8">currentGrab</a>;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a092068ec97416c934e8bbb322f83e5d9">GrabScrollBar</a>   (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;<a class="code" href="classScrollBox.html#a2779a38dd6ef2b25061073e714320244">name</a> );</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#ae1e077d9ec5cb7e43bd7eb9b79e4f88c">UnGrabScrollBar</a> ();</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classScrollBox.html#ab4cbbc524b9bdedb56bde1ee21e9c6f1">IsGrabInProgress</a> ();</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classScrollBox.html#a429ec4a4564ad2ab7c57f65a8dc14ad0">UpdateGrabScroll</a> ();</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;};</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassScrollBox_html_ac2bdaeeb00efb28932b524c250681a68"><div class="ttname"><a href="classScrollBox.html#ac2bdaeeb00efb28932b524c250681a68">ScrollBox::SetDimensions</a></div><div class="ttdeci">void SetDimensions(int newx, int newy, int neww, int newh)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:43</div></div>
 <div class="ttc" id="aclassLList_html"><div class="ttname"><a href="classLList.html">LList&lt; ScrollBox * &gt;</a></div></div>
+<div class="ttc" id="aclassScrollBox_html_a887de0c0e34c54c4f0e92714bb3e31d1"><div class="ttname"><a href="classScrollBox.html#a887de0c0e34c54c4f0e92714bb3e31d1">ScrollBox::h</a></div><div class="ttdeci">int h</div><div class="ttdef"><b>Definition:</b> scrollbox.h:39</div></div>
+<div class="ttc" id="aclassScrollBox_html_aa5431a6a4ed98f4424deb3f55d4441c2"><div class="ttname"><a href="classScrollBox.html#aa5431a6a4ed98f4424deb3f55d4441c2">ScrollBox::interfaceCreated</a></div><div class="ttdeci">bool interfaceCreated</div><div class="ttdef"><b>Definition:</b> scrollbox.h:116</div></div>
+<div class="ttc" id="aclassScrollBox_html_a092068ec97416c934e8bbb322f83e5d9"><div class="ttname"><a href="classScrollBox.html#a092068ec97416c934e8bbb322f83e5d9">ScrollBox::GrabScrollBar</a></div><div class="ttdeci">static void GrabScrollBar(const string &amp;name)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:245</div></div>
+<div class="ttc" id="aclassScrollBox_html_a489b871026b0b4a688d2d7aca3e14d34"><div class="ttname"><a href="classScrollBox.html#a489b871026b0b4a688d2d7aca3e14d34">ScrollBox::CreateInterface</a></div><div class="ttdeci">void CreateInterface()</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:305</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
-<div class="ttc" id="aclassScrollBox_html"><div class="ttname"><a href="classScrollBox.html">ScrollBox</a></div><div class="ttdef"><b>Definition:</b> scrollbox.h:18</div></div>
+<div class="ttc" id="aclassScrollBox_html_a31afed0df62faca3cece4a34adac59bb"><div class="ttname"><a href="classScrollBox.html#a31afed0df62faca3cece4a34adac59bb">ScrollBox::SetNumItems</a></div><div class="ttdeci">void SetNumItems(int newNumItems)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:53</div></div>
+<div class="ttc" id="aclassScrollBox_html_a6b4595050d3891a92353ca6bbdc693a6"><div class="ttname"><a href="classScrollBox.html#a6b4595050d3891a92353ca6bbdc693a6">ScrollBox::SetWindowSize</a></div><div class="ttdeci">void SetWindowSize(int newWindowSize)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:66</div></div>
+<div class="ttc" id="aclassScrollBox_html_a23710e6a49dbd73a1f2ae1a3e9e2b872"><div class="ttname"><a href="classScrollBox.html#a23710e6a49dbd73a1f2ae1a3e9e2b872">ScrollBox::ScrollDown</a></div><div class="ttdeci">void ScrollDown()</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:141</div></div>
+<div class="ttc" id="aclassScrollBox_html_a429ec4a4564ad2ab7c57f65a8dc14ad0"><div class="ttname"><a href="classScrollBox.html#a429ec4a4564ad2ab7c57f65a8dc14ad0">ScrollBox::UpdateGrabScroll</a></div><div class="ttdeci">static void UpdateGrabScroll()</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:270</div></div>
+<div class="ttc" id="aclassScrollBox_html_ae1e077d9ec5cb7e43bd7eb9b79e4f88c"><div class="ttname"><a href="classScrollBox.html#ae1e077d9ec5cb7e43bd7eb9b79e4f88c">ScrollBox::UnGrabScrollBar</a></div><div class="ttdeci">static void UnGrabScrollBar()</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:250</div></div>
+<div class="ttc" id="aclassScrollBox_html_ab090a442ca595644d2b85073b0cc363a"><div class="ttname"><a href="classScrollBox.html#ab090a442ca595644d2b85073b0cc363a">ScrollBox::UpdateInterface</a></div><div class="ttdeci">void UpdateInterface() const</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:345</div></div>
+<div class="ttc" id="aclassScrollBox_html_a89b04b5f267b68fef5bbee56eecc527b"><div class="ttname"><a href="classScrollBox.html#a89b04b5f267b68fef5bbee56eecc527b">ScrollBox::numItems</a></div><div class="ttdeci">int numItems</div><div class="ttdef"><b>Definition:</b> scrollbox.h:44</div></div>
+<div class="ttc" id="aclassScrollBox_html"><div class="ttname"><a href="classScrollBox.html">ScrollBox</a></div><div class="ttdoc">Scroll box object.</div><div class="ttdef"><b>Definition:</b> scrollbox.h:11</div></div>
+<div class="ttc" id="aclassScrollBox_html_a2779a38dd6ef2b25061073e714320244"><div class="ttname"><a href="classScrollBox.html#a2779a38dd6ef2b25061073e714320244">ScrollBox::name</a></div><div class="ttdeci">string name</div><div class="ttdef"><b>Definition:</b> scrollbox.h:19</div></div>
+<div class="ttc" id="aclassScrollBox_html_af0f318f9e2759d28efeb2709ca88f26e"><div class="ttname"><a href="classScrollBox.html#af0f318f9e2759d28efeb2709ca88f26e">ScrollBox::SetCallback</a></div><div class="ttdeci">void SetCallback(void(*newcallback)(const string &amp;, int))</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:78</div></div>
+<div class="ttc" id="aclassScrollBox_html_ab84c129e4916057810e1c5af8690c5fd"><div class="ttname"><a href="classScrollBox.html#ab84c129e4916057810e1c5af8690c5fd">ScrollBox::RemoveInterface</a></div><div class="ttdeci">void RemoveInterface()</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:326</div></div>
+<div class="ttc" id="aclassScrollBox_html_aa8931061cce14267efd12c16dc187bf3"><div class="ttname"><a href="classScrollBox.html#aa8931061cce14267efd12c16dc187bf3">ScrollBox::IsInterfaceVisible</a></div><div class="ttdeci">static bool IsInterfaceVisible()</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:355</div></div>
+<div class="ttc" id="aclassScrollBox_html_a6e8ec553bf93f252d5c48681e2e0801c"><div class="ttname"><a href="classScrollBox.html#a6e8ec553bf93f252d5c48681e2e0801c">ScrollBox::SetName</a></div><div class="ttdeci">void SetName(const string &amp;newname)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:36</div></div>
+<div class="ttc" id="aclassScrollBox_html_a072422d8c13d888a78ea0a7edc0b00f1"><div class="ttname"><a href="classScrollBox.html#a072422d8c13d888a78ea0a7edc0b00f1">ScrollBox::RemoveScrollBox</a></div><div class="ttdeci">static void RemoveScrollBox(const string &amp;name)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:379</div></div>
+<div class="ttc" id="aclassScrollBox_html_a161b1e938bfd8e9bf94b641a1d7daecc"><div class="ttname"><a href="classScrollBox.html#a161b1e938bfd8e9bf94b641a1d7daecc">ScrollBox::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> scrollbox.h:24</div></div>
+<div class="ttc" id="aclassScrollBox_html_afdf663b0600ca09d09f42673eba3bc63"><div class="ttname"><a href="classScrollBox.html#afdf663b0600ca09d09f42673eba3bc63">ScrollBox::scrollBoxes</a></div><div class="ttdeci">static LList&lt; ScrollBox * &gt; scrollBoxes</div><div class="ttdef"><b>Definition:</b> scrollbox.h:197</div></div>
+<div class="ttc" id="aclassScrollBox_html_ab4cbbc524b9bdedb56bde1ee21e9c6f1"><div class="ttname"><a href="classScrollBox.html#ab4cbbc524b9bdedb56bde1ee21e9c6f1">ScrollBox::IsGrabInProgress</a></div><div class="ttdeci">static bool IsGrabInProgress()</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:257</div></div>
+<div class="ttc" id="aclassScrollBox_html_ac9c1f641aa38cf24a9bbba1c18f13a53"><div class="ttname"><a href="classScrollBox.html#ac9c1f641aa38cf24a9bbba1c18f13a53">ScrollBox::callback</a></div><div class="ttdeci">void(* callback)(const string &amp;, int)</div><div class="ttdef"><b>Definition:</b> scrollbox.h:61</div></div>
+<div class="ttc" id="aclassScrollBox_html_a5f124649b7acacf87fd5ba981c2e77c0"><div class="ttname"><a href="classScrollBox.html#a5f124649b7acacf87fd5ba981c2e77c0">ScrollBox::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> scrollbox.h:29</div></div>
+<div class="ttc" id="aclassScrollBox_html_a2ab24464ce6dcf2e9ae6b70618479258"><div class="ttname"><a href="classScrollBox.html#a2ab24464ce6dcf2e9ae6b70618479258">ScrollBox::w</a></div><div class="ttdeci">int w</div><div class="ttdef"><b>Definition:</b> scrollbox.h:34</div></div>
+<div class="ttc" id="aclassScrollBox_html_af75b2c2f5598e88740d624a15f854afd"><div class="ttname"><a href="classScrollBox.html#af75b2c2f5598e88740d624a15f854afd">ScrollBox::GetScrollBox</a></div><div class="ttdeci">static ScrollBox * GetScrollBox(const string &amp;name)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:397</div></div>
+<div class="ttc" id="aclassScrollBox_html_a5c2641211c5afe2c7b2e24bd18a5407f"><div class="ttname"><a href="classScrollBox.html#a5c2641211c5afe2c7b2e24bd18a5407f">ScrollBox::ScrollUp</a></div><div class="ttdeci">void ScrollUp()</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:130</div></div>
+<div class="ttc" id="aclassScrollBox_html_aa92bb5948c19dc902f8739b3bedf3eef"><div class="ttname"><a href="classScrollBox.html#aa92bb5948c19dc902f8739b3bedf3eef">ScrollBox::CreateScrollBox</a></div><div class="ttdeci">static void CreateScrollBox(const string &amp;name, int x, int y, int w, int h, int numItems, int windowSize, int currentIndex, void(*callback)(const string &amp;, int)=nullptr)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:360</div></div>
+<div class="ttc" id="aclassScrollBox_html_aec71aede6ff8d8722978453f7d58e395"><div class="ttname"><a href="classScrollBox.html#aec71aede6ff8d8722978453f7d58e395">ScrollBox::windowSize</a></div><div class="ttdeci">int windowSize</div><div class="ttdef"><b>Definition:</b> scrollbox.h:49</div></div>
+<div class="ttc" id="aclassScrollBox_html_ac4d45437a3b50ca1b22ee1dc82ad84d8"><div class="ttname"><a href="classScrollBox.html#ac4d45437a3b50ca1b22ee1dc82ad84d8">ScrollBox::currentGrab</a></div><div class="ttdeci">static string currentGrab</div><div class="ttdef"><b>Definition:</b> scrollbox.h:208</div></div>
+<div class="ttc" id="aclassScrollBox_html_a747c944173e9c367c2bbd9d0797a170c"><div class="ttname"><a href="classScrollBox.html#a747c944173e9c367c2bbd9d0797a170c">ScrollBox::currentIndex</a></div><div class="ttdeci">int currentIndex</div><div class="ttdef"><b>Definition:</b> scrollbox.h:54</div></div>
+<div class="ttc" id="aclassScrollBox_html_a9450ab9294695e220db7df53011ff93b"><div class="ttname"><a href="classScrollBox.html#a9450ab9294695e220db7df53011ff93b">ScrollBox::SetCurrentIndex</a></div><div class="ttdeci">void SetCurrentIndex(int newCurrentIndex)</div><div class="ttdef"><b>Definition:</b> scrollbox.cpp:72</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

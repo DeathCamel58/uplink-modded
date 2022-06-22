@@ -23,8 +23,7 @@ Collaboration diagram for High\+Security\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHighSecurityScreenInterface_aec20fdada7ca115b5cfe6bb13f91970f}\label{classHighSecurityScreenInterface_aec20fdada7ca115b5cfe6bb13f91970f}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classHighSecurityScreenInterface_aec20fdada7ca115b5cfe6bb13f91970f}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classHighSecurityScreenInterface_a9085898acca9c954a54214207aaa533c}{Remove}} () override
 \item 
@@ -34,8 +33,7 @@ bool \mbox{\hyperlink{classHighSecurityScreenInterface_ac8576c7a4beaa8d182b5eb37
 \item 
 int \mbox{\hyperlink{classHighSecurityScreenInterface_aca27f62148f741d4be97bb8cff91d246}{Screen\+ID}} () override
 \item 
-\mbox{\Hypertarget{classHighSecurityScreenInterface_a575cf8fd1a48d1cac8441cd1a1329185}\label{classHighSecurityScreenInterface_a575cf8fd1a48d1cac8441cd1a1329185}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classHighSecurityScreenInterface_a575cf8fd1a48d1cac8441cd1a1329185}{Return\+Key\+Pressed}} () override
 \item 
 \mbox{\Hypertarget{classHighSecurityScreenInterface_a10d206aceb5194ad9cf1da2388d38ad1}\label{classHighSecurityScreenInterface_a10d206aceb5194ad9cf1da2388d38ad1}} 
 \mbox{\hyperlink{classHighSecurityScreen}{High\+Security\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
@@ -59,6 +57,21 @@ static void {\bfseries Proceed\+Click} (\mbox{\hyperlink{classButton}{Button}} $
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHighSecurityScreenInterface_aec20fdada7ca115b5cfe6bb13f91970f}\label{classHighSecurityScreenInterface_aec20fdada7ca115b5cfe6bb13f91970f}} 
+\index{HighSecurityScreenInterface@{HighSecurityScreenInterface}!Create@{Create}}
+\index{Create@{Create}!HighSecurityScreenInterface@{HighSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void High\+Security\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classHighSecurityScreenInterface_ac8576c7a4beaa8d182b5eb3774877b34}\label{classHighSecurityScreenInterface_ac8576c7a4beaa8d182b5eb3774877b34}} 
 \index{HighSecurityScreenInterface@{HighSecurityScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!HighSecurityScreenInterface@{HighSecurityScreenInterface}}
@@ -81,6 +94,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHighSecurityScreenInterface_a575cf8fd1a48d1cac8441cd1a1329185}\label{classHighSecurityScreenInterface_a575cf8fd1a48d1cac8441cd1a1329185}} 
+\index{HighSecurityScreenInterface@{HighSecurityScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!HighSecurityScreenInterface@{HighSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool High\+Security\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classHighSecurityScreenInterface_aca27f62148f741d4be97bb8cff91d246}\label{classHighSecurityScreenInterface_aca27f62148f741d4be97bb8cff91d246}} 
 \index{HighSecurityScreenInterface@{HighSecurityScreenInterface}!ScreenID@{ScreenID}}

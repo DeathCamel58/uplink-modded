@@ -23,13 +23,11 @@ Collaboration diagram for Loans\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLoansScreenInterface_a82fb6d87110290f6f23f105e26a7be65}\label{classLoansScreenInterface_a82fb6d87110290f6f23f105e26a7be65}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classLoansScreenInterface_a82fb6d87110290f6f23f105e26a7be65}{Escape\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classLoansScreenInterface_a98f485dd10dcc7f4d10d02bc012b23a6}{Create}} () override
 \item 
-\mbox{\Hypertarget{classLoansScreenInterface_acca53f27539cf5c77abf573e38a9c7c5}\label{classLoansScreenInterface_acca53f27539cf5c77abf573e38a9c7c5}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classLoansScreenInterface_acca53f27539cf5c77abf573e38a9c7c5}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classLoansScreenInterface_a602af53641de47a6639376cc90ec1879}{Remove}} () override
 \item 
@@ -70,12 +68,40 @@ int {\bfseries loanchange}
 \mbox{\Hypertarget{classLoansScreenInterface_a98f485dd10dcc7f4d10d02bc012b23a6}\label{classLoansScreenInterface_a98f485dd10dcc7f4d10d02bc012b23a6}} 
 \index{LoansScreenInterface@{LoansScreenInterface}!Create@{Create}}
 \index{Create@{Create}!LoansScreenInterface@{LoansScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Loans\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLoansScreenInterface_acca53f27539cf5c77abf573e38a9c7c5}\label{classLoansScreenInterface_acca53f27539cf5c77abf573e38a9c7c5}} 
+\index{LoansScreenInterface@{LoansScreenInterface}!Create@{Create}}
+\index{Create@{Create}!LoansScreenInterface@{LoansScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Loans\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLoansScreenInterface_a82fb6d87110290f6f23f105e26a7be65}\label{classLoansScreenInterface_a82fb6d87110290f6f23f105e26a7be65}} 
+\index{LoansScreenInterface@{LoansScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!LoansScreenInterface@{LoansScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Loans\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classLoansScreenInterface_a912d33686e18714ebd70bc00543e76d4}\label{classLoansScreenInterface_a912d33686e18714ebd70bc00543e76d4}} 
 \index{LoansScreenInterface@{LoansScreenInterface}!IsVisible@{IsVisible}}

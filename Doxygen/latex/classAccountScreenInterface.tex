@@ -23,13 +23,11 @@ Collaboration diagram for Account\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAccountScreenInterface_a7c7a14d3912d4f722238a7b622ea97bf}\label{classAccountScreenInterface_a7c7a14d3912d4f722238a7b622ea97bf}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classAccountScreenInterface_a7c7a14d3912d4f722238a7b622ea97bf}{Escape\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classAccountScreenInterface_a7ae85ba2e32567a8862446911dc1b134}{Create}} () override
 \item 
-\mbox{\Hypertarget{classAccountScreenInterface_aa8eb97062fe2c24fea5c0d4ae75794cf}\label{classAccountScreenInterface_aa8eb97062fe2c24fea5c0d4ae75794cf}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classAccountScreenInterface_aa8eb97062fe2c24fea5c0d4ae75794cf}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classAccountScreenInterface_a3fe4193598c53c20e56ba255c2f0d3ae}{Remove}} () override
 \item 
@@ -64,12 +62,40 @@ time\+\_\+t {\bfseries lastupdate}
 \mbox{\Hypertarget{classAccountScreenInterface_a7ae85ba2e32567a8862446911dc1b134}\label{classAccountScreenInterface_a7ae85ba2e32567a8862446911dc1b134}} 
 \index{AccountScreenInterface@{AccountScreenInterface}!Create@{Create}}
 \index{Create@{Create}!AccountScreenInterface@{AccountScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Account\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAccountScreenInterface_aa8eb97062fe2c24fea5c0d4ae75794cf}\label{classAccountScreenInterface_aa8eb97062fe2c24fea5c0d4ae75794cf}} 
+\index{AccountScreenInterface@{AccountScreenInterface}!Create@{Create}}
+\index{Create@{Create}!AccountScreenInterface@{AccountScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Account\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAccountScreenInterface_a7c7a14d3912d4f722238a7b622ea97bf}\label{classAccountScreenInterface_a7c7a14d3912d4f722238a7b622ea97bf}} 
+\index{AccountScreenInterface@{AccountScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!AccountScreenInterface@{AccountScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Account\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classAccountScreenInterface_a4822598698258827d73f6324a9f77873}\label{classAccountScreenInterface_a4822598698258827d73f6324a9f77873}} 
 \index{AccountScreenInterface@{AccountScreenInterface}!IsVisible@{IsVisible}}

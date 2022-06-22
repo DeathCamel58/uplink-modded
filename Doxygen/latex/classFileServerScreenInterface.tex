@@ -23,13 +23,11 @@ Collaboration diagram for File\+Server\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFileServerScreenInterface_a83288c34e1ec3328b24e938e4668e1cf}\label{classFileServerScreenInterface_a83288c34e1ec3328b24e938e4668e1cf}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classFileServerScreenInterface_a83288c34e1ec3328b24e938e4668e1cf}{Escape\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classFileServerScreenInterface_a77120cf7156177cb9d0c6b467691d9c0}{Create}} () override
 \item 
-\mbox{\Hypertarget{classFileServerScreenInterface_a4cf5c3f828286ca911eebc8672bea116}\label{classFileServerScreenInterface_a4cf5c3f828286ca911eebc8672bea116}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classFileServerScreenInterface_a4cf5c3f828286ca911eebc8672bea116}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classFileServerScreenInterface_ac4be8d6e2d1399ff9d05e66ca561f95b}{Remove}} () override
 \item 
@@ -82,12 +80,40 @@ static int {\bfseries previousnumfiles} = 0
 \mbox{\Hypertarget{classFileServerScreenInterface_a77120cf7156177cb9d0c6b467691d9c0}\label{classFileServerScreenInterface_a77120cf7156177cb9d0c6b467691d9c0}} 
 \index{FileServerScreenInterface@{FileServerScreenInterface}!Create@{Create}}
 \index{Create@{Create}!FileServerScreenInterface@{FileServerScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void File\+Server\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFileServerScreenInterface_a4cf5c3f828286ca911eebc8672bea116}\label{classFileServerScreenInterface_a4cf5c3f828286ca911eebc8672bea116}} 
+\index{FileServerScreenInterface@{FileServerScreenInterface}!Create@{Create}}
+\index{Create@{Create}!FileServerScreenInterface@{FileServerScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void File\+Server\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFileServerScreenInterface_a83288c34e1ec3328b24e938e4668e1cf}\label{classFileServerScreenInterface_a83288c34e1ec3328b24e938e4668e1cf}} 
+\index{FileServerScreenInterface@{FileServerScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!FileServerScreenInterface@{FileServerScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool File\+Server\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classFileServerScreenInterface_a6992f92c67974f438c6c3e17dea8f439}\label{classFileServerScreenInterface_a6992f92c67974f438c6c3e17dea8f439}} 
 \index{FileServerScreenInterface@{FileServerScreenInterface}!IsVisible@{IsVisible}}

@@ -41,11 +41,9 @@ void {\bfseries Cypher\+Lock} ()
 \mbox{\Hypertarget{classCypherScreenInterface_a3fa017863a6fdedd2fba4a4e37000ec5}\label{classCypherScreenInterface_a3fa017863a6fdedd2fba4a4e37000ec5}} 
 void {\bfseries Cycle} ()
 \item 
-\mbox{\Hypertarget{classCypherScreenInterface_a2d77085236affcca6c2b9aa653e45257}\label{classCypherScreenInterface_a2d77085236affcca6c2b9aa653e45257}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classCypherScreenInterface_a2d77085236affcca6c2b9aa653e45257}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classCypherScreenInterface_a47aadca187fbe799d9322c5ece28d927}\label{classCypherScreenInterface_a47aadca187fbe799d9322c5ece28d927}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classCypherScreenInterface_a47aadca187fbe799d9322c5ece28d927}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classCypherScreenInterface_a6d6400b071cfa58035b8d864fdd5e7b6}{Remove}} () override
 \item 
@@ -92,6 +90,21 @@ int {\bfseries lastupdate}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCypherScreenInterface_a47aadca187fbe799d9322c5ece28d927}\label{classCypherScreenInterface_a47aadca187fbe799d9322c5ece28d927}} 
+\index{CypherScreenInterface@{CypherScreenInterface}!Create@{Create}}
+\index{Create@{Create}!CypherScreenInterface@{CypherScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Cypher\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classCypherScreenInterface_ab5f564d77b05b6c76cac2dc61c7c3455}\label{classCypherScreenInterface_ab5f564d77b05b6c76cac2dc61c7c3455}} 
 \index{CypherScreenInterface@{CypherScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!CypherScreenInterface@{CypherScreenInterface}}
@@ -114,6 +127,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCypherScreenInterface_a2d77085236affcca6c2b9aa653e45257}\label{classCypherScreenInterface_a2d77085236affcca6c2b9aa653e45257}} 
+\index{CypherScreenInterface@{CypherScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!CypherScreenInterface@{CypherScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Cypher\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classCypherScreenInterface_a6ab526d8fae10087b67ef985e8ce6895}\label{classCypherScreenInterface_a6ab526d8fae10087b67ef985e8ce6895}} 
 \index{CypherScreenInterface@{CypherScreenInterface}!ScreenID@{ScreenID}}

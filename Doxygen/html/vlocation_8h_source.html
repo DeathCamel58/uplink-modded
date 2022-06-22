@@ -71,125 +71,141 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Represents a location in the Uplink world</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_vlocation_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_vlocation_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef included_vlocation_h</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define included_vlocation_h</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define SIZE_VLOCATION_IP  24</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define SIZE_COMPUTER_NAME   64</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define SIZE_VLOCATION_IP  24</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define SIZE_COMPUTER_NAME   64</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define VIRTUAL_WIDTH     594</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define VIRTUAL_HEIGHT    315</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="classComputer.html">Computer</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// ============================================================================</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define VIRTUAL_WIDTH     594</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define VIRTUAL_HEIGHT    315</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span><a class="code" href="classComputer.html">Computer</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classVLocation.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVLocation.html">VLocation</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classVLocation.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVLocation.html">VLocation</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">char</span> ip       [SIZE_VLOCATION_IP];              <span class="comment">// Unique</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">string</span> computer;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> x, y;                   <span class="comment">// Physical location on map</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> listed;                <span class="comment">// Am I publicly listed?</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> displayed;             <span class="comment">// Should I be displayed on the world map?</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> colored;               <span class="comment">// Should I be displayed in a distinct color on the world map?</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classVLocation.html">VLocation</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    ~<a class="code" href="classVLocation.html">VLocation</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> SetIP (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newip );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> VerifyIP (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newip );</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> SetComputer (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newcomputer );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> SetPLocation ( <span class="keywordtype">int</span> newx, <span class="keywordtype">int</span> newy );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> VerifyPLocation ( <span class="keywordtype">int</span> newx, <span class="keywordtype">int</span> newy );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> SetListed ( <span class="keywordtype">bool</span> newlisted );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> SetDisplayed ( <span class="keywordtype">bool</span> newdisplayed );</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> SetColorDisplayed ( <span class="keywordtype">bool</span> newcolored );</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classComputer.html">Computer</a> *GetComputer ();               <span class="comment">// Returns NULL if none</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// Common functions</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVLocation.html#a73217de149e2b1c37a0bda014c7380bb">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#ae8b0db4777b8ac51effcfae5dc29a793">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#a7bc681d67d4ea6c5c51a18460f66fc6e">Print</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classVLocation.html#a5b3818fcdb1c6b7e021f39ad213efaa1">GetID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classVLocation.html#add7de0256285fc416ac300d646e88794">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classVLocation.html#adef80075f523829400726d47ae07ca0b">   31</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="classVLocation.html#adef80075f523829400726d47ae07ca0b">ip</a>       [SIZE_VLOCATION_IP];</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classVLocation.html#a390e5ae1024a7c122f87879c92c474b6">   36</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classVLocation.html#a390e5ae1024a7c122f87879c92c474b6">computer</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classVLocation.html#a4ed28004e807a0073e15de5f8c50f6d2">   41</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVLocation.html#a4ed28004e807a0073e15de5f8c50f6d2">x</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classVLocation.html#a08ac9c5b688d8d6acb03af86e9f9f7af">   46</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVLocation.html#a08ac9c5b688d8d6acb03af86e9f9f7af">y</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classVLocation.html#a81e2245b8dbad1b0230e8b6808288b7c">   51</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVLocation.html#a81e2245b8dbad1b0230e8b6808288b7c">listed</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classVLocation.html#ae8b3ebe2dcc32296a3a4dc707655ee48">   56</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVLocation.html#ae8b3ebe2dcc32296a3a4dc707655ee48">displayed</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classVLocation.html#ac8fdbd8f8470acc220b817832fe53592">   61</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVLocation.html#ac8fdbd8f8470acc220b817832fe53592">colored</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classVLocation.html">VLocation</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ~<a class="code" href="classVLocation.html">VLocation</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">    Special Virtual Location</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">    Used to specify which screen you enter the system at</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">    Currently used on modems, which can jump into a system at any screen</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classVLocationSpecial.html">   78</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVLocationSpecial.html">VLocationSpecial</a> : <span class="keyword">public</span> <a class="code" href="classVLocation.html">VLocation</a></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#a241e50f2b706317e6684bfa1fd3cb5fc">SetIP</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newip );</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classVLocation.html#a07669ac9ad5869c3a17605e2bfcc92a4">VerifyIP</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newip );</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">int</span> screenIndex;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">int</span> securitySystemIndex;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classVLocationSpecial.html">VLocationSpecial</a> ();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    ~<a class="code" href="classVLocationSpecial.html">VLocationSpecial</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> SetScreenIndex ( <span class="keywordtype">int</span> newScreenIndex );</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> SetSecuritySystemIndex ( <span class="keywordtype">int</span> newIndex );</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#a86834757ff6e3e7b0ba336dbf0ae2324">SetComputer</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newcomputer );</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#ae2afcfa179f3cd354129734bc9fea8de">SetPLocation</a> ( <span class="keywordtype">int</span> newx, <span class="keywordtype">int</span> newy );</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="comment">// Common functions</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVLocationSpecial.html#a774a0adde46ae631feeba2d6db99505d">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocationSpecial.html#a0699729e4a8e05bfbc0ba9774aeb1b23">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocationSpecial.html#a810073094f4f9eed64bade43e90a5bcc">Print</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classVLocationSpecial.html#a88b2d7353313c6426303c871e75b7893">GetID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classVLocationSpecial.html#a5e9d04e963b6ae2ba35e0db7c469b589">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif </span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classVLocation.html#ad8dcb5fbff39bbecc293cc9a76cb3141">VerifyPLocation</a> ( <span class="keywordtype">int</span> newx, <span class="keywordtype">int</span> newy );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#a70cf49f014845669dc142c79ca6d8609">SetListed</a> ( <span class="keywordtype">bool</span> newlisted );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#ab4ea5301524e8d9ef519429bf6389d9f">SetDisplayed</a> ( <span class="keywordtype">bool</span> newdisplayed );</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#adb60956d78a81de8d39306e218306e55">SetColorDisplayed</a> ( <span class="keywordtype">bool</span> newcolored );</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="classComputer.html">Computer</a> *<a class="code" href="classVLocation.html#ad847c6fc4e40cb8ee2fc83db7bf2545f">GetComputer</a> ();               <span class="comment">// Returns NULL if none</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVLocation.html#a73217de149e2b1c37a0bda014c7380bb">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#ae8b0db4777b8ac51effcfae5dc29a793">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocation.html#a7bc681d67d4ea6c5c51a18460f66fc6e">Print</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classVLocation.html#a5b3818fcdb1c6b7e021f39ad213efaa1">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classVLocation.html#add7de0256285fc416ac300d646e88794">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;};</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="classVLocationSpecial.html">  142</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVLocationSpecial.html">VLocationSpecial</a> : <span class="keyword">public</span> <a class="code" href="classVLocation.html">VLocation</a></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;{</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classVLocationSpecial.html#a20cbf9abbb64e29f74f90dabe71a2e61">  150</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVLocationSpecial.html#a20cbf9abbb64e29f74f90dabe71a2e61">screenIndex</a>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">int</span> securitySystemIndex;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="classVLocationSpecial.html">VLocationSpecial</a> ();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    ~<a class="code" href="classVLocationSpecial.html">VLocationSpecial</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocationSpecial.html#adb5b5c7396a6acf9b45e37ead481227e">SetScreenIndex</a> ( <span class="keywordtype">int</span> newScreenIndex );</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span> SetSecuritySystemIndex ( <span class="keywordtype">int</span> newIndex );</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVLocationSpecial.html#a774a0adde46ae631feeba2d6db99505d">Load</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocationSpecial.html#a0699729e4a8e05bfbc0ba9774aeb1b23">Save</a>  ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVLocationSpecial.html#a810073094f4f9eed64bade43e90a5bcc">Print</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classVLocationSpecial.html#a88b2d7353313c6426303c871e75b7893">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">int</span>   <a class="code" href="classVLocationSpecial.html#a5e9d04e963b6ae2ba35e0db7c469b589">GetOBJECTID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;};</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#endif </span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassVLocation_html_add7de0256285fc416ac300d646e88794"><div class="ttname"><a href="classVLocation.html#add7de0256285fc416ac300d646e88794">VLocation::GetOBJECTID</a></div><div class="ttdeci">int GetOBJECTID() override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:229</div></div>
+<div class="ttc" id="aclassVLocation_html_adef80075f523829400726d47ae07ca0b"><div class="ttname"><a href="classVLocation.html#adef80075f523829400726d47ae07ca0b">VLocation::ip</a></div><div class="ttdeci">char ip[SIZE_VLOCATION_IP]</div><div class="ttdef"><b>Definition:</b> vlocation.h:31</div></div>
+<div class="ttc" id="aclassVLocation_html_a390e5ae1024a7c122f87879c92c474b6"><div class="ttname"><a href="classVLocation.html#a390e5ae1024a7c122f87879c92c474b6">VLocation::computer</a></div><div class="ttdeci">string computer</div><div class="ttdef"><b>Definition:</b> vlocation.h:36</div></div>
+<div class="ttc" id="aclassVLocation_html_ad847c6fc4e40cb8ee2fc83db7bf2545f"><div class="ttname"><a href="classVLocation.html#ad847c6fc4e40cb8ee2fc83db7bf2545f">VLocation::GetComputer</a></div><div class="ttdeci">Computer * GetComputer()</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:112</div></div>
+<div class="ttc" id="aclassVLocation_html_ab4ea5301524e8d9ef519429bf6389d9f"><div class="ttname"><a href="classVLocation.html#ab4ea5301524e8d9ef519429bf6389d9f">VLocation::SetDisplayed</a></div><div class="ttdeci">void SetDisplayed(bool newdisplayed)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:98</div></div>
 <div class="ttc" id="aclassVLocation_html_a73217de149e2b1c37a0bda014c7380bb"><div class="ttname"><a href="classVLocation.html#a73217de149e2b1c37a0bda014c7380bb">VLocation::Load</a></div><div class="ttdeci">bool Load(FILE *file) override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:166</div></div>
 <div class="ttc" id="aclassVLocation_html_a7bc681d67d4ea6c5c51a18460f66fc6e"><div class="ttname"><a href="classVLocation.html#a7bc681d67d4ea6c5c51a18460f66fc6e">VLocation::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:208</div></div>
+<div class="ttc" id="aclassVLocation_html_adb60956d78a81de8d39306e218306e55"><div class="ttname"><a href="classVLocation.html#adb60956d78a81de8d39306e218306e55">VLocation::SetColorDisplayed</a></div><div class="ttdeci">void SetColorDisplayed(bool newcolored)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:105</div></div>
+<div class="ttc" id="aclassVLocation_html_ac8fdbd8f8470acc220b817832fe53592"><div class="ttname"><a href="classVLocation.html#ac8fdbd8f8470acc220b817832fe53592">VLocation::colored</a></div><div class="ttdeci">bool colored</div><div class="ttdef"><b>Definition:</b> vlocation.h:61</div></div>
 <div class="ttc" id="aclassVLocationSpecial_html_a810073094f4f9eed64bade43e90a5bcc"><div class="ttname"><a href="classVLocationSpecial.html#a810073094f4f9eed64bade43e90a5bcc">VLocationSpecial::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:283</div></div>
+<div class="ttc" id="aclassVLocation_html_a86834757ff6e3e7b0ba336dbf0ae2324"><div class="ttname"><a href="classVLocation.html#a86834757ff6e3e7b0ba336dbf0ae2324">VLocation::SetComputer</a></div><div class="ttdeci">void SetComputer(const string &amp;newcomputer)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:56</div></div>
+<div class="ttc" id="aclassVLocation_html_a81e2245b8dbad1b0230e8b6808288b7c"><div class="ttname"><a href="classVLocation.html#a81e2245b8dbad1b0230e8b6808288b7c">VLocation::listed</a></div><div class="ttdeci">bool listed</div><div class="ttdef"><b>Definition:</b> vlocation.h:51</div></div>
 <div class="ttc" id="aclassVLocationSpecial_html_a0699729e4a8e05bfbc0ba9774aeb1b23"><div class="ttname"><a href="classVLocationSpecial.html#a0699729e4a8e05bfbc0ba9774aeb1b23">VLocationSpecial::Save</a></div><div class="ttdeci">void Save(FILE *file) override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:271</div></div>
-<div class="ttc" id="aclassVLocationSpecial_html"><div class="ttname"><a href="classVLocationSpecial.html">VLocationSpecial</a></div><div class="ttdef"><b>Definition:</b> vlocation.h:78</div></div>
+<div class="ttc" id="aclassVLocationSpecial_html"><div class="ttname"><a href="classVLocationSpecial.html">VLocationSpecial</a></div><div class="ttdoc">Special VLocation.</div><div class="ttdef"><b>Definition:</b> vlocation.h:142</div></div>
+<div class="ttc" id="aclassVLocation_html_ae2afcfa179f3cd354129734bc9fea8de"><div class="ttname"><a href="classVLocation.html#ae2afcfa179f3cd354129734bc9fea8de">VLocation::SetPLocation</a></div><div class="ttdeci">void SetPLocation(int newx, int newy)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:66</div></div>
 <div class="ttc" id="aclassVLocationSpecial_html_a774a0adde46ae631feeba2d6db99505d"><div class="ttname"><a href="classVLocationSpecial.html#a774a0adde46ae631feeba2d6db99505d">VLocationSpecial::Load</a></div><div class="ttdeci">bool Load(FILE *file) override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:257</div></div>
+<div class="ttc" id="aclassVLocation_html_a08ac9c5b688d8d6acb03af86e9f9f7af"><div class="ttname"><a href="classVLocation.html#a08ac9c5b688d8d6acb03af86e9f9f7af">VLocation::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> vlocation.h:46</div></div>
 <div class="ttc" id="aclassVLocation_html_a5b3818fcdb1c6b7e021f39ad213efaa1"><div class="ttname"><a href="classVLocation.html#a5b3818fcdb1c6b7e021f39ad213efaa1">VLocation::GetID</a></div><div class="ttdeci">string GetID() override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:222</div></div>
 <div class="ttc" id="aclassVLocationSpecial_html_a5e9d04e963b6ae2ba35e0db7c469b589"><div class="ttname"><a href="classVLocationSpecial.html#a5e9d04e963b6ae2ba35e0db7c469b589">VLocationSpecial::GetOBJECTID</a></div><div class="ttdeci">int GetOBJECTID() override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:297</div></div>
+<div class="ttc" id="aclassVLocation_html_a4ed28004e807a0073e15de5f8c50f6d2"><div class="ttname"><a href="classVLocation.html#a4ed28004e807a0073e15de5f8c50f6d2">VLocation::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> vlocation.h:41</div></div>
 <div class="ttc" id="aclassUplinkObject_html"><div class="ttname"><a href="classUplinkObject.html">UplinkObject</a></div><div class="ttdoc">UplinkObject base class.</div><div class="ttdef"><b>Definition:</b> uplinkobject.h:18</div></div>
+<div class="ttc" id="aclassVLocationSpecial_html_a20cbf9abbb64e29f74f90dabe71a2e61"><div class="ttname"><a href="classVLocationSpecial.html#a20cbf9abbb64e29f74f90dabe71a2e61">VLocationSpecial::screenIndex</a></div><div class="ttdeci">int screenIndex</div><div class="ttdef"><b>Definition:</b> vlocation.h:150</div></div>
+<div class="ttc" id="aclassVLocation_html_ad8dcb5fbff39bbecc293cc9a76cb3141"><div class="ttname"><a href="classVLocation.html#ad8dcb5fbff39bbecc293cc9a76cb3141">VLocation::VerifyPLocation</a></div><div class="ttdeci">static bool VerifyPLocation(int newx, int newy)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:77</div></div>
+<div class="ttc" id="aclassVLocation_html_a70cf49f014845669dc142c79ca6d8609"><div class="ttname"><a href="classVLocation.html#a70cf49f014845669dc142c79ca6d8609">VLocation::SetListed</a></div><div class="ttdeci">void SetListed(bool newlisted)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:91</div></div>
+<div class="ttc" id="aclassVLocation_html_ae8b3ebe2dcc32296a3a4dc707655ee48"><div class="ttname"><a href="classVLocation.html#ae8b3ebe2dcc32296a3a4dc707655ee48">VLocation::displayed</a></div><div class="ttdeci">bool displayed</div><div class="ttdef"><b>Definition:</b> vlocation.h:56</div></div>
 <div class="ttc" id="aclassComputer_html"><div class="ttname"><a href="classComputer.html">Computer</a></div><div class="ttdoc">Computer class object.</div><div class="ttdef"><b>Definition:</b> computer.h:60</div></div>
 <div class="ttc" id="aclassVLocation_html_ae8b0db4777b8ac51effcfae5dc29a793"><div class="ttname"><a href="classVLocation.html#ae8b0db4777b8ac51effcfae5dc29a793">VLocation::Save</a></div><div class="ttdeci">void Save(FILE *file) override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:189</div></div>
+<div class="ttc" id="aclassVLocationSpecial_html_adb5b5c7396a6acf9b45e37ead481227e"><div class="ttname"><a href="classVLocationSpecial.html#adb5b5c7396a6acf9b45e37ead481227e">VLocationSpecial::SetScreenIndex</a></div><div class="ttdeci">void SetScreenIndex(int newScreenIndex)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:247</div></div>
 <div class="ttc" id="aclassVLocationSpecial_html_a88b2d7353313c6426303c871e75b7893"><div class="ttname"><a href="classVLocationSpecial.html#a88b2d7353313c6426303c871e75b7893">VLocationSpecial::GetID</a></div><div class="ttdeci">string GetID() override</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:292</div></div>
-<div class="ttc" id="aclassVLocation_html"><div class="ttname"><a href="classVLocation.html">VLocation</a></div><div class="ttdef"><b>Definition:</b> vlocation.h:29</div></div>
+<div class="ttc" id="aclassVLocation_html_a07669ac9ad5869c3a17605e2bfcc92a4"><div class="ttname"><a href="classVLocation.html#a07669ac9ad5869c3a17605e2bfcc92a4">VLocation::VerifyIP</a></div><div class="ttdeci">static bool VerifyIP(const string &amp;newip)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:43</div></div>
+<div class="ttc" id="aclassVLocation_html_a241e50f2b706317e6684bfa1fd3cb5fc"><div class="ttname"><a href="classVLocation.html#a241e50f2b706317e6684bfa1fd3cb5fc">VLocation::SetIP</a></div><div class="ttdeci">void SetIP(const string &amp;newip)</div><div class="ttdef"><b>Definition:</b> vlocation.cpp:35</div></div>
+<div class="ttc" id="aclassVLocation_html"><div class="ttname"><a href="classVLocation.html">VLocation</a></div><div class="ttdoc">Location in the uplink world.</div><div class="ttdef"><b>Definition:</b> vlocation.h:23</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

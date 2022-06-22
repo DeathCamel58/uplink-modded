@@ -23,11 +23,9 @@ Collaboration diagram for Nearest\+Gateway\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNearestGatewayScreenInterface_a70df9bf08ca9769146d3b5b78f91280c}\label{classNearestGatewayScreenInterface_a70df9bf08ca9769146d3b5b78f91280c}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classNearestGatewayScreenInterface_a70df9bf08ca9769146d3b5b78f91280c}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classNearestGatewayScreenInterface_a98391fb0c4fa8d2aa1fd9efd1c7c74d0}\label{classNearestGatewayScreenInterface_a98391fb0c4fa8d2aa1fd9efd1c7c74d0}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classNearestGatewayScreenInterface_a98391fb0c4fa8d2aa1fd9efd1c7c74d0}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classNearestGatewayScreenInterface_a52fc4b16825b22a6717abd9d87c695b7}{Remove}} () override
 \item 
@@ -57,6 +55,21 @@ static void {\bfseries Draw\+Main\+Map} (\mbox{\hyperlink{classButton}{Button}} 
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a98391fb0c4fa8d2aa1fd9efd1c7c74d0}\label{classNearestGatewayScreenInterface_a98391fb0c4fa8d2aa1fd9efd1c7c74d0}} 
+\index{NearestGatewayScreenInterface@{NearestGatewayScreenInterface}!Create@{Create}}
+\index{Create@{Create}!NearestGatewayScreenInterface@{NearestGatewayScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Nearest\+Gateway\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classNearestGatewayScreenInterface_a121dc3baf6a828bbfbf2207da5d6711e}\label{classNearestGatewayScreenInterface_a121dc3baf6a828bbfbf2207da5d6711e}} 
 \index{NearestGatewayScreenInterface@{NearestGatewayScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!NearestGatewayScreenInterface@{NearestGatewayScreenInterface}}
@@ -79,6 +92,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNearestGatewayScreenInterface_a70df9bf08ca9769146d3b5b78f91280c}\label{classNearestGatewayScreenInterface_a70df9bf08ca9769146d3b5b78f91280c}} 
+\index{NearestGatewayScreenInterface@{NearestGatewayScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!NearestGatewayScreenInterface@{NearestGatewayScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Nearest\+Gateway\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classNearestGatewayScreenInterface_a98e611be902949504b7415f63d7dc084}\label{classNearestGatewayScreenInterface_a98e611be902949504b7415f63d7dc084}} 
 \index{NearestGatewayScreenInterface@{NearestGatewayScreenInterface}!ScreenID@{ScreenID}}

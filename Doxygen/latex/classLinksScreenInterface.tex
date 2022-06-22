@@ -34,8 +34,7 @@ void {\bfseries Apply\+Filter} (const string \&filter)
 \item 
 void \mbox{\hyperlink{classLinksScreenInterface_a496a86d9cbc256cca0d862cd8acc08a3}{Create}} () override
 \item 
-\mbox{\Hypertarget{classLinksScreenInterface_a1061ba452a50be66549fd28bda98dabe}\label{classLinksScreenInterface_a1061ba452a50be66549fd28bda98dabe}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classLinksScreenInterface_a1061ba452a50be66549fd28bda98dabe}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classLinksScreenInterface_aa925a9a145c6953b0cc3d8a662b7ed2f}{Remove}} () override
 \item 
@@ -45,8 +44,7 @@ bool \mbox{\hyperlink{classLinksScreenInterface_adc64dca97a30f477007f2f83d63bcb7
 \item 
 int \mbox{\hyperlink{classLinksScreenInterface_a0c27843e9eb0c42d49c208ef06558d72}{Screen\+ID}} () override
 \item 
-\mbox{\Hypertarget{classLinksScreenInterface_ad995b36f6e759f80d8293f2cad62f9d2}\label{classLinksScreenInterface_ad995b36f6e759f80d8293f2cad62f9d2}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classLinksScreenInterface_ad995b36f6e759f80d8293f2cad62f9d2}{Return\+Key\+Pressed}} () override
 \item 
 \mbox{\Hypertarget{classLinksScreenInterface_ac6506d3ce9f79f23ddddf6ab2aad0f87}\label{classLinksScreenInterface_ac6506d3ce9f79f23ddddf6ab2aad0f87}} 
 \mbox{\hyperlink{classLinksScreen}{Links\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
@@ -154,12 +152,27 @@ static \mbox{\hyperlink{classImage}{Image}} $\ast$ {\bfseries iadd\+\_\+c\+\_\+t
 \mbox{\Hypertarget{classLinksScreenInterface_a496a86d9cbc256cca0d862cd8acc08a3}\label{classLinksScreenInterface_a496a86d9cbc256cca0d862cd8acc08a3}} 
 \index{LinksScreenInterface@{LinksScreenInterface}!Create@{Create}}
 \index{Create@{Create}!LinksScreenInterface@{LinksScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Links\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreenInterface_a1061ba452a50be66549fd28bda98dabe}\label{classLinksScreenInterface_a1061ba452a50be66549fd28bda98dabe}} 
+\index{LinksScreenInterface@{LinksScreenInterface}!Create@{Create}}
+\index{Create@{Create}!LinksScreenInterface@{LinksScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Links\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classLinksScreenInterface_adc64dca97a30f477007f2f83d63bcb77}\label{classLinksScreenInterface_adc64dca97a30f477007f2f83d63bcb77}} 
 \index{LinksScreenInterface@{LinksScreenInterface}!IsVisible@{IsVisible}}
@@ -183,6 +196,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLinksScreenInterface_ad995b36f6e759f80d8293f2cad62f9d2}\label{classLinksScreenInterface_ad995b36f6e759f80d8293f2cad62f9d2}} 
+\index{LinksScreenInterface@{LinksScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!LinksScreenInterface@{LinksScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Links\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classLinksScreenInterface_a0c27843e9eb0c42d49c208ef06558d72}\label{classLinksScreenInterface_a0c27843e9eb0c42d49c208ef06558d72}} 
 \index{LinksScreenInterface@{LinksScreenInterface}!ScreenID@{ScreenID}}

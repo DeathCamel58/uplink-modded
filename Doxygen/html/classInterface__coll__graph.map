@@ -11,7 +11,7 @@
 <area shape="rect" id="node8" href="$classSWInterface.html" title="Screen that displays &quot;Start&quot; button." alt="" coords="1675,219,1776,245"/>
 <area shape="rect" id="node9" href="$classWorldMapInterface.html" title="Screen that shows the world map." alt="" coords="1653,104,1798,131"/>
 <area shape="rect" id="node24" href="$classGatewayInterface.html" title="Screen that shows the current gateway and upgrades." alt="" coords="1656,371,1795,397"/>
-<area shape="rect" id="node26" href="$classRemoteInterfaceScreen.html" title=" " alt="" coords="1372,523,1547,549"/>
+<area shape="rect" id="node26" href="$classRemoteInterfaceScreen.html" title="RemoteInterfaceScreen class object." alt="" coords="1372,523,1547,549"/>
 <area shape="rect" id="node7" href="$classDArray.html" title=" " alt="" coords="657,395,793,421"/>
 <area shape="rect" id="node10" href="$classLList.html" title=" " alt="" coords="1229,23,1348,49"/>
 <area shape="rect" id="node11" href="$classLListItem.html" title=" " alt="" coords="650,52,799,79"/>

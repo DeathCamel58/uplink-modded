@@ -23,16 +23,14 @@ Collaboration diagram for Shares\+View\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSharesViewScreenInterface_a32347e32c6165d1b0e735370993d1366}\label{classSharesViewScreenInterface_a32347e32c6165d1b0e735370993d1366}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classSharesViewScreenInterface_a32347e32c6165d1b0e735370993d1366}{Escape\+Key\+Pressed}} () override
 \item 
 \mbox{\Hypertarget{classSharesViewScreenInterface_a1734f9b33626a2d4f32af39ff392a8ef}\label{classSharesViewScreenInterface_a1734f9b33626a2d4f32af39ff392a8ef}} 
 void {\bfseries Set\+Company\+Name} (const string \&newcompanyname)
 \item 
 void \mbox{\hyperlink{classSharesViewScreenInterface_ad7b5fe08b096a0ec5457d0c7682b2cb1}{Create}} () override
 \item 
-\mbox{\Hypertarget{classSharesViewScreenInterface_a8a05a01458471cdde4a70473d508da89}\label{classSharesViewScreenInterface_a8a05a01458471cdde4a70473d508da89}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classSharesViewScreenInterface_a8a05a01458471cdde4a70473d508da89}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classSharesViewScreenInterface_a76f61742ddf3bb56057f23e7d9045beb}{Remove}} () override
 \item 
@@ -85,12 +83,40 @@ int {\bfseries lastmonthset}
 \mbox{\Hypertarget{classSharesViewScreenInterface_ad7b5fe08b096a0ec5457d0c7682b2cb1}\label{classSharesViewScreenInterface_ad7b5fe08b096a0ec5457d0c7682b2cb1}} 
 \index{SharesViewScreenInterface@{SharesViewScreenInterface}!Create@{Create}}
 \index{Create@{Create}!SharesViewScreenInterface@{SharesViewScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Shares\+View\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSharesViewScreenInterface_a8a05a01458471cdde4a70473d508da89}\label{classSharesViewScreenInterface_a8a05a01458471cdde4a70473d508da89}} 
+\index{SharesViewScreenInterface@{SharesViewScreenInterface}!Create@{Create}}
+\index{Create@{Create}!SharesViewScreenInterface@{SharesViewScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Shares\+View\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSharesViewScreenInterface_a32347e32c6165d1b0e735370993d1366}\label{classSharesViewScreenInterface_a32347e32c6165d1b0e735370993d1366}} 
+\index{SharesViewScreenInterface@{SharesViewScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!SharesViewScreenInterface@{SharesViewScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Shares\+View\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classSharesViewScreenInterface_ad8efda88e10afc9bceca9107132ae6d5}\label{classSharesViewScreenInterface_ad8efda88e10afc9bceca9107132ae6d5}} 
 \index{SharesViewScreenInterface@{SharesViewScreenInterface}!IsVisible@{IsVisible}}

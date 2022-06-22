@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['name_1846',['name',['../structHUDInterfaceUpgrade.html#a06ee05f782169cd1b261ba23500a6365',1,'HUDInterfaceUpgrade::name()'],['../classUplinkIRCUser.html#ab69476cb700705237851e56325ffd94c',1,'UplinkIRCUser::name()'],['../classComputer.html#a230ff4380f9ca778fbfed0acdb8c7260',1,'Computer::name()']]],
-  ['nbcolored_1847',['nbcolored',['../classWorldMapInterface.html#a090e58bbf437994ce5a890105dc7f501',1,'WorldMapInterface']]],
-  ['nbmessages_1848',['nbmessages',['../classWorldMapInterface.html#a4da3e5dbbb05cb1e8209400ec36eaccf',1,'WorldMapInterface']]],
-  ['nbmissions_1849',['nbmissions',['../classWorldMapInterface.html#a7ca292d6dbf5a042eaf44fea88259c1e',1,'WorldMapInterface']]],
-  ['newstype_1850',['NEWSTYPE',['../classNews.html#a965ef7e6cf8c948be918d7b9b81f747b',1,'News']]],
-  ['nextscene_1851',['nextscene',['../classPhoneDialler.html#a6afb68cbeed1c2857541a368c95fa223',1,'PhoneDialler']]],
-  ['number_1852',['number',['../structHUDInterfaceUpgrade.html#a4e77880d865fe290e051720f1a320016',1,'HUDInterfaceUpgrade']]],
-  ['numgoodmoves_1853',['numGoodMoves',['../classWorldMapLayout.html#a1dac5156ebc0de005af18d1b27b0ac85',1,'WorldMapLayout']]],
-  ['numhackslastmonth_1854',['numhackslastmonth',['../classComputer.html#a28e02d329cd91bc0a951213953d48f15',1,'Computer']]],
-  ['numhacksthismonth_1855',['numhacksthismonth',['../classComputer.html#ad3d30f013539cc19c0059abfaee800cf',1,'Computer']]],
-  ['numposslabelpos_1856',['numPossLabelPos',['../classWorldMapInterfaceLabel.html#a1df80bf6d359418dc26d958bb666238f',1,'WorldMapInterfaceLabel']]],
-  ['numrecenthacks_1857',['numrecenthacks',['../classComputer.html#a3ab561fefd365a33174c363d072437cc',1,'Computer']]]
+  ['m_1801',['m',['../classSendMailInterface.html#a1da5ee5661f4558f9476ade3441e802d',1,'SendMailInterface']]],
+  ['mapheight_1802',['mapHeight',['../classWorldMapObjectiveFunction.html#a4d91678ce06998a1398d9a3e607988a4',1,'WorldMapObjectiveFunction']]],
+  ['maprectangle_1803',['mapRectangle',['../classWorldMapLayout.html#acf3cdeee877a21cb0e1ca03b631a1b20',1,'WorldMapLayout']]],
+  ['mapwidth_1804',['mapWidth',['../classWorldMapObjectiveFunction.html#a9ec7de8fe5432024bda6b735a367a7eb',1,'WorldMapObjectiveFunction']]],
+  ['message_1805',['message',['../classEmailInterface.html#a14bc14d97437a1a5170f409594e5a937',1,'EmailInterface']]],
+  ['mission_1806',['mission',['../classMissionInterface.html#a756f2c9c6ab7c10fc15faf77f8a702d2',1,'MissionInterface']]],
+  ['missions_1807',['missions',['../classAgent.html#ac6aa62b0ce168f52b5316393c5404cb2',1,'Agent']]],
+  ['movenumber_1808',['moveNumber',['../classWorldMapLayout.html#a13618cacd473f9c98105fffd070c944a',1,'WorldMapLayout']]],
+  ['moving_5fstipplepattern_1809',['moving_stipplepattern',['../classAnalyserInterface.html#a514f3a8f546b64321087d60b4c6657bc',1,'AnalyserInterface']]]
 ];

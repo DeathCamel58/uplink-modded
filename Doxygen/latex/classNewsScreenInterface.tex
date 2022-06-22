@@ -23,11 +23,9 @@ Collaboration diagram for News\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNewsScreenInterface_aa8aa2aab880af98b8421c5549eaacc6a}\label{classNewsScreenInterface_aa8aa2aab880af98b8421c5549eaacc6a}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classNewsScreenInterface_aa8aa2aab880af98b8421c5549eaacc6a}{Escape\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classNewsScreenInterface_a6eebf763089ea09b8a40d868fff889be}\label{classNewsScreenInterface_a6eebf763089ea09b8a40d868fff889be}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classNewsScreenInterface_a6eebf763089ea09b8a40d868fff889be}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classNewsScreenInterface_accd2545ee9a0cceafbea9b9f76d45efc}{Remove}} () override
 \item 
@@ -80,6 +78,34 @@ static int {\bfseries previousnummessages} = 0
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNewsScreenInterface_a6eebf763089ea09b8a40d868fff889be}\label{classNewsScreenInterface_a6eebf763089ea09b8a40d868fff889be}} 
+\index{NewsScreenInterface@{NewsScreenInterface}!Create@{Create}}
+\index{Create@{Create}!NewsScreenInterface@{NewsScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void News\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classNewsScreenInterface_aa8aa2aab880af98b8421c5549eaacc6a}\label{classNewsScreenInterface_aa8aa2aab880af98b8421c5549eaacc6a}} 
+\index{NewsScreenInterface@{NewsScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!NewsScreenInterface@{NewsScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool News\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classNewsScreenInterface_a754dfbd09d585b0a1f4c1f6fd1a1c612}\label{classNewsScreenInterface_a754dfbd09d585b0a1f4c1f6fd1a1c612}} 
 \index{NewsScreenInterface@{NewsScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!NewsScreenInterface@{NewsScreenInterface}}

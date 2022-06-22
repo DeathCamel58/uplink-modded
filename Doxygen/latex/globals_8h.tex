@@ -1,0 +1,295 @@
+\hypertarget{globals_8h}{}\doxysection{uplink/src/app/globals.h File Reference}
+\label{globals_8h}\index{uplink/src/app/globals.h@{uplink/src/app/globals.h}}
+
+
+Global Objects \& Constants This file contains all global objects and constants for the game.  
+
+
+{\ttfamily \#include \char`\"{}globals\+\_\+defines.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gucci.\+h\char`\"{}}\newline
+Include dependency graph for globals.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{globals_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{globals_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{globals_8h_a19ceaa64f986ab7375b4740e2d16f986}\label{globals_8h_a19ceaa64f986ab7375b4740e2d16f986}} 
+\#define {\bfseries Uplink\+Int\+Flush}~fflush(N\+U\+LL)
+\item 
+\#define {\bfseries Uplink\+Assert}(x)
+\item 
+\#define {\bfseries Uplink\+Print\+Assert}(x)
+\item 
+\#define {\bfseries Uplink\+Abort}(msg)
+\item 
+\#define {\bfseries Uplink\+Abort\+Args}(msg, ...)
+\item 
+\#define {\bfseries Uplink\+Print\+Abort}(msg)
+\item 
+\#define {\bfseries Uplink\+Print\+Abort\+Args}(msg, ...)
+\item 
+\mbox{\Hypertarget{globals_8h_abff47d85a838984e723fa1508fd78b00}\label{globals_8h_abff47d85a838984e723fa1508fd78b00}} 
+\#define {\bfseries Uplink\+Warning}(msg)
+\item 
+\mbox{\Hypertarget{globals_8h_a15684e92fc9289eef81f9dc2984808c9}\label{globals_8h_a15684e92fc9289eef81f9dc2984808c9}} 
+\#define {\bfseries Uplink\+Int\+Snprintf}~snprintf
+\item 
+\#define {\bfseries Uplink\+Snprintf}(buf,  bufsize,  format, ...)
+\item 
+\#define {\bfseries Uplink\+Safe\+Strcpy}(str\+Dest,  str\+Source)
+\item 
+\#define {\bfseries Uplink\+Strncpy}(str\+Dest,  str\+Source,  count)
+\item 
+\#define {\bfseries Uplink\+Safe\+Strcat}(str\+Dest,  str\+Source)
+\item 
+\mbox{\Hypertarget{globals_8h_a1d49dcbe0ffcf4c8aa0a1b30978e7051}\label{globals_8h_a1d49dcbe0ffcf4c8aa0a1b30978e7051}} 
+\#define {\bfseries Uplink\+Min}(a,  b)~(((a) $<$ (b)) ? (a) \+: (b))
+\item 
+\#define {\bfseries Uplink\+Strncat}(str\+Dest,  str\+Dest\+Buf\+Size,  str\+Source)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Global Objects \& Constants This file contains all global objects and constants for the game. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{globals_8h_a60d6c5387318dbaacc9868a04f0aebc1}\label{globals_8h_a60d6c5387318dbaacc9868a04f0aebc1}} 
+\index{globals.h@{globals.h}!UplinkAbort@{UplinkAbort}}
+\index{UplinkAbort@{UplinkAbort}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkAbort}{UplinkAbort}}
+{\footnotesize\ttfamily \#define Uplink\+Abort(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                                               \(\backslash\)}
+\DoxyCodeLine{        printf ( \textcolor{stringliteral}{"\(\backslash\)n"}                                                       \(\backslash\)}
+\DoxyCodeLine{                 \textcolor{stringliteral}{"Uplink has been forced to Abort\(\backslash\)n"}                        \(\backslash\)}
+\DoxyCodeLine{                 \textcolor{stringliteral}{"===============================\(\backslash\)n"}                        \(\backslash\)}
+\DoxyCodeLine{                 \textcolor{stringliteral}{" Message   : \%s\(\backslash\)n"}                                        \(\backslash\)}
+\DoxyCodeLine{                 \textcolor{stringliteral}{" Location  : \%s, line \%d\(\backslash\)n"},                              \(\backslash\)}
+\DoxyCodeLine{                 msg, \_\_FILE\_\_, \_\_LINE\_\_ );                                 \(\backslash\)}
+\DoxyCodeLine{        char * nullPtr = NULL; *nullPtr = \textcolor{charliteral}{'\(\backslash\)0'};                             \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_aef4ebb485563a51d3cad311d0182a263}\label{globals_8h_aef4ebb485563a51d3cad311d0182a263}} 
+\index{globals.h@{globals.h}!UplinkAbortArgs@{UplinkAbortArgs}}
+\index{UplinkAbortArgs@{UplinkAbortArgs}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkAbortArgs}{UplinkAbortArgs}}
+{\footnotesize\ttfamily \#define Uplink\+Abort\+Args(\begin{DoxyParamCaption}\item[{}]{msg,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                                       \(\backslash\)}
+\DoxyCodeLine{        printf ( \textcolor{stringliteral}{"\(\backslash\)n"}                                                       \(\backslash\)}
+\DoxyCodeLine{                 \textcolor{stringliteral}{"Uplink has been forced to Abort\(\backslash\)n"}                        \(\backslash\)}
+\DoxyCodeLine{                 \textcolor{stringliteral}{"===============================\(\backslash\)n"}                        \(\backslash\)}
+\DoxyCodeLine{                 \textcolor{stringliteral}{" Message   : "} );                                         \(\backslash\)}
+\DoxyCodeLine{        printf ( msg, \_\_VA\_ARGS\_\_ );                                        \(\backslash\)}
+\DoxyCodeLine{        printf ( \textcolor{stringliteral}{"\(\backslash\)n"}                                                       \(\backslash\)}
+\DoxyCodeLine{                 \textcolor{stringliteral}{" Location  : \%s, line \%d\(\backslash\)n"},                              \(\backslash\)}
+\DoxyCodeLine{                 \_\_FILE\_\_, \_\_LINE\_\_ );                                      \(\backslash\)}
+\DoxyCodeLine{        char * nullPtr = NULL; *nullPtr = \textcolor{charliteral}{'\(\backslash\)0'};                             \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_aa55aaef17f868574b53fcef57c36acd0}\label{globals_8h_aa55aaef17f868574b53fcef57c36acd0}} 
+\index{globals.h@{globals.h}!UplinkAssert@{UplinkAssert}}
+\index{UplinkAssert@{UplinkAssert}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkAssert}{UplinkAssert}}
+{\footnotesize\ttfamily \#define Uplink\+Assert(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                                               \(\backslash\)}
+\DoxyCodeLine{        if (!(x)) \{                                                         \(\backslash\)}
+\DoxyCodeLine{            printf ( \textcolor{stringliteral}{"\(\backslash\)n"}                                                   \(\backslash\)}
+\DoxyCodeLine{                     \textcolor{stringliteral}{"An Uplink Assertion Failure has occured\(\backslash\)n"}            \(\backslash\)}
+\DoxyCodeLine{                     \textcolor{stringliteral}{"=======================================\(\backslash\)n"}            \(\backslash\)}
+\DoxyCodeLine{                     \textcolor{stringliteral}{" Condition : \%s\(\backslash\)n"}                                    \(\backslash\)}
+\DoxyCodeLine{                     \textcolor{stringliteral}{" Location  : \%s, line \%d\(\backslash\)n"},                          \(\backslash\)}
+\DoxyCodeLine{                     \#x, \_\_FILE\_\_, \_\_LINE\_\_ );                              \(\backslash\)}
+\DoxyCodeLine{            char * nullPtr = NULL; *nullPtr = \textcolor{charliteral}{'\(\backslash\)0'};                         \(\backslash\)}
+\DoxyCodeLine{        \}                                                                   \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_a9dc8e27a25afc34b472099e60a4e3f8e}\label{globals_8h_a9dc8e27a25afc34b472099e60a4e3f8e}} 
+\index{globals.h@{globals.h}!UplinkPrintAbort@{UplinkPrintAbort}}
+\index{UplinkPrintAbort@{UplinkPrintAbort}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkPrintAbort}{UplinkPrintAbort}}
+{\footnotesize\ttfamily \#define Uplink\+Print\+Abort(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                                       \(\backslash\)}
+\DoxyCodeLine{        printf ( \textcolor{stringliteral}{"Print Abort: \%s ln \%d :\(\backslash\)n\%s\(\backslash\)n"},                           \(\backslash\)}
+\DoxyCodeLine{                 \_\_FILE\_\_, \_\_LINE\_\_, msg );                                 \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_a57122eee92f73f75473a74c5016be23a}\label{globals_8h_a57122eee92f73f75473a74c5016be23a}} 
+\index{globals.h@{globals.h}!UplinkPrintAbortArgs@{UplinkPrintAbortArgs}}
+\index{UplinkPrintAbortArgs@{UplinkPrintAbortArgs}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkPrintAbortArgs}{UplinkPrintAbortArgs}}
+{\footnotesize\ttfamily \#define Uplink\+Print\+Abort\+Args(\begin{DoxyParamCaption}\item[{}]{msg,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                               \(\backslash\)}
+\DoxyCodeLine{        printf ( \textcolor{stringliteral}{"Print Abort: \%s ln \%d : "},                                \(\backslash\)}
+\DoxyCodeLine{                 \_\_FILE\_\_, \_\_LINE\_\_ );                                      \(\backslash\)}
+\DoxyCodeLine{        printf ( msg, \_\_VA\_ARGS\_\_ );                                        \(\backslash\)}
+\DoxyCodeLine{        printf ( \textcolor{stringliteral}{"\(\backslash\)n"} );                                                    \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_ad1051e0b00c8073240135982bba77c2a}\label{globals_8h_ad1051e0b00c8073240135982bba77c2a}} 
+\index{globals.h@{globals.h}!UplinkPrintAssert@{UplinkPrintAssert}}
+\index{UplinkPrintAssert@{UplinkPrintAssert}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkPrintAssert}{UplinkPrintAssert}}
+{\footnotesize\ttfamily \#define Uplink\+Print\+Assert(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                                           \(\backslash\)}
+\DoxyCodeLine{        if (!(x)) \{                                                         \(\backslash\)}
+\DoxyCodeLine{            printf ( \textcolor{stringliteral}{"Print Assert: \%s ln \%d : \%s\(\backslash\)n"},                       \(\backslash\)}
+\DoxyCodeLine{                     \_\_FILE\_\_, \_\_LINE\_\_, x );                               \(\backslash\)}
+\DoxyCodeLine{        \}                                                                   \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_a2a758b5a078071ba3305949db4ee04cf}\label{globals_8h_a2a758b5a078071ba3305949db4ee04cf}} 
+\index{globals.h@{globals.h}!UplinkSafeStrcat@{UplinkSafeStrcat}}
+\index{UplinkSafeStrcat@{UplinkSafeStrcat}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkSafeStrcat}{UplinkSafeStrcat}}
+{\footnotesize\ttfamily \#define Uplink\+Safe\+Strcat(\begin{DoxyParamCaption}\item[{}]{str\+Dest,  }\item[{}]{str\+Source }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{            \{                                                       \(\backslash\)}
+\DoxyCodeLine{            strcat ( strDest, strSource );                                                          \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_ab295157688da3aa27b33b6f4763419bd}\label{globals_8h_ab295157688da3aa27b33b6f4763419bd}} 
+\index{globals.h@{globals.h}!UplinkSafeStrcpy@{UplinkSafeStrcpy}}
+\index{UplinkSafeStrcpy@{UplinkSafeStrcpy}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkSafeStrcpy}{UplinkSafeStrcpy}}
+{\footnotesize\ttfamily \#define Uplink\+Safe\+Strcpy(\begin{DoxyParamCaption}\item[{}]{str\+Dest,  }\item[{}]{str\+Source }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{            \{                                                       \(\backslash\)}
+\DoxyCodeLine{            strcpy ( strDest, strSource );                                                          \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_a710fd8b8efd83b1baa41c1f203915554}\label{globals_8h_a710fd8b8efd83b1baa41c1f203915554}} 
+\index{globals.h@{globals.h}!UplinkSnprintf@{UplinkSnprintf}}
+\index{UplinkSnprintf@{UplinkSnprintf}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkSnprintf}{UplinkSnprintf}}
+{\footnotesize\ttfamily \#define Uplink\+Snprintf(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{bufsize,  }\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                                               \(\backslash\)}
+\DoxyCodeLine{        if ( (bufsize) > 0 ) \{                                                                      \(\backslash\)}
+\DoxyCodeLine{            int \_1377819\_retCount;                                                                  \(\backslash\)}
+\DoxyCodeLine{            \_1377819\_retCount = UplinkIntSnprintf ( buf, bufsize, format, \_\_VA\_ARGS\_\_ );            \(\backslash\)}
+\DoxyCodeLine{            buf [ (bufsize) -\/ 1 ] = \textcolor{charliteral}{'\(\backslash\)0'};                                                           \(\backslash\)}
+\DoxyCodeLine{            if ( \_1377819\_retCount >= (\textcolor{keywordtype}{int}) (bufsize) || \_1377819\_retCount < 0 )\{                   \(\backslash\)}
+\DoxyCodeLine{                printf ( \textcolor{stringliteral}{"\(\backslash\)n"}                                                                       \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{"An Uplink snprintf Failure has occured\(\backslash\)n"}                                 \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{"======================================\(\backslash\)n"}                                 \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Location    : \%s, line \%d\(\backslash\)n"}                                             \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Buffer size : \%ld\(\backslash\)n"}                                                     \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Format      : \%s\(\backslash\)n"}                                                      \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Buffer      : \%s\(\backslash\)n"},                                                     \(\backslash\)}
+\DoxyCodeLine{                         \_\_FILE\_\_, \_\_LINE\_\_, bufsize, format, buf );                                \(\backslash\)}
+\DoxyCodeLine{                char * nullPtr = NULL; *nullPtr = \textcolor{charliteral}{'\(\backslash\)0'};                                             \(\backslash\)}
+\DoxyCodeLine{            \}                                                                                       \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                           \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_a8db9bbcbdac2134d4dfd44582a7705bc}\label{globals_8h_a8db9bbcbdac2134d4dfd44582a7705bc}} 
+\index{globals.h@{globals.h}!UplinkStrncat@{UplinkStrncat}}
+\index{UplinkStrncat@{UplinkStrncat}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkStrncat}{UplinkStrncat}}
+{\footnotesize\ttfamily \#define Uplink\+Strncat(\begin{DoxyParamCaption}\item[{}]{str\+Dest,  }\item[{}]{str\+Dest\+Buf\+Size,  }\item[{}]{str\+Source }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                                       \(\backslash\)}
+\DoxyCodeLine{        if ( (strDestBufSize) > 0 ) \{                                                               \(\backslash\)}
+\DoxyCodeLine{            size\_t \_1377819\_strDestSize, \_1377819\_strSourceSize;                                    \(\backslash\)}
+\DoxyCodeLine{            \_1377819\_strDestSize = strlen ( strDest );                                              \(\backslash\)}
+\DoxyCodeLine{            \_1377819\_strSourceSize = strlen ( strSource );                                          \(\backslash\)}
+\DoxyCodeLine{            if ( \_1377819\_strSourceSize > ( (strDestBufSize) -\/ 1 ) -\/ \_1377819\_strDestSize ) \{       \(\backslash\)}
+\DoxyCodeLine{                printf ( \textcolor{stringliteral}{"\(\backslash\)n"}                                                                       \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{"An Uplink strncat Failure has occured\(\backslash\)n"}                                  \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{"=====================================\(\backslash\)n"}                                  \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Location         : \%s, line \%d\(\backslash\)n"}                                        \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Dest. buf. size  : \%d\(\backslash\)n"}                                                 \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Dest. size       : \%d\(\backslash\)n"}                                                 \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Source size      : \%d\(\backslash\)n"}                                                 \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Str. Dest.       : \%s\(\backslash\)n"}                                                 \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Str. Source      : \%s\(\backslash\)n"},                                                \(\backslash\)}
+\DoxyCodeLine{                         \_\_FILE\_\_, \_\_LINE\_\_, strDestBufSize, \_1377819\_strDestSize,                  \(\backslash\)}
+\DoxyCodeLine{                         \_1377819\_strSourceSize, strDest, strSource );                              \(\backslash\)}
+\DoxyCodeLine{                char * nullPtr = NULL; *nullPtr = \textcolor{charliteral}{'\(\backslash\)0'};                                             \(\backslash\)}
+\DoxyCodeLine{            \}                                                                                       \(\backslash\)}
+\DoxyCodeLine{            size\_t \_1377819\_copyLen = UplinkMin ( ( (strDestBufSize) -\/ 1 ) -\/ \_1377819\_strDestSize,  \(\backslash\)}
+\DoxyCodeLine{                                                  \_1377819\_strSourceSize );                         \(\backslash\)}
+\DoxyCodeLine{            strncat ( strDest, strSource, \_1377819\_copyLen );                                       \(\backslash\)}
+\DoxyCodeLine{            strDest [ (strDestBufSize) -\/ 1 ] = \textcolor{charliteral}{'\(\backslash\)0'};                                                \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                           \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{globals_8h_aac3ab32cfd04685b069500a0cc51ea2f}\label{globals_8h_aac3ab32cfd04685b069500a0cc51ea2f}} 
+\index{globals.h@{globals.h}!UplinkStrncpy@{UplinkStrncpy}}
+\index{UplinkStrncpy@{UplinkStrncpy}!globals.h@{globals.h}}
+\doxysubsubsection{\texorpdfstring{UplinkStrncpy}{UplinkStrncpy}}
+{\footnotesize\ttfamily \#define Uplink\+Strncpy(\begin{DoxyParamCaption}\item[{}]{str\+Dest,  }\item[{}]{str\+Source,  }\item[{}]{count }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \{                                               \(\backslash\)}
+\DoxyCodeLine{        if ( (count) > 0 ) \{                                                                        \(\backslash\)}
+\DoxyCodeLine{            size\_t \_1377819\_retCount;                                                               \(\backslash\)}
+\DoxyCodeLine{            \_1377819\_retCount = strlen ( strSource );                                               \(\backslash\)}
+\DoxyCodeLine{            if ( \_1377819\_retCount >= (count) )\{                                                    \(\backslash\)}
+\DoxyCodeLine{                printf ( \textcolor{stringliteral}{"\(\backslash\)n"}                                                                       \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{"An Uplink strncpy Failure has occured\(\backslash\)n"}                                  \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{"=====================================\(\backslash\)n"}                                  \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Location    : \%s, line \%d\(\backslash\)n"}                                             \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Dest. size  : \%ld\(\backslash\)n"}                                                     \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Source size : \%ld\(\backslash\)n"}                                                     \(\backslash\)}
+\DoxyCodeLine{                         \textcolor{stringliteral}{" Str. Source : \%s\(\backslash\)n"},                                                     \(\backslash\)}
+\DoxyCodeLine{                         \_\_FILE\_\_, \_\_LINE\_\_, count, \_1377819\_retCount, strSource );                 \(\backslash\)}
+\DoxyCodeLine{                char * nullPtr = NULL; *nullPtr = \textcolor{charliteral}{'\(\backslash\)0'};                                             \(\backslash\)}
+\DoxyCodeLine{            \}                                                                                       \(\backslash\)}
+\DoxyCodeLine{            strncpy ( strDest, strSource, count );                                                  \(\backslash\)}
+\DoxyCodeLine{            strDest [ (count) -\/ 1 ] = \textcolor{charliteral}{'\(\backslash\)0'};                                                         \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                           \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}

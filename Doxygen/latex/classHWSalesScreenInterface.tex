@@ -23,20 +23,18 @@ Collaboration diagram for H\+W\+Sales\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classHWSalesScreenInterface_a34da97406658e99058a1722b3980b233}\label{classHWSalesScreenInterface_a34da97406658e99058a1722b3980b233}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classHWSalesScreenInterface_a34da97406658e99058a1722b3980b233}{Escape\+Key\+Pressed}} () override
 \item 
 \mbox{\Hypertarget{classHWSalesScreenInterface_a944873834019daba506636fe1f9434c3}\label{classHWSalesScreenInterface_a944873834019daba506636fe1f9434c3}} 
 void {\bfseries Set\+H\+W\+Type} (int new\+Type)
 \item 
-\mbox{\Hypertarget{classHWSalesScreenInterface_a51aa43129047bd449cbaea87874f4586}\label{classHWSalesScreenInterface_a51aa43129047bd449cbaea87874f4586}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classHWSalesScreenInterface_a51aa43129047bd449cbaea87874f4586}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 \mbox{\Hypertarget{classHWSalesScreenInterface_a155fd8d53c0f06d96cdd697baeb41b35}\label{classHWSalesScreenInterface_a155fd8d53c0f06d96cdd697baeb41b35}} 
-void {\bfseries Create\+Menu} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs)
+void {\bfseries Create\+Menu} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}})
 \item 
 \mbox{\Hypertarget{classHWSalesScreenInterface_a110d0eb60e3211e7688e927b7be4e503}\label{classHWSalesScreenInterface_a110d0eb60e3211e7688e927b7be4e503}} 
-void {\bfseries Create\+Sales\+Menu} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs)
+void {\bfseries Create\+Sales\+Menu} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}})
 \item 
 void \mbox{\hyperlink{classHWSalesScreenInterface_abdd9056a026250803c54d398a80ef85b}{Remove}} () override
 \item 
@@ -117,6 +115,34 @@ static int {\bfseries currentselect} = -\/1
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classHWSalesScreenInterface_a51aa43129047bd449cbaea87874f4586}\label{classHWSalesScreenInterface_a51aa43129047bd449cbaea87874f4586}} 
+\index{HWSalesScreenInterface@{HWSalesScreenInterface}!Create@{Create}}
+\index{Create@{Create}!HWSalesScreenInterface@{HWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void H\+W\+Sales\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classHWSalesScreenInterface_a34da97406658e99058a1722b3980b233}\label{classHWSalesScreenInterface_a34da97406658e99058a1722b3980b233}} 
+\index{HWSalesScreenInterface@{HWSalesScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!HWSalesScreenInterface@{HWSalesScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool H\+W\+Sales\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classHWSalesScreenInterface_a8d659061354c1d51659649f26d70b83e}\label{classHWSalesScreenInterface_a8d659061354c1d51659649f26d70b83e}} 
 \index{HWSalesScreenInterface@{HWSalesScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!HWSalesScreenInterface@{HWSalesScreenInterface}}

@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['e_1804',['E',['../classWorldMapLayout.html#a29ae1f89716851ab5b3a0a9d44f66cb8',1,'WorldMapLayout']]],
-  ['event_1805',['event',['../classWarningEvent.html#a2b9d2eaf78e3bad3b1eacde5ddaa631c',1,'WarningEvent']]],
-  ['events_1806',['events',['../classEventScheduler.html#ac206c58dd29f22a3076cce46c824581b',1,'EventScheduler']]]
+  ['data1_1759',['data1',['../classNews.html#a1d8cf934b68d96661989c065dec22173',1,'News']]],
+  ['data2_1760',['data2',['../classNews.html#a2740d203382a060c60555a0971a385a4',1,'News']]],
+  ['date_1761',['date',['../classApp.html#ad8573b92ae801069d164f38c94695b7a',1,'App::date()'],['../classNews.html#afdf3e65f21bf687949e6910c7f9c33ec',1,'News::date()']]],
+  ['details_1762',['details',['../classNews.html#af8c346e401e57fabb2b96321031e695b',1,'News']]],
+  ['displayed_1763',['displayed',['../classVLocation.html#ae8b3ebe2dcc32296a3a4dc707655ee48',1,'VLocation']]]
 ];

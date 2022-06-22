@@ -1,0 +1,184 @@
+\hypertarget{miscutils_8h}{}\doxysection{uplink/src/app/miscutils.h File Reference}
+\label{miscutils_8h}\index{uplink/src/app/miscutils.h@{uplink/src/app/miscutils.h}}
+
+
+Miscellaneous string/file utilities.  
+
+
+{\ttfamily \#include \char`\"{}tosser.\+h\char`\"{}}\newline
+Include dependency graph for miscutils.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{miscutils_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{miscutils_8h_a320aea610caa1bdd45d0a32850454962}{Lower\+Case\+String}} (const string \&thestring)
+\item 
+string \mbox{\hyperlink{miscutils_8h_a7d08d4fe30b776bb55277734e8655a3f}{Strip\+Carriage\+Returns}} (const string \&thestring)
+\item 
+\mbox{\Hypertarget{miscutils_8h_ae75d02aba489d4b43c123127d0d7eeaa}\label{miscutils_8h_ae75d02aba489d4b43c123127d0d7eeaa}} 
+char $\ast$ {\bfseries Trim\+Spaces} (const char $\ast$thestring)
+\item 
+\mbox{\Hypertarget{miscutils_8h_a8d5414dcc7a01f85b50f292d244315a2}\label{miscutils_8h_a8d5414dcc7a01f85b50f292d244315a2}} 
+char $\ast$ {\bfseries Get\+File\+Path} (const char $\ast$filename)
+\item 
+void \mbox{\hyperlink{miscutils_8h_a4a7fedfd4656f806bd44d0d4fed0a311}{Make\+Directory}} (const string \&dirname)
+\item 
+bool \mbox{\hyperlink{miscutils_8h_a39c7cd25975b3b3761470787a7382ad5}{Does\+File\+Exist}} (const string \&filename)
+\item 
+void \mbox{\hyperlink{miscutils_8h_aebf26c1376369ae438e17862a034edb1}{Empty\+Directory}} (const string \&directory)
+\item 
+bool \mbox{\hyperlink{miscutils_8h_af3f183e310dadb563f7de414c997b902}{Copy\+File\+Plain}} (const string \&oldfilename, const string \&newfilename)
+\item 
+\mbox{\Hypertarget{miscutils_8h_acac81ec13e9539739008448b9e244fa1}\label{miscutils_8h_acac81ec13e9539739008448b9e244fa1}} 
+bool {\bfseries Copy\+File\+Uplink} (const char $\ast$oldfilename, const char $\ast$newfilename)
+\item 
+void \mbox{\hyperlink{miscutils_8h_adcc2c367082cc0774788a4a07673b004}{Remove\+File}} (const string \&filename)
+\item 
+\mbox{\Hypertarget{miscutils_8h_af6601608f3ae55569cfe660b1553e379}\label{miscutils_8h_af6601608f3ae55569cfe660b1553e379}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ char $\ast$ $>$ $\ast$ {\bfseries List\+Directory} (char $\ast$directory, char $\ast$filter)
+\item 
+\mbox{\Hypertarget{miscutils_8h_abb927f25c3c58bf2ec66ad2f526df9fd}\label{miscutils_8h_abb927f25c3c58bf2ec66ad2f526df9fd}} 
+\mbox{\hyperlink{classDArray}{D\+Array}}$<$ char $\ast$ $>$ $\ast$ {\bfseries List\+Subdirs} (const string \&directory)
+\item 
+\mbox{\Hypertarget{miscutils_8h_aaec1bfd0a55e7030b1b2a5d9b602face}\label{miscutils_8h_aaec1bfd0a55e7030b1b2a5d9b602face}} 
+void {\bfseries Set\+Colour} (const string \&colour\+Name)
+\item 
+\mbox{\Hypertarget{miscutils_8h_aa455a74b182b6753876d20c53b25a505}\label{miscutils_8h_aa455a74b182b6753876d20c53b25a505}} 
+void {\bfseries Print\+Stack\+Trace} ()
+\item 
+\mbox{\Hypertarget{miscutils_8h_acbb0bb986a8f9aaa2eb878f45ae20d71}\label{miscutils_8h_acbb0bb986a8f9aaa2eb878f45ae20d71}} 
+void {\bfseries Print\+Value} (const string \&valuename, const string \&value)
+\item 
+\mbox{\Hypertarget{miscutils_8h_a0be4bc793bb91b3574ac09778315fc31}\label{miscutils_8h_a0be4bc793bb91b3574ac09778315fc31}} 
+void {\bfseries Print\+Value} (const string \&valuename, int value)
+\item 
+\mbox{\Hypertarget{miscutils_8h_aa9b3684ae19ab5d2ad20c279667f3cbd}\label{miscutils_8h_aa9b3684ae19ab5d2ad20c279667f3cbd}} 
+void {\bfseries Print\+Value} (int valuename, int value)
+\item 
+\mbox{\Hypertarget{miscutils_8h_a2ac1fb6bb0d25a78d8904e2fb4a2eaa0}\label{miscutils_8h_a2ac1fb6bb0d25a78d8904e2fb4a2eaa0}} 
+void {\bfseries Print\+Value} (const string \&valuename, unsigned int value)
+\item 
+\mbox{\Hypertarget{miscutils_8h_a4776973fa2ac0f415e7819147b8294ee}\label{miscutils_8h_a4776973fa2ac0f415e7819147b8294ee}} 
+void {\bfseries Print\+Value} (const string \&valuename, float value)
+\item 
+\mbox{\Hypertarget{miscutils_8h_a119ab47e5668ed76ffef24e72985ca37}\label{miscutils_8h_a119ab47e5668ed76ffef24e72985ca37}} 
+void {\bfseries Print\+Value} (const string \&valuename, time\+\_\+t value)
+\item 
+void \mbox{\hyperlink{miscutils_8h_a27c8749136bca95a74701e0d7b196fbf}{Print\+Padded}} (const string \&name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Miscellaneous string/file utilities. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{miscutils_8h_af3f183e310dadb563f7de414c997b902}\label{miscutils_8h_af3f183e310dadb563f7de414c997b902}} 
+\index{miscutils.h@{miscutils.h}!CopyFilePlain@{CopyFilePlain}}
+\index{CopyFilePlain@{CopyFilePlain}!miscutils.h@{miscutils.h}}
+\doxysubsubsection{\texorpdfstring{CopyFilePlain()}{CopyFilePlain()}}
+{\footnotesize\ttfamily bool Copy\+File\+Plain (\begin{DoxyParamCaption}\item[{const string \&}]{oldfilename,  }\item[{const string \&}]{newfilename }\end{DoxyParamCaption})}
+
+Copies file from one location to another 
+\begin{DoxyParams}{Parameters}
+{\em oldfilename} & File path to copy \\
+\hline
+{\em newfilename} & File path to put copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} on success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{miscutils_8h_a39c7cd25975b3b3761470787a7382ad5}\label{miscutils_8h_a39c7cd25975b3b3761470787a7382ad5}} 
+\index{miscutils.h@{miscutils.h}!DoesFileExist@{DoesFileExist}}
+\index{DoesFileExist@{DoesFileExist}!miscutils.h@{miscutils.h}}
+\doxysubsubsection{\texorpdfstring{DoesFileExist()}{DoesFileExist()}}
+{\footnotesize\ttfamily bool Does\+File\+Exist (\begin{DoxyParamCaption}\item[{const string \&}]{filename }\end{DoxyParamCaption})}
+
+Checks if given filename exists 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File name to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if file exists 
+\end{DoxyReturn}
+\mbox{\Hypertarget{miscutils_8h_aebf26c1376369ae438e17862a034edb1}\label{miscutils_8h_aebf26c1376369ae438e17862a034edb1}} 
+\index{miscutils.h@{miscutils.h}!EmptyDirectory@{EmptyDirectory}}
+\index{EmptyDirectory@{EmptyDirectory}!miscutils.h@{miscutils.h}}
+\doxysubsubsection{\texorpdfstring{EmptyDirectory()}{EmptyDirectory()}}
+{\footnotesize\ttfamily void Empty\+Directory (\begin{DoxyParamCaption}\item[{const string \&}]{directory }\end{DoxyParamCaption})}
+
+Deletes all files and folders within a directory while preserving directory 
+\begin{DoxyParams}{Parameters}
+{\em directory} & Directory to delete everything in \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{miscutils_8h_a320aea610caa1bdd45d0a32850454962}\label{miscutils_8h_a320aea610caa1bdd45d0a32850454962}} 
+\index{miscutils.h@{miscutils.h}!LowerCaseString@{LowerCaseString}}
+\index{LowerCaseString@{LowerCaseString}!miscutils.h@{miscutils.h}}
+\doxysubsubsection{\texorpdfstring{LowerCaseString()}{LowerCaseString()}}
+{\footnotesize\ttfamily string Lower\+Case\+String (\begin{DoxyParamCaption}\item[{const string \&}]{thestring }\end{DoxyParamCaption})}
+
+Converts a string to lowercase 
+\begin{DoxyParams}{Parameters}
+{\em thestring} & The string to change \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string in all lowercase letters 
+\end{DoxyReturn}
+\mbox{\Hypertarget{miscutils_8h_a4a7fedfd4656f806bd44d0d4fed0a311}\label{miscutils_8h_a4a7fedfd4656f806bd44d0d4fed0a311}} 
+\index{miscutils.h@{miscutils.h}!MakeDirectory@{MakeDirectory}}
+\index{MakeDirectory@{MakeDirectory}!miscutils.h@{miscutils.h}}
+\doxysubsubsection{\texorpdfstring{MakeDirectory()}{MakeDirectory()}}
+{\footnotesize\ttfamily void Make\+Directory (\begin{DoxyParamCaption}\item[{const string \&}]{dirname }\end{DoxyParamCaption})}
+
+Creates given directory 
+\begin{DoxyParams}{Parameters}
+{\em dirname} & Directory to create \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{miscutils_8h_a27c8749136bca95a74701e0d7b196fbf}\label{miscutils_8h_a27c8749136bca95a74701e0d7b196fbf}} 
+\index{miscutils.h@{miscutils.h}!PrintPadded@{PrintPadded}}
+\index{PrintPadded@{PrintPadded}!miscutils.h@{miscutils.h}}
+\doxysubsubsection{\texorpdfstring{PrintPadded()}{PrintPadded()}}
+{\footnotesize\ttfamily void Print\+Padded (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})}
+
+Prints text centered with {\ttfamily =} 
+\begin{DoxyParams}{Parameters}
+{\em name} & Text to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{miscutils_8h_adcc2c367082cc0774788a4a07673b004}\label{miscutils_8h_adcc2c367082cc0774788a4a07673b004}} 
+\index{miscutils.h@{miscutils.h}!RemoveFile@{RemoveFile}}
+\index{RemoveFile@{RemoveFile}!miscutils.h@{miscutils.h}}
+\doxysubsubsection{\texorpdfstring{RemoveFile()}{RemoveFile()}}
+{\footnotesize\ttfamily void Remove\+File (\begin{DoxyParamCaption}\item[{const string \&}]{filename }\end{DoxyParamCaption})}
+
+Deletes a file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & File name to delete \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{miscutils_8h_a7d08d4fe30b776bb55277734e8655a3f}\label{miscutils_8h_a7d08d4fe30b776bb55277734e8655a3f}} 
+\index{miscutils.h@{miscutils.h}!StripCarriageReturns@{StripCarriageReturns}}
+\index{StripCarriageReturns@{StripCarriageReturns}!miscutils.h@{miscutils.h}}
+\doxysubsubsection{\texorpdfstring{StripCarriageReturns()}{StripCarriageReturns()}}
+{\footnotesize\ttfamily string Strip\+Carriage\+Returns (\begin{DoxyParamCaption}\item[{const string \&}]{thestring }\end{DoxyParamCaption})}
+
+Gets a substring of the string up to the first newline 
+\begin{DoxyParams}{Parameters}
+{\em thestring} & The string to substring \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The substring up to the newline 
+\end{DoxyReturn}

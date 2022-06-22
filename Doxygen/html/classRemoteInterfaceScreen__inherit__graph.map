@@ -1,5 +1,5 @@
 <map id="RemoteInterfaceScreen" name="RemoteInterfaceScreen">
-<area shape="rect" id="node1" title=" " alt="" coords="332,917,507,944"/>
+<area shape="rect" id="node1" title="RemoteInterfaceScreen class object." alt="" coords="332,917,507,944"/>
 <area shape="rect" id="node4" href="$classAcademicScreenInterface.html" title=" " alt="" coords="578,5,766,32"/>
 <area shape="rect" id="node5" href="$classAccountScreenInterface.html" title=" " alt="" coords="584,56,760,83"/>
 <area shape="rect" id="node6" href="$classBBSScreenInterface.html" title=" " alt="" coords="597,107,747,133"/>

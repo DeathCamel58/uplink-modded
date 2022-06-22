@@ -28,8 +28,7 @@ void {\bfseries Show\+Gateway} (int index)
 \item 
 void \mbox{\hyperlink{classChangeGatewayScreenInterface_afacf72e0f9684f32d6a4f2b21bf335fa}{Create}} () override
 \item 
-\mbox{\Hypertarget{classChangeGatewayScreenInterface_a83b34866ac5932a971201f8d6806cdd9}\label{classChangeGatewayScreenInterface_a83b34866ac5932a971201f8d6806cdd9}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classChangeGatewayScreenInterface_a83b34866ac5932a971201f8d6806cdd9}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 \mbox{\Hypertarget{classChangeGatewayScreenInterface_ac38d7a5694d024c17d4a66775ef17de7}\label{classChangeGatewayScreenInterface_ac38d7a5694d024c17d4a66775ef17de7}} 
 void {\bfseries Create\+Are\+You\+Sure} ()
@@ -40,11 +39,9 @@ void \mbox{\hyperlink{classChangeGatewayScreenInterface_aa1a1ac6ca1503c7db5cb398
 \item 
 bool \mbox{\hyperlink{classChangeGatewayScreenInterface_a3bbe7343ecb1c23b221070d1887ef501}{Is\+Visible}} () override
 \item 
-\mbox{\Hypertarget{classChangeGatewayScreenInterface_a8a2b658b4d0b31253b733e2d71d5705f}\label{classChangeGatewayScreenInterface_a8a2b658b4d0b31253b733e2d71d5705f}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classChangeGatewayScreenInterface_a8a2b658b4d0b31253b733e2d71d5705f}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classChangeGatewayScreenInterface_aa407dc115b223ab203505863839bf97f}\label{classChangeGatewayScreenInterface_aa407dc115b223ab203505863839bf97f}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classChangeGatewayScreenInterface_aa407dc115b223ab203505863839bf97f}{Escape\+Key\+Pressed}} () override
 \item 
 int \mbox{\hyperlink{classChangeGatewayScreenInterface_a7fd0eabf56bcaf654e8ba870342c537a}{Screen\+ID}} () override
 \item 
@@ -106,12 +103,40 @@ static int {\bfseries base\+Offset} = 0
 \mbox{\Hypertarget{classChangeGatewayScreenInterface_afacf72e0f9684f32d6a4f2b21bf335fa}\label{classChangeGatewayScreenInterface_afacf72e0f9684f32d6a4f2b21bf335fa}} 
 \index{ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}!Create@{Create}}
 \index{Create@{Create}!ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Change\+Gateway\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classChangeGatewayScreenInterface_a83b34866ac5932a971201f8d6806cdd9}\label{classChangeGatewayScreenInterface_a83b34866ac5932a971201f8d6806cdd9}} 
+\index{ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}!Create@{Create}}
+\index{Create@{Create}!ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Change\+Gateway\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classChangeGatewayScreenInterface_aa407dc115b223ab203505863839bf97f}\label{classChangeGatewayScreenInterface_aa407dc115b223ab203505863839bf97f}} 
+\index{ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Change\+Gateway\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classChangeGatewayScreenInterface_a3bbe7343ecb1c23b221070d1887ef501}\label{classChangeGatewayScreenInterface_a3bbe7343ecb1c23b221070d1887ef501}} 
 \index{ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}!IsVisible@{IsVisible}}
@@ -135,6 +160,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classChangeGatewayScreenInterface_a8a2b658b4d0b31253b733e2d71d5705f}\label{classChangeGatewayScreenInterface_a8a2b658b4d0b31253b733e2d71d5705f}} 
+\index{ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Change\+Gateway\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classChangeGatewayScreenInterface_a7fd0eabf56bcaf654e8ba870342c537a}\label{classChangeGatewayScreenInterface_a7fd0eabf56bcaf654e8ba870342c537a}} 
 \index{ChangeGatewayScreenInterface@{ChangeGatewayScreenInterface}!ScreenID@{ScreenID}}

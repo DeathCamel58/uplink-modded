@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['red_1865',['red',['../classUplinkIRCMessage.html#aac0df367f7fa0f5937da8f60bf92207f',1,'UplinkIRCMessage']]],
-  ['remotehost_1866',['remotehost',['../classAnalyserInterface.html#af0bfec7e8c7f3f408027254b2c8521ea',1,'AnalyserInterface']]],
-  ['rundate_1867',['rundate',['../classUplinkEvent.html#a7aee05860e1a8db6517d8daa0bf9bfb4',1,'UplinkEvent']]]
+  ['path_1827',['path',['../classApp.html#af8017ba205afaa415c56863c22f078c8',1,'App']]],
+  ['posslabelpos_1828',['possLabelPos',['../classWorldMapInterfaceLabel.html#a8e5e4238870935ca51eba803bba76e2e',1,'WorldMapInterfaceLabel']]],
+  ['previousnumaccounts_1829',['previousnumaccounts',['../classFinanceInterface.html#a249d0246f1ec6d6cad413d85648f255e',1,'FinanceInterface']]],
+  ['previousnumfiles_1830',['previousnumfiles',['../classMemoryInterface.html#abd584874c39bced99608c271ae051a81',1,'MemoryInterface']]],
+  ['previousupdate_1831',['previousupdate',['../classEventQueueInterface.html#a7ce6b078676ce2f74475418bafeaf0b9',1,'EventQueueInterface']]]
 ];

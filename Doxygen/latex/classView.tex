@@ -2,6 +2,15 @@
 \label{classView}\index{View@{View}}
 
 
+\mbox{\hyperlink{classView}{View}} class object.  
+
+
+
+
+{\ttfamily \#include $<$view.\+h$>$}
+
+
+
 Inheritance diagram for View\+:
 \nopagebreak
 \begin{figure}[H]
@@ -26,8 +35,7 @@ Collaboration diagram for View\+:
 \mbox{\Hypertarget{classView_a0ef3921dedb2727e2c120c3ea842cd60}\label{classView_a0ef3921dedb2727e2c120c3ea842cd60}} 
 void {\bfseries Initialise} ()
 \item 
-\mbox{\Hypertarget{classView_a4047d54ee196ced68d681eefe800aad8}\label{classView_a4047d54ee196ced68d681eefe800aad8}} 
-void {\bfseries Draw} ()
+void \mbox{\hyperlink{classView_a4047d54ee196ced68d681eefe800aad8}{Draw}} ()
 \item 
 bool \mbox{\hyperlink{classView_a695cee5039d6d46b65df7f7bc0b2a912}{Load}} (F\+I\+LE $\ast$file) override
 \item 
@@ -42,13 +50,26 @@ string \mbox{\hyperlink{classView_a25c3616de34d027c209606eaa08d74c6}{Get\+ID}} (
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classView_a2995286ffddf23ad1b1aa3e049b541a7}\label{classView_a2995286ffddf23ad1b1aa3e049b541a7}} 
-\mbox{\hyperlink{classFrameRate}{Frame\+Rate}} {\bfseries fps}
+\mbox{\hyperlink{classFrameRate}{Frame\+Rate}} \mbox{\hyperlink{classView_a2995286ffddf23ad1b1aa3e049b541a7}{fps}}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classView}{View}} class object. 
+
+Creates a 3D representation of the game world based on the players current location in that world \begin{DoxyNote}{Note}
+Uses Open\+GL 
+\end{DoxyNote}
+
+
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classView_a25c3616de34d027c209606eaa08d74c6}\label{classView_a25c3616de34d027c209606eaa08d74c6}} 
+\mbox{\Hypertarget{classView_a4047d54ee196ced68d681eefe800aad8}\label{classView_a4047d54ee196ced68d681eefe800aad8}} 
+\index{View@{View}!Draw@{Draw}}
+\index{Draw@{Draw}!View@{View}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void View\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ticks the fps \mbox{\Hypertarget{classView_a25c3616de34d027c209606eaa08d74c6}\label{classView_a25c3616de34d027c209606eaa08d74c6}} 
 \index{View@{View}!GetID@{GetID}}
 \index{GetID@{GetID}!View@{View}}
 \doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
@@ -72,7 +93,7 @@ Reimplemented from \mbox{\hyperlink{classUplinkObject_aad3c1d7ed17fea15698cf797a
 
 Loads data to this object from file 
 \begin{DoxyParams}{Parameters}
-{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+{\em file} & File to load from \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -103,7 +124,7 @@ Reimplemented from \mbox{\hyperlink{classUplinkObject_a23062458b794e4bc01c78c948
 
 Saves data from this object to file 
 \begin{DoxyParams}{Parameters}
-{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+{\em file} & File to save to \\
 \hline
 \end{DoxyParams}
 
@@ -121,6 +142,15 @@ Processes any necessary updates on the object.
 Reimplemented from \mbox{\hyperlink{classUplinkObject_a16141ec39d4f4491d69177f0033bc953}{Uplink\+Object}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classView_a2995286ffddf23ad1b1aa3e049b541a7}\label{classView_a2995286ffddf23ad1b1aa3e049b541a7}} 
+\index{View@{View}!fps@{fps}}
+\index{fps@{fps}!View@{View}}
+\doxysubsubsection{\texorpdfstring{fps}{fps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classFrameRate}{Frame\+Rate}} View\+::fps}
+
+The \mbox{\hyperlink{classFrameRate}{Frame\+Rate}} of the \mbox{\hyperlink{classView}{View}} 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

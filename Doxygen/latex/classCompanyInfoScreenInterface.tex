@@ -23,13 +23,11 @@ Collaboration diagram for Company\+Info\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCompanyInfoScreenInterface_a284e6cd36a7636521038d07b85e3cad6}\label{classCompanyInfoScreenInterface_a284e6cd36a7636521038d07b85e3cad6}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classCompanyInfoScreenInterface_a284e6cd36a7636521038d07b85e3cad6}{Escape\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classCompanyInfoScreenInterface_a8ed3751e25d1c541be83edcbb0d51f7c}{Create}} () override
 \item 
-\mbox{\Hypertarget{classCompanyInfoScreenInterface_a83b9e2544313d58906c76e2b5708d1eb}\label{classCompanyInfoScreenInterface_a83b9e2544313d58906c76e2b5708d1eb}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classCompanyInfoScreenInterface_a83b9e2544313d58906c76e2b5708d1eb}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classCompanyInfoScreenInterface_a0c57568b390705fd17233ac0a02ed8cd}{Remove}} () override
 \item 
@@ -61,12 +59,40 @@ static void {\bfseries Back\+Click} (\mbox{\hyperlink{classButton}{Button}} $\as
 \mbox{\Hypertarget{classCompanyInfoScreenInterface_a8ed3751e25d1c541be83edcbb0d51f7c}\label{classCompanyInfoScreenInterface_a8ed3751e25d1c541be83edcbb0d51f7c}} 
 \index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!Create@{Create}}
 \index{Create@{Create}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Company\+Info\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a83b9e2544313d58906c76e2b5708d1eb}\label{classCompanyInfoScreenInterface_a83b9e2544313d58906c76e2b5708d1eb}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!Create@{Create}}
+\index{Create@{Create}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Company\+Info\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a284e6cd36a7636521038d07b85e3cad6}\label{classCompanyInfoScreenInterface_a284e6cd36a7636521038d07b85e3cad6}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Company\+Info\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classCompanyInfoScreenInterface_adbef30428f961653b752623532a802f6}\label{classCompanyInfoScreenInterface_adbef30428f961653b752623532a802f6}} 
 \index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!IsVisible@{IsVisible}}

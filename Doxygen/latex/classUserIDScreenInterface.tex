@@ -23,11 +23,9 @@ Collaboration diagram for User\+I\+D\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classUserIDScreenInterface_adf4eeee8800e1b484154b7f70f7f2a8c}\label{classUserIDScreenInterface_adf4eeee8800e1b484154b7f70f7f2a8c}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classUserIDScreenInterface_adf4eeee8800e1b484154b7f70f7f2a8c}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classUserIDScreenInterface_a52d46d35a815a19485673cb6707ea8f7}\label{classUserIDScreenInterface_a52d46d35a815a19485673cb6707ea8f7}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classUserIDScreenInterface_a52d46d35a815a19485673cb6707ea8f7}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classUserIDScreenInterface_a74359c198861e06c820f30a71685baa0}{Remove}} () override
 \item 
@@ -65,6 +63,21 @@ static void {\bfseries Proceed\+Click} (\mbox{\hyperlink{classButton}{Button}} $
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classUserIDScreenInterface_a52d46d35a815a19485673cb6707ea8f7}\label{classUserIDScreenInterface_a52d46d35a815a19485673cb6707ea8f7}} 
+\index{UserIDScreenInterface@{UserIDScreenInterface}!Create@{Create}}
+\index{Create@{Create}!UserIDScreenInterface@{UserIDScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void User\+I\+D\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classUserIDScreenInterface_ac6f067f7647c8c5290d112ee5c82ff4f}\label{classUserIDScreenInterface_ac6f067f7647c8c5290d112ee5c82ff4f}} 
 \index{UserIDScreenInterface@{UserIDScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!UserIDScreenInterface@{UserIDScreenInterface}}
@@ -87,6 +100,19 @@ Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de26
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classUserIDScreenInterface_adf4eeee8800e1b484154b7f70f7f2a8c}\label{classUserIDScreenInterface_adf4eeee8800e1b484154b7f70f7f2a8c}} 
+\index{UserIDScreenInterface@{UserIDScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!UserIDScreenInterface@{UserIDScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool User\+I\+D\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classUserIDScreenInterface_af79811cb5958501a6dd3045371153d9c}\label{classUserIDScreenInterface_af79811cb5958501a6dd3045371153d9c}} 
 \index{UserIDScreenInterface@{UserIDScreenInterface}!ScreenID@{ScreenID}}

@@ -23,13 +23,11 @@ Collaboration diagram for Radio\+Transmitter\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ac951af0b5e9ccd2f4b758ac82da1053d}\label{classRadioTransmitterScreenInterface_ac951af0b5e9ccd2f4b758ac82da1053d}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classRadioTransmitterScreenInterface_ac951af0b5e9ccd2f4b758ac82da1053d}{Return\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classRadioTransmitterScreenInterface_ac26c790dc640926f5ada93d173b78f3f}{Create}} () override
 \item 
-\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a0ecfa6a2225b73d14ae8c0bb2aaa633c}\label{classRadioTransmitterScreenInterface_a0ecfa6a2225b73d14ae8c0bb2aaa633c}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classRadioTransmitterScreenInterface_a0ecfa6a2225b73d14ae8c0bb2aaa633c}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classRadioTransmitterScreenInterface_ac49bae2cefb70da5d71a96cf626b3e17}{Remove}} () override
 \item 
@@ -88,12 +86,27 @@ static int {\bfseries frequency\+Mhz} = 0
 \mbox{\Hypertarget{classRadioTransmitterScreenInterface_ac26c790dc640926f5ada93d173b78f3f}\label{classRadioTransmitterScreenInterface_ac26c790dc640926f5ada93d173b78f3f}} 
 \index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!Create@{Create}}
 \index{Create@{Create}!RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Radio\+Transmitter\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_a0ecfa6a2225b73d14ae8c0bb2aaa633c}\label{classRadioTransmitterScreenInterface_a0ecfa6a2225b73d14ae8c0bb2aaa633c}} 
+\index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!Create@{Create}}
+\index{Create@{Create}!RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Radio\+Transmitter\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classRadioTransmitterScreenInterface_ad66681f56fe91690cf06ad5d62fc90c1}\label{classRadioTransmitterScreenInterface_ad66681f56fe91690cf06ad5d62fc90c1}} 
 \index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!IsVisible@{IsVisible}}
@@ -117,6 +130,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRadioTransmitterScreenInterface_ac951af0b5e9ccd2f4b758ac82da1053d}\label{classRadioTransmitterScreenInterface_ac951af0b5e9ccd2f4b758ac82da1053d}} 
+\index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Radio\+Transmitter\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classRadioTransmitterScreenInterface_a2ac3c13f8e26cdb1ad2da1e8e7511eca}\label{classRadioTransmitterScreenInterface_a2ac3c13f8e26cdb1ad2da1e8e7511eca}} 
 \index{RadioTransmitterScreenInterface@{RadioTransmitterScreenInterface}!ScreenID@{ScreenID}}

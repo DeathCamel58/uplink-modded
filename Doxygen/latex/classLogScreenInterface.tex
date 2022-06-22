@@ -23,13 +23,11 @@ Collaboration diagram for Log\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classLogScreenInterface_a57480d796c7b1a393a73dbc4b4d87181}\label{classLogScreenInterface_a57480d796c7b1a393a73dbc4b4d87181}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classLogScreenInterface_a57480d796c7b1a393a73dbc4b4d87181}{Escape\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classLogScreenInterface_a49483ca3dcd044c17c14d21745e50959}{Create}} () override
 \item 
-\mbox{\Hypertarget{classLogScreenInterface_af0bea171d61fde557666f0487d60cdff}\label{classLogScreenInterface_af0bea171d61fde557666f0487d60cdff}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classLogScreenInterface_af0bea171d61fde557666f0487d60cdff}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classLogScreenInterface_a2c36e2cfdea995547eb321abc5f6727d}{Remove}} () override
 \item 
@@ -85,12 +83,40 @@ static int {\bfseries previousnumlogs} = 0
 \mbox{\Hypertarget{classLogScreenInterface_a49483ca3dcd044c17c14d21745e50959}\label{classLogScreenInterface_a49483ca3dcd044c17c14d21745e50959}} 
 \index{LogScreenInterface@{LogScreenInterface}!Create@{Create}}
 \index{Create@{Create}!LogScreenInterface@{LogScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Log\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreenInterface_af0bea171d61fde557666f0487d60cdff}\label{classLogScreenInterface_af0bea171d61fde557666f0487d60cdff}} 
+\index{LogScreenInterface@{LogScreenInterface}!Create@{Create}}
+\index{Create@{Create}!LogScreenInterface@{LogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Log\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classLogScreenInterface_a57480d796c7b1a393a73dbc4b4d87181}\label{classLogScreenInterface_a57480d796c7b1a393a73dbc4b4d87181}} 
+\index{LogScreenInterface@{LogScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!LogScreenInterface@{LogScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Log\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classLogScreenInterface_a0ae49f0b4f9e647a284dac846511e141}\label{classLogScreenInterface_a0ae49f0b4f9e647a284dac846511e141}} 
 \index{LogScreenInterface@{LogScreenInterface}!IsVisible@{IsVisible}}

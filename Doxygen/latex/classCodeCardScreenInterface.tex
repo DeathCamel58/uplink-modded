@@ -23,8 +23,7 @@ Collaboration diagram for Code\+Card\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCodeCardScreenInterface_a2b160dc81fc0667ee8493e9fadd19538}\label{classCodeCardScreenInterface_a2b160dc81fc0667ee8493e9fadd19538}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classCodeCardScreenInterface_a2b160dc81fc0667ee8493e9fadd19538}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classCodeCardScreenInterface_a868fa7a3720c37dd6b2df3e535b29d71}{Remove}} () override
 \item 
@@ -32,8 +31,7 @@ void \mbox{\hyperlink{classCodeCardScreenInterface_ac180c6790a4cbb868a4c255cc058
 \item 
 bool \mbox{\hyperlink{classCodeCardScreenInterface_ad5f206ea61f761c36b6cd3e85555f210}{Is\+Visible}} () override
 \item 
-\mbox{\Hypertarget{classCodeCardScreenInterface_ae3bc749b577833614392c586892ed76a}\label{classCodeCardScreenInterface_ae3bc749b577833614392c586892ed76a}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classCodeCardScreenInterface_ae3bc749b577833614392c586892ed76a}{Return\+Key\+Pressed}} () override
 \item 
 int \mbox{\hyperlink{classCodeCardScreenInterface_aeeed79b57025c46997c85fbeca039a7e}{Screen\+ID}} () override
 \item 
@@ -86,6 +84,21 @@ static char {\bfseries carddata\+M\+A\+RK} \mbox{[}26\mbox{]}\mbox{[}16\mbox{]}\
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCodeCardScreenInterface_a2b160dc81fc0667ee8493e9fadd19538}\label{classCodeCardScreenInterface_a2b160dc81fc0667ee8493e9fadd19538}} 
+\index{CodeCardScreenInterface@{CodeCardScreenInterface}!Create@{Create}}
+\index{Create@{Create}!CodeCardScreenInterface@{CodeCardScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Code\+Card\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classCodeCardScreenInterface_ad5f206ea61f761c36b6cd3e85555f210}\label{classCodeCardScreenInterface_ad5f206ea61f761c36b6cd3e85555f210}} 
 \index{CodeCardScreenInterface@{CodeCardScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!CodeCardScreenInterface@{CodeCardScreenInterface}}
@@ -108,6 +121,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCodeCardScreenInterface_ae3bc749b577833614392c586892ed76a}\label{classCodeCardScreenInterface_ae3bc749b577833614392c586892ed76a}} 
+\index{CodeCardScreenInterface@{CodeCardScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!CodeCardScreenInterface@{CodeCardScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Code\+Card\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classCodeCardScreenInterface_aeeed79b57025c46997c85fbeca039a7e}\label{classCodeCardScreenInterface_aeeed79b57025c46997c85fbeca039a7e}} 
 \index{CodeCardScreenInterface@{CodeCardScreenInterface}!ScreenID@{ScreenID}}

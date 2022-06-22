@@ -29,11 +29,9 @@ void {\bfseries Start\+Voice\+Playback} ()
 \mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a03b3415f65bd85c67d707888a255e989}\label{classVoiceAnalysisScreenInterface_a03b3415f65bd85c67d707888a255e989}} 
 void {\bfseries Finish\+Voice\+Playback} (const string \&voicename)
 \item 
-\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a7d8be04f8957ffb873e559c64a7fd1a5}\label{classVoiceAnalysisScreenInterface_a7d8be04f8957ffb873e559c64a7fd1a5}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classVoiceAnalysisScreenInterface_a7d8be04f8957ffb873e559c64a7fd1a5}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_af2c3410d568343a38b7c7bf1e1466ac7}\label{classVoiceAnalysisScreenInterface_af2c3410d568343a38b7c7bf1e1466ac7}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classVoiceAnalysisScreenInterface_af2c3410d568343a38b7c7bf1e1466ac7}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classVoiceAnalysisScreenInterface_a492b854fd1247eaa7c11c0bcd94b9dc1}{Remove}} () override
 \item 
@@ -74,6 +72,21 @@ int {\bfseries S\+T\+A\+T\+US}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_af2c3410d568343a38b7c7bf1e1466ac7}\label{classVoiceAnalysisScreenInterface_af2c3410d568343a38b7c7bf1e1466ac7}} 
+\index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}!Create@{Create}}
+\index{Create@{Create}!VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Voice\+Analysis\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classVoiceAnalysisScreenInterface_afd044b94f27020c5f95644897035f502}\label{classVoiceAnalysisScreenInterface_afd044b94f27020c5f95644897035f502}} 
 \index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}}
@@ -96,6 +109,19 @@ Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de26
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classVoiceAnalysisScreenInterface_a7d8be04f8957ffb873e559c64a7fd1a5}\label{classVoiceAnalysisScreenInterface_a7d8be04f8957ffb873e559c64a7fd1a5}} 
+\index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Voice\+Analysis\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classVoiceAnalysisScreenInterface_ad27d4e05326709d38235c50047adb946}\label{classVoiceAnalysisScreenInterface_ad27d4e05326709d38235c50047adb946}} 
 \index{VoiceAnalysisScreenInterface@{VoiceAnalysisScreenInterface}!ScreenID@{ScreenID}}

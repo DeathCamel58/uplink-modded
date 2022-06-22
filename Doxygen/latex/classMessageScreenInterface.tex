@@ -23,13 +23,11 @@ Collaboration diagram for Message\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMessageScreenInterface_ac35bd1f3e8f4186dd40dad5d4aede987}\label{classMessageScreenInterface_ac35bd1f3e8f4186dd40dad5d4aede987}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classMessageScreenInterface_ac35bd1f3e8f4186dd40dad5d4aede987}{Return\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classMessageScreenInterface_a7d63e343e79b72c3cfded6cea6fc252f}{Create}} () override
 \item 
-\mbox{\Hypertarget{classMessageScreenInterface_a7c3a8e9b603ecc0dc2b68a76b39ddce9}\label{classMessageScreenInterface_a7c3a8e9b603ecc0dc2b68a76b39ddce9}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classMessageScreenInterface_a7c3a8e9b603ecc0dc2b68a76b39ddce9}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classMessageScreenInterface_a1d6b0063e3e82250092fa5f6ecee7c01}{Remove}} () override
 \item 
@@ -56,12 +54,27 @@ static void {\bfseries Mail\+Me\+Click} (\mbox{\hyperlink{classButton}{Button}} 
 \mbox{\Hypertarget{classMessageScreenInterface_a7d63e343e79b72c3cfded6cea6fc252f}\label{classMessageScreenInterface_a7d63e343e79b72c3cfded6cea6fc252f}} 
 \index{MessageScreenInterface@{MessageScreenInterface}!Create@{Create}}
 \index{Create@{Create}!MessageScreenInterface@{MessageScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Message\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMessageScreenInterface_a7c3a8e9b603ecc0dc2b68a76b39ddce9}\label{classMessageScreenInterface_a7c3a8e9b603ecc0dc2b68a76b39ddce9}} 
+\index{MessageScreenInterface@{MessageScreenInterface}!Create@{Create}}
+\index{Create@{Create}!MessageScreenInterface@{MessageScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Message\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classMessageScreenInterface_aeafdb66c24f8afe1f3036aeb4f016e93}\label{classMessageScreenInterface_aeafdb66c24f8afe1f3036aeb4f016e93}} 
 \index{MessageScreenInterface@{MessageScreenInterface}!IsVisible@{IsVisible}}
@@ -85,6 +98,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classMessageScreenInterface_ac35bd1f3e8f4186dd40dad5d4aede987}\label{classMessageScreenInterface_ac35bd1f3e8f4186dd40dad5d4aede987}} 
+\index{MessageScreenInterface@{MessageScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!MessageScreenInterface@{MessageScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Message\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classMessageScreenInterface_a8c2f7a968bb1e6b46c7b2f3f17c1c2fa}\label{classMessageScreenInterface_a8c2f7a968bb1e6b46c7b2f3f17c1c2fa}} 
 \index{MessageScreenInterface@{MessageScreenInterface}!ScreenID@{ScreenID}}

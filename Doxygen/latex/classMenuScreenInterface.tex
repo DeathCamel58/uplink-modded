@@ -23,8 +23,7 @@ Collaboration diagram for Menu\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classMenuScreenInterface_a801969bfaa7cd834833439292e319f5e}\label{classMenuScreenInterface_a801969bfaa7cd834833439292e319f5e}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classMenuScreenInterface_a801969bfaa7cd834833439292e319f5e}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classMenuScreenInterface_a7b2f9114a78637fa3e5ce10a87b7dcbe}{Remove}} () override
 \item 
@@ -51,6 +50,21 @@ static void {\bfseries Click\+Menu\+Screen\+Option} (\mbox{\hyperlink{classButto
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMenuScreenInterface_a801969bfaa7cd834833439292e319f5e}\label{classMenuScreenInterface_a801969bfaa7cd834833439292e319f5e}} 
+\index{MenuScreenInterface@{MenuScreenInterface}!Create@{Create}}
+\index{Create@{Create}!MenuScreenInterface@{MenuScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Menu\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classMenuScreenInterface_a4c1f7db487410fa322dc35e386f2b711}\label{classMenuScreenInterface_a4c1f7db487410fa322dc35e386f2b711}} 
 \index{MenuScreenInterface@{MenuScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!MenuScreenInterface@{MenuScreenInterface}}

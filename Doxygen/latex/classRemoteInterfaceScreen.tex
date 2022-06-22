@@ -2,6 +2,15 @@
 \label{classRemoteInterfaceScreen}\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}}
 
 
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} class object.  
+
+
+
+
+{\ttfamily \#include $<$remoteinterfacescreen.\+h$>$}
+
+
+
 Inheritance diagram for Remote\+Interface\+Screen\+:
 \nopagebreak
 \begin{figure}[H]
@@ -25,8 +34,7 @@ Collaboration diagram for Remote\+Interface\+Screen\+:
 \item 
 void \mbox{\hyperlink{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}{Create}} () override
 \item 
-\mbox{\Hypertarget{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}\label{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}} 
-virtual void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs)
+virtual void \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs)
 \item 
 void \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remove}} () override
 \item 
@@ -36,44 +44,42 @@ bool \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7
 \item 
 int \mbox{\hyperlink{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}{Screen\+ID}} () override
 \item 
-\mbox{\Hypertarget{classRemoteInterfaceScreen_acc2cff59c4c461b6ee6db30e355a4865}\label{classRemoteInterfaceScreen_acc2cff59c4c461b6ee6db30e355a4865}} 
-\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
+\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ \mbox{\hyperlink{classRemoteInterfaceScreen_acc2cff59c4c461b6ee6db30e355a4865}{Get\+Computer\+Screen}} ()
 \item 
-\mbox{\Hypertarget{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}\label{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}} 
-virtual bool {\bfseries Return\+Key\+Pressed} ()
+virtual bool \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Return\+Key\+Pressed}} ()
 \item 
-\mbox{\Hypertarget{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}\label{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}} 
-virtual bool {\bfseries Escape\+Key\+Pressed} ()
+virtual bool \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Escape\+Key\+Pressed}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRemoteInterfaceScreen_a08c0abcd058500f273d0caf1eb689f8b}\label{classRemoteInterfaceScreen_a08c0abcd058500f273d0caf1eb689f8b}} 
-static \mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} $\ast$ {\bfseries Get\+Interface\+Screen} (int screen\+ID)
+static \mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} $\ast$ \mbox{\hyperlink{classRemoteInterfaceScreen_a08c0abcd058500f273d0caf1eb689f8b}{Get\+Interface\+Screen}} (int screen\+ID)
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRemoteInterfaceScreen_ad6619c79b7453d4d3c4adfa8f657e8ad}\label{classRemoteInterfaceScreen_ad6619c79b7453d4d3c4adfa8f657e8ad}} 
-static void {\bfseries Draw\+Main\+Title} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+static void \mbox{\hyperlink{classRemoteInterfaceScreen_ad6619c79b7453d4d3c4adfa8f657e8ad}{Draw\+Main\+Title}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
 \item 
-\mbox{\Hypertarget{classRemoteInterfaceScreen_a898dae7ff90f7453ee7b329841322b5c}\label{classRemoteInterfaceScreen_a898dae7ff90f7453ee7b329841322b5c}} 
-static void {\bfseries Draw\+Sub\+Title} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+static void \mbox{\hyperlink{classRemoteInterfaceScreen_a898dae7ff90f7453ee7b329841322b5c}{Draw\+Sub\+Title}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}\label{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}} 
-\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ {\bfseries cs}
+\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ \mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} class object. 
+
+A slightly more customized version of \mbox{\hyperlink{classInterfaceScreen}{Interface\+Screen}} which has a link to a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} object 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}\label{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}} 
 \index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!Create@{Create}}
 \index{Create@{Create}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Remote\+Interface\+Screen\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
@@ -84,6 +90,93 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e615887
 
 Reimplemented in \mbox{\hyperlink{classSharesViewScreenInterface_ad7b5fe08b096a0ec5457d0c7682b2cb1}{Shares\+View\+Screen\+Interface}}, and \mbox{\hyperlink{classSharesListScreenInterface_a0976ebd066207336f52c9a766bcbc006}{Shares\+List\+Screen\+Interface}}.
 
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}\label{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!Create@{Create}}
+\index{Create@{Create}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Remote\+Interface\+Screen\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classLinksScreenInterface_a1061ba452a50be66549fd28bda98dabe}{Links\+Screen\+Interface}}, \mbox{\hyperlink{classCypherScreenInterface_a47aadca187fbe799d9322c5ece28d927}{Cypher\+Screen\+Interface}}, \mbox{\hyperlink{classSharesViewScreenInterface_a8a05a01458471cdde4a70473d508da89}{Shares\+View\+Screen\+Interface}}, \mbox{\hyperlink{classSharesListScreenInterface_ab87dc6c636d20b5d1f599e48e2b424ca}{Shares\+List\+Screen\+Interface}}, \mbox{\hyperlink{classFileServerScreenInterface_a4cf5c3f828286ca911eebc8672bea116}{File\+Server\+Screen\+Interface}}, \mbox{\hyperlink{classLogScreenInterface_af0bea171d61fde557666f0487d60cdff}{Log\+Screen\+Interface}}, \mbox{\hyperlink{classNuclearWarScreenInterface_a05a2e34efd047cfb78e3906691684b29}{Nuclear\+War\+Screen\+Interface}}, \mbox{\hyperlink{classCompanyInfoScreenInterface_a83b9e2544313d58906c76e2b5708d1eb}{Company\+Info\+Screen\+Interface}}, \mbox{\hyperlink{classDialogScreenInterface_aa42807585d157e90fcb54a94f5b43dd6}{Dialog\+Screen\+Interface}}, \mbox{\hyperlink{classSecurityScreenInterface_a902c5d8673ad1e4d9812b48ed19c1e1f}{Security\+Screen\+Interface}}, \mbox{\hyperlink{classFaithScreenInterface_ae854e81d9c3232d4199729b2e62a233a}{Faith\+Screen\+Interface}}, \mbox{\hyperlink{classNearestGatewayScreenInterface_a98391fb0c4fa8d2aa1fd9efd1c7c74d0}{Nearest\+Gateway\+Screen\+Interface}}, \mbox{\hyperlink{classHighSecurityScreenInterface_aec20fdada7ca115b5cfe6bb13f91970f}{High\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classRecordScreenInterface_a5e09ed05ba368d8c1b466ac36b3c77bb}{Record\+Screen\+Interface}}, \mbox{\hyperlink{classProtovisionScreenInterface_a35859ea8f39779f44321afe17ab7558d}{Protovision\+Screen\+Interface}}, \mbox{\hyperlink{classMessageScreenInterface_a7c3a8e9b603ecc0dc2b68a76b39ddce9}{Message\+Screen\+Interface}}, \mbox{\hyperlink{classDisconnectedScreenInterface_a56b66a08f66c6520e7bcece3eaafa462}{Disconnected\+Screen\+Interface}}, \mbox{\hyperlink{classConsoleScreenInterface_a979fd160628decb8227d5d8f84db450f}{Console\+Screen\+Interface}}, \mbox{\hyperlink{classContactScreenInterface_a8b138d92dbad40df5b7d2fa7422a4cdb}{Contact\+Screen\+Interface}}, \mbox{\hyperlink{classHWSalesScreenInterface_a51aa43129047bd449cbaea87874f4586}{H\+W\+Sales\+Screen\+Interface}}, \mbox{\hyperlink{classVoiceAnalysisScreenInterface_af2c3410d568343a38b7c7bf1e1466ac7}{Voice\+Analysis\+Screen\+Interface}}, \mbox{\hyperlink{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}{Voice\+Phone\+Screen\+Interface}}, \mbox{\hyperlink{classChangeGatewayScreenInterface_a83b34866ac5932a971201f8d6806cdd9}{Change\+Gateway\+Screen\+Interface}}, \mbox{\hyperlink{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}{Criminal\+Screen\+Interface}}, \mbox{\hyperlink{classBBSScreenInterface_ac2a6c856e350d3ab44390da01cd4cdb1}{B\+B\+S\+Screen\+Interface}}, \mbox{\hyperlink{classSWSalesScreenInterface_afabb187a33c8ee15df6e20d094f35824}{S\+W\+Sales\+Screen\+Interface}}, \mbox{\hyperlink{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}{Academic\+Screen\+Interface}}, \mbox{\hyperlink{classSocialSecurityScreenInterface_a25317e16ed8ce9bac1d51abb69caffc0}{Social\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classLoansScreenInterface_acca53f27539cf5c77abf573e38a9c7c5}{Loans\+Screen\+Interface}}, \mbox{\hyperlink{classNewsScreenInterface_a6eebf763089ea09b8a40d868fff889be}{News\+Screen\+Interface}}, \mbox{\hyperlink{classRadioTransmitterScreenInterface_a0ecfa6a2225b73d14ae8c0bb2aaa633c}{Radio\+Transmitter\+Screen\+Interface}}, \mbox{\hyperlink{classRankingScreenInterface_a0b2fd084817d16d07917d3208227625d}{Ranking\+Screen\+Interface}}, \mbox{\hyperlink{classPasswordScreenInterface_a6d031e77a2d2150789648912c07558ac}{Password\+Screen\+Interface}}, \mbox{\hyperlink{classAccountScreenInterface_aa8eb97062fe2c24fea5c0d4ae75794cf}{Account\+Screen\+Interface}}, \mbox{\hyperlink{classCodeCardScreenInterface_a2b160dc81fc0667ee8493e9fadd19538}{Code\+Card\+Screen\+Interface}}, \mbox{\hyperlink{classUserIDScreenInterface_a52d46d35a815a19485673cb6707ea8f7}{User\+I\+D\+Screen\+Interface}}, and \mbox{\hyperlink{classMenuScreenInterface_a801969bfaa7cd834833439292e319f5e}{Menu\+Screen\+Interface}}.
+
+\mbox{\Hypertarget{classRemoteInterfaceScreen_ad6619c79b7453d4d3c4adfa8f657e8ad}\label{classRemoteInterfaceScreen_ad6619c79b7453d4d3c4adfa8f657e8ad}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!DrawMainTitle@{DrawMainTitle}}
+\index{DrawMainTitle@{DrawMainTitle}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{DrawMainTitle()}{DrawMainTitle()}}
+{\footnotesize\ttfamily void Remote\+Interface\+Screen\+::\+Draw\+Main\+Title (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the main title of this object 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to render \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a898dae7ff90f7453ee7b329841322b5c}\label{classRemoteInterfaceScreen_a898dae7ff90f7453ee7b329841322b5c}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!DrawSubTitle@{DrawSubTitle}}
+\index{DrawSubTitle@{DrawSubTitle}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{DrawSubTitle()}{DrawSubTitle()}}
+{\footnotesize\ttfamily void Remote\+Interface\+Screen\+::\+Draw\+Sub\+Title (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the subtitle of this object 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to render \\
+\hline
+{\em highlighted} & \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+highlighted and clicked are unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}\label{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Remote\+Interface\+Screen\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classChangeGatewayScreenInterface_aa407dc115b223ab203505863839bf97f}{Change\+Gateway\+Screen\+Interface}}, \mbox{\hyperlink{classHWSalesScreenInterface_a34da97406658e99058a1722b3980b233}{H\+W\+Sales\+Screen\+Interface}}, \mbox{\hyperlink{classSocialSecurityScreenInterface_ab1d95288ef1863635e6e16f5bd293e16}{Social\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classBBSScreenInterface_ae8b870d5ab403304716324e863eb3512}{B\+B\+S\+Screen\+Interface}}, \mbox{\hyperlink{classCriminalScreenInterface_aa38a7983dbd96289256e3a99818614c0}{Criminal\+Screen\+Interface}}, \mbox{\hyperlink{classSWSalesScreenInterface_a9881cf70bbb1a419dffc2af91945080f}{S\+W\+Sales\+Screen\+Interface}}, \mbox{\hyperlink{classSharesViewScreenInterface_a32347e32c6165d1b0e735370993d1366}{Shares\+View\+Screen\+Interface}}, \mbox{\hyperlink{classFileServerScreenInterface_a83288c34e1ec3328b24e938e4668e1cf}{File\+Server\+Screen\+Interface}}, \mbox{\hyperlink{classLogScreenInterface_a57480d796c7b1a393a73dbc4b4d87181}{Log\+Screen\+Interface}}, \mbox{\hyperlink{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}{Academic\+Screen\+Interface}}, \mbox{\hyperlink{classNewsScreenInterface_aa8aa2aab880af98b8421c5549eaacc6a}{News\+Screen\+Interface}}, \mbox{\hyperlink{classLoansScreenInterface_a82fb6d87110290f6f23f105e26a7be65}{Loans\+Screen\+Interface}}, \mbox{\hyperlink{classDialogScreenInterface_a1901fb4b3834b9e9b91bb17533786918}{Dialog\+Screen\+Interface}}, \mbox{\hyperlink{classCompanyInfoScreenInterface_a284e6cd36a7636521038d07b85e3cad6}{Company\+Info\+Screen\+Interface}}, \mbox{\hyperlink{classSecurityScreenInterface_a06cad4083e4ec5d6a7f3becd796fc135}{Security\+Screen\+Interface}}, \mbox{\hyperlink{classFaithScreenInterface_a8fea7d94edcd28cd93749732a51c4ad6}{Faith\+Screen\+Interface}}, \mbox{\hyperlink{classRankingScreenInterface_a10931560b3b846354c6288eaec6e1fb2}{Ranking\+Screen\+Interface}}, and \mbox{\hyperlink{classAccountScreenInterface_a7c7a14d3912d4f722238a7b622ea97bf}{Account\+Screen\+Interface}}.
+
+\mbox{\Hypertarget{classRemoteInterfaceScreen_acc2cff59c4c461b6ee6db30e355a4865}\label{classRemoteInterfaceScreen_acc2cff59c4c461b6ee6db30e355a4865}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!GetComputerScreen@{GetComputerScreen}}
+\index{GetComputerScreen@{GetComputerScreen}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{GetComputerScreen()}{GetComputerScreen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$ Remote\+Interface\+Screen\+::\+Get\+Computer\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Should override this with correct data type \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a08c0abcd058500f273d0caf1eb689f8b}\label{classRemoteInterfaceScreen_a08c0abcd058500f273d0caf1eb689f8b}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!GetInterfaceScreen@{GetInterfaceScreen}}
+\index{GetInterfaceScreen@{GetInterfaceScreen}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{GetInterfaceScreen()}{GetInterfaceScreen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} $\ast$ Remote\+Interface\+Screen\+::\+Get\+Interface\+Screen (\begin{DoxyParamCaption}\item[{int}]{screen\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns this object, asserting it is the correct type 
+\begin{DoxyParams}{Parameters}
+{\em screen\+ID} & screen\+ID to assert the matches \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}\label{classRemoteInterfaceScreen_a1eec1b5b4250de262434a55a4075d7cd}} 
 \index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
@@ -114,6 +207,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a425
 
 
 Reimplemented in \mbox{\hyperlink{classVoiceAnalysisScreenInterface_a492b854fd1247eaa7c11c0bcd94b9dc1}{Voice\+Analysis\+Screen\+Interface}}, \mbox{\hyperlink{classVoicePhoneScreenInterface_abd1af64be9d264d0a845df1639cc3122}{Voice\+Phone\+Screen\+Interface}}, \mbox{\hyperlink{classSharesViewScreenInterface_a76f61742ddf3bb56057f23e7d9045beb}{Shares\+View\+Screen\+Interface}}, \mbox{\hyperlink{classSharesListScreenInterface_aacacadbe76b2429cc6cc2620add37cb4}{Shares\+List\+Screen\+Interface}}, \mbox{\hyperlink{classSWSalesScreenInterface_af0f241c857fc588ebf1fae64f7e55bc8}{S\+W\+Sales\+Screen\+Interface}}, \mbox{\hyperlink{classSocialSecurityScreenInterface_acaa10e9381158417e86c71b3ea0ca803}{Social\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classSecurityScreenInterface_a293df583e2bb49f379969fd121b2304d}{Security\+Screen\+Interface}}, and \mbox{\hyperlink{classUserIDScreenInterface_a74359c198861e06c820f30a71685baa0}{User\+I\+D\+Screen\+Interface}}.
+
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}\label{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Remote\+Interface\+Screen\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classConsoleScreenInterface_a5673c25251ded7299201b6ae4bff1c99}{Console\+Screen\+Interface}}, \mbox{\hyperlink{classLinksScreenInterface_ad995b36f6e759f80d8293f2cad62f9d2}{Links\+Screen\+Interface}}, \mbox{\hyperlink{classContactScreenInterface_a916fa9797bcace444e879b7ebd8af700}{Contact\+Screen\+Interface}}, \mbox{\hyperlink{classChangeGatewayScreenInterface_a8a2b658b4d0b31253b733e2d71d5705f}{Change\+Gateway\+Screen\+Interface}}, \mbox{\hyperlink{classCypherScreenInterface_a2d77085236affcca6c2b9aa653e45257}{Cypher\+Screen\+Interface}}, \mbox{\hyperlink{classVoiceAnalysisScreenInterface_a7d8be04f8957ffb873e559c64a7fd1a5}{Voice\+Analysis\+Screen\+Interface}}, \mbox{\hyperlink{classVoicePhoneScreenInterface_a891172eb2e5cb0fbb5f26cc616c2805b}{Voice\+Phone\+Screen\+Interface}}, \mbox{\hyperlink{classSharesListScreenInterface_a99530ccf440c031e1667b42722b30c1c}{Shares\+List\+Screen\+Interface}}, \mbox{\hyperlink{classHighSecurityScreenInterface_a575cf8fd1a48d1cac8441cd1a1329185}{High\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classNuclearWarScreenInterface_a44567ecca86465bf9b6b11bc844fbea3}{Nuclear\+War\+Screen\+Interface}}, \mbox{\hyperlink{classCodeCardScreenInterface_ae3bc749b577833614392c586892ed76a}{Code\+Card\+Screen\+Interface}}, \mbox{\hyperlink{classRadioTransmitterScreenInterface_ac951af0b5e9ccd2f4b758ac82da1053d}{Radio\+Transmitter\+Screen\+Interface}}, \mbox{\hyperlink{classDialogScreenInterface_aa074636c2f857bc8926081d2388925c6}{Dialog\+Screen\+Interface}}, \mbox{\hyperlink{classNearestGatewayScreenInterface_a70df9bf08ca9769146d3b5b78f91280c}{Nearest\+Gateway\+Screen\+Interface}}, \mbox{\hyperlink{classPasswordScreenInterface_a19dc14a4b801f07a3f069bd6936d06b5}{Password\+Screen\+Interface}}, \mbox{\hyperlink{classRankingScreenInterface_acd92e1c191ae99d286e72ed3faf6a71a}{Ranking\+Screen\+Interface}}, \mbox{\hyperlink{classUserIDScreenInterface_adf4eeee8800e1b484154b7f70f7f2a8c}{User\+I\+D\+Screen\+Interface}}, \mbox{\hyperlink{classProtovisionScreenInterface_af7658b923326abf0a428c397a87b93db}{Protovision\+Screen\+Interface}}, \mbox{\hyperlink{classMessageScreenInterface_ac35bd1f3e8f4186dd40dad5d4aede987}{Message\+Screen\+Interface}}, and \mbox{\hyperlink{classDisconnectedScreenInterface_a1daace0ef396de03b39a25da77641e32}{Disconnected\+Screen\+Interface}}.
 
 \mbox{\Hypertarget{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}\label{classRemoteInterfaceScreen_a1a9cbc6519586ae7a6724fd8b612540e}} 
 \index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!ScreenID@{ScreenID}}
@@ -147,6 +253,15 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d26
 Reimplemented in \mbox{\hyperlink{classVoiceAnalysisScreenInterface_abe670c9fb89d17827a0f8c7abdc33c57}{Voice\+Analysis\+Screen\+Interface}}, \mbox{\hyperlink{classVoicePhoneScreenInterface_af81b3a02e54f33f0b954fea9c0df36f7}{Voice\+Phone\+Screen\+Interface}}, \mbox{\hyperlink{classSharesViewScreenInterface_a7d6ea5c03504746805dbb48c6ed87936}{Shares\+View\+Screen\+Interface}}, \mbox{\hyperlink{classSharesListScreenInterface_aa99f489eadcdb10b43b85f767809cf0c}{Shares\+List\+Screen\+Interface}}, \mbox{\hyperlink{classSocialSecurityScreenInterface_a2d7f1799b7daf10ef23a3419287c085c}{Social\+Security\+Screen\+Interface}}, \mbox{\hyperlink{classSecurityScreenInterface_a8fd8f6e762704a7d264c750b4b08b38b}{Security\+Screen\+Interface}}, and \mbox{\hyperlink{classUserIDScreenInterface_ae4020a1eb06ee9bd1a63ad925a033562}{User\+I\+D\+Screen\+Interface}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}\label{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}} 
+\index{RemoteInterfaceScreen@{RemoteInterfaceScreen}!cs@{cs}}
+\index{cs@{cs}!RemoteInterfaceScreen@{RemoteInterfaceScreen}}
+\doxysubsubsection{\texorpdfstring{cs}{cs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}}$\ast$ Remote\+Interface\+Screen\+::cs\hspace{0.3cm}{\ttfamily [protected]}}
+
+The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} of this object 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

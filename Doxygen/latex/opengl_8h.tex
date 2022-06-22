@@ -1,0 +1,83 @@
+\hypertarget{opengl_8h}{}\doxysection{uplink/src/app/opengl.h File Reference}
+\label{opengl_8h}\index{uplink/src/app/opengl.h@{uplink/src/app/opengl.h}}
+
+
+Generic Open\+GL functions This file contains all generic Open\+GL code. This includes the mouse/keyboard handlers, idle functions, etc.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{opengl_8h_a34956dada2d9ad394aafb190f441d834}{opengl\+\_\+initialise}} (int argc, char $\ast$$\ast$argv)
+\item 
+void \mbox{\hyperlink{opengl_8h_af817786da8678ccd8233e31f897bb6a1}{opengl\+\_\+run}} ()
+\item 
+void \mbox{\hyperlink{opengl_8h_a2ab16d0ab51e2308ed9c3eac405ed233}{opengl\+\_\+close}} ()
+\item 
+int \mbox{\hyperlink{opengl_8h_a8959b6a89a6b46a8efa0560c8dbe7429}{get\+\_\+mouseX}} ()
+\item 
+int \mbox{\hyperlink{opengl_8h_ac7ea8a5ded646cc5e2039dc67141f97b}{get\+\_\+mouseY}} ()
+\item 
+void \mbox{\hyperlink{opengl_8h_af8feae3e293f2d98c7a7ae3d7b1d4c64}{setcallbacks}} ()
+\item 
+\mbox{\Hypertarget{opengl_8h_a1e5b20fed15743656bb6d2e6a6ea6269}\label{opengl_8h_a1e5b20fed15743656bb6d2e6a6ea6269}} 
+void {\bfseries display} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generic Open\+GL functions This file contains all generic Open\+GL code. This includes the mouse/keyboard handlers, idle functions, etc. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{opengl_8h_a8959b6a89a6b46a8efa0560c8dbe7429}\label{opengl_8h_a8959b6a89a6b46a8efa0560c8dbe7429}} 
+\index{opengl.h@{opengl.h}!get\_mouseX@{get\_mouseX}}
+\index{get\_mouseX@{get\_mouseX}!opengl.h@{opengl.h}}
+\doxysubsubsection{\texorpdfstring{get\_mouseX()}{get\_mouseX()}}
+{\footnotesize\ttfamily int get\+\_\+mouseX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the X coordinate of the mouse \begin{DoxyReturn}{Returns}
+X coordinate of mouse 
+\end{DoxyReturn}
+\mbox{\Hypertarget{opengl_8h_ac7ea8a5ded646cc5e2039dc67141f97b}\label{opengl_8h_ac7ea8a5ded646cc5e2039dc67141f97b}} 
+\index{opengl.h@{opengl.h}!get\_mouseY@{get\_mouseY}}
+\index{get\_mouseY@{get\_mouseY}!opengl.h@{opengl.h}}
+\doxysubsubsection{\texorpdfstring{get\_mouseY()}{get\_mouseY()}}
+{\footnotesize\ttfamily int get\+\_\+mouseY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets the Y coordinate of the mouse \begin{DoxyReturn}{Returns}
+Y coordinate of mouse 
+\end{DoxyReturn}
+\mbox{\Hypertarget{opengl_8h_a2ab16d0ab51e2308ed9c3eac405ed233}\label{opengl_8h_a2ab16d0ab51e2308ed9c3eac405ed233}} 
+\index{opengl.h@{opengl.h}!opengl\_close@{opengl\_close}}
+\index{opengl\_close@{opengl\_close}!opengl.h@{opengl.h}}
+\doxysubsubsection{\texorpdfstring{opengl\_close()}{opengl\_close()}}
+{\footnotesize\ttfamily void opengl\+\_\+close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calls G\+U\+C\+CI\textquotesingle{}s application closing function \mbox{\Hypertarget{opengl_8h_a34956dada2d9ad394aafb190f441d834}\label{opengl_8h_a34956dada2d9ad394aafb190f441d834}} 
+\index{opengl.h@{opengl.h}!opengl\_initialise@{opengl\_initialise}}
+\index{opengl\_initialise@{opengl\_initialise}!opengl.h@{opengl.h}}
+\doxysubsubsection{\texorpdfstring{opengl\_initialise()}{opengl\_initialise()}}
+{\footnotesize\ttfamily void opengl\+\_\+initialise (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+Initializes the window 
+\begin{DoxyParams}{Parameters}
+{\em argc} & T\+O\+DO\+: Document \\
+\hline
+{\em argv} & T\+O\+DO\+: Document \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{opengl_8h_af817786da8678ccd8233e31f897bb6a1}\label{opengl_8h_af817786da8678ccd8233e31f897bb6a1}} 
+\index{opengl.h@{opengl.h}!opengl\_run@{opengl\_run}}
+\index{opengl\_run@{opengl\_run}!opengl.h@{opengl.h}}
+\doxysubsubsection{\texorpdfstring{opengl\_run()}{opengl\_run()}}
+{\footnotesize\ttfamily void opengl\+\_\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Calls the main loop of G\+U\+C\+CI \mbox{\Hypertarget{opengl_8h_af8feae3e293f2d98c7a7ae3d7b1d4c64}\label{opengl_8h_af8feae3e293f2d98c7a7ae3d7b1d4c64}} 
+\index{opengl.h@{opengl.h}!setcallbacks@{setcallbacks}}
+\index{setcallbacks@{setcallbacks}!opengl.h@{opengl.h}}
+\doxysubsubsection{\texorpdfstring{setcallbacks()}{setcallbacks()}}
+{\footnotesize\ttfamily void setcallbacks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets all the callbacks that should occur on various interactions 

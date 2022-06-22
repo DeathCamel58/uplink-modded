@@ -23,11 +23,9 @@ Collaboration diagram for Security\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSecurityScreenInterface_a06cad4083e4ec5d6a7f3becd796fc135}\label{classSecurityScreenInterface_a06cad4083e4ec5d6a7f3becd796fc135}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classSecurityScreenInterface_a06cad4083e4ec5d6a7f3becd796fc135}{Escape\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classSecurityScreenInterface_a902c5d8673ad1e4d9812b48ed19c1e1f}\label{classSecurityScreenInterface_a902c5d8673ad1e4d9812b48ed19c1e1f}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classSecurityScreenInterface_a902c5d8673ad1e4d9812b48ed19c1e1f}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classSecurityScreenInterface_a293df583e2bb49f379969fd121b2304d}{Remove}} () override
 \item 
@@ -62,6 +60,34 @@ static time\+\_\+t {\bfseries lastupdate} = 0
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSecurityScreenInterface_a902c5d8673ad1e4d9812b48ed19c1e1f}\label{classSecurityScreenInterface_a902c5d8673ad1e4d9812b48ed19c1e1f}} 
+\index{SecurityScreenInterface@{SecurityScreenInterface}!Create@{Create}}
+\index{Create@{Create}!SecurityScreenInterface@{SecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Security\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSecurityScreenInterface_a06cad4083e4ec5d6a7f3becd796fc135}\label{classSecurityScreenInterface_a06cad4083e4ec5d6a7f3becd796fc135}} 
+\index{SecurityScreenInterface@{SecurityScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!SecurityScreenInterface@{SecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Security\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classSecurityScreenInterface_a68abd4f213c7b78879a09ccd2e5793bc}\label{classSecurityScreenInterface_a68abd4f213c7b78879a09ccd2e5793bc}} 
 \index{SecurityScreenInterface@{SecurityScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!SecurityScreenInterface@{SecurityScreenInterface}}

@@ -32,13 +32,11 @@ void {\bfseries Set\+Full\+List} ()
 \mbox{\Hypertarget{classSharesListScreenInterface_a0a330997b81d740e7463db87b8e801e8}\label{classSharesListScreenInterface_a0a330997b81d740e7463db87b8e801e8}} 
 void {\bfseries Apply\+Filter} (const string \&filter)
 \item 
-\mbox{\Hypertarget{classSharesListScreenInterface_a99530ccf440c031e1667b42722b30c1c}\label{classSharesListScreenInterface_a99530ccf440c031e1667b42722b30c1c}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classSharesListScreenInterface_a99530ccf440c031e1667b42722b30c1c}{Return\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classSharesListScreenInterface_a0976ebd066207336f52c9a766bcbc006}{Create}} () override
 \item 
-\mbox{\Hypertarget{classSharesListScreenInterface_ab87dc6c636d20b5d1f599e48e2b424ca}\label{classSharesListScreenInterface_ab87dc6c636d20b5d1f599e48e2b424ca}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classSharesListScreenInterface_ab87dc6c636d20b5d1f599e48e2b424ca}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classSharesListScreenInterface_aacacadbe76b2429cc6cc2620add37cb4}{Remove}} () override
 \item 
@@ -103,12 +101,27 @@ static int {\bfseries baseoffset} = 0
 \mbox{\Hypertarget{classSharesListScreenInterface_a0976ebd066207336f52c9a766bcbc006}\label{classSharesListScreenInterface_a0976ebd066207336f52c9a766bcbc006}} 
 \index{SharesListScreenInterface@{SharesListScreenInterface}!Create@{Create}}
 \index{Create@{Create}!SharesListScreenInterface@{SharesListScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Shares\+List\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a6ec7562bce7a36ef67a8b84451f6cf5d}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreenInterface_ab87dc6c636d20b5d1f599e48e2b424ca}\label{classSharesListScreenInterface_ab87dc6c636d20b5d1f599e48e2b424ca}} 
+\index{SharesListScreenInterface@{SharesListScreenInterface}!Create@{Create}}
+\index{Create@{Create}!SharesListScreenInterface@{SharesListScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Shares\+List\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classSharesListScreenInterface_a64ee04f16aaf30b8777790c327244e8f}\label{classSharesListScreenInterface_a64ee04f16aaf30b8777790c327244e8f}} 
 \index{SharesListScreenInterface@{SharesListScreenInterface}!IsVisible@{IsVisible}}
@@ -132,6 +145,19 @@ Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a1eec1b5b4250de26
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_ad61a219ca115b8472081bc66fdb9b315}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSharesListScreenInterface_a99530ccf440c031e1667b42722b30c1c}\label{classSharesListScreenInterface_a99530ccf440c031e1667b42722b30c1c}} 
+\index{SharesListScreenInterface@{SharesListScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!SharesListScreenInterface@{SharesListScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Shares\+List\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classSharesListScreenInterface_a1afd46eebc5e8e722c5f168749dc0fa2}\label{classSharesListScreenInterface_a1afd46eebc5e8e722c5f168749dc0fa2}} 
 \index{SharesListScreenInterface@{SharesListScreenInterface}!ScreenID@{ScreenID}}

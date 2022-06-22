@@ -26,8 +26,7 @@ Collaboration diagram for Social\+Security\+Screen\+Interface\+:
 \mbox{\Hypertarget{classSocialSecurityScreenInterface_a69ae23fd44dc08c66049be2233a5ac92}\label{classSocialSecurityScreenInterface_a69ae23fd44dc08c66049be2233a5ac92}} 
 void {\bfseries Set\+Search\+Name} (const string \&newsearchname)
 \item 
-\mbox{\Hypertarget{classSocialSecurityScreenInterface_a25317e16ed8ce9bac1d51abb69caffc0}\label{classSocialSecurityScreenInterface_a25317e16ed8ce9bac1d51abb69caffc0}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classSocialSecurityScreenInterface_a25317e16ed8ce9bac1d51abb69caffc0}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classSocialSecurityScreenInterface_acaa10e9381158417e86c71b3ea0ca803}{Remove}} () override
 \item 
@@ -37,8 +36,7 @@ bool \mbox{\hyperlink{classSocialSecurityScreenInterface_a830c530d3019c1f1ff2321
 \item 
 int \mbox{\hyperlink{classSocialSecurityScreenInterface_a9703863c3d381baac8c9f925af3bda74}{Screen\+ID}} () override
 \item 
-\mbox{\Hypertarget{classSocialSecurityScreenInterface_ab1d95288ef1863635e6e16f5bd293e16}\label{classSocialSecurityScreenInterface_ab1d95288ef1863635e6e16f5bd293e16}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classSocialSecurityScreenInterface_ab1d95288ef1863635e6e16f5bd293e16}{Escape\+Key\+Pressed}} () override
 \item 
 \mbox{\Hypertarget{classSocialSecurityScreenInterface_a124ae17d65fa51c4f9129cffc530b319}\label{classSocialSecurityScreenInterface_a124ae17d65fa51c4f9129cffc530b319}} 
 \mbox{\hyperlink{classGenericScreen}{Generic\+Screen}} $\ast$ {\bfseries Get\+Computer\+Screen} ()
@@ -77,6 +75,34 @@ int {\bfseries lastupdate}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_a25317e16ed8ce9bac1d51abb69caffc0}\label{classSocialSecurityScreenInterface_a25317e16ed8ce9bac1d51abb69caffc0}} 
+\index{SocialSecurityScreenInterface@{SocialSecurityScreenInterface}!Create@{Create}}
+\index{Create@{Create}!SocialSecurityScreenInterface@{SocialSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Social\+Security\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classSocialSecurityScreenInterface_ab1d95288ef1863635e6e16f5bd293e16}\label{classSocialSecurityScreenInterface_ab1d95288ef1863635e6e16f5bd293e16}} 
+\index{SocialSecurityScreenInterface@{SocialSecurityScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!SocialSecurityScreenInterface@{SocialSecurityScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Social\+Security\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classSocialSecurityScreenInterface_a830c530d3019c1f1ff2321bc114c7c07}\label{classSocialSecurityScreenInterface_a830c530d3019c1f1ff2321bc114c7c07}} 
 \index{SocialSecurityScreenInterface@{SocialSecurityScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!SocialSecurityScreenInterface@{SocialSecurityScreenInterface}}

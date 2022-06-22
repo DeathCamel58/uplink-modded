@@ -1,16 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structBaseBlock.html" title=" " alt="" coords="5,132,96,159"/>
-<area shape="rect" id="node2" href="$structAVHeader.html" title=" " alt="" coords="167,31,254,57"/>
-<area shape="rect" id="node3" href="$structBlockHeader.html" title=" " alt="" coords="158,81,263,108"/>
-<area shape="rect" id="node12" href="$structCommentHeader.html" title=" " alt="" coords="144,132,277,159"/>
-<area shape="rect" id="node13" href="$structEndArcHeader.html" title=" " alt="" coords="153,183,268,209"/>
-<area shape="rect" id="node14" href="$structSignHeader.html" title=" " alt="" coords="162,233,259,260"/>
-<area shape="rect" id="node4" href="$structFileHeader.html" title=" " alt="" coords="344,5,436,32"/>
-<area shape="rect" id="node5" href="$structMainHeader.html" title=" " alt="" coords="339,56,441,83"/>
-<area shape="rect" id="node6" href="$structProtectHeader.html" title=" " alt="" coords="333,107,447,133"/>
-<area shape="rect" id="node7" href="$structSubBlockHeader.html" title=" " alt="" coords="325,157,455,184"/>
-<area shape="rect" id="node8" href="$structEAHeader.html" title=" " alt="" coords="533,81,620,108"/>
-<area shape="rect" id="node9" href="$structMacFInfoHeader.html" title=" " alt="" coords="512,132,641,159"/>
-<area shape="rect" id="node10" href="$structStreamHeader.html" title=" " alt="" coords="519,183,635,209"/>
-<area shape="rect" id="node11" href="$structUnixOwnersHeader.html" title=" " alt="" coords="503,233,651,260"/>
+<area shape="rect" id="node1" href="$classButton.html" title=" " alt="" coords="5,5,71,32"/>
 </map>

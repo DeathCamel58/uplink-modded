@@ -23,11 +23,9 @@ Collaboration diagram for B\+B\+S\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_ae8b870d5ab403304716324e863eb3512}\label{classBBSScreenInterface_ae8b870d5ab403304716324e863eb3512}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classBBSScreenInterface_ae8b870d5ab403304716324e863eb3512}{Escape\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_ac2a6c856e350d3ab44390da01cd4cdb1}\label{classBBSScreenInterface_ac2a6c856e350d3ab44390da01cd4cdb1}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classBBSScreenInterface_ac2a6c856e350d3ab44390da01cd4cdb1}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classBBSScreenInterface_a6a2b5be51d22c709e8e5de2a8e56edf6}{Remove}} () override
 \item 
@@ -92,6 +90,34 @@ static int {\bfseries previousupdate} = 0
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBBSScreenInterface_ac2a6c856e350d3ab44390da01cd4cdb1}\label{classBBSScreenInterface_ac2a6c856e350d3ab44390da01cd4cdb1}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!Create@{Create}}
+\index{Create@{Create}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classBBSScreenInterface_ae8b870d5ab403304716324e863eb3512}\label{classBBSScreenInterface_ae8b870d5ab403304716324e863eb3512}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool B\+B\+S\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classBBSScreenInterface_a31bee9d68ac2f5485c6882a5fa7115ca}\label{classBBSScreenInterface_a31bee9d68ac2f5485c6882a5fa7115ca}} 
 \index{BBSScreenInterface@{BBSScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!BBSScreenInterface@{BBSScreenInterface}}

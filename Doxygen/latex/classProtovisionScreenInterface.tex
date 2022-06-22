@@ -23,13 +23,11 @@ Collaboration diagram for Protovision\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classProtovisionScreenInterface_af7658b923326abf0a428c397a87b93db}\label{classProtovisionScreenInterface_af7658b923326abf0a428c397a87b93db}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classProtovisionScreenInterface_af7658b923326abf0a428c397a87b93db}{Return\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classProtovisionScreenInterface_a8bd061e842504320b5b845fb7266f698}{Create}} () override
 \item 
-\mbox{\Hypertarget{classProtovisionScreenInterface_a35859ea8f39779f44321afe17ab7558d}\label{classProtovisionScreenInterface_a35859ea8f39779f44321afe17ab7558d}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classProtovisionScreenInterface_a35859ea8f39779f44321afe17ab7558d}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classProtovisionScreenInterface_afa81c8b2387ab842d5ee575e08cb05c4}{Remove}} () override
 \item 
@@ -61,12 +59,27 @@ static void {\bfseries Nuclear\+War} (\mbox{\hyperlink{classButton}{Button}} $\a
 \mbox{\Hypertarget{classProtovisionScreenInterface_a8bd061e842504320b5b845fb7266f698}\label{classProtovisionScreenInterface_a8bd061e842504320b5b845fb7266f698}} 
 \index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!Create@{Create}}
 \index{Create@{Create}!ProtovisionScreenInterface@{ProtovisionScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Protovision\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classProtovisionScreenInterface_a35859ea8f39779f44321afe17ab7558d}\label{classProtovisionScreenInterface_a35859ea8f39779f44321afe17ab7558d}} 
+\index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!Create@{Create}}
+\index{Create@{Create}!ProtovisionScreenInterface@{ProtovisionScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Protovision\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classProtovisionScreenInterface_a8ec5372b8aade2d230fa10374b43ee14}\label{classProtovisionScreenInterface_a8ec5372b8aade2d230fa10374b43ee14}} 
 \index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!IsVisible@{IsVisible}}
@@ -90,6 +103,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classProtovisionScreenInterface_af7658b923326abf0a428c397a87b93db}\label{classProtovisionScreenInterface_af7658b923326abf0a428c397a87b93db}} 
+\index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!ProtovisionScreenInterface@{ProtovisionScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Protovision\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classProtovisionScreenInterface_a7dd9e57c8e90785e43fb9362a3b7a91e}\label{classProtovisionScreenInterface_a7dd9e57c8e90785e43fb9362a3b7a91e}} 
 \index{ProtovisionScreenInterface@{ProtovisionScreenInterface}!ScreenID@{ScreenID}}

@@ -1,6 +1,6 @@
 <map id="NuclearWarScreenInterface" name="NuclearWarScreenInterface">
 <area shape="rect" id="node1" title=" " alt="" coords="207,335,406,361"/>
-<area shape="rect" id="node2" href="$classRemoteInterfaceScreen.html" title=" " alt="" coords="113,245,287,272"/>
+<area shape="rect" id="node2" href="$classRemoteInterfaceScreen.html" title="RemoteInterfaceScreen class object." alt="" coords="113,245,287,272"/>
 <area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="161,119,285,146"/>
 <area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="23,7,129,33"/>
 <area shape="rect" id="node6" href="$classComputerScreen.html" title=" " alt="" coords="5,119,136,146"/>

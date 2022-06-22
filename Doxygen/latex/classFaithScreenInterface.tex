@@ -23,13 +23,11 @@ Collaboration diagram for Faith\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classFaithScreenInterface_a8fea7d94edcd28cd93749732a51c4ad6}\label{classFaithScreenInterface_a8fea7d94edcd28cd93749732a51c4ad6}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classFaithScreenInterface_a8fea7d94edcd28cd93749732a51c4ad6}{Escape\+Key\+Pressed}} () override
 \item 
 void \mbox{\hyperlink{classFaithScreenInterface_a77ed33db690f79e977125d160359c546}{Create}} () override
 \item 
-\mbox{\Hypertarget{classFaithScreenInterface_ae854e81d9c3232d4199729b2e62a233a}\label{classFaithScreenInterface_ae854e81d9c3232d4199729b2e62a233a}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
+void \mbox{\hyperlink{classFaithScreenInterface_ae854e81d9c3232d4199729b2e62a233a}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$newcs) override
 \item 
 void \mbox{\hyperlink{classFaithScreenInterface_ab7aab0ebeda9895e0e19b175aec773a6}{Remove}} () override
 \item 
@@ -55,12 +53,40 @@ static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\a
 \mbox{\Hypertarget{classFaithScreenInterface_a77ed33db690f79e977125d160359c546}\label{classFaithScreenInterface_a77ed33db690f79e977125d160359c546}} 
 \index{FaithScreenInterface@{FaithScreenInterface}!Create@{Create}}
 \index{Create@{Create}!FaithScreenInterface@{FaithScreenInterface}}
-\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Faith\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 Creates the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_aad7a909b236c614e6158879f2a3bd8fd}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFaithScreenInterface_ae854e81d9c3232d4199729b2e62a233a}\label{classFaithScreenInterface_ae854e81d9c3232d4199729b2e62a233a}} 
+\index{FaithScreenInterface@{FaithScreenInterface}!Create@{Create}}
+\index{Create@{Create}!FaithScreenInterface@{FaithScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Faith\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classFaithScreenInterface_a8fea7d94edcd28cd93749732a51c4ad6}\label{classFaithScreenInterface_a8fea7d94edcd28cd93749732a51c4ad6}} 
+\index{FaithScreenInterface@{FaithScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!FaithScreenInterface@{FaithScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Faith\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classFaithScreenInterface_a4afcded1e1f8defb578ffb7471e9d752}\label{classFaithScreenInterface_a4afcded1e1f8defb578ffb7471e9d752}} 
 \index{FaithScreenInterface@{FaithScreenInterface}!IsVisible@{IsVisible}}

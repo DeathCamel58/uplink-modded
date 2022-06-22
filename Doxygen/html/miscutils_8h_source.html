@@ -70,57 +70,58 @@ $(function() {
 <div class="title">miscutils.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">    Misc string/file utils</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">  */</span></div>
+<a href="miscutils_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef included_miscutils_h</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define included_miscutils_h</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef included_miscutils_h</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define included_miscutils_h</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;tosser.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">string</span> LowerCaseString       (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;thestring );</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">string</span> StripCarriageReturns  (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;thestring );</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">char</span> *TrimSpaces            ( <span class="keyword">const</span> <span class="keywordtype">char</span> *thestring );</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">char</span> *GetFilePath           ( <span class="keyword">const</span> <span class="keywordtype">char</span> *filename );</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> MakeDirectory          (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;dirname );</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">bool</span> DoesFileExist          (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filename );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> EmptyDirectory         (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;directory );</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">bool</span> CopyFilePlain          (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;oldfilename, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newfilename );</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">bool</span> CopyFileUplink         ( <span class="keyword">const</span> <span class="keywordtype">char</span> *oldfilename, <span class="keyword">const</span> <span class="keywordtype">char</span> *newfilename );</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> RemoveFile             (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;filename );</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<a class="code" href="classDArray.html">DArray &lt;char *&gt;</a> *ListDirectory  ( <span class="keywordtype">char</span> *directory, <span class="keywordtype">char</span> *filter );</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<a class="code" href="classDArray.html">DArray &lt;char *&gt;</a> *ListSubdirs (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;directory );</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;tosser.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">string</span> <a class="code" href="miscutils_8h.html#a320aea610caa1bdd45d0a32850454962">LowerCaseString</a>       (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;thestring );</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">string</span> <a class="code" href="miscutils_8h.html#a7d08d4fe30b776bb55277734e8655a3f">StripCarriageReturns</a>  (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;thestring );</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">char</span> *TrimSpaces            ( <span class="keyword">const</span> <span class="keywordtype">char</span> *thestring );</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">char</span> *GetFilePath           ( <span class="keyword">const</span> <span class="keywordtype">char</span> *filename );</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> <a class="code" href="miscutils_8h.html#a4a7fedfd4656f806bd44d0d4fed0a311">MakeDirectory</a>          (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;dirname );</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="miscutils_8h.html#a39c7cd25975b3b3761470787a7382ad5">DoesFileExist</a>          (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; filename );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="miscutils_8h.html#aebf26c1376369ae438e17862a034edb1">EmptyDirectory</a>         (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;directory );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="miscutils_8h.html#af3f183e310dadb563f7de414c997b902">CopyFilePlain</a>          (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;oldfilename, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newfilename );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">bool</span> CopyFileUplink         ( <span class="keyword">const</span> <span class="keywordtype">char</span> *oldfilename, <span class="keyword">const</span> <span class="keywordtype">char</span> *newfilename );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> <a class="code" href="miscutils_8h.html#adcc2c367082cc0774788a4a07673b004">RemoveFile</a>             (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;filename );</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<a class="code" href="classDArray.html">DArray &lt;char *&gt;</a> *ListDirectory  ( <span class="keywordtype">char</span> *directory, <span class="keywordtype">char</span> *filter );</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<a class="code" href="classDArray.html">DArray &lt;char *&gt;</a> *ListSubdirs (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;directory );</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> SetColour              (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;colourName );                    <span class="comment">// calls glColour3f</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> PrintStackTrace();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> SetColour              (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;colourName );                    <span class="comment">// calls glColour3f</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> PrintStackTrace();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; value);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, <span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keywordtype">int</span> valuename, <span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, <span class="keywordtype">float</span> value);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, time_t value);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">void</span> PrintPadded(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; value);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, <span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keywordtype">int</span> valuename, <span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, <span class="keywordtype">float</span> value);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> PrintValue(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; valuename, time_t value);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> <a class="code" href="miscutils_8h.html#a27c8749136bca95a74701e0d7b196fbf">PrintPadded</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="amiscutils_8h_html_a7d08d4fe30b776bb55277734e8655a3f"><div class="ttname"><a href="miscutils_8h.html#a7d08d4fe30b776bb55277734e8655a3f">StripCarriageReturns</a></div><div class="ttdeci">string StripCarriageReturns(const string &amp;thestring)</div><div class="ttdef"><b>Definition:</b> miscutils.cpp:71</div></div>
+<div class="ttc" id="amiscutils_8h_html_a39c7cd25975b3b3761470787a7382ad5"><div class="ttname"><a href="miscutils_8h.html#a39c7cd25975b3b3761470787a7382ad5">DoesFileExist</a></div><div class="ttdeci">bool DoesFileExist(const string &amp;filename)</div><div class="ttdef"><b>Definition:</b> miscutils.cpp:134</div></div>
+<div class="ttc" id="amiscutils_8h_html_af3f183e310dadb563f7de414c997b902"><div class="ttname"><a href="miscutils_8h.html#af3f183e310dadb563f7de414c997b902">CopyFilePlain</a></div><div class="ttdeci">bool CopyFilePlain(const string &amp;oldfilename, const string &amp;newfilename)</div><div class="ttdef"><b>Definition:</b> miscutils.cpp:152</div></div>
 <div class="ttc" id="aclassDArray_html"><div class="ttname"><a href="classDArray.html">DArray&lt; char * &gt;</a></div></div>
+<div class="ttc" id="amiscutils_8h_html_aebf26c1376369ae438e17862a034edb1"><div class="ttname"><a href="miscutils_8h.html#aebf26c1376369ae438e17862a034edb1">EmptyDirectory</a></div><div class="ttdeci">void EmptyDirectory(const string &amp;directory)</div><div class="ttdef"><b>Definition:</b> miscutils.cpp:141</div></div>
+<div class="ttc" id="amiscutils_8h_html_a320aea610caa1bdd45d0a32850454962"><div class="ttname"><a href="miscutils_8h.html#a320aea610caa1bdd45d0a32850454962">LowerCaseString</a></div><div class="ttdeci">string LowerCaseString(const string &amp;thestring)</div><div class="ttdef"><b>Definition:</b> miscutils.cpp:58</div></div>
+<div class="ttc" id="amiscutils_8h_html_adcc2c367082cc0774788a4a07673b004"><div class="ttname"><a href="miscutils_8h.html#adcc2c367082cc0774788a4a07673b004">RemoveFile</a></div><div class="ttdeci">void RemoveFile(const string &amp;filename)</div><div class="ttdef"><b>Definition:</b> miscutils.cpp:193</div></div>
+<div class="ttc" id="amiscutils_8h_html_a4a7fedfd4656f806bd44d0d4fed0a311"><div class="ttname"><a href="miscutils_8h.html#a4a7fedfd4656f806bd44d0d4fed0a311">MakeDirectory</a></div><div class="ttdeci">void MakeDirectory(const string &amp;dirname)</div><div class="ttdef"><b>Definition:</b> miscutils.cpp:127</div></div>
+<div class="ttc" id="amiscutils_8h_html_a27c8749136bca95a74701e0d7b196fbf"><div class="ttname"><a href="miscutils_8h.html#a27c8749136bca95a74701e0d7b196fbf">PrintPadded</a></div><div class="ttdeci">void PrintPadded(const string &amp;name)</div><div class="ttdef"><b>Definition:</b> miscutils.cpp:468</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

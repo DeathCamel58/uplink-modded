@@ -70,122 +70,156 @@ $(function() {
 <div class="title">app.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width:4 c-file-style:&quot;cc-mode&quot; -*-</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">    App object</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    Stores data about the app - eg path, version, etc</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">  */</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_app_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_app_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef included_app_h</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define included_app_h</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="classOptions.html">Options</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="classNetwork.html">Network</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="classMainMenu.html">MainMenu</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="classPhoneDialler.html">PhoneDialler</a>;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;app/uplinkobject.h&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span><a class="code" href="classOptions.html">Options</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span><a class="code" href="classNetwork.html">Network</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">class </span><a class="code" href="classMainMenu.html">MainMenu</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span><a class="code" href="classPhoneDialler.html">PhoneDialler</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define SIZE_APP_PATH    256</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define SIZE_APP_VERSION 32</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define SIZE_APP_TYPE    32</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define SIZE_APP_DATE    32</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define SIZE_APP_TITLE   64</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define SIZE_APP_RELEASE 256</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define SIZE_APP_PATH    256</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define SIZE_APP_VERSION 32</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define SIZE_APP_TYPE    32</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define SIZE_APP_DATE    32</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#define SIZE_APP_TITLE   64</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define SIZE_APP_RELEASE 256</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classApp.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classApp.html">App</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;public :</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classApp.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classApp.html">App</a> : <span class="keyword">public</span> <a class="code" href="classUplinkObject.html">UplinkObject</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;public :</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">string</span> path;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">string</span> userpath;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">string</span> usertmppath; <span class="comment">// Used by the crash reporter to store the current .usr</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">string</span> userretirepath; <span class="comment">// Used to store old agents ( .usr / .tmp )</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">string</span> version;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">string</span> type;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">string</span> date;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">string</span> title;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">string</span> release;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> starttime;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> closed;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classOptions.html">Options</a> *options;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classNetwork.html">Network</a> *network;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classMainMenu.html">MainMenu</a> *mainmenu;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classPhoneDialler.html">PhoneDialler</a> *phoneDial;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classApp.html#af8017ba205afaa415c56863c22f078c8">   38</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#af8017ba205afaa415c56863c22f078c8">path</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classApp.html#a81a20a14b5d6b121c57068b6cbe587e9">   43</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a81a20a14b5d6b121c57068b6cbe587e9">userpath</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classApp.html#a303a5c2270650cc20d7ea9291ed7c344">   49</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a303a5c2270650cc20d7ea9291ed7c344">usertmppath</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classApp.html#a969738236b34a58971ba354e55415bb4">   55</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a969738236b34a58971ba354e55415bb4">userretirepath</a>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">string</span> nextLoadGame;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> askCodeCard;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classApp.html">App</a> ();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ~<a class="code" href="classApp.html">App</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> Set (<span class="keywordtype">string</span> newpath, <span class="keywordtype">string</span> newversion, <span class="keywordtype">string</span> newtype,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;              <span class="keywordtype">string</span> newdate, <span class="keywordtype">string</span> newtitle );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> Initialise (); </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> Close ();          <span class="comment">// Shuts down the app   </span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> Closed () <span class="keyword">const</span>;         <span class="comment">// True if in the process of shutting down</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> SetNextLoadGame (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;username );       <span class="comment">// Set the username to load with the next call to LoadGame</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> LoadGame ();                                    <span class="comment">// Use the username set with SetNextLoadGame</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> LoadGame (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;username );</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> SaveGame (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;username ) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> RetireGame (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;username ) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">static</span> <a class="code" href="classDArray.html">DArray &lt;string&gt;</a> *<a class="code" href="classApp.html#a3a738c0c8dff4ebaecee48bafb1286ba">ListExistingGames</a> ();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <a class="code" href="classOptions.html">Options</a> *GetOptions ();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classNetwork.html">Network</a> *GetNetwork ();</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classMainMenu.html">MainMenu</a> *GetMainMenu ();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> RegisterPhoneDialler ( <a class="code" href="classPhoneDialler.html">PhoneDialler</a> *phoneDiallerScreen );</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> UnRegisterPhoneDialler ( <a class="code" href="classPhoneDialler.html">PhoneDialler</a> *phoneDiallerScreen );</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classApp.html#a8c565a189b08b528ba2f2119faed8a6b">   60</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a8c565a189b08b528ba2f2119faed8a6b">version</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classApp.html#a316389976a390f15366dd1bfe98813d1">   65</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a316389976a390f15366dd1bfe98813d1">type</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classApp.html#ad8573b92ae801069d164f38c94695b7a">   70</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#ad8573b92ae801069d164f38c94695b7a">date</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classApp.html#a4db6ba46d7d045faecbfd6adae175466">   75</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a4db6ba46d7d045faecbfd6adae175466">title</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classApp.html#abc7e011f1204a5ab74ec7371166482e2">   81</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#abc7e011f1204a5ab74ec7371166482e2">release</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">int</span> starttime;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">bool</span> closed;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classOptions.html">Options</a> *options;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classNetwork.html">Network</a> *network;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="classMainMenu.html">MainMenu</a> *mainmenu;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classPhoneDialler.html">PhoneDialler</a> *phoneDial;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> CoreDump ();             </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// Common functions</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classApp.html#a199d6eed40a5bf206a32ce79713aff23">Load</a>   ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#ad38578bc970bb4343e6d25aecda185cb">Save</a>   ( FILE *file ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a7fb1ef5242b0e659f45558add87a690a">Print</a>  () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a414ad82b81922a10fabc0a2e71ee2e18">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a62c43dfc02c049ebf5ebf1118a0a66cb">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classApp.html#a32f3eb99bc8d818ed4c14663a2b9560c">   94</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a32f3eb99bc8d818ed4c14663a2b9560c">nextLoadGame</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classApp.html#a4fe05566f1a76afa0a36849fd8d614cb">   99</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classApp.html#a4fe05566f1a76afa0a36849fd8d614cb">askCodeCard</a>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;};</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">extern</span> <a class="code" href="classApp.html">App</a> *app;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="classApp.html">App</a> ();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ~<a class="code" href="classApp.html">App</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a166400b54cc254fca8002f1f4f7b9a89">Set</a> (<span class="keywordtype">string</span> newpath, <span class="keywordtype">string</span> newversion, <span class="keywordtype">string</span> newtype,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;              <span class="keywordtype">string</span> newdate, <span class="keywordtype">string</span> newtitle );</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> Initialise ();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a8ba539139d6a1dab25d714e9bd95eec2">Close</a> ();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classApp.html#a4eb01666c94deedc6bf2f027c9a2b64e">Closed</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#aa6312b2577a4ea5230fb3fee7d1021bd">SetNextLoadGame</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;username );</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a11d5a431f378670f4a3647704b25f817">LoadGame</a> ();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a11d5a431f378670f4a3647704b25f817">LoadGame</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;username );</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a04f62f4287850da6fc57d1404846d66e">SaveGame</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;username ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a1a16c9d41b20957f13f2a6f9ae711051">RetireGame</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;username ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">static</span> <a class="code" href="classDArray.html">DArray &lt;string&gt;</a> *<a class="code" href="classApp.html#a3a738c0c8dff4ebaecee48bafb1286ba">ListExistingGames</a> ();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="classOptions.html">Options</a> *<a class="code" href="classApp.html#a4908dffb92dcf5b4873fcaf7e4233ba2">GetOptions</a> ();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="classNetwork.html">Network</a> *<a class="code" href="classApp.html#a9dfdc4fe6ec0ef57d8a029521a6ec686">GetNetwork</a> ();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <a class="code" href="classMainMenu.html">MainMenu</a> *<a class="code" href="classApp.html#af563de659b94799823f8e878ee483a16">GetMainMenu</a> ();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a341d4b63ae6ac58e0e09216bfd9f3c43">RegisterPhoneDialler</a> ( <a class="code" href="classPhoneDialler.html">PhoneDialler</a> *phoneDiallerScreen );</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a5ce4c90666202d64b276554fae0144fe">UnRegisterPhoneDialler</a> ( <a class="code" href="classPhoneDialler.html">PhoneDialler</a> *phoneDiallerScreen );</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classApp.html#a52bf913110446440c8e570aef6ec9ab0">CoreDump</a> ();             </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">// Common functions</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classApp.html#a199d6eed40a5bf206a32ce79713aff23">Load</a>   ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#ad38578bc970bb4343e6d25aecda185cb">Save</a>   ( FILE *file ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a7fb1ef5242b0e659f45558add87a690a">Print</a>  () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classApp.html#a414ad82b81922a10fabc0a2e71ee2e18">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classApp.html#a62c43dfc02c049ebf5ebf1118a0a66cb">GetID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;};</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keyword">extern</span> <a class="code" href="classApp.html">App</a> *app;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassApp_html_a4908dffb92dcf5b4873fcaf7e4233ba2"><div class="ttname"><a href="classApp.html#a4908dffb92dcf5b4873fcaf7e4233ba2">App::GetOptions</a></div><div class="ttdeci">Options * GetOptions()</div><div class="ttdef"><b>Definition:</b> app.cpp:137</div></div>
 <div class="ttc" id="aclassOptions_html"><div class="ttname"><a href="classOptions.html">Options</a></div><div class="ttdef"><b>Definition:</b> options.h:27</div></div>
+<div class="ttc" id="aclassApp_html_a341d4b63ae6ac58e0e09216bfd9f3c43"><div class="ttname"><a href="classApp.html#a341d4b63ae6ac58e0e09216bfd9f3c43">App::RegisterPhoneDialler</a></div><div class="ttdeci">void RegisterPhoneDialler(PhoneDialler *phoneDiallerScreen)</div><div class="ttdef"><b>Definition:</b> app.cpp:161</div></div>
 <div class="ttc" id="aclassApp_html_ad38578bc970bb4343e6d25aecda185cb"><div class="ttname"><a href="classApp.html#ad38578bc970bb4343e6d25aecda185cb">App::Save</a></div><div class="ttdeci">void Save(FILE *file) override</div><div class="ttdef"><b>Definition:</b> app.cpp:493</div></div>
 <div class="ttc" id="aclassApp_html_a3a738c0c8dff4ebaecee48bafb1286ba"><div class="ttname"><a href="classApp.html#a3a738c0c8dff4ebaecee48bafb1286ba">App::ListExistingGames</a></div><div class="ttdeci">static DArray&lt; string &gt; * ListExistingGames()</div><div class="ttdef"><b>Definition:</b> app.cpp:413</div></div>
+<div class="ttc" id="aclassApp_html_a52bf913110446440c8e570aef6ec9ab0"><div class="ttname"><a href="classApp.html#a52bf913110446440c8e570aef6ec9ab0">App::CoreDump</a></div><div class="ttdeci">static void CoreDump()</div><div class="ttdef"><b>Definition:</b> app.cpp:497</div></div>
+<div class="ttc" id="aclassApp_html_a04f62f4287850da6fc57d1404846d66e"><div class="ttname"><a href="classApp.html#a04f62f4287850da6fc57d1404846d66e">App::SaveGame</a></div><div class="ttdeci">void SaveGame(const string &amp;username) const</div><div class="ttdef"><b>Definition:</b> app.cpp:338</div></div>
+<div class="ttc" id="aclassApp_html_ad8573b92ae801069d164f38c94695b7a"><div class="ttname"><a href="classApp.html#ad8573b92ae801069d164f38c94695b7a">App::date</a></div><div class="ttdeci">string date</div><div class="ttdef"><b>Definition:</b> app.h:70</div></div>
+<div class="ttc" id="aclassApp_html_a969738236b34a58971ba354e55415bb4"><div class="ttname"><a href="classApp.html#a969738236b34a58971ba354e55415bb4">App::userretirepath</a></div><div class="ttdeci">string userretirepath</div><div class="ttdef"><b>Definition:</b> app.h:55</div></div>
+<div class="ttc" id="aclassApp_html_a303a5c2270650cc20d7ea9291ed7c344"><div class="ttname"><a href="classApp.html#a303a5c2270650cc20d7ea9291ed7c344">App::usertmppath</a></div><div class="ttdeci">string usertmppath</div><div class="ttdef"><b>Definition:</b> app.h:49</div></div>
 <div class="ttc" id="aclassPhoneDialler_html"><div class="ttname"><a href="classPhoneDialler.html">PhoneDialler</a></div><div class="ttdoc">Screen that shows the dialer.</div><div class="ttdef"><b>Definition:</b> phonedialler.h:13</div></div>
+<div class="ttc" id="aclassApp_html_a8c565a189b08b528ba2f2119faed8a6b"><div class="ttname"><a href="classApp.html#a8c565a189b08b528ba2f2119faed8a6b">App::version</a></div><div class="ttdeci">string version</div><div class="ttdef"><b>Definition:</b> app.h:60</div></div>
+<div class="ttc" id="aclassApp_html_a316389976a390f15366dd1bfe98813d1"><div class="ttname"><a href="classApp.html#a316389976a390f15366dd1bfe98813d1">App::type</a></div><div class="ttdeci">string type</div><div class="ttdef"><b>Definition:</b> app.h:65</div></div>
+<div class="ttc" id="aclassApp_html_a4eb01666c94deedc6bf2f027c9a2b64e"><div class="ttname"><a href="classApp.html#a4eb01666c94deedc6bf2f027c9a2b64e">App::Closed</a></div><div class="ttdeci">bool Closed() const</div><div class="ttdef"><b>Definition:</b> app.cpp:481</div></div>
+<div class="ttc" id="aclassApp_html_a5ce4c90666202d64b276554fae0144fe"><div class="ttname"><a href="classApp.html#a5ce4c90666202d64b276554fae0144fe">App::UnRegisterPhoneDialler</a></div><div class="ttdeci">void UnRegisterPhoneDialler(PhoneDialler *phoneDiallerScreen)</div><div class="ttdef"><b>Definition:</b> app.cpp:174</div></div>
 <div class="ttc" id="aclassApp_html_a7fb1ef5242b0e659f45558add87a690a"><div class="ttname"><a href="classApp.html#a7fb1ef5242b0e659f45558add87a690a">App::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> app.cpp:515</div></div>
 <div class="ttc" id="aclassApp_html_a199d6eed40a5bf206a32ce79713aff23"><div class="ttname"><a href="classApp.html#a199d6eed40a5bf206a32ce79713aff23">App::Load</a></div><div class="ttdeci">bool Load(FILE *file) override</div><div class="ttdef"><b>Definition:</b> app.cpp:488</div></div>
 <div class="ttc" id="aclassDArray_html"><div class="ttname"><a href="classDArray.html">DArray&lt; string &gt;</a></div></div>
+<div class="ttc" id="aclassApp_html_a9dfdc4fe6ec0ef57d8a029521a6ec686"><div class="ttname"><a href="classApp.html#a9dfdc4fe6ec0ef57d8a029521a6ec686">App::GetNetwork</a></div><div class="ttdeci">Network * GetNetwork()</div><div class="ttdef"><b>Definition:</b> app.cpp:145</div></div>
+<div class="ttc" id="aclassApp_html_af563de659b94799823f8e878ee483a16"><div class="ttname"><a href="classApp.html#af563de659b94799823f8e878ee483a16">App::GetMainMenu</a></div><div class="ttdeci">MainMenu * GetMainMenu()</div><div class="ttdef"><b>Definition:</b> app.cpp:153</div></div>
+<div class="ttc" id="aclassApp_html_abc7e011f1204a5ab74ec7371166482e2"><div class="ttname"><a href="classApp.html#abc7e011f1204a5ab74ec7371166482e2">App::release</a></div><div class="ttdeci">string release</div><div class="ttdef"><b>Definition:</b> app.h:81</div></div>
 <div class="ttc" id="aclassApp_html_a414ad82b81922a10fabc0a2e71ee2e18"><div class="ttname"><a href="classApp.html#a414ad82b81922a10fabc0a2e71ee2e18">App::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> app.cpp:529</div></div>
+<div class="ttc" id="aclassApp_html_a4db6ba46d7d045faecbfd6adae175466"><div class="ttname"><a href="classApp.html#a4db6ba46d7d045faecbfd6adae175466">App::title</a></div><div class="ttdeci">string title</div><div class="ttdef"><b>Definition:</b> app.h:75</div></div>
 <div class="ttc" id="aclassUplinkObject_html"><div class="ttname"><a href="classUplinkObject.html">UplinkObject</a></div><div class="ttdoc">UplinkObject base class.</div><div class="ttdef"><b>Definition:</b> uplinkobject.h:18</div></div>
 <div class="ttc" id="aclassMainMenu_html"><div class="ttname"><a href="classMainMenu.html">MainMenu</a></div><div class="ttdef"><b>Definition:</b> mainmenu.h:45</div></div>
 <div class="ttc" id="aclassNetwork_html"><div class="ttname"><a href="classNetwork.html">Network</a></div><div class="ttdef"><b>Definition:</b> network.h:34</div></div>
-<div class="ttc" id="aclassApp_html"><div class="ttname"><a href="classApp.html">App</a></div><div class="ttdef"><b>Definition:</b> app.h:34</div></div>
+<div class="ttc" id="aclassApp_html_a1a16c9d41b20957f13f2a6f9ae711051"><div class="ttname"><a href="classApp.html#a1a16c9d41b20957f13f2a6f9ae711051">App::RetireGame</a></div><div class="ttdeci">void RetireGame(const string &amp;username) const</div><div class="ttdef"><b>Definition:</b> app.cpp:389</div></div>
+<div class="ttc" id="aclassApp_html_a11d5a431f378670f4a3647704b25f817"><div class="ttname"><a href="classApp.html#a11d5a431f378670f4a3647704b25f817">App::LoadGame</a></div><div class="ttdeci">void LoadGame()</div><div class="ttdef"><b>Definition:</b> app.cpp:210</div></div>
+<div class="ttc" id="aclassApp_html_a4fe05566f1a76afa0a36849fd8d614cb"><div class="ttname"><a href="classApp.html#a4fe05566f1a76afa0a36849fd8d614cb">App::askCodeCard</a></div><div class="ttdeci">bool askCodeCard</div><div class="ttdef"><b>Definition:</b> app.h:99</div></div>
+<div class="ttc" id="aclassApp_html_af8017ba205afaa415c56863c22f078c8"><div class="ttname"><a href="classApp.html#af8017ba205afaa415c56863c22f078c8">App::path</a></div><div class="ttdeci">string path</div><div class="ttdef"><b>Definition:</b> app.h:38</div></div>
+<div class="ttc" id="aclassApp_html_aa6312b2577a4ea5230fb3fee7d1021bd"><div class="ttname"><a href="classApp.html#aa6312b2577a4ea5230fb3fee7d1021bd">App::SetNextLoadGame</a></div><div class="ttdeci">void SetNextLoadGame(const string &amp;username)</div><div class="ttdef"><b>Definition:</b> app.cpp:200</div></div>
+<div class="ttc" id="aclassApp_html_a8ba539139d6a1dab25d714e9bd95eec2"><div class="ttname"><a href="classApp.html#a8ba539139d6a1dab25d714e9bd95eec2">App::Close</a></div><div class="ttdeci">void Close()</div><div class="ttdef"><b>Definition:</b> app.cpp:433</div></div>
+<div class="ttc" id="aclassApp_html_a166400b54cc254fca8002f1f4f7b9a89"><div class="ttname"><a href="classApp.html#a166400b54cc254fca8002f1f4f7b9a89">App::Set</a></div><div class="ttdeci">void Set(string newpath, string newversion, string newtype, string newdate, string newtitle)</div><div class="ttdef"><b>Definition:</b> app.cpp:105</div></div>
+<div class="ttc" id="aclassApp_html_a81a20a14b5d6b121c57068b6cbe587e9"><div class="ttname"><a href="classApp.html#a81a20a14b5d6b121c57068b6cbe587e9">App::userpath</a></div><div class="ttdeci">string userpath</div><div class="ttdef"><b>Definition:</b> app.h:43</div></div>
+<div class="ttc" id="aclassApp_html"><div class="ttname"><a href="classApp.html">App</a></div><div class="ttdoc">App Object.</div><div class="ttdef"><b>Definition:</b> app.h:29</div></div>
+<div class="ttc" id="aclassApp_html_a32f3eb99bc8d818ed4c14663a2b9560c"><div class="ttname"><a href="classApp.html#a32f3eb99bc8d818ed4c14663a2b9560c">App::nextLoadGame</a></div><div class="ttdeci">string nextLoadGame</div><div class="ttdef"><b>Definition:</b> app.h:94</div></div>
 <div class="ttc" id="aclassApp_html_a62c43dfc02c049ebf5ebf1118a0a66cb"><div class="ttname"><a href="classApp.html#a62c43dfc02c049ebf5ebf1118a0a66cb">App::GetID</a></div><div class="ttdeci">string GetID() override</div><div class="ttdef"><b>Definition:</b> app.cpp:584</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

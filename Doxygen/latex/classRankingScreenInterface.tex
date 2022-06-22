@@ -23,14 +23,11 @@ Collaboration diagram for Ranking\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classRankingScreenInterface_acd92e1c191ae99d286e72ed3faf6a71a}\label{classRankingScreenInterface_acd92e1c191ae99d286e72ed3faf6a71a}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classRankingScreenInterface_acd92e1c191ae99d286e72ed3faf6a71a}{Return\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classRankingScreenInterface_a10931560b3b846354c6288eaec6e1fb2}\label{classRankingScreenInterface_a10931560b3b846354c6288eaec6e1fb2}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classRankingScreenInterface_a10931560b3b846354c6288eaec6e1fb2}{Escape\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classRankingScreenInterface_a0b2fd084817d16d07917d3208227625d}\label{classRankingScreenInterface_a0b2fd084817d16d07917d3208227625d}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classRankingScreenInterface_a0b2fd084817d16d07917d3208227625d}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classRankingScreenInterface_aa9cf9e852f13cc6c37e5296c9ef7f444}{Remove}} () override
 \item 
@@ -60,6 +57,34 @@ static void {\bfseries Player\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\a
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRankingScreenInterface_a0b2fd084817d16d07917d3208227625d}\label{classRankingScreenInterface_a0b2fd084817d16d07917d3208227625d}} 
+\index{RankingScreenInterface@{RankingScreenInterface}!Create@{Create}}
+\index{Create@{Create}!RankingScreenInterface@{RankingScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Ranking\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRankingScreenInterface_a10931560b3b846354c6288eaec6e1fb2}\label{classRankingScreenInterface_a10931560b3b846354c6288eaec6e1fb2}} 
+\index{RankingScreenInterface@{RankingScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!RankingScreenInterface@{RankingScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Ranking\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classRankingScreenInterface_afce5809a6b5c32b73348610a8a7fd33d}\label{classRankingScreenInterface_afce5809a6b5c32b73348610a8a7fd33d}} 
 \index{RankingScreenInterface@{RankingScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!RankingScreenInterface@{RankingScreenInterface}}
@@ -82,6 +107,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classRankingScreenInterface_acd92e1c191ae99d286e72ed3faf6a71a}\label{classRankingScreenInterface_acd92e1c191ae99d286e72ed3faf6a71a}} 
+\index{RankingScreenInterface@{RankingScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!RankingScreenInterface@{RankingScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Ranking\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classRankingScreenInterface_ab377a7d217e05a68a6950c01972fab2a}\label{classRankingScreenInterface_ab377a7d217e05a68a6950c01972fab2a}} 
 \index{RankingScreenInterface@{RankingScreenInterface}!ScreenID@{ScreenID}}

@@ -1,7 +1,7 @@
 <map id="UplinkObject" name="UplinkObject">
 <area shape="rect" id="node1" title="UplinkObject base class." alt="" coords="5,1196,112,1223"/>
 <area shape="rect" id="node2" href="$classAccessLog.html" title=" " alt="" coords="194,5,285,32"/>
-<area shape="rect" id="node3" href="$classApp.html" title=" " alt="" coords="216,56,263,83"/>
+<area shape="rect" id="node3" href="$classApp.html" title="App Object." alt="" coords="216,56,263,83"/>
 <area shape="rect" id="node4" href="$classBankAccount.html" title=" " alt="" coords="186,107,293,133"/>
 <area shape="rect" id="node5" href="$classClientConnection.html" title=" " alt="" coords="173,157,306,184"/>
 <area shape="rect" id="node6" href="$classCompany.html" title=" " alt="" coords="197,208,281,235"/>
@@ -46,6 +46,6 @@
 <area shape="rect" id="node45" href="$classSecuritySystem.html" title=" " alt="" coords="177,2184,301,2211"/>
 <area shape="rect" id="node46" href="$classTaskManager.html" title=" " alt="" coords="185,2235,293,2261"/>
 <area shape="rect" id="node47" href="$classUplinkEvent.html" title="Uplink Event object." alt="" coords="189,2285,290,2312"/>
-<area shape="rect" id="node48" href="$classView.html" title=" " alt="" coords="212,2336,267,2363"/>
-<area shape="rect" id="node49" href="$classVLocation.html" title=" " alt="" coords="196,2387,283,2413"/>
+<area shape="rect" id="node48" href="$classView.html" title="View class object." alt="" coords="212,2336,267,2363"/>
+<area shape="rect" id="node49" href="$classVLocation.html" title="Location in the uplink world." alt="" coords="196,2387,283,2413"/>
 </map>

@@ -23,14 +23,12 @@ Collaboration diagram for Criminal\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_aa38a7983dbd96289256e3a99818614c0}\label{classCriminalScreenInterface_aa38a7983dbd96289256e3a99818614c0}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classCriminalScreenInterface_aa38a7983dbd96289256e3a99818614c0}{Escape\+Key\+Pressed}} () override
 \item 
 \mbox{\Hypertarget{classCriminalScreenInterface_a80b3b7094f17240e22485342a74dc0e1}\label{classCriminalScreenInterface_a80b3b7094f17240e22485342a74dc0e1}} 
 void {\bfseries Set\+Search\+Name} (char $\ast$newsearchname)
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}\label{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classCriminalScreenInterface_a08af66b7d61cbb4f82c4f7ec295c0f48}{Remove}} () override
 \item 
@@ -89,6 +87,34 @@ int {\bfseries lastupdate}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}\label{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!Create@{Create}}
+\index{Create@{Create}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classCriminalScreenInterface_aa38a7983dbd96289256e3a99818614c0}\label{classCriminalScreenInterface_aa38a7983dbd96289256e3a99818614c0}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Criminal\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classCriminalScreenInterface_a9095cce2aee2a10c2b14d80f9516b23f}\label{classCriminalScreenInterface_a9095cce2aee2a10c2b14d80f9516b23f}} 
 \index{CriminalScreenInterface@{CriminalScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!CriminalScreenInterface@{CriminalScreenInterface}}

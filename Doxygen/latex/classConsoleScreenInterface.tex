@@ -62,8 +62,7 @@ void {\bfseries Run\+Command\+\_\+\+R\+UN} (const string \&program, bool actuall
 \mbox{\Hypertarget{classConsoleScreenInterface_a6f86f313963e46e1dc75294ee80ec708}\label{classConsoleScreenInterface_a6f86f313963e46e1dc75294ee80ec708}} 
 void {\bfseries Run\+Command\+\_\+\+S\+H\+U\+T\+D\+O\+WN} ()
 \item 
-\mbox{\Hypertarget{classConsoleScreenInterface_a979fd160628decb8227d5d8f84db450f}\label{classConsoleScreenInterface_a979fd160628decb8227d5d8f84db450f}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classConsoleScreenInterface_a979fd160628decb8227d5d8f84db450f}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classConsoleScreenInterface_a4fed5eb5985e08d83f2377e2e9ce464a}{Remove}} () override
 \item 
@@ -71,8 +70,7 @@ void \mbox{\hyperlink{classConsoleScreenInterface_a3f23576a7da8a8d27c95cc14067b5
 \item 
 bool \mbox{\hyperlink{classConsoleScreenInterface_a7192d709cbd37ad06ffbb1a31d586342}{Is\+Visible}} () override
 \item 
-\mbox{\Hypertarget{classConsoleScreenInterface_a5673c25251ded7299201b6ae4bff1c99}\label{classConsoleScreenInterface_a5673c25251ded7299201b6ae4bff1c99}} 
-bool {\bfseries Return\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classConsoleScreenInterface_a5673c25251ded7299201b6ae4bff1c99}{Return\+Key\+Pressed}} () override
 \item 
 int \mbox{\hyperlink{classConsoleScreenInterface_a7592c8771a79b31bd460f9257583605f}{Screen\+ID}} () override
 \item 
@@ -131,6 +129,21 @@ bool {\bfseries deleted\+\_\+sys}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConsoleScreenInterface_a979fd160628decb8227d5d8f84db450f}\label{classConsoleScreenInterface_a979fd160628decb8227d5d8f84db450f}} 
+\index{ConsoleScreenInterface@{ConsoleScreenInterface}!Create@{Create}}
+\index{Create@{Create}!ConsoleScreenInterface@{ConsoleScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Console\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classConsoleScreenInterface_a7192d709cbd37ad06ffbb1a31d586342}\label{classConsoleScreenInterface_a7192d709cbd37ad06ffbb1a31d586342}} 
 \index{ConsoleScreenInterface@{ConsoleScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!ConsoleScreenInterface@{ConsoleScreenInterface}}
@@ -153,6 +166,19 @@ Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f8
 Removes the screen 
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a14cf43f7d857cdd274a4256f1fd1e7fc}{Interface\+Screen}}.
+
+\mbox{\Hypertarget{classConsoleScreenInterface_a5673c25251ded7299201b6ae4bff1c99}\label{classConsoleScreenInterface_a5673c25251ded7299201b6ae4bff1c99}} 
+\index{ConsoleScreenInterface@{ConsoleScreenInterface}!ReturnKeyPressed@{ReturnKeyPressed}}
+\index{ReturnKeyPressed@{ReturnKeyPressed}!ConsoleScreenInterface@{ConsoleScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ReturnKeyPressed()}{ReturnKeyPressed()}}
+{\footnotesize\ttfamily bool Console\+Screen\+Interface\+::\+Return\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this return \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a79276b79c9395a180ab0af2fd504b3a7}{Remote\+Interface\+Screen}}.
 
 \mbox{\Hypertarget{classConsoleScreenInterface_a7592c8771a79b31bd460f9257583605f}\label{classConsoleScreenInterface_a7592c8771a79b31bd460f9257583605f}} 
 \index{ConsoleScreenInterface@{ConsoleScreenInterface}!ScreenID@{ScreenID}}

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['width_1891',['width',['../classMapRectangle.html#a4e8daa42839cd3e6893502b8623e85fc',1,'MapRectangle']]],
-  ['winsockinit_1892',['winSockInit',['../classIRCInterface.html#a2a01ecf8530868959ba0092fe2182fd5',1,'IRCInterface']]],
-  ['worldmapmask_1893',['worldmapmask',['../classWorldGenerator.html#a2820b97a54ffd3e35c4e1fbce4f24649',1,'WorldGenerator']]]
+  ['version_1863',['version',['../classApp.html#a8c565a189b08b528ba2f2119faed8a6b',1,'App']]],
+  ['visibleupgrades_1864',['visibleUpgrades',['../classHUDInterface.html#a67274e7ae54e9df1d958c1def7f118d6',1,'HUDInterface']]]
 ];

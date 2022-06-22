@@ -1,9 +1,0 @@
-<map id="CommandData" name="CommandData">
-<area shape="rect" id="node1" title=" " alt="" coords="203,257,323,284"/>
-<area shape="rect" id="node2" href="$classRAROptions.html" title=" " alt="" coords="156,109,255,136"/>
-<area shape="rect" id="node3" href="$structFilterMode.html" title=" " alt="" coords="5,5,96,32"/>
-<area shape="rect" id="node4" href="$classInt64.html" title=" " alt="" coords="133,5,187,32"/>
-<area shape="rect" id="node5" href="$classRarTime.html" title=" " alt="" coords="212,5,289,32"/>
-<area shape="rect" id="node6" href="$classArray.html" title=" " alt="" coords="324,5,444,32"/>
-<area shape="rect" id="node7" href="$classStringList.html" title=" " alt="" coords="279,109,361,136"/>
-</map>

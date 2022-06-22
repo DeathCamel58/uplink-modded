@@ -2,6 +2,15 @@
 \label{classScrollBox}\index{ScrollBox@{ScrollBox}}
 
 
+Scroll box object.  
+
+
+
+
+{\ttfamily \#include $<$scrollbox.\+h$>$}
+
+
+
 Collaboration diagram for Scroll\+Box\+:
 \nopagebreak
 \begin{figure}[H]
@@ -13,107 +22,46 @@ Collaboration diagram for Scroll\+Box\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classScrollBox_a6e8ec553bf93f252d5c48681e2e0801c}\label{classScrollBox_a6e8ec553bf93f252d5c48681e2e0801c}} 
-void {\bfseries Set\+Name} (const string \&newname)
+void \mbox{\hyperlink{classScrollBox_a6e8ec553bf93f252d5c48681e2e0801c}{Set\+Name}} (const string \&newname)
 \item 
-\mbox{\Hypertarget{classScrollBox_ac2bdaeeb00efb28932b524c250681a68}\label{classScrollBox_ac2bdaeeb00efb28932b524c250681a68}} 
-void {\bfseries Set\+Dimensions} (int newx, int newy, int neww, int newh)
+void \mbox{\hyperlink{classScrollBox_ac2bdaeeb00efb28932b524c250681a68}{Set\+Dimensions}} (int newx, int newy, int neww, int newh)
 \item 
-\mbox{\Hypertarget{classScrollBox_a31afed0df62faca3cece4a34adac59bb}\label{classScrollBox_a31afed0df62faca3cece4a34adac59bb}} 
-void {\bfseries Set\+Num\+Items} (int new\+Num\+Items)
+void \mbox{\hyperlink{classScrollBox_a31afed0df62faca3cece4a34adac59bb}{Set\+Num\+Items}} (int new\+Num\+Items)
 \item 
-\mbox{\Hypertarget{classScrollBox_a6b4595050d3891a92353ca6bbdc693a6}\label{classScrollBox_a6b4595050d3891a92353ca6bbdc693a6}} 
-void {\bfseries Set\+Window\+Size} (int new\+Window\+Size)
+void \mbox{\hyperlink{classScrollBox_a6b4595050d3891a92353ca6bbdc693a6}{Set\+Window\+Size}} (int new\+Window\+Size)
 \item 
-\mbox{\Hypertarget{classScrollBox_a9450ab9294695e220db7df53011ff93b}\label{classScrollBox_a9450ab9294695e220db7df53011ff93b}} 
-void {\bfseries Set\+Current\+Index} (int new\+Current\+Index)
+void \mbox{\hyperlink{classScrollBox_a9450ab9294695e220db7df53011ff93b}{Set\+Current\+Index}} (int new\+Current\+Index)
 \item 
-\mbox{\Hypertarget{classScrollBox_af0f318f9e2759d28efeb2709ca88f26e}\label{classScrollBox_af0f318f9e2759d28efeb2709ca88f26e}} 
-void {\bfseries Set\+Callback} (void($\ast$newcallback)(const string \&, int))
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classScrollBox_aa92bb5948c19dc902f8739b3bedf3eef}\label{classScrollBox_aa92bb5948c19dc902f8739b3bedf3eef}} 
-static void {\bfseries Create\+Scroll\+Box} (const string \&name, int x, int y, int w, int h, int num\+Items, int window\+Size, int current\+Index, void($\ast$callback)(const string \&, int)=nullptr)
-\item 
-\mbox{\Hypertarget{classScrollBox_a072422d8c13d888a78ea0a7edc0b00f1}\label{classScrollBox_a072422d8c13d888a78ea0a7edc0b00f1}} 
-static void {\bfseries Remove\+Scroll\+Box} (const string \&name)
-\item 
-\mbox{\Hypertarget{classScrollBox_af75b2c2f5598e88740d624a15f854afd}\label{classScrollBox_af75b2c2f5598e88740d624a15f854afd}} 
-static \mbox{\hyperlink{classScrollBox}{Scroll\+Box}} $\ast$ {\bfseries Get\+Scroll\+Box} (const string \&name)
-\item 
-\mbox{\Hypertarget{classScrollBox_a092068ec97416c934e8bbb322f83e5d9}\label{classScrollBox_a092068ec97416c934e8bbb322f83e5d9}} 
-static void {\bfseries Grab\+Scroll\+Bar} (const string \&name)
-\item 
-\mbox{\Hypertarget{classScrollBox_ae1e077d9ec5cb7e43bd7eb9b79e4f88c}\label{classScrollBox_ae1e077d9ec5cb7e43bd7eb9b79e4f88c}} 
-static void {\bfseries Un\+Grab\+Scroll\+Bar} ()
-\item 
-\mbox{\Hypertarget{classScrollBox_ab4cbbc524b9bdedb56bde1ee21e9c6f1}\label{classScrollBox_ab4cbbc524b9bdedb56bde1ee21e9c6f1}} 
-static bool {\bfseries Is\+Grab\+In\+Progress} ()
-\item 
-\mbox{\Hypertarget{classScrollBox_a429ec4a4564ad2ab7c57f65a8dc14ad0}\label{classScrollBox_a429ec4a4564ad2ab7c57f65a8dc14ad0}} 
-static void {\bfseries Update\+Grab\+Scroll} ()
+void \mbox{\hyperlink{classScrollBox_af0f318f9e2759d28efeb2709ca88f26e}{Set\+Callback}} (void($\ast$newcallback)(const string \&, int))
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classScrollBox_a2779a38dd6ef2b25061073e714320244}\label{classScrollBox_a2779a38dd6ef2b25061073e714320244}} 
-string {\bfseries name}
+string \mbox{\hyperlink{classScrollBox_a2779a38dd6ef2b25061073e714320244}{name}}
 \item 
-\mbox{\Hypertarget{classScrollBox_a161b1e938bfd8e9bf94b641a1d7daecc}\label{classScrollBox_a161b1e938bfd8e9bf94b641a1d7daecc}} 
-int {\bfseries x}
+int \mbox{\hyperlink{classScrollBox_a161b1e938bfd8e9bf94b641a1d7daecc}{x}}
 \item 
-\mbox{\Hypertarget{classScrollBox_a5f124649b7acacf87fd5ba981c2e77c0}\label{classScrollBox_a5f124649b7acacf87fd5ba981c2e77c0}} 
-int {\bfseries y}
+int \mbox{\hyperlink{classScrollBox_a5f124649b7acacf87fd5ba981c2e77c0}{y}}
 \item 
-\mbox{\Hypertarget{classScrollBox_a2ab24464ce6dcf2e9ae6b70618479258}\label{classScrollBox_a2ab24464ce6dcf2e9ae6b70618479258}} 
-int {\bfseries w}
+int \mbox{\hyperlink{classScrollBox_a2ab24464ce6dcf2e9ae6b70618479258}{w}}
 \item 
-\mbox{\Hypertarget{classScrollBox_a887de0c0e34c54c4f0e92714bb3e31d1}\label{classScrollBox_a887de0c0e34c54c4f0e92714bb3e31d1}} 
-int {\bfseries h}
+int \mbox{\hyperlink{classScrollBox_a887de0c0e34c54c4f0e92714bb3e31d1}{h}}
 \item 
-\mbox{\Hypertarget{classScrollBox_a89b04b5f267b68fef5bbee56eecc527b}\label{classScrollBox_a89b04b5f267b68fef5bbee56eecc527b}} 
-int {\bfseries num\+Items}
+int \mbox{\hyperlink{classScrollBox_a89b04b5f267b68fef5bbee56eecc527b}{num\+Items}}
 \item 
-\mbox{\Hypertarget{classScrollBox_aec71aede6ff8d8722978453f7d58e395}\label{classScrollBox_aec71aede6ff8d8722978453f7d58e395}} 
-int {\bfseries window\+Size}
+int \mbox{\hyperlink{classScrollBox_aec71aede6ff8d8722978453f7d58e395}{window\+Size}}
 \item 
-\mbox{\Hypertarget{classScrollBox_a747c944173e9c367c2bbd9d0797a170c}\label{classScrollBox_a747c944173e9c367c2bbd9d0797a170c}} 
-int {\bfseries current\+Index}
-\end{DoxyCompactItemize}
-\doxysubsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classScrollBox_afdf663b0600ca09d09f42673eba3bc63}\label{classScrollBox_afdf663b0600ca09d09f42673eba3bc63}} 
-static \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classScrollBox}{Scroll\+Box}} $\ast$ $>$ {\bfseries scroll\+Boxes}
-\item 
-\mbox{\Hypertarget{classScrollBox_ac4d45437a3b50ca1b22ee1dc82ad84d8}\label{classScrollBox_ac4d45437a3b50ca1b22ee1dc82ad84d8}} 
-static string {\bfseries current\+Grab} = \char`\"{}None\char`\"{}
+int \mbox{\hyperlink{classScrollBox_a747c944173e9c367c2bbd9d0797a170c}{current\+Index}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classScrollBox_a489b871026b0b4a688d2d7aca3e14d34}\label{classScrollBox_a489b871026b0b4a688d2d7aca3e14d34}} 
-void {\bfseries Create\+Interface} ()
+void \mbox{\hyperlink{classScrollBox_a5c2641211c5afe2c7b2e24bd18a5407f}{Scroll\+Up}} ()
 \item 
-\mbox{\Hypertarget{classScrollBox_ab84c129e4916057810e1c5af8690c5fd}\label{classScrollBox_ab84c129e4916057810e1c5af8690c5fd}} 
-void {\bfseries Remove\+Interface} ()
-\item 
-\mbox{\Hypertarget{classScrollBox_ab090a442ca595644d2b85073b0cc363a}\label{classScrollBox_ab090a442ca595644d2b85073b0cc363a}} 
-void {\bfseries Update\+Interface} () const
-\item 
-\mbox{\Hypertarget{classScrollBox_a5c2641211c5afe2c7b2e24bd18a5407f}\label{classScrollBox_a5c2641211c5afe2c7b2e24bd18a5407f}} 
-void {\bfseries Scroll\+Up} ()
-\item 
-\mbox{\Hypertarget{classScrollBox_a23710e6a49dbd73a1f2ae1a3e9e2b872}\label{classScrollBox_a23710e6a49dbd73a1f2ae1a3e9e2b872}} 
-void {\bfseries Scroll\+Down} ()
+void \mbox{\hyperlink{classScrollBox_a23710e6a49dbd73a1f2ae1a3e9e2b872}{Scroll\+Down}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classScrollBox_aa8931061cce14267efd12c16dc187bf3}\label{classScrollBox_aa8931061cce14267efd12c16dc187bf3}} 
-static bool {\bfseries Is\+Interface\+Visible} ()
 \item 
 \mbox{\Hypertarget{classScrollBox_a77e8d1db46e07bc2370002f47e525fd4}\label{classScrollBox_a77e8d1db46e07bc2370002f47e525fd4}} 
 static void {\bfseries Click\+Scroll\+Up} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
@@ -136,13 +84,322 @@ static void {\bfseries Draw\+Scroll\+Bar} (\mbox{\hyperlink{classButton}{Button}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classScrollBox_ac9c1f641aa38cf24a9bbba1c18f13a53}\label{classScrollBox_ac9c1f641aa38cf24a9bbba1c18f13a53}} 
-void($\ast$ {\bfseries callback} )(const string \&, int)
+void($\ast$ \mbox{\hyperlink{classScrollBox_ac9c1f641aa38cf24a9bbba1c18f13a53}{callback}} )(const string \&, int)
+\end{DoxyCompactItemize}
+\doxysubsection*{Interface Stuff}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classScrollBox_aa5431a6a4ed98f4424deb3f55d4441c2}\label{classScrollBox_aa5431a6a4ed98f4424deb3f55d4441c2}} 
-bool {\bfseries interface\+Created}
+bool \mbox{\hyperlink{classScrollBox_aa5431a6a4ed98f4424deb3f55d4441c2}{interface\+Created}}
+\item 
+void \mbox{\hyperlink{classScrollBox_a489b871026b0b4a688d2d7aca3e14d34}{Create\+Interface}} ()
+\item 
+void \mbox{\hyperlink{classScrollBox_ab84c129e4916057810e1c5af8690c5fd}{Remove\+Interface}} ()
+\item 
+void \mbox{\hyperlink{classScrollBox_ab090a442ca595644d2b85073b0cc363a}{Update\+Interface}} () const
+\item 
+static bool \mbox{\hyperlink{classScrollBox_aa8931061cce14267efd12c16dc187bf3}{Is\+Interface\+Visible}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Management of all scroll boxes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classScrollBox}{Scroll\+Box}} $\ast$ $>$ \mbox{\hyperlink{classScrollBox_afdf663b0600ca09d09f42673eba3bc63}{scroll\+Boxes}}
+\item 
+static void \mbox{\hyperlink{classScrollBox_aa92bb5948c19dc902f8739b3bedf3eef}{Create\+Scroll\+Box}} (const string \&\mbox{\hyperlink{classScrollBox_a2779a38dd6ef2b25061073e714320244}{name}}, int \mbox{\hyperlink{classScrollBox_a161b1e938bfd8e9bf94b641a1d7daecc}{x}}, int \mbox{\hyperlink{classScrollBox_a5f124649b7acacf87fd5ba981c2e77c0}{y}}, int \mbox{\hyperlink{classScrollBox_a2ab24464ce6dcf2e9ae6b70618479258}{w}}, int \mbox{\hyperlink{classScrollBox_a887de0c0e34c54c4f0e92714bb3e31d1}{h}}, int \mbox{\hyperlink{classScrollBox_a89b04b5f267b68fef5bbee56eecc527b}{num\+Items}}, int \mbox{\hyperlink{classScrollBox_aec71aede6ff8d8722978453f7d58e395}{window\+Size}}, int \mbox{\hyperlink{classScrollBox_a747c944173e9c367c2bbd9d0797a170c}{current\+Index}}, void($\ast$\mbox{\hyperlink{classScrollBox_ac9c1f641aa38cf24a9bbba1c18f13a53}{callback}})(const string \&, int)=nullptr)
+\item 
+static void \mbox{\hyperlink{classScrollBox_a072422d8c13d888a78ea0a7edc0b00f1}{Remove\+Scroll\+Box}} (const string \&\mbox{\hyperlink{classScrollBox_a2779a38dd6ef2b25061073e714320244}{name}})
+\item 
+static \mbox{\hyperlink{classScrollBox}{Scroll\+Box}} $\ast$ \mbox{\hyperlink{classScrollBox_af75b2c2f5598e88740d624a15f854afd}{Get\+Scroll\+Box}} (const string \&\mbox{\hyperlink{classScrollBox_a2779a38dd6ef2b25061073e714320244}{name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Mouse drag handling}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{classScrollBox_ac4d45437a3b50ca1b22ee1dc82ad84d8}{current\+Grab}} = \char`\"{}None\char`\"{}
+\item 
+static void \mbox{\hyperlink{classScrollBox_a092068ec97416c934e8bbb322f83e5d9}{Grab\+Scroll\+Bar}} (const string \&\mbox{\hyperlink{classScrollBox_a2779a38dd6ef2b25061073e714320244}{name}})
+\item 
+static void \mbox{\hyperlink{classScrollBox_ae1e077d9ec5cb7e43bd7eb9b79e4f88c}{Un\+Grab\+Scroll\+Bar}} ()
+\item 
+static bool \mbox{\hyperlink{classScrollBox_ab4cbbc524b9bdedb56bde1ee21e9c6f1}{Is\+Grab\+In\+Progress}} ()
+\item 
+static void \mbox{\hyperlink{classScrollBox_a429ec4a4564ad2ab7c57f65a8dc14ad0}{Update\+Grab\+Scroll}} ()
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Scroll box object. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classScrollBox_a489b871026b0b4a688d2d7aca3e14d34}\label{classScrollBox_a489b871026b0b4a688d2d7aca3e14d34}} 
+\index{ScrollBox@{ScrollBox}!CreateInterface@{CreateInterface}}
+\index{CreateInterface@{CreateInterface}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{CreateInterface()}{CreateInterface()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Create\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Registers all buttons on the interface \mbox{\Hypertarget{classScrollBox_aa92bb5948c19dc902f8739b3bedf3eef}\label{classScrollBox_aa92bb5948c19dc902f8739b3bedf3eef}} 
+\index{ScrollBox@{ScrollBox}!CreateScrollBox@{CreateScrollBox}}
+\index{CreateScrollBox@{CreateScrollBox}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{CreateScrollBox()}{CreateScrollBox()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Create\+Scroll\+Box (\begin{DoxyParamCaption}\item[{const string \&}]{name,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{int}]{num\+Items,  }\item[{int}]{window\+Size,  }\item[{int}]{current\+Index,  }\item[{void($\ast$)(const string \&, int)}]{callback = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates a scroll box 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of scroll box \\
+\hline
+{\em x} & X coordinate \\
+\hline
+{\em y} & Y coordinate \\
+\hline
+{\em w} & Width \\
+\hline
+{\em h} & Height \\
+\hline
+{\em num\+Items} & Number of items in the scroll box \\
+\hline
+{\em window\+Size} & The height of the scroll box window \\
+\hline
+{\em current\+Index} & The index of the first item to display \\
+\hline
+{\em callback} & The callback for when values change \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_af75b2c2f5598e88740d624a15f854afd}\label{classScrollBox_af75b2c2f5598e88740d624a15f854afd}} 
+\index{ScrollBox@{ScrollBox}!GetScrollBox@{GetScrollBox}}
+\index{GetScrollBox@{GetScrollBox}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{GetScrollBox()}{GetScrollBox()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classScrollBox}{Scroll\+Box}} $\ast$ Scroll\+Box\+::\+Get\+Scroll\+Box (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a scroll box by name 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of scroll box \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classScrollBox}{Scroll\+Box}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScrollBox_a092068ec97416c934e8bbb322f83e5d9}\label{classScrollBox_a092068ec97416c934e8bbb322f83e5d9}} 
+\index{ScrollBox@{ScrollBox}!GrabScrollBar@{GrabScrollBar}}
+\index{GrabScrollBar@{GrabScrollBar}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{GrabScrollBar()}{GrabScrollBar()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Grab\+Scroll\+Bar (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sets the name of the item being grabbed 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of item being grabbed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_ab4cbbc524b9bdedb56bde1ee21e9c6f1}\label{classScrollBox_ab4cbbc524b9bdedb56bde1ee21e9c6f1}} 
+\index{ScrollBox@{ScrollBox}!IsGrabInProgress@{IsGrabInProgress}}
+\index{IsGrabInProgress@{IsGrabInProgress}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{IsGrabInProgress()}{IsGrabInProgress()}}
+{\footnotesize\ttfamily bool Scroll\+Box\+::\+Is\+Grab\+In\+Progress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Is a grab currently being done? \begin{DoxyReturn}{Returns}
+true if it is 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScrollBox_aa8931061cce14267efd12c16dc187bf3}\label{classScrollBox_aa8931061cce14267efd12c16dc187bf3}} 
+\index{ScrollBox@{ScrollBox}!IsInterfaceVisible@{IsInterfaceVisible}}
+\index{IsInterfaceVisible@{IsInterfaceVisible}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{IsInterfaceVisible()}{IsInterfaceVisible()}}
+{\footnotesize\ttfamily bool Scroll\+Box\+::\+Is\+Interface\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Always true \begin{DoxyReturn}{Returns}
+true 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classScrollBox_ab84c129e4916057810e1c5af8690c5fd}\label{classScrollBox_ab84c129e4916057810e1c5af8690c5fd}} 
+\index{ScrollBox@{ScrollBox}!RemoveInterface@{RemoveInterface}}
+\index{RemoveInterface@{RemoveInterface}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{RemoveInterface()}{RemoveInterface()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Remove\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Removes all buttons on the interface \mbox{\Hypertarget{classScrollBox_a072422d8c13d888a78ea0a7edc0b00f1}\label{classScrollBox_a072422d8c13d888a78ea0a7edc0b00f1}} 
+\index{ScrollBox@{ScrollBox}!RemoveScrollBox@{RemoveScrollBox}}
+\index{RemoveScrollBox@{RemoveScrollBox}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{RemoveScrollBox()}{RemoveScrollBox()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Remove\+Scroll\+Box (\begin{DoxyParamCaption}\item[{const string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes a scroll box by name 
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of scroll box \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_a23710e6a49dbd73a1f2ae1a3e9e2b872}\label{classScrollBox_a23710e6a49dbd73a1f2ae1a3e9e2b872}} 
+\index{ScrollBox@{ScrollBox}!ScrollDown@{ScrollDown}}
+\index{ScrollDown@{ScrollDown}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{ScrollDown()}{ScrollDown()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Scroll\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Increments current\+Index to shift list of items \mbox{\Hypertarget{classScrollBox_a5c2641211c5afe2c7b2e24bd18a5407f}\label{classScrollBox_a5c2641211c5afe2c7b2e24bd18a5407f}} 
+\index{ScrollBox@{ScrollBox}!ScrollUp@{ScrollUp}}
+\index{ScrollUp@{ScrollUp}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{ScrollUp()}{ScrollUp()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Scroll\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Decrements current\+Index to shift list of items \mbox{\Hypertarget{classScrollBox_af0f318f9e2759d28efeb2709ca88f26e}\label{classScrollBox_af0f318f9e2759d28efeb2709ca88f26e}} 
+\index{ScrollBox@{ScrollBox}!SetCallback@{SetCallback}}
+\index{SetCallback@{SetCallback}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{SetCallback()}{SetCallback()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Set\+Callback (\begin{DoxyParamCaption}\item[{void($\ast$)(const string \&, int)}]{newcallback }\end{DoxyParamCaption})}
+
+Function callback for when value is changed 
+\begin{DoxyParams}{Parameters}
+{\em newcallback} & The callback to use when value is changed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_a9450ab9294695e220db7df53011ff93b}\label{classScrollBox_a9450ab9294695e220db7df53011ff93b}} 
+\index{ScrollBox@{ScrollBox}!SetCurrentIndex@{SetCurrentIndex}}
+\index{SetCurrentIndex@{SetCurrentIndex}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{SetCurrentIndex()}{SetCurrentIndex()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Set\+Current\+Index (\begin{DoxyParamCaption}\item[{int}]{new\+Current\+Index }\end{DoxyParamCaption})}
+
+Set the index of the first item to display in the scroll box 
+\begin{DoxyParams}{Parameters}
+{\em new\+Current\+Index} & The index of the first item \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_ac2bdaeeb00efb28932b524c250681a68}\label{classScrollBox_ac2bdaeeb00efb28932b524c250681a68}} 
+\index{ScrollBox@{ScrollBox}!SetDimensions@{SetDimensions}}
+\index{SetDimensions@{SetDimensions}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{SetDimensions()}{SetDimensions()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Set\+Dimensions (\begin{DoxyParamCaption}\item[{int}]{newx,  }\item[{int}]{newy,  }\item[{int}]{neww,  }\item[{int}]{newh }\end{DoxyParamCaption})}
+
+Set the dimensions of the scroll box 
+\begin{DoxyParams}{Parameters}
+{\em newx} & X coordinate of scroll box \\
+\hline
+{\em newy} & Y coordinate of scroll box \\
+\hline
+{\em neww} & Width of scroll box \\
+\hline
+{\em newh} & Height of scroll box \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_a6e8ec553bf93f252d5c48681e2e0801c}\label{classScrollBox_a6e8ec553bf93f252d5c48681e2e0801c}} 
+\index{ScrollBox@{ScrollBox}!SetName@{SetName}}
+\index{SetName@{SetName}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{const string \&}]{newname }\end{DoxyParamCaption})}
+
+Sets the name of the scroll box 
+\begin{DoxyParams}{Parameters}
+{\em newname} & The name to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_a31afed0df62faca3cece4a34adac59bb}\label{classScrollBox_a31afed0df62faca3cece4a34adac59bb}} 
+\index{ScrollBox@{ScrollBox}!SetNumItems@{SetNumItems}}
+\index{SetNumItems@{SetNumItems}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{SetNumItems()}{SetNumItems()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Set\+Num\+Items (\begin{DoxyParamCaption}\item[{int}]{new\+Num\+Items }\end{DoxyParamCaption})}
+
+Sets the number of items in the scroll box 
+\begin{DoxyParams}{Parameters}
+{\em new\+Num\+Items} & The number of items in the scroll box \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_a6b4595050d3891a92353ca6bbdc693a6}\label{classScrollBox_a6b4595050d3891a92353ca6bbdc693a6}} 
+\index{ScrollBox@{ScrollBox}!SetWindowSize@{SetWindowSize}}
+\index{SetWindowSize@{SetWindowSize}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{SetWindowSize()}{SetWindowSize()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Set\+Window\+Size (\begin{DoxyParamCaption}\item[{int}]{new\+Window\+Size }\end{DoxyParamCaption})}
+
+Sets the height of the scroll box window 
+\begin{DoxyParams}{Parameters}
+{\em new\+Window\+Size} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classScrollBox_ae1e077d9ec5cb7e43bd7eb9b79e4f88c}\label{classScrollBox_ae1e077d9ec5cb7e43bd7eb9b79e4f88c}} 
+\index{ScrollBox@{ScrollBox}!UnGrabScrollBar@{UnGrabScrollBar}}
+\index{UnGrabScrollBar@{UnGrabScrollBar}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{UnGrabScrollBar()}{UnGrabScrollBar()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Un\+Grab\+Scroll\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sets the current grab to None \mbox{\Hypertarget{classScrollBox_a429ec4a4564ad2ab7c57f65a8dc14ad0}\label{classScrollBox_a429ec4a4564ad2ab7c57f65a8dc14ad0}} 
+\index{ScrollBox@{ScrollBox}!UpdateGrabScroll@{UpdateGrabScroll}}
+\index{UpdateGrabScroll@{UpdateGrabScroll}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{UpdateGrabScroll()}{UpdateGrabScroll()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Update\+Grab\+Scroll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Calculates the new index to display first based on the mouse position during a grab \mbox{\Hypertarget{classScrollBox_ab090a442ca595644d2b85073b0cc363a}\label{classScrollBox_ab090a442ca595644d2b85073b0cc363a}} 
+\index{ScrollBox@{ScrollBox}!UpdateInterface@{UpdateInterface}}
+\index{UpdateInterface@{UpdateInterface}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{UpdateInterface()}{UpdateInterface()}}
+{\footnotesize\ttfamily void Scroll\+Box\+::\+Update\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Marks the scroll box for re-\/render 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classScrollBox_ac9c1f641aa38cf24a9bbba1c18f13a53}\label{classScrollBox_ac9c1f641aa38cf24a9bbba1c18f13a53}} 
+\index{ScrollBox@{ScrollBox}!callback@{callback}}
+\index{callback@{callback}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{callback}{callback}}
+{\footnotesize\ttfamily void($\ast$ Scroll\+Box\+::callback) (const string \&, int)\hspace{0.3cm}{\ttfamily [protected]}}
+
+Function callback for when value is changed \mbox{\Hypertarget{classScrollBox_ac4d45437a3b50ca1b22ee1dc82ad84d8}\label{classScrollBox_ac4d45437a3b50ca1b22ee1dc82ad84d8}} 
+\index{ScrollBox@{ScrollBox}!currentGrab@{currentGrab}}
+\index{currentGrab@{currentGrab}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{currentGrab}{currentGrab}}
+{\footnotesize\ttfamily string Scroll\+Box\+::current\+Grab = \char`\"{}None\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+Name of the item currently grabbed \mbox{\Hypertarget{classScrollBox_a747c944173e9c367c2bbd9d0797a170c}\label{classScrollBox_a747c944173e9c367c2bbd9d0797a170c}} 
+\index{ScrollBox@{ScrollBox}!currentIndex@{currentIndex}}
+\index{currentIndex@{currentIndex}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{currentIndex}{currentIndex}}
+{\footnotesize\ttfamily int Scroll\+Box\+::current\+Index}
+
+The index of the first item to display in the scroll box \mbox{\Hypertarget{classScrollBox_a887de0c0e34c54c4f0e92714bb3e31d1}\label{classScrollBox_a887de0c0e34c54c4f0e92714bb3e31d1}} 
+\index{ScrollBox@{ScrollBox}!h@{h}}
+\index{h@{h}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily int Scroll\+Box\+::h}
+
+Height of scroll box \mbox{\Hypertarget{classScrollBox_aa5431a6a4ed98f4424deb3f55d4441c2}\label{classScrollBox_aa5431a6a4ed98f4424deb3f55d4441c2}} 
+\index{ScrollBox@{ScrollBox}!interfaceCreated@{interfaceCreated}}
+\index{interfaceCreated@{interfaceCreated}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{interfaceCreated}{interfaceCreated}}
+{\footnotesize\ttfamily bool Scroll\+Box\+::interface\+Created\hspace{0.3cm}{\ttfamily [protected]}}
+
+Has the interface already been created \mbox{\Hypertarget{classScrollBox_a2779a38dd6ef2b25061073e714320244}\label{classScrollBox_a2779a38dd6ef2b25061073e714320244}} 
+\index{ScrollBox@{ScrollBox}!name@{name}}
+\index{name@{name}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily string Scroll\+Box\+::name}
+
+The name of the scroll box \mbox{\Hypertarget{classScrollBox_a89b04b5f267b68fef5bbee56eecc527b}\label{classScrollBox_a89b04b5f267b68fef5bbee56eecc527b}} 
+\index{ScrollBox@{ScrollBox}!numItems@{numItems}}
+\index{numItems@{numItems}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{numItems}{numItems}}
+{\footnotesize\ttfamily int Scroll\+Box\+::num\+Items}
+
+The number of items within the scroll box \mbox{\Hypertarget{classScrollBox_afdf663b0600ca09d09f42673eba3bc63}\label{classScrollBox_afdf663b0600ca09d09f42673eba3bc63}} 
+\index{ScrollBox@{ScrollBox}!scrollBoxes@{scrollBoxes}}
+\index{scrollBoxes@{scrollBoxes}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{scrollBoxes}{scrollBoxes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ \mbox{\hyperlink{classScrollBox}{Scroll\+Box}} $\ast$ $>$ Scroll\+Box\+::scroll\+Boxes\hspace{0.3cm}{\ttfamily [static]}}
+
+Stores scroll boxes \mbox{\Hypertarget{classScrollBox_a2ab24464ce6dcf2e9ae6b70618479258}\label{classScrollBox_a2ab24464ce6dcf2e9ae6b70618479258}} 
+\index{ScrollBox@{ScrollBox}!w@{w}}
+\index{w@{w}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily int Scroll\+Box\+::w}
+
+Width of scroll box \mbox{\Hypertarget{classScrollBox_aec71aede6ff8d8722978453f7d58e395}\label{classScrollBox_aec71aede6ff8d8722978453f7d58e395}} 
+\index{ScrollBox@{ScrollBox}!windowSize@{windowSize}}
+\index{windowSize@{windowSize}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{windowSize}{windowSize}}
+{\footnotesize\ttfamily int Scroll\+Box\+::window\+Size}
+
+The height of the scroll box window \mbox{\Hypertarget{classScrollBox_a161b1e938bfd8e9bf94b641a1d7daecc}\label{classScrollBox_a161b1e938bfd8e9bf94b641a1d7daecc}} 
+\index{ScrollBox@{ScrollBox}!x@{x}}
+\index{x@{x}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Scroll\+Box\+::x}
+
+X coordinate of scroll box \mbox{\Hypertarget{classScrollBox_a5f124649b7acacf87fd5ba981c2e77c0}\label{classScrollBox_a5f124649b7acacf87fd5ba981c2e77c0}} 
+\index{ScrollBox@{ScrollBox}!y@{y}}
+\index{y@{y}!ScrollBox@{ScrollBox}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Scroll\+Box\+::y}
+
+Y coordinate of scroll box 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -1,6 +1,6 @@
 <map id="CypherScreenInterface" name="CypherScreenInterface">
 <area shape="rect" id="node1" title=" " alt="" coords="7,229,178,256"/>
-<area shape="rect" id="node2" href="$classRemoteInterfaceScreen.html" title=" " alt="" coords="5,155,180,181"/>
+<area shape="rect" id="node2" href="$classRemoteInterfaceScreen.html" title="RemoteInterfaceScreen class object." alt="" coords="5,155,180,181"/>
 <area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class Object." alt="" coords="31,80,155,107"/>
 <area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="39,5,146,32"/>
 </map>

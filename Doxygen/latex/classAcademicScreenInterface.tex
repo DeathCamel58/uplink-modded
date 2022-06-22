@@ -23,14 +23,12 @@ Collaboration diagram for Academic\+Screen\+Interface\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}\label{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}} 
-bool {\bfseries Escape\+Key\+Pressed} () override
+bool \mbox{\hyperlink{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}{Escape\+Key\+Pressed}} () override
 \item 
 \mbox{\Hypertarget{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}\label{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}} 
 void {\bfseries Set\+Search\+Name} (const string \&newsearchname)
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}\label{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}} 
-void {\bfseries Create} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$cs) override
+void \mbox{\hyperlink{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
 void \mbox{\hyperlink{classAcademicScreenInterface_a0d2234cb0f49338be423c2ac0c1217b1}{Remove}} () override
 \item 
@@ -77,6 +75,34 @@ int {\bfseries lastupdate}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}\label{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!Create@{Create}}
+\index{Create@{Create}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily void Academic\+Screen\+Interface\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$}]{newcs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this object 
+\begin{DoxyParams}{Parameters}
+{\em newcs} & The \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
+
+\mbox{\Hypertarget{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}\label{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
+\index{EscapeKeyPressed@{EscapeKeyPressed}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{EscapeKeyPressed()}{EscapeKeyPressed()}}
+{\footnotesize\ttfamily bool Academic\+Screen\+Interface\+::\+Escape\+Key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
+
 \mbox{\Hypertarget{classAcademicScreenInterface_a2cd2e4b5a9f507063fd914277d4a93e3}\label{classAcademicScreenInterface_a2cd2e4b5a9f507063fd914277d4a93e3}} 
 \index{AcademicScreenInterface@{AcademicScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!AcademicScreenInterface@{AcademicScreenInterface}}

@@ -2,6 +2,15 @@
 \label{classVLocationSpecial}\index{VLocationSpecial@{VLocationSpecial}}
 
 
+Special \mbox{\hyperlink{classVLocation}{V\+Location}}.  
+
+
+
+
+{\ttfamily \#include $<$vlocation.\+h$>$}
+
+
+
 Inheritance diagram for V\+Location\+Special\+:
 \nopagebreak
 \begin{figure}[H]
@@ -23,8 +32,7 @@ Collaboration diagram for V\+Location\+Special\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classVLocationSpecial_adb5b5c7396a6acf9b45e37ead481227e}\label{classVLocationSpecial_adb5b5c7396a6acf9b45e37ead481227e}} 
-void {\bfseries Set\+Screen\+Index} (int new\+Screen\+Index)
+void \mbox{\hyperlink{classVLocationSpecial_adb5b5c7396a6acf9b45e37ead481227e}{Set\+Screen\+Index}} (int new\+Screen\+Index)
 \item 
 \mbox{\Hypertarget{classVLocationSpecial_a8bd530f600a1397ced3c1933073df03f}\label{classVLocationSpecial_a8bd530f600a1397ced3c1933073df03f}} 
 void {\bfseries Set\+Security\+System\+Index} (int new\+Index)
@@ -42,13 +50,20 @@ int \mbox{\hyperlink{classVLocationSpecial_a5e9d04e963b6ae2ba35e0db7c469b589}{Ge
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classVLocationSpecial_a20cbf9abbb64e29f74f90dabe71a2e61}\label{classVLocationSpecial_a20cbf9abbb64e29f74f90dabe71a2e61}} 
-int {\bfseries screen\+Index}
+int \mbox{\hyperlink{classVLocationSpecial_a20cbf9abbb64e29f74f90dabe71a2e61}{screen\+Index}}
 \item 
 \mbox{\Hypertarget{classVLocationSpecial_a2ffc9c03f4eff4792bcc28ba1f7ffd40}\label{classVLocationSpecial_a2ffc9c03f4eff4792bcc28ba1f7ffd40}} 
 int {\bfseries security\+System\+Index}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Special \mbox{\hyperlink{classVLocation}{V\+Location}}. 
+
+Used to specify which screen you enter the system at \begin{DoxyNote}{Note}
+Currently used on modems, which can jump into a system at any screen 
+\end{DoxyNote}
 
 
 \doxysubsection{Member Function Documentation}
@@ -89,7 +104,7 @@ Reimplemented from \mbox{\hyperlink{classVLocation_add7de0256285fc416ac300d646e8
 
 Loads data to this object from file 
 \begin{DoxyParams}{Parameters}
-{\em file} & \mbox{\hyperlink{classFile}{File}} to load from \\
+{\em file} & File to load from \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -120,14 +135,34 @@ Reimplemented from \mbox{\hyperlink{classVLocation_a7bc681d67d4ea6c5c51a18460f66
 
 Saves data from this object to file 
 \begin{DoxyParams}{Parameters}
-{\em file} & \mbox{\hyperlink{classFile}{File}} to save to \\
+{\em file} & File to save to \\
 \hline
 \end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{classVLocation_ae8b0db4777b8ac51effcfae5dc29a793}{V\+Location}}.
 
+\mbox{\Hypertarget{classVLocationSpecial_adb5b5c7396a6acf9b45e37ead481227e}\label{classVLocationSpecial_adb5b5c7396a6acf9b45e37ead481227e}} 
+\index{VLocationSpecial@{VLocationSpecial}!SetScreenIndex@{SetScreenIndex}}
+\index{SetScreenIndex@{SetScreenIndex}!VLocationSpecial@{VLocationSpecial}}
+\doxysubsubsection{\texorpdfstring{SetScreenIndex()}{SetScreenIndex()}}
+{\footnotesize\ttfamily void V\+Location\+Special\+::\+Set\+Screen\+Index (\begin{DoxyParamCaption}\item[{int}]{new\+Screen\+Index }\end{DoxyParamCaption})}
 
+Sets the index of the only screen at this location 
+\begin{DoxyParams}{Parameters}
+{\em new\+Screen\+Index} & The index of the screen \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classVLocationSpecial_a20cbf9abbb64e29f74f90dabe71a2e61}\label{classVLocationSpecial_a20cbf9abbb64e29f74f90dabe71a2e61}} 
+\index{VLocationSpecial@{VLocationSpecial}!screenIndex@{screenIndex}}
+\index{screenIndex@{screenIndex}!VLocationSpecial@{VLocationSpecial}}
+\doxysubsubsection{\texorpdfstring{screenIndex}{screenIndex}}
+{\footnotesize\ttfamily int V\+Location\+Special\+::screen\+Index}
+
+The index of the only screen at this location 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
