@@ -168,7 +168,7 @@ bool Game::IsRunning () const
 
 }
 
-void Game::GameOver (string reason )
+void Game::GameOver (const string& reason )
 {
 
 	gamespeed = GAMESPEED_GAMEOVER;

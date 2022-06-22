@@ -58,7 +58,7 @@ void CompanyUplink::CreateMission ( Mission *mission )
 	
 }
 
-void CompanyUplink::CreateMission (string employer, int payment, string description, string details, string fulldetails )
+void CompanyUplink::CreateMission (const string& employer, int payment, const string& description, const string& details, const string& fulldetails )
 {
 
 	auto *mission = new Mission ();

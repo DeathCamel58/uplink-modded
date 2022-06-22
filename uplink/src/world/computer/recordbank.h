@@ -104,7 +104,7 @@ public:
 	Record();
 	~Record() override;
 
-	void AddField    (const string &name, string value );
+	void AddField    (const string &name, const string& value );
 	void AddField    (const string &name, int value );
 	
 	void ChangeField (const string &name, const string &newvalue );

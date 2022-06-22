@@ -336,7 +336,7 @@ Record::~Record()
 
 }
 
-void Record::AddField (const string &name, string value )
+void Record::AddField (const string &name, const string& value )
 {
 
 	char *newvalue = new char [value.length() + 1];
