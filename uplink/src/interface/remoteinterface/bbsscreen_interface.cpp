@@ -131,11 +131,7 @@ void BBSScreenInterface::DrawBBSButton ( Button *button, bool highlighted, bool 
 			subject = mission->description;
 			date = mission->createdate.GetShortString ();
 
-#ifdef DEMOGAME
-            glColor4f ( 1.0f - ratingdif * 0.2f, 1.0f - ratingdif * 0.2f, 1.0f - ratingdif * 0.2f, 1.0f );
-#else
 			glColor4f ( 1.0f - ratingdif * 0.1f, 1.0f - ratingdif * 0.1f, 1.0f - ratingdif * 0.1f, 1.0f );
-#endif
 
 		}
 		else {
