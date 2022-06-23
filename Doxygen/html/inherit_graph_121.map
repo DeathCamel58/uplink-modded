@@ -85,18 +85,18 @@
 <area shape="rect" id="node54" href="$classStatusInterface.html" title="LocalInterfaceScreen that displays the user&#39;s status." alt="" coords="646,1069,767,1096"/>
 <area shape="rect" id="node55" href="$classSWInterface.html" title="LocalInterfaceScreen that displays &quot;Start&quot; button." alt="" coords="656,1120,757,1147"/>
 <area shape="rect" id="node56" href="$classWorldMapInterface.html" title="LocalInterfaceScreen that shows the world map." alt="" coords="634,1171,779,1197"/>
-<area shape="rect" id="node58" href="$classAcademicScreenInterface.html" title=" " alt="" coords="613,1221,801,1248"/>
-<area shape="rect" id="node59" href="$classAccountScreenInterface.html" title=" " alt="" coords="619,1272,795,1299"/>
-<area shape="rect" id="node60" href="$classBBSScreenInterface.html" title=" " alt="" coords="631,1323,782,1349"/>
-<area shape="rect" id="node61" href="$classChangeGatewayScreenInterface.html" title=" " alt="" coords="591,1373,822,1400"/>
+<area shape="rect" id="node58" href="$classAcademicScreenInterface.html" title="RemoteInterfaceScreen for the international academic database&#39;s &quot;View Record&quot; screen." alt="" coords="613,1221,801,1248"/>
+<area shape="rect" id="node59" href="$classAccountScreenInterface.html" title="RemoteInterfaceScreen for the bank account&#39;s &quot;View account&quot; screen." alt="" coords="619,1272,795,1299"/>
+<area shape="rect" id="node60" href="$classBBSScreenInterface.html" title="RemoteInterfaceScreen for the uplink internal services&#39; &quot;Mission list&quot; screen." alt="" coords="631,1323,782,1349"/>
+<area shape="rect" id="node61" href="$classChangeGatewayScreenInterface.html" title="RemoteInterfaceScreen for the uplink internal services&#39; &quot;Exchange gateway&quot; screen." alt="" coords="591,1373,822,1400"/>
 <area shape="rect" id="node62" href="$classCodeCardScreenInterface.html" title=" " alt="" coords="613,1424,800,1451"/>
-<area shape="rect" id="node63" href="$classCompanyInfoScreenInterface.html" title=" " alt="" coords="601,1475,812,1501"/>
-<area shape="rect" id="node64" href="$classConsoleScreenInterface.html" title=" " alt="" coords="619,1525,795,1552"/>
-<area shape="rect" id="node65" href="$classContactScreenInterface.html" title=" " alt="" coords="619,1576,794,1603"/>
-<area shape="rect" id="node66" href="$classCriminalScreenInterface.html" title=" " alt="" coords="617,1627,796,1653"/>
-<area shape="rect" id="node67" href="$classCypherScreenInterface.html" title=" " alt="" coords="621,1677,792,1704"/>
+<area shape="rect" id="node63" href="$classCompanyInfoScreenInterface.html" title="RemoteInterfaceScreen for company&#39;s &quot;Company data&quot; screen." alt="" coords="601,1475,812,1501"/>
+<area shape="rect" id="node64" href="$classConsoleScreenInterface.html" title="RemoteInterfaceScreen for computer&#39;s &quot;Console&quot; screen." alt="" coords="619,1525,795,1552"/>
+<area shape="rect" id="node65" href="$classContactScreenInterface.html" title="RemoteInterfaceScreen for uplink internal services mission &quot;Secure Communication Channel open&quot; screen..." alt="" coords="619,1576,794,1603"/>
+<area shape="rect" id="node66" href="$classCriminalScreenInterface.html" title="RemoteInterfaceScreen for global criminal database &quot;View Criminal Records&quot; screen." alt="" coords="617,1627,796,1653"/>
+<area shape="rect" id="node67" href="$classCypherScreenInterface.html" title="RemoteInterfaceScreen for &quot;Enter elliptic&#45;curve encryption cypher&quot; screen." alt="" coords="621,1677,792,1704"/>
 <area shape="rect" id="node68" href="$classDialogScreenInterface.html" title=" " alt="" coords="623,1728,790,1755"/>
-<area shape="rect" id="node69" href="$classDisconnectedScreenInterface.html" title=" " alt="" coords="601,1779,813,1805"/>
+<area shape="rect" id="node69" href="$classDisconnectedScreenInterface.html" title="RemoteInterfaceScreen for &quot;Connection terminated by Gateway&quot; screen." alt="" coords="601,1779,813,1805"/>
 <area shape="rect" id="node70" href="$classFaithScreenInterface.html" title=" " alt="" coords="629,1829,784,1856"/>
 <area shape="rect" id="node71" href="$classFileServerScreenInterface.html" title=" " alt="" coords="612,1880,801,1907"/>
 <area shape="rect" id="node72" href="$classHighSecurityScreenInterface.html" title=" " alt="" coords="603,1931,810,1957"/>
@@ -121,7 +121,7 @@
 <area shape="rect" id="node91" href="$classSWSalesScreenInterface.html" title=" " alt="" coords="617,2893,797,2920"/>
 <area shape="rect" id="node92" href="$classUserIDScreenInterface.html" title=" " alt="" coords="623,2944,791,2971"/>
 <area shape="rect" id="node93" href="$classVoiceAnalysisScreenInterface.html" title=" " alt="" coords="599,2995,814,3021"/>
-<area shape="rect" id="node94" href="$classVoicePhoneScreenInterface.html" title=" " alt="" coords="607,3045,806,3072"/>
+<area shape="rect" id="node94" href="$classVoicePhoneScreenInterface.html" title="RemoteInterfaceScreen for phone screen." alt="" coords="607,3045,806,3072"/>
 <area shape="rect" id="node110" href="$classAgent.html" title="Agent Person." alt="" coords="424,2133,484,2160"/>
 <area shape="rect" id="node111" href="$classPlayer.html" title=" " alt="" coords="675,3096,738,3123"/>
 <area shape="rect" id="node123" href="$classArrestEvent.html" title=" " alt="" coords="405,2184,503,2211"/>

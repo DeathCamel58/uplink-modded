@@ -1,5 +1,5 @@
 <map id="DisconnectedScreenInterface" name="DisconnectedScreenInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="54,260,266,287"/>
+<area shape="rect" id="node1" title="RemoteInterfaceScreen for &quot;Connection terminated by Gateway&quot; screen." alt="" coords="54,260,266,287"/>
 <area shape="rect" id="node2" href="$classRemoteInterfaceScreen.html" title="RemoteInterfaceScreen InterfaceScreen." alt="" coords="73,184,247,211"/>
 <area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="161,95,285,121"/>
 <area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="23,5,129,32"/>

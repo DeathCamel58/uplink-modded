@@ -71,91 +71,97 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Cypher Screen Interface</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    Asks the user to input a great big number</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    which can only really be done with software</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_cypherscreeninterface_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_cypherscreeninterface_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;world/computer/computerscreen/cypherscreen.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define CYPHER_WIDTH    30</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define CYPHER_HEIGHT   14</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef included_cypherscreeninterface_h</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define included_cypherscreeninterface_h</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// ==============================================================</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;world/computer/computerscreen/cypherscreen.h&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define CYPHER_WIDTH    30</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define CYPHER_HEIGHT   14</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// ==============================================================</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classCypherScreenInterface.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCypherScreenInterface.html">CypherScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">char</span> cypher [CYPHER_WIDTH][CYPHER_HEIGHT];</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> cypherlock [CYPHER_WIDTH][CYPHER_HEIGHT];</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> numlocked;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> lastupdate;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> DrawCypher ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ClickCypher ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> BypassClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ProceedClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classCypherScreenInterface.html">CypherScreenInterface</a> ();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ~<a class="code" href="classCypherScreenInterface.html">CypherScreenInterface</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> NumLocked () <span class="keyword">const</span>;                             <span class="comment">// Once they are all locked,</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> NumUnLocked () <span class="keyword">const</span>;                               <span class="comment">// The screen can be bypassed</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> IsLocked ( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y );</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> CypherLock ( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y );</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> CypherLock ();                             <span class="comment">// Picks an unlocked number at random and locks it</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> Cycle ();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCypherScreenInterface.html#a2d77085236affcca6c2b9aa653e45257">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *newcs ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#a6d6400b071cfa58035b8d864fdd5e7b6">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCypherScreenInterface.html#ab5f564d77b05b6c76cac2dc61c7c3455">IsVisible</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#abab9ecb6eed03ce10b42980c383ea500">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="classCypherScreenInterface.html#a6ab526d8fae10087b67ef985e8ce6895">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="classCypherScreen.html">CypherScreen</a> *GetComputerScreen ();             <span class="comment">// Should override this with correct data type</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classCypherScreenInterface.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCypherScreenInterface.html">CypherScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classCypherScreenInterface.html#ac459a6089ce1176eeffc55d12b16fd4a">   24</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="classCypherScreenInterface.html#ac459a6089ce1176eeffc55d12b16fd4a">cypher</a> [CYPHER_WIDTH][CYPHER_HEIGHT];</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classCypherScreenInterface.html#ad2a7d7f42583127d23e1d2a82616a89f">   29</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCypherScreenInterface.html#ad2a7d7f42583127d23e1d2a82616a89f">cypherlock</a> [CYPHER_WIDTH][CYPHER_HEIGHT];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classCypherScreenInterface.html#afacb8592146be2d33971927b87867c55">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCypherScreenInterface.html#afacb8592146be2d33971927b87867c55">numlocked</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classCypherScreenInterface.html#a646ae8b0b05620ff5b1ed0c761379c82">   39</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCypherScreenInterface.html#a646ae8b0b05620ff5b1ed0c761379c82">lastupdate</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#ad351d193d750397989a95f05d24c7e3a">DrawCypher</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#acfdc6ab7b955e408a7a33091e6e1387d">ClickCypher</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#af8495bf2d9b1b0729303d0e421e63d28">BypassClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#ac2886a002633a933cd41c1d9b1ed61eb">ProceedClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classCypherScreenInterface.html">CypherScreenInterface</a> ();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    ~<a class="code" href="classCypherScreenInterface.html">CypherScreenInterface</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCypherScreenInterface.html#a8e53e55d0e65462c99384f6ffdee1135">NumLocked</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCypherScreenInterface.html#a3ab4f15dc80be9e539f17cfb188ec7d8">NumUnLocked</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCypherScreenInterface.html#a05a754df26c55ed8bd84c756cc63e3f2">IsLocked</a> ( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y );</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#a7471a634e02500e48f5c24e5b3ae3c4a">CypherLock</a> ( <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y );</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#a7471a634e02500e48f5c24e5b3ae3c4a">CypherLock</a> ();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#a3fa017863a6fdedd2fba4a4e37000ec5">Cycle</a> ();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCypherScreenInterface.html#a2d77085236affcca6c2b9aa653e45257">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *newcs ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#a6d6400b071cfa58035b8d864fdd5e7b6">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCypherScreenInterface.html#ab5f564d77b05b6c76cac2dc61c7c3455">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCypherScreenInterface.html#abab9ecb6eed03ce10b42980c383ea500">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="classCypherScreenInterface.html#a6ab526d8fae10087b67ef985e8ce6895">ScreenID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="classCypherScreen.html">CypherScreen</a> *GetComputerScreen ();             <span class="comment">// Should override this with correct data type</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;};</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassComputerScreen_html"><div class="ttname"><a href="classComputerScreen.html">ComputerScreen</a></div><div class="ttdef"><b>Definition:</b> computerscreen.h:34</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_a8e53e55d0e65462c99384f6ffdee1135"><div class="ttname"><a href="classCypherScreenInterface.html#a8e53e55d0e65462c99384f6ffdee1135">CypherScreenInterface::NumLocked</a></div><div class="ttdeci">int NumLocked() const</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:163</div></div>
 <div class="ttc" id="aclassCypherScreenInterface_html_a6d6400b071cfa58035b8d864fdd5e7b6"><div class="ttname"><a href="classCypherScreenInterface.html#a6d6400b071cfa58035b8d864fdd5e7b6">CypherScreenInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:272</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html"><div class="ttname"><a href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div><div class="ttdoc">RemoteInterfaceScreen InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:19</div></div>
 <div class="ttc" id="aclassCypherScreenInterface_html_abab9ecb6eed03ce10b42980c383ea500"><div class="ttname"><a href="classCypherScreenInterface.html#abab9ecb6eed03ce10b42980c383ea500">CypherScreenInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:295</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_ac459a6089ce1176eeffc55d12b16fd4a"><div class="ttname"><a href="classCypherScreenInterface.html#ac459a6089ce1176eeffc55d12b16fd4a">CypherScreenInterface::cypher</a></div><div class="ttdeci">char cypher[CYPHER_WIDTH][CYPHER_HEIGHT]</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.h:24</div></div>
 <div class="ttc" id="aclassCypherScreenInterface_html_a6ab526d8fae10087b67ef985e8ce6895"><div class="ttname"><a href="classCypherScreenInterface.html#a6ab526d8fae10087b67ef985e8ce6895">CypherScreenInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:307</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_a05a754df26c55ed8bd84c756cc63e3f2"><div class="ttname"><a href="classCypherScreenInterface.html#a05a754df26c55ed8bd84c756cc63e3f2">CypherScreenInterface::IsLocked</a></div><div class="ttdeci">bool IsLocked(int x, int y)</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:177</div></div>
 <div class="ttc" id="aclassCypherScreenInterface_html_ab5f564d77b05b6c76cac2dc61c7c3455"><div class="ttname"><a href="classCypherScreenInterface.html#ab5f564d77b05b6c76cac2dc61c7c3455">CypherScreenInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:288</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_a7471a634e02500e48f5c24e5b3ae3c4a"><div class="ttname"><a href="classCypherScreenInterface.html#a7471a634e02500e48f5c24e5b3ae3c4a">CypherScreenInterface::CypherLock</a></div><div class="ttdeci">void CypherLock()</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:184</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_af8495bf2d9b1b0729303d0e421e63d28"><div class="ttname"><a href="classCypherScreenInterface.html#af8495bf2d9b1b0729303d0e421e63d28">CypherScreenInterface::BypassClick</a></div><div class="ttdeci">static void BypassClick(Button *button)</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:125</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_ac2886a002633a933cd41c1d9b1ed61eb"><div class="ttname"><a href="classCypherScreenInterface.html#ac2886a002633a933cd41c1d9b1ed61eb">CypherScreenInterface::ProceedClick</a></div><div class="ttdeci">static void ProceedClick(Button *button)</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:141</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html_a6ec7562bce7a36ef67a8b84451f6cf5d"><div class="ttname"><a href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">RemoteInterfaceScreen::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.cpp:85</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_ad2a7d7f42583127d23e1d2a82616a89f"><div class="ttname"><a href="classCypherScreenInterface.html#ad2a7d7f42583127d23e1d2a82616a89f">CypherScreenInterface::cypherlock</a></div><div class="ttdeci">bool cypherlock[CYPHER_WIDTH][CYPHER_HEIGHT]</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.h:29</div></div>
 <div class="ttc" id="aclassCypherScreenInterface_html_a2d77085236affcca6c2b9aa653e45257"><div class="ttname"><a href="classCypherScreenInterface.html#a2d77085236affcca6c2b9aa653e45257">CypherScreenInterface::ReturnKeyPressed</a></div><div class="ttdeci">bool ReturnKeyPressed() override</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:48</div></div>
-<div class="ttc" id="aclassCypherScreenInterface_html"><div class="ttname"><a href="classCypherScreenInterface.html">CypherScreenInterface</a></div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.h:30</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_a3fa017863a6fdedd2fba4a4e37000ec5"><div class="ttname"><a href="classCypherScreenInterface.html#a3fa017863a6fdedd2fba4a4e37000ec5">CypherScreenInterface::Cycle</a></div><div class="ttdeci">void Cycle()</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:218</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_afacb8592146be2d33971927b87867c55"><div class="ttname"><a href="classCypherScreenInterface.html#afacb8592146be2d33971927b87867c55">CypherScreenInterface::numlocked</a></div><div class="ttdeci">int numlocked</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.h:34</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_a646ae8b0b05620ff5b1ed0c761379c82"><div class="ttname"><a href="classCypherScreenInterface.html#a646ae8b0b05620ff5b1ed0c761379c82">CypherScreenInterface::lastupdate</a></div><div class="ttdeci">int lastupdate</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.h:39</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html"><div class="ttname"><a href="classCypherScreenInterface.html">CypherScreenInterface</a></div><div class="ttdoc">RemoteInterfaceScreen for &quot;Enter elliptic-curve encryption cypher&quot; screen.</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.h:16</div></div>
 <div class="ttc" id="aclassCypherScreen_html"><div class="ttname"><a href="classCypherScreen.html">CypherScreen</a></div><div class="ttdef"><b>Definition:</b> cypherscreen.h:18</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_ad351d193d750397989a95f05d24c7e3a"><div class="ttname"><a href="classCypherScreenInterface.html#ad351d193d750397989a95f05d24c7e3a">CypherScreenInterface::DrawCypher</a></div><div class="ttdeci">static void DrawCypher(Button *button, bool highlighted, bool clicked)</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:55</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_a3ab4f15dc80be9e539f17cfb188ec7d8"><div class="ttname"><a href="classCypherScreenInterface.html#a3ab4f15dc80be9e539f17cfb188ec7d8">CypherScreenInterface::NumUnLocked</a></div><div class="ttdeci">int NumUnLocked() const</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:170</div></div>
+<div class="ttc" id="aclassCypherScreenInterface_html_acfdc6ab7b955e408a7a33091e6e1387d"><div class="ttname"><a href="classCypherScreenInterface.html#acfdc6ab7b955e408a7a33091e6e1387d">CypherScreenInterface::ClickCypher</a></div><div class="ttdeci">static void ClickCypher(Button *button)</div><div class="ttdef"><b>Definition:</b> cypherscreen_interface.cpp:112</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

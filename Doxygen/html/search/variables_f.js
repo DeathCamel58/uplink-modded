@@ -1,27 +1,9 @@
 var searchData=
 [
-  ['saletype_1991',['saleTYPE',['../classSale.html#a8ba9c376e3780bab01a6a3bbf01ea40d',1,'Sale']]],
-  ['savedconnection_1992',['savedconnection',['../classWorldMapInterface.html#a9ba5f15f37010312ab20be309f399c37',1,'WorldMapInterface']]],
-  ['screenindex_1993',['screenindex',['../classLocalInterface.html#a21b3b0f90f0c7d51de9e1a1965680f48',1,'LocalInterface::screenindex()'],['../classVLocationSpecial.html#a20cbf9abbb64e29f74f90dabe71a2e61',1,'VLocationSpecial::screenIndex()']]],
-  ['scrollboxes_1994',['scrollBoxes',['../classScrollBox.html#afdf663b0600ca09d09f42673eba3bc63',1,'ScrollBox']]],
-  ['scrollx_1995',['scrollX',['../classWorldMapInterface.html#a0f9b11a44ee107c671add42292c6595c',1,'WorldMapInterface']]],
-  ['scrolly_1996',['scrollY',['../classWorldMapInterface.html#a3375b2783ef97debb696c76cc4aeeb9a',1,'WorldMapInterface']]],
-  ['sfullname_1997',['sFullName',['../structirc_1_1CIrcSessionInfo.html#a07ce5b211159301dd14463d55d760988',1,'irc::CIrcSessionInfo']]],
-  ['shadescreen_1998',['shadeScreen',['../classWorldMapObjectiveFunction.html#adfaae667b3961d77f1addc36aa57a8fc',1,'WorldMapObjectiveFunction']]],
-  ['sharehistory_1999',['sharehistory',['../classCompany.html#a7c2737b68d3693e510b15a4715abdb84',1,'Company']]],
-  ['sidentservertype_2000',['sIdentServerType',['../structirc_1_1CIrcSessionInfo.html#a2d72f42325f42ca81c43c2d95f4887c5',1,'irc::CIrcSessionInfo']]],
-  ['size_2001',['size',['../classCompany.html#ad8da77dd8d85068023cdafb3496b2ea5',1,'Company']]],
-  ['snick_2002',['sNick',['../structirc_1_1CIrcSessionInfo.html#a7ab159f197c47ddbef8b14aa74432077',1,'irc::CIrcSessionInfo']]],
-  ['spassword_2003',['sPassword',['../structirc_1_1CIrcSessionInfo.html#a60099b34bf29367faeace266db1ee1a1',1,'irc::CIrcSessionInfo']]],
-  ['specialhighlight_2004',['specialHighlight',['../classMemoryInterface.html#a803cafc91b13d83e5dc63ab0b06e932d',1,'MemoryInterface']]],
-  ['sserver_2005',['sServer',['../structirc_1_1CIrcSessionInfo.html#ac30291aea09592b761913493e7452978',1,'irc::CIrcSessionInfo']]],
-  ['sservername_2006',['sServerName',['../structirc_1_1CIrcSessionInfo.html#a5a9844aa2cf883f39a1172e26f6e6cb9',1,'irc::CIrcSessionInfo']]],
-  ['starttime_2007',['starttime',['../classWarezGameOverInterface.html#ac5e54286b65db4ea8db35a57d8b6fe26',1,'WarezGameOverInterface']]],
-  ['static_5fstipplepattern_2008',['static_stipplepattern',['../classAnalyserInterface.html#a91fbe93eb15606a76b56e82c11186bc4',1,'AnalyserInterface']]],
-  ['status_2009',['status',['../classUplinkIRCUser.html#aadc6c03be5c1e90efe378e7d0bd622e4',1,'UplinkIRCUser::status()'],['../classGatewayNuke.html#a69e736d2377715905a931461d79bfe74',1,'GatewayNuke::status()'],['../classSecurityBypass.html#a4c4474aa233270145a42c59a7d1002e7',1,'SecurityBypass::status()']]],
-  ['stipplepattern_2010',['stipplepattern',['../classWorldMapInterface.html#ae2072aaf34581c0e22e8f8df66674f98',1,'WorldMapInterface']]],
-  ['stippleupdate_2011',['stippleupdate',['../classAnalyserInterface.html#adee95424cd6ccc3192a6a1ef15c40c89',1,'AnalyserInterface']]],
-  ['suserid_2012',['sUserID',['../structirc_1_1CIrcSessionInfo.html#a3c021aa574613b00318a6341a09edfe2',1,'irc::CIrcSessionInfo']]],
-  ['sw_5fsales_2013',['sw_sales',['../classCompanyUplink.html#a2e7b358deb03b3b4fee880826120e80d',1,'CompanyUplink']]],
-  ['swhwtype_2014',['swhwTYPE',['../classSale.html#a2faf6c20ad1bcb3edd844279ad82bb70',1,'Sale']]]
+  ['recordindex_2140',['recordindex',['../classAcademicScreenInterface.html#a4fb461870819eed9dbb266422786e79c',1,'AcademicScreenInterface::recordindex()'],['../classCriminalScreenInterface.html#a6a10d2e7c156634e70811cdb9e3b534e',1,'CriminalScreenInterface::recordindex()']]],
+  ['red_2141',['red',['../classUplinkIRCMessage.html#aac0df367f7fa0f5937da8f60bf92207f',1,'UplinkIRCMessage']]],
+  ['release_2142',['release',['../classApp.html#abc7e011f1204a5ab74ec7371166482e2',1,'App']]],
+  ['remotehost_2143',['remotehost',['../classAnalyserInterface.html#af0bfec7e8c7f3f408027254b2c8521ea',1,'AnalyserInterface']]],
+  ['ri_2144',['ri',['../classInterface.html#a1603612b91ce4ea844698b3a1f8c8250',1,'Interface']]],
+  ['rundate_2145',['rundate',['../classUplinkEvent.html#a7aee05860e1a8db6517d8daa0bf9bfb4',1,'UplinkEvent']]]
 ];

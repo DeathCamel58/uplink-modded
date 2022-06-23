@@ -71,145 +71,171 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Console Screen Interface</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    Allows extremely low level access to </span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    a computer system</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef included_consolescreeninterface_h</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define included_consolescreeninterface_H</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;tosser.h&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;eclipse.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span><a class="code" href="classGenericScreen.html">GenericScreen</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span><a class="code" href="classConsoleCommand.html">ConsoleCommand</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classConsoleScreenInterface.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConsoleScreenInterface.html">ConsoleScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a> </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classLList.html">LList &lt;char *&gt;</a> users;                           <span class="comment">// 0 is system, 1 is player</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classLList.html">LList &lt;ConsoleCommand *&gt;</a> queue;                 <span class="comment">// Commands NOT YET RUN</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> waiting;                                   <span class="comment">// True if waiting for commands to &quot;scroll&quot; on</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span> timesync;                                   <span class="comment">// Used to syncronise things</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">string</span> currentdir;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_consolescreeninterface_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_consolescreeninterface_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;tosser.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;eclipse.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="classGenericScreen.html">GenericScreen</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="classConsoleCommand.html">ConsoleCommand</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classConsoleScreenInterface.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConsoleScreenInterface.html">ConsoleScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a> </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classConsoleScreenInterface.html#af8e24394944aea4b6006f87d12ff0db2">   26</a></span>&#160;    <a class="code" href="classLList.html">LList &lt;string&gt;</a> <a class="code" href="classConsoleScreenInterface.html#af8e24394944aea4b6006f87d12ff0db2">users</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classConsoleScreenInterface.html#a9cc7f1f94ee5a89f1866774f32d7c905">   31</a></span>&#160;    <a class="code" href="classLList.html">LList &lt;ConsoleCommand *&gt;</a> <a class="code" href="classConsoleScreenInterface.html#a9cc7f1f94ee5a89f1866774f32d7c905">queue</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classConsoleScreenInterface.html#ac4869f2160c037b2f169c7371fb39130">   36</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classConsoleScreenInterface.html#ac4869f2160c037b2f169c7371fb39130">waiting</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">int</span> timesync;                                   <span class="comment">// Used to synchronise things</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> deleted_sys;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> IsVisibleInterface ();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> WaitingCallback ();                         <span class="comment">// Called when messagehas finished &quot;scrolling&quot; on</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> TypeHereDraw ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> PostClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> BorderDraw ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> MessageDraw ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classConsoleScreenInterface.html">ConsoleScreenInterface</a> ();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    ~<a class="code" href="classConsoleScreenInterface.html">ConsoleScreenInterface</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> AddUser (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name );</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> SetCurrentDir (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newcurrentdir );</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> PutText (<span class="keywordtype">int</span> userid, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text );                 <span class="comment">// Adds text to end of queue</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> PutTextAtStart (<span class="keywordtype">int</span> userid, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text );</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> RunCommand             (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; command );               <span class="comment">// Parses command into ConsoleCommand object</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> RunCommand             ( <a class="code" href="classConsoleCommand.html">ConsoleCommand</a> *cc );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> RunCommand_TEXT        (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;text );</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> RunCommand_DIR         ();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> RunCommand_HELP        ();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> RunCommand_EXIT        ();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> RunCommand_DELETEALL   (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;dir );</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> RunCommand_RUN         (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;program, <span class="keywordtype">bool</span> actuallyrun );             <span class="comment">// If true, the command itself is run</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> RunCommand_SHUTDOWN    ();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> RunCommand_DISCONNECT   ();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *<a class="code" href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">cs</a> ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a4fed5eb5985e08d83f2377e2e9ce464a">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a3f23576a7da8a8d27c95cc14067b51e4">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classConsoleScreenInterface.html#a7192d709cbd37ad06ffbb1a31d586342">IsVisible</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classConsoleScreenInterface.html#a5673c25251ded7299201b6ae4bff1c99">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classConsoleScreenInterface.html#a7592c8771a79b31bd460f9257583605f">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="classGenericScreen.html">GenericScreen</a> *GetComputerScreen ();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classConsoleScreenInterface.html#a9d4a4013232beeb6b8bc90bbfa166627">   43</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classConsoleScreenInterface.html#a9d4a4013232beeb6b8bc90bbfa166627">currentdir</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> deleted_sys;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classConsoleScreenInterface.html#a4dd22266f68e0a258b058bffb5e63f60">IsVisibleInterface</a> ();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#aeb1b92aae22d4fe22be9773941c7b1ed">WaitingCallback</a> ();                         <span class="comment">// Called when message has finished &quot;scrolling&quot; on</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#aec21ff9cb833653c4e1ee2c3783efe04">TypeHereDraw</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#abb38e0f257aa406c431f17f55035a97b">PostClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a7851d4a268a19cca9fcaea725291d0d5">BorderDraw</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a195f0389389e21550478447de6a566f4">MessageDraw</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="classConsoleScreenInterface.html">ConsoleScreenInterface</a> ();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    ~<a class="code" href="classConsoleScreenInterface.html">ConsoleScreenInterface</a> () <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#define CMDTYPE_NONE        -1</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#define CMDTYPE_TEXT        0               // Data1 = string</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#define CMDTYPE_DIR         1</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#define CMDTYPE_HELP        2</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#define CMDTYPE_EXIT        3</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#define CMDTYPE_DELETEALL   4               // Data1 = directory or NULL to use current</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#define CMDTYPE_CD          5</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#define CMDTYPE_SHUTDOWN    6</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#define CMDTYPE_DISCONNECT  7</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#define CMDTYPE_RUN         8               // Data1 = program name</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#define CMDTYPE_RUNPROGRAM  9               // Data1 = program name, actually runs it</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a719e228823ba80121e07476e4d3c5712">AddUser</a> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a3c5b53989e1e34b0624ed9efbdafb873">SetCurrentDir</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newcurrentdir );</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classConsoleCommand.html">  108</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConsoleCommand.html">ConsoleCommand</a></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">int</span> TYPE;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">string</span> data1;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">int</span> time;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="classConsoleCommand.html">ConsoleCommand</a> ();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="classConsoleCommand.html">ConsoleCommand</a> (<span class="keywordtype">int</span> newTYPE, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdata1, <span class="keywordtype">int</span> newtime );</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    ~<a class="code" href="classConsoleCommand.html">ConsoleCommand</a> ();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;};</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#abc2a52f30bc8a678e0a128f2951acbad">PutText</a> (<span class="keywordtype">int</span> userid, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text );</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a9daec2cdfcac691c20eafc15adf38137">PutTextAtStart</a> (<span class="keywordtype">int</span> userid, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; text );</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a2d3b3eff07908b344e8d10c8bb5f6916">RunCommand</a>             (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; command );</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a2d3b3eff07908b344e8d10c8bb5f6916">RunCommand</a>             ( <a class="code" href="classConsoleCommand.html">ConsoleCommand</a> *cc );</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a38d7bbcb1a7eb6d6cb40576302ebfeb3">RunCommand_TEXT</a>        (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;text );</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a4ceefcf3b4ac3dc915a866362eac78b9">RunCommand_DIR</a>         ();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#ad0fb63ab2ed5a0a64037b0db93b1df7f">RunCommand_HELP</a>        ();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#ae8620964097759495471e5a70bba5b81">RunCommand_EXIT</a>        ();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#aa119076354f805a82dd294b63b899b01">RunCommand_DELETEALL</a>   (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;dir );</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#aea17fc8b22ff7f6c93024fc02725d31f">RunCommand_RUN</a>         (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;program, <span class="keywordtype">bool</span> actuallyrun );</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a6f86f313963e46e1dc75294ee80ec708">RunCommand_SHUTDOWN</a>    ();</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a0db6cc032b5f060a8f5cdee2cd88416f">RunCommand_DISCONNECT</a>   ();</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *<a class="code" href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">cs</a> ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a4fed5eb5985e08d83f2377e2e9ce464a">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classConsoleScreenInterface.html#a3f23576a7da8a8d27c95cc14067b51e4">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classConsoleScreenInterface.html#a7192d709cbd37ad06ffbb1a31d586342">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classConsoleScreenInterface.html#a5673c25251ded7299201b6ae4bff1c99">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classConsoleScreenInterface.html#a7592c8771a79b31bd460f9257583605f">ScreenID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <a class="code" href="classGenericScreen.html">GenericScreen</a> *GetComputerScreen ();</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;};</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">// ============================================================================</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">#define CMDTYPE_NONE        -1</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#define CMDTYPE_TEXT        0               // Data1 = string</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#define CMDTYPE_DIR         1</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#define CMDTYPE_HELP        2</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">#define CMDTYPE_EXIT        3</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="preprocessor">#define CMDTYPE_DELETEALL   4               // Data1 = directory or NULL to use current</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#define CMDTYPE_CD          5</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">#define CMDTYPE_SHUTDOWN    6</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor">#define CMDTYPE_DISCONNECT  7</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#define CMDTYPE_RUN         8               // Data1 = program name</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#define CMDTYPE_RUNPROGRAM  9               // Data1 = program name, actually runs it</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="classConsoleCommand.html">  210</a></span>&#160;<span class="keyword">class </span><a class="code" href="classConsoleCommand.html">ConsoleCommand</a></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;{</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="classConsoleCommand.html#a943c8acc82299496902ca2b2e7e625e5">  219</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classConsoleCommand.html#a943c8acc82299496902ca2b2e7e625e5">TYPE</a>;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="classConsoleCommand.html#af892843df7a82e0ba88d269640394ded">  224</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="classConsoleCommand.html#af892843df7a82e0ba88d269640394ded">data1</a>;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordtype">int</span> time;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <a class="code" href="classConsoleCommand.html">ConsoleCommand</a> ();</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <a class="code" href="classConsoleCommand.html">ConsoleCommand</a> (<span class="keywordtype">int</span> newTYPE, <span class="keyword">const</span> <span class="keywordtype">string</span> &amp;newdata1, <span class="keywordtype">int</span> newtime );</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    ~<a class="code" href="classConsoleCommand.html">ConsoleCommand</a> ();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;};</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassComputerScreen_html"><div class="ttname"><a href="classComputerScreen.html">ComputerScreen</a></div><div class="ttdef"><b>Definition:</b> computerscreen.h:34</div></div>
-<div class="ttc" id="aclassLList_html"><div class="ttname"><a href="classLList.html">LList&lt; char * &gt;</a></div></div>
+<div class="ttc" id="aclassLList_html"><div class="ttname"><a href="classLList.html">LList&lt; string &gt;</a></div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a3c5b53989e1e34b0624ed9efbdafb873"><div class="ttname"><a href="classConsoleScreenInterface.html#a3c5b53989e1e34b0624ed9efbdafb873">ConsoleScreenInterface::SetCurrentDir</a></div><div class="ttdeci">void SetCurrentDir(const string &amp;newcurrentdir)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:135</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html"><div class="ttname"><a href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div><div class="ttdoc">RemoteInterfaceScreen InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:19</div></div>
-<div class="ttc" id="aclassConsoleScreenInterface_html_a4fed5eb5985e08d83f2377e2e9ce464a"><div class="ttname"><a href="classConsoleScreenInterface.html#a4fed5eb5985e08d83f2377e2e9ce464a">ConsoleScreenInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:830</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a0db6cc032b5f060a8f5cdee2cd88416f"><div class="ttname"><a href="classConsoleScreenInterface.html#a0db6cc032b5f060a8f5cdee2cd88416f">ConsoleScreenInterface::RunCommand_DISCONNECT</a></div><div class="ttdeci">static void RunCommand_DISCONNECT()</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:759</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a4fed5eb5985e08d83f2377e2e9ce464a"><div class="ttname"><a href="classConsoleScreenInterface.html#a4fed5eb5985e08d83f2377e2e9ce464a">ConsoleScreenInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:831</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a4ceefcf3b4ac3dc915a866362eac78b9"><div class="ttname"><a href="classConsoleScreenInterface.html#a4ceefcf3b4ac3dc915a866362eac78b9">ConsoleScreenInterface::RunCommand_DIR</a></div><div class="ttdeci">void RunCommand_DIR()</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:301</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
-<div class="ttc" id="aclassConsoleScreenInterface_html_a5673c25251ded7299201b6ae4bff1c99"><div class="ttname"><a href="classConsoleScreenInterface.html#a5673c25251ded7299201b6ae4bff1c99">ConsoleScreenInterface::ReturnKeyPressed</a></div><div class="ttdeci">bool ReturnKeyPressed() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:859</div></div>
-<div class="ttc" id="aclassConsoleScreenInterface_html_a3f23576a7da8a8d27c95cc14067b51e4"><div class="ttname"><a href="classConsoleScreenInterface.html#a3f23576a7da8a8d27c95cc14067b51e4">ConsoleScreenInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:867</div></div>
-<div class="ttc" id="aclassConsoleScreenInterface_html_a7192d709cbd37ad06ffbb1a31d586342"><div class="ttname"><a href="classConsoleScreenInterface.html#a7192d709cbd37ad06ffbb1a31d586342">ConsoleScreenInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:852</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a5673c25251ded7299201b6ae4bff1c99"><div class="ttname"><a href="classConsoleScreenInterface.html#a5673c25251ded7299201b6ae4bff1c99">ConsoleScreenInterface::ReturnKeyPressed</a></div><div class="ttdeci">bool ReturnKeyPressed() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:860</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a6f86f313963e46e1dc75294ee80ec708"><div class="ttname"><a href="classConsoleScreenInterface.html#a6f86f313963e46e1dc75294ee80ec708">ConsoleScreenInterface::RunCommand_SHUTDOWN</a></div><div class="ttdeci">void RunCommand_SHUTDOWN()</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:696</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a3f23576a7da8a8d27c95cc14067b51e4"><div class="ttname"><a href="classConsoleScreenInterface.html#a3f23576a7da8a8d27c95cc14067b51e4">ConsoleScreenInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:868</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_ae8620964097759495471e5a70bba5b81"><div class="ttname"><a href="classConsoleScreenInterface.html#ae8620964097759495471e5a70bba5b81">ConsoleScreenInterface::RunCommand_EXIT</a></div><div class="ttdeci">void RunCommand_EXIT()</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:752</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a38d7bbcb1a7eb6d6cb40576302ebfeb3"><div class="ttname"><a href="classConsoleScreenInterface.html#a38d7bbcb1a7eb6d6cb40576302ebfeb3">ConsoleScreenInterface::RunCommand_TEXT</a></div><div class="ttdeci">void RunCommand_TEXT(const string &amp;text)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:268</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a7192d709cbd37ad06ffbb1a31d586342"><div class="ttname"><a href="classConsoleScreenInterface.html#a7192d709cbd37ad06ffbb1a31d586342">ConsoleScreenInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:853</div></div>
+<div class="ttc" id="aclassConsoleCommand_html_a943c8acc82299496902ca2b2e7e625e5"><div class="ttname"><a href="classConsoleCommand.html#a943c8acc82299496902ca2b2e7e625e5">ConsoleCommand::TYPE</a></div><div class="ttdeci">int TYPE</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:219</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a195f0389389e21550478447de6a566f4"><div class="ttname"><a href="classConsoleScreenInterface.html#a195f0389389e21550478447de6a566f4">ConsoleScreenInterface::MessageDraw</a></div><div class="ttdeci">static void MessageDraw(Button *button, bool highlighted, bool clicked)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:61</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html_a6ec7562bce7a36ef67a8b84451f6cf5d"><div class="ttname"><a href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">RemoteInterfaceScreen::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.cpp:85</div></div>
-<div class="ttc" id="aclassConsoleCommand_html"><div class="ttname"><a href="classConsoleCommand.html">ConsoleCommand</a></div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:108</div></div>
-<div class="ttc" id="aclassConsoleScreenInterface_html_a7592c8771a79b31bd460f9257583605f"><div class="ttname"><a href="classConsoleScreenInterface.html#a7592c8771a79b31bd460f9257583605f">ConsoleScreenInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:899</div></div>
-<div class="ttc" id="aclassConsoleScreenInterface_html"><div class="ttname"><a href="classConsoleScreenInterface.html">ConsoleScreenInterface</a></div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:27</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a9d4a4013232beeb6b8bc90bbfa166627"><div class="ttname"><a href="classConsoleScreenInterface.html#a9d4a4013232beeb6b8bc90bbfa166627">ConsoleScreenInterface::currentdir</a></div><div class="ttdeci">string currentdir</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:43</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a9daec2cdfcac691c20eafc15adf38137"><div class="ttname"><a href="classConsoleScreenInterface.html#a9daec2cdfcac691c20eafc15adf38137">ConsoleScreenInterface::PutTextAtStart</a></div><div class="ttdeci">void PutTextAtStart(int userid, const string &amp;text)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:184</div></div>
+<div class="ttc" id="aclassConsoleCommand_html"><div class="ttname"><a href="classConsoleCommand.html">ConsoleCommand</a></div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:210</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_abb38e0f257aa406c431f17f55035a97b"><div class="ttname"><a href="classConsoleScreenInterface.html#abb38e0f257aa406c431f17f55035a97b">ConsoleScreenInterface::PostClick</a></div><div class="ttdeci">static void PostClick(Button *button)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:71</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_aeb1b92aae22d4fe22be9773941c7b1ed"><div class="ttname"><a href="classConsoleScreenInterface.html#aeb1b92aae22d4fe22be9773941c7b1ed">ConsoleScreenInterface::WaitingCallback</a></div><div class="ttdeci">static void WaitingCallback()</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:107</div></div>
+<div class="ttc" id="aclassConsoleCommand_html_af892843df7a82e0ba88d269640394ded"><div class="ttname"><a href="classConsoleCommand.html#af892843df7a82e0ba88d269640394ded">ConsoleCommand::data1</a></div><div class="ttdeci">string data1</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:224</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_aea17fc8b22ff7f6c93024fc02725d31f"><div class="ttname"><a href="classConsoleScreenInterface.html#aea17fc8b22ff7f6c93024fc02725d31f">ConsoleScreenInterface::RunCommand_RUN</a></div><div class="ttdeci">void RunCommand_RUN(const string &amp;program, bool actuallyrun)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:570</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_aec21ff9cb833653c4e1ee2c3783efe04"><div class="ttname"><a href="classConsoleScreenInterface.html#aec21ff9cb833653c4e1ee2c3783efe04">ConsoleScreenInterface::TypeHereDraw</a></div><div class="ttdeci">static void TypeHereDraw(Button *button, bool highlighted, bool clicked)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:100</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a7851d4a268a19cca9fcaea725291d0d5"><div class="ttname"><a href="classConsoleScreenInterface.html#a7851d4a268a19cca9fcaea725291d0d5">ConsoleScreenInterface::BorderDraw</a></div><div class="ttdeci">static void BorderDraw(Button *button, bool highlighted, bool clicked)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:53</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a2d3b3eff07908b344e8d10c8bb5f6916"><div class="ttname"><a href="classConsoleScreenInterface.html#a2d3b3eff07908b344e8d10c8bb5f6916">ConsoleScreenInterface::RunCommand</a></div><div class="ttdeci">void RunCommand(const string &amp;command)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:201</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_ad0fb63ab2ed5a0a64037b0db93b1df7f"><div class="ttname"><a href="classConsoleScreenInterface.html#ad0fb63ab2ed5a0a64037b0db93b1df7f">ConsoleScreenInterface::RunCommand_HELP</a></div><div class="ttdeci">void RunCommand_HELP()</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:736</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_aa119076354f805a82dd294b63b899b01"><div class="ttname"><a href="classConsoleScreenInterface.html#aa119076354f805a82dd294b63b899b01">ConsoleScreenInterface::RunCommand_DELETEALL</a></div><div class="ttdeci">void RunCommand_DELETEALL(const string &amp;dir)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:425</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_abc2a52f30bc8a678e0a128f2951acbad"><div class="ttname"><a href="classConsoleScreenInterface.html#abc2a52f30bc8a678e0a128f2951acbad">ConsoleScreenInterface::PutText</a></div><div class="ttdeci">void PutText(int userid, const string &amp;text)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:167</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a4dd22266f68e0a258b058bffb5e63f60"><div class="ttname"><a href="classConsoleScreenInterface.html#a4dd22266f68e0a258b058bffb5e63f60">ConsoleScreenInterface::IsVisibleInterface</a></div><div class="ttdeci">static bool IsVisibleInterface()</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:46</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a9cc7f1f94ee5a89f1866774f32d7c905"><div class="ttname"><a href="classConsoleScreenInterface.html#a9cc7f1f94ee5a89f1866774f32d7c905">ConsoleScreenInterface::queue</a></div><div class="ttdeci">LList&lt; ConsoleCommand * &gt; queue</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:31</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a7592c8771a79b31bd460f9257583605f"><div class="ttname"><a href="classConsoleScreenInterface.html#a7592c8771a79b31bd460f9257583605f">ConsoleScreenInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:900</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html"><div class="ttname"><a href="classConsoleScreenInterface.html">ConsoleScreenInterface</a></div><div class="ttdoc">RemoteInterfaceScreen for computer's &quot;Console&quot; screen.</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:17</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_ac4869f2160c037b2f169c7371fb39130"><div class="ttname"><a href="classConsoleScreenInterface.html#ac4869f2160c037b2f169c7371fb39130">ConsoleScreenInterface::waiting</a></div><div class="ttdeci">bool waiting</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:36</div></div>
 <div class="ttc" id="aclassGenericScreen_html"><div class="ttname"><a href="classGenericScreen.html">GenericScreen</a></div><div class="ttdef"><b>Definition:</b> genericscreen.h:23</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_a719e228823ba80121e07476e4d3c5712"><div class="ttname"><a href="classConsoleScreenInterface.html#a719e228823ba80121e07476e4d3c5712">ConsoleScreenInterface::AddUser</a></div><div class="ttdeci">void AddUser(const string &amp;name)</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.cpp:115</div></div>
+<div class="ttc" id="aclassConsoleScreenInterface_html_af8e24394944aea4b6006f87d12ff0db2"><div class="ttname"><a href="classConsoleScreenInterface.html#af8e24394944aea4b6006f87d12ff0db2">ConsoleScreenInterface::users</a></div><div class="ttdeci">LList&lt; string &gt; users</div><div class="ttdef"><b>Definition:</b> consolescreen_interface.h:26</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html_a77df8fe547241d21dcdd19a5a66c8f5b"><div class="ttname"><a href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">RemoteInterfaceScreen::cs</a></div><div class="ttdeci">ComputerScreen * cs</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:47</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

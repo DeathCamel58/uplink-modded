@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['y2_1856',['y2',['../classMapRectangle.html#ae1f29e69f50888ceab8b1b675a1b3f71',1,'MapRectangle']]],
-  ['yesclick_1857',['YesClick',['../classGatewayNuke.html#ad5a8f5248724b43d5121b657ad60377a',1,'GatewayNuke']]]
+  ['waitingcallback_1993',['WaitingCallback',['../classConsoleScreenInterface.html#aeb1b92aae22d4fe22be9773941c7b1ed',1,'ConsoleScreenInterface::WaitingCallback()'],['../classContactScreenInterface.html#aeb434626191b1d53635d652f29d2aafd',1,'ContactScreenInterface::WaitingCallback()']]]
 ];

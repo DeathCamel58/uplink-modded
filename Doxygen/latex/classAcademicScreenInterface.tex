@@ -2,6 +2,15 @@
 \label{classAcademicScreenInterface}\index{AcademicScreenInterface@{AcademicScreenInterface}}
 
 
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for the international academic database\textquotesingle{}s \char`\"{}\+View Record\char`\"{} screen.  
+
+
+
+
+{\ttfamily \#include $<$academicscreen\+\_\+interface.\+h$>$}
+
+
+
 Inheritance diagram for Academic\+Screen\+Interface\+:
 \nopagebreak
 \begin{figure}[H]
@@ -25,8 +34,7 @@ Collaboration diagram for Academic\+Screen\+Interface\+:
 \item 
 bool \mbox{\hyperlink{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}{Escape\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}\label{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}} 
-void {\bfseries Set\+Search\+Name} (const string \&newsearchname)
+void \mbox{\hyperlink{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}{Set\+Search\+Name}} (const string \&newsearchname)
 \item 
 void \mbox{\hyperlink{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
@@ -44,37 +52,61 @@ int \mbox{\hyperlink{classAcademicScreenInterface_a4f5cdfff30af38676a017696180bd
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_aa972b1272cc50c1199470e2350a03f66}\label{classAcademicScreenInterface_aa972b1272cc50c1199470e2350a03f66}} 
-void {\bfseries Update\+Screen} ()
+void \mbox{\hyperlink{classAcademicScreenInterface_aa972b1272cc50c1199470e2350a03f66}{Update\+Screen}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_ab11410ce5b25ec329f85205bb91c0e74}\label{classAcademicScreenInterface_ab11410ce5b25ec329f85205bb91c0e74}} 
-static void {\bfseries Details\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+static void \mbox{\hyperlink{classAcademicScreenInterface_ab11410ce5b25ec329f85205bb91c0e74}{Details\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_a1ce7647308c72192994ad52314400606}\label{classAcademicScreenInterface_a1ce7647308c72192994ad52314400606}} 
-static void {\bfseries Commit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classAcademicScreenInterface_a1ce7647308c72192994ad52314400606}{Commit\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_a93bf9744730a8b9a5e33e3e86540f5e6}\label{classAcademicScreenInterface_a93bf9744730a8b9a5e33e3e86540f5e6}} 
-static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classAcademicScreenInterface_a93bf9744730a8b9a5e33e3e86540f5e6}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_a0cb7889eca2e0b375ede8a3f15b3efc7}\label{classAcademicScreenInterface_a0cb7889eca2e0b375ede8a3f15b3efc7}} 
-string {\bfseries searchname}
+string \mbox{\hyperlink{classAcademicScreenInterface_a0cb7889eca2e0b375ede8a3f15b3efc7}{searchname}}
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_a4fb461870819eed9dbb266422786e79c}\label{classAcademicScreenInterface_a4fb461870819eed9dbb266422786e79c}} 
-int {\bfseries recordindex}
+int \mbox{\hyperlink{classAcademicScreenInterface_a4fb461870819eed9dbb266422786e79c}{recordindex}}
 \item 
-\mbox{\Hypertarget{classAcademicScreenInterface_a1c6dea2f2ffa7a1085e1c8c888d4bfd4}\label{classAcademicScreenInterface_a1c6dea2f2ffa7a1085e1c8c888d4bfd4}} 
-int {\bfseries lastupdate}
+int \mbox{\hyperlink{classAcademicScreenInterface_a1c6dea2f2ffa7a1085e1c8c888d4bfd4}{lastupdate}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for the international academic database\textquotesingle{}s \char`\"{}\+View Record\char`\"{} screen. 
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAcademicScreenInterface_a93bf9744730a8b9a5e33e3e86540f5e6}\label{classAcademicScreenInterface_a93bf9744730a8b9a5e33e3e86540f5e6}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Academic\+Screen\+Interface\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the current screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classAcademicScreenInterface_a1ce7647308c72192994ad52314400606}\label{classAcademicScreenInterface_a1ce7647308c72192994ad52314400606}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!CommitClick@{CommitClick}}
+\index{CommitClick@{CommitClick}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{CommitClick()}{CommitClick()}}
+{\footnotesize\ttfamily void Academic\+Screen\+Interface\+::\+Commit\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Updates the academic \mbox{\hyperlink{classRecord}{Record}} 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
 \mbox{\Hypertarget{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}\label{classAcademicScreenInterface_ad93dd3937360fb613fe831ed2e730feb}} 
 \index{AcademicScreenInterface@{AcademicScreenInterface}!Create@{Create}}
 \index{Create@{Create}!AcademicScreenInterface@{AcademicScreenInterface}}
@@ -90,6 +122,24 @@ Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this objec
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
 
+\mbox{\Hypertarget{classAcademicScreenInterface_ab11410ce5b25ec329f85205bb91c0e74}\label{classAcademicScreenInterface_ab11410ce5b25ec329f85205bb91c0e74}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!DetailsDraw@{DetailsDraw}}
+\index{DetailsDraw@{DetailsDraw}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{DetailsDraw()}{DetailsDraw()}}
+{\footnotesize\ttfamily void Academic\+Screen\+Interface\+::\+Details\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the details 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to render \\
+\hline
+{\em highlighted} & Callback for highlight \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+clicked is unused 
+\end{DoxyNote}
 \mbox{\Hypertarget{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}\label{classAcademicScreenInterface_af916ee053674c101b62149899d072b5e}} 
 \index{AcademicScreenInterface@{AcademicScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
 \index{EscapeKeyPressed@{EscapeKeyPressed}!AcademicScreenInterface@{AcademicScreenInterface}}
@@ -139,6 +189,17 @@ The screen ID
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
 
+\mbox{\Hypertarget{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}\label{classAcademicScreenInterface_a6e47bdb1c879ca9a7310c432772fa363}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!SetSearchName@{SetSearchName}}
+\index{SetSearchName@{SetSearchName}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{SetSearchName()}{SetSearchName()}}
+{\footnotesize\ttfamily void Academic\+Screen\+Interface\+::\+Set\+Search\+Name (\begin{DoxyParamCaption}\item[{const string \&}]{newsearchname }\end{DoxyParamCaption})}
+
+Sets the name we\textquotesingle{}re currently searching for 
+\begin{DoxyParams}{Parameters}
+{\em newsearchname} & New name to search for \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classAcademicScreenInterface_a577208bf674975121f5f55b97ff55eaf}\label{classAcademicScreenInterface_a577208bf674975121f5f55b97ff55eaf}} 
 \index{AcademicScreenInterface@{AcademicScreenInterface}!Update@{Update}}
 \index{Update@{Update}!AcademicScreenInterface@{AcademicScreenInterface}}
@@ -149,7 +210,34 @@ Updates the screen. This can update animations, or check if the data on the scre
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
 
+\mbox{\Hypertarget{classAcademicScreenInterface_aa972b1272cc50c1199470e2350a03f66}\label{classAcademicScreenInterface_aa972b1272cc50c1199470e2350a03f66}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!UpdateScreen@{UpdateScreen}}
+\index{UpdateScreen@{UpdateScreen}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{UpdateScreen()}{UpdateScreen()}}
+{\footnotesize\ttfamily void Academic\+Screen\+Interface\+::\+Update\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+Updates the screen to display the current recordindex 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAcademicScreenInterface_a1c6dea2f2ffa7a1085e1c8c888d4bfd4}\label{classAcademicScreenInterface_a1c6dea2f2ffa7a1085e1c8c888d4bfd4}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!lastupdate@{lastupdate}}
+\index{lastupdate@{lastupdate}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{lastupdate}{lastupdate}}
+{\footnotesize\ttfamily int Academic\+Screen\+Interface\+::lastupdate\hspace{0.3cm}{\ttfamily [protected]}}
+
+The time when the page was last re-\/rendered \mbox{\Hypertarget{classAcademicScreenInterface_a4fb461870819eed9dbb266422786e79c}\label{classAcademicScreenInterface_a4fb461870819eed9dbb266422786e79c}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!recordindex@{recordindex}}
+\index{recordindex@{recordindex}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{recordindex}{recordindex}}
+{\footnotesize\ttfamily int Academic\+Screen\+Interface\+::recordindex\hspace{0.3cm}{\ttfamily [protected]}}
+
+The index of the person in the record \mbox{\Hypertarget{classAcademicScreenInterface_a0cb7889eca2e0b375ede8a3f15b3efc7}\label{classAcademicScreenInterface_a0cb7889eca2e0b375ede8a3f15b3efc7}} 
+\index{AcademicScreenInterface@{AcademicScreenInterface}!searchname@{searchname}}
+\index{searchname@{searchname}!AcademicScreenInterface@{AcademicScreenInterface}}
+\doxysubsubsection{\texorpdfstring{searchname}{searchname}}
+{\footnotesize\ttfamily string Academic\+Screen\+Interface\+::searchname\hspace{0.3cm}{\ttfamily [protected]}}
+
+The name that\textquotesingle{}s being searched for 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

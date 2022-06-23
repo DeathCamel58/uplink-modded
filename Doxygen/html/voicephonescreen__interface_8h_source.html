@@ -71,84 +71,78 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Voice Phone System</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    Pops up when the user dials somebody&#39;s</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    phone number.   Basically made up of</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">    ringing sounds followed by voice samples.</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef included_voicephonescreeninterface_h</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define included_voicephonescreeninterface_h</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_voicephonescreeninterface_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_voicephonescreeninterface_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="classGenericScreen.html">GenericScreen</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define VOICESTATUS_NONE        0</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define VOICESTATUS_RINGING     1</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define VOICESTATUS_CONNECTED   2</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define VOICESTATUS_TALKING     3</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define VOICESTATUS_HUNGUP      5</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// ============================================================================</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span><a class="code" href="classGenericScreen.html">GenericScreen</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define VOICESTATUS_NONE        0</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define VOICESTATUS_RINGING     1</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define VOICESTATUS_CONNECTED   2</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define VOICESTATUS_TALKING     3</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define VOICESTATUS_HUNGUP      5</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classVoicePhoneScreenInterface.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVoicePhoneScreenInterface.html">VoicePhoneScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classVoicePhoneScreenInterface.html#a9f65769fe3a5d696c5c2adc633bb362a">AddToText</a> (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newtext );</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classVoicePhoneScreenInterface.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVoicePhoneScreenInterface.html">VoicePhoneScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> AddToText (<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; newtext );</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">int</span> voiceindex;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> numrings;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> numwords;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">int</span> timesync;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> answer;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classVoicePhoneScreenInterface.html#a4c85c2f4c02b1977df02a699e9886a99">   35</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVoicePhoneScreenInterface.html#a4c85c2f4c02b1977df02a699e9886a99">voiceindex</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classVoicePhoneScreenInterface.html#a8b89929791124df70e77de44cb8dcf60">   40</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVoicePhoneScreenInterface.html#a8b89929791124df70e77de44cb8dcf60">numrings</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classVoicePhoneScreenInterface.html#a768fd467fbbd72f59e29845111b0c35f">   45</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVoicePhoneScreenInterface.html#a768fd467fbbd72f59e29845111b0c35f">numwords</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> timesync;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> STATUS;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classVoicePhoneScreenInterface.html">VoicePhoneScreenInterface</a> ();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ~<a class="code" href="classVoicePhoneScreenInterface.html">VoicePhoneScreenInterface</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classVoicePhoneScreenInterface.html#ad2bca1ec136b7b7e69b5d40697dc02e9">   51</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVoicePhoneScreenInterface.html#ad2bca1ec136b7b7e69b5d40697dc02e9">answer</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVoicePhoneScreenInterface.html#a891172eb2e5cb0fbb5f26cc616c2805b">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *<a class="code" href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">cs</a> ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVoicePhoneScreenInterface.html#abd1af64be9d264d0a845df1639cc3122">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVoicePhoneScreenInterface.html#af81b3a02e54f33f0b954fea9c0df36f7">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVoicePhoneScreenInterface.html#a6b7a1a61c7d31e61342e8099866a6f2c">IsVisible</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVoicePhoneScreenInterface.html#acae0f04a4645b3e092a7f35e0ac603ce">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classGenericScreen.html">GenericScreen</a> *GetComputerScreen ();</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classVoicePhoneScreenInterface.html#ad9da87cbcc899da58afb7ddaa5ea068c">   59</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVoicePhoneScreenInterface.html#ad9da87cbcc899da58afb7ddaa5ea068c">STATUS</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classVoicePhoneScreenInterface.html">VoicePhoneScreenInterface</a> ();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    ~<a class="code" href="classVoicePhoneScreenInterface.html">VoicePhoneScreenInterface</a> () <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVoicePhoneScreenInterface.html#a891172eb2e5cb0fbb5f26cc616c2805b">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *<a class="code" href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">cs</a> ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVoicePhoneScreenInterface.html#abd1af64be9d264d0a845df1639cc3122">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVoicePhoneScreenInterface.html#af81b3a02e54f33f0b954fea9c0df36f7">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classVoicePhoneScreenInterface.html#a6b7a1a61c7d31e61342e8099866a6f2c">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classVoicePhoneScreenInterface.html#acae0f04a4645b3e092a7f35e0ac603ce">ScreenID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classGenericScreen.html">GenericScreen</a> *GetComputerScreen ();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassVoicePhoneScreenInterface_html_a6b7a1a61c7d31e61342e8099866a6f2c"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#a6b7a1a61c7d31e61342e8099866a6f2c">VoicePhoneScreenInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.cpp:195</div></div>
 <div class="ttc" id="aclassComputerScreen_html"><div class="ttname"><a href="classComputerScreen.html">ComputerScreen</a></div><div class="ttdef"><b>Definition:</b> computerscreen.h:34</div></div>
-<div class="ttc" id="aclassVoicePhoneScreenInterface_html"><div class="ttname"><a href="classVoicePhoneScreenInterface.html">VoicePhoneScreenInterface</a></div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.h:31</div></div>
+<div class="ttc" id="aclassVoicePhoneScreenInterface_html_a768fd467fbbd72f59e29845111b0c35f"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#a768fd467fbbd72f59e29845111b0c35f">VoicePhoneScreenInterface::numwords</a></div><div class="ttdeci">int numwords</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.h:45</div></div>
+<div class="ttc" id="aclassVoicePhoneScreenInterface_html"><div class="ttname"><a href="classVoicePhoneScreenInterface.html">VoicePhoneScreenInterface</a></div><div class="ttdoc">RemoteInterfaceScreen for phone screen.</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.h:19</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html"><div class="ttname"><a href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div><div class="ttdoc">RemoteInterfaceScreen InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:19</div></div>
+<div class="ttc" id="aclassVoicePhoneScreenInterface_html_a9f65769fe3a5d696c5c2adc633bb362a"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#a9f65769fe3a5d696c5c2adc633bb362a">VoicePhoneScreenInterface::AddToText</a></div><div class="ttdeci">static void AddToText(const string &amp;newtext)</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.cpp:46</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html_a6ec7562bce7a36ef67a8b84451f6cf5d"><div class="ttname"><a href="classRemoteInterfaceScreen.html#a6ec7562bce7a36ef67a8b84451f6cf5d">RemoteInterfaceScreen::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.cpp:85</div></div>
 <div class="ttc" id="aclassVoicePhoneScreenInterface_html_acae0f04a4645b3e092a7f35e0ac603ce"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#acae0f04a4645b3e092a7f35e0ac603ce">VoicePhoneScreenInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.cpp:203</div></div>
 <div class="ttc" id="aclassVoicePhoneScreenInterface_html_abd1af64be9d264d0a845df1639cc3122"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#abd1af64be9d264d0a845df1639cc3122">VoicePhoneScreenInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.cpp:104</div></div>
+<div class="ttc" id="aclassVoicePhoneScreenInterface_html_a4c85c2f4c02b1977df02a699e9886a99"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#a4c85c2f4c02b1977df02a699e9886a99">VoicePhoneScreenInterface::voiceindex</a></div><div class="ttdeci">int voiceindex</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.h:35</div></div>
+<div class="ttc" id="aclassVoicePhoneScreenInterface_html_a8b89929791124df70e77de44cb8dcf60"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#a8b89929791124df70e77de44cb8dcf60">VoicePhoneScreenInterface::numrings</a></div><div class="ttdeci">int numrings</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.h:40</div></div>
 <div class="ttc" id="aclassVoicePhoneScreenInterface_html_a891172eb2e5cb0fbb5f26cc616c2805b"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#a891172eb2e5cb0fbb5f26cc616c2805b">VoicePhoneScreenInterface::ReturnKeyPressed</a></div><div class="ttdeci">bool ReturnKeyPressed() override</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.cpp:39</div></div>
 <div class="ttc" id="aclassVoicePhoneScreenInterface_html_af81b3a02e54f33f0b954fea9c0df36f7"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#af81b3a02e54f33f0b954fea9c0df36f7">VoicePhoneScreenInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.cpp:117</div></div>
+<div class="ttc" id="aclassVoicePhoneScreenInterface_html_ad2bca1ec136b7b7e69b5d40697dc02e9"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#ad2bca1ec136b7b7e69b5d40697dc02e9">VoicePhoneScreenInterface::answer</a></div><div class="ttdeci">bool answer</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.h:51</div></div>
+<div class="ttc" id="aclassVoicePhoneScreenInterface_html_ad9da87cbcc899da58afb7ddaa5ea068c"><div class="ttname"><a href="classVoicePhoneScreenInterface.html#ad9da87cbcc899da58afb7ddaa5ea068c">VoicePhoneScreenInterface::STATUS</a></div><div class="ttdeci">int STATUS</div><div class="ttdef"><b>Definition:</b> voicephonescreen_interface.h:59</div></div>
 <div class="ttc" id="aclassGenericScreen_html"><div class="ttname"><a href="classGenericScreen.html">GenericScreen</a></div><div class="ttdef"><b>Definition:</b> genericscreen.h:23</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html_a77df8fe547241d21dcdd19a5a66c8f5b"><div class="ttname"><a href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">RemoteInterfaceScreen::cs</a></div><div class="ttdeci">ComputerScreen * cs</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:47</div></div>
 <!-- start footer part -->

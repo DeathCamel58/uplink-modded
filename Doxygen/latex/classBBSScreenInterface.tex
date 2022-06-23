@@ -2,6 +2,15 @@
 \label{classBBSScreenInterface}\index{BBSScreenInterface@{BBSScreenInterface}}
 
 
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for the uplink internal services\textquotesingle{} \char`\"{}\+Mission list\char`\"{} screen.  
+
+
+
+
+{\ttfamily \#include $<$bbsscreen\+\_\+interface.\+h$>$}
+
+
+
 Inheritance diagram for B\+B\+S\+Screen\+Interface\+:
 \nopagebreak
 \begin{figure}[H]
@@ -41,55 +50,84 @@ int \mbox{\hyperlink{classBBSScreenInterface_abf2ad8e34968d547521a83fe1e3df40e}{
 \doxysubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_ac849c3e1cb4affd9158c8487f868ae82}\label{classBBSScreenInterface_ac849c3e1cb4affd9158c8487f868ae82}} 
-static void {\bfseries Draw\+B\+B\+S\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+static void \mbox{\hyperlink{classBBSScreenInterface_ac849c3e1cb4affd9158c8487f868ae82}{Draw\+B\+B\+S\+Button}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_a41a9f5dff31f8a293c5a57df5d738004}\label{classBBSScreenInterface_a41a9f5dff31f8a293c5a57df5d738004}} 
-static void {\bfseries Click\+B\+B\+S\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classBBSScreenInterface_a41a9f5dff31f8a293c5a57df5d738004}{Click\+B\+B\+S\+Button}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_aa6c8a0927a02ac8c00d1e86784cc4a0c}\label{classBBSScreenInterface_aa6c8a0927a02ac8c00d1e86784cc4a0c}} 
-static void {\bfseries Mousedown\+B\+B\+S\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classBBSScreenInterface_aa6c8a0927a02ac8c00d1e86784cc4a0c}{Mousedown\+B\+B\+S\+Button}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_a525e95009cf8b25026ab7215e41bf780}\label{classBBSScreenInterface_a525e95009cf8b25026ab7215e41bf780}} 
-static void {\bfseries Highlight\+B\+B\+S\+Button} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classBBSScreenInterface_a525e95009cf8b25026ab7215e41bf780}{Highlight\+B\+B\+S\+Button}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_ad64b9f1cfcd6e7422d04ff18335a77ef}\label{classBBSScreenInterface_ad64b9f1cfcd6e7422d04ff18335a77ef}} 
-static void {\bfseries Draw\+Details} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+static void \mbox{\hyperlink{classBBSScreenInterface_ad64b9f1cfcd6e7422d04ff18335a77ef}{Draw\+Details}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_ac8f7131aac7ce3bffbd81b66a63f3f79}\label{classBBSScreenInterface_ac8f7131aac7ce3bffbd81b66a63f3f79}} 
-static void {\bfseries Accept\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classBBSScreenInterface_ac8f7131aac7ce3bffbd81b66a63f3f79}{Accept\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_a99c50f3df38d7ae9056ebdd7e93d8669}\label{classBBSScreenInterface_a99c50f3df38d7ae9056ebdd7e93d8669}} 
-static void {\bfseries Contact\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classBBSScreenInterface_a99c50f3df38d7ae9056ebdd7e93d8669}{Contact\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_aeff58f3e2c8f6b028f0cf30c72f91121}\label{classBBSScreenInterface_aeff58f3e2c8f6b028f0cf30c72f91121}} 
-static void {\bfseries Exit\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classBBSScreenInterface_aeff58f3e2c8f6b028f0cf30c72f91121}{Exit\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_a7528ba9154cf467a79dd838afb412d79}\label{classBBSScreenInterface_a7528ba9154cf467a79dd838afb412d79}} 
-static void {\bfseries Scroll\+Change} (const string \&scrollname, int new\+Value)
+static void \mbox{\hyperlink{classBBSScreenInterface_a7528ba9154cf467a79dd838afb412d79}{Scroll\+Change}} (const string \&scrollname, int new\+Value)
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_af0ab7d4187921818da29e436dbed2ff3}\label{classBBSScreenInterface_af0ab7d4187921818da29e436dbed2ff3}} 
-static int {\bfseries Num\+Items\+On\+Screen} ()
+static int \mbox{\hyperlink{classBBSScreenInterface_af0ab7d4187921818da29e436dbed2ff3}{Num\+Items\+On\+Screen}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_afe367039dd779a5ef31192a0653c8b83}\label{classBBSScreenInterface_afe367039dd779a5ef31192a0653c8b83}} 
-static int {\bfseries baseoffset} = 0
+static int \mbox{\hyperlink{classBBSScreenInterface_afe367039dd779a5ef31192a0653c8b83}{baseoffset}} = 0
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_a39a276fb9f0bcd446d8f43fd64c914f3}\label{classBBSScreenInterface_a39a276fb9f0bcd446d8f43fd64c914f3}} 
-static int {\bfseries currentselect} = -\/1
+static int \mbox{\hyperlink{classBBSScreenInterface_a39a276fb9f0bcd446d8f43fd64c914f3}{currentselect}} = -\/1
 \item 
 \mbox{\Hypertarget{classBBSScreenInterface_a891cdbbbc19db8b50a9a25df8cb0915e}\label{classBBSScreenInterface_a891cdbbbc19db8b50a9a25df8cb0915e}} 
 static int {\bfseries previousnummessages} = 0
 \item 
-\mbox{\Hypertarget{classBBSScreenInterface_a90e0f6859db7c51bbbc5b8adcd1f8384}\label{classBBSScreenInterface_a90e0f6859db7c51bbbc5b8adcd1f8384}} 
-static int {\bfseries previousupdate} = 0
+static int \mbox{\hyperlink{classBBSScreenInterface_a90e0f6859db7c51bbbc5b8adcd1f8384}{previousupdate}} = 0
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for the uplink internal services\textquotesingle{} \char`\"{}\+Mission list\char`\"{} screen. 
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBBSScreenInterface_ac8f7131aac7ce3bffbd81b66a63f3f79}\label{classBBSScreenInterface_ac8f7131aac7ce3bffbd81b66a63f3f79}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!AcceptClick@{AcceptClick}}
+\index{AcceptClick@{AcceptClick}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{AcceptClick()}{AcceptClick()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Accept\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Accepts the currently selected \mbox{\hyperlink{classMission}{Mission}} and gives it to the \mbox{\hyperlink{classPlayer}{Player}} 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classBBSScreenInterface_a41a9f5dff31f8a293c5a57df5d738004}\label{classBBSScreenInterface_a41a9f5dff31f8a293c5a57df5d738004}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!ClickBBSButton@{ClickBBSButton}}
+\index{ClickBBSButton@{ClickBBSButton}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ClickBBSButton()}{ClickBBSButton()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Click\+B\+B\+S\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders details and button highlight effect on click 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} that was clicked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBBSScreenInterface_a99c50f3df38d7ae9056ebdd7e93d8669}\label{classBBSScreenInterface_a99c50f3df38d7ae9056ebdd7e93d8669}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!ContactClick@{ContactClick}}
+\index{ContactClick@{ContactClick}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ContactClick()}{ContactClick()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Contact\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Passes the selected \mbox{\hyperlink{classMission}{Mission}} to \mbox{\hyperlink{classContactScreenInterface}{Contact\+Screen\+Interface}} and starts the contact 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
 \mbox{\Hypertarget{classBBSScreenInterface_ac2a6c856e350d3ab44390da01cd4cdb1}\label{classBBSScreenInterface_ac2a6c856e350d3ab44390da01cd4cdb1}} 
 \index{BBSScreenInterface@{BBSScreenInterface}!Create@{Create}}
 \index{Create@{Create}!BBSScreenInterface@{BBSScreenInterface}}
@@ -105,6 +143,39 @@ Creates a \mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} in this objec
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a745be8d6556d04dee4384aad4948e788}{Remote\+Interface\+Screen}}.
 
+\mbox{\Hypertarget{classBBSScreenInterface_ac849c3e1cb4affd9158c8487f868ae82}\label{classBBSScreenInterface_ac849c3e1cb4affd9158c8487f868ae82}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!DrawBBSButton@{DrawBBSButton}}
+\index{DrawBBSButton@{DrawBBSButton}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{DrawBBSButton()}{DrawBBSButton()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Draw\+B\+B\+S\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the button content (uses button\textquotesingle{}s name to get the index for details) 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to render \\
+\hline
+{\em highlighted} & Callback for highlight \\
+\hline
+{\em clicked} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+clicked is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classBBSScreenInterface_ad64b9f1cfcd6e7422d04ff18335a77ef}\label{classBBSScreenInterface_ad64b9f1cfcd6e7422d04ff18335a77ef}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!DrawDetails@{DrawDetails}}
+\index{DrawDetails@{DrawDetails}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{DrawDetails()}{DrawDetails()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Draw\+Details (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the details to screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} to render \\
+\hline
+{\em highlighted} & Callback on highlight \\
+\hline
+{\em clicked} & Callback on click \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classBBSScreenInterface_ae8b870d5ab403304716324e863eb3512}\label{classBBSScreenInterface_ae8b870d5ab403304716324e863eb3512}} 
 \index{BBSScreenInterface@{BBSScreenInterface}!EscapeKeyPressed@{EscapeKeyPressed}}
 \index{EscapeKeyPressed@{EscapeKeyPressed}!BBSScreenInterface@{BBSScreenInterface}}
@@ -118,6 +189,28 @@ Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
+\mbox{\Hypertarget{classBBSScreenInterface_aeff58f3e2c8f6b028f0cf30c72f91121}\label{classBBSScreenInterface_aeff58f3e2c8f6b028f0cf30c72f91121}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!ExitClick@{ExitClick}}
+\index{ExitClick@{ExitClick}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ExitClick()}{ExitClick()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Exit\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Returns to previous screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBBSScreenInterface_a525e95009cf8b25026ab7215e41bf780}\label{classBBSScreenInterface_a525e95009cf8b25026ab7215e41bf780}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!HighlightBBSButton@{HighlightBBSButton}}
+\index{HighlightBBSButton@{HighlightBBSButton}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{HighlightBBSButton()}{HighlightBBSButton()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Highlight\+B\+B\+S\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+If a mission exists on the button highlighted, process the click 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} that was highlighted \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classBBSScreenInterface_a31bee9d68ac2f5485c6882a5fa7115ca}\label{classBBSScreenInterface_a31bee9d68ac2f5485c6882a5fa7115ca}} 
 \index{BBSScreenInterface@{BBSScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!BBSScreenInterface@{BBSScreenInterface}}
@@ -131,6 +224,26 @@ true if screen is visible
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
 
+\mbox{\Hypertarget{classBBSScreenInterface_aa6c8a0927a02ac8c00d1e86784cc4a0c}\label{classBBSScreenInterface_aa6c8a0927a02ac8c00d1e86784cc4a0c}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!MousedownBBSButton@{MousedownBBSButton}}
+\index{MousedownBBSButton@{MousedownBBSButton}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{MousedownBBSButton()}{MousedownBBSButton()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Mousedown\+B\+B\+S\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+If a mission exists on the button clicked, process the click 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} that was clicked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBBSScreenInterface_af0ab7d4187921818da29e436dbed2ff3}\label{classBBSScreenInterface_af0ab7d4187921818da29e436dbed2ff3}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!NumItemsOnScreen@{NumItemsOnScreen}}
+\index{NumItemsOnScreen@{NumItemsOnScreen}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{NumItemsOnScreen()}{NumItemsOnScreen()}}
+{\footnotesize\ttfamily int B\+B\+S\+Screen\+Interface\+::\+Num\+Items\+On\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Gets the number of items that can fit on the screen \begin{DoxyReturn}{Returns}
+Number of items that will fit 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classBBSScreenInterface_a6a2b5be51d22c709e8e5de2a8e56edf6}\label{classBBSScreenInterface_a6a2b5be51d22c709e8e5de2a8e56edf6}} 
 \index{BBSScreenInterface@{BBSScreenInterface}!Remove@{Remove}}
 \index{Remove@{Remove}!BBSScreenInterface@{BBSScreenInterface}}
@@ -154,6 +267,22 @@ The screen ID
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
 
+\mbox{\Hypertarget{classBBSScreenInterface_a7528ba9154cf467a79dd838afb412d79}\label{classBBSScreenInterface_a7528ba9154cf467a79dd838afb412d79}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!ScrollChange@{ScrollChange}}
+\index{ScrollChange@{ScrollChange}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ScrollChange()}{ScrollChange()}}
+{\footnotesize\ttfamily void B\+B\+S\+Screen\+Interface\+::\+Scroll\+Change (\begin{DoxyParamCaption}\item[{const string \&}]{scrollname,  }\item[{int}]{new\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Changes the offset for the scroll box items 
+\begin{DoxyParams}{Parameters}
+{\em scrollname} & \\
+\hline
+{\em new\+Value} & The new offset \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+scrollname is unused 
+\end{DoxyNote}
 \mbox{\Hypertarget{classBBSScreenInterface_a969ce695fdcbdf6a25ade1a1fdaec636}\label{classBBSScreenInterface_a969ce695fdcbdf6a25ade1a1fdaec636}} 
 \index{BBSScreenInterface@{BBSScreenInterface}!Update@{Update}}
 \index{Update@{Update}!BBSScreenInterface@{BBSScreenInterface}}
@@ -165,6 +294,27 @@ Updates the screen. This can update animations, or check if the data on the scre
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBBSScreenInterface_afe367039dd779a5ef31192a0653c8b83}\label{classBBSScreenInterface_afe367039dd779a5ef31192a0653c8b83}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!baseoffset@{baseoffset}}
+\index{baseoffset@{baseoffset}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{baseoffset}{baseoffset}}
+{\footnotesize\ttfamily int B\+B\+S\+Screen\+Interface\+::baseoffset = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The index of the first item to display in the scroll box \mbox{\Hypertarget{classBBSScreenInterface_a39a276fb9f0bcd446d8f43fd64c914f3}\label{classBBSScreenInterface_a39a276fb9f0bcd446d8f43fd64c914f3}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!currentselect@{currentselect}}
+\index{currentselect@{currentselect}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{currentselect}{currentselect}}
+{\footnotesize\ttfamily int B\+B\+S\+Screen\+Interface\+::currentselect = -\/1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The index of the current \mbox{\hyperlink{classMission}{Mission}} selected \mbox{\Hypertarget{classBBSScreenInterface_a90e0f6859db7c51bbbc5b8adcd1f8384}\label{classBBSScreenInterface_a90e0f6859db7c51bbbc5b8adcd1f8384}} 
+\index{BBSScreenInterface@{BBSScreenInterface}!previousupdate@{previousupdate}}
+\index{previousupdate@{previousupdate}!BBSScreenInterface@{BBSScreenInterface}}
+\doxysubsubsection{\texorpdfstring{previousupdate}{previousupdate}}
+{\footnotesize\ttfamily int B\+B\+S\+Screen\+Interface\+::previousupdate = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+The last time the screen was re-\/rendered 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

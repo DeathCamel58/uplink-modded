@@ -71,71 +71,63 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Company Info screen interface</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    Shows basic data on a company</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    including size, growth rate, </span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">    key personel etc</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef includedcompanyinfoscreeninterface_h</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define includedcompanyinfoscreeninterface_h</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef includedcompanyinfoscreeninterface_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define includedcompanyinfoscreeninterface_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="classGenericScreen.html">GenericScreen</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classCompanyInfoScreenInterface.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCompanyInfoScreenInterface.html">CompanyInfoScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a> </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span><a class="code" href="classGenericScreen.html">GenericScreen</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classCompanyInfoScreenInterface.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCompanyInfoScreenInterface.html">CompanyInfoScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a> </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> MdAddClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> AdminAddClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> BackClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classCompanyInfoScreenInterface.html">CompanyInfoScreenInterface</a> ();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    ~<a class="code" href="classCompanyInfoScreenInterface.html">CompanyInfoScreenInterface</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a8b9e5f5e34c4bcaf22181fc8147600a1">MdAddClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a601051253cffd591e054a49771ed648f">AdminAddClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a95ce0760e9a99c663d4d4d5a988ca810">BackClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCompanyInfoScreenInterface.html#a284e6cd36a7636521038d07b85e3cad6">EscapeKeyPressed</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a8ed3751e25d1c541be83edcbb0d51f7c">Create</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a8ed3751e25d1c541be83edcbb0d51f7c">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *newcs ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a0c57568b390705fd17233ac0a02ed8cd">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#ad12da9c0a09a2c08b2060337efe86d5e">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCompanyInfoScreenInterface.html#adbef30428f961653b752623532a802f6">IsVisible</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompanyInfoScreenInterface.html#a75d7456f3dee39278bc5d28903203dfc">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classGenericScreen.html">GenericScreen</a> *GetComputerScreen ();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;};</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="classCompanyInfoScreenInterface.html">CompanyInfoScreenInterface</a> ();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ~<a class="code" href="classCompanyInfoScreenInterface.html">CompanyInfoScreenInterface</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCompanyInfoScreenInterface.html#a284e6cd36a7636521038d07b85e3cad6">EscapeKeyPressed</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a8ed3751e25d1c541be83edcbb0d51f7c">Create</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a8ed3751e25d1c541be83edcbb0d51f7c">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *newcs ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#a0c57568b390705fd17233ac0a02ed8cd">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCompanyInfoScreenInterface.html#ad12da9c0a09a2c08b2060337efe86d5e">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classCompanyInfoScreenInterface.html#adbef30428f961653b752623532a802f6">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classCompanyInfoScreenInterface.html#a75d7456f3dee39278bc5d28903203dfc">ScreenID</a> () <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classGenericScreen.html">GenericScreen</a> *GetComputerScreen ();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassComputerScreen_html"><div class="ttname"><a href="classComputerScreen.html">ComputerScreen</a></div><div class="ttdef"><b>Definition:</b> computerscreen.h:34</div></div>
 <div class="ttc" id="aclassCompanyInfoScreenInterface_html_a8ed3751e25d1c541be83edcbb0d51f7c"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#a8ed3751e25d1c541be83edcbb0d51f7c">CompanyInfoScreenInterface::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:105</div></div>
 <div class="ttc" id="aclassCompanyInfoScreenInterface_html_a75d7456f3dee39278bc5d28903203dfc"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#a75d7456f3dee39278bc5d28903203dfc">CompanyInfoScreenInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:245</div></div>
 <div class="ttc" id="aclassCompanyInfoScreenInterface_html_a0c57568b390705fd17233ac0a02ed8cd"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#a0c57568b390705fd17233ac0a02ed8cd">CompanyInfoScreenInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:204</div></div>
+<div class="ttc" id="aclassCompanyInfoScreenInterface_html_a95ce0760e9a99c663d4d4d5a988ca810"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#a95ce0760e9a99c663d4d4d5a988ca810">CompanyInfoScreenInterface::BackClick</a></div><div class="ttdeci">static void BackClick(Button *button)</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:76</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html"><div class="ttname"><a href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div><div class="ttdoc">RemoteInterfaceScreen InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:19</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
 <div class="ttc" id="aclassCompanyInfoScreenInterface_html_ad12da9c0a09a2c08b2060337efe86d5e"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#ad12da9c0a09a2c08b2060337efe86d5e">CompanyInfoScreenInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:232</div></div>
 <div class="ttc" id="aclassCompanyInfoScreenInterface_html_a284e6cd36a7636521038d07b85e3cad6"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#a284e6cd36a7636521038d07b85e3cad6">CompanyInfoScreenInterface::EscapeKeyPressed</a></div><div class="ttdeci">bool EscapeKeyPressed() override</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:28</div></div>
 <div class="ttc" id="aclassCompanyInfoScreenInterface_html_adbef30428f961653b752623532a802f6"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#adbef30428f961653b752623532a802f6">CompanyInfoScreenInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:237</div></div>
-<div class="ttc" id="aclassCompanyInfoScreenInterface_html"><div class="ttname"><a href="classCompanyInfoScreenInterface.html">CompanyInfoScreenInterface</a></div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.h:24</div></div>
+<div class="ttc" id="aclassCompanyInfoScreenInterface_html_a601051253cffd591e054a49771ed648f"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#a601051253cffd591e054a49771ed648f">CompanyInfoScreenInterface::AdminAddClick</a></div><div class="ttdeci">static void AdminAddClick(Button *button)</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:56</div></div>
+<div class="ttc" id="aclassCompanyInfoScreenInterface_html"><div class="ttname"><a href="classCompanyInfoScreenInterface.html">CompanyInfoScreenInterface</a></div><div class="ttdoc">RemoteInterfaceScreen for company's &quot;Company data&quot; screen.</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.h:14</div></div>
 <div class="ttc" id="aclassGenericScreen_html"><div class="ttname"><a href="classGenericScreen.html">GenericScreen</a></div><div class="ttdef"><b>Definition:</b> genericscreen.h:23</div></div>
+<div class="ttc" id="aclassCompanyInfoScreenInterface_html_a8b9e5f5e34c4bcaf22181fc8147600a1"><div class="ttname"><a href="classCompanyInfoScreenInterface.html#a8b9e5f5e34c4bcaf22181fc8147600a1">CompanyInfoScreenInterface::MdAddClick</a></div><div class="ttdeci">static void MdAddClick(Button *button)</div><div class="ttdef"><b>Definition:</b> companyinfoscreen_interface.cpp:36</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

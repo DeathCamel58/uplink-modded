@@ -2,6 +2,15 @@
 \label{classCompanyInfoScreenInterface}\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
 
 
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for company\textquotesingle{}s \char`\"{}\+Company data\char`\"{} screen.  
+
+
+
+
+{\ttfamily \#include $<$companyinfoscreen\+\_\+interface.\+h$>$}
+
+
+
 Inheritance diagram for Company\+Info\+Screen\+Interface\+:
 \nopagebreak
 \begin{figure}[H]
@@ -43,19 +52,46 @@ int \mbox{\hyperlink{classCompanyInfoScreenInterface_a75d7456f3dee39278bc5d28903
 \doxysubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCompanyInfoScreenInterface_a8b9e5f5e34c4bcaf22181fc8147600a1}\label{classCompanyInfoScreenInterface_a8b9e5f5e34c4bcaf22181fc8147600a1}} 
-static void {\bfseries Md\+Add\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classCompanyInfoScreenInterface_a8b9e5f5e34c4bcaf22181fc8147600a1}{Md\+Add\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classCompanyInfoScreenInterface_a601051253cffd591e054a49771ed648f}\label{classCompanyInfoScreenInterface_a601051253cffd591e054a49771ed648f}} 
-static void {\bfseries Admin\+Add\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classCompanyInfoScreenInterface_a601051253cffd591e054a49771ed648f}{Admin\+Add\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classCompanyInfoScreenInterface_a95ce0760e9a99c663d4d4d5a988ca810}\label{classCompanyInfoScreenInterface_a95ce0760e9a99c663d4d4d5a988ca810}} 
-static void {\bfseries Back\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classCompanyInfoScreenInterface_a95ce0760e9a99c663d4d4d5a988ca810}{Back\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for company\textquotesingle{}s \char`\"{}\+Company data\char`\"{} screen. 
+
+Shows basic data on a company including size, growth rate, key personnel etc \begin{DoxyNote}{Note}
+This is found by clicking \char`\"{}\+About us\char`\"{} in a bank 
+\end{DoxyNote}
+
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a601051253cffd591e054a49771ed648f}\label{classCompanyInfoScreenInterface_a601051253cffd591e054a49771ed648f}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!AdminAddClick@{AdminAddClick}}
+\index{AdminAddClick@{AdminAddClick}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{AdminAddClick()}{AdminAddClick()}}
+{\footnotesize\ttfamily void Company\+Info\+Screen\+Interface\+::\+Admin\+Add\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Adds the admin link to the user\textquotesingle{}s favorites 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} clicked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a95ce0760e9a99c663d4d4d5a988ca810}\label{classCompanyInfoScreenInterface_a95ce0760e9a99c663d4d4d5a988ca810}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!BackClick@{BackClick}}
+\index{BackClick@{BackClick}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{BackClick()}{BackClick()}}
+{\footnotesize\ttfamily void Company\+Info\+Screen\+Interface\+::\+Back\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Returns to the previous screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classCompanyInfoScreenInterface_a8ed3751e25d1c541be83edcbb0d51f7c}\label{classCompanyInfoScreenInterface_a8ed3751e25d1c541be83edcbb0d51f7c}} 
 \index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!Create@{Create}}
 \index{Create@{Create}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
@@ -107,6 +143,17 @@ true if screen is visible
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
 
+\mbox{\Hypertarget{classCompanyInfoScreenInterface_a8b9e5f5e34c4bcaf22181fc8147600a1}\label{classCompanyInfoScreenInterface_a8b9e5f5e34c4bcaf22181fc8147600a1}} 
+\index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!MdAddClick@{MdAddClick}}
+\index{MdAddClick@{MdAddClick}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}
+\doxysubsubsection{\texorpdfstring{MdAddClick()}{MdAddClick()}}
+{\footnotesize\ttfamily void Company\+Info\+Screen\+Interface\+::\+Md\+Add\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Adds the managing director link to the user\textquotesingle{}s favorites 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} clicked \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classCompanyInfoScreenInterface_a0c57568b390705fd17233ac0a02ed8cd}\label{classCompanyInfoScreenInterface_a0c57568b390705fd17233ac0a02ed8cd}} 
 \index{CompanyInfoScreenInterface@{CompanyInfoScreenInterface}!Remove@{Remove}}
 \index{Remove@{Remove}!CompanyInfoScreenInterface@{CompanyInfoScreenInterface}}

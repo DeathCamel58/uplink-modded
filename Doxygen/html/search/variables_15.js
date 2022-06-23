@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['y_2043',['y',['../classWorldMapInterfaceObject.html#a0957de9f72962a29207588bcb1e8110f',1,'WorldMapInterfaceObject::y()'],['../classScrollBox.html#a5f124649b7acacf87fd5ba981c2e77c0',1,'ScrollBox::y()'],['../classVLocation.html#a08ac9c5b688d8d6acb03af86e9f9f7af',1,'VLocation::y()']]],
-  ['y1_2044',['y1',['../classMapRectangle.html#ade9f84b6873f3efad1f5b9774010daae',1,'MapRectangle']]]
+  ['x_2199',['x',['../classWorldMapInterfaceObject.html#a22be240c41e7ab2ec343b8fa0460f951',1,'WorldMapInterfaceObject::x()'],['../classScrollBox.html#a161b1e938bfd8e9bf94b641a1d7daecc',1,'ScrollBox::x()'],['../classVLocation.html#a4ed28004e807a0073e15de5f8c50f6d2',1,'VLocation::x()']]],
+  ['x1_2200',['x1',['../classMapRectangle.html#ac48f418f801dc8c1953e57b0ba3789ea',1,'MapRectangle']]]
 ];

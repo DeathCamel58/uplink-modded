@@ -71,90 +71,98 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Change Gateway screen interface</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    Allows the user to exchange his gateway</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    for a new one</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">  */</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef included_changegatewayscreeninterface_h</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define included_changegatewayscreeninterface_h</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="classGenericScreen.html">GenericScreen</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef included_changegatewayscreeninterface_h</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define included_changegatewayscreeninterface_h</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classChangeGatewayScreenInterface.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classChangeGatewayScreenInterface.html">ChangeGatewayScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span><a class="code" href="classGenericScreen.html">GenericScreen</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classChangeGatewayScreenInterface.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classChangeGatewayScreenInterface.html">ChangeGatewayScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> GatewayButtonDraw ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> InfoTextDraw ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> GatewayButtonClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> CloseClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> BuyClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> BuyConfirmClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> BuyCancelClick ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> GatewayPictureDraw ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#ac88a322d3aa39044ae30148f1fa54e95">GatewayButtonDraw</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#af7ed160465b9364f6e1e0480d3ef0bd5">InfoTextDraw</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> ScrollChange (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;scrollname, <span class="keywordtype">int</span> newIndex );</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> baseOffset;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">int</span> currentselect;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classChangeGatewayScreenInterface.html">ChangeGatewayScreenInterface</a> ();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ~<a class="code" href="classChangeGatewayScreenInterface.html">ChangeGatewayScreenInterface</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> ShowGateway ( <span class="keywordtype">int</span> index );</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> GetGatewayPrice ( <span class="keywordtype">int</span> index );                           <span class="comment">// Takes into account Part exchange value of your gateway</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#afacf72e0f9684f32d6a4f2b21bf335fa">Create</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#afacf72e0f9684f32d6a4f2b21bf335fa">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *<a class="code" href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">cs</a> ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> CreateAreYouSure ();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#a12b798275bec5ad35057269637671875">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#aa1a1ac6ca1503c7db5cb3981bc50a9a2">Update</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classChangeGatewayScreenInterface.html#a3bbe7343ecb1c23b221070d1887ef501">IsVisible</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classChangeGatewayScreenInterface.html#a8a2b658b4d0b31253b733e2d71d5705f">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classChangeGatewayScreenInterface.html#aa407dc115b223ab203505863839bf97f">EscapeKeyPressed</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classChangeGatewayScreenInterface.html#a7fd0eabf56bcaf654e8ba870342c537a">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classGenericScreen.html">GenericScreen</a> *GetComputerScreen ();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#a46fd4756f227f5091f87695591b95a6e">GatewayButtonClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#a06ad4a48e9273e859c58d9868e891186">CloseClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#a8d0f0ce78ae88945d1c9bdf74398a0a2">BuyClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#ac5da2d00c09140b64d8a01687e79a29e">BuyConfirmClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#a8a3a5927762ee2aca6aa4066e5479fb7">BuyCancelClick</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#a7f7a924475452bc6add553a8c14c8a72">GatewayPictureDraw</a> ( <a class="code" href="classButton.html">Button</a> *button, <span class="keywordtype">bool</span> highlighted, <span class="keywordtype">bool</span> clicked );</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#aa00f6134957dd7d6aafa5518245556a9">ScrollChange</a> (<span class="keyword">const</span> <span class="keywordtype">string</span> &amp;scrollname, <span class="keywordtype">int</span> newIndex );</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> baseOffset;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">int</span> currentselect;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="classChangeGatewayScreenInterface.html">ChangeGatewayScreenInterface</a> ();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    ~<a class="code" href="classChangeGatewayScreenInterface.html">ChangeGatewayScreenInterface</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#a4978d27214d73e493cb9c2c10aca9b04">ShowGateway</a> ( <span class="keywordtype">int</span> index );</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="classChangeGatewayScreenInterface.html#a11a3e036b2a0992e0169e01507f3c637">GetGatewayPrice</a> ( <span class="keywordtype">int</span> index );</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#afacf72e0f9684f32d6a4f2b21bf335fa">Create</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#afacf72e0f9684f32d6a4f2b21bf335fa">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *<a class="code" href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">cs</a> ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#ac38d7a5694d024c17d4a66775ef17de7">CreateAreYouSure</a> ();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#a12b798275bec5ad35057269637671875">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classChangeGatewayScreenInterface.html#aa1a1ac6ca1503c7db5cb3981bc50a9a2">Update</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classChangeGatewayScreenInterface.html#a3bbe7343ecb1c23b221070d1887ef501">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classChangeGatewayScreenInterface.html#a8a2b658b4d0b31253b733e2d71d5705f">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classChangeGatewayScreenInterface.html#aa407dc115b223ab203505863839bf97f">EscapeKeyPressed</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classChangeGatewayScreenInterface.html#a7fd0eabf56bcaf654e8ba870342c537a">ScreenID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="classGenericScreen.html">GenericScreen</a> *GetComputerScreen ();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassComputerScreen_html"><div class="ttname"><a href="classComputerScreen.html">ComputerScreen</a></div><div class="ttdef"><b>Definition:</b> computerscreen.h:34</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_a46fd4756f227f5091f87695591b95a6e"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a46fd4756f227f5091f87695591b95a6e">ChangeGatewayScreenInterface::GatewayButtonClick</a></div><div class="ttdeci">static void GatewayButtonClick(Button *button)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:141</div></div>
 <div class="ttc" id="aclassChangeGatewayScreenInterface_html_a7fd0eabf56bcaf654e8ba870342c537a"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a7fd0eabf56bcaf654e8ba870342c537a">ChangeGatewayScreenInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:579</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html"><div class="ttname"><a href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div><div class="ttdoc">RemoteInterfaceScreen InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:19</div></div>
 <div class="ttc" id="aclassChangeGatewayScreenInterface_html_a12b798275bec5ad35057269637671875"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a12b798275bec5ad35057269637671875">ChangeGatewayScreenInterface::Remove</a></div><div class="ttdeci">void Remove() override</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:520</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_a8a3a5927762ee2aca6aa4066e5479fb7"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a8a3a5927762ee2aca6aa4066e5479fb7">ChangeGatewayScreenInterface::BuyCancelClick</a></div><div class="ttdeci">static void BuyCancelClick(Button *button)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:259</div></div>
 <div class="ttc" id="aclassChangeGatewayScreenInterface_html_a3bbe7343ecb1c23b221070d1887ef501"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a3bbe7343ecb1c23b221070d1887ef501">ChangeGatewayScreenInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:557</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
 <div class="ttc" id="aclassChangeGatewayScreenInterface_html_afacf72e0f9684f32d6a4f2b21bf335fa"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#afacf72e0f9684f32d6a4f2b21bf335fa">ChangeGatewayScreenInterface::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:371</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_ac38d7a5694d024c17d4a66775ef17de7"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#ac38d7a5694d024c17d4a66775ef17de7">ChangeGatewayScreenInterface::CreateAreYouSure</a></div><div class="ttdeci">void CreateAreYouSure()</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:466</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_a4978d27214d73e493cb9c2c10aca9b04"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a4978d27214d73e493cb9c2c10aca9b04">ChangeGatewayScreenInterface::ShowGateway</a></div><div class="ttdeci">void ShowGateway(int index)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:307</div></div>
 <div class="ttc" id="aclassChangeGatewayScreenInterface_html_aa407dc115b223ab203505863839bf97f"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#aa407dc115b223ab203505863839bf97f">ChangeGatewayScreenInterface::EscapeKeyPressed</a></div><div class="ttdeci">bool EscapeKeyPressed() override</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:571</div></div>
 <div class="ttc" id="aclassChangeGatewayScreenInterface_html_aa1a1ac6ca1503c7db5cb3981bc50a9a2"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#aa1a1ac6ca1503c7db5cb3981bc50a9a2">ChangeGatewayScreenInterface::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:553</div></div>
-<div class="ttc" id="aclassChangeGatewayScreenInterface_html"><div class="ttname"><a href="classChangeGatewayScreenInterface.html">ChangeGatewayScreenInterface</a></div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.h:21</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_aa00f6134957dd7d6aafa5518245556a9"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#aa00f6134957dd7d6aafa5518245556a9">ChangeGatewayScreenInterface::ScrollChange</a></div><div class="ttdeci">static void ScrollChange(const string &amp;scrollname, int newIndex)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:291</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_a7f7a924475452bc6add553a8c14c8a72"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a7f7a924475452bc6add553a8c14c8a72">ChangeGatewayScreenInterface::GatewayPictureDraw</a></div><div class="ttdeci">static void GatewayPictureDraw(Button *button, bool highlighted, bool clicked)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:271</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html"><div class="ttname"><a href="classChangeGatewayScreenInterface.html">ChangeGatewayScreenInterface</a></div><div class="ttdoc">RemoteInterfaceScreen for the uplink internal services' &quot;Exchange gateway&quot; screen.</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.h:14</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_ac5da2d00c09140b64d8a01687e79a29e"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#ac5da2d00c09140b64d8a01687e79a29e">ChangeGatewayScreenInterface::BuyConfirmClick</a></div><div class="ttdeci">static void BuyConfirmClick(Button *button)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:208</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_a8d0f0ce78ae88945d1c9bdf74398a0a2"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a8d0f0ce78ae88945d1c9bdf74398a0a2">ChangeGatewayScreenInterface::BuyClick</a></div><div class="ttdeci">static void BuyClick(Button *button)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:170</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_a06ad4a48e9273e859c58d9868e891186"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a06ad4a48e9273e859c58d9868e891186">ChangeGatewayScreenInterface::CloseClick</a></div><div class="ttdeci">static void CloseClick(Button *button)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:159</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_a11a3e036b2a0992e0169e01507f3c637"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a11a3e036b2a0992e0169e01507f3c637">ChangeGatewayScreenInterface::GetGatewayPrice</a></div><div class="ttdeci">static int GetGatewayPrice(int index)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:354</div></div>
 <div class="ttc" id="aclassChangeGatewayScreenInterface_html_a8a2b658b4d0b31253b733e2d71d5705f"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#a8a2b658b4d0b31253b733e2d71d5705f">ChangeGatewayScreenInterface::ReturnKeyPressed</a></div><div class="ttdeci">bool ReturnKeyPressed() override</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:564</div></div>
 <div class="ttc" id="aclassGenericScreen_html"><div class="ttname"><a href="classGenericScreen.html">GenericScreen</a></div><div class="ttdef"><b>Definition:</b> genericscreen.h:23</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_ac88a322d3aa39044ae30148f1fa54e95"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#ac88a322d3aa39044ae30148f1fa54e95">ChangeGatewayScreenInterface::GatewayButtonDraw</a></div><div class="ttdeci">static void GatewayButtonDraw(Button *button, bool highlighted, bool clicked)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:45</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html_a77df8fe547241d21dcdd19a5a66c8f5b"><div class="ttname"><a href="classRemoteInterfaceScreen.html#a77df8fe547241d21dcdd19a5a66c8f5b">RemoteInterfaceScreen::cs</a></div><div class="ttdeci">ComputerScreen * cs</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:47</div></div>
+<div class="ttc" id="aclassChangeGatewayScreenInterface_html_af7ed160465b9364f6e1e0480d3ef0bd5"><div class="ttname"><a href="classChangeGatewayScreenInterface.html#af7ed160465b9364f6e1e0480d3ef0bd5">ChangeGatewayScreenInterface::InfoTextDraw</a></div><div class="ttdeci">static void InfoTextDraw(Button *button, bool highlighted, bool clicked)</div><div class="ttdef"><b>Definition:</b> changegatewayscreen_interface.cpp:134</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

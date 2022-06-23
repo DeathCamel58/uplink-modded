@@ -1,14 +1,14 @@
 <map id="ConsoleScreenInterface" name="ConsoleScreenInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="325,320,501,347"/>
+<area shape="rect" id="node1" title="RemoteInterfaceScreen for computer&#39;s &quot;Console&quot; screen." alt="" coords="324,320,500,347"/>
 <area shape="rect" id="node2" href="$classRemoteInterfaceScreen.html" title="RemoteInterfaceScreen InterfaceScreen." alt="" coords="154,231,329,257"/>
 <area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="31,112,155,139"/>
 <area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="179,7,285,33"/>
 <area shape="rect" id="node6" href="$classComputerScreen.html" title=" " alt="" coords="180,112,311,139"/>
 <area shape="rect" id="node5" href="$classDArray.html" title=" " alt="" coords="5,7,141,33"/>
-<area shape="rect" id="node7" href="$classLList.html" title=" " alt="" coords="353,231,474,257"/>
-<area shape="rect" id="node8" href="$classLListItem.html" title=" " alt="" coords="337,112,487,139"/>
-<area shape="rect" id="node9" href="$classLListItem.html" title=" " alt="" coords="352,7,472,33"/>
-<area shape="rect" id="node11" href="$classLListItem.html" title=" " alt="" coords="512,112,755,139"/>
-<area shape="rect" id="node10" href="$classLList.html" title=" " alt="" coords="513,231,725,257"/>
-<area shape="rect" id="node12" href="$classConsoleCommand.html" title=" " alt="" coords="581,7,723,33"/>
+<area shape="rect" id="node7" href="$classLList.html" title=" " alt="" coords="353,231,471,257"/>
+<area shape="rect" id="node8" href="$classLListItem.html" title=" " alt="" coords="336,112,485,139"/>
+<area shape="rect" id="node9" href="$classLListItem.html" title=" " alt="" coords="351,7,471,33"/>
+<area shape="rect" id="node11" href="$classLListItem.html" title=" " alt="" coords="509,112,752,139"/>
+<area shape="rect" id="node10" href="$classLList.html" title=" " alt="" coords="510,231,722,257"/>
+<area shape="rect" id="node12" href="$classConsoleCommand.html" title=" " alt="" coords="580,7,721,33"/>
 </map>

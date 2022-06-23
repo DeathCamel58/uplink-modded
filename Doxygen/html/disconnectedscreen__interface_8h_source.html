@@ -75,48 +75,43 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef included_disconnectedscreeninterface_h</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define included_disconnectedscreeninterface_h</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;interface/remoteinterface/remoteinterfacescreen.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classComputerScreen.html">ComputerScreen</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="classDisconnectedScreen.html">DisconnectedScreen</a>;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="classComputerScreen.html">ComputerScreen</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="classDisconnectedScreen.html">DisconnectedScreen</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// ============================================================================</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classDisconnectedScreenInterface.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDisconnectedScreenInterface.html">DisconnectedScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classDisconnectedScreenInterface.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classDisconnectedScreenInterface.html">DisconnectedScreenInterface</a> : <span class="keyword">public</span> <a class="code" href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Click ( <a class="code" href="classButton.html">Button</a> *button );</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDisconnectedScreenInterface.html#a1daace0ef396de03b39a25da77641e32">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDisconnectedScreenInterface.html#ab1694e6dd78e7387d331cb6d502470e7">Create</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDisconnectedScreenInterface.html#ab1694e6dd78e7387d331cb6d502470e7">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *newcs ) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDisconnectedScreenInterface.html#afee76dd427ba72d322021a969a686f37">Remove</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDisconnectedScreenInterface.html#aafae2edad90d0da9f7988e35026b43b1">IsVisible</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classDisconnectedScreenInterface.html#a8e77cb222b39e33637aa6590e2c1e68b">ScreenID</a> () <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classDisconnectedScreen.html">DisconnectedScreen</a> *GetComputerScreen ();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classDisconnectedScreenInterface.html#a862c13bbddbbf6972afade78a4e5cfa7">Click</a> ( <a class="code" href="classButton.html">Button</a> *button );</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDisconnectedScreenInterface.html#a1daace0ef396de03b39a25da77641e32">ReturnKeyPressed</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDisconnectedScreenInterface.html#ab1694e6dd78e7387d331cb6d502470e7">Create</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDisconnectedScreenInterface.html#ab1694e6dd78e7387d331cb6d502470e7">Create</a> ( <a class="code" href="classComputerScreen.html">ComputerScreen</a> *newcs ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classDisconnectedScreenInterface.html#afee76dd427ba72d322021a969a686f37">Remove</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classDisconnectedScreenInterface.html#aafae2edad90d0da9f7988e35026b43b1">IsVisible</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classDisconnectedScreenInterface.html#a8e77cb222b39e33637aa6590e2c1e68b">ScreenID</a> () <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classDisconnectedScreen.html">DisconnectedScreen</a> *GetComputerScreen ();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassComputerScreen_html"><div class="ttname"><a href="classComputerScreen.html">ComputerScreen</a></div><div class="ttdef"><b>Definition:</b> computerscreen.h:34</div></div>
 <div class="ttc" id="aclassRemoteInterfaceScreen_html"><div class="ttname"><a href="classRemoteInterfaceScreen.html">RemoteInterfaceScreen</a></div><div class="ttdoc">RemoteInterfaceScreen InterfaceScreen.</div><div class="ttdef"><b>Definition:</b> remoteinterfacescreen.h:19</div></div>
 <div class="ttc" id="aclassDisconnectedScreenInterface_html_a1daace0ef396de03b39a25da77641e32"><div class="ttname"><a href="classDisconnectedScreenInterface.html#a1daace0ef396de03b39a25da77641e32">DisconnectedScreenInterface::ReturnKeyPressed</a></div><div class="ttdeci">bool ReturnKeyPressed() override</div><div class="ttdef"><b>Definition:</b> disconnectedscreen_interface.cpp:46</div></div>
 <div class="ttc" id="aclassButton_html"><div class="ttname"><a href="classButton.html">Button</a></div><div class="ttdef"><b>Definition:</b> button.h:14</div></div>
+<div class="ttc" id="aclassDisconnectedScreenInterface_html_a862c13bbddbbf6972afade78a4e5cfa7"><div class="ttname"><a href="classDisconnectedScreenInterface.html#a862c13bbddbbf6972afade78a4e5cfa7">DisconnectedScreenInterface::Click</a></div><div class="ttdeci">static void Click(Button *button)</div><div class="ttdef"><b>Definition:</b> disconnectedscreen_interface.cpp:29</div></div>
 <div class="ttc" id="aclassDisconnectedScreenInterface_html_ab1694e6dd78e7387d331cb6d502470e7"><div class="ttname"><a href="classDisconnectedScreenInterface.html#ab1694e6dd78e7387d331cb6d502470e7">DisconnectedScreenInterface::Create</a></div><div class="ttdeci">void Create() override</div><div class="ttdef"><b>Definition:</b> disconnectedscreen_interface.cpp:56</div></div>
-<div class="ttc" id="aclassDisconnectedScreenInterface_html"><div class="ttname"><a href="classDisconnectedScreenInterface.html">DisconnectedScreenInterface</a></div><div class="ttdef"><b>Definition:</b> disconnectedscreen_interface.h:17</div></div>
+<div class="ttc" id="aclassDisconnectedScreenInterface_html"><div class="ttname"><a href="classDisconnectedScreenInterface.html">DisconnectedScreenInterface</a></div><div class="ttdoc">RemoteInterfaceScreen for &quot;Connection terminated by Gateway&quot; screen.</div><div class="ttdef"><b>Definition:</b> disconnectedscreen_interface.h:12</div></div>
 <div class="ttc" id="aclassDisconnectedScreenInterface_html_aafae2edad90d0da9f7988e35026b43b1"><div class="ttname"><a href="classDisconnectedScreenInterface.html#aafae2edad90d0da9f7988e35026b43b1">DisconnectedScreenInterface::IsVisible</a></div><div class="ttdeci">bool IsVisible() override</div><div class="ttdef"><b>Definition:</b> disconnectedscreen_interface.cpp:144</div></div>
 <div class="ttc" id="aclassDisconnectedScreenInterface_html_a8e77cb222b39e33637aa6590e2c1e68b"><div class="ttname"><a href="classDisconnectedScreenInterface.html#a8e77cb222b39e33637aa6590e2c1e68b">DisconnectedScreenInterface::ScreenID</a></div><div class="ttdeci">int ScreenID() override</div><div class="ttdef"><b>Definition:</b> disconnectedscreen_interface.cpp:159</div></div>
 <div class="ttc" id="aclassDisconnectedScreen_html"><div class="ttname"><a href="classDisconnectedScreen.html">DisconnectedScreen</a></div><div class="ttdef"><b>Definition:</b> disconnectedscreen.h:27</div></div>

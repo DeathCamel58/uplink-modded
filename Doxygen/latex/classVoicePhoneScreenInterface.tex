@@ -2,6 +2,15 @@
 \label{classVoicePhoneScreenInterface}\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
 
 
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for phone screen.  
+
+
+
+
+{\ttfamily \#include $<$voicephonescreen\+\_\+interface.\+h$>$}
+
+
+
 Inheritance diagram for Voice\+Phone\+Screen\+Interface\+:
 \nopagebreak
 \begin{figure}[H]
@@ -41,37 +50,47 @@ int \mbox{\hyperlink{classVoicePhoneScreenInterface_acae0f04a4645b3e092a7f35e0ac
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classVoicePhoneScreenInterface_ad9da87cbcc899da58afb7ddaa5ea068c}\label{classVoicePhoneScreenInterface_ad9da87cbcc899da58afb7ddaa5ea068c}} 
-int {\bfseries S\+T\+A\+T\+US}
+int \mbox{\hyperlink{classVoicePhoneScreenInterface_ad9da87cbcc899da58afb7ddaa5ea068c}{S\+T\+A\+T\+US}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classVoicePhoneScreenInterface_a9f65769fe3a5d696c5c2adc633bb362a}\label{classVoicePhoneScreenInterface_a9f65769fe3a5d696c5c2adc633bb362a}} 
-static void {\bfseries Add\+To\+Text} (const string \&newtext)
+static void \mbox{\hyperlink{classVoicePhoneScreenInterface_a9f65769fe3a5d696c5c2adc633bb362a}{Add\+To\+Text}} (const string \&newtext)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classVoicePhoneScreenInterface_a4c85c2f4c02b1977df02a699e9886a99}\label{classVoicePhoneScreenInterface_a4c85c2f4c02b1977df02a699e9886a99}} 
-int {\bfseries voiceindex}
+int \mbox{\hyperlink{classVoicePhoneScreenInterface_a4c85c2f4c02b1977df02a699e9886a99}{voiceindex}}
 \item 
-\mbox{\Hypertarget{classVoicePhoneScreenInterface_a8b89929791124df70e77de44cb8dcf60}\label{classVoicePhoneScreenInterface_a8b89929791124df70e77de44cb8dcf60}} 
-int {\bfseries numrings}
+int \mbox{\hyperlink{classVoicePhoneScreenInterface_a8b89929791124df70e77de44cb8dcf60}{numrings}}
 \item 
-\mbox{\Hypertarget{classVoicePhoneScreenInterface_a768fd467fbbd72f59e29845111b0c35f}\label{classVoicePhoneScreenInterface_a768fd467fbbd72f59e29845111b0c35f}} 
-int {\bfseries numwords}
+int \mbox{\hyperlink{classVoicePhoneScreenInterface_a768fd467fbbd72f59e29845111b0c35f}{numwords}}
 \item 
 \mbox{\Hypertarget{classVoicePhoneScreenInterface_a7aeb77561941062cc818ef229aeef698}\label{classVoicePhoneScreenInterface_a7aeb77561941062cc818ef229aeef698}} 
 int {\bfseries timesync}
 \item 
-\mbox{\Hypertarget{classVoicePhoneScreenInterface_ad2bca1ec136b7b7e69b5d40697dc02e9}\label{classVoicePhoneScreenInterface_ad2bca1ec136b7b7e69b5d40697dc02e9}} 
-bool {\bfseries answer}
+bool \mbox{\hyperlink{classVoicePhoneScreenInterface_ad2bca1ec136b7b7e69b5d40697dc02e9}{answer}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for phone screen. 
+
+Pops up when the user dials somebody\textquotesingle{}s phone number. Basically made up of ringing sounds followed by voice samples. 
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a9f65769fe3a5d696c5c2adc633bb362a}\label{classVoicePhoneScreenInterface_a9f65769fe3a5d696c5c2adc633bb362a}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!AddToText@{AddToText}}
+\index{AddToText@{AddToText}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{AddToText()}{AddToText()}}
+{\footnotesize\ttfamily void Voice\+Phone\+Screen\+Interface\+::\+Add\+To\+Text (\begin{DoxyParamCaption}\item[{const string \&}]{newtext }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Appends given text to the string shown 
+\begin{DoxyParams}{Parameters}
+{\em newtext} & The string to append \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}\label{classVoicePhoneScreenInterface_ac9ce87bb7117e34ecf198091880b8e13}} 
 \index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!Create@{Create}}
 \index{Create@{Create}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
@@ -147,6 +166,42 @@ Updates the screen. This can update animations, or check if the data on the scre
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_aeca30fb0176d83d302768b0e11d5d819}{Remote\+Interface\+Screen}}.
 
 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_ad2bca1ec136b7b7e69b5d40697dc02e9}\label{classVoicePhoneScreenInterface_ad2bca1ec136b7b7e69b5d40697dc02e9}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!answer@{answer}}
+\index{answer@{answer}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{answer}{answer}}
+{\footnotesize\ttfamily bool Voice\+Phone\+Screen\+Interface\+::answer\hspace{0.3cm}{\ttfamily [protected]}}
+
+Was the phone be answered \mbox{\Hypertarget{classVoicePhoneScreenInterface_a8b89929791124df70e77de44cb8dcf60}\label{classVoicePhoneScreenInterface_a8b89929791124df70e77de44cb8dcf60}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!numrings@{numrings}}
+\index{numrings@{numrings}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{numrings}{numrings}}
+{\footnotesize\ttfamily int Voice\+Phone\+Screen\+Interface\+::numrings\hspace{0.3cm}{\ttfamily [protected]}}
+
+How many rings should occur before being answered \mbox{\Hypertarget{classVoicePhoneScreenInterface_a768fd467fbbd72f59e29845111b0c35f}\label{classVoicePhoneScreenInterface_a768fd467fbbd72f59e29845111b0c35f}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!numwords@{numwords}}
+\index{numwords@{numwords}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{numwords}{numwords}}
+{\footnotesize\ttfamily int Voice\+Phone\+Screen\+Interface\+::numwords\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of words the receiver says \mbox{\Hypertarget{classVoicePhoneScreenInterface_ad9da87cbcc899da58afb7ddaa5ea068c}\label{classVoicePhoneScreenInterface_ad9da87cbcc899da58afb7ddaa5ea068c}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!STATUS@{STATUS}}
+\index{STATUS@{STATUS}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{STATUS}{STATUS}}
+{\footnotesize\ttfamily int Voice\+Phone\+Screen\+Interface\+::\+S\+T\+A\+T\+US}
+
+The current status of the phone call \begin{DoxyNote}{Note}
+This can be V\+O\+I\+C\+E\+S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+NE, V\+O\+I\+C\+E\+S\+T\+A\+T\+U\+S\+\_\+\+R\+I\+N\+G\+I\+NG, V\+O\+I\+C\+E\+S\+T\+A\+T\+U\+S\+\_\+\+C\+O\+N\+N\+E\+C\+T\+ED, V\+O\+I\+C\+E\+S\+T\+A\+T\+U\+S\+\_\+\+T\+A\+L\+K\+I\+NG, or V\+O\+I\+C\+E\+S\+T\+A\+T\+U\+S\+\_\+\+H\+U\+N\+G\+UP 
+\end{DoxyNote}
+\mbox{\Hypertarget{classVoicePhoneScreenInterface_a4c85c2f4c02b1977df02a699e9886a99}\label{classVoicePhoneScreenInterface_a4c85c2f4c02b1977df02a699e9886a99}} 
+\index{VoicePhoneScreenInterface@{VoicePhoneScreenInterface}!voiceindex@{voiceindex}}
+\index{voiceindex@{voiceindex}!VoicePhoneScreenInterface@{VoicePhoneScreenInterface}}
+\doxysubsubsection{\texorpdfstring{voiceindex}{voiceindex}}
+{\footnotesize\ttfamily int Voice\+Phone\+Screen\+Interface\+::voiceindex\hspace{0.3cm}{\ttfamily [protected]}}
+
+The voice sound file number to use 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -2,6 +2,15 @@
 \label{classCriminalScreenInterface}\index{CriminalScreenInterface@{CriminalScreenInterface}}
 
 
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for global criminal database \char`\"{}\+View Criminal Records\char`\"{} screen.  
+
+
+
+
+{\ttfamily \#include $<$criminalscreen\+\_\+interface.\+h$>$}
+
+
+
 Inheritance diagram for Criminal\+Screen\+Interface\+:
 \nopagebreak
 \begin{figure}[H]
@@ -25,8 +34,7 @@ Collaboration diagram for Criminal\+Screen\+Interface\+:
 \item 
 bool \mbox{\hyperlink{classCriminalScreenInterface_aa38a7983dbd96289256e3a99818614c0}{Escape\+Key\+Pressed}} () override
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a80b3b7094f17240e22485342a74dc0e1}\label{classCriminalScreenInterface_a80b3b7094f17240e22485342a74dc0e1}} 
-void {\bfseries Set\+Search\+Name} (char $\ast$newsearchname)
+void \mbox{\hyperlink{classCriminalScreenInterface_a80b3b7094f17240e22485342a74dc0e1}{Set\+Search\+Name}} (char $\ast$newsearchname)
 \item 
 void \mbox{\hyperlink{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}{Create}} (\mbox{\hyperlink{classComputerScreen}{Computer\+Screen}} $\ast$\mbox{\hyperlink{classRemoteInterfaceScreen_a77df8fe547241d21dcdd19a5a66c8f5b}{cs}}) override
 \item 
@@ -44,49 +52,97 @@ int \mbox{\hyperlink{classCriminalScreenInterface_a003797f6086f2b6edae48ecf1acbb
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_afffa0413bbaeb0e588ba040e1c6d1552}\label{classCriminalScreenInterface_afffa0413bbaeb0e588ba040e1c6d1552}} 
-void {\bfseries Update\+Screen} ()
+void \mbox{\hyperlink{classCriminalScreenInterface_afffa0413bbaeb0e588ba040e1c6d1552}{Update\+Screen}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_ae3842e570f3c1875687fb65c728d1531}\label{classCriminalScreenInterface_ae3842e570f3c1875687fb65c728d1531}} 
-static void {\bfseries Name\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+static void \mbox{\hyperlink{classCriminalScreenInterface_ae3842e570f3c1875687fb65c728d1531}{Name\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a2ec09a9c70def6a54758d163f85a11bb}\label{classCriminalScreenInterface_a2ec09a9c70def6a54758d163f85a11bb}} 
-static void {\bfseries Name\+Border\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+static void \mbox{\hyperlink{classCriminalScreenInterface_a2ec09a9c70def6a54758d163f85a11bb}{Name\+Border\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_aff3236d27d6fa4261dffbae7254e8531}\label{classCriminalScreenInterface_aff3236d27d6fa4261dffbae7254e8531}} 
-static void {\bfseries History\+Draw} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
+static void \mbox{\hyperlink{classCriminalScreenInterface_aff3236d27d6fa4261dffbae7254e8531}{History\+Draw}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button, bool highlighted, bool clicked)
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a2dbc07f817954ff2a967bf0a63dd4ff9}\label{classCriminalScreenInterface_a2dbc07f817954ff2a967bf0a63dd4ff9}} 
-static void {\bfseries Close\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classCriminalScreenInterface_a2dbc07f817954ff2a967bf0a63dd4ff9}{Close\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a2b3a280149f51e9ff070010b0842dcd9}\label{classCriminalScreenInterface_a2b3a280149f51e9ff070010b0842dcd9}} 
-static void {\bfseries Add\+Conviction\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classCriminalScreenInterface_a2b3a280149f51e9ff070010b0842dcd9}{Add\+Conviction\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a7190c0af54c311bae1c8e59e6f914e8a}\label{classCriminalScreenInterface_a7190c0af54c311bae1c8e59e6f914e8a}} 
-static void {\bfseries Clear\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classCriminalScreenInterface_a7190c0af54c311bae1c8e59e6f914e8a}{Clear\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a0168c8807b11c10960ae1bf6e3875cda}\label{classCriminalScreenInterface_a0168c8807b11c10960ae1bf6e3875cda}} 
-static void {\bfseries Arrest\+Click} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
+static void \mbox{\hyperlink{classCriminalScreenInterface_a0168c8807b11c10960ae1bf6e3875cda}{Arrest\+Click}} (\mbox{\hyperlink{classButton}{Button}} $\ast$button)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_ae77b2591ee9d7d6fd6b5ad2c91f73c49}\label{classCriminalScreenInterface_ae77b2591ee9d7d6fd6b5ad2c91f73c49}} 
-string {\bfseries searchname}
+string \mbox{\hyperlink{classCriminalScreenInterface_ae77b2591ee9d7d6fd6b5ad2c91f73c49}{searchname}}
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a6a10d2e7c156634e70811cdb9e3b534e}\label{classCriminalScreenInterface_a6a10d2e7c156634e70811cdb9e3b534e}} 
-int {\bfseries recordindex}
+int \mbox{\hyperlink{classCriminalScreenInterface_a6a10d2e7c156634e70811cdb9e3b534e}{recordindex}}
 \item 
-\mbox{\Hypertarget{classCriminalScreenInterface_a0a8baf3d51805b79ed0f97952a27f33e}\label{classCriminalScreenInterface_a0a8baf3d51805b79ed0f97952a27f33e}} 
-int {\bfseries lastupdate}
+int \mbox{\hyperlink{classCriminalScreenInterface_a0a8baf3d51805b79ed0f97952a27f33e}{lastupdate}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classRemoteInterfaceScreen}{Remote\+Interface\+Screen}} for global criminal database \char`\"{}\+View Criminal Records\char`\"{} screen. 
+
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCriminalScreenInterface_a2b3a280149f51e9ff070010b0842dcd9}\label{classCriminalScreenInterface_a2b3a280149f51e9ff070010b0842dcd9}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!AddConvictionClick@{AddConvictionClick}}
+\index{AddConvictionClick@{AddConvictionClick}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{AddConvictionClick()}{AddConvictionClick()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Add\+Conviction\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Adds new conviction user input to the record 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCriminalScreenInterface_a0168c8807b11c10960ae1bf6e3875cda}\label{classCriminalScreenInterface_a0168c8807b11c10960ae1bf6e3875cda}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!ArrestClick@{ArrestClick}}
+\index{ArrestClick@{ArrestClick}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ArrestClick()}{ArrestClick()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Arrest\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Adds an \mbox{\hyperlink{classArrestEvent}{Arrest\+Event}} to the queue 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCriminalScreenInterface_a7190c0af54c311bae1c8e59e6f914e8a}\label{classCriminalScreenInterface_a7190c0af54c311bae1c8e59e6f914e8a}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!ClearClick@{ClearClick}}
+\index{ClearClick@{ClearClick}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{ClearClick()}{ClearClick()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Clear\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Clears all convictions from \mbox{\hyperlink{classRecord}{Record}} 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
+\mbox{\Hypertarget{classCriminalScreenInterface_a2dbc07f817954ff2a967bf0a63dd4ff9}\label{classCriminalScreenInterface_a2dbc07f817954ff2a967bf0a63dd4ff9}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!CloseClick@{CloseClick}}
+\index{CloseClick@{CloseClick}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{CloseClick()}{CloseClick()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Close\+Click (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Closes the current screen 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+button is unused 
+\end{DoxyNote}
 \mbox{\Hypertarget{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}\label{classCriminalScreenInterface_a98e1b276700f26fbdcda070519c6ff85}} 
 \index{CriminalScreenInterface@{CriminalScreenInterface}!Create@{Create}}
 \index{Create@{Create}!CriminalScreenInterface@{CriminalScreenInterface}}
@@ -115,6 +171,21 @@ Return true to block further usage of this escape \begin{DoxyReturn}{Returns}
 
 Reimplemented from \mbox{\hyperlink{classRemoteInterfaceScreen_a8506fd4cc9a8b41c7aef21953a85cd86}{Remote\+Interface\+Screen}}.
 
+\mbox{\Hypertarget{classCriminalScreenInterface_aff3236d27d6fa4261dffbae7254e8531}\label{classCriminalScreenInterface_aff3236d27d6fa4261dffbae7254e8531}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!HistoryDraw@{HistoryDraw}}
+\index{HistoryDraw@{HistoryDraw}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{HistoryDraw()}{HistoryDraw()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+History\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the criminial history 
+\begin{DoxyParams}{Parameters}
+{\em button} & \\
+\hline
+{\em highlighted} & Callback for highlight \\
+\hline
+{\em clicked} & Callback for click \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classCriminalScreenInterface_a9095cce2aee2a10c2b14d80f9516b23f}\label{classCriminalScreenInterface_a9095cce2aee2a10c2b14d80f9516b23f}} 
 \index{CriminalScreenInterface@{CriminalScreenInterface}!IsVisible@{IsVisible}}
 \index{IsVisible@{IsVisible}!CriminalScreenInterface@{CriminalScreenInterface}}
@@ -128,6 +199,36 @@ true if screen is visible
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_a2422ec3102de68c25346f82ffc57e4f7}{Interface\+Screen}}.
 
+\mbox{\Hypertarget{classCriminalScreenInterface_a2ec09a9c70def6a54758d163f85a11bb}\label{classCriminalScreenInterface_a2ec09a9c70def6a54758d163f85a11bb}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!NameBorderDraw@{NameBorderDraw}}
+\index{NameBorderDraw@{NameBorderDraw}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{NameBorderDraw()}{NameBorderDraw()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Name\+Border\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the name item buorder 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for name \\
+\hline
+{\em highlighted} & Callback for highlight \\
+\hline
+{\em clicked} & Callback for click \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classCriminalScreenInterface_ae3842e570f3c1875687fb65c728d1531}\label{classCriminalScreenInterface_ae3842e570f3c1875687fb65c728d1531}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!NameDraw@{NameDraw}}
+\index{NameDraw@{NameDraw}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{NameDraw()}{NameDraw()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Name\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classButton}{Button}} $\ast$}]{button,  }\item[{bool}]{highlighted,  }\item[{bool}]{clicked }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Renders the name item 
+\begin{DoxyParams}{Parameters}
+{\em button} & \mbox{\hyperlink{classButton}{Button}} for name \\
+\hline
+{\em highlighted} & Callback for highlight \\
+\hline
+{\em clicked} & Callback for click \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classCriminalScreenInterface_a08af66b7d61cbb4f82c4f7ec295c0f48}\label{classCriminalScreenInterface_a08af66b7d61cbb4f82c4f7ec295c0f48}} 
 \index{CriminalScreenInterface@{CriminalScreenInterface}!Remove@{Remove}}
 \index{Remove@{Remove}!CriminalScreenInterface@{CriminalScreenInterface}}
@@ -151,6 +252,17 @@ The screen ID
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_acbbd9b67bf56de2dbf5969fcc69c3a7b}{Interface\+Screen}}.
 
+\mbox{\Hypertarget{classCriminalScreenInterface_a80b3b7094f17240e22485342a74dc0e1}\label{classCriminalScreenInterface_a80b3b7094f17240e22485342a74dc0e1}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!SetSearchName@{SetSearchName}}
+\index{SetSearchName@{SetSearchName}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{SetSearchName()}{SetSearchName()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Set\+Search\+Name (\begin{DoxyParamCaption}\item[{char $\ast$}]{newsearchname }\end{DoxyParamCaption})}
+
+Sets the name we\textquotesingle{}re currently searching for 
+\begin{DoxyParams}{Parameters}
+{\em newsearchname} & New name to search for \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classCriminalScreenInterface_ad89ca1def685299b537f8c8a39866fcb}\label{classCriminalScreenInterface_ad89ca1def685299b537f8c8a39866fcb}} 
 \index{CriminalScreenInterface@{CriminalScreenInterface}!Update@{Update}}
 \index{Update@{Update}!CriminalScreenInterface@{CriminalScreenInterface}}
@@ -161,7 +273,34 @@ Updates the screen. This can update animations, or check if the data on the scre
 
 Reimplemented from \mbox{\hyperlink{classInterfaceScreen_adffe7dac32a1985e361d263bfd68383f}{Interface\+Screen}}.
 
+\mbox{\Hypertarget{classCriminalScreenInterface_afffa0413bbaeb0e588ba040e1c6d1552}\label{classCriminalScreenInterface_afffa0413bbaeb0e588ba040e1c6d1552}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!UpdateScreen@{UpdateScreen}}
+\index{UpdateScreen@{UpdateScreen}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{UpdateScreen()}{UpdateScreen()}}
+{\footnotesize\ttfamily void Criminal\+Screen\+Interface\+::\+Update\+Screen (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+Updates the screen to display the current recordindex 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classCriminalScreenInterface_a0a8baf3d51805b79ed0f97952a27f33e}\label{classCriminalScreenInterface_a0a8baf3d51805b79ed0f97952a27f33e}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!lastupdate@{lastupdate}}
+\index{lastupdate@{lastupdate}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{lastupdate}{lastupdate}}
+{\footnotesize\ttfamily int Criminal\+Screen\+Interface\+::lastupdate\hspace{0.3cm}{\ttfamily [protected]}}
+
+The time when the page was last re-\/rendered \mbox{\Hypertarget{classCriminalScreenInterface_a6a10d2e7c156634e70811cdb9e3b534e}\label{classCriminalScreenInterface_a6a10d2e7c156634e70811cdb9e3b534e}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!recordindex@{recordindex}}
+\index{recordindex@{recordindex}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{recordindex}{recordindex}}
+{\footnotesize\ttfamily int Criminal\+Screen\+Interface\+::recordindex\hspace{0.3cm}{\ttfamily [protected]}}
+
+The index of the criminal in the record \mbox{\Hypertarget{classCriminalScreenInterface_ae77b2591ee9d7d6fd6b5ad2c91f73c49}\label{classCriminalScreenInterface_ae77b2591ee9d7d6fd6b5ad2c91f73c49}} 
+\index{CriminalScreenInterface@{CriminalScreenInterface}!searchname@{searchname}}
+\index{searchname@{searchname}!CriminalScreenInterface@{CriminalScreenInterface}}
+\doxysubsubsection{\texorpdfstring{searchname}{searchname}}
+{\footnotesize\ttfamily string Criminal\+Screen\+Interface\+::searchname\hspace{0.3cm}{\ttfamily [protected]}}
+
+The name that\textquotesingle{}s being searched for 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

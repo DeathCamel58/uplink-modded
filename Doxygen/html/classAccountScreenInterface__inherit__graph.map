@@ -1,5 +1,5 @@
 <map id="AccountScreenInterface" name="AccountScreenInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="5,229,181,256"/>
+<area shape="rect" id="node1" title="RemoteInterfaceScreen for the bank account&#39;s &quot;View account&quot; screen." alt="" coords="5,229,181,256"/>
 <area shape="rect" id="node2" href="$classRemoteInterfaceScreen.html" title="RemoteInterfaceScreen InterfaceScreen." alt="" coords="6,155,181,181"/>
 <area shape="rect" id="node3" href="$classInterfaceScreen.html" title="InterfaceScreen Class UplinkObject." alt="" coords="31,80,155,107"/>
 <area shape="rect" id="node4" href="$classUplinkObject.html" title="UplinkObject base class." alt="" coords="40,5,147,32"/>
