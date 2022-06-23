@@ -42,8 +42,8 @@ ContactScreenInterface::ContactScreenInterface ()
 	mission = nullptr;
 	waiting = false;
 	numquestions = 0;
-	origionalpayment = 0;
-	origionalpaymentmethod = 0;
+	originalpayment = 0;
+	originalpaymentmethod = 0;
 
 }
 
@@ -76,7 +76,7 @@ void ContactScreenInterface::PostClick ( Button *button )
 
 	if ( b ) {
 
-		PutMessage ( 1, (char *) b->caption.c_str() );
+		PutMessage ( 1, b->caption );
 
 		b->SetCaption ( " " );
 		EclDirtyButton ( b->name );
@@ -111,7 +111,7 @@ void ContactScreenInterface::QuestionClick ( Button *button )
 
 	// Post this message on the board
 
-	PutMessage ( 1, (char *) button->caption.c_str() );
+	PutMessage ( 1, button->caption );
 
 	// Trigger a response
 
@@ -124,23 +124,17 @@ void ContactScreenInterface::PutMessage (int userid, const string& message )
 
 	// Work out the full message
 
-	std::ostrstream fullmessage;
+	string fullmessage;
 
 	auto *thisint = (ContactScreenInterface *) GetInterfaceScreen ( SCREEN_CONTACTSCREEN );
 
-	if	( userid == 0 )	fullmessage << message << '\x0';
-	else				fullmessage << thisint->users.GetData (userid) << " : " << message << '\x0';
+	if	( userid == 0 )	fullmessage = message;
+	else				fullmessage = thisint->users.GetData (userid) + " : " + message;
 
 
 	// Add the message to the queue
 
-	char * msg = new char[ strlen( fullmessage.str() ) + 1 ];
-	UplinkSafeStrcpy( msg, fullmessage.str() )
-	fullmessage.rdbuf()->freeze( false );
-	thisint->messagequeue.PutData ( msg );
-
-	// Can't delete the fullmessage.str here
-	// as it's pointer just got added into the messagequeue
+	thisint->messagequeue.PutData ( fullmessage );
 
 }
 
@@ -168,8 +162,8 @@ void ContactScreenInterface::SetMission ( Mission *newmission )
 
 	mission = newmission;
 
-	origionalpayment = mission->payment;
-	origionalpaymentmethod = mission->paymentmethod;
+	originalpayment = mission->payment;
+	originalpaymentmethod = mission->paymentmethod;
 	askedpayment = false;
 	askedpaymentmethod = false;
 
@@ -231,12 +225,12 @@ void ContactScreenInterface::SetMission ( Mission *newmission )
 
 }
 
-void ContactScreenInterface::AddUser ( char *name )
+void ContactScreenInterface::AddUser (string name )
 {
 
 	users.PutDataAtEnd ( name );
 
-	if ( strcmp ( name, "System" ) == 0 ) {
+	if ( name == "System" ) {
 
 		PutMessage ( 0, "Secure online communication channel established, Port 80" );
 		PutMessage ( 0, "Running SCi V2.6, copyright Frontier Communications Ltd" );
@@ -246,8 +240,7 @@ void ContactScreenInterface::AddUser ( char *name )
 	}
 	else {
 
-		char message [128];
-		UplinkSnprintf ( message, sizeof ( message ), "User '%s' has entered the conference", name )
+		string message = "User '" + name + "' has entered the conference";
 
 		PutMessage ( 0, message );
 
@@ -523,8 +516,8 @@ void ContactScreenInterface::AskQuestion ( int index )
 					if ( indexmission != -1 ) {
 
 						// Reset the mission
-						thisint->mission->payment = thisint->origionalpayment;
-						thisint->mission->paymentmethod = thisint->origionalpaymentmethod;
+						thisint->mission->payment = thisint->originalpayment;
+						thisint->mission->paymentmethod = thisint->originalpaymentmethod;
 
 					}
 
@@ -668,15 +661,14 @@ void ContactScreenInterface::Update ()
 
 		// Set the message on the last button and remove the message from the queue
 
-		char *message = messagequeue.GetData (0);
-		int time = (int) ( strlen(message) * 5 );
+		string message = messagequeue.GetData (0);
+		int time = (int) ( message.length() * 5 );
 
 		string name1 = "contact_text " + to_string(NUMLINES-1);
 
 		EclRegisterCaptionChange ( name1, message, time, WaitingCallback );
 		waiting = true;
 
-		delete [] messagequeue.GetData (0);
 		messagequeue.RemoveData (0);
 
 	}
