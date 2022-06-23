@@ -11,7 +11,7 @@
 
 //! Event Scheduler UplinkObject
 /**
- * Responsible for keeping track of all future scheduled events, and running those events at the right time.
+ * Responsible for keeping track of future scheduled UplinkEvent items, and running those UplinkEvent items at the right time.
  * It is not designed for high accuracy scheduling - events are run within around 10 seconds of their target time.
  */
 class EventScheduler : public UplinkObject
