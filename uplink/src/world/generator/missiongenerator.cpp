@@ -291,15 +291,15 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 
 	// Generate the fields of the mission
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description;
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
 	switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
 
-		case 1 :		UplinkStrncpy ( description,  "Steal important data from a rival company's file server", sizeof ( description ) )		break;
-		case 2 :		UplinkStrncpy ( description,  "Access a remote system and copy important data files", sizeof ( description ) )			break;
-		case 3 :		UplinkStrncpy ( description,  "Gain access to a rival system and steal research files", sizeof ( description ) )			break;
+		case 1 : description = "Steal important data from a rival company's file server"; break;
+		case 2 : description = "Access a remote system and copy important data files"; break;
+		case 3 : description = "Gain access to a rival system and steal research files"; break;
 
 	}
 
@@ -484,7 +484,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
     //
 	// Generate the fields of the mission
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description;
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
@@ -502,23 +502,21 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 
 	char completionA [SIZE_VLOCATION_IP];								// IP
-	char completionB [SIZE_DATA_TITLE];									// Data title or ALL
+	string completionB = "ALL"; // Data title or ALL
 	char completionC [SIZE_VLOCATION_IP];								// IP of our dump machine
-	char completionD [8];												// Numfiles TotalSize
-	char completionE [16];												// TYPE of data
+	string completionD = to_string(numfiles) + " " + to_string(totalsize); // Numfiles TotalSize
+	string completionE;												// TYPE of data
 
 	string whoisthetarget = "The data is owned by " + target->companyname;
 
 	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
-	UplinkStrncpy ( completionB, "ALL", sizeof ( completionB ) )
 	UplinkStrncpy ( completionC, ourcomp->ip, sizeof ( completionC ) )
-	UplinkSnprintf ( completionD, sizeof ( completionD ), "%d %d", numfiles, totalsize )
 
 	if ( missiontype == 1 ) {
 
-		UplinkStrncpy ( description, "Steal valuable scientific research documents", sizeof ( description ) )
+		description = "Steal valuable scientific research documents";
 
-		UplinkStrncpy ( completionE, "SCIENTIFIC", sizeof ( completionE ) )
+		completionE = "SCIENTIFIC";
 
 		fulldetails << "Due to a lack of enthusiasm on the part of our recruitment department, "
 					   "one of our market competitors has pulled several months ahead with "
@@ -527,28 +525,28 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 					   "they have gathered.  This will be your mission.\n\n"
 					   "Their research files are stored on the system below, and will be "
 					   "heavily protected.  You will need to copy the files, break the security "
-					   "on them in any way you see fit, then copy the files onto our own fileserver.\n\n";
+					   "on them in any way you see fit, then copy the files onto our own file server.\n\n";
 
 	}
 	else if ( missiontype == 2 ) {
 
-		UplinkStrncpy ( description, "Copy large and secure corporate database", sizeof ( description ) )
+		description = "Copy large and secure corporate database";
 
 		fulldetails << "Our establishment is very anxious to find out more about the inner workings "
 					   "of one of our rivals, and we have determined after several weeks of investigation "
 					   "that their primary corporate database is stored at the location shown below.  We "
 					   "want you to enter this system and steal all of the data files.\n\n"
 					   "These files will be well protected and encrypted - you will need to break this "
-					   "security, before copying the stolen database to our own fileserver, location below.\n\n";
+					   "security, before copying the stolen database to our own file server, location below.\n\n";
 
-		UplinkStrncpy ( completionE, "CORPORATE", sizeof ( completionE ) )
+		completionE = "CORPORATE";
 
 	}
 	else if ( missiontype == 3 ) {
 
-		UplinkStrncpy ( completionE, "CUSTOMER", sizeof ( completionE ) )
+		completionE = "CUSTOMER";
 
-		UplinkStrncpy ( description, "Break into High Security System and steal customer records", sizeof ( description ) )
+		description = "Break into High Security System and steal customer records";
 
 		fulldetails << "It has come to our attention that one of our competitors has amassed an extensive "
 					   "customer database which would prove to be of great help to our market research team.  "
@@ -558,9 +556,9 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	}
 	else if ( missiontype == 4 ) {
 
-		UplinkStrncpy ( completionE, "SOFTWARE", sizeof ( completionE ) )
+		completionE = "SOFTWARE";
 
-		UplinkStrncpy ( description, "Copy proprietary source code database", sizeof ( description ) )
+		description = "Copy proprietary source code database";
 
 		fulldetails << "As you may be aware we are currently in direct competition with another rival corporation "
 					   "to develop a software product which will no doubt dominate the market once released.  "
@@ -745,9 +743,8 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 				<< '\x0';
 
 	char completionA [SIZE_VLOCATION_IP];
-	char completionB [SIZE_DATA_TITLE];
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
-	UplinkStrncpy ( completionB, datatitle.c_str(), sizeof ( completionB ) )
+    UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
+    string completionB = datatitle;
 
 	Date postdate;
 	postdate.SetDate ( &(game->GetWorld ()->date) );
@@ -835,10 +832,9 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 
 
 	char completionA [SIZE_VLOCATION_IP];								// IP
-	char completionB [SIZE_DATA_TITLE];									// Data title or ALL
-	char completionC [16];												// Type of file
+	string completionB = "ALL";									        // Data title or ALL
+	string completionC;													// Type of file
 	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
-	UplinkStrncpy ( completionB, "ALL", sizeof ( completionB ) )
 
 	string whoisthetarget = "The data is owned by " + target->companyname;
 
@@ -898,7 +894,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 					   "you find on their file server.  You must also ensure all backups "
 					   "are totally wiped out.\n";
 
-		UplinkStrncpy ( completionC, "SCIENTIFIC", sizeof ( completionC ) )
+		completionC = "SCIENTIFIC";
 
 	}
 	else if ( type == 2 ) {
@@ -910,7 +906,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 					   "Break into their main computer system (ip below) and destroy ALL files "
 					   "on their system.\n";
 
-		UplinkStrncpy ( completionC, "CORPORATE", sizeof ( completionC ) )
+		completionC = "CORPORATE";
 
 	}
 	else if ( type == 3 ) {
@@ -921,7 +917,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 					   "wish to bring our conflict to a quick end.  Break into their primary "
 					   "sales system shown below and delete all files on their computer.\n";
 
-		UplinkStrncpy ( completionC, "CUSTOMER", sizeof ( completionC ) )
+		completionC = "CUSTOMER";
 
 	}
 	else if ( type == 4 ) {
@@ -934,7 +930,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 					   "and destroy ALL files you find.  You must also ensure all backups are "
 					   "totally destroyed.\n";
 
-		UplinkStrncpy ( completionC, "SOFTWARE", sizeof ( completionC ) )
+		completionC = "SOFTWARE";
 
 	}
 
@@ -1050,20 +1046,17 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 	//
 
 	char completionA [128];							// bankIP accountNum
-    char completionB [32];                          // Field required
-    char completionC [128];                         // Name of person responsible (only type3)
+    string completionB;                             // Field required
+    string completionC = "Unused";                  // Name of person responsible (only type3)
 
     UplinkSnprintf ( completionA, sizeof ( completionA ), "%s %d", target->ip, taccount->accountnumber )
-    UplinkStrncpy ( completionC, "Unused", sizeof ( completionC ) )
 
-	char description [SIZE_MISSION_DESCRIPTION];
-	std::ostrstream details;
+	string description;
 	std::ostrstream fulldetails;
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+                     "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+                     "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
 	fulldetails << "Break into the following well known financial institute:\n"
 				<< "TARGET COMPUTER DATA :\n"
@@ -1081,7 +1074,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 
 	if ( missiontype == 1 ) {
 
-		UplinkStrncpy ( description, "Find financial details of one of our associates", sizeof ( description ) )
+		description = "Find financial details of one of our associates";
 
 		fulldetails << "We are interested in this man's bank balance.\n"
 					<< "Open his account and send his balance to us.\n"
@@ -1092,12 +1085,12 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 //		balance = rec->GetField ( "Balance" );
 //		if ( !balance ) return nullptr;
 
-		UplinkStrncpy ( completionB, "Balance", sizeof ( completionB ) )
+		completionB = "Balance";
 
 	}
 	else if ( missiontype == 2 ) {
 
-		UplinkStrncpy ( description, "Client interested in financial data on an enemy", sizeof ( description ) )
+		description = "Client interested in financial data on an enemy";
 
 		fulldetails << "We are interested in this man's financial situation.\n"
 					<< "Open his account and determine the size of his loan. Send this information to us.\n"
@@ -1108,7 +1101,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 //		loan = rec->GetField ( "Loan" );
 //		if ( !loan ) return nullptr;
 
-		UplinkStrncpy ( completionB, "Loan", sizeof ( completionB ) )
+		completionB = "Loan";
 
 	}
 	else if ( missiontype == 3 ) {
@@ -1121,10 +1114,8 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 
 		if ( raccount == taccount )		return nullptr;				// That would be silly ;)
 
-		char taccountno [32];
-		char raccountno [32];
-		UplinkSnprintf ( taccountno, sizeof ( taccountno ), "%d", taccount->accountnumber )
-		UplinkSnprintf ( raccountno, sizeof ( raccountno ), "%d", raccount->accountnumber )
+		string taccountno = to_string(taccount->accountnumber);
+		string raccountno = to_string(raccount->accountnumber);
 
 		if ( game->GetWorld ()->GetPlayer ()->IsPlayerAccount (receiver->ip, raccountno) ) return nullptr;
 		if ( game->GetWorld ()->GetPlayer ()->IsPlayerAccount (target->ip, taccountno) ) return nullptr;
@@ -1138,7 +1129,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 
 		bool success = taccount->TransferMoney ( target->ip, taccountno, receiver->ip, raccountno, amount, transferer );
 
-		UplinkStrncpy ( description, "Trace a recent balance transfer", sizeof ( description ) )
+		description = "Trace a recent balance transfer";
 
 		fulldetails << "This individual is the subject of an internal investigation into corruption:\n"
 					<< "NAME : " << taccount->name << "\n"
@@ -1146,8 +1137,8 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 					<< "He recently transfered a sizable amount of money to another account."
 					<< "Trace this account and find the name of the receiver of this money.";
 
-        UplinkStrncpy ( completionB, "TraceTransfer", sizeof ( completionB ) )
-		UplinkStrncpy ( completionC, raccount->name.c_str(), sizeof ( completionC ) )
+        completionB = "TraceTransfer";
+		completionC = raccount->name;
 
 	}
 	else {
@@ -1166,8 +1157,7 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 				<< "END"
 				<< '\x0';
 
-	char whoisthetarget [128];
-	UplinkStrncpy ( whoisthetarget, "Nobody you would know.", sizeof ( whoisthetarget ) )
+	string whoisthetarget = "Nobody you would know.";
 
 	Date postdate;
 	postdate.SetDate ( &(game->GetWorld ()->date) );
@@ -1188,16 +1178,14 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
+	mission->SetDetails		 ( details );
 	mission->SetFullDetails  ( fulldetails.str () );
 	mission->SetWhySoMuchMoney ( "The data is highly personal, and well protected" );
 	if ( !game->IsRunning () ) mission->SetCreateDate   ( &postdate );
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( false );
 	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -1257,7 +1245,7 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 
 	string personname = "internal@" + employer->name + ".net";
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description;
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
@@ -1276,11 +1264,11 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 
 	char completionA [SIZE_VLOCATION_IP];			// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
-	char completionC [64];							// Field to be changed
-	char completionD [64];							// Word that must appear in the field
-	char completionE [64];							// Word that must appear in the field
+	string completionC;							// Field to be changed
+	string completionD;							// Word that must appear in the field
+	string completionE;							// Word that must appear in the field
 
-    char whysomuchmoney [256];
+    string whysomuchmoney;
 
 	int missiontype = NumberGenerator::RandomNumber ( 4 ) + 1;
 
@@ -1309,37 +1297,37 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 		// Generate a University degree that this person wants
 
 		int degreelevel = 1;
-		char degreesubject [32];
+		string degreesubject;
 
 		switch ( NumberGenerator::RandomNumber ( 10 ) ) {
 
-			case 0 :		UplinkStrncpy ( degreesubject, "Computing", sizeof ( degreesubject ) )						break;
-			case 1 :		UplinkStrncpy ( degreesubject, "Physics", sizeof ( degreesubject ) )						break;
-			case 2 :		UplinkStrncpy ( degreesubject, "Electrical Engineering", sizeof ( degreesubject ) )		break;
-			case 3 :		UplinkStrncpy ( degreesubject, "Mechanical Engineering", sizeof ( degreesubject ) )		break;
-			case 4 :		UplinkStrncpy ( degreesubject, "Software Engineering", sizeof ( degreesubject ) )			break;
-			case 5 :		UplinkStrncpy ( degreesubject, "Systems Engineering", sizeof ( degreesubject ) )			break;
-			case 6 :		UplinkStrncpy ( degreesubject, "Management", sizeof ( degreesubject ) )					break;
-			case 7 :		UplinkStrncpy ( degreesubject, "Artificial Intelligence", sizeof ( degreesubject ) )		break;
-			case 8 :		UplinkStrncpy ( degreesubject, "Philosophy", sizeof ( degreesubject ) )					break;
-			case 9 :		UplinkStrncpy ( degreesubject, "Media studies", sizeof ( degreesubject ) )					break;
+			case 0 : degreesubject = "Computing"; break;
+			case 1 : degreesubject = "Physics"; break;
+			case 2 : degreesubject = "Electrical Engineering"; break;
+			case 3 : degreesubject = "Mechanical Engineering"; break;
+			case 4 : degreesubject = "Software Engineering"; break;
+			case 5 : degreesubject = "Systems Engineering"; break;
+			case 6 : degreesubject = "Management"; break;
+			case 7 : degreesubject = "Artificial Intelligence"; break;
+			case 8 : degreesubject = "Philosophy"; break;
+			case 9 : degreesubject = "Media studies"; break;
 
 			default:
 				UplinkAbort ( "MissionGenerator::Generate_ChangeData_EmploymentRecord, error in Degree Type" )
 
 		}
 
-		UplinkStrncpy ( description, "Generate a University Degree for a friend", sizeof ( description ) )
+		description = "Generate a University Degree for a friend";
 
 		fulldetails	<< "Provide this person with the following University Degree:\n"
 					<< "UNIVERSITY DEGREE :\n"
 					<< "   SUBJECT : " << degreesubject << "\n"
 					<< "   CLASS   : " << degreelevel << "\n";
-		UplinkStrncpy ( completionC, "University", sizeof ( completionC ) )
-		UplinkStrncpy ( completionD, degreesubject, sizeof ( completionD ) )
-		UplinkSnprintf ( completionE, sizeof ( completionE ), "%d", degreelevel )
+		completionC = "University";
+		completionD = degreesubject;
+		completionE = to_string(degreelevel);
 
-        UplinkStrncpy ( whysomuchmoney, "We really need this qualification", sizeof ( whysomuchmoney ) )
+        whysomuchmoney = "We really need this qualification";
 
 	}
 	else if ( missiontype == 2 ) {	// Improve a degree rating ==========================================
@@ -1357,13 +1345,13 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person)
 
-		UplinkStrncpy ( description, "Improve our associates' academic standing", sizeof ( description ) )
+		description = "Improve our associates' academic standing";
 		fulldetails << "This person requires a first class degree.\n";
-		UplinkStrncpy ( completionC, "University", sizeof ( completionC ) )
-		UplinkSnprintf ( completionD, sizeof ( completionD ), "%d", 1 )
-		UplinkSnprintf ( completionE, sizeof ( completionE ), "%d", 1 )						// Always needs a 1st
+		completionC = "University";
+		completionD = "1";
+		completionE = "1";						// Always needs a 1st
 
-        UplinkStrncpy ( whysomuchmoney, "This qualification will be very useful to us", sizeof ( whysomuchmoney ) )
+        whysomuchmoney = "This qualification will be very useful to us";
 
 	}
 	else if ( missiontype == 3 ) {	// Decrease a degree rating ==========================================
@@ -1381,27 +1369,27 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person)
 
-		UplinkStrncpy ( description, "Help us prove a fellow employee is over-rated", sizeof ( description ) )
+		description = "Help us prove a fellow employee is over-rated";
 		fulldetails << "We feel this person scored slightly too highly at his degree."
 					<< "Give him a 3rd class replacement.\n";
-		UplinkStrncpy ( completionC, "University", sizeof ( completionC ) )
-		UplinkSnprintf ( completionD, sizeof ( completionD ), "%d", 3 )
-		UplinkSnprintf ( completionE, sizeof ( completionE ), "%d", 3 )						// Always needs a 3rd
+		completionC = "University";
+		completionD = "3";
+		completionE = "3";						// Always needs a 3rd
 
-        UplinkStrncpy ( whysomuchmoney, "We really dont like the target", sizeof ( whysomuchmoney ) )
+        whysomuchmoney = "We really dont like the target";
 
 	}
 	else if ( missiontype == 4 ) {	// Add a random qualification =======================================
 
-		char qualification [64];
+		string qualification;
 
 		switch ( NumberGenerator::RandomNumber ( 5 ) ) {
 
-			case 0 :		UplinkStrncpy ( qualification, "Diploma in Computing", sizeof ( qualification ) )			break;
-			case 1 :		UplinkStrncpy ( qualification, "IEEE Accreditation", sizeof ( qualification ) )			break;
-			case 2 :		UplinkStrncpy ( qualification, "Certified systems engineer", sizeof ( qualification ) )	break;
-			case 3 :		UplinkStrncpy ( qualification, "Btec in IT", sizeof ( qualification ) )					break;
-			case 4 :		UplinkStrncpy ( qualification, "Registered Uplink Agent", sizeof ( qualification ) )		break;
+			case 0 : qualification = "Diploma in Computing";		break;
+			case 1 : qualification = "IEEE Accreditation";			break;
+			case 2 : qualification = "Certified systems engineer";	break;
+			case 3 : qualification = "Btec in IT";					break;
+			case 4 : qualification = "Registered Uplink Agent";	break;
 
 			default:
 				UplinkAbort ( "MissionGenerator::Generate_ChangeData_EmploymentRecord, error in Qualification Type" )
@@ -1410,8 +1398,7 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 
 		// Find someone who doesn't have this qualification
 
-		char query [64];
-		UplinkSnprintf ( query, sizeof ( query ), "Other - %s", qualification )
+		string query = "Other - " + qualification;
 		Record *record = target->recordbank.GetRandomRecord ( query );
 		if ( !record ) return nullptr;
 
@@ -1423,14 +1410,14 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person)
 
-		UplinkStrncpy ( description, "Qualifications required for wealthy professional", sizeof ( description ) )
+		description = "Qualifications required for wealthy professional";
 		fulldetails << "This individual urgently requires a \n"
 					<< "'" << qualification << "' Qualification adding to his record.";
-		UplinkStrncpy ( completionC, "Other", sizeof ( completionC ) )
-		UplinkStrncpy ( completionD, qualification, sizeof ( completionD ) )
-		UplinkStrncpy ( completionE, qualification, sizeof ( completionE ) )
+		completionC = "Other";
+		completionD = qualification;
+		completionE = qualification;
 
-        UplinkStrncpy ( whysomuchmoney, "This qualification is needed to gain entry", sizeof ( whysomuchmoney ) )
+        whysomuchmoney = "This qualification is needed to gain entry";
 
 	}
 	else {
@@ -1456,8 +1443,7 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 				<< "END"
 				<< '\x0';
 
-	char whoisthetarget [128];
-	UplinkStrncpy ( whoisthetarget, "He's just a friend of ours.", sizeof ( whoisthetarget ) )
+	string whoisthetarget = "He's just a friend of ours.";
 
 	Date postdate;
 	postdate.SetDate ( &(game->GetWorld ()->date) );
@@ -1528,7 +1514,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 
 	string personname = "internal@" + employer->name + ".net";
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description;
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
@@ -1547,9 +1533,9 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 
 	char completionA [SIZE_VLOCATION_IP];			// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
-	char completionC [64];							// Field to be changed
-	char completionD [64];							// Word that must appear in the field
-	char completionE [64];							// Word that must appear in the field
+	string completionC;								// Field to be changed
+	string completionD;								// Word that must appear in the field
+	string completionE;								// Word that must appear in the field
 
 
 	int missiontype = NumberGenerator::RandomNumber ( 2 ) + 1;
@@ -1574,11 +1560,11 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person)
 
-		UplinkStrncpy ( description, "Falsify a Social Security document", sizeof ( description ) )
+		description = "Falsify a Social Security document";
 		fulldetails << "The man below is living too easily.  Change his Personal Status to read 'Deceased'.\n";
-		UplinkStrncpy ( completionC, "Personal Status", sizeof ( completionC ) )
-		UplinkStrncpy ( completionD, "Deceased", sizeof ( completionD ) )
-		UplinkStrncpy ( completionE, "Deceased", sizeof ( completionE ) )
+		completionC = "Personal Status";
+		completionD = "Deceased";
+		completionE = "Deceased";
 
 	}
 	else if ( missiontype == 2 ) {
@@ -1596,12 +1582,12 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 		person = game->GetWorld ()->GetPerson ( personname );
 		UplinkAssert (person)
 
-		UplinkStrncpy ( description, "Create part of a new identity", sizeof ( description ) )
+		description = "Create part of a new identity";
 		fulldetails << "The man below recently passed away and we wish to use his identity ourselves. "
 					   "Change his Personal Status to 'Employed'.\n";
-		UplinkStrncpy ( completionC, "Personal Status", sizeof ( completionC ) )
-		UplinkStrncpy ( completionD, "Employed", sizeof ( completionD ) )
-		UplinkStrncpy ( completionE, "Employed", sizeof ( completionE ) )
+		completionC = "Personal Status";
+		completionD = "Employed";
+		completionE = "Employed";
 
 	}
 
@@ -1621,8 +1607,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 				<< "END"
 				<< '\x0';
 
-	char whoisthetarget [128];
-	UplinkStrncpy ( whoisthetarget, "You wouldn't recognise the name.", sizeof ( whoisthetarget ) )
+	string whoisthetarget = "You wouldn't recognise the name.";
 
 	Date postdate;
 	postdate.SetDate ( &(game->GetWorld ()->date) );
@@ -1695,7 +1680,7 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 
 	string personname = "internal@" + employer->name + ".net";
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description;
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
@@ -1714,11 +1699,11 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 
 	char completionA [SIZE_VLOCATION_IP];			// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
-	char completionC [64];							// Field to be changed
-	char completionD [64];							// Word that must appear in the field
-	char completionE [64];							// Word that must appear in the field
+	string completionC;								// Field to be changed
+	string completionD;								// Word that must appear in the field
+	string completionE;								// Word that must appear in the field
 
-	char whoisthetarget [128];
+	string whoisthetarget;
 
 	int missiontype = NumberGenerator::RandomNumber ( 3 ) + 1;
 
@@ -1730,7 +1715,7 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 
 	if ( missiontype == 1 ) {
 
-		UplinkStrncpy ( description, "Help to discredit one of our rivals", sizeof ( description ) )
+		description = "Help to discredit one of our rivals";
 
 		Record *record = target->recordbank.GetRandomRecord ( "Convictions = None" );
 		if ( !record ) return nullptr;
@@ -1748,16 +1733,16 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 					<< "Open his Criminal Record and give him a conviction for "
 					<< "Robbery.";
 
-		UplinkStrncpy ( completionC, "Convictions", sizeof ( completionC ) )
-		UplinkStrncpy ( completionD, "Robbery", sizeof ( completionD ) )
-		UplinkStrncpy ( completionE, "Robbery", sizeof ( completionE ) )
+		completionC = "Convictions";
+		completionD = "Robbery";
+		completionE = "Robbery";
 
-		UplinkStrncpy ( whoisthetarget, "We wouldn't want to give his name out just yet.", sizeof ( whoisthetarget ) )
+		whoisthetarget = "We wouldn't want to give his name out just yet.";
 
 	}
 	else if ( missiontype == 2 ) {
 
-		UplinkStrncpy ( description, "Help to stop a hacker from ever working again", sizeof ( description ) )
+		description = "Help to stop a hacker from ever working again";
 
 		Record *record = target->recordbank.GetRandomRecord ( "Convictions = None" );
 		if ( !record ) return nullptr;
@@ -1778,16 +1763,16 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 					<< "Open his Criminal Record and give him a new conviction for "
 					<< "High tech fraud.";
 
-		UplinkStrncpy ( completionC, "Convictions", sizeof ( completionC ) )
-		UplinkStrncpy ( completionD, "High tech fraud", sizeof ( completionD ) )
-		UplinkStrncpy ( completionE, "High tech fraud", sizeof ( completionE ) )
+		completionC = "Convictions";
+		completionD = "High tech fraud";
+		completionE = "High tech fraud";
 
-		UplinkStrncpy ( whoisthetarget, "A hacker who has attacked us before.", sizeof ( whoisthetarget ) )
+		whoisthetarget = "A hacker who has attacked us before.";
 
 	}
 	else if ( missiontype == 3 ) {
 
-		UplinkStrncpy ( description, "Clear a criminal record", sizeof ( description ) )
+		description = "Clear a criminal record";
 
 		Record *record = target->recordbank.GetRandomRecord ( "Convictions ! None" );
 		if ( !record ) return nullptr;
@@ -1806,11 +1791,11 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 					<< "\n\n"
 					<< "Target individual : " << personname;
 
-		UplinkStrncpy ( completionC, "Convictions", sizeof ( completionC ) )
-		UplinkStrncpy ( completionD, "None", sizeof ( completionD ) )
-		UplinkStrncpy ( completionE, "None", sizeof ( completionE ) )
+		completionC = "Convictions";
+		completionD = "None";
+		completionE = "None";
 
-		UplinkStrncpy ( whoisthetarget, "Just a friend of ours who needs help.", sizeof ( whoisthetarget ) )
+		whoisthetarget = "Just a friend of ours who needs help.";
 
 	}
 
@@ -1931,11 +1916,10 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 	string personname = "internal@" + employer->name + ".net";
 
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description = "Trace an unauthorised money transfer";
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
-	UplinkStrncpy ( description, "Trace an unauthorised money transfer", sizeof ( description ) )
 
 	details << "Payment for this job is " << payment << " credits.\n"
 			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
@@ -1969,8 +1953,7 @@ Mission *MissionGenerator::Generate_TraceUser_MoneyTransfer ( Company *employer,
 	postdate.AdvanceHour ( NumberGenerator::RandomNumber ( 96 ) * -1 );
 	postdate.AdvanceMinute ( NumberGenerator::RandomNumber ( 60 ) * -1 );
 
-	char whoisthetarget [128];
-	UplinkStrncpy ( whoisthetarget, "That's for you to find out.", sizeof ( whoisthetarget ) )
+	string whoisthetarget = "That's for you to find out.";
 
 	//
 	// Insert the mission
@@ -2038,20 +2021,18 @@ Mission *MissionGenerator::Generate_PayFine (Person *person, Company *company, i
 
 	char completionA [64];							// Person name who pays the fine
 	char completionB [64];							// (Target account) IP ACCNO
-	char completionC [16];							// Amount to transfer
+	string completionC = to_string(amount);			// Amount to transfer
 
 	UplinkStrncpy ( completionA, person->name, sizeof ( completionA ) )
 	if ( strcmp ( person->name, "PLAYER" ) == 0 ) UplinkStrncpy ( completionA, game->GetWorld ()->GetPlayer ()->handle, sizeof ( completionA ) )
 
 	UplinkSnprintf ( completionB, sizeof ( completionB ), "%s %d", bank->ip, account->accountnumber )
-	UplinkSnprintf ( completionC, sizeof ( completionC ), "%d", amount )
 
 	//
 	// Create the descriptive text
 	//
 
-	char description [128];
-	UplinkSnprintf ( description, sizeof ( description ), "Pay a %dc fine", amount )
+	string description = "Pay a " + to_string(amount) + "c fine";
 
 	std::ostrstream fulldetails;
 	fulldetails << reason
@@ -2137,12 +2118,12 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 	string personname = "internal@" + employer->name + ".net";
 
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description;
 	std::ostrstream details;
 	std::ostrstream fulldetails;
 
 	char completionA [SIZE_MISSION_COMPLETION];									// Target name
-	char completionB [SIZE_MISSION_COMPLETION];									// Type of crime
+	string completionB;															// Type of crime
 	char completionC [SIZE_MISSION_COMPLETION];									// IP of target (if applicable)
 
 
@@ -2164,7 +2145,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 
 	if ( missiontype == 1 ) {									// Frame a user for hacking
 
-		UplinkStrncpy ( description, "Frame a user for computer crimes", sizeof ( description ) )
+		description = "Frame a user for computer crimes";
 
 		fulldetails << "A member of the public has been interfering with our plans recently "
 					   "and we believe his arrest and conviction for computer crimes will put "
@@ -2172,12 +2153,12 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 					   "Perform a break in on a high-priority computer system and ensure that "
 					   "this man is charged with the crime.  He must be jailed for several years.\n";
 
-		UplinkStrncpy ( completionB, "HACKING", sizeof ( completionB ) )
+		completionB = "HACKING";
 
 	}
 	else if ( missiontype == 2 ) {
 
-		UplinkStrncpy ( description, "Frame a man for bank fraud", sizeof ( description ) )
+		description = "Frame a man for bank fraud";
 
 		auto *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 		UplinkAssert (bank)
@@ -2192,7 +2173,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 					   << bank->name << "\n"
 					   "IP: " << bank->ip << "\n";
 
-		UplinkStrncpy ( completionB, "FINANCIAL", sizeof ( completionB ) )
+		completionB = "FINANCIAL";
 		UplinkStrncpy ( completionC, bank->ip, sizeof ( completionC ) )
 
 		payment = (int) ( payment * 1.2 );
@@ -2200,7 +2181,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 	}
 	else if ( missiontype == 3 ) {
 
-		UplinkStrncpy ( description, "Frame a user for destruction of data.", sizeof ( description ) )
+		description = "Frame a user for destruction of data.";
 
 		Computer *target = WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_INTERNALSERVICESMACHINE );
 		UplinkAssert (target)
@@ -2214,7 +2195,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 					   << target->name << "\n"
 					   "IP: " << target->ip << "\n";
 
-		UplinkStrncpy ( completionB, "DESTROYALL", sizeof ( completionB ) )
+		completionB = "DESTROYALL";
 		UplinkStrncpy ( completionC, target->ip, sizeof ( completionC ) )
 
 		payment = (int) ( payment * 1.2 );
@@ -2366,11 +2347,9 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 	// Fill in the text fields
 	//
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description = "Trace a hacker who recently broke into our systems";
 	std::ostrstream details;
 	std::ostrstream fulldetails;
-
-	UplinkStrncpy ( description, "Trace a hacker who recently broke into our systems", sizeof ( description ) )
 
 	details << "Payment for this job is " << payment << " credits.\n"
 			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
@@ -2505,26 +2484,19 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 
 	char completionA [64];							// (source account) IP AccNo
 	char completionB [64];							// (Target account) IP ACCNO
-	char completionC [16];							// Amount to transfer
-	char completionD [16];							// Amount in source account
-	char completionE [16];							// Amount in target account
+	string completionC = to_string(amount_to_transfer);							// Amount to transfer
+	string completionD = to_string(sourceaccount->balance);							// Amount in source account
+	string completionE = to_string(targetaccount->balance);							// Amount in target account
 
 	UplinkSnprintf ( completionA, sizeof ( completionA ), "%s %d", source->ip, sourceaccount->accountnumber )
 	UplinkSnprintf ( completionB, sizeof ( completionB ), "%s %d", target->ip, targetaccount->accountnumber )
-	UplinkSnprintf ( completionC, sizeof ( completionC ), "%d", amount_to_transfer )
-	UplinkSnprintf ( completionD, sizeof ( completionD ), "%d", sourceaccount->balance )
-	UplinkSnprintf ( completionE, sizeof ( completionE ), "%d", targetaccount->balance )
 	
-	char description [SIZE_MISSION_DESCRIPTION];
-	std::ostrstream details;
+	string description = "Our esteemed colleague wishes to make a donation.";
 	std::ostrstream fulldetails;
 
-	UplinkStrncpy ( description, "Our esteemed colleague wishes to make a donation.", sizeof ( description ) )
-
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+                     "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+                     "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
 	fulldetails << "Break into the following well known financial institute:\n"
 				<< "TARGET COMPUTER DATA :\n"
@@ -2565,7 +2537,7 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
+	mission->SetDetails		 ( details );
 	mission->SetFullDetails  ( fulldetails.str () );
 	mission->SetWhySoMuchMoney ( "Financial systems are always well guarded." );
 	mission->SetHowSecure ( "The bank will be using Proxys and Monitors." );
@@ -2573,9 +2545,7 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	mission->GiveLink ( source->ip );
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 
-	details.rdbuf()->freeze( false );
 	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -2618,11 +2588,9 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 	// Fill in the fields
 	//
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description = "Elite agent required for destruction of computer system";
 	std::ostrstream details;
 	std::ostrstream fulldetails;
-
-	UplinkStrncpy ( description, "Elite agent required for destruction of computer system", sizeof ( description ) )
 
 	details << "Payment for this job is " << payment << " credits.\n"
 			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
@@ -2733,12 +2701,9 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 	// Fill in the fields
 	//
 
-	char description [SIZE_MISSION_DESCRIPTION];
+	string description = "Highly skilled Agent required for removal job";
 	std::ostrstream details;
 	std::ostrstream fulldetails;
-
-
-	UplinkStrncpy ( description, "Highly skilled Agent required for removal job", sizeof ( description ) )
 
 	details << "Payment for this job is " << payment << " credits.\n"
 			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
@@ -2857,18 +2822,14 @@ bool MissionGenerator::IsMissionComplete_StealFile ( Mission *mission, Person *p
 
 		// Message is encrypted
 
-		std::ostrstream reason;
-		reason << "Your mission is not yet complete.\n"
-			   << "The data you sent us is encrypted with level " << msgdata->encrypted
-			   << " encryption, which we are unable to break.\n"
-			   << "\nPlease break the encryption on the file and send it too us again.\n"
-			   << "You will not be paid until this has been accomplished."
-			   << '\x0';
+		string reason = "Your mission is not yet complete.\n"
+                        "The data you sent us is encrypted with level " + to_string(msgdata->encrypted) +
+                        " encryption, which we are unable to break.\n\n"
+                        "Please break the encryption on the file and send it too us again.\n"
+                        "You will not be paid until this has been accomplished.";
 
-		MissionNotCompleted ( mission, person, message, reason.str () );
+		MissionNotCompleted ( mission, person, message, reason );
 
-		reason.rdbuf()->freeze( false );
-		//delete [] reason.str ();
 		return false;
 
 	}
@@ -2931,20 +2892,20 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 	// Work out the filenames that should be here
 	//
 
-	char missiontypestring [8];
+	string missiontypestring;
 
-	if      ( datatype == "SCIENTIFIC" ) {       UplinkStrncpy ( missiontypestring, "rsrch", sizeof ( missiontypestring ) )
-	} else if	( datatype == "RESEARCH" ) {     UplinkStrncpy ( missiontypestring, "rsrch", sizeof ( missiontypestring ) )         // Not needed anymore, but older user files may have this
-	} else if ( datatype == "CORPORATE" ) {      UplinkStrncpy ( missiontypestring, "corp", sizeof ( missiontypestring ) )
-	} else if ( datatype == "CUSTOMER" ) {       UplinkStrncpy ( missiontypestring, "custmr", sizeof ( missiontypestring ) )
-	} else if ( datatype == "SOFTWARE" ) {       UplinkStrncpy ( missiontypestring, "softw", sizeof ( missiontypestring ) )
+	if      ( datatype == "SCIENTIFIC" ) {   missiontypestring = "rsrch";
+	} else if	( datatype == "RESEARCH" ) { missiontypestring = "rsrch";         // Not needed anymore, but older user files may have this
+	} else if ( datatype == "CORPORATE" ) {  missiontypestring = "corp";
+	} else if ( datatype == "CUSTOMER" ) {   missiontypestring = "custmr";
+	} else if ( datatype == "SOFTWARE" ) {   missiontypestring = "softw";
 	} else {	UplinkAbort ( "Unrecognised data type" )
 	}
 
 	char stolendatatitle [64];
 	UplinkSnprintf ( stolendatatitle, sizeof ( stolendatatitle ), "%c%c%c%c-%s", target->companyname [0], target->companyname [1],
 																  target->companyname [2], target->companyname [3],
-																  missiontypestring )
+																  missiontypestring.c_str() )
 
 	//
 	// Lookup the dump computer
@@ -3058,10 +3019,9 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 		mission->payment = 100 * (mission->payment / 100);
 		if ( mission->payment < 100 ) mission->payment = 100;
 
-		char newmessage [256];
-		UplinkSnprintf ( newmessage, sizeof ( newmessage ), "We've reviewed your recent mission to copy data files.\n"
-															  "It looks like you got most of the files but some are missing.\n"
-															  "We've decided to reduce your remaining payment to %dc.", mission->payment )
+		string newmessage = "We've reviewed your recent mission to copy data files.\n"
+                            "It looks like you got most of the files but some are missing.\n"
+                            "We've decided to reduce your remaining payment to " + to_string(mission->payment) + "c.";
 
 		auto *m = new Message ();
 		m->SetTo ( "PLAYER" );
@@ -3200,8 +3160,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
 	char source_ip [SIZE_VLOCATION_IP];
 	int source_acc;
 	sscanf ( mission->completionA, "%s %d", source_ip, &source_acc );
-	char source_acc_s [16];
-	UplinkSnprintf ( source_acc_s, sizeof ( source_acc_s ), "%d", source_acc )
+	string source_acc_s = to_string(source_acc);
 
     char *field = mission->completionB;
 
@@ -3211,8 +3170,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
     if ( strcmp ( field, "Balance" ) == 0 ) {
 
         int actualbalance = source_account->balance;
-        char sbalance [64];
-        UplinkSnprintf ( sbalance, sizeof ( sbalance ), "%d", actualbalance )
+        string sbalance = to_string(actualbalance);
         if ( message->GetBody().find(sbalance) != string::npos ) {
 
             MissionCompleted ( mission, person, message );
@@ -3230,8 +3188,7 @@ bool MissionGenerator::IsMissionComplete_FindFinancial  ( Mission *mission, Pers
     else if ( strcmp ( field, "Loan" ) == 0 ) {
 
         int actualloan = source_account->loan;
-        char sloan [64];
-        UplinkSnprintf ( sloan, sizeof ( sloan ), "%d", actualloan )
+        string sloan = to_string(actualloan);
         if ( message->GetBody().find(sloan) != string::npos ) {
 
             MissionCompleted ( mission, person, message );
