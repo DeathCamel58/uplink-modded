@@ -115,7 +115,7 @@ void ConsoleScreenInterface::WaitingCallback ()
 void ConsoleScreenInterface::AddUser (const string& name )
 {
 
-	users.PutDataAtEnd ( (char *) name.c_str() );
+	users.PutDataAtEnd ( name );
 
 	if ( name == "System" ) {
 
@@ -205,6 +205,7 @@ void ConsoleScreenInterface::RunCommand (const string& command )
 
 	string lccommand = LowerCaseString ( command );
 
+	// TODO: Add *nix equivalents
 	if      ( lccommand.find( "help" ) != string::npos ) {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_HELP, "", 0 ) );		}
 	else if ( lccommand.find( "dir" ) != string::npos )  {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_DIR, "", 0 ) );			}
 	else if ( lccommand.find( "cd " ) != string::npos )  {		queue.PutDataAtEnd ( new ConsoleCommand ( CMDTYPE_CD, lccommand.substr(3), 0 ) );	                    }
@@ -321,7 +322,7 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 			PutTextAtStart ( 0, "   boot.sys" );
 			PutTextAtStart ( 0, "   os.sys" );
 			PutTextAtStart ( 0, "   kernel.sys" );
-			PutTextAtStart ( 0, "Direcory listing of SYS:" );
+			PutTextAtStart ( 0, "Directory listing of SYS:" );
 
 		}
 
@@ -402,13 +403,13 @@ void ConsoleScreenInterface::RunCommand_DIR ()
 		}
 */
 
-		PutTextAtStart ( 0, "Not accessable from console." );
+		PutTextAtStart ( 0, "Not accessible from console." );
 		PutTextAtStart ( 0, "Directory listing for PUB:" );
 
 	}
 	else if ( currentdir == "rec" ) {
 
-		PutTextAtStart ( 0, "Not accessable from console." );
+		PutTextAtStart ( 0, "Not accessible from console." );
 		PutTextAtStart ( 0, "Directory listing for REC:" );
 
 	}
@@ -919,7 +920,7 @@ ConsoleCommand::ConsoleCommand ()
 {
 
 	TYPE = CMDTYPE_NONE;
-	data1 = nullptr;
+	data1 = "";
 	time = -1;
 
 }
@@ -929,12 +930,7 @@ ConsoleCommand::ConsoleCommand (int newTYPE, const string &newdata1, int newtime
 
 	TYPE = newTYPE;
 	time = newtime;
-
-	if ( !newdata1.empty() ) {
-		data1 = newdata1;
-	}
-	else
-		data1 = "";
+	data1 = newdata1;
 
 }
 
