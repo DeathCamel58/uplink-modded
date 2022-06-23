@@ -65,7 +65,7 @@ string MISSION_DESCRIPTION [] = {
 								    "Take advantage of an amazing opportunity",
 								    "Prevent the outbreak of Revelation",
 								    "Test run Revelation Version 1.0",
-                                    "Steal vital Research into Digitial Life Forms",
+                                    "Steal vital Research into Digital Life Forms",
 								    "Frame the chief tech of Arunmor Corporation",
 								    "Destroy all research completed by Arunmor",
 								    "Release the Revelation Virus into the wild",
@@ -1298,18 +1298,18 @@ void PlotGenerator::Run_Act1Scene4 ()
 	//
 
 	std::ostrstream details;
-	details << "In a suprising development in the mystery of Andromeda Research Corporation (ARC), "
+	details << "In a surprising development in the mystery of Andromeda Research Corporation (ARC), "
 			   "the number one rated Uplink Agent has come forward and tried to re-assure the community.\n\n"
 			   "This comes two days after Agent " << scene3guy->handle << " publicly expressed concern "
 			   "that ARC were hiring agents to work on some kind of weapon.\n\n"
-			   "The Agent, known amoungst the hacker community as " << agent->handle << ", says in his statement "
+			   "The Agent, known amongst the hacker community as " << agent->handle << ", says in his statement "
 			   "that 'I have been working for ARC on a confidential project for the past two weeks.  The project "
-			   "is immensly ambitious in nature but is nothing to worry about.  ARC have been keeping the public "
+			   "is immensely ambitious in nature but is nothing to worry about.  ARC have been keeping the public "
 			   "in the dark to protect their trade secrets.  Uplink Agents should not be afraid of accepting jobs "
 			   "from this company.'\n"
 			   "'Some people have said they think ARC are building some kind of military weapon - I can say that I "
 			   "have had full access to the ARC Central Mainframe for the past week and there is nothing of the sort "
-			   "on the system.  What they are doing is being kept under wraps but it is definately not a weapon.'\n\n"
+			   "on the system.  What they are doing is being kept under wraps but it is definitely not a weapon.'\n\n"
 			   "Agent " << agent->handle << " is a well respected hacker with years of experience and his comments "
 			   "will certainly re-assure the community."
 			   << '\x0';
@@ -1424,11 +1424,11 @@ void PlotGenerator::Run_Act1Scene5 ()
 			   "Preliminary forensic analysis suggests he overdosed on sleeping pills.\n\n"
 			   "He was at the top of the Agent leaderboard and made the news recently after commenting on the "
 			   "actions of Andromeda Research Corporation (ARC).  He had been working for them on their latest "
-			   "product which is currently shrowded in mystery.  This latest development will no doubt add to "
+			   "product which is currently shrouded in mystery.  This latest development will no doubt add to "
 			   "the mystery surrounding the project.\n\n"
 			   "ARC released a statement earlier today, stating 'He was the best programmer we had ever seen and "
-			   "was a lead player in the project.  For something like this happen is a tradgedy of the greatest order.  "
-			   "Our thoughts go out to this mans family and friends.'"
+			   "was a lead player in the project.  For something like this happen is a tragedy of the greatest order.  "
+			   "Our thoughts go out to this man's family and friends.'"
 			   << '\x0';
 
 	News *news = new News ();
@@ -1555,7 +1555,7 @@ void PlotGenerator::Run_Act1Scene8 () const
 				   "In a statement released today, they say 'Uplink Corporation is currently investigating "
 				   "the claim that ARC have been developing some kind of high-tech weapon, using the "
 				   "expertise of freelance Uplink agents to assist them.  Federal agents have been called in "
-				   "to assist and are also persuing the matter of a recent suicide, which they believe may "
+				   "to assist and are also perusing the matter of a recent suicide, which they believe may "
 				   "have been a related murder.\n\n"
 				   "'Until we can determine if these charges have any truth in them, we must insist that all "
 				   "Uplink Agents refuse any work being offered to them from ARC or anyone working for that company.  "
@@ -1651,11 +1651,11 @@ void PlotGenerator::Run_Act2Scene1 ()
 		body << "Agent " << game->GetWorld ()->GetPlayer ()->handle << ",\n"
 			 << "We couldn't help but notice that you have been poking into our "
                 "business recently, and if our backup logs are correct, you are now "
-                "in possesion of something that is very important to us.\n\n"
+                "in possession of something that is very important to us.\n\n"
                 "Of course, you could make use of this data.  You could probably get "
                 "quite a lot of money for it.  Or you could come and work for us.\n"
                 "You obviously have the talent.  We were amazed when we realised what you had done.\n\n"
-                "We believe you will find that we can offer huge rewards for successfull applicants.\n\n"
+                "We believe you will find that we can offer huge rewards for successful applicants.\n\n"
 				"Reply to this email (or send one to internal@ARC.net) if you are interested in discussing this further."
 			 << '\x0';
 
@@ -1683,7 +1683,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 				" was quite resourceful and would have sent a warning mail to all "
 				"agents about us, almost from beyond the grave.\n\n"
 				"We didn't find out about this until it would have been too late, "
-				"but we were very suprised to see that you stopped this from happening "
+				"but we were very surprised to see that you stopped this from happening "
 				"yourself.\n\n"
 				"We're not sure on your motives but would like to offer you some more "
 				"work if you are interested.  We will reward you if you decide to accept "
@@ -1840,7 +1840,7 @@ void PlotGenerator::Run_Act3Scene1 () const
         msg->SetFrom ( "internal@ARC.net" );
         msg->SetSubject ( "Warning" );
         msg->SetBody ( "So it seems that you were working for the enemy behind our backs all this time.  You cannot imagine "
-                       "how suprised we were when we heard that Arunmor had received a complete copy of Revelation, and that "
+                       "how surprised we were when we heard that Arunmor had received a complete copy of Revelation, and that "
                        "it was an Uplink Agent who was the source.  Unfortunately for you, you are the only Uplink Agent "
                        "who could have sent them this copy.  This makes you our new enemy.\n\n"
                        "Take this message however you want - but Andromeda Research Corporation will not let this betrayal go "
@@ -1906,11 +1906,11 @@ void PlotGenerator::Run_Act3Scene2 ()
                        "Arunmor have announced that they have begun work on a new project - dubbed 'Faith'. "
 					   "The aim of this project is to stop the release of destructive computer viruses onto the Net.\n\n"
 					   "A company spokesman said 'We cannot allow any virus, including the so called Revelation virus, "
-					   "to roam freely around our corporate networks.  Project Faith will actively seak out "
+					   "to roam freely around our corporate networks.  Project Faith will actively seek out "
 					   "Revelation and other destructive viruses, and will totally eradicate them.  At this moment "
 					   "we are seeking Government assistance as this project could help everyone.  The recent "
 					   "attempted attack on our network highlighted how weak Internet security is.  We intend to put a stop to this.'\n\n"
-					   "Arunmor has taken the unprecented step of offering a reward of 25000 credits to anyone who "
+					   "Arunmor has taken the unprecedented step of offering a reward of 25000 credits to anyone who "
 					   "can help them with their research into Revelation.  Anyone with any data related to this "
 					   "virus should send it to internal@Arunmor.net to claim their reward." );
 
@@ -1925,7 +1925,7 @@ void PlotGenerator::Run_Act3Scene2 ()
 	news2->SetDetails ( "In light of the recent developments related to Revelation and Faith, Uplink Corporation "
 					   "has installed a new system which will allow agents to track the progress of the two rival "
 					   "viruses.\n\nA new option has appeared in the main menu, titled 'Faith Progress'.  Clicking this "
-					   "option will show you the current latest versions of both virusus.  This data is based on reports "
+					   "option will show you the current latest versions of both viruses.  This data is based on reports "
 					   "of these programs on the Web, so they may not be entirely accurate.\n\n" );
 
 	cu->CreateNews ( news2 );
@@ -1965,9 +1965,9 @@ void PlotGenerator::Run_Act3Scene3 () const
     details <<  "Arunmor Corporation have been working hard on researching the recently discovered "
                 "Revelation project, and have released details of their findings.\n\n"
                 "'Revelation is the most destructive computer virus we have ever seen' said the CEO of "
-                "Arunmor Corporation earlier today.  'At first we thought it was targetted specifically at us. "
+                "Arunmor Corporation earlier today.  'At first we thought it was targeted specifically at us. "
                 "It has now become clear that the aim of Revelation is to totally destroy the Internet, from the inside.\n\n"
-                "'Once released, it will spead like wildfire to all the main systems, then eventually to the entire Internet, "
+                "'Once released, it will spread like wildfire to all the main systems, then eventually to the entire Internet, "
                 "destroying everything in its path.  Its payload is extremely well designed and will take down any system "
                 "it comes up against.'\n\n";
 
@@ -2017,7 +2017,7 @@ void PlotGenerator::Run_Act3Scene4 ()
                "said a Federal Spokesman. 'It would appear that ARC are developing a software tool in an attempt to damage the operation of the "
                "Internet. So far no evidence has been found and no witnesses have come forward to back this up.'\n\n"
                "'It is our belief that ARC were responsible for the murder of " << act1scene4agent << " and possibly one other, but until "
-               "we aquire evidence we will be unable to act in any legal way.'\n\n"
+               "we acquire evidence we will be unable to act in any legal way.'\n\n"
                "Most importantly, we have determined that Andromeda Research Corporation is privately owned and controlled by the secretive group 'Andromeda', "
                "and that the CEO and the Managing Director of ARC are both core members of this group.  Our profile of Andromeda lists them as "
                "well funded Anti-Capitalist Techno-Anarchists, which would seem to fit the charges against them.  So far, we have not had any success in finding this group.'\n\n"
@@ -2229,10 +2229,10 @@ void PlotGenerator::Run_Act4Scene6 ()
 
 	News *news = new News ();
 	news->SetHeadline ( "ARC Central Mainframe compromised" );
-	news->SetDetails ( "Industry experts have expressed suprise at the discovery that the ARC central Mainframe was "
-                       "yesteday hacked wide open, and over 50 Gigaquads of data was stolen.  The system has come under "
+	news->SetDetails ( "Industry experts have expressed surprise at the discovery that the ARC central Mainframe was "
+                       "yesterday hacked wide open, and over 50 Gigaquads of data was stolen.  The system has come under "
                        "attack many times recently because of ARC's alleged involvement in the construction of some kind "
-                       "of digital weapon, but it was previously believed to be inpenetrable.\n\n"
+                       "of digital weapon, but it was previously believed to be impenetrable.\n\n"
                        "The ARC central mainframe stores most of its critical data on a stand-alone file server, which is "
                        "physically disconnected from the rest of the Internet.  This ingenious system has stopped all "
                        "previous attempts at access.\n\n"
@@ -2441,7 +2441,7 @@ void PlotGenerator::Run_Act4Scene12 ()
 
 	News *news = new News ();
 	news->SetHeadline ( "Arunmor LAN system suffers crippling blow" );
-	news->SetDetails ( "Arunmor Corporation today released a press statememt that said their primary computer system "
+	news->SetDetails ( "Arunmor Corporation today released a press statement that said their primary computer system "
                        "had been severely damaged by the acts of a single hacker.\n\n"
                        "It appears that most of their research on that system has been destroyed, as well as the computer "
                        "system itself.  Arunmor are said to be devastated by this critical error of judgement.\n\n"
@@ -2738,8 +2738,8 @@ void PlotGenerator::Run_Act5Scene3 ()
                        "weeks with the aid of Government assistance, and have managed to stop the Revelation Virus from "
                        "spreading to too many systems.\n\n"
                        "Federal Agents busted into Andromeda Research Corporation shortly after the virus outbreak and "
-                       "arrested staff members suspected of involvement.  A number of computer systems were also siezed. "
-                       "This co-incided with a world wide effort to take down this rogue group within Andromeda Research "
+                       "arrested staff members suspected of involvement.  A number of computer systems were also seized. "
+                       "This coincided with a world wide effort to take down this rogue group within Andromeda Research "
                        "Corporation. A number of Uplink agents were also arrested in connection with the outbreak.\n\n"
                        "It is not known what will become of Andromeda, but it is clear that many of the company executives "
                        "have come to the end of their career at that company.\n\n"
@@ -2774,8 +2774,8 @@ void PlotGenerator::Run_Act5Scene4 ()
                        "weeks with the aid of Government assistance, and have managed to stop the Revelation Virus from "
                        "spreading any further.\n\n"
                        "Federal Agents busted into Andromeda Research Corporation shortly after the virus outbreak and "
-                       "arrested staff members suspected of involvement.  A number of computer systems were also siezed. "
-                       "This co-incided with a world wide effort to take down this rogue group within Andromeda Research "
+                       "arrested staff members suspected of involvement.  A number of computer systems were also seized. "
+                       "This coincided with a world wide effort to take down this rogue group within Andromeda Research "
                        "Corporation. A number of Uplink agents were also arrested in connection with the outbreak.\n\n"
                        "It is not known what will become of Andromeda, but it is clear that many of the company executives "
                        "have come to the end of their career at that company.\n\n"
@@ -3031,7 +3031,7 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
 	// Add in a new account for the player to use
 	//
 
-	char *password = "tracer";
+	string password = "tracer";
 	char username [12];
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
@@ -3139,7 +3139,7 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
 	// Add in a new account for the player to use
 	//
 
-	char *password = "takemetoyourleader";
+	string password = "takemetoyourleader";
 	char username [12];
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 										'a' + NumberGenerator::RandomNumber ( 26 ),
@@ -3239,7 +3239,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	// Add in a new account for the player to use
 	//
 
-	char *password = "infiltrate";
+	string password = "infiltrate";
 	char username [12];
 	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
 																	'a' + NumberGenerator::RandomNumber ( 26 ),
@@ -3407,7 +3407,7 @@ Mission *PlotGenerator::GenerateMission_CounterAttack () const
     details << "Our tracer programs have just informed us that Revelation has been released "
                "into the wild by Andromeda Research Corporation.  Only a small number of systems "
                "are currently infected but more will certainly follow.  This is what we have been planning for.\n\n"
-               "Revelation will infect a system, wait for a few minutes, then spread to two other systems. The origional "
+               "Revelation will infect a system, wait for a few minutes, then spread to two other systems. The original "
                "infected system will then be shut down. If two many systems get infected, we won't be able to stop it.\n\n"
                "Connect to our File Server and download the Revelation Tracker program. This will keep you updated when "
                "systems become infected with Revelation, so you can connect and disinfect them.\n\n"
@@ -3557,7 +3557,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 
 	fulldetails << "The results of our recent test have been extremely encouraging.  Revelation is easily "
                    "destructive enough to take out most of the Internet when it is finally released.  Unfortunately, "
-                   "it is not particularly virulant.  In other words, it doesn't spread very fast.  We need to fix this.\n\n"
+                   "it is not particularly virulent.  In other words, it doesn't spread very fast.  We need to fix this.\n\n"
                    "We've looked around and we have found a company called Darwin Research Associates.  They are currently "
                    "working on research into digital life forms that exist and breed on the Internet.  Since they have refused "
                    "to sell any of their technology to us, we have decided instead to steal it.\n\n"
@@ -3702,25 +3702,20 @@ Mission *PlotGenerator::GenerateMission_ShinyHammer ()
     //
     // Ahhh... a nice simple one for a change
 
-    std::ostrstream details;
-    details << "We are getting tired of racing against Arunmor Corporation, and recently "
-               "their Faith project has been performing well against Revelation.  We need "
-               "to put a stop to this.  Since the CEO of our company was arrested, Arunmor have "
-               "been catching up with our research every day.\n\n"
-               "This mission is designed to be a crushing blow "
-               "to the research efforts of Arunmor Corporation.\n\n"
-               "We know from our inside sources that Arunmor keep all of their research on "
-               "their Local Area Network, and that it is heavily guarded. The fact that they leave "
-               "this system open to the Internet will be their un-doing.\n\n"
-               "Your task is simple.  Find their Local Area Network, break in to it, and delete "
-               "all the files you find.  Then take down the entire system.\n\n"
-			   "Codename: ShinyHammer\n\n"
-               "You will encounter severe resistance.  We are prepared to pay you "
-            << PAYMENT_SPECIALMISSION_SHINYHAMMER
-            << " credits for completion of this mission.  If you succeed, we believe we will be able to "
-               "take advantage of their momentary confusion and launch Revelation successfully.\n\n"
-               "Be patient...the time is near."
-            << '\x0';
+    string details = "We are getting tired of racing against Arunmor Corporation, and recently their Faith project has "
+                     "been performing well against Revelation.  We need to put a stop to this.  Since the CEO of our "
+                     "company was arrested, Arunmor have been catching up with our research every day.\n\n"
+                     "This mission is designed to be a crushing blow to the research efforts of Arunmor Corporation.\n\n"
+                     "We know from our inside sources that Arunmor keep all of their research on their Local Area "
+                     "Network, and that it is heavily guarded. The fact that they leave this system open to the "
+                     "Internet will be their un-doing.\n\n"
+                     "Your task is simple.  Find their Local Area Network, break in to it, and delete all the files you "
+                     "find.  Then take down the entire system.\n\n"
+                     "Codename: ShinyHammer\n\n"
+                     "You will encounter severe resistance.  We are prepared to pay you " + to_string(PAYMENT_SPECIALMISSION_SHINYHAMMER) +
+                     " credits for completion of this mission.  If you succeed, we believe we will be able to take "
+                     "advantage of their momentary confusion and launch Revelation successfully.\n\n"
+                     "Be patient...the time is near.";
 
     auto *m = new Mission ();
     m->SetTYPE ( MISSION_SPECIAL );
@@ -3729,10 +3724,7 @@ Mission *PlotGenerator::GenerateMission_ShinyHammer ()
     m->SetPayment ( PAYMENT_SPECIALMISSION_SHINYHAMMER );
     m->SetDifficulty ( 15 );
     m->SetDescription ( SpecialMissionDescription (SPECIALMISSION_SHINYHAMMER) );
-    m->SetFullDetails ( details.str () );
-
-	details.rdbuf()->freeze( false );
-    //delete [] details.str ();
+    m->SetFullDetails ( details );
 
     return m;
 
@@ -3742,22 +3734,20 @@ Mission *PlotGenerator::GenerateMission_GrandTour ()
 {
 
     std::ostrstream details;
-    details << "In your email inbox you will see two emails from us - one containing the final version "
-               "of the Revelation virus, and the other containing a tracker which will list the systems "
-               "currently infected.\n\n"
-               "This is your green light agent " << game->GetWorld ()->GetPlayer ()->handle << " - we have "
-               "selected you as our most successful freelance agent to carry out our final mission. Your aim is "
-               "simple - release Revelation onto as many systems as you possibly can before our entire company "
-               "is shut down by Federal Agents.\n\n"
-               "Arunmor have Faith ready - they will be right behind you.  If you are quick enough, you will be able "
-               "to spread the virus faster than they can stop it. Revelation will infect a system, scan for nearby systems "
+    details << "In your email inbox you will see two emails from us - one containing the final version of the "
+               "Revelation virus, and the other containing a tracker which will list the systems currently infected.\n\n"
+               "This is your green light agent " << game->GetWorld ()->GetPlayer ()->handle << " - we have selected you "
+               "as our most successful freelance agent to carry out our final mission. Your aim is simple - release "
+               "Revelation onto as many systems as you possibly can before our entire company is shut down by Federal "
+               "Agents.\n\n"
+               "Arunmor have Faith ready - they will be right behind you.  If you are quick enough, you will be able to "
+               "spread the virus faster than they can stop it. Revelation will infect a system, scan for nearby systems "
                "on the same subnet, then migrate to the nearest two of those systems. At the same time it will destroy "
-               "the host it originated from.  Once a certain number of systems have been disabled, the growth of the virus "
-               "will be unstoppable and the entire Internet will suffer a system-wide cascade failure.\n\n"
-               "This is the end - if you are successfull there will be no more "
-               "Uplink Corporation, no more ARC and no more Arunmor.  The entire Internet will come down with us.  "
-               "Think about it - we can destroy all records of ownership, reset everyone back to square one, crash "
-               "the whole damn system.  Think of it!\n\n"
+               "the host it originated from.  Once a certain number of systems have been disabled, the growth of the "
+               "virus will be unstoppable and the entire Internet will suffer a system-wide cascade failure.\n\n"
+               "This is the end - if you are successful there will be no more Uplink Corporation, no more ARC and no "
+               "more Arunmor.  The entire Internet will come down with us.  Think about it - we can destroy all records "
+               "of ownership, reset everyone back to square one, crash the whole damn system.  Think of it!\n\n"
                "This will be our last message to you - if all goes to plan, we will never speak again.\n\n"
                "The codename for this mission is GrandTour.  Best of luck.  ARC out."
             << '\x0';
@@ -3797,12 +3787,10 @@ bool PlotGenerator::IsMissionComplete_Tracer ()
         msg->SetTo ( "PLAYER" );
         msg->SetSubject ( "Congratulations" );
         msg->SetBody ( "We just started receiving ping signals from our Tracer Software.\n"
-                       "This means it is set up correctly and working. Time will tell if they managed "
-                       "to spot what you are doing.\n\n"
+                       "This means it is set up correctly and working. Time will tell if they managed to spot what you are doing.\n\n"
                        "We have made the full mission payment into your account.\n\n"
-                       "When the time comes, well send you some Tracer software that you can run on "
-                       "your local system.  This will list all of the computers that have been infected "
-                       "with the Revelation virus." );
+                       "When the time comes, well send you some Tracer software that you can run on your local system.  "
+                       "This will list all of the computers that have been infected with the Revelation virus." );
         msg->Send ();
 
         version_faith += 1.0;
@@ -3858,16 +3846,16 @@ bool PlotGenerator::IsMissionComplete_TakeMeToYourLeader ()
 		// Send him a nice message
 
 		auto *m = new Message ();
-		m->SetFrom ( "internal@Arunmor.net" ); // Ammended by Ashley Pinner
+		m->SetFrom ( "internal@Arunmor.net" ); // Amended by Ashley Pinner
 		m->SetTo ( "PLAYER" );
 		m->SetSubject ( "Congratulations" );
 		m->SetBody ( "That looks like a total success to us. We'll have to keep quiet for a while, but it looks like "
-                     "the Feds are getting ready to arrest the CEO of Andromeda Research Corporation tommorow.\n\n"
+                     "the Feds are getting ready to arrest the CEO of Andromeda Research Corporation tomorrow.\n\n"
                      "It also looks like we are going to be able to question him about Revelation.  This is going to "
                      "help our cause.\n\n"
                      "We believe that the CEO of Andromeda Corporation is not actually the man in charge "
                      "of the Revelation project - since ARC is actually owned by the Andromeda group, and their leader "
-                     "is currently unknown.  However, he undoubtably has a strong impact on their progress.\n\n"
+                     "is currently unknown.  However, he undoubtedly has a strong impact on their progress.\n\n"
                      "If we are very lucky, this man will help us find the leader of Andromeda.\n\n"
                      "It is also likely that our funding will be increased due to this outbreak.  The Government is "
                      "getting quite desperate at the moment - they think their entire infrastructure may be destroyed, "
@@ -4730,13 +4718,11 @@ void PlotGenerator::MessageIncompatibleSaveGame ( const char *fileassert, int li
 
 	std::ostrstream body;
 	body << "Agent,\n"
-			"If you are reading this email then it means your gateway got corrupted beyond "
-			"any chances of recovery.\n\n"
+			"If you are reading this email then it means your gateway got corrupted beyond any chances of recovery.\n\n"
 			"You'll be forced to start under a new agent if you want to continue to work for us.\n"
 			"If you do decide to continue under this agent, it will be impossible for you "
 			"to complete the great challenges that were awaiting you.\n\n\n\n\n\n\n"
-			"*** Technical info : This is normally appenning when playing with an old agent in a "
-			"new version of Uplink.\n"
+			"*** Technical info : This is normally happens when playing with an old agent in a new version of Uplink.\n"
 			"The storyline won't work with this agent.\n\n"
 			"Location  :\n"
 			<< fileassert << "\n"
