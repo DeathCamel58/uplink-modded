@@ -32,7 +32,7 @@ public:
 	int nextpage;
 	char *textmessage;
 
-    static DArray <char *> loginslost;
+    static DArray <string> loginslost;
 
 public:
 
@@ -42,7 +42,7 @@ public:
 	void SetNextPage ( int newnextpage );
 	void SetTextMessage (const string &newtextmessage );
 
-    static void AddLoginLost ( char *ip );
+    static void AddLoginLost (string &ip );
     static void ClearLoginsLost ();
 
     // Common functions

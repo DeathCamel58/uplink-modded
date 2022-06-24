@@ -315,7 +315,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
                     case SCREEN_RADIOTRANSMITTER:   screen = new RadioTransmitterScreenInterface ();break;
 
 					default:
-						UplinkAbortArgs ( "Unrecognised GenericScreen %d, computer '%s' (%s)", ((GenericScreen *) cs)->SCREEN_TYPE, comp->name.c_str(), comp->ip )
+						UplinkAbortArgs ( "Unrecognised GenericScreen %d, computer '%s' (%s)", ((GenericScreen *) cs)->SCREEN_TYPE, comp->name.c_str(), comp->ip.c_str() )
 
 				}
 				break;
@@ -325,7 +325,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
 				break;
 
 			default:
-				UplinkAbortArgs ("Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name.c_str(), comp->ip )
+				UplinkAbortArgs ("Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name.c_str(), comp->ip.c_str() )
 
 		}
 
@@ -339,7 +339,7 @@ void RemoteInterface::RunScreen ( int screenindex, Computer *compref )
 	else {
 
 		// There is no interface to this computer system
-		UplinkAbortArgs ( "Tried to run an invalid screenid %d, computer '%s' (%s)", screenindex, comp->name.c_str(), comp->ip )
+		UplinkAbortArgs ( "Tried to run an invalid screenid %d, computer '%s' (%s)", screenindex, comp->name.c_str(), comp->ip.c_str() )
 
 	}
 
@@ -412,7 +412,7 @@ bool RemoteInterface::VerifyScreen ( int screenindex )
                     case SCREEN_RADIOTRANSMITTER: break;
 
 					default:
-						UplinkPrintAbortArgs ( "Unrecognised GenericScreen %d, computer '%s' (%s)", ((GenericScreen *) cs)->SCREEN_TYPE, comp->name.c_str(), comp->ip )
+						UplinkPrintAbortArgs ( "Unrecognised GenericScreen %d, computer '%s' (%s)", ((GenericScreen *) cs)->SCREEN_TYPE, comp->name.c_str(), comp->ip.c_str() )
 						return false;
 
 				}
@@ -423,7 +423,7 @@ bool RemoteInterface::VerifyScreen ( int screenindex )
 				return false;
 
 			default:
-				UplinkPrintAbortArgs ( "Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name.c_str(), comp->ip )
+				UplinkPrintAbortArgs ( "Unrecognised ComputerScreen %d, computer '%s' (%s)", cs->GetOBJECTID (), comp->name.c_str(), comp->ip.c_str() )
 				return false;
 
 		}
@@ -432,7 +432,7 @@ bool RemoteInterface::VerifyScreen ( int screenindex )
 	else {
 
 		// There is no interface to this computer system
-		UplinkPrintAbortArgs ( "Tried to run an invalid screenid %d, computer '%s' (%s)", screenindex, comp->name.c_str(), comp->ip )
+		UplinkPrintAbortArgs ( "Tried to run an invalid screenid %d, computer '%s' (%s)", screenindex, comp->name.c_str(), comp->ip.c_str() )
 		return false;
 
 	}

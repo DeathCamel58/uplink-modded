@@ -98,7 +98,7 @@ public:
 	/**
 	 * IP of the computer
 	 */
-	char ip			 [SIZE_VLOCATION_IP];
+	string ip;
 
 	int tracespeed;
 	int traceaction;

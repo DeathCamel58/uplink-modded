@@ -307,7 +307,7 @@ void AnalyserInterface::Update ()
 
 		// Create the new remote host buttons
 
-		if ( strcmp ( comp->ip, IP_LOCALHOST ) != 0 ) {
+		if ( comp->ip != IP_LOCALHOST ) {
 
 			if ( !EclGetButton ( "analyser_remotehost" ) ) {
 

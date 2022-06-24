@@ -220,7 +220,6 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 				<< "   IP      : " << target->ip << "\n"
 				<< "\n\n";
 
-	char completionA [SIZE_VLOCATION_IP];			// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
 	char completionC [64];							// Field to be changed
 	char completionD [64];							// Word that must appear in the field
@@ -264,7 +263,7 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 	UplinkSnprintf ( completionD, sizeof ( completionD ), "%d", newnumber )
 	UplinkSnprintf ( completionE, sizeof ( completionE ), "%d", newnumber )
 
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
+	string completionA = target->ip;			// IP
 	UplinkStrncpy ( completionB, person->name, sizeof ( completionB ) )
 
     UplinkStrncpy ( arcmissiontarget, person->name, sizeof ( arcmissiontarget ) )

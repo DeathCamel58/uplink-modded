@@ -256,7 +256,7 @@ void DialogScreenWidget::SetCaption (const string &newcaption )
 
 }
 	
-char *DialogScreenWidget::GetName ()
+string DialogScreenWidget::GetName ()
 {
 
 	return name;

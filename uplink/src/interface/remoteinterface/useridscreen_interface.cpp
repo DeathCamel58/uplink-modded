@@ -352,7 +352,7 @@ void UserIDScreenInterface::Create ( ComputerScreen *newcs )
 
 			for ( int i = 0; i < codes->Size (); ++i ) {
 				if ( codes->ValidIndex (i) && ips->ValidIndex (i) ) {
-					if ( strcmp ( ips->GetData (i), cs->GetComputer ()->ip ) == 0 ) {
+					if ( ips->GetData (i) == cs->GetComputer ()->ip ) {
 
 						string name = "useridscreen_code " + to_string(currentcode);
 						EclRegisterButton ( 200, 330 + currentcode*15, 250, 15, codes->GetData (i), "Use this code", name );

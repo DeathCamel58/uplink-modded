@@ -8,7 +8,7 @@
 
 #include "mmgr.h"
 
-DArray <char *> DisconnectedScreen::loginslost;
+DArray <string> DisconnectedScreen::loginslost;
 
 
 DisconnectedScreen::DisconnectedScreen()
@@ -42,20 +42,16 @@ void DisconnectedScreen::SetTextMessage (const string &newtextmessage )
 
 }
 
-void DisconnectedScreen::AddLoginLost ( char *ip )
+void DisconnectedScreen::AddLoginLost (string &ip )
 {
 
-	size_t ipcopysize = SIZE_VLOCATION_IP;
-    char *ipcopy = new char [ipcopysize];
-    UplinkStrncpy ( ipcopy, ip, ipcopysize )
-    loginslost.PutData ( ipcopy );
+    loginslost.PutData ( ip );
 
 }
 
 void DisconnectedScreen::ClearLoginsLost ()
 {
 
-    DeleteDArrayData ( &loginslost );
     loginslost.Empty ();
 
 }

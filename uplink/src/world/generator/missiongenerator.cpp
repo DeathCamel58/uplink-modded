@@ -281,7 +281,7 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
     target->databank.InsertData ( data );
 	//target->databank.PutData ( data );
 
-	if ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, target->ip ) != 0 )
+	if ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip != target->ip )
 		target->databank.RandomizeDataPlacement ();
 
 	// Infer the internal services contact address
@@ -470,7 +470,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 	}
 
-	if ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, target->ip ) != 0 )
+	if ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip != target->ip )
 		target->databank.RandomizeDataPlacement ();
 
 	/********** Patch by François Gagné **********/
@@ -501,16 +501,13 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
     details << '\x0';
 
 
-	char completionA [SIZE_VLOCATION_IP];								// IP
-	string completionB = "ALL"; // Data title or ALL
-	char completionC [SIZE_VLOCATION_IP];								// IP of our dump machine
+    string completionA = target->ip;								// IP
+	string completionB = "ALL";										// Data title or ALL
+    string completionC = ourcomp->ip;								// IP of our dump machine
 	string completionD = to_string(numfiles) + " " + to_string(totalsize); // Numfiles TotalSize
 	string completionE;												// TYPE of data
 
 	string whoisthetarget = "The data is owned by " + target->companyname;
-
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
-	UplinkStrncpy ( completionC, ourcomp->ip, sizeof ( completionC ) )
 
 	if ( missiontype == 1 ) {
 
@@ -698,7 +695,7 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
     target->databank.InsertData ( data );
 	//target->databank.PutData ( data );
 
-	if ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, target->ip ) != 0 )
+	if ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip != target->ip )
 		target->databank.RandomizeDataPlacement ();
 
 	// Infer the internal services contact address
@@ -742,8 +739,7 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 				<< "END"
 				<< '\x0';
 
-	char completionA [SIZE_VLOCATION_IP];
-    UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
+	string completionA = target->ip;
     string completionB = datatitle;
 
 	Date postdate;
@@ -831,10 +827,9 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	details	<< '\x0';
 
 
-	char completionA [SIZE_VLOCATION_IP];								// IP
+	string completionA = target->ip;									// IP
 	string completionB = "ALL";									        // Data title or ALL
 	string completionC;													// Type of file
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
 
 	string whoisthetarget = "The data is owned by " + target->companyname;
 
@@ -872,7 +867,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 
 	}
 
-	if ( strcmp ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip, target->ip ) != 0 )
+	if ( game->GetWorld ()->GetPlayer ()->GetRemoteHost ()->ip != target->ip )
 		target->databank.RandomizeDataPlacement ();
 
 	/*
@@ -1045,11 +1040,9 @@ Mission *MissionGenerator::Generate_FindData_FinancialRecord ( Company *employer
 	// Fill in the fields of the mission
 	//
 
-	char completionA [128];							// bankIP accountNum
+	string completionA = target->ip + " " + to_string(taccount->accountnumber);	// bankIP accountNum
     string completionB;                             // Field required
     string completionC = "Unused";                  // Name of person responsible (only type3)
-
-    UplinkSnprintf ( completionA, sizeof ( completionA ), "%s %d", target->ip, taccount->accountnumber )
 
 	string description;
 	std::ostrstream fulldetails;
@@ -1262,8 +1255,8 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 
 	Person *person = nullptr;							// Person whom mission affects
 
-	char completionA [SIZE_VLOCATION_IP];			// IP
-	char completionB [SIZE_PERSON_NAME];			// Target person
+	string completionA = target->ip;			// IP
+	string completionB = person->name;			// Target person
 	string completionC;							// Field to be changed
 	string completionD;							// Word that must appear in the field
 	string completionE;							// Word that must appear in the field
@@ -1431,9 +1424,6 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 	// Generate the remaining fields of the mission
 	//
 
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
-	UplinkStrncpy ( completionB, person->name, sizeof ( completionB ) )
-
 	fulldetails	<< "\nTARGET INDIVIDUAL :\n"
 				<< "   NAME    : " << person->name << "\n"
 				<< "\n\n"
@@ -1531,7 +1521,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 
 	Person *person = nullptr;							// Person whom mission affects
 
-	char completionA [SIZE_VLOCATION_IP];			// IP
+	string completionA = target->ip;				// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
 	string completionC;								// Field to be changed
 	string completionD;								// Word that must appear in the field
@@ -1595,7 +1585,6 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	// Generate the remaining fields of the mission
 	//
 
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
 	UplinkStrncpy ( completionB, person->name, sizeof ( completionB ) )
 
 	fulldetails	<< "\nTARGET INDIVIDUAL :\n"
@@ -1697,7 +1686,7 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 
 	Person *person = nullptr;							// Person whom mission affects
 
-	char completionA [SIZE_VLOCATION_IP];			// IP
+	string completionA = target->ip;				// IP
 	char completionB [SIZE_PERSON_NAME];			// Target person
 	string completionC;								// Field to be changed
 	string completionD;								// Word that must appear in the field
@@ -1803,7 +1792,6 @@ Mission *MissionGenerator::Generate_ChangeData_CriminalRecord ( Company *employe
 	// Generate the remaining fields of the mission
 	//
 
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
 	UplinkStrncpy ( completionB, person->name, sizeof ( completionB ) )
 
 	fulldetails	<< "\nSend a notice of completion to\n"
@@ -2020,13 +2008,11 @@ Mission *MissionGenerator::Generate_PayFine (Person *person, Company *company, i
 	//
 
 	char completionA [64];							// Person name who pays the fine
-	char completionB [64];							// (Target account) IP ACCNO
+	string completionB = bank->ip + " " + to_string(account->accountnumber);	// (Target account) IP ACCNO
 	string completionC = to_string(amount);			// Amount to transfer
 
 	UplinkStrncpy ( completionA, person->name, sizeof ( completionA ) )
 	if ( strcmp ( person->name, "PLAYER" ) == 0 ) UplinkStrncpy ( completionA, game->GetWorld ()->GetPlayer ()->handle, sizeof ( completionA ) )
-
-	UplinkSnprintf ( completionB, sizeof ( completionB ), "%s %d", bank->ip, account->accountnumber )
 
 	//
 	// Create the descriptive text
@@ -2124,7 +2110,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 
 	char completionA [SIZE_MISSION_COMPLETION];									// Target name
 	string completionB;															// Type of crime
-	char completionC [SIZE_MISSION_COMPLETION];									// IP of target (if applicable)
+	string completionC;															// IP of target (if applicable)
 
 
 	UplinkStrncpy ( completionA, person->name, sizeof ( completionA ) )
@@ -2174,7 +2160,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 					   "IP: " << bank->ip << "\n";
 
 		completionB = "FINANCIAL";
-		UplinkStrncpy ( completionC, bank->ip, sizeof ( completionC ) )
+		completionC = bank->ip;
 
 		payment = (int) ( payment * 1.2 );
 
@@ -2196,7 +2182,7 @@ Mission *MissionGenerator::Generate_FrameUser ( Company *employer, Person *perso
 					   "IP: " << target->ip << "\n";
 
 		completionB = "DESTROYALL";
-		UplinkStrncpy ( completionC, target->ip, sizeof ( completionC ) )
+		completionC = target->ip;
 
 		payment = (int) ( payment * 1.2 );
 
@@ -2482,14 +2468,11 @@ Mission *MissionGenerator::Generate_ChangeAccount ( Company *employer, Computer 
 	// Fill in the fields of the mission
 	//
 
-	char completionA [64];							// (source account) IP AccNo
-	char completionB [64];							// (Target account) IP ACCNO
+	string completionA = source->ip + " " + to_string(sourceaccount->accountnumber); // (source account) IP AccNo
+	string completionB = target->ip + " " + to_string(targetaccount->accountnumber); // (Target account) IP ACCNO
 	string completionC = to_string(amount_to_transfer);							// Amount to transfer
-	string completionD = to_string(sourceaccount->balance);							// Amount in source account
-	string completionE = to_string(targetaccount->balance);							// Amount in target account
-
-	UplinkSnprintf ( completionA, sizeof ( completionA ), "%s %d", source->ip, sourceaccount->accountnumber )
-	UplinkSnprintf ( completionB, sizeof ( completionB ), "%s %d", target->ip, targetaccount->accountnumber )
+	string completionD = to_string(sourceaccount->balance);						// Amount in source account
+	string completionE = to_string(targetaccount->balance);						// Amount in target account
 	
 	string description = "Our esteemed colleague wishes to make a donation.";
 	std::ostrstream fulldetails;
@@ -2611,8 +2594,7 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 				   '\x0';
 
 
-	char completionA [SIZE_MISSION_COMPLETION];
-	UplinkStrncpy ( completionA, target->ip, sizeof ( completionA ) )
+	string completionA = target->ip;
 
 	Date postdate;
 	postdate.SetDate ( &(game->GetWorld ()->date) );
@@ -2902,10 +2884,7 @@ bool MissionGenerator::IsMissionComplete_StealAllFiles ( Mission *mission, Perso
 	} else {	UplinkAbort ( "Unrecognised data type" )
 	}
 
-	char stolendatatitle [64];
-	UplinkSnprintf ( stolendatatitle, sizeof ( stolendatatitle ), "%c%c%c%c-%s", target->companyname [0], target->companyname [1],
-																  target->companyname [2], target->companyname [3],
-																  missiontypestring.c_str() )
+	string stolendatatitle = target->companyname.substr(4) + "-" + missiontypestring;
 
 	//
 	// Lookup the dump computer
@@ -3463,22 +3442,17 @@ bool MissionGenerator::IsMissionComplete_ChangeAccount ( Mission *mission, Perso
 	char target_ip [SIZE_VLOCATION_IP];
 	int source_acc;
 	int target_acc;
-	int amount;
-	int source_balance;
-	int target_balance;
+	int amount = stoi(mission->completionC);
+	int source_balance = stoi(mission->completionD);
+	int target_balance = stoi(mission->completionE);
 
 	UplinkAssert (mission)
 
 	sscanf ( mission->completionA, "%s %d", source_ip, &source_acc );
 	sscanf ( mission->completionB, "%s %d", target_ip, &target_acc );
-	sscanf ( mission->completionC, "%d", &amount );
-	sscanf ( mission->completionD, "%d", &source_balance );
-	sscanf ( mission->completionE, "%d", &target_balance );
 
-	char source_acc_s [16];
-	char target_acc_s [16];
-	UplinkSnprintf ( source_acc_s, sizeof ( source_acc_s ), "%d", source_acc )
-	UplinkSnprintf ( target_acc_s, sizeof ( target_acc_s ), "%d", target_acc )
+	string source_acc_s = to_string(source_acc);
+	string target_acc_s = to_string(target_acc);
 
 	// Check the money has been transferred
 

@@ -168,7 +168,7 @@ void ScriptLibrary::Script10 ()
 
 	// Get the source and target values
 
-	char *source_ip    = comp->ip;
+	string source_ip    = comp->ip;
 	string target_ip    = EclGetButton ( "t_ip_value 0 0" )->caption;
 	string source_accno = EclGetButton ( "s_accno_value -1 -1" )->caption;
 	string target_accno = EclGetButton ( "t_accno_value 0 0" )->caption;

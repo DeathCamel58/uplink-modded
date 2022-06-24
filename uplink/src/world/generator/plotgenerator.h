@@ -71,9 +71,9 @@ protected:
     bool completed_saveitforthejury;
     bool completed_shinyhammer;
 
-    char saveitforthejury_guytobeframed [SIZE_PERSON_NAME];         // Special variables for special missions
-    char saveitforthejury_targetbankip [SIZE_VLOCATION_IP];
-    char tracer_lastknownip [SIZE_VLOCATION_IP];
+    string saveitforthejury_guytobeframed;         // Special variables for special missions
+    string saveitforthejury_targetbankip;
+    string tracer_lastknownip;
 
 	int numuses_revelation;											// Number of times it has been released
  
@@ -170,7 +170,7 @@ protected:
 	
     void Revelation_ReleaseUncontrolled ();                         // Its game over! (success for ARC)
 
-	void NewsRevelationUsed ( char *ip, int success ) const;				// Generates a news story
+	void NewsRevelationUsed (string &ip, int success ) const;				// Generates a news story
 
 public:
 
@@ -187,18 +187,18 @@ public:
 	bool PlayerContactsARC		( Message *msg );					// These handle all emails from the player to the main co's.  
 	bool PlayerContactsARUNMOR	( Message *msg );					// They return true if this function handled the email
 
-	void RunRevelation ( char *ip, float version, bool playerresponsible );
-	void RunRevelation ( char *ip, float version, bool playerresponsible, int success );
+	void RunRevelation (string &ip, float version, bool playerresponsible );
+	void RunRevelation (string &ip, float version, bool playerresponsible, int success );
 
-    void RunRevelationTracer ( char *ip );
+    void RunRevelationTracer (string &ip );
 
     static void RunFaith (string &ip, float version, bool playerresponsible );
 
 	float GetVersion_Faith () const;
 	float GetVersion_Revelation () const;
 
-    void Infected ( char *ip );                                     // These manage the list of 
-    void Disinfected ( char *ip );                                  // infected computer systems
+    void Infected (string &ip );                                     // These manage the list of
+    void Disinfected (string &ip );                                  // infected computer systems
 
     bool PlayerCompletedSpecialMission	( int missionID ) const;
 	int GetSpecialMissionsCompleted () const;

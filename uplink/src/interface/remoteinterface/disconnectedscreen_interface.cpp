@@ -89,8 +89,8 @@ void DisconnectedScreenInterface::Create ( ComputerScreen *newcs )
 
 				if ( DisconnectedScreen::loginslost.ValidIndex ( i ) ) {
 
-					char *ip = DisconnectedScreen::loginslost.GetData (i);
-					UplinkAssert (ip)
+					string ip = DisconnectedScreen::loginslost.GetData (i);
+					assert(!ip.empty());
 					VLocation *vl = game->GetWorld ()->GetVLocation (ip);
 
 					if ( vl ) {
@@ -113,8 +113,7 @@ void DisconnectedScreenInterface::Create ( ComputerScreen *newcs )
         }
 
 		int width = 100;
-		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "disconnectedscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
+		string name = "disconnectedscreen_click " + to_string(GetComputerScreen ()->nextpage) + " " + GetComputerScreen ()->GetComputer ()->ip;
 		EclRegisterButton ( 320 - width/2, 380, width, 20, "OK", "Click to close this screen", name );
 		EclRegisterButtonCallback ( name, Click );
 
@@ -133,8 +132,7 @@ void DisconnectedScreenInterface::Remove ()
 		EclRemoveButton ( "disconnectedscreen_maintitle" );
 		EclRemoveButton ( "disconnectedscreen_subtitle" );
 
-		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "disconnectedscreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
+		string name = "disconnectedscreen_click " + to_string(GetComputerScreen ()->nextpage) + " " + GetComputerScreen ()->GetComputer ()->ip;
 		EclRemoveButton ( name );
 
 	}

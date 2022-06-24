@@ -105,7 +105,7 @@ public:
 	void SetTooltip (const string &newtooltip );
 	void SetCaption (const string &newcaption );
 	
-	char *GetName ();
+	string GetName ();
 	char *GetTooltip ();
 	char *GetCaption ();
 

@@ -91,8 +91,7 @@ void MessageScreenInterface::Create ( ComputerScreen *newcs )
 		if ( GetComputerScreen ()->buttonmessage ) {
 
 			int width = (int) ( 20 + strlen (GetComputerScreen ()->buttonmessage) * 10 );
-			char name [128 + SIZE_VLOCATION_IP + 1];
-			UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
+			string name = "messagescreen_click " + to_string(GetComputerScreen ()->nextpage) + " " + GetComputerScreen ()->GetComputer ()->ip;
 			EclRegisterButton ( 320 - width/2, 370, width, 20, GetComputerScreen ()->buttonmessage, GetComputerScreen ()->buttonmessage, name );
 			EclRegisterButtonCallback ( name, Click );
 
@@ -100,8 +99,7 @@ void MessageScreenInterface::Create ( ComputerScreen *newcs )
 
 		if ( GetComputerScreen ()->mailthistome ) {
 
-			char name [128 + SIZE_VLOCATION_IP + 1];
-			UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
+			string name = "messagescreen_click " + to_string(GetComputerScreen ()->nextpage) + " " + GetComputerScreen ()->GetComputer ()->ip;
 			Button *b = EclGetButton ( name );
 			UplinkAssert (b)
 
@@ -124,8 +122,7 @@ void MessageScreenInterface::Remove ()
 		EclRemoveButton ( "messagescreen_maintitle" );
 		EclRemoveButton ( "messagescreen_subtitle" );
 
-		char name [128 + SIZE_VLOCATION_IP + 1];
-		UplinkSnprintf ( name, sizeof ( name ), "messagescreen_click %d %s", GetComputerScreen ()->nextpage, GetComputerScreen ()->GetComputer ()->ip )
+		string name = "messagescreen_click " + to_string(GetComputerScreen ()->nextpage) + " " + GetComputerScreen ()->GetComputer ()->ip;
 		EclRemoveButton ( name );
 
 		EclRemoveButton ( "messagescreen_mailme" );

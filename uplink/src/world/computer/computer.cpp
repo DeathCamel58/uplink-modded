@@ -39,7 +39,7 @@ Computer::Computer()
 
 	TYPE = COMPUTER_TYPE_UNKNOWN;
 	name = companyname = "";
-	UplinkStrncpy ( ip, "", sizeof ( ip ) )
+	ip = "";
 	tracespeed = 0;
 	traceaction = COMPUTER_TRACEACTION_NONE;
 
@@ -93,7 +93,7 @@ void Computer::SetIP (const string &newip )
 
 	UplinkAssert ( newip.length() < SIZE_VLOCATION_IP )
 	UplinkAssert ( game->GetWorld ()->GetVLocation ( newip ) )
-	UplinkStrncpy ( ip, newip.c_str(), sizeof ( ip ) )
+	ip = newip;
 
 }
 
@@ -345,9 +345,9 @@ bool Computer::ChangeSecurityCodes ()
         case COMPUTER_TYPE_UNKNOWN :
         {
 
-            if ( strcmp ( ip, IP_SOCIALSECURITYDATABASE ) == 0 ||
-                 strcmp ( ip, IP_GLOBALCRIMINALDATABASE ) == 0 ||
-                 strcmp ( ip, IP_ACADEMICDATABASE ) == 0 ) {
+            if ( ip == IP_SOCIALSECURITYDATABASE ||
+                 ip == IP_GLOBALCRIMINALDATABASE ||
+                 ip == IP_ACADEMICDATABASE ) {
 
 			    Record *admin = recordbank.GetRecordFromName ( RECORDBANK_ADMIN );
 			    UplinkAssert (admin)
@@ -523,7 +523,7 @@ bool Computer::Load  ( FILE *file )
 
 	if ( !LoadDynamicStringInt ( name, file ) ) return false;
 	if ( !LoadDynamicStringInt ( companyname, file ) ) return false;
-	if ( !LoadDynamicStringStatic ( ip, SIZE_VLOCATION_IP, file ) ) return false;
+	if ( !LoadDynamicStringInt ( ip, file ) ) return false;
 
 	if ( !FileReadData ( &tracespeed, sizeof(tracespeed), 1, file ) ) return false;
 	if ( !FileReadData ( &traceaction, sizeof(traceaction), 1, file ) ) return false;

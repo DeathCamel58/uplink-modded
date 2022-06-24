@@ -97,9 +97,9 @@ PlotGenerator::PlotGenerator ()
 
 	specialmissionscompleted = 0;
 
-    UplinkStrncpy ( saveitforthejury_guytobeframed, "None", sizeof ( saveitforthejury_guytobeframed ) )
-    UplinkStrncpy ( saveitforthejury_targetbankip, "None", sizeof ( saveitforthejury_targetbankip ) )
-    UplinkStrncpy ( tracer_lastknownip, "None ", sizeof ( tracer_lastknownip ))
+    saveitforthejury_guytobeframed = "None";
+    saveitforthejury_targetbankip = "None";
+    tracer_lastknownip = "None ";
 
 	numuses_revelation = 0;
     revelation_releaseuncontrolled = false;
@@ -827,7 +827,7 @@ bool PlotGenerator::PlayerContactsARUNMOR ( Message *msg )
 
 }
 
-void PlotGenerator::RunRevelation ( char *ip, float version, bool playerresponsible )
+void PlotGenerator::RunRevelation (string &ip, float version, bool playerresponsible )
 {
 
 #ifndef DEMOGAME
@@ -927,7 +927,7 @@ void PlotGenerator::RunFaith (string &ip, float version, bool playerresponsible 
 
 }
 
-void PlotGenerator::RunRevelation ( char *ip, float version, bool playerresponsible, int success )
+void PlotGenerator::RunRevelation (string &ip, float version, bool playerresponsible, int success )
 {
 
 #ifndef DEMOGAME
@@ -1017,10 +1017,10 @@ void PlotGenerator::RunRevelation ( char *ip, float version, bool playerresponsi
 
 }
 
-void PlotGenerator::RunRevelationTracer ( char *ip )
+void PlotGenerator::RunRevelationTracer (string &ip )
 {
 
-    UplinkStrncpy ( tracer_lastknownip, ip, sizeof ( tracer_lastknownip ) )
+    tracer_lastknownip = ip;
 
 }
 
@@ -1614,7 +1614,7 @@ void PlotGenerator::Run_Act2Scene1 ()
 	Computer *hiscomp = game->GetWorld ()->GetComputer ( hiscomputername );
     if ( UplinkIncompatibleSaveGameAssert (hiscomp, __FILE__, __LINE__) )
 		return;
-	char *ip = hiscomp->ip;
+	string ip = hiscomp->ip;
 	game->GetWorld ()->computers.RemoveData ( hiscomputername );
 
 	auto *comp = new Computer ();
@@ -3610,7 +3610,7 @@ Mission *PlotGenerator::GenerateMission_SaveItForTheJury ()
     Person *poorsod = WorldGenerator::GetRandomPerson ();
     UplinkAssert (poorsod)
 
-    UplinkStrncpy ( saveitforthejury_guytobeframed, poorsod->name, sizeof ( saveitforthejury_guytobeframed ) )
+    saveitforthejury_guytobeframed = poorsod->name;
 
     //char *personalcomputername = strdup( NameGenerator::GeneratePersonalComputerName(poorsod->name) );
 	string personalcomputername = NameGenerator::GeneratePersonalComputerName(poorsod->name);
@@ -3623,7 +3623,7 @@ Mission *PlotGenerator::GenerateMission_SaveItForTheJury ()
     auto *bank = (BankComputer *) WorldGenerator::GetRandomComputer ( COMPUTER_TYPE_PUBLICBANKSERVER );
 	UplinkAssert (bank)
 
-    UplinkStrncpy ( saveitforthejury_targetbankip, bank->ip, sizeof ( saveitforthejury_targetbankip ) )
+    saveitforthejury_targetbankip = bank->ip;
 
 	std::ostrstream fulldetails;
 
@@ -3778,7 +3778,7 @@ bool PlotGenerator::IsMissionComplete_Tracer ()
     if ( UplinkIncompatibleSaveGameAssert (comp, __FILE__, __LINE__) )
 		return false;
 
-    if ( strcmp ( tracer_lastknownip, comp->ip ) == 0 ) {
+    if ( tracer_lastknownip == comp->ip ) {
 
         // Success
 
@@ -4423,7 +4423,7 @@ bool PlotGenerator::IsMissionComplete_ShinyHammer ()
 
 }
 
-void PlotGenerator::NewsRevelationUsed ( char *ip, int success ) const
+void PlotGenerator::NewsRevelationUsed (string &ip, int success ) const
 {
 
 	// Look up the system attacked
@@ -4536,15 +4536,14 @@ void PlotGenerator::Revelation_ReleaseUncontrolled ()
 #endif              // FULLGAME
 
 
-void PlotGenerator::Infected ( char *ip )
+void PlotGenerator::Infected (string &ip )
 {
 
 #ifndef DEMOGAME
 
-    UplinkAssert (ip)
+    assert(!ip.empty());
 
-    char *ipcopy = new char [strlen(ip)+1];
-    UplinkSafeStrcpy ( ipcopy, ip )
+    string ipcopy = ip;
 
     infected.PutDataAtEnd ( ipcopy );
 
@@ -4559,7 +4558,7 @@ void PlotGenerator::Infected ( char *ip )
 
 }
 
-void PlotGenerator::Disinfected ( char *ip )
+void PlotGenerator::Disinfected (string &ip )
 {
 
 #ifndef DEMOGAME
@@ -4803,23 +4802,18 @@ bool PlotGenerator::Load  ( FILE *file )
     if ( !FileReadData ( &specialmissionscompleted, sizeof(specialmissionscompleted), 1, file ) ) return false;
 
 	if ( strcmp( game->GetLoadedSavefileVer(), "SAV59" ) >= 0 ) {
-		if ( !LoadDynamicStringStatic ( saveitforthejury_guytobeframed, sizeof(saveitforthejury_guytobeframed), file ) ) return false;
-		if ( !LoadDynamicStringStatic ( saveitforthejury_targetbankip, sizeof(saveitforthejury_targetbankip), file ) ) return false;
-		if ( !LoadDynamicStringStatic ( tracer_lastknownip, sizeof(tracer_lastknownip), file ) ) return false;
+		if ( !LoadDynamicStringInt ( saveitforthejury_guytobeframed, file ) ) return false;
+		if ( !LoadDynamicStringInt ( saveitforthejury_targetbankip, file ) ) return false;
+		if ( !LoadDynamicStringInt ( tracer_lastknownip, file ) ) return false;
 	}
 	else {
-		if ( !FileReadData ( saveitforthejury_guytobeframed, sizeof(saveitforthejury_guytobeframed), 1, file ) ) {
-			saveitforthejury_guytobeframed [ sizeof(saveitforthejury_guytobeframed) - 1 ] = '\0';
+		if ( !FileReadDataInt ( saveitforthejury_guytobeframed, SIZE_PERSON_NAME, file ) ) {
 			return false;
 		}
-		saveitforthejury_guytobeframed [ sizeof(saveitforthejury_guytobeframed) - 1 ] = '\0';
-		if ( !FileReadData ( saveitforthejury_targetbankip, sizeof(saveitforthejury_targetbankip), 1, file ) ) {
-			saveitforthejury_targetbankip [ sizeof(saveitforthejury_targetbankip) - 1 ] = '\0';
+		if ( !FileReadDataInt ( saveitforthejury_targetbankip, SIZE_VLOCATION_IP, file ) ) {
 			return false;
 		}
-		saveitforthejury_targetbankip [ sizeof(saveitforthejury_targetbankip) - 1 ] = '\0';
-		if ( !FileReadData ( tracer_lastknownip, sizeof(tracer_lastknownip), 1, file ) ) {
-			tracer_lastknownip [ sizeof(tracer_lastknownip) - 1 ] = '\0';
+		if ( !FileReadDataInt ( tracer_lastknownip, SIZE_VLOCATION_IP, file ) ) {
 			return false;
 		}
 		tracer_lastknownip [ sizeof(tracer_lastknownip) - 1 ] = '\0';
