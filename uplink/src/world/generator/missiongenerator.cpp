@@ -1256,7 +1256,6 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 	Person *person = nullptr;							// Person whom mission affects
 
 	string completionA = target->ip;			// IP
-	string completionB = person->name;			// Target person
 	string completionC;							// Field to be changed
 	string completionD;							// Word that must appear in the field
 	string completionE;							// Word that must appear in the field
@@ -1423,6 +1422,8 @@ Mission *MissionGenerator::Generate_ChangeData_AcademicRecord ( Company *employe
 	//
 	// Generate the remaining fields of the mission
 	//
+
+    string completionB = person->name;			// Target person
 
 	fulldetails	<< "\nTARGET INDIVIDUAL :\n"
 				<< "   NAME    : " << person->name << "\n"
