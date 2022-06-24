@@ -17,11 +17,11 @@
 #include "mmgr.h"
 
 
-LList <string> NameGenerator::fornames;         // A list of all possible forenames
-LList <string> NameGenerator::surnames;         // A list of all possible surnames
-LList <string> NameGenerator::agentaliases;     // A list of all possible agent aliases
-LList <string> NameGenerator::companynamesA;    // A list of all possible starts of company names
-LList <string> NameGenerator::companynamesB;    // A list of all possible endings of company names
+LList <string> NameGenerator::fornames;
+LList <string> NameGenerator::surnames;
+LList <string> NameGenerator::agentaliases;
+LList <string> NameGenerator::companynamesA;
+LList <string> NameGenerator::companynamesB;
 
 void NameGenerator::Initialise ()
 {
@@ -44,9 +44,6 @@ void NameGenerator::Shutdown ()
 
 }
 
-/**
- * Loads all forname, surname, agentaliase, companynameA, and companynameB entries into LLists
- */
 void NameGenerator::LoadNames ()
 {
 
@@ -175,10 +172,6 @@ void NameGenerator::LoadNames ()
 
 }
 
-/**
- * Gets a random companynameA and companynameB
- * @return A random companynameA and companynameB in format "<companynameA> <companynameB>"
- */
 string NameGenerator::GenerateCompanyName ()
 {
 
@@ -206,10 +199,6 @@ string NameGenerator::GenerateCompanyName ()
 
 }
 
-/**
- * Gets a random forname and surname
- * @return A random forname and surname in format "<forname> <surname>"
- */
 string NameGenerator::GeneratePersonName ()
 {
 
@@ -234,10 +223,6 @@ string NameGenerator::GeneratePersonName ()
 
 }
 
-/**
- * Gets a random agent alias from the list of possible aliases
- * @return A random agent alias
- */
 string NameGenerator::GenerateAgentAlias ()
 {
 
@@ -253,10 +238,6 @@ string NameGenerator::GenerateAgentAlias ()
 
 }
 
-/**
- * Gets a password from the list of possible ones
- * @return The password
- */
 string NameGenerator::GeneratePassword ()
 {
 
@@ -291,10 +272,6 @@ string NameGenerator::GenerateEasyPassword ()
 
 }
 
-/**
- * Gets a normal password with up to half of the letters changed
- * @return The complex password
- */
 string NameGenerator::GenerateComplexPassword ()
 {
 
@@ -353,91 +330,46 @@ string NameGenerator::GenerateDataName (const string &companyname, int DATATYPE 
 
 }
 
-/**
- * Gets public access server name of given company
- * @param companyname Company to get public access server name for
- * @return The phone system name in the format "<companyname> Public Access Server"
- */
 string NameGenerator::GeneratePublicAccessServerName(const string &companyname )
 {
     return companyname + " Public Access Server";
 }
 
-/**
- * Gets access terminal name of given company
- * @param companyname Company to get access terminal name for
- * @return The phone system name in the format "<companyname> Access Terminal"
- */
 string NameGenerator::GenerateAccessTerminalName(const string &companyname )
 {
     return companyname + " Access Terminal";
 }
 
-/**
- * Gets internal services server name of given company
- * @param companyname Company to get internal services server name for
- * @return The phone system name in the format "<companyname> Internal Services Machine"
- */
 string NameGenerator::GenerateInternalServicesServerName (const string &companyname )
 {
     return companyname + " Internal Services Machine";
 }
 
-/**
- * Gets central mainframe name of given company
- * @param companyname Company to get central mainframe name for
- * @return The phone system name in the format "<companyname> Central Mainframe"
- */
 string NameGenerator::GenerateCentralMainframeName(const string &companyname )
 {
     return companyname + " Central Mainframe";
 }
 
-/**
- * Gets international bank name of given company
- * @param companyname Company to get international bank name for
- * @return The phone system name in the format "<companyname> International Bank"
- */
 string NameGenerator::GenerateInternationalBankName(const string &companyname )
 {
     return companyname + " International Bank";
 }
 
-/**
- * Gets file server name of given company
- * @param companyname Company to get file server name for
- * @return The phone system name in the format "<companyname> File server"
- */
 string NameGenerator::GenerateFileServerName(const string &companyname )
 {
     return companyname + " File Server";
 }
 
-/**
- * Gets LAN name of given company
- * @param companyname Company to get LAN name for
- * @return The phone system name in the format "<companyname> Local Area Network"
- */
 string NameGenerator::GenerateLANName(const string &companyname )
 {
     return companyname + " Local Area Network";
 }
 
-/**
- * Gets personal computer name of given person
- * @param personname Person to get personal computer name for
- * @return The phone system name in the format "<personname> Personal Computer"
- */
 string NameGenerator::GeneratePersonalComputerName(const string &personname )
 {
     return personname + " Personal Computer";
 }
 
-/**
- * Gets voice phone system name of given person
- * @param personname Person to get voice phone system name for
- * @return The phone system name in the format "<personname> Voice Phone System"
- */
 string NameGenerator::GenerateVoicePhoneSystemName(const string &personname )
 {
     return personname + " Voice Phone System";
