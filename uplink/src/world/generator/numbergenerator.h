@@ -28,6 +28,13 @@ public:
 	 */
 	static int ApplyVariance ( int num, int variance );
 
+	/**
+	 * Gets a string of random letters
+	 * @param num The number of letters to get
+	 * @return The random string
+	 */
+    static std::string RandomLetters(int num = 1);
+
 };
 
 

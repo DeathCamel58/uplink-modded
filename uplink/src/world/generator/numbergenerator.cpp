@@ -1,11 +1,12 @@
 
 #include <cstdlib>
+#include <string>
 
 #include "world/generator/numbergenerator.h"
 
 #include "mmgr.h"
 
-
+static std::string alphabet = "abcdefghijklmnopqrstuvwxyz";
 
 void NumberGenerator::Initialise ()
 {
@@ -89,5 +90,17 @@ int NumberGenerator::ApplyVariance ( int num, int variance )
 	num = (int) ( num * ( variancefactor / 100.0f ) );
 
 	return num;
+
+}
+
+std::string NumberGenerator::RandomLetters(int num) {
+    std::string randomString;
+
+    for (int i = 0; i < num+1; i++) {
+        int randNum = RandomNumber ( 26 );
+        randomString += alphabet.at(randNum);
+    }
+
+    return randomString;
 
 }

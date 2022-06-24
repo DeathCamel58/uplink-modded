@@ -221,9 +221,9 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
 				<< "\n\n";
 
 	char completionB [SIZE_PERSON_NAME];			// Target person
-	char completionC [64];							// Field to be changed
-	char completionD [64];							// Word that must appear in the field
-	char completionE [64];							// Word that must appear in the field
+	string completionC = "Social Security";			// Field to be changed
+	string completionD;								// Word that must appear in the field
+	string completionE;								// Word that must appear in the field
 
 	// Find someone who isn't dead
 
@@ -259,9 +259,8 @@ Mission *DemoPlotGenerator::Generate_ChangeSocialRecordARC ()
                 << newnumber
                 << ".  We will take care of the rest.\n";
 
-	UplinkStrncpy ( completionC, "Social Security", sizeof ( completionC ) )
-	UplinkSnprintf ( completionD, sizeof ( completionD ), "%d", newnumber )
-	UplinkSnprintf ( completionE, sizeof ( completionE ), "%d", newnumber )
+	completionD = to_string(newnumber);
+	completionE = to_string(newnumber);
 
 	string completionA = target->ip;			// IP
 	UplinkStrncpy ( completionB, person->name, sizeof ( completionB ) )

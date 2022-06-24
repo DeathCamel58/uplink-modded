@@ -1617,11 +1617,7 @@ void ScriptLibrary::Script71 ()
 	//
 
 	string password = NameGenerator::GeneratePassword ();
-	char username [12];
-	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
-															'a' + NumberGenerator::RandomNumber ( 26 ),
-															'a' + NumberGenerator::RandomNumber ( 26 ),
-															'a' + NumberGenerator::RandomNumber ( 26 ) )
+	string username = "temp" + NumberGenerator::RandomLetters(4);
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -1638,27 +1634,24 @@ void ScriptLibrary::Script71 ()
 
     string description = PlotGenerator::SpecialMissionDescription ( SPECIALMISSION_MOLE );
 
-    std::ostrstream details;
-    details << "We have recently heard a rumour going around that says the complete Uplink Agent "
-               "List was stolen from their very own Internal Services System, and that this list includes " 
-               "a mapping of agent Handles to real-world name.  If true, this data would be of extreme "
-               "interest to us and our operations.\n\n"
-               "We have also heard a rumour, totally unsubstantiated of course, that you might be the Agent who stole "
-               "the data.  Certainly there are only a handful of agents capable, and you are indeed one.\n\n"
-               "We have set up a file Server at the address below, and supplied you with a login.  If the rumour is "
-               "true, we will be willing to pay you "
-            << PAYMENT_SPECIALMISSION_MOLE << " for all of the data files and the Agent List program.  "
-               "Payment will be up to the amount specified - if we "
-               "dont receive all of the data we will reduce payment accordingly.\n\n"
-               "If we have made a mistake and you are not the person with whom we should be talking, then we apologise.  "
-               "Your ratings will not change if you choose to abandon this mission - it is totally optional.\n";
-
-    details << "Our fileserver: \n" 
-            << ourcomp->ip << "\n"
-            << "Login:\n"
-            << code << "\n\n"
-            << "END"
-            << '\x0';
+    string details = "We have recently heard a rumour going around that says the complete Uplink Agent "
+                     "List was stolen from their very own Internal Services System, and that this list includes "
+                     "a mapping of agent Handles to real-world name.  If true, this data would be of extreme "
+                     "interest to us and our operations.\n\n"
+                     "We have also heard a rumour, totally unsubstantiated of course, that you might be the Agent who stole "
+                     "the data.  Certainly there are only a handful of agents capable, and you are indeed one.\n\n"
+                     "We have set up a file Server at the address below, and supplied you with a login.  If the rumour is "
+                     "true, we will be willing to pay you "
+                     +to_string(PAYMENT_SPECIALMISSION_MOLE) + " for all of the data files and the Agent List program.  "
+                     "Payment will be up to the amount specified - if we "
+                     "dont receive all of the data we will reduce payment accordingly.\n\n"
+                     "If we have made a mistake and you are not the person with whom we should be talking, then we apologise.  "
+                     "Your ratings will not change if you choose to abandon this mission - it is totally optional.\n"
+                     "Our fileserver: \n"
+                     + ourcomp->ip + "\n"
+                     "Login:\n"
+                     + code + "\n\n"
+                     "END";
 
     int payment = 10;
 
@@ -1673,12 +1666,9 @@ void ScriptLibrary::Script71 ()
 	mission->SetContact      ( personname );
 	mission->SetPayment      ( payment, payment );
 	mission->SetDescription  ( description );	
-	mission->SetFullDetails  ( details.str () );
+	mission->SetFullDetails  ( details );
 	mission->GiveLink ( ourcomp->ip );
 	mission->GiveCode ( ourcomp->ip, code );
-
-	details.rdbuf()->freeze( false );
-	//delete [] details.str ();
 
     game->GetWorld ()->GetPlayer ()->GiveMission (mission);
 

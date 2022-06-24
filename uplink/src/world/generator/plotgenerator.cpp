@@ -3032,11 +3032,7 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
 	//
 
 	string password = "tracer";
-	char username [12];
-	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) )
+	string username = "temp" + NumberGenerator::RandomLetters(4);
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3054,34 +3050,30 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
     if ( UplinkIncompatibleSaveGameAssert (comp, __FILE__, __LINE__) )
 		return nullptr;
 
-    std::ostrstream fulldetails;
-    fulldetails << "One of our sources within Andromeda Research Corporation has discovered that ARC "
-                   "are planning on launching Revelation from three primary systems. When the time is right, "
-                   "their Agents will enter these systems and begin running Revelation.\n\n"
-                   "We already have two of the systems covered, but the third is wide open.  We need you to "
-                   "get inside that system, and install a Tracer program covertly which will send us routine "
-                   "updates, and will give us early warning when Revelation is launched.\n\n"
-                   "First, you'll need to download the program from our File Server.  Addresses and log-in details "
-                   "are shown below.\n\n"
-                   "Second, break into the target system (ARC Internal Services) and compromise all their security "
-                   "systems.  This includes Proxies, Monitors, Firewalls etc.  You have to stop them from seeing what "
-                   "you are doing.\n\n"
-                   "Copy the Tracer into place, then drop into a console.  You can run the tracer from there.  Once it is "
-                   "running it will immediately start hiding itself. Check you can't see it from the File Server screen - this "
-                   "will ensure nobody else can see it.\n\n"
-                   "Cover your tracks and get out.  Reply to this email when you are done.\n\n"
-				   "Codename: Tracer\n\n"
-                   "Payment will be " << PAYMENT_SPECIALMISSION_TRACER << "\n\n"
-                << "Our FileServer: " << ourcomp->ip << "\n"
-                << "Target system: " << comp->name << "\n"
-                << "Target IP: " << comp->ip
-                << '\x0';
+    string fulldetails = "One of our sources within Andromeda Research Corporation has discovered that ARC "
+                         "are planning on launching Revelation from three primary systems. When the time is right, "
+                         "their Agents will enter these systems and begin running Revelation.\n\n"
+                         "We already have two of the systems covered, but the third is wide open.  We need you to "
+                         "get inside that system, and install a Tracer program covertly which will send us routine "
+                         "updates, and will give us early warning when Revelation is launched.\n\n"
+                         "First, you'll need to download the program from our File Server.  Addresses and log-in details "
+                         "are shown below.\n\n"
+                         "Second, break into the target system (ARC Internal Services) and compromise all their security "
+                         "systems.  This includes Proxies, Monitors, Firewalls etc.  You have to stop them from seeing what "
+                         "you are doing.\n\n"
+                         "Copy the Tracer into place, then drop into a console.  You can run the tracer from there.  Once it is "
+                         "running it will immediately start hiding itself. Check you can't see it from the File Server screen - this "
+                         "will ensure nobody else can see it.\n\n"
+                         "Cover your tracks and get out.  Reply to this email when you are done.\n\n"
+				         "Codename: Tracer\n\n"
+                         "Payment will be " + to_string(PAYMENT_SPECIALMISSION_TRACER) + "\n\n"
+                         "Our FileServer: " + ourcomp->ip + "\n"
+                         "Target system: " + comp->name + "\n"
+                         "Target IP: " + comp->ip;
 
-    std::ostrstream details;
-	details << "Payment for this job is " << PAYMENT_SPECIALMISSION_TRACER << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << 10 << ".\n"
-			<< "This mission cannot be auto-accepted."
-			<< '\x0';
+    string details = "Payment for this job is " + to_string(PAYMENT_SPECIALMISSION_TRACER) + " credits.\n"
+			         "This job has been assigned an Uplink difficulty of " + to_string(10) + ".\n"
+			         "This mission cannot be auto-accepted.";
 
 
 	auto *m = new Mission ();
@@ -3093,19 +3085,14 @@ Mission *PlotGenerator::GenerateMission_Tracer ()
     m->SetMinRating ( 10 );
     m->SetAcceptRating ( 99 );
 	m->SetDescription ( SpecialMissionDescription (SPECIALMISSION_TRACER) );
-    m->SetDetails ( details.str () );
-	m->SetFullDetails ( fulldetails.str () );
+    m->SetDetails ( details );
+	m->SetFullDetails ( fulldetails );
     m->SetWhySoMuchMoney ( "The mission is extremely important." );
     m->SetHowSecure ( "The target will be very secure." );
     m->SetWhoIsTheTarget ( "Andromeda Research Corporation." );
     m->GiveLink ( comp->ip );
     m->GiveLink ( ourcomp->ip );
     m->GiveCode ( ourcomp->ip, code );
-
-	details.rdbuf()->freeze( false );
-	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
-    //delete [] fulldetails.str ();
 
 	return m;
 
@@ -3140,11 +3127,7 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
 	//
 
 	string password = "takemetoyourleader";
-	char username [12];
-	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
-										'a' + NumberGenerator::RandomNumber ( 26 ),
-										'a' + NumberGenerator::RandomNumber ( 26 ),
-										'a' + NumberGenerator::RandomNumber ( 26 ) )
+	string username = "temp" + NumberGenerator::RandomLetters(4);
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3160,35 +3143,31 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
     // Generate the mission
     //
 
-    std::ostrstream fulldetails;
-    fulldetails << "We have recently been co-operating with Federal Agents in an attempt to bring the CEO "
-                   "of Andromeda Research Corporation into custody for questioning.  Unfortunately, for various "
-                   "legal and political reasons, the Feds are refusing to arrest the man due to a lack of evidence "
-                   "against him.  We are going to provide that evidence.\n\n"
-                   "Unfortunately for ARC, everyone now knows they are developing the Revelation virus.  Equally "
-                   "unfortunately, we have a copy of an early version of Revelation, thanks to an earlier mission.\n\n"
-                   "Your first task is to connect to our File Server and retrieve Revelation.\n\n"
-                   "You must then break into OUR Internal Services System (shown below), disable the security and run "
-                   "Revelation on that system.  Finally, cover your tracks to make sure the source can't be traced.\n\n"
-                   "This attack will give the Federal Agents a good enough reason to arrest the CEO of ARC, and we can "
-                   "start questioning him.\n\n"
-                   "It is important to note that nobody else knows of this attack - even the system administrators at our "
-                   "Internal Services System.  They will still try to trace you, and if you are caught we will not be "
-                   "coming to rescue you.\n\n"
-				   "Codename: TakeMeToYourLeader\n\n"
-                << "Our FileServer: " << ourcomp->ip << "\n"
-                << "Username: " << username << "\n"
-                << "Password: " << password << "\n"
-                << "Filename: Revelation\n"
-                << "Target system: " << target->name << "\n"
-                << "Target IP: " << target->ip
-                << '\x0';
+    string fulldetails = "We have recently been co-operating with Federal Agents in an attempt to bring the CEO "
+                         "of Andromeda Research Corporation into custody for questioning.  Unfortunately, for various "
+                         "legal and political reasons, the Feds are refusing to arrest the man due to a lack of evidence "
+                         "against him.  We are going to provide that evidence.\n\n"
+                         "Unfortunately for ARC, everyone now knows they are developing the Revelation virus.  Equally "
+                         "unfortunately, we have a copy of an early version of Revelation, thanks to an earlier mission.\n\n"
+                         "Your first task is to connect to our File Server and retrieve Revelation.\n\n"
+                         "You must then break into OUR Internal Services System (shown below), disable the security and run "
+                         "Revelation on that system.  Finally, cover your tracks to make sure the source can't be traced.\n\n"
+                         "This attack will give the Federal Agents a good enough reason to arrest the CEO of ARC, and we can "
+                         "start questioning him.\n\n"
+                         "It is important to note that nobody else knows of this attack - even the system administrators at our "
+                         "Internal Services System.  They will still try to trace you, and if you are caught we will not be "
+                         "coming to rescue you.\n\n"
+				         "Codename: TakeMeToYourLeader\n\n"
+                         "Our FileServer: " + ourcomp->ip + "\n"
+                         "Username: " + username + "\n"
+                         "Password: " + password + "\n"
+                         "Filename: Revelation\n"
+                         "Target system: " + target->name + "\n"
+                         "Target IP: " + target->ip;
 
-    std::ostrstream details;
-	details << "Payment for this job is " << PAYMENT_SPECIALMISSION_TAKEMETOYOURLEADER << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << 10 << ".\n"
-			<< "This mission cannot be auto-accepted."
-			<< '\x0';
+    string details = "Payment for this job is " + to_string(PAYMENT_SPECIALMISSION_TAKEMETOYOURLEADER) + " credits.\n"
+			         "This job has been assigned an Uplink difficulty of " + to_string(10) + ".\n"
+			         "This mission cannot be auto-accepted.";
 
 	auto *m = new Mission ();
 	m->SetTYPE ( MISSION_SPECIAL );
@@ -3199,19 +3178,14 @@ Mission *PlotGenerator::GenerateMission_TakeMeToYourLeader ()
     m->SetMinRating ( 10 );
     m->SetAcceptRating ( 99 );
 	m->SetDescription ( SpecialMissionDescription (SPECIALMISSION_TAKEMETOYOURLEADER) );
-    m->SetDetails ( details.str () );
-	m->SetFullDetails ( fulldetails.str () );
+    m->SetDetails ( details );
+	m->SetFullDetails ( fulldetails );
     m->SetWhySoMuchMoney ( "It involves very important people." );
     m->SetHowSecure ( "It won't be a problem." );
     m->SetWhoIsTheTarget ( "The CEO of Andromeda Research Corporation." );
     m->GiveLink ( target->ip );
     m->GiveLink ( ourcomp->ip );
     m->GiveCode ( ourcomp->ip, code );
-
-	details.rdbuf()->freeze( false );
-	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
-    //delete [] fulldetails.str ();
 
 	return m;
 
@@ -3240,11 +3214,7 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	//
 
 	string password = "infiltrate";
-	char username [12];
-	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) )
+	string username = "temp" + NumberGenerator::RandomLetters(4);
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3283,43 +3253,37 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
 	// Generate the fields of the mission
     //
 
-	std::ostrstream fulldetails;
-
 	string description = SpecialMissionDescription (SPECIALMISSION_ARCINFILTRATION);
 
-	fulldetails << "As you may be aware, ARC are storing most of their Research on their Local Area Network system. "
-                   "However, what is not commonly known is that the critical data (ie the research files themselves) "
-                   "are actually stored on a Stand-Alone file server, which is physically disconnected from the rest "
-                   "of the Internet.  When the file server is connected for use, the ARC LAN itself is "
-                   "disconnected, meaning their data is always totally isolated from public access.  This has made it "
-                   "impossible for us to steal their research until now.\n\n"
-                   "A member of ARCs team who wishes to remain anonymous has come forward and offered to help us. You "
-                   "will need to break in to the system first.  Once inside, you should be able to find the restricted "
-                   "file area.  Our man on the inside will then install a remote radio modem on the file server, which "
-                   "will give you access.  You can then copy the files.\n\n"
-                   "Once done, decrypt the files and dump them onto our File Server - details below.\n\n"
-                   "You may also have noticed that the CEO of ARC was recently arrested and questioned by Federal Agents "
-                   "in connection with Revelation. We believe ARC are planning to launch Revelation early due to this.  "
-                   "This makes the success of this mission Super critical.\n\n"
-                   "You will be paid " << PAYMENT_SPECIALMISSION_ARCINFILTRATION << "c for this mission.\n\n"
-				   "Codename: ARCInfiltration\n\n";
+	string fulldetails = "As you may be aware, ARC are storing most of their Research on their Local Area Network system. "
+                         "However, what is not commonly known is that the critical data (ie the research files themselves) "
+                         "are actually stored on a Stand-Alone file server, which is physically disconnected from the rest "
+                         "of the Internet.  When the file server is connected for use, the ARC LAN itself is "
+                         "disconnected, meaning their data is always totally isolated from public access.  This has made it "
+                         "impossible for us to steal their research until now.\n\n"
+                         "A member of ARCs team who wishes to remain anonymous has come forward and offered to help us. You "
+                         "will need to break in to the system first.  Once inside, you should be able to find the restricted "
+                         "file area.  Our man on the inside will then install a remote radio modem on the file server, which "
+                         "will give you access.  You can then copy the files.\n\n"
+                         "Once done, decrypt the files and dump them onto our File Server - details below.\n\n"
+                         "You may also have noticed that the CEO of ARC was recently arrested and questioned by Federal Agents "
+                         "in connection with Revelation. We believe ARC are planning to launch Revelation early due to this.  "
+                         "This makes the success of this mission Super critical.\n\n"
+                         "You will be paid " + to_string(PAYMENT_SPECIALMISSION_ARCINFILTRATION) + "c for this mission.\n\n"
+				         "Codename: ARCInfiltration\n\n";
+	                     "Target computer : " + target->name + "\n"
+				         "IP : " + target->ip + "\n\n"
+				         "Once complete, dump the files you have to this computer:\n"
+				         + ourcomp->name + "\n"
+				         "IP : " + ourcomp->ip + "\n\n"
+				         "USERNAME : " + username + "\n"
+				         "PASSWORD : " + password + "\n\n"
+                         "Reply to this mail when you have finished.\n\n"
+				         "END";
 
-	fulldetails << "Target computer : " << target->name << "\n"
-				<< "IP : " << target->ip << "\n\n"
-				<< "Once complete, dump the files you have to this computer:\n"
-				<< ourcomp->name << "\n"
-				<< "IP : " << ourcomp->ip << "\n\n"
-				<< "USERNAME : " << username << "\n"
-				<< "PASSWORD : " << password << "\n\n"
-                << "Reply to this mail when you have finished.\n\n"
-				<< "END"
-				<< '\x0';
-
-    std::ostrstream details;
-	details << "Payment for this job is " << PAYMENT_SPECIALMISSION_ARCINFILTRATION << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << 10 << ".\n"
-			<< "This mission cannot be auto-accepted."
-			<< '\x0';
+    string details = "Payment for this job is " + to_string(PAYMENT_SPECIALMISSION_ARCINFILTRATION) + " credits.\n"
+                     "This job has been assigned an Uplink difficulty of " + to_string(10) + ".\n"
+			         "This mission cannot be auto-accepted.";
 
 	// Insert the mission
 	auto *mission = new Mission ();
@@ -3332,19 +3296,14 @@ Mission *PlotGenerator::GenerateMission_ARCInfiltration ()
     mission->SetAcceptRating ( 99 );
     mission->SetPayment      ( PAYMENT_SPECIALMISSION_ARCINFILTRATION, (int) ( PAYMENT_SPECIALMISSION_ARCINFILTRATION * 1.1 ) );
 	mission->SetDescription  ( description );
-    mission->SetDetails      ( details.str () );
-	mission->SetFullDetails  ( fulldetails.str () );
+    mission->SetDetails      ( details );
+	mission->SetFullDetails  ( fulldetails );
     mission->SetWhySoMuchMoney ( "This mission will be extremely difficult" );
     mission->SetWhoIsTheTarget ( "Andromeda Research Corporation" );
     mission->SetHowSecure ( "The system will be extremely secure." );
 	mission->GiveLink ( target->ip );
 	mission->GiveLink ( ourcomp->ip );
 	mission->GiveCode ( ourcomp->ip, code );
-
-	details.rdbuf()->freeze( false );
-	fulldetails.rdbuf()->freeze( false );
-    //delete [] details.str ();
-    //delete [] fulldetails.str ();
 
     return mission;
 
@@ -3387,11 +3346,7 @@ Mission *PlotGenerator::GenerateMission_CounterAttack () const
 	//
 
 	string password = "faithinchaos";
-	char username [12];
-	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) )
+	string username = "temp" + NumberGenerator::RandomLetters(4);
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3403,22 +3358,20 @@ Mission *PlotGenerator::GenerateMission_CounterAttack () const
     Computer::GenerateAccessCode(username, password, code);
 
 
-    std::ostrstream details;
-    details << "Our tracer programs have just informed us that Revelation has been released "
-               "into the wild by Andromeda Research Corporation.  Only a small number of systems "
-               "are currently infected but more will certainly follow.  This is what we have been planning for.\n\n"
-               "Revelation will infect a system, wait for a few minutes, then spread to two other systems. The original "
-               "infected system will then be shut down. If two many systems get infected, we won't be able to stop it.\n\n"
-               "Connect to our File Server and download the Revelation Tracker program. This will keep you updated when "
-               "systems become infected with Revelation, so you can connect and disinfect them.\n\n"
-               "You will also need to download Faith - our countervirus.  This is run by copying it into the databanks of "
-               "the infected systems, dropping into a command prompt, and running it.\n\n"
-               "There isn't much time.  You have only minutes until Revelation spreads beyond control. Get moving.\n\n"
-			   "Codename: CounterAttack\n\n"
-            << "Our FileServer: " << ourcomp->ip << "\n"
-            << "Username: " << username << "\n"
-            << "Password: " << password << "\n"
-            << '\x0';
+    string details = "Our tracer programs have just informed us that Revelation has been released "
+                     "into the wild by Andromeda Research Corporation.  Only a small number of systems "
+                     "are currently infected but more will certainly follow.  This is what we have been planning for.\n\n"
+                     "Revelation will infect a system, wait for a few minutes, then spread to two other systems. The original "
+                     "infected system will then be shut down. If two many systems get infected, we won't be able to stop it.\n\n"
+                     "Connect to our File Server and download the Revelation Tracker program. This will keep you updated when "
+                     "systems become infected with Revelation, so you can connect and disinfect them.\n\n"
+                     "You will also need to download Faith - our countervirus.  This is run by copying it into the databanks of "
+                     "the infected systems, dropping into a command prompt, and running it.\n\n"
+                     "There isn't much time.  You have only minutes until Revelation spreads beyond control. Get moving.\n\n"
+                     "Codename: CounterAttack\n\n"
+                     "Our FileServer: " + ourcomp->ip + "\n"
+                     "Username: " + username + "\n"
+                     "Password: " + password + "\n";
 
     //
     // Generate the mission
@@ -3430,7 +3383,7 @@ Mission *PlotGenerator::GenerateMission_CounterAttack () const
     m->SetPayment ( PAYMENT_SPECIALMISSION_COUNTERATTACK );
     m->SetDifficulty ( 20 );
     m->SetDescription ( SpecialMissionDescription (SPECIALMISSION_COUNTERATTACK) );
-    m->SetFullDetails ( details.str () );
+    m->SetFullDetails ( details );
     m->GiveLink ( ourcomp->ip );
     m->GiveCode ( ourcomp->ip, code );
 
@@ -3506,11 +3459,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	//
 
 	string password = "darwin";
-	char username [12];
-	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) )
+	string username = "temp" + NumberGenerator::RandomLetters(4);
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -3549,34 +3498,30 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	// Generate the fields of the mission
     //
 
-	std::ostrstream fulldetails;
-
     string description = SpecialMissionDescription (SPECIALMISSION_DARWIN);
 
-	fulldetails << "The results of our recent test have been extremely encouraging.  Revelation is easily "
-                   "destructive enough to take out most of the Internet when it is finally released.  Unfortunately, "
-                   "it is not particularly virulent.  In other words, it doesn't spread very fast.  We need to fix this.\n\n"
-                   "We've looked around and we have found a company called Darwin Research Associates.  They are currently "
-                   "working on research into digital life forms that exist and breed on the Internet.  Since they have refused "
-                   "to sell any of their technology to us, we have decided instead to steal it.\n\n"
-                   "Break into their Local Area Network system shown below, and steal any files relating to the Darwin project.  "
-                   "Try to copy as much data as possible.  You will need to decrypt the data before we can make any use of it.  "
-                   "We have determined that over 80Gqs of their research is stored on this system.\n\n"
-                   "Once you have stolen the research, copy it onto the File Server that we have set up for you, detailed below.\n\n"
-                   "We are confident we will be able to use their artificial life code to make Revelation spread like wildfire."
-                   "You will be paid " << PAYMENT_SPECIALMISSION_DARWIN << "c for this mission.\n\n"
-				   "Codename: Darwin\n\n";
-
-	fulldetails << "Target computer : " << target->name << "\n"
-				<< "IP : " << target->ip << "\n\n"
-				<< "Once complete, dump the files you have to this computer:\n"
-				<< ourcomp->name << "\n"
-				<< "IP : " << ourcomp->ip << "\n\n"
-				<< "USERNAME : " << username << "\n"
-				<< "PASSWORD : " << password << "\n\n"
-                << "Reply to this mail when you have finished.\n\n"
-				<< "END"
-				<< '\x0';
+	string fulldetails = "The results of our recent test have been extremely encouraging.  Revelation is easily "
+                         "destructive enough to take out most of the Internet when it is finally released.  Unfortunately, "
+                         "it is not particularly virulent.  In other words, it doesn't spread very fast.  We need to fix this.\n\n"
+                         "We've looked around and we have found a company called Darwin Research Associates.  They are currently "
+                         "working on research into digital life forms that exist and breed on the Internet.  Since they have refused "
+                         "to sell any of their technology to us, we have decided instead to steal it.\n\n"
+                         "Break into their Local Area Network system shown below, and steal any files relating to the Darwin project.  "
+                         "Try to copy as much data as possible.  You will need to decrypt the data before we can make any use of it.  "
+                         "We have determined that over 80Gqs of their research is stored on this system.\n\n"
+                         "Once you have stolen the research, copy it onto the File Server that we have set up for you, detailed below.\n\n"
+                         "We are confident we will be able to use their artificial life code to make Revelation spread like wildfire."
+                         "You will be paid " + to_string(PAYMENT_SPECIALMISSION_DARWIN) + "c for this mission.\n\n"
+                         "Codename: Darwin\n\n";
+                         "Target computer : " + target->name + "\n"
+				         "IP : " + target->ip + "\n\n"
+				         "Once complete, dump the files you have to this computer:\n"
+				         + ourcomp->name + "\n"
+				         "IP : " + ourcomp->ip + "\n\n"
+				         "USERNAME : " + username + "\n"
+				         "PASSWORD : " + password + "\n\n"
+                         "Reply to this mail when you have finished.\n\n"
+				         "END";
 
 
 	// Insert the mission
@@ -3588,13 +3533,10 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 	mission->SetDifficulty   ( 10 );
     mission->SetPayment      ( PAYMENT_SPECIALMISSION_DARWIN );
 	mission->SetDescription  ( description );
-	mission->SetFullDetails  ( fulldetails.str () );
+	mission->SetFullDetails  ( fulldetails );
 	mission->GiveLink ( target->ip );
 	mission->GiveLink ( ourcomp->ip );
 	mission->GiveCode ( ourcomp->ip, code );
-
-	fulldetails.rdbuf()->freeze( false );
-    //delete [] fulldetails.str ();
 
     return mission;
 

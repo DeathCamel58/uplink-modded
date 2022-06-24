@@ -292,8 +292,6 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	// Generate the fields of the mission
 
 	string description;
-	std::ostrstream details;
-	std::ostrstream fulldetails;
 
 	switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
 
@@ -303,34 +301,29 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 
 	}
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "You will require " << datasize << " GigaQuads of storage space.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+                     "You will require " + to_string(datasize) + " GigaQuads of storage space.\n"
+                     "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+                     "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
 
-	fulldetails << "Thank you for working for " << employer->name << ".\n"
-				<< "\n"
-				<< "TARGET COMPUTER DATA :\n"
-				<< "   LOCATION: " << target->name << "\n"
-				<< "   IP      : " << target->ip << "\n"
-				<< "   FILENAME: " << datatitle << "\n"
-				<< "   FILESIZE: " << datasize << " GigaQuads\n"
-				<< "\n";
+	string fulldetails = "Thank you for working for " + employer->name + ".\n\n"
+                         "TARGET COMPUTER DATA :\n"
+                         "   LOCATION: " + target->name + "\n"
+                         "   IP      : " + target->ip + "\n"
+                         "   FILENAME: " + datatitle + "\n"
+                         "   FILESIZE: " + to_string(datasize) + " GigaQuads\n\n";
 
-	if ( encrypted > 0 && encrypted < 5 )	fulldetails << "\nThe file will be encrypted.\n";
-	else if ( encrypted >= 5 )				fulldetails << "\nThe file will be heavily encrypted.\n";
+	if ( encrypted > 0 && encrypted < 5 )	fulldetails += "\nThe file will be encrypted.\n";
+	else if ( encrypted >= 5 )				fulldetails += "\nThe file will be heavily encrypted.\n";
 
-	if ( compressed > 0 && compressed < 5 )	fulldetails << "\nThe file will be compressed.\n";
-	else if ( compressed >= 5 )				fulldetails << "\nThe file will be heavily compressed.\n";
+	if ( compressed > 0 && compressed < 5 )	fulldetails += "\nThe file will be compressed.\n";
+	else if ( compressed >= 5 )				fulldetails += "\nThe file will be heavily compressed.\n";
 
 
-	fulldetails	<< "\nReturn the file via email to\n"
-				<< personname << "\n"
-				<< "\n"
-				<< "END"
-				<< '\x0';
+	fulldetails	+= "\nReturn the file via email to\n"
+	               + personname + "\n\n"
+				   + "END";
 
 	Date postdate;
 	postdate.SetDate ( &(game->GetWorld ()->date) );
@@ -348,16 +341,11 @@ Mission *MissionGenerator::Generate_StealSingleFile ( Company *employer, Compute
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
-	mission->SetFullDetails  ( fulldetails.str () );
+	mission->SetDetails		 ( details );
+	mission->SetFullDetails  ( fulldetails );
 	if ( difficulty > 3 )		mission->SetWhySoMuchMoney ( "The files contain sensitive data." );
 	if ( !game->IsRunning () )	mission->SetCreateDate   ( &postdate );
 	mission->GiveLink ( target->ip );
-
-	details.rdbuf()->freeze( false );
-	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
-	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )
@@ -411,11 +399,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	//
 
 	string password = NameGenerator::GeneratePassword ();
-	char username [12];
-	UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ),
-																	'a' + NumberGenerator::RandomNumber ( 26 ) )
+	string username = "temp" + NumberGenerator::RandomLetters(4);
 
 	auto *record = new Record ();
 	record->AddField ( RECORDBANK_NAME, username );
@@ -451,10 +435,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 	for ( int i = 0; i < numfiles; ++i ) {
 
-		char datatitle [64];
-		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%c%c%c%c-%s %d.dat", target->companyname [0], target->companyname [1],
-																	   target->companyname [2], target->companyname [3],
-																		missiontypestring [missiontype-1].c_str(), i )
+		string datatitle = target->companyname.substr(4) + "-" + missiontypestring[missiontype-1] + " " + to_string(i) + ".dat";
 
 		int size = (int) NumberGenerator::RandomNormalNumber ( 10, 5 );
 		totalsize += size;
@@ -485,20 +466,15 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	// Generate the fields of the mission
 
 	string description;
-	std::ostrstream details;
-	std::ostrstream fulldetails;
+	string fulldetails;
 
-
-	details << "Payment for this job is " << payment << " credits.\n"
-            << "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-            << "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating )
-            << " or above will be sufficient for automatic acceptance.\n"
-            << "You will need around " << 10 * (totalsize / 10) << " gigaquads of space.";
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+                     "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+                     "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n"
+                     + "You will need around " + to_string(10 * (totalsize / 10)) + " gigaquads of space.";
 
     if ( target->TYPE == COMPUTER_TYPE_LAN )
-        details << "\nThe data is stored on a LAN.\n";
-
-    details << '\x0';
+        details += "\nThe data is stored on a LAN.\n";
 
 
     string completionA = target->ip;								// IP
@@ -515,7 +491,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 		completionE = "SCIENTIFIC";
 
-		fulldetails << "Due to a lack of enthusiasm on the part of our recruitment department, "
+		fulldetails = "Due to a lack of enthusiasm on the part of our recruitment department, "
 					   "one of our market competitors has pulled several months ahead with "
 					   "their research program.  Given our current situation, we have concluded "
 					   "that the best way to close this gap is for us to steal the research data "
@@ -529,7 +505,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 		description = "Copy large and secure corporate database";
 
-		fulldetails << "Our establishment is very anxious to find out more about the inner workings "
+		fulldetails = "Our establishment is very anxious to find out more about the inner workings "
 					   "of one of our rivals, and we have determined after several weeks of investigation "
 					   "that their primary corporate database is stored at the location shown below.  We "
 					   "want you to enter this system and steal all of the data files.\n\n"
@@ -545,7 +521,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 		description = "Break into High Security System and steal customer records";
 
-		fulldetails << "It has come to our attention that one of our competitors has amassed an extensive "
+		fulldetails = "It has come to our attention that one of our competitors has amassed an extensive "
 					   "customer database which would prove to be of great help to our market research team.  "
 					   "We want you to compromise the security of the system below, copy all of the customer data "
 					   "and decrypt it.  Then copy the files onto our own temporary file server.\n\n";
@@ -557,7 +533,7 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 		description = "Copy proprietary source code database";
 
-		fulldetails << "As you may be aware we are currently in direct competition with another rival corporation "
+		fulldetails = "As you may be aware we are currently in direct competition with another rival corporation "
 					   "to develop a software product which will no doubt dominate the market once released.  "
 					   "Unfortunately, due to circumstances beyond our control, they have managed to pull several months "
 					   "ahead.  We believe the best course of action is for us to copy their program source code and use "
@@ -567,15 +543,14 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 
 	}
 
-	fulldetails << "Target computer : " << target->name << "\n"
-				<< "IP : " << target->ip << "\n\n"
-				<< "Once complete, dump the files you have to this computer:\n"
-				<< ourcomp->name << "\n"
-				<< "IP : " << ourcomp->ip << "\n\n"
-				<< "USERNAME : " << username << "\n"
-				<< "PASSWORD : " << password << "\n\n"
-				<< "END"
-				<< '\x0';
+	fulldetails += "Target computer : " + target->name + "\n"
+				   "IP : " + target->ip + "\n\n"
+				   "Once complete, dump the files you have to this computer:\n"
+				   + ourcomp->name + "\n"
+				   "IP : " + ourcomp->ip + "\n\n"
+				   "USERNAME : " + username + "\n"
+				   "PASSWORD : " + password + "\n\n"
+				   "END";
 
 
 	Date postdate;
@@ -594,19 +569,14 @@ Mission *MissionGenerator::Generate_StealAllFiles ( Company *employer, Computer 
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
-	mission->SetFullDetails  ( fulldetails.str () );
+	mission->SetDetails		 ( details );
+	mission->SetFullDetails  ( fulldetails );
 	mission->SetWhySoMuchMoney ( "There will be a lot of data to copy" );
 	if ( !game->IsRunning () )	mission->SetCreateDate   ( &postdate );
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 	mission->GiveLink ( ourcomp->ip );
 	mission->GiveCode ( ourcomp->ip, code );
-
-	details.rdbuf()->freeze( false );
-	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
-	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )
@@ -706,8 +676,6 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 	// Generate the fields of the mission
 
 	string description;
-	std::ostrstream details;
-	std::ostrstream fulldetails;
 
 
 	switch ( NumberGenerator::RandomNumber ( 3 ) + 1 ) {
@@ -718,26 +686,21 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 
 	}
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+			         "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+			         "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
 
-	fulldetails << "Thank you for working for " << employer->name << ".\n"
-				<< "\n"
-				<< "TARGET COMPUTER DATA :\n"
-				<< "   LOCATION: " << target->name << "\n"
-				<< "   IP      : " << target->ip << "\n"
-				<< "   FILENAME: " << datatitle << "\n"
-				<< "   FILESIZE: " << datasize << " GigaQuads\n"
-				<< "\n"
-				<< "Destroy this data and all backups.\n"
-				<< "Send a notice of completion to\n"
-				<< personname << "\n"
-				<< "\n"
-				<< "END"
-				<< '\x0';
+	string fulldetails = "Thank you for working for " + employer->name + ".\n\n"
+				         "TARGET COMPUTER DATA :\n"
+                         "   LOCATION: " + target->name + "\n"
+				         "   IP      : " + target->ip + "\n"
+				         "   FILENAME: " + datatitle + "\n"
+				         "   FILESIZE: " + to_string(datasize) + " GigaQuads\n\n"
+				         "Destroy this data and all backups.\n"
+				         "Send a notice of completion to\n"
+				         + personname + "\n\n"
+				         "END";
 
 	string completionA = target->ip;
     string completionB = datatitle;
@@ -758,16 +721,11 @@ Mission *MissionGenerator::Generate_DestroySingleFile ( Company *employer, Compu
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
-	mission->SetFullDetails  ( fulldetails.str () );
+	mission->SetDetails		 ( details );
+	mission->SetFullDetails  ( fulldetails );
 	if ( difficulty > 4 )		mission->SetWhySoMuchMoney ( "The data will be well protected." );
 	if ( !game->IsRunning () )	mission->SetCreateDate   ( &postdate );
 	mission->GiveLink ( target->ip );
-
-	details.rdbuf()->freeze( 0 );
-	fulldetails.rdbuf()->freeze( 0 );
-	//delete [] details.str ();
-	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )
@@ -813,18 +771,15 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	// Generate the fields of the mission
 
 	string description;
-	std::ostrstream details;
 	std::ostrstream fulldetails;
 
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n";
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+			         "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+			         "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
     if ( target->TYPE == COMPUTER_TYPE_LAN )
-        details << "\nThe data is stored on a LAN.\n";
-
-	details	<< '\x0';
+        details += "\nThe data is stored on a LAN.\n";
 
 
 	string completionA = target->ip;									// IP
@@ -848,10 +803,7 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 
 	for ( int i = 0; i < numfiles; ++i ) {
 
-		char datatitle [64];
-		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%c%c%c%c-%s %d.dat", target->companyname [0], target->companyname [1],
-																			   target->companyname [2], target->companyname [3],
-																				missiontypestring [type-1].c_str(), i )
+		string datatitle = target->companyname.substr(4) + "-" + missiontypestring[type-1] + " " + to_string(i) + ".dat";
 
 		int size = (int) NumberGenerator::RandomNormalNumber ( 10, 5 );
 		totalsize += size;
@@ -959,16 +911,14 @@ Mission *MissionGenerator::Generate_DestroyAllFiles ( Company *employer, Compute
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
+	mission->SetDetails		 ( details );
 	mission->SetFullDetails  ( fulldetails.str () );
 	mission->SetWhySoMuchMoney ( "The data will be well protected." );
 	if ( !game->IsRunning () )	mission->SetCreateDate   ( &postdate );
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( false );
 	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -1506,13 +1456,11 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	string personname = "internal@" + employer->name + ".net";
 
 	string description;
-	std::ostrstream details;
 	std::ostrstream fulldetails;
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+			         "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+			         "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
 	fulldetails << "Break into the International Social Security Database:\n"
 				<< "TARGET COMPUTER DATA :\n"
@@ -1523,7 +1471,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	Person *person = nullptr;							// Person whom mission affects
 
 	string completionA = target->ip;				// IP
-	char completionB [SIZE_PERSON_NAME];			// Target person
+	string completionB;								// Target person
 	string completionC;								// Field to be changed
 	string completionD;								// Word that must appear in the field
 	string completionE;								// Word that must appear in the field
@@ -1586,7 +1534,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	// Generate the remaining fields of the mission
 	//
 
-	UplinkStrncpy ( completionB, person->name, sizeof ( completionB ) )
+	completionB = person->name;
 
 	fulldetails	<< "\nTARGET INDIVIDUAL :\n"
 				<< "   NAME    : " << person->name << "\n"
@@ -1618,7 +1566,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
+	mission->SetDetails		 ( details );
 	mission->SetFullDetails  ( fulldetails.str () );
 	mission->SetWhySoMuchMoney ( "We need to use the Social Security record very soon" );
 	mission->SetHowSecure ( "You will need to bypass the Proxy server." );
@@ -1626,9 +1574,7 @@ Mission *MissionGenerator::Generate_ChangeData_SocialSecurity ( Company *employe
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	mission->GiveLink ( target->ip );
 
-	details.rdbuf()->freeze( false );
 	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -2300,7 +2246,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 	bool provideaccount = (hacked->TYPE == COMPUTER_TYPE_INTERNALSERVICESMACHINE);
 
 	string password;
-	char username [12];
+	string username;
 
 	if ( provideaccount ) {
 
@@ -2309,10 +2255,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 		//
 
         password = NameGenerator::GeneratePassword ();
-		UplinkSnprintf ( username, sizeof ( username ), "temp%c%c%c%c", 'a' + NumberGenerator::RandomNumber ( 26 ),
-																		'a' + NumberGenerator::RandomNumber ( 26 ),
-																		'a' + NumberGenerator::RandomNumber ( 26 ),
-																		'a' + NumberGenerator::RandomNumber ( 26 ) )
+		username = "temp" + NumberGenerator::RandomLetters(4);
 
 		auto *record = new Record ();
 		record->AddField ( RECORDBANK_NAME, username );
@@ -2335,14 +2278,12 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 	//
 
 	string description = "Trace a hacker who recently broke into our systems";
-	std::ostrstream details;
 	std::ostrstream fulldetails;
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) <<
-			   " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+			         "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+			         "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) +
+			         " or above will be sufficient for automatic acceptance.\n\n";
 
 	fulldetails << "Our computer systems were recently compromised by a computer hacker.\n"
 				   "Find this hacker and send his name to us.  We will deal with him in our "
@@ -2362,8 +2303,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 
     fulldetails << "Once completed, send the name of the hacker to "
 				<< contact << " and payment will be delivered.\n"
-				   "END"
-				<< '\x0';
+				   "END";
 
 	auto *m = new Mission ();
 	m->SetTYPE		 ( MISSION_TRACEUSER );
@@ -2375,7 +2315,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 	m->SetMinRating    ( minrating );
 	m->SetAcceptRating ( acceptrating );
 	m->SetDescription  ( description );
-	m->SetDetails	   ( details.str () );
+	m->SetDetails	   ( details );
 	m->SetFullDetails  ( fulldetails.str () );
 	m->GiveLink        ( hacked->ip );
 
@@ -2391,9 +2331,7 @@ Mission *MissionGenerator::Generate_TraceHacker	( Computer *hacked, Person *hack
 
 	if ( hacker == game->GetWorld ()->GetPlayer () ) m->SetNpcPriority ( true );
 
-	details.rdbuf()->freeze( false );
 	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
@@ -2573,26 +2511,22 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 	//
 
 	string description = "Elite agent required for destruction of computer system";
-	std::ostrstream details;
-	std::ostrstream fulldetails;
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+			         "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+			         "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
-	fulldetails << "One of our competitors has made the critical mistake of becoming over dependent "
-				   "on one of their primary computer systems, and we intend to take advantage of this oversight.\n"
-				   "We want you to put the computer system below out of action, permenantly.\n"
-				   "Use any means necessary, including virus attacks or system resets, but all data must be "
-				   "destroyed and the system itself must be shut down.\n\n"
-				   "Target : " << target->name << "\n"
-				   "IP : " << target->ip << "\n"
-				   "Once you have completed the task, send a mail to "
-				   << personname << " and we will determine if you have "
-				   "been successful.\n"
-				   "END" <<
-				   '\x0';
+	string fulldetails = "One of our competitors has made the critical mistake of becoming over dependent "
+                         "on one of their primary computer systems, and we intend to take advantage of this oversight.\n"
+                         "We want you to put the computer system below out of action, permanently.\n"
+                         "Use any means necessary, including virus attacks or system resets, but all data must be "
+                         "destroyed and the system itself must be shut down.\n\n"
+                         "Target : " + target->name + "\n"
+                         "IP : " + target->ip + "\n"
+                         "Once you have completed the task, send a mail to "
+                         + personname + " and we will determine if you have "
+                         "been successful.\n"
+                         "END";
 
 
 	string completionA = target->ip;
@@ -2618,17 +2552,12 @@ Mission *MissionGenerator::Generate_RemoveComputer ( Company *employer, Computer
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
-	mission->SetFullDetails  ( fulldetails.str () );
+	mission->SetDetails		 ( details );
+	mission->SetFullDetails  ( fulldetails );
 	mission->SetWhySoMuchMoney ( "The computer system will be heavily defended." );
 	mission->GiveLink ( target->ip );
 	mission->SetWhoIsTheTarget ( whoisthetarget );
 	if ( !game->IsRunning () ) mission->SetCreateDate   ( &postdate );
-
-	details.rdbuf()->freeze( false );
-	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
-	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert ( cu )
@@ -2685,13 +2614,11 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 	//
 
 	string description = "Highly skilled Agent required for removal job";
-	std::ostrstream details;
-	std::ostrstream fulldetails;
+    std::ostrstream fulldetails;
 
-	details << "Payment for this job is " << payment << " credits.\n"
-			<< "This job has been assigned an Uplink difficulty of " << difficulty << ".\n"
-			<< "An UplinkRating of " << Rating::GetUplinkRatingString ( acceptrating ) << " or above will be sufficient for automatic acceptance.\n\n"
-			<< '\x0';
+	string details = "Payment for this job is " + to_string(payment) + " credits.\n"
+			         "This job has been assigned an Uplink difficulty of " + to_string(difficulty) + ".\n"
+			         "An UplinkRating of " + Rating::GetUplinkRatingString ( acceptrating ) + " or above will be sufficient for automatic acceptance.\n\n";
 
 	fulldetails << "Recently this man has become quite an annoyance and "
 				   "we would like him removed.  We do not care how you do it, "
@@ -2701,8 +2628,7 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 				   "Once you have completed the task, send a mail to "
 				   << personname << " and we will determine if you have "
 				   "been successful.\n"
-				   "END" <<
-				   '\x0';
+				   "END";
 
 
 	char completionA [SIZE_MISSION_COMPLETION];
@@ -2727,15 +2653,13 @@ Mission *MissionGenerator::Generate_RemoveUser ( Company *employer )
 	mission->SetMinRating    ( minrating );
 	mission->SetAcceptRating ( acceptrating );
 	mission->SetDescription  ( description );
-	mission->SetDetails		 ( details.str () );
-	mission->SetFullDetails  ( fulldetails.str () );
+	mission->SetDetails		 ( details );
+	mission->SetFullDetails  ( fulldetails.str() );
 	mission->SetWhySoMuchMoney ( "A great deal of skill will be required." );
 	mission->SetHowSecure ( "That depends on the method you use." );
 	if ( !game->IsRunning () ) mission->SetCreateDate   ( &postdate );
 
-	details.rdbuf()->freeze( false );
 	fulldetails.rdbuf()->freeze( false );
-	//delete [] details.str ();
 	//delete [] fulldetails.str ();
 
 	CompanyUplink *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
