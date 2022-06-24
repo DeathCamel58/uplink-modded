@@ -2,6 +2,10 @@
 \label{classNameGenerator}\index{NameGenerator@{NameGenerator}}
 
 
+{\ttfamily \#include $<$namegenerator.\+h$>$}
+
+
+
 Collaboration diagram for Name\+Generator\+:
 \nopagebreak
 \begin{figure}[H]
@@ -27,13 +31,11 @@ static string \mbox{\hyperlink{classNameGenerator_abae45bd8ce9a13be83d249258a018
 \item 
 static string \mbox{\hyperlink{classNameGenerator_a47f7ed67359913f19a5c317febec73d1}{Generate\+Password}} ()
 \item 
-\mbox{\Hypertarget{classNameGenerator_a9d31232c6d007b808a8fc3429fa7b52a}\label{classNameGenerator_a9d31232c6d007b808a8fc3429fa7b52a}} 
-static string {\bfseries Generate\+Easy\+Password} ()
+static string \mbox{\hyperlink{classNameGenerator_a9d31232c6d007b808a8fc3429fa7b52a}{Generate\+Easy\+Password}} ()
 \item 
 static string \mbox{\hyperlink{classNameGenerator_a3a8bcba9a790cbc5a0bff391d6fbf830}{Generate\+Complex\+Password}} ()
 \item 
-\mbox{\Hypertarget{classNameGenerator_a4777a57fa9fc2cc2e3172d06cad28aec}\label{classNameGenerator_a4777a57fa9fc2cc2e3172d06cad28aec}} 
-static string {\bfseries Generate\+Data\+Name} (const string \&companyname, int D\+A\+T\+A\+T\+Y\+PE)
+static string \mbox{\hyperlink{classNameGenerator_a4777a57fa9fc2cc2e3172d06cad28aec}{Generate\+Data\+Name}} (const string \&companyname, int D\+A\+T\+A\+T\+Y\+PE)
 \item 
 static string \mbox{\hyperlink{classNameGenerator_a6fdbe332d671de725013fbf62597baf1}{Generate\+Public\+Access\+Server\+Name}} (const string \&companyname)
 \item 
@@ -61,22 +63,20 @@ static void \mbox{\hyperlink{classNameGenerator_a548572f56aee74da8d5542ecaa192f3
 \doxysubsection*{Static Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classNameGenerator_a28347d71598ce11a110f83f5df855435}\label{classNameGenerator_a28347d71598ce11a110f83f5df855435}} 
-static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries fornames}
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ \mbox{\hyperlink{classNameGenerator_a28347d71598ce11a110f83f5df855435}{fornames}}
 \item 
-\mbox{\Hypertarget{classNameGenerator_a2d30bbb10f017e7afd2b4c638dcf70f7}\label{classNameGenerator_a2d30bbb10f017e7afd2b4c638dcf70f7}} 
-static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries surnames}
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ \mbox{\hyperlink{classNameGenerator_a2d30bbb10f017e7afd2b4c638dcf70f7}{surnames}}
 \item 
-\mbox{\Hypertarget{classNameGenerator_ad1b0a631fa9bd925012fce09c67af2e0}\label{classNameGenerator_ad1b0a631fa9bd925012fce09c67af2e0}} 
-static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries agentaliases}
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ \mbox{\hyperlink{classNameGenerator_ad1b0a631fa9bd925012fce09c67af2e0}{agentaliases}}
 \item 
-\mbox{\Hypertarget{classNameGenerator_af933920aa0105166e0a83529f4b62dff}\label{classNameGenerator_af933920aa0105166e0a83529f4b62dff}} 
-static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries companynamesA}
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ \mbox{\hyperlink{classNameGenerator_af933920aa0105166e0a83529f4b62dff}{companynamesA}}
 \item 
-\mbox{\Hypertarget{classNameGenerator_a812b55ab9c5cd43c50cfab63d2303659}\label{classNameGenerator_a812b55ab9c5cd43c50cfab63d2303659}} 
-static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ {\bfseries companynamesB}
+static \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ \mbox{\hyperlink{classNameGenerator_a812b55ab9c5cd43c50cfab63d2303659}{companynamesB}}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Generator for random names 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classNameGenerator_a1436666eae01ae666c4323124e341d80}\label{classNameGenerator_a1436666eae01ae666c4323124e341d80}} 
@@ -134,6 +134,37 @@ A random companynameA and companynameB in format \char`\"{}$<$companyname\+A$>$ 
 Gets a normal password with up to half of the letters changed \begin{DoxyReturn}{Returns}
 The complex password 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classNameGenerator_a4777a57fa9fc2cc2e3172d06cad28aec}\label{classNameGenerator_a4777a57fa9fc2cc2e3172d06cad28aec}} 
+\index{NameGenerator@{NameGenerator}!GenerateDataName@{GenerateDataName}}
+\index{GenerateDataName@{GenerateDataName}!NameGenerator@{NameGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateDataName()}{GenerateDataName()}}
+{\footnotesize\ttfamily string Name\+Generator\+::\+Generate\+Data\+Name (\begin{DoxyParamCaption}\item[{const string \&}]{companyname,  }\item[{int}]{D\+A\+T\+A\+T\+Y\+PE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets a file name 
+\begin{DoxyParams}{Parameters}
+{\em companyname} & Name of the company to generate file name for \\
+\hline
+{\em D\+A\+T\+A\+T\+Y\+PE} & The type of data to generate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the file 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This is in the format \char`\"{}$<$\+First three letters of company name$>$-\/$<$file$\vert$data$\vert$prog$>$-\/$<$\+Random number up to 99999$>$\char`\"{} 
+\end{DoxyNote}
+\mbox{\Hypertarget{classNameGenerator_a9d31232c6d007b808a8fc3429fa7b52a}\label{classNameGenerator_a9d31232c6d007b808a8fc3429fa7b52a}} 
+\index{NameGenerator@{NameGenerator}!GenerateEasyPassword@{GenerateEasyPassword}}
+\index{GenerateEasyPassword@{GenerateEasyPassword}!NameGenerator@{NameGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateEasyPassword()}{GenerateEasyPassword()}}
+{\footnotesize\ttfamily string Name\+Generator\+::\+Generate\+Easy\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets an easy password \begin{DoxyReturn}{Returns}
+The easy password 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The easy passwords can be \char`\"{}god\char`\"{}, \char`\"{}admin\char`\"{}, \char`\"{}password\char`\"{}, \char`\"{}love\char`\"{}, or \char`\"{}secure\char`\"{} 
+\end{DoxyNote}
 \mbox{\Hypertarget{classNameGenerator_a139debf0ae0313a524c0be8771d6984b}\label{classNameGenerator_a139debf0ae0313a524c0be8771d6984b}} 
 \index{NameGenerator@{NameGenerator}!GenerateFileServerName@{GenerateFileServerName}}
 \index{GenerateFileServerName@{GenerateFileServerName}!NameGenerator@{NameGenerator}}
@@ -256,7 +287,40 @@ The phone system name in the format \char`\"{}$<$personname$>$ Voice Phone Syste
 \doxysubsubsection{\texorpdfstring{LoadNames()}{LoadNames()}}
 {\footnotesize\ttfamily void Name\+Generator\+::\+Load\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
 
-Loads all forname, surname, agentaliase, companynameA, and companynameB entries into L\+Lists 
+Loads all forenames, surnames, agent aliases, companynameA, and companynameB entries into L\+Lists 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classNameGenerator_ad1b0a631fa9bd925012fce09c67af2e0}\label{classNameGenerator_ad1b0a631fa9bd925012fce09c67af2e0}} 
+\index{NameGenerator@{NameGenerator}!agentaliases@{agentaliases}}
+\index{agentaliases@{agentaliases}!NameGenerator@{NameGenerator}}
+\doxysubsubsection{\texorpdfstring{agentaliases}{agentaliases}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ Name\+Generator\+::agentaliases\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\hyperlink{classLList}{L\+List}} of all possible \mbox{\hyperlink{classAgent}{Agent}} aliases \mbox{\Hypertarget{classNameGenerator_af933920aa0105166e0a83529f4b62dff}\label{classNameGenerator_af933920aa0105166e0a83529f4b62dff}} 
+\index{NameGenerator@{NameGenerator}!companynamesA@{companynamesA}}
+\index{companynamesA@{companynamesA}!NameGenerator@{NameGenerator}}
+\doxysubsubsection{\texorpdfstring{companynamesA}{companynamesA}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ Name\+Generator\+::companynamesA\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\hyperlink{classLList}{L\+List}} of all possible starts of company names \mbox{\Hypertarget{classNameGenerator_a812b55ab9c5cd43c50cfab63d2303659}\label{classNameGenerator_a812b55ab9c5cd43c50cfab63d2303659}} 
+\index{NameGenerator@{NameGenerator}!companynamesB@{companynamesB}}
+\index{companynamesB@{companynamesB}!NameGenerator@{NameGenerator}}
+\doxysubsubsection{\texorpdfstring{companynamesB}{companynamesB}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ Name\+Generator\+::companynamesB\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\hyperlink{classLList}{L\+List}} of all possible endings of company names \mbox{\Hypertarget{classNameGenerator_a28347d71598ce11a110f83f5df855435}\label{classNameGenerator_a28347d71598ce11a110f83f5df855435}} 
+\index{NameGenerator@{NameGenerator}!fornames@{fornames}}
+\index{fornames@{fornames}!NameGenerator@{NameGenerator}}
+\doxysubsubsection{\texorpdfstring{fornames}{fornames}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ Name\+Generator\+::fornames\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\hyperlink{classLList}{L\+List}} of all possible forenames \mbox{\Hypertarget{classNameGenerator_a2d30bbb10f017e7afd2b4c638dcf70f7}\label{classNameGenerator_a2d30bbb10f017e7afd2b4c638dcf70f7}} 
+\index{NameGenerator@{NameGenerator}!surnames@{surnames}}
+\index{surnames@{surnames}!NameGenerator@{NameGenerator}}
+\doxysubsubsection{\texorpdfstring{surnames}{surnames}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLList}{L\+List}}$<$ string $>$ Name\+Generator\+::surnames\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\hyperlink{classLList}{L\+List}} of all possible surnames 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
