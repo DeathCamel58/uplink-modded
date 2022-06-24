@@ -543,7 +543,7 @@ void Init_App ( char *argv0 )
 
 #endif
 
-    RsInitialise ( (char *) app->path.c_str() );
+    RsInitialise ( app->path );
 
 	app->Initialise ();
 
@@ -1130,7 +1130,7 @@ void Init_Music ()
 void Init_Graphics ()
 {
 	Options *o = app->GetOptions ();
-	o->SetThemeName ( (char *) o->GetThemeName().c_str() );
+	o->SetThemeName ( o->GetThemeName() );
 }
 
 void Init_Fonts	()

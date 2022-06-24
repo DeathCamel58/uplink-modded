@@ -3532,9 +3532,7 @@ Mission *PlotGenerator::GenerateMission_Darwin ()
 
 	for ( int i = 0; i < numfiles; ++i ) {
 
-		char datatitle [64];
-		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%c%c%c%c-DARWIN %d.dat", target->companyname [0], target->companyname [1],
-												       target->companyname [2], target->companyname [3], i )
+		string datatitle = target->companyname.substr(4) + "-DARWIN " + to_string(i) + ".dat";
 
 		Data *file = new Data ();
 		file->SetTitle ( datatitle );
@@ -3681,9 +3679,7 @@ Mission *PlotGenerator::GenerateMission_ShinyHammer ()
 
 	for ( int i = 0; i < 10; ++i ) {
 
-		char datatitle [64];
-		UplinkSnprintf ( datatitle, sizeof ( datatitle ), "%c%c%c%c-FAITH %d.dat", target->companyname [0], target->companyname [1],
-												       target->companyname [2], target->companyname [3], i )
+		string datatitle = target->companyname.substr(4) + "-FAITH " + to_string(i) + ".dat";
 
         int size = NumberGenerator::RandomNumber ( 10 ) + 1;
         int encrypted = NumberGenerator::RandomNumber ( 5 );
@@ -4442,36 +4438,34 @@ void PlotGenerator::NewsRevelationUsed (string &ip, int success ) const
 
 		*/
 
-	std::ostrstream headline;
-	std::ostrstream part1, part2, part3;
-
-	part1 << comp->companyname << " has been attacked by a computer virus.  "
-								  "The virus first infected the " << comp->name << ".";
+	string headline;
+	string part1 = comp->companyname + " has been attacked by a computer virus.  The virus first infected the " + comp->name + ".";
+	string part2, part3;
 
 	switch ( success ) {
 
-		case 0:		part2 << "System administrators were able to contain the virus before it managed any serious damage.  It appears the virus was totally contained.";			break;
-		case 1:		part2 << "The virus destroyed most of the data and logs on the computer but the company was able to stop the virus from spreading to other systems.";		break;
-		case 2:		part2 << "The " << comp->name << " was totally destroyed and the virus spread to many neighbouring systems, causing a great deal of damage.";				break;
-		case 3:		part2 << "It appears that the entire corporate computer network owned by " << comp->companyname << " was severely damaged by the virus.";					break;
+		case 0:		part2 = "System administrators were able to contain the virus before it managed any serious damage.  It appears the virus was totally contained.";			break;
+		case 1:		part2 = "The virus destroyed most of the data and logs on the computer but the company was able to stop the virus from spreading to other systems.";		break;
+		case 2:		part2 = "The " + comp->name + " was totally destroyed and the virus spread to many neighbouring systems, causing a great deal of damage.";				break;
+		case 3:		part2 = "It appears that the entire corporate computer network owned by " + comp->companyname + " was severely damaged by the virus.";					break;
 
 	}
 
 	switch ( numuses_revelation ) {
 
 		case 0:
-		case 1:		part3 << "This is the first time that this virus has been seen in the wild, but experts who analysed it say it has incredible power.  "
+		case 1:		part3 = "This is the first time that this virus has been seen in the wild, but experts who analysed it say it has incredible power.  "
 							 "After analysing the virus in detail, it has been determined that the name of the virus is Revelation.";
-					headline << "Unknown virus outbreak at " << comp->companyname;
+					headline = "Unknown virus outbreak at " + comp->companyname;
 					break;
 
-		case 2:		part3 << "Upon closer inspection, industry experts have been able to determine that the Revelation computer virus is responsible.  "
+		case 2:		part3 = "Upon closer inspection, industry experts have been able to determine that the Revelation computer virus is responsible.  "
 							 "This is the second time that Revelation has been deployed on the internet.";
-					headline << "Revelation seen for second time at " << comp->companyname;
+					headline = "Revelation seen for second time at " + comp->companyname;
 					break;
 
-		default:	part3 << "Once again Revelation is responsible for this destruction.";
-					headline << "Revelation outbreak yet again";
+		default:	part3 = "Once again Revelation is responsible for this destruction.";
+					headline = "Revelation outbreak yet again";
 					break;
 
 	}
@@ -4479,31 +4473,13 @@ void PlotGenerator::NewsRevelationUsed (string &ip, int success ) const
 	//
 	// Concatenate each part together and post it
 	//
-
-	headline << '\x0';
-	part1 << '\x0';
-	part2 << '\x0';
-	part3 << '\x0';
-
-	std::ostrstream details;
-	details << part1.str () << "\n\n" << part2.str () << "\n\n" << part3.str () << "\n\n" << '\x0';
+	string details = part1 + "\n\n" + part2 + "\n\n" + part3 + "\n\n";
 
 	News *news = new News ();
-	news->SetHeadline ( headline.str () );
-	news->SetDetails ( details.str () );
+	news->SetHeadline ( headline );
+	news->SetDetails ( details );
 
 	news->SetData ( NEWS_TYPE_COMPUTERDESTROYED, comp->ip );
-
-	headline.rdbuf()->freeze( false );
-	part1.rdbuf()->freeze( false );
-	part2.rdbuf()->freeze( false );
-	part3.rdbuf()->freeze( false );
-	details.rdbuf()->freeze( false );
-	//delete [] headline.str ();
-	//delete [] part1.str ();
-	//delete [] part2.str ();
-	//delete [] part3.str ();
-	//delete [] details.str ();
 
 	auto *cu = (CompanyUplink *) game->GetWorld ()->GetCompany ( "Uplink" );
 	UplinkAssert (cu)
